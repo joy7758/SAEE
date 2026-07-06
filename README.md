@@ -51,6 +51,7 @@ github_pages_published=true
 github_release=v0.1.1-external-canonical
 zenodo_current_version_doi=10.5281/zenodo.21215282
 zenodo_concept_doi=10.5281/zenodo.21135471
+zenodo_record_metadata_points_to_release=v0.1.1-external-canonical
 external_validation_claim=false
 production_ready_claim=false
 customer_validated_claim=false

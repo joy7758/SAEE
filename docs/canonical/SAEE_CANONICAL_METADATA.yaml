@@ -90,6 +90,7 @@ claim_boundary:
   github_repository_pushed_by_codex: true
   github_pages_enabled_by_codex: true
   github_release_created_by_codex: true
+  zenodo_record_metadata_edited_by_codex: true
   zenodo_new_version_published_by_codex: true
   runtime_modified: false
   backend_modified: false

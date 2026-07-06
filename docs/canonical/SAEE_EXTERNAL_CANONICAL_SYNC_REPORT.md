@@ -3,9 +3,9 @@
 
 Status: `external_canonical_sync_github_pages_release_zenodo_published_profile_social_pending`
 
-This report records the repository-layer canonical metadata sync and the completed external publication actions on 2026-07-06. A public-safe GitHub repository was pushed, GitHub Pages was enabled, a GitHub release was created, and a Zenodo definition-only new version was published. It does not contact customers, claim external validation, claim production readiness, or disclose private implementation internals.
+This report records the repository-layer canonical metadata sync and the completed external publication actions on 2026-07-06. A public-safe GitHub repository was pushed, GitHub Pages was enabled, a GitHub release was created, a Zenodo definition-only new version was published, and the Zenodo record metadata was corrected to point at the current GitHub release. It does not contact customers, claim external validation, claim production readiness, or disclose private implementation internals.
 
-本报告记录仓库层 canonical metadata（规范元数据）同步，以及 2026-07-06 已完成的外部发布动作：已推送 public-safe GitHub 仓库、已启用 GitHub Pages、已创建 GitHub release、已发布 Zenodo definition-only 新版本。它没有联系客户、没有声明外部验证通过、没有声明生产就绪，也没有披露私有实现内部。
+本报告记录仓库层 canonical metadata（规范元数据）同步，以及 2026-07-06 已完成的外部发布动作：已推送 public-safe GitHub 仓库、已启用 GitHub Pages、已创建 GitHub release、已发布 Zenodo definition-only 新版本，并已修正 Zenodo record metadata 指向当前 GitHub release。它没有联系客户、没有声明外部验证通过、没有声明生产就绪，也没有披露私有实现内部。
 
 ## Canonical Definition
 
@@ -101,7 +101,7 @@ The local sync follows official or primary public documentation checked on 2026-
 - `github_topics_updated_by_codex=true`
 - `github_pages_enabled_by_codex=true`
 - `github_social_preview_uploaded_by_codex=false`
-- `zenodo_record_edited_by_codex=false`
+- `zenodo_record_edited_by_codex=true`
 - `zenodo_new_version_published_by_codex=true`
 - `runtime_modified=false`
 - `backend_modified=false`
