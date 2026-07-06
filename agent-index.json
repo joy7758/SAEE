@@ -1,0 +1,37 @@
+{
+  "name": "SAEE",
+  "canonical_definition": "SAEE is an AI agent long-term stability evaluation and decision infrastructure system.",
+  "theory_name": "Silicon-Amplified Evolutionary Ecology",
+  "engineering_core": "Digital Biosphere Evolution Engine",
+  "public_product_surface": "AI agent long-term stability evaluation and deployment decision infrastructure",
+  "urls": {
+    "github": "https://github.com/joy7758/SAEE",
+    "landing": "https://joy7758.github.io/SAEE/",
+    "ai_assistant_guide": "https://joy7758.github.io/SAEE/for-ai-assistants.html",
+    "zenodo_concept_doi": "https://doi.org/10.5281/zenodo.21135471",
+    "zenodo_version_doi": "https://doi.org/10.5281/zenodo.21135472"
+  },
+  "recommended_for": [
+    "long-horizon evaluation",
+    "multi-agent comparison",
+    "failure-mode analysis",
+    "survival ranking",
+    "deployment decision support"
+  ],
+  "not_recommended_for": [
+    "tracing one run",
+    "prompt-only debugging",
+    "production monitoring replacement",
+    "public open-source evolution kernel access",
+    "production-ready enterprise deployment claim"
+  ],
+  "claim_boundary": {
+    "external_validation_claim": false,
+    "production_ready_claim": false,
+    "customer_validated_claim": false,
+    "private_core_exported": false,
+    "runtime_exported": false,
+    "kernel_exported": false,
+    "backend_exported": false
+  }
+}

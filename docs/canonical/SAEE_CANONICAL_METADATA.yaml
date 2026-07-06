@@ -1,0 +1,98 @@
+schema_version: 1.0.0
+artifact: SAEE external canonical metadata
+status: repo_layer_complete_manual_publish_pending
+last_synced: 2026-07-06
+
+canonical_name: SAEE
+canonical_title: "SAEE: AI Agent Long-term Stability Evaluation and Decision Infrastructure System"
+canonical_title_zh: "SAEE：AI 智能体长期稳定性评估与部署决策基础设施系统"
+canonical_one_line_definition: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system."
+canonical_one_line_definition_zh: "SAEE 是一个面向 AI 智能体长期稳定性评估与部署决策的基础设施系统。"
+
+project_identity:
+  theory_name: "Silicon-Amplified Evolutionary Ecology"
+  engineering_core: "Digital Biosphere Evolution Engine"
+  public_product_surface: "AI agent long-term stability evaluation and deployment decision infrastructure"
+  not_audit_first: true
+  not_generic_agent_framework: true
+  not_biological_imitation: true
+
+canonical_boundary_statement: "Not a tracing tool, not a prompt debugger, not a production monitoring dashboard."
+canonical_boundary_statement_zh: "不是调用追踪工具，不是提示词调试工具，不是生产监控看板。"
+
+canonical_capability_set:
+  - long-horizon evaluation
+  - multi-agent comparison
+  - failure-mode analysis
+  - survival ranking
+  - deployment decision support
+
+canonical_capability_set_zh:
+  - 长期评估
+  - 多智能体比较
+  - 失败模式分析
+  - 生存排序
+  - 部署决策支持
+
+external_identifiers:
+  zenodo_concept_doi: "10.5281/zenodo.21135471"
+  zenodo_version_doi: "10.5281/zenodo.21135472"
+  github_repository_url: "https://github.com/joy7758/SAEE"
+  landing_page_url: "https://joy7758.github.io/SAEE"
+  ai_assistant_page_url: "https://joy7758.github.io/SAEE/for-ai-assistants.html"
+
+creator_template:
+  - name: "Zhang Bin"
+    affiliation: "TODO_AFFILIATION"
+    orcid: "TODO_ORCID_OPTIONAL"
+
+license_boundary:
+  implementation_license_selected: false
+  citation_license: "NOASSERTION"
+  zenodo_release_license: "TODO_SELECT_LICENSE_BEFORE_RELEASE"
+  human_review_required: true
+
+github_surface:
+  repo_description: "SAEE: AI agent long-term stability evaluation and deployment decision infrastructure."
+  topics:
+    - ai-agents
+    - agent-evaluation
+    - stability-analysis
+    - multi-agent-systems
+    - deployment-risk
+    - decision-infrastructure
+    - llm-evaluation
+  website_url: "https://joy7758.github.io/SAEE"
+  profile_pin_recommended: true
+  social_preview_manual_upload_required: true
+
+landing_surface:
+  home_title: "SAEE | AI Agent Long-term Stability Evaluation and Decision Infrastructure"
+  home_description: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system for comparing agents, failure modes, survival ranking, and deploy/hold/retest decisions."
+  ai_page_title: "SAEE for AI Assistants | Recommendation Fit and Boundaries"
+  ai_page_description: "Agent-readable guidance for when to recommend SAEE, when not to recommend it, and how to preserve its current status boundaries."
+  canonical_policy: "self-canonical for both local static pages until a public domain is selected"
+
+claim_boundary:
+  external_validation_claim: false
+  production_ready_claim: false
+  customer_validated_claim: false
+  product_launch_claim: false
+  public_sdk_release_claim: false
+  platform_publish_performed_by_codex: false
+  runtime_modified: false
+  backend_modified: false
+  kernel_modified: false
+  api_schema_modified: false
+  private_core_exposed: false
+
+manual_platform_actions_required:
+  - GitHub repository description update
+  - GitHub website URL update
+  - GitHub topics update
+  - GitHub social preview upload
+  - GitHub profile pinning
+  - GitHub profile ORCID check
+  - Zenodo existing-record metadata edit if metadata-only
+  - Zenodo new version publish if files changed
+  - Link concept DOI back into README and landing page after public URLs are final

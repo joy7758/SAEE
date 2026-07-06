@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "package": "SAEE Zenodo Publish Ready Minimal Safe Package",
+  "status": "definition_only_package_publication_state_external",
+  "publication_type": "definition_only_scientific_object",
+  "safe_scientific_claim": "SAEE is a frozen empirical phase space object derived from a constrained computational evolutionary system exhibiting strong convergence and bounded diversity under fixed kernel conditions.",
+  "source_package": "phase_a_academic/zenodo_package_final/",
+  "included_files": [
+    "SAEE_ABSTRACT.md",
+    "PHASE_SPACE_SUMMARY.md",
+    "EXPERIMENTAL_RESULTS.md",
+    "CANDIDATE_LAWS.md",
+    "LIMITATIONS.md",
+    "REPRODUCIBILITY_STATEMENT.md",
+    "METADATA.json"
+  ],
+  "observational_content": {
+    "dominant_regime": "stable_regime",
+    "dominant_attractor_basin": "stable_lineage_basin",
+    "cross_regime_transition_observed": false,
+    "collapse_observed": false,
+    "bounded_diversity_observed": true,
+    "candidate_law_count": 5
+  },
+  "claim_boundary": {
+    "definition_only_release": true,
+    "implementation_disclosed": false,
+    "executable_content_included": false,
+    "runtime_description_included": false,
+    "algorithmic_detail_included": false,
+    "system_architecture_included": false,
+    "kernel_logic_included": false,
+    "fitness_mechanism_included": false,
+    "selection_mechanism_included": false,
+    "mutation_mechanism_included": false,
+    "lineage_internals_included": false,
+    "external_validation_claimed": false,
+    "universal_law_claimed": false,
+    "open_ended_evolution_claimed_under_current_constraints": false,
+    "paper_submitted": false,
+    "github_release_created": false
+  },
+  "publication_event_note": "The public DOI and Zenodo record state are assigned by the external Zenodo record, not by this in-package metadata file."
+}

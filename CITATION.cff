@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use SAEE, cite it using this metadata. SAEE is an AI agent long-term stability evaluation and decision infrastructure system."
+title: "SAEE: AI Agent Long-term Stability Evaluation and Decision Infrastructure System"
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Bin
+abstract: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system. It provides a public product-facing layer for long-horizon evaluation, multi-agent comparison, failure-mode analysis, survival ranking, and deploy / hold / retest decision support while preserving the project identity of Silicon-Amplified Evolutionary Ecology and the engineering core of the Digital Biosphere Evolution Engine."
+keywords:
+  - SAEE
+  - Silicon-Amplified Evolutionary Ecology
+  - AI agents
+  - agent evaluation
+  - long-term stability
+  - multi-agent comparison
+  - failure-mode analysis
+  - deployment decision support
+  - Digital Biosphere Evolution Engine
+license: NOASSERTION
+repository-code: "https://github.com/joy7758/SAEE"
+url: "https://joy7758.github.io/SAEE"
+version: "external-canonical-sync-v1"
+doi: "10.5281/zenodo.21135472"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21135472"
+  - type: url
+    value: "https://doi.org/10.5281/zenodo.21135471"
+notes: "Repository-layer citation metadata only. License, affiliation, ORCID, GitHub URL, landing URL, and any Zenodo platform update require human confirmation before public release."

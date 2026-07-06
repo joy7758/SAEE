@@ -1,0 +1,63 @@
+{
+  "title": "SAEE: AI Agent Long-term Stability Evaluation and Decision Infrastructure System",
+  "upload_type": "software",
+  "description": "SAEE is an AI agent long-term stability evaluation and decision infrastructure system. It provides a public product-facing layer for long-horizon evaluation, multi-agent comparison, failure-mode analysis, survival ranking, and deploy / hold / retest decision support while preserving the project identity of Silicon-Amplified Evolutionary Ecology and the engineering core of the Digital Biosphere Evolution Engine. This metadata does not disclose private implementation internals and does not claim production readiness, customer validation, benchmark superiority, external validation success, or a public SDK release.",
+  "creators": [
+    {
+      "name": "Zhang, Bin",
+      "affiliation": "TODO_AFFILIATION",
+      "orcid": "TODO_ORCID_OPTIONAL"
+    }
+  ],
+  "keywords": [
+    "SAEE",
+    "Silicon-Amplified Evolutionary Ecology",
+    "AI agents",
+    "agent evaluation",
+    "long-term stability",
+    "multi-agent comparison",
+    "failure-mode analysis",
+    "deployment decision support",
+    "decision infrastructure",
+    "Digital Biosphere Evolution Engine"
+  ],
+  "language": "eng",
+  "version": "external-canonical-sync-v1",
+  "license": "TODO_SELECT_LICENSE_BEFORE_RELEASE",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/joy7758/SAEE",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://joy7758.github.io/SAEE/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.21135471",
+      "relation": "isVersionOf",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.21135472",
+      "relation": "isIdenticalTo",
+      "resource_type": "publication"
+    }
+  ],
+  "notes": "Repository-layer Zenodo metadata draft only. Human review must confirm license, access right, creator affiliation, ORCID, final GitHub URL, final landing URL, and whether to perform metadata-only correction or publish a new Zenodo version. Codex did not edit Zenodo or publish a new version.",
+  "claim_boundary": {
+    "external_validation_claim": false,
+    "production_ready_claim": false,
+    "customer_validated_claim": false,
+    "product_launch_claim": false,
+    "public_sdk_release_claim": false,
+    "platform_publish_performed_by_codex": false,
+    "runtime_modified": false,
+    "backend_modified": false,
+    "kernel_modified": false,
+    "api_schema_modified": false,
+    "private_core_exposed": false
+  }
+}
