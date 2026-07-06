@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 artifact: SAEE external canonical metadata
-status: repo_layer_complete_manual_publish_pending
+status: github_pages_release_zenodo_published_profile_social_pending
 last_synced: 2026-07-06
 
 canonical_name: SAEE
@@ -36,21 +36,25 @@ canonical_capability_set_zh:
 
 external_identifiers:
   zenodo_concept_doi: "10.5281/zenodo.21135471"
-  zenodo_version_doi: "10.5281/zenodo.21135472"
+  zenodo_current_version_doi: "10.5281/zenodo.21215282"
+  zenodo_previous_version_doi: "10.5281/zenodo.21135472"
+  zenodo_current_record_url: "https://zenodo.org/records/21215282"
   github_repository_url: "https://github.com/joy7758/SAEE"
-  landing_page_url: "https://joy7758.github.io/SAEE"
+  github_release_url: "https://github.com/joy7758/SAEE/releases/tag/v0.1.1-external-canonical"
+  landing_page_url: "https://joy7758.github.io/SAEE/"
   ai_assistant_page_url: "https://joy7758.github.io/SAEE/for-ai-assistants.html"
 
 creator_template:
   - name: "Zhang Bin"
-    affiliation: "TODO_AFFILIATION"
-    orcid: "TODO_ORCID_OPTIONAL"
+    affiliation: "not_asserted_in_current_public_metadata"
+    orcid: "not_asserted_profile_review_pending"
 
 license_boundary:
   implementation_license_selected: false
   citation_license: "NOASSERTION"
-  zenodo_release_license: "TODO_SELECT_LICENSE_BEFORE_RELEASE"
-  human_review_required: true
+  zenodo_release_license: "cc-by-4.0"
+  human_review_required: false
+  remaining_human_review_required_for_orcid_profile_social: true
 
 github_surface:
   repo_description: "SAEE: AI agent long-term stability evaluation and deployment decision infrastructure."
@@ -62,7 +66,10 @@ github_surface:
     - deployment-risk
     - decision-infrastructure
     - llm-evaluation
-  website_url: "https://joy7758.github.io/SAEE"
+  website_url: "https://joy7758.github.io/SAEE/"
+  about_updated_by_codex: true
+  topics_updated_by_codex: true
+  release_created_by_codex: true
   profile_pin_recommended: true
   social_preview_manual_upload_required: true
 
@@ -71,7 +78,7 @@ landing_surface:
   home_description: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system for comparing agents, failure modes, survival ranking, and deploy/hold/retest decisions."
   ai_page_title: "SAEE for AI Assistants | Recommendation Fit and Boundaries"
   ai_page_description: "Agent-readable guidance for when to recommend SAEE, when not to recommend it, and how to preserve its current status boundaries."
-  canonical_policy: "self-canonical for both local static pages until a public domain is selected"
+  canonical_policy: "GitHub Pages absolute URLs until a custom domain is selected"
 
 claim_boundary:
   external_validation_claim: false
@@ -79,7 +86,11 @@ claim_boundary:
   customer_validated_claim: false
   product_launch_claim: false
   public_sdk_release_claim: false
-  platform_publish_performed_by_codex: false
+  platform_publish_performed_by_codex: true
+  github_repository_pushed_by_codex: true
+  github_pages_enabled_by_codex: true
+  github_release_created_by_codex: true
+  zenodo_new_version_published_by_codex: true
   runtime_modified: false
   backend_modified: false
   kernel_modified: false
@@ -87,12 +98,6 @@ claim_boundary:
   private_core_exposed: false
 
 manual_platform_actions_required:
-  - GitHub repository description update
-  - GitHub website URL update
-  - GitHub topics update
   - GitHub social preview upload
   - GitHub profile pinning
   - GitHub profile ORCID check
-  - Zenodo existing-record metadata edit if metadata-only
-  - Zenodo new version publish if files changed
-  - Link concept DOI back into README and landing page after public URLs are final

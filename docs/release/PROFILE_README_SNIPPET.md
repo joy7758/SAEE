@@ -6,11 +6,12 @@ Status: draft for manual profile edit.
 ```markdown
 SAEE is an AI agent long-term stability evaluation and decision infrastructure system.
 It helps compare agents, workflows, and decision policies before deploy / hold / retest decisions.
-Current state: repository-layer canonical metadata sync complete; manual GitHub and Zenodo platform actions pending.
+Current state: GitHub repository, GitHub Pages, GitHub release, and Zenodo current version are published; social preview and profile presentation remain manual.
 
 Primary link: https://github.com/joy7758/SAEE
 Landing page: https://joy7758.github.io/SAEE
 Zenodo concept DOI: https://doi.org/10.5281/zenodo.21135471
+Zenodo current version DOI: https://doi.org/10.5281/zenodo.21215282
 ```
 
-Do not claim production readiness, customer validation, public SDK release, external validation success, or a completed GitHub/Zenodo platform update until those actions are externally confirmed.
+Do not claim production readiness, customer validation, public SDK release, or external validation success.

@@ -1,7 +1,7 @@
 # Zenodo Metadata Copy
 # Zenodo 元数据复制稿
 
-Status: repo-layer draft, manual Zenodo action required.
+Status: Zenodo current version published on 2026-07-06.
 
 ## Title
 
@@ -35,7 +35,7 @@ creators:
     orcid: TODO_ORCID_OPTIONAL
 ```
 
-Human review must confirm the formal author name, affiliation, and ORCID before Zenodo update or new-version publication.
+Current public record uses the formal author name available in Zenodo. ORCID/profile presentation remains a separate human-profile review item.
 
 ## Related Identifiers Template
 
@@ -50,7 +50,7 @@ related_identifiers:
   - identifier: https://doi.org/10.5281/zenodo.21135471
     relation: isVersionOf
     resource_type: publication
-  - identifier: https://doi.org/10.5281/zenodo.21135472
+  - identifier: https://doi.org/10.5281/zenodo.21215282
     relation: isIdenticalTo
     resource_type: publication
 ```
@@ -60,10 +60,11 @@ Adjust relation types in the Zenodo UI if the existing record type differs from 
 ## Concept DOI vs Version DOI
 
 - Concept DOI: `10.5281/zenodo.21135471`
-- Version DOI: `10.5281/zenodo.21135472`
+- Current version DOI: `10.5281/zenodo.21215282`
+- Previous definition-only version DOI: `10.5281/zenodo.21135472`
 
 Use the concept DOI for the stable project-level public entry. Use the version DOI when citing the exact archived package snapshot.
 
 ## Manual Boundary
 
-Codex did not edit a Zenodo record or publish a new Zenodo version. License, access right, formal creator metadata, ORCID, communities, and related identifiers still require human confirmation in Zenodo before external publication.
+Codex published a Zenodo new version for the definition-only package. This does not disclose private implementation internals, does not publish the runtime/kernel/backend, and does not imply production readiness, customer validation, benchmark superiority, external validation success, or a public SDK release.

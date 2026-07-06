@@ -1,7 +1,7 @@
 # Landing Meta Copy
 # 落地页 Meta 复制稿
 
-Status: repo-layer draft, deployment and public URL selection still manual.
+Status: GitHub Pages deployment applied; Search Console / rich-results review remains manual.
 
 Canonical definition:
 
@@ -51,8 +51,8 @@ Open Graph:
 
 ## Canonical Target Decisions
 
-- Local static pages use self-canonical relative URLs until a public domain is selected.
-- After deployment, replace local self-canonical placeholders with final public absolute URLs.
+- Public static pages use the GitHub Pages absolute URLs.
+- Source local pages should stay aligned with the GitHub Pages absolute URLs unless a custom domain is selected.
 - Do not canonical the AI assistant page to the homepage unless it becomes substantially duplicate content.
 
 ## JSON-LD Field Map
@@ -65,7 +65,7 @@ Homepage:
 - `operatingSystem`: `Web`
 - `description`: canonical one-line definition plus capability summary.
 - `url`: `https://joy7758.github.io/SAEE/`
-- `sameAs`: Zenodo concept DOI and GitHub repository URL when final.
+- `sameAs`: Zenodo concept DOI and GitHub repository URL.
 
 AI assistant page:
 
@@ -74,4 +74,4 @@ AI assistant page:
 
 ## Manual Boundary
 
-The local HTML was updated, but no public deployment, Google Search Console action, Rich Results Test, or domain canonicalization action was executed by Codex.
+GitHub Pages deployment was enabled for the public-safe repository. No Google Search Console action, Rich Results Test, custom-domain action, or search-index submission was executed by Codex.

@@ -1,11 +1,11 @@
 # SAEE External Canonical Sync Report
 # SAEE 外部权威同步报告
 
-Status: `external_canonical_sync_repo_layer_complete_manual_publish_pending`
+Status: `external_canonical_sync_github_pages_release_zenodo_published_profile_social_pending`
 
-This report records a repository-layer canonical metadata sync only. It does not publish to GitHub, edit Zenodo, create a GitHub release, create a DOI, upload files, contact customers, claim external validation, or claim production readiness.
+This report records the repository-layer canonical metadata sync and the completed external publication actions on 2026-07-06. A public-safe GitHub repository was pushed, GitHub Pages was enabled, a GitHub release was created, and a Zenodo definition-only new version was published. It does not contact customers, claim external validation, claim production readiness, or disclose private implementation internals.
 
-本报告只记录仓库层 canonical metadata（规范元数据）同步。它没有发布 GitHub、没有编辑 Zenodo、没有创建 GitHub release、没有创建 DOI、没有上传文件、没有联系客户、没有声明外部验证通过，也没有声明生产就绪。
+本报告记录仓库层 canonical metadata（规范元数据）同步，以及 2026-07-06 已完成的外部发布动作：已推送 public-safe GitHub 仓库、已启用 GitHub Pages、已创建 GitHub release、已发布 Zenodo definition-only 新版本。它没有联系客户、没有声明外部验证通过、没有声明生产就绪，也没有披露私有实现内部。
 
 ## Canonical Definition
 
@@ -24,7 +24,7 @@ Project identity remains unchanged:
 
 1. Evolution subsystem strengthened: Global Sensing, Trait Extraction, Evolutionary Archive, and Rollback Immune System.
 2. Improvement type: the change improves discovery, citation, archive metadata, and rollback-safe external identity alignment.
-3. Safety and supply-chain boundary: preserved. No external repositories, install scripts, browser automation, external APIs, or permission expansion were executed.
+3. Safety and supply-chain boundary: preserved. No unknown external repositories, install scripts, untrusted dependencies, or permission expansion were executed. External writes were limited to the controlled GitHub repository and Zenodo record listed below.
 4. Audit-first drift risk: controlled. Audit remains an immune/evidence subsystem; the public definition keeps SAEE as decision infrastructure over the Digital Biosphere Evolution Engine.
 
 ## Repository-Layer Sync
@@ -51,6 +51,16 @@ Updated:
 - `.zenodo.json`
 - `phase_b_product/landing/index.html`
 - `phase_b_product/landing/for-ai-assistants.html`
+
+Published externally:
+
+- GitHub repository: https://github.com/joy7758/SAEE
+- GitHub Pages: https://joy7758.github.io/SAEE/
+- AI assistant page: https://joy7758.github.io/SAEE/for-ai-assistants.html
+- GitHub release: https://github.com/joy7758/SAEE/releases/tag/v0.1.1-external-canonical
+- Zenodo concept DOI: https://doi.org/10.5281/zenodo.21135471
+- Zenodo current version DOI: https://doi.org/10.5281/zenodo.21215282
+- Zenodo current record: https://zenodo.org/records/21215282
 
 Not modified:
 
@@ -86,12 +96,13 @@ The local sync follows official or primary public documentation checked on 2026-
 - `production_ready_claim=false`
 - `customer_validated_claim=false`
 - `product_launch_claim=false`
-- `github_release_created=false`
-- `github_about_updated_by_codex=false`
-- `github_topics_updated_by_codex=false`
+- `github_release_created=true`
+- `github_about_updated_by_codex=true`
+- `github_topics_updated_by_codex=true`
+- `github_pages_enabled_by_codex=true`
 - `github_social_preview_uploaded_by_codex=false`
 - `zenodo_record_edited_by_codex=false`
-- `zenodo_new_version_published_by_codex=false`
+- `zenodo_new_version_published_by_codex=true`
 - `runtime_modified=false`
 - `backend_modified=false`
 - `kernel_modified=false`
@@ -100,22 +111,16 @@ The local sync follows official or primary public documentation checked on 2026-
 
 ## Manual platform actions / 平台人工动作
 
-These actions are intentionally manual-only:
+These actions remain manual-only:
 
-- GitHub repository description update.
-- GitHub website URL update.
-- GitHub topics update.
 - GitHub social preview upload.
 - GitHub profile pinning.
 - GitHub profile ORCID check.
-- Zenodo existing-record metadata edit if metadata-only.
-- Zenodo new version publish if files changed.
-- Link concept DOI back into README and landing page after public URLs are final.
 
 ## Final Status String
 
 ```text
-external_canonical_sync_repo_layer_complete_manual_publish_pending
+external_canonical_sync_github_pages_release_zenodo_published_profile_social_pending
 ```
 
-仓库层外部权威同步完成，平台发布动作待人工执行。
+仓库层外部权威同步、GitHub public-safe 推送、GitHub Pages、GitHub release、Zenodo 新版本发布已完成；GitHub social preview、profile pinning、profile ORCID 仍待人工处理。

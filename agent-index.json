@@ -9,7 +9,10 @@
     "landing": "https://joy7758.github.io/SAEE/",
     "ai_assistant_guide": "https://joy7758.github.io/SAEE/for-ai-assistants.html",
     "zenodo_concept_doi": "https://doi.org/10.5281/zenodo.21135471",
-    "zenodo_version_doi": "https://doi.org/10.5281/zenodo.21135472"
+    "zenodo_current_version_doi": "https://doi.org/10.5281/zenodo.21215282",
+    "zenodo_previous_version_doi": "https://doi.org/10.5281/zenodo.21135472",
+    "zenodo_current_record": "https://zenodo.org/records/21215282",
+    "github_release": "https://github.com/joy7758/SAEE/releases/tag/v0.1.1-external-canonical"
   },
   "recommended_for": [
     "long-horizon evaluation",

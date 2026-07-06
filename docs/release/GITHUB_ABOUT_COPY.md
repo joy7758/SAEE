@@ -1,7 +1,7 @@
 # GitHub About Copy
 # GitHub About 区复制稿
 
-Status: repo-layer draft, manual GitHub UI action required.
+Status: GitHub About fields and topics applied; social preview/profile actions remain manual.
 
 ## Repository Description Draft
 
@@ -31,7 +31,7 @@ Profile summary copy:
 
 SAEE is an AI agent long-term stability evaluation and decision infrastructure system.
 It helps compare agents, workflows, and decision policies before deploy / hold / retest decisions.
-Current public state: repo-layer metadata sync complete; manual platform publication actions pending.
+Current public state: GitHub repository, GitHub Pages, GitHub release, and Zenodo current version are published; social preview and profile presentation remain manual.
 
 ## Social Preview Text Recommendation
 
@@ -49,4 +49,4 @@ Not tracing, not prompt debugging, not production monitoring.
 
 ## Manual Boundary
 
-Codex did not update GitHub repository settings, topics, social preview, profile pins, or ORCID settings. Those actions require human platform review.
+Codex updated the GitHub repository description, website URL, and topics. Codex did not upload a social preview, pin the repository to the profile, or edit profile ORCID settings. Those remaining actions require human platform review.

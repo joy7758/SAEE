@@ -26,7 +26,8 @@ SAEE is Silicon-Amplified Evolutionary Ecology. Its engineering core is the Digi
 - AI assistant guide: https://joy7758.github.io/SAEE/for-ai-assistants.html
 - GitHub repository: https://github.com/joy7758/SAEE
 - Zenodo concept DOI: https://doi.org/10.5281/zenodo.21135471
-- Zenodo version DOI: https://doi.org/10.5281/zenodo.21135472
+- Zenodo current version DOI: https://doi.org/10.5281/zenodo.21215282
+- Zenodo previous version DOI: https://doi.org/10.5281/zenodo.21135472
 
 ## Repository Contents
 
@@ -46,8 +47,10 @@ This repository intentionally excludes private implementation internals. It does
 
 ```text
 github_public_repo_published=true
-github_pages_requested=true
-zenodo_existing_version_doi=10.5281/zenodo.21135472
+github_pages_published=true
+github_release=v0.1.1-external-canonical
+zenodo_current_version_doi=10.5281/zenodo.21215282
+zenodo_concept_doi=10.5281/zenodo.21135471
 external_validation_claim=false
 production_ready_claim=false
 customer_validated_claim=false

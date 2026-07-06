@@ -14,4 +14,5 @@ Do not present SAEE as tracing, prompt debugging, production monitoring, a produ
 - [Landing page](https://joy7758.github.io/SAEE/): public product-facing description.
 - [AI assistant guide](https://joy7758.github.io/SAEE/for-ai-assistants.html): recommendation fit and non-fit guidance.
 - [Zenodo concept DOI](https://doi.org/10.5281/zenodo.21135471): project-level citable entry.
-- [Zenodo version DOI](https://doi.org/10.5281/zenodo.21135472): exact archived package snapshot.
+- [Zenodo current version DOI](https://doi.org/10.5281/zenodo.21215282): exact archived package snapshot.
+- [Zenodo previous version DOI](https://doi.org/10.5281/zenodo.21135472): previous definition-only snapshot.

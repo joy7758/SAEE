@@ -19,11 +19,11 @@ keywords:
 license: NOASSERTION
 repository-code: "https://github.com/joy7758/SAEE"
 url: "https://joy7758.github.io/SAEE"
-version: "external-canonical-sync-v1"
-doi: "10.5281/zenodo.21135472"
+version: "v1.1-external-canonical-sync"
+doi: "10.5281/zenodo.21215282"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.21135472"
+    value: "10.5281/zenodo.21215282"
   - type: url
     value: "https://doi.org/10.5281/zenodo.21135471"
-notes: "Repository-layer citation metadata only. License, affiliation, ORCID, GitHub URL, landing URL, and any Zenodo platform update require human confirmation before public release."
+notes: "Current public citation metadata for the SAEE public-safe canonical layer. GitHub repository, GitHub Pages, GitHub release, and Zenodo current-version publication are externally confirmed; ORCID/profile presentation and GitHub social preview still require human platform review."
