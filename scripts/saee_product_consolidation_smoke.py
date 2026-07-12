@@ -52,6 +52,8 @@ def main() -> int:
     assert all(path.is_file() and path.read_text(encoding="utf-8").strip() for path in REQUIRED_DOCS)
     index = json.loads(AGENT_INDEX.read_text(encoding="utf-8"))
     assert index["language"] == {"primary": "zh-CN", "secondary": "en"}
+    assert json.loads((ROOT / "docs/agent-index.json").read_text(encoding="utf-8")) == index
+    assert (ROOT / "docs/llms.txt").read_text(encoding="utf-8") == (ROOT / "llms.txt").read_text(encoding="utf-8")
 
     invalid: list[tuple[dict, str]] = []
     for field, bad in (("theory_name", "Other"), ("engineering_core", "Audit Engine"), ("product_surface", "Generic Agent OS"), ("primary_language", "en")):

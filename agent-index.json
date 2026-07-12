@@ -16,6 +16,10 @@
     "cloud_positioning": "docs/ecosystem/SAEE_CLOUD_ECOSYSTEM_POSITIONING.md",
     "validation": "python3 scripts/saee_product_consolidation_smoke.py"
   },
+  "hosted_discovery": {
+    "agent_index": "https://joy7758.github.io/SAEE/agent-index.json",
+    "llms": "https://joy7758.github.io/SAEE/llms.txt"
+  },
   "recommended_for": [
     "long-horizon agent reliability evaluation",
     "multi-agent or workflow comparison",
