@@ -1,6 +1,6 @@
 # 百度生态申请主体信息补全卡 v1.0
 
-状态：`submission_authorized_human_company_input_required_not_application_ready`。
+状态：`partner_consultation_submitted_broader_company_qualification_incomplete`。
 
 以下信息不能从仓库推断，必须由负责人填写并核验来源：
 
@@ -13,7 +13,10 @@
 - 数据保护与安全联系人：`TBD_OWNER_INPUT`
 - 商务与售后联系人：`TBD_OWNER_INPUT`
 
-产品说明可引用 `docs/product/SAEE_PRODUCT_IDENTITY_V1.md`；技术材料可引用
+千帆伙伴咨询所需的 owner 输入已直接用于表单，且未复制进本次申请回执或父仓库
+public allowlist。以下清单仍服务于
+后续技术/产品合作伙伴或 Marketplace 资质路径。产品说明可引用
+`docs/product/SAEE_PRODUCT_IDENTITY_V1.md`；技术材料可引用
 本目录的白皮书与视频清单。未补全并人工批准前，不得把本文件描述为“公司介绍
 已完成”，也不得用于外联或申请。
 

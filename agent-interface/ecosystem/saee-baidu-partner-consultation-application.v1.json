@@ -1,7 +1,7 @@
 {
   "$schema": "./saee-baidu-partner-consultation-application.schema.v1.json",
   "application_id": "saee.baidu.qianfan-partner-consultation.v1",
-  "status": "awaiting_verified_human_inputs",
+  "status": "submitted_receipt_recorded",
   "route": {
     "route_id": "qianfan_partner_consultation",
     "form_url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333",
@@ -37,16 +37,21 @@
     "contact_consent": "explicit_data_contact_consent_required"
   },
   "submission_receipt": {
-    "submitted": false,
-    "submitted_at": null,
+    "submitted": true,
+    "submitted_at": "2026-07-13T04:31:31+08:00",
     "confirmation_text": null,
-    "screenshot_path": null
+    "screenshot_path": null,
+    "receipt_ref": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json"
   },
   "truth_boundary": {
     "form_fields_complete": false,
+    "form_fields_complete_at_submission": true,
     "ready_for_submission": false,
-    "baidu_partner_contacted": false,
-    "qianfan_partner_consultation_submitted": false,
+    "personal_data_stored_in_application_record": false,
+    "baidu_partner_contacted": true,
+    "qianfan_partner_consultation_submitted": true,
+    "submission_redirect_observed": true,
+    "backend_submission_id_available": false,
     "marketplace_submission": false,
     "marketplace_listed": false,
     "customer_validated": false,

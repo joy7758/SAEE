@@ -4,7 +4,7 @@
 
 ## Baidu Cloud Marketplace Entry Plan v1.0
 
-Status: `phases_0_to_3_local_complete_real_qianfan_synthetic_roundtrip_phase_4_company_input_gate`.
+Status: `phases_0_to_4_partner_consultation_submitted_public_release_withheld`.
 
 The frozen external brand is `SAEE Agent Readiness Platform`; the first product
 shape is `SAEE Agent Readiness Assessment`. The Baidu-facing public capability
@@ -21,12 +21,14 @@ actions. The 30-minute Cloud
 Entry Package, locally built product page, 10-page technical whitepaper, and
 180-second demo video are also locally validated. Official Baidu entry routes
 have been read-only verified; the Qianfan partner consultation is the first
-recommended route after company/contact input and explicit authorization. A
+recommended route. A
 six-page human-fillable Word product solution attachment has passed visual QA.
-The official form is also represented by a fail-closed Agent-readable payload
-and receipt contract. It remains `awaiting_verified_human_inputs`; industry,
-company name, contact name, role, mobile phone and contact consent are not
-inferred or filled.
+The official form is represented by a fail-closed Agent-readable payload and
+receipt contract. It was filled with owner-provided values and submitted under
+explicit authorization. The configured redirect to the Qianfan product page
+was observed; the page exposed no backend submission ID or persistent success
+text. The sanitized receipt and parent public allowlist do not duplicate the
+company/contact/mobile values; pre-existing nested site surfaces are a separate scope.
 Three synthetic demos now also have a publication-ready local index and a
 bounded Qianfan technical-article draft. Neither has been published because
 community, article, Git push and GitHub Release actions are not authorized.
@@ -55,7 +57,9 @@ technical_article_draft_ready=true
 public_demos_published=false
 technical_article_published=false
 github_release_created=false
-baidu_partner_contacted=false
+baidu_partner_contacted=true
+qianfan_partner_consultation_submitted=true
+qianfan_partner_submission_acknowledgement=redirect_no_backend_id
 marketplace_submission=false
 marketplace_listed=false
 public_price_points_approved=false

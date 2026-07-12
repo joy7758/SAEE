@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.baidu.qianfan-partner-consultation.submission-receipt.v1",
+  "status": "submitted_redirect_acknowledged",
+  "submitted_at": "2026-07-13T04:31:31+08:00",
+  "destination": {
+    "site": "Baidu AI Cloud",
+    "form_heading": "千帆伙伴咨询",
+    "form_url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333"
+  },
+  "submitted_selection": {
+    "industry_option": "其他，请补充",
+    "industry_other_text": "可信AI",
+    "product_shape": ["服务"],
+    "service_capability": ["产品集成"],
+    "partner_rights": ["应用场景共建", "技术赋能提升"],
+    "contact_consent": true,
+    "required_personal_fields_present_at_submission": true
+  },
+  "browser_observation": {
+    "submit_button_unique_and_enabled": true,
+    "submit_action_executed": true,
+    "redirect_observed": true,
+    "redirect_url": "https://cloud.baidu.com/product-s/qianfan_home",
+    "confirmation_text_observed": false,
+    "backend_submission_id_available": false
+  },
+  "official_client_behavior_evidence": {
+    "script_url": "https://bce.bdstatic.com/portal/adb249e/js/survey/v4.js",
+    "script_sha256_observed": "9bd5b8649fa5d0b8c9049488f8891eb2ca889abd889a9191d6bbd691c96a8872",
+    "success_behavior": "submitSuccessHandler hides the form, shows success state, then redirects to the configured link",
+    "evidence_limit": "The page did not expose a backend submission identifier or persistent confirmation text."
+  },
+  "privacy": {
+    "company_name_stored_in_submission_receipt": false,
+    "contact_name_stored_in_submission_receipt": false,
+    "contact_role_stored_in_submission_receipt": false,
+    "mobile_phone_stored_in_submission_receipt": false,
+    "personal_values_added_to_parent_public_allowlist_by_submission_workflow": false,
+    "preexisting_nested_site_surfaces_outside_submission_receipt_scope": true
+  },
+  "truth_boundary": {
+    "baidu_partner_contacted": true,
+    "qianfan_partner_consultation_submitted": true,
+    "submission_acknowledgement_strength": "redirect_and_official_client_behavior_no_backend_id",
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

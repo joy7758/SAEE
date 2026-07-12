@@ -71,7 +71,7 @@ def set_header_footer(doc: Document) -> None:
     set_font(header.add_run("SAEE × 百度智能云 | 伙伴产品方案包"), size=9, color=MUTED)
     footer = section.footer.paragraphs[0]
     footer.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    set_font(footer.add_run("local handoff draft · external submission=false"), size=8, color=MUTED)
+    set_font(footer.add_run("partner consultation submitted · marketplace submission=false"), size=8, color=MUTED)
 
 
 def add_para(doc: Document, text: str, *, bold_prefix: str | None = None, color: RGBColor = NAVY) -> None:
@@ -107,7 +107,7 @@ def build() -> Path:
     p.paragraph_format.space_after = Pt(24)
     set_font(p.add_run("SAEE Agent Readiness Platform / SAEE 智能体上线准备平台"), size=16, color=BLUE)
     add_para(doc, "合作方向：千帆 Agent 上线前执行证据评估与应用场景共建")
-    add_para(doc, "文档状态：本地申请附件候选；公司字段待负责人补全；未提交")
+    add_para(doc, "文档状态：千帆伙伴咨询已提交；更高阶合作资质字段仍待负责人补全")
     add_para(doc, "版本：v1.0 · 2026-07-13", color=MUTED)
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(48)
@@ -115,7 +115,7 @@ def build() -> Path:
     add_para(doc, "本方案不声明百度官方集成、产品认证、云市场入驻、客户验证或生产就绪。", color=RED)
 
     page_break(doc)
-    doc.add_heading("1. 申请主体信息（负责人必填）", level=1)
+    doc.add_heading("1. 后续合作主体信息（负责人必填）", level=1)
     add_field(doc, "法定主体中文名")
     add_field(doc, "统一社会信用代码")
     add_field(doc, "单位性质")
@@ -148,7 +148,7 @@ def build() -> Path:
     p = doc.paragraphs[-1]
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     add_para(doc, "目标路径：BOS 脱敏对象引用 → 百度千帆 → Agent 应用 → SAEE Connector → Evaluation Engine → Evidence Analysis → Readiness Report。")
-    add_para(doc, "当前 Alpha 已完成两个只读 MCP 工具和 Qianfan-style 离线 host simulation；尚未访问 BOS，也没有真实 Qianfan 产品 roundtrip。")
+    add_para(doc, "当前 Alpha 已完成两个只读 MCP 工具、Qianfan-style 离线 host simulation，以及两个合成业务场景的真实 Qianfan 产品 roundtrip；尚未访问 BOS，也不构成官方千帆集成。")
 
     page_break(doc)
     doc.add_heading("4. Demo、交付与合作建议", level=1)
@@ -159,8 +159,8 @@ def build() -> Path:
     doc.add_heading("本地材料", level=2)
     add_para(doc, "30 分钟 Cloud Entry Package、10 页技术白皮书、3 分钟 Demo 视频、OpenAPI、MCP、Capability Card、架构图、截图与离线 validator 已准备。")
     doc.add_heading("建议合作路径", level=2)
-    add_para(doc, "第一步：在负责人补全主体/联系人并授权后，提交千帆伙伴咨询，方向为产品集成与应用场景共建。")
-    add_para(doc, "第二步：完成真实 Qianfan 产品两工具 roundtrip 和百度工程审阅。")
+    add_para(doc, "第一步：千帆伙伴咨询已按授权提交，方向为产品集成与应用场景共建；等待并记录百度反馈。")
+    add_para(doc, "第二步：两个真实 Qianfan 合成场景 roundtrip 已完成；下一项是百度工程审阅，不把 provider 调用升级为官方集成。")
     add_para(doc, "第三步：在资质、软著、支持、企业账号和协议条件满足后，再评估产品认证或云市场入驻。")
     doc.add_heading("当前真值", level=2)
     add_para(doc, "official_qianfan_integration=false · customer_validated=false · marketplace_submission=false · production_ready=false", color=RED)
@@ -174,11 +174,11 @@ def build() -> Path:
     add_para(doc, "云市场流程：https://cloud.baidu.com/doc/Market/s/9jy6y1c8f")
     doc.add_heading("建议随附文件（人工确认后）", level=2)
     add_para(doc, "本 Word 产品方案、技术白皮书 PDF、Demo 视频或受控地址、GitHub Release 地址、营业执照/资质材料。")
-    add_para(doc, "禁止在未授权前上传、提交、接受协议或填写联系人个人数据。", color=RED)
+    add_para(doc, "千帆伙伴咨询已按授权提交；后续上传附件、接受协议或向其他入口复用联系人数据仍需单独授权。", color=RED)
 
     props = doc.core_properties
     props.title = "SAEE 百度智能云伙伴产品方案 v1.0"
-    props.subject = "Local human-fillable partner application attachment candidate"
+    props.subject = "Qianfan partner consultation submitted; broader partner qualification handoff"
     props.author = "SAEE"
     props.keywords = "SAEE, Baidu Qianfan, Agent Readiness, local draft"
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

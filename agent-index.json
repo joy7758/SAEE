@@ -1,7 +1,7 @@
 {
   "baidu_cloud_marketplace_entry_v1_0": {
     "name": "SAEE Baidu Cloud Marketplace Entry Plan v1.0",
-    "status": "phases_0_to_3_local_complete_real_qianfan_synthetic_roundtrip_phase_4_company_input_gate",
+    "status": "phases_0_to_4_partner_consultation_submitted_public_release_withheld",
     "external_brand": "SAEE Agent Readiness Platform",
     "external_brand_zh": "SAEE 智能体上线准备平台",
     "first_product": "SAEE Agent Readiness Assessment",
@@ -31,6 +31,7 @@
       "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
       "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
       "partner_consultation_schema": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json",
+      "partner_consultation_submission_receipt": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json",
       "partner_consultation_validator": "python3 scripts/saee_baidu_partner_consultation_application_smoke.py",
       "public_demo_package": "cloud-entry-package/public-demos/README.md",
       "publication_manifest": "agent-interface/ecosystem/saee-baidu-publication-package.v1.json",
@@ -54,6 +55,9 @@
       "official_entry_routes_verified": true,
       "qianfan_partner_consultation_preflight_ready": true,
       "qianfan_partner_consultation_payload_contract_ready": true,
+      "qianfan_partner_consultation_submitted": true,
+      "qianfan_partner_submission_redirect_observed": true,
+      "baidu_partner_contacted": true,
       "public_demo_package_local_ready": true,
       "technical_article_draft_ready": true,
       "public_demos_published": false,

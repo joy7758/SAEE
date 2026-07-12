@@ -18,6 +18,7 @@ agent-interface/ecosystem/saee-baidu-external-action-authorization-gate.v1.json
 agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json
+agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json
 agent-interface/ecosystem/saee-baidu-publication-package.v1.json
 agent-interface/qianfan/saee-readiness-evidence-item.schema.v0.1.json
 agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json

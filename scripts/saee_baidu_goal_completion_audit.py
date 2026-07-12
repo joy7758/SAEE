@@ -59,7 +59,7 @@ def main() -> None:
         requirement("R06", "Phase 1 Qianfan adapter and customer-service/coding demos", "proven_complete_real_provider_synthetic", ["scripts/saee_qianfan_readiness_mcp_smoke.py", "scripts/saee_qianfan_readiness_live_receipt_smoke.py", "agent-interface/qianfan/live-validation/"], "Offline simulation plus two bounded real-Qianfan synthetic scenarios pass; four provider rounds and zero external-world actions are recorded."),
         requirement("R07", "Phase 2 30-minute Cloud Entry Package", "proven_complete_local", ["cloud-entry-package/README.md", "scripts/saee_cloud_entry_package_smoke.py"], "29 required package files and the documented local path pass."),
         requirement("R08", "Phase 3 product page, 10-page whitepaper, 3-minute video", "proven_complete_local_not_published", ["sites/saee-commercial/app/page.tsx", "output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf", "output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4"], "Site tests pass; PDF is 10 pages; video is 180.021 seconds."),
-        requirement("R09", "Phase 4 official Baidu ecosystem route and application materials", "preflight_complete_submission_authorized_inputs_missing", ["agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json", "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx"], "Qianfan partner consultation is verified and submission is authorized; non-inventable company/contact inputs are still missing."),
+        requirement("R09", "Phase 4 official Baidu ecosystem route and application materials", "proven_complete_partner_consultation_submitted", ["agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json", "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx"], "The authorized Qianfan partner consultation form was filled and submitted; redirect acknowledgement was observed, while no backend submission ID was exposed. This is not a Marketplace submission."),
         requirement("R10", "Create main baseline and SAEE-v0.1-alpha GitHub Release", "partially_achieved_local_commit_only", ["release/SAEE-v0.1-alpha/release-manifest.json", "release/SAEE-v0.1-alpha/public-baseline-audit.json"], f"git_head_exists={str(git_head).lower()}; local_commit=c0cf49e; root_license_present={str(root_license).lower()}; tag/push/GitHub Release are not authorized; github_release_created={str(release['truth_boundary']['github_release_created']).lower()}."),
         requirement("R11", "Use the required GitHub first sentence", "proven_complete_local", ["README.md"], f"exact_sentence_present={str('SAEE is an Agent Readiness Infrastructure for evaluating whether AI agents have sufficient execution evidence before real-world deployment.' in readme).lower()}."),
         requirement("R12", "Prepare basic and enterprise commercial packaging", "proven_complete_internal_hypothesis_public_approval_missing", ["cloud-entry-package/materials/SAEE_BAIDU_COMMERCIAL_PACKAGING_DRAFT_V1.md"], "Suggested price ranges are preserved as owner-review hypotheses, not public quotes."),
@@ -67,7 +67,7 @@ def main() -> None:
         requirement("R14", "Execute the 90-day route", "partially_achieved_local_publication_package_ready", ["docs/ecosystem/SAEE_BAIDU_90_DAY_EXECUTION_BOARD_V1.md", "cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md"], "Local technical/material work, commits, real-provider synthetic roundtrips, public-demo package and technical-article draft are complete; external publication and Baidu submission remain incomplete."),
         requirement("R15", "Become callable by a real Baidu Qianfan Agent", "proven_complete_real_provider_synthetic", ["scripts/saee_qianfan_readiness_host.py", "scripts/saee_qianfan_readiness_live_receipt_smoke.py", "agent-interface/qianfan/live-validation/"], f"qianfan_key_name_present={str(qianfan_key_name_present).lower()}; real_product_roundtrip=true; scenarios=2; provider_rounds=4; official_qianfan_integration=false."),
     ]
-    achieved_statuses = {"proven_complete_local", "proven_complete_target_architecture", "proven_complete_controlled_offline", "proven_complete_real_provider_synthetic", "proven_complete_local_not_published", "proven_complete_internal_hypothesis_public_approval_missing"}
+    achieved_statuses = {"proven_complete_local", "proven_complete_target_architecture", "proven_complete_controlled_offline", "proven_complete_real_provider_synthetic", "proven_complete_local_not_published", "proven_complete_internal_hypothesis_public_approval_missing", "proven_complete_partner_consultation_submitted"}
     achieved = sum(item["status"] in achieved_statuses for item in requirements)
     incomplete = [item["requirement_id"] for item in requirements if item["status"] not in achieved_statuses]
     result = {
@@ -75,7 +75,7 @@ def main() -> None:
         "objective_requirement_count": len(requirements),
         "proven_complete_requirement_count": achieved,
         "incomplete_requirement_ids": incomplete,
-        "goal_status": "not_complete_company_input_public_release_and_90_day_gates",
+        "goal_status": "not_complete_public_release_demo_publication_and_90_day_gates",
         "requirements": requirements,
         "blocking_facts": {
             "git_head_exists": git_head,
@@ -97,22 +97,21 @@ def main() -> None:
         "",
         "This is a requirement-by-requirement completion audit, not a launch or submission receipt.",
         "",
-        f"Overall: `not_complete_company_input_public_release_and_90_day_gates`; requirements proven complete: `{achieved}/{len(requirements)}`.",
+        f"Overall: `not_complete_public_release_demo_publication_and_90_day_gates`; requirements proven complete: `{achieved}/{len(requirements)}`.",
         "",
         *rows,
         "",
         "## Exact remaining gates",
         "",
-        "1. Verified company/contact information required by the Qianfan partner form.",
-        "2. Public license, tag, push and GitHub Release remain withheld or unauthorized.",
-        "3. Public price approval and later direct-marketplace qualification evidence.",
-        "4. Remaining 90-day public demo, community and technical-article actions.",
+        "1. Public license, tag, push and GitHub Release remain withheld or unauthorized.",
+        "2. Public price approval and later direct-marketplace qualification evidence.",
+        "3. Remaining 90-day public demo, community and technical-article publication actions.",
         "",
         "```text",
         "goal_complete=false",
         "github_release_created=false",
         "real_qianfan_product_roundtrip=true",
-        "baidu_submission=false",
+        "baidu_submission=true",
         "marketplace_listed=false",
         "production_ready=false",
         "```",

@@ -1,7 +1,7 @@
 # SAEE 百度智能云官方入口 Preflight（2026-07-13）
 
-本文件基于百度智能云官方页面的只读核验结果。它不是申请、咨询、联系、协议
-接受或入驻证明。
+本文件起始于百度智能云官方页面的只读核验，现已追加千帆伙伴咨询提交记录。
+该记录不是百度合作通过、官方集成、Marketplace 入驻或上架证明。
 
 ## 推荐入口顺序
 
@@ -17,13 +17,15 @@
 - 合作权益：`应用场景共建`、`技术赋能提升`；
 - 合作叙事：增强千帆 Agent 上线前可靠性，不替代百度治理或授权。
 
-当前已获得百度联系与申请提交授权。仍缺公司行业、公司名称、联系人、职位、
-手机、实名认证与联系同意；这些值不可从仓库或路径推断，不能代填。
+百度联系与申请提交已获授权。Owner 随后提供公司行业、公司名称、联系人、职位、
+手机与联系同意；这些值已用于官方表单，但没有复制进本次申请回执或父仓库
+public allowlist。独立站点仓库中的既有公开字段属于另一治理范围。
 
 申请字段已固定为机器可读 payload：
 `agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`。
-其 validator 会在任一必填值或联系同意缺失时保持
-`ready_for_submission=false`，并把伙伴咨询与 Marketplace 入驻严格分开。
+其 validator 在提交前保持 fail-closed。提交后仓库仅保存脱敏 receipt：已观察到
+官方成功分支配置的千帆产品页跳转，但页面未提供 backend submission ID 或持久成功
+文本。伙伴咨询与 Marketplace 入驻仍严格分开。
 
 ### 2. 百度智能云技术/产品合作伙伴——第二阶段
 
@@ -53,14 +55,17 @@
 ## 当前推荐结论
 
 ```text
-qianfan_partner_consultation=recommend_after_company_contact_input_and_explicit_authorization
+qianfan_partner_consultation=submitted_redirect_acknowledged
 general_partner_application=conditional_after_qualification_packet
 product_certification=do_not_recommend_before_partner_registration_and_service_evidence
 direct_cloud_marketplace=do_not_recommend_currently
 official_pages_checked=true
-external_form_opened_for_read_only_inspection=true
-form_fields_filled=false
-agreement_accepted=false
-external_contact=false
-submission=false
+external_form_opened=true
+form_fields_filled=true
+agreement_accepted=true
+external_contact=true
+submission=true
+submission_redirect_observed=true
+backend_submission_id_available=false
+marketplace_submission=false
 ```

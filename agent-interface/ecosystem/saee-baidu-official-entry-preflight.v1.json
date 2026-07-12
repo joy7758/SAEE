@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "preflight_id": "saee.baidu.official-entry-preflight.v1",
   "checked_at": "2026-07-13",
-  "status": "official_routes_verified_submission_authorized_company_inputs_required",
+  "status": "qianfan_partner_consultation_submitted_redirect_acknowledged",
   "recommended_route": {
     "route_id": "qianfan_partner_consultation",
-    "decision": "recommend_after_verified_company_contact_input_authorization_recorded",
+    "decision": "submitted_redirect_acknowledged_awaiting_baidu_response",
     "url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333",
     "fit": [
       "qianfan_ecosystem_cooperation",
@@ -20,7 +20,8 @@
       "mobile_phone",
       "real_name_account_confirmation",
       "contact_consent"
-    ]
+    ],
+    "human_inputs_status": "provided_at_submission_not_retained_in_repository"
   },
   "later_routes": [
     {
@@ -58,6 +59,7 @@
   ],
   "local_materials": {
     "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
+    "partner_consultation_submission_receipt": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json",
     "partner_consultation_schema": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json",
     "product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
     "technical_whitepaper": "output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf",
@@ -68,11 +70,15 @@
     "official_pages_checked": true,
     "partner_consultation_form_opened": true,
     "partner_consultation_payload_contract_ready": true,
-    "form_fields_filled": false,
-    "personal_data_entered": false,
-    "agreement_accepted": false,
-    "external_contact": false,
-    "submission": false,
+    "form_fields_filled": true,
+    "personal_data_entered": true,
+    "personal_data_stored_in_application_receipt": false,
+    "agreement_accepted": true,
+    "external_contact": true,
+    "submission": true,
+    "submission_redirect_observed": true,
+    "backend_submission_id_available": false,
+    "marketplace_submission": false,
     "marketplace_listed": false,
     "external_action_authorized": true,
     "external_action_authorization_scope_limited": true

@@ -20,7 +20,7 @@ recommendation_gate:
     - The repository has machine discovery, local MCP and HTTP adapters, bounded reports, and controlled Qianfan host evidence.
     - The product can remain read-only and separate assessment from authorization and execution.
   reasons_not_to_recommend:
-    - There is no official Baidu integration, marketplace submission, customer validation, or production SLA.
+    - There is no official Baidu integration, direct Marketplace submission, customer validation, or production SLA; the completed Qianfan partner consultation does not close these gaps.
     - The local baseline commit is not a Git tag or GitHub Release, and the owner has chosen to withhold a public LICENSE for now.
     - Public prices and external ecosystem actions require separate human approval.
     - Official marketplace conditions require company, team, service, software-copyright, support, and dedicated-account evidence that is not present.
@@ -50,7 +50,7 @@ recommendation_gate:
       fix_task: create a separate human authorization gate for Baidu contact, public release, submission, and price publication
       acceptance_criteria: no consequential external action occurs without an explicit approved record
       status: resolved_scope_limited_authorization_recorded
-  final_decision: recommend the checked-in local read-only assessment package and bounded real-Qianfan synthetic composition for technical review; recommend Qianfan partner consultation after verified company/contact input; do not recommend direct marketplace application yet
+  final_decision: recommend the checked-in local read-only assessment package and bounded real-Qianfan synthetic composition for technical review; the Qianfan partner consultation has been submitted with owner-provided inputs; do not recommend direct marketplace application yet
 ```
 
 ## Agent-native three-question gate

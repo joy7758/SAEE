@@ -38,17 +38,17 @@
       "properties": {
         "industry": {
           "type": "array",
-          "minItems": 1,
+          "minItems": 0,
           "items": {"enum": ["金融", "教育", "制造业", "零售与电商", "政务", "智能硬件", "法律", "企业办公", "资讯服务", "其他"]}
         },
         "product_shape": {"const": ["服务"]},
         "service_capability": {"const": ["产品集成"]},
         "partner_rights": {"const": ["应用场景共建", "技术赋能提升"]},
-        "company_name": {"type": "string", "minLength": 2},
-        "contact_name": {"type": "string", "minLength": 2},
-        "contact_role": {"type": "string", "minLength": 2},
-        "mobile_phone": {"type": "string", "pattern": "^1[3-9][0-9]{9}$"},
-        "contact_consent": {"const": true}
+        "company_name": {"type": "string"},
+        "contact_name": {"type": "string"},
+        "contact_role": {"type": "string"},
+        "mobile_phone": {"type": "string", "pattern": "^(?:|1[3-9][0-9]{9})$"},
+        "contact_consent": {"type": ["boolean", "null"]}
       },
       "additionalProperties": false
     },
@@ -60,6 +60,7 @@
         "submitted_at": {"type": ["string", "null"]},
         "confirmation_text": {"type": ["string", "null"]},
         "screenshot_path": {"type": ["string", "null"]}
+        ,"receipt_ref": {"type": "string"}
       },
       "additionalProperties": false
     },
@@ -75,5 +76,35 @@
       "additionalProperties": true
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "ready_for_authorized_submission"}}},
+      "then": {
+        "properties": {
+          "form_fields": {
+            "properties": {
+              "industry": {"minItems": 1},
+              "company_name": {"minLength": 2},
+              "contact_name": {"minLength": 2},
+              "contact_role": {"minLength": 2},
+              "mobile_phone": {"pattern": "^1[3-9][0-9]{9}$"},
+              "contact_consent": {"const": true}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "submitted_receipt_recorded"}}},
+      "then": {
+        "properties": {
+          "submission_receipt": {
+            "properties": {"submitted": {"const": true}},
+            "required": ["receipt_ref"]
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": true
 }

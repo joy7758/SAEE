@@ -19,6 +19,7 @@
     "official_entry_preflight": "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json",
     "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
     "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
+    "partner_consultation_submission_receipt": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json",
     "publication_package": "agent-interface/ecosystem/saee-baidu-publication-package.v1.json",
     "qianfan_live_receipts": "agent-interface/qianfan/live-validation/",
     "public_baseline_audit": "release/SAEE-v0.1-alpha/public-baseline-audit.json",
@@ -39,7 +40,7 @@
   "open_gates": [
     "public_license_withheld_by_owner",
     "git_tag_push_and_github_release_not_authorized",
-    "verified_company_and_contact_inputs_missing"
+    "awaiting_baidu_partner_response"
   ],
   "truth_boundary": {
     "release_candidate_prepared": true,
@@ -55,6 +56,8 @@
     "customer_validated": false,
     "production_ready": false,
     "external_action_authorized": true,
-    "external_action_authorization_scope_limited": true
+    "external_action_authorization_scope_limited": true,
+    "baidu_partner_contacted": true,
+    "qianfan_partner_consultation_submitted": true
   }
 }
