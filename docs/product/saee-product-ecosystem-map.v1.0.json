@@ -1,0 +1,33 @@
+{
+  "map_version": "1.0",
+  "canonical_identity": {
+    "project": "SAEE",
+    "theory_name": "Silicon-Amplified Evolutionary Ecology",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "product_surface": "Agent Reliability Evaluation Capability Layer",
+    "primary_language": "zh-CN",
+    "secondary_language": "en"
+  },
+  "modules": [
+    {"module_id":"architecture_foundation","source":"https://github.com/joy7758/digital-biosphere-architecture","role":"public_meaning_layer","core":true,"public":true},
+    {"module_id":"agent_identity","source":"https://github.com/joy7758/persona-object-protocol","role":"identity_reference","core":false,"public":true},
+    {"module_id":"audit_evidence","source":"https://github.com/joy7758/aro-audit","role":"audit_receipt_reference","core":false,"public":true},
+    {"module_id":"evidence_engine_reference","source":"https://github.com/joy7758/agent-evidence","role":"evidence_schema_reference","core":false,"public":true},
+    {"module_id":"resource_governance","source":"https://github.com/joy7758/token-governor","role":"resource_policy_reference","core":false,"public":true},
+    {"module_id":"demo","source":"https://github.com/joy7758/verifiable-agent-demo","role":"toy_demo","core":false,"public":true},
+    {"module_id":"vertical_case_study","source":"https://github.com/joy7758-research/paper-udi-dicom-profile","role":"related_case_study","core":false,"public":true},
+    {"module_id":"rehearsal_engine","source":"private-module:rehearsal-engine","role":"counterfactual_simulation","core":true,"public":false},
+    {"module_id":"reliability_evaluation","source":"private-module:reliability-evaluation","role":"pareto_fitness_evaluation","core":true,"public":false},
+    {"module_id":"capability_runtime","source":"private-module:capability-runtime","role":"local_capability_router","core":false,"public":false},
+    {"module_id":"mcp_interface","source":"private-module:mcp-interface","role":"transport_adapter","core":false,"public":false}
+  ],
+  "truth_boundary": {
+    "historical_repositories_deleted": false,
+    "history_rewritten": false,
+    "private_core_exported": false,
+    "official_cloud_integration": false,
+    "external_validation_claim": false,
+    "customer_validated_claim": false,
+    "production_ready_claim": false
+  }
+}

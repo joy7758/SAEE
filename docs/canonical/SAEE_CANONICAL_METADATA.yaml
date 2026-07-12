@@ -1,18 +1,18 @@
 schema_version: 1.0.0
 artifact: SAEE external canonical metadata
-status: github_pages_release_zenodo_published_profile_social_pending
-last_synced: 2026-07-06
+status: github_product_center_v1_ready_for_publish
+last_synced: 2026-07-13
 
 canonical_name: SAEE
-canonical_title: "SAEE: AI Agent Long-term Stability Evaluation and Decision Infrastructure System"
-canonical_title_zh: "SAEE：AI 智能体长期稳定性评估与部署决策基础设施系统"
-canonical_one_line_definition: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system."
-canonical_one_line_definition_zh: "SAEE 是一个面向 AI 智能体长期稳定性评估与部署决策的基础设施系统。"
+canonical_title: "SAEE Agent Reliability Evaluation Infrastructure"
+canonical_title_zh: "SAEE：智能体可靠性评估基础设施"
+canonical_one_line_definition: "SAEE is agent reliability evaluation infrastructure over the Digital Biosphere Evolution Engine."
+canonical_one_line_definition_zh: "SAEE 是面向 AI 智能体长期演练、可靠性评估与证据边界判断的产品基础设施。"
 
 project_identity:
   theory_name: "Silicon-Amplified Evolutionary Ecology"
   engineering_core: "Digital Biosphere Evolution Engine"
-  public_product_surface: "AI agent long-term stability evaluation and deployment decision infrastructure"
+  public_product_surface: "Agent Reliability Evaluation Capability Layer"
   not_audit_first: true
   not_generic_agent_framework: true
   not_biological_imitation: true
@@ -57,7 +57,7 @@ license_boundary:
   remaining_human_review_required_for_orcid_profile_social: true
 
 github_surface:
-  repo_description: "SAEE: AI agent long-term stability evaluation and deployment decision infrastructure."
+  repo_description: "SAEE：智能体可靠性评估基础设施 | Agent Reliability Evaluation Infrastructure"
   topics:
     - ai-agents
     - agent-evaluation
@@ -74,10 +74,10 @@ github_surface:
   social_preview_manual_upload_required: true
 
 landing_surface:
-  home_title: "SAEE | AI Agent Long-term Stability Evaluation and Decision Infrastructure"
-  home_description: "SAEE is an AI agent long-term stability evaluation and decision infrastructure system for comparing agents, failure modes, survival ranking, and deploy/hold/retest decisions."
-  ai_page_title: "SAEE for AI Assistants | Recommendation Fit and Boundaries"
-  ai_page_description: "Agent-readable guidance for when to recommend SAEE, when not to recommend it, and how to preserve its current status boundaries."
+  home_title: "SAEE｜智能体可靠性评估基础设施"
+  home_description: "在人工智能智能体进入真实业务前，通过长期演练、可靠性评估和证据边界发现漂移、失效与越界风险。"
+  ai_page_title: "SAEE 智能体使用指南"
+  ai_page_description: "面向智能体的 SAEE 使用条件、非适用场景与输入输出边界。"
   canonical_policy: "GitHub Pages absolute URLs until a custom domain is selected"
 
 claim_boundary:

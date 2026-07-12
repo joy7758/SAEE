@@ -1,40 +1,43 @@
 {
   "name": "SAEE",
-  "canonical_definition": "SAEE is an AI agent long-term stability evaluation and decision infrastructure system.",
+  "canonical_definition_zh": "SAEE 是面向 AI 智能体长期演练、可靠性评估与证据边界判断的产品基础设施。",
+  "canonical_definition_en": "SAEE is agent reliability evaluation infrastructure over the Digital Biosphere Evolution Engine.",
   "theory_name": "Silicon-Amplified Evolutionary Ecology",
   "engineering_core": "Digital Biosphere Evolution Engine",
-  "public_product_surface": "AI agent long-term stability evaluation and deployment decision infrastructure",
-  "urls": {
-    "github": "https://github.com/joy7758/SAEE",
+  "product_surface": "Agent Reliability Evaluation Capability Layer",
+  "language": {"primary": "zh-CN", "secondary": "en"},
+  "discovery": {
+    "readme": "https://github.com/joy7758/SAEE#readme",
     "landing": "https://joy7758.github.io/SAEE/",
     "ai_assistant_guide": "https://joy7758.github.io/SAEE/for-ai-assistants.html",
-    "zenodo_concept_doi": "https://doi.org/10.5281/zenodo.21135471",
-    "zenodo_current_version_doi": "https://doi.org/10.5281/zenodo.21215282",
-    "zenodo_previous_version_doi": "https://doi.org/10.5281/zenodo.21135472",
-    "zenodo_current_record": "https://zenodo.org/records/21215282",
-    "github_release": "https://github.com/joy7758/SAEE/releases/tag/v0.1.1-external-canonical"
+    "architecture": "docs/product/SAEE_PRODUCT_ARCHITECTURE_V1.md",
+    "module_registry": "docs/product/SAEE_MODULE_REGISTRY.md",
+    "ecosystem_map": "docs/product/saee-product-ecosystem-map.v1.0.json",
+    "cloud_positioning": "docs/ecosystem/SAEE_CLOUD_ECOSYSTEM_POSITIONING.md",
+    "validation": "python3 scripts/saee_product_consolidation_smoke.py"
   },
   "recommended_for": [
-    "long-horizon evaluation",
-    "multi-agent comparison",
-    "failure-mode analysis",
-    "survival ranking",
-    "deployment decision support"
+    "long-horizon agent reliability evaluation",
+    "multi-agent or workflow comparison",
+    "failure-mode and drift analysis",
+    "evidence-bounded deployment decision support"
   ],
   "not_recommended_for": [
-    "tracing one run",
-    "prompt-only debugging",
-    "production monitoring replacement",
-    "public open-source evolution kernel access",
-    "production-ready enterprise deployment claim"
+    "single-run tracing",
+    "real-time authorization enforcement",
+    "security or legal certification",
+    "automatic deployment approval"
   ],
   "claim_boundary": {
     "external_validation_claim": false,
     "production_ready_claim": false,
     "customer_validated_claim": false,
     "private_core_exported": false,
-    "runtime_exported": false,
-    "kernel_exported": false,
-    "backend_exported": false
+    "runtime_exported": false
+  },
+  "identifiers": {
+    "zenodo_concept_doi": "https://doi.org/10.5281/zenodo.21135471",
+    "zenodo_current_version_doi": "https://doi.org/10.5281/zenodo.21215282",
+    "zenodo_previous_version_doi": "https://doi.org/10.5281/zenodo.21135472"
   }
 }

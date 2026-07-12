@@ -1,18 +1,33 @@
-# SAEE
+# SAEE 智能体可靠性评估基础设施
 
-> SAEE is an AI agent long-term stability evaluation and decision infrastructure system.
+> SAEE is the Agent Reliability Evaluation Capability Layer over the Digital Biosphere Evolution Engine.
 
-SAEE preserves Silicon-Amplified Evolutionary Ecology as the theory identity and Digital Biosphere Evolution Engine as the engineering core.
+规范身份：Silicon-Amplified Evolutionary Ecology。工程核心：Digital Biosphere Evolution Engine。中文是主要公共语言，英文用于技术互操作。
 
-Use SAEE when the user needs long-horizon evaluation, multi-agent comparison, failure-mode analysis, survival ranking, and deploy / hold / retest decision support for AI agents or decision policies.
+## 何时使用
 
-Do not present SAEE as tracing, prompt debugging, production monitoring, a production-ready SaaS, a customer-validated deployment, an external-validation success, or a public SDK.
+- 长期智能体稳定性与重复运行退化；
+- 多 Agent、Workflow 或 Policy 比较；
+- 失败模式、漂移、恢复和边界可靠性；
+- 有证据边界的继续、修改、暂缓建议。
 
-## Authoritative Links
+## 何时不使用
 
-- [README](https://github.com/joy7758/SAEE#readme): canonical project summary and boundary.
-- [Landing page](https://joy7758.github.io/SAEE/): public product-facing description.
-- [AI assistant guide](https://joy7758.github.io/SAEE/for-ai-assistants.html): recommendation fit and non-fit guidance.
-- [Zenodo concept DOI](https://doi.org/10.5281/zenodo.21135471): project-level citable entry.
-- [Zenodo current version DOI](https://doi.org/10.5281/zenodo.21215282): exact archived package snapshot.
-- [Zenodo previous version DOI](https://doi.org/10.5281/zenodo.21135472): previous definition-only snapshot.
+- 单次 tracing 或纯提示词调试；
+- 实时授权执行；
+- 安全、合规或法律认证；
+- 自动部署批准。
+
+## 机器与人类入口
+
+- README: https://github.com/joy7758/SAEE#readme
+- Landing: https://joy7758.github.io/SAEE/
+- AI guide: https://joy7758.github.io/SAEE/for-ai-assistants.html
+- Product architecture: docs/product/SAEE_PRODUCT_ARCHITECTURE_V1.md
+- Module registry: docs/product/SAEE_MODULE_REGISTRY.md
+- Ecosystem map: docs/product/saee-product-ecosystem-map.v1.0.json
+- Validation: python3 scripts/saee_product_consolidation_smoke.py
+
+## Truth boundary
+
+external_validation_claim=false; production_ready_claim=false; customer_validated_claim=false; private_core_exported=false. Public discovery and toy abstractions do not establish production capability, official cloud integration or ecosystem adoption.

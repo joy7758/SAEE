@@ -1,313 +1,77 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="SAEE is an AI agent long-term stability evaluation and decision infrastructure system for comparing agents, failure modes, survival ranking, and deploy/hold/retest decisions."
-    >
-    <meta property="og:title" content="SAEE | AI Agent Long-term Stability Evaluation and Decision Infrastructure">
-    <meta
-      property="og:description"
-      content="SAEE is an AI agent long-term stability evaluation and decision infrastructure system for comparing agents, failure modes, survival ranking, and deploy/hold/retest decisions."
-    >
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://joy7758.github.io/SAEE/">
-    <link rel="canonical" href="https://joy7758.github.io/SAEE/">
-    <title>SAEE | AI Agent Long-term Stability Evaluation and Decision Infrastructure</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "SAEE",
-          "url": "https://joy7758.github.io/SAEE/",
-          "sameAs": [
-            "https://doi.org/10.5281/zenodo.21135471",
-            "https://github.com/joy7758/SAEE"
-          ]
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "SAEE",
-          "alternateName": "Silicon-Amplified Evolutionary Ecology",
-          "applicationCategory": "DeveloperApplication",
-          "operatingSystem": "Web",
-          "url": "https://joy7758.github.io/SAEE/",
-          "description": "SAEE is an AI agent long-term stability evaluation and decision infrastructure system for long-horizon evaluation, multi-agent comparison, failure-mode analysis, survival ranking, and deploy / hold / retest decision support.",
-          "sameAs": [
-            "https://doi.org/10.5281/zenodo.21135471",
-            "https://github.com/joy7758/SAEE"
-          ]
-        }
-      ]
-    </script>
-    <script src="app.js" defer></script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="SAEE home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="img">
-            <path d="M12 2 21 7.2v9.6L12 22 3 16.8V7.2L12 2Z" />
-            <path d="M12 6.5 17 9.4v5.2l-5 2.9-5-2.9V9.4l5-2.9Z" />
-            <path d="M12 9.2v5.6M9.6 10.6l4.8 2.8M14.4 10.6l-4.8 2.8" />
-          </svg>
-        </span>
-        <span>
-          <strong>SAEE</strong>
-          <small>Long-term Agent Evaluation</small>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#value">价值</a>
-        <a href="#workflow">流程</a>
-        <a href="#capabilities">能力</a>
-        <a href="#scenarios">场景</a>
-      </nav>
-      <a class="nav-cta" href="mailto:joy7758@users.noreply.github.com?subject=SAEE%20Demo%20Request">申请演示</a>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="SAEE 智能体可靠性评估基础设施：在智能体进入真实业务前，通过长期演练、可靠性评估和证据边界发现漂移、失效与越界风险。">
+  <meta property="og:title" content="SAEE｜智能体可靠性评估基础设施">
+  <meta property="og:description" content="在人工智能智能体进入真实业务前，先看它长期会不会稳。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://joy7758.github.io/SAEE/">
+  <link rel="canonical" href="https://joy7758.github.io/SAEE/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>SAEE｜智能体可靠性评估基础设施</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"SAEE","alternateName":"Silicon-Amplified Evolutionary Ecology","applicationCategory":"DeveloperApplication","url":"https://joy7758.github.io/SAEE/","description":"Agent reliability evaluation infrastructure over the Digital Biosphere Evolution Engine.","sameAs":["https://github.com/joy7758/SAEE","https://doi.org/10.5281/zenodo.21135471"]}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="SAEE 首页"><span class="brand-orbit"><i></i></span><span><strong>SAEE</strong><small>智能体可靠性评估</small></span></a>
+    <nav aria-label="主导航"><a href="#method">评估方法</a><a href="#modules">产品模块</a><a href="#ecosystem">生态入口</a><a href="#boundary">边界</a></nav>
+    <a class="header-cta" href="for-ai-assistants.html">智能体入口</a>
+  </header>
 
-    <main id="top">
-      <section class="hero-section" aria-labelledby="hero-title">
-        <img
-          class="hero-visual"
-          src="assets/saee-battle-arena.png"
-          alt="SAEE Battle Arena dashboard showing agent stability ranking, survival curves, and deployment recommendation"
-        >
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero-content">
-          <p class="product-line canonical-definition">SAEE is an AI agent long-term stability evaluation and decision infrastructure system.</p>
-          <p class="product-line">AI Agent / Strategy Long-term Stability Evaluation Platform</p>
-          <h1 id="hero-title">让人工智能智能体上线决策，从单次效果转向长期稳定性。</h1>
-          <p class="hero-copy">
-            SAEE 用长期竞争评测、失败模式分析和部署建议，帮助团队比较多个智能体或策略，回答一个最关键的问题：谁更值得上线，谁更容易在真实环境里失稳或崩溃。
-          </p>
-          <p class="hero-copy">
-            Boundary: not tracing, not prompt debugging, not production monitoring.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <button class="button primary" id="run-demo-battle" type="button">
-              <span aria-hidden="true">▶</span>
-              Run Demo Battle
-            </button>
-            <a class="button secondary" href="#capabilities">
-              查看产品能力
-            </a>
-            <a class="button tertiary" href="mailto:joy7758@users.noreply.github.com?subject=SAEE%20Demo%20Request">
-              申请演示
-            </a>
-          </div>
-          <dl class="hero-metrics" aria-label="Product outputs">
-            <div>
-              <dt>Stability Score</dt>
-              <dd>长期稳定性</dd>
-            </div>
-            <div>
-              <dt>Failure Modes</dt>
-              <dd>失败模式</dd>
-            </div>
-            <div>
-              <dt>Survival Curve</dt>
-              <dd>生存曲线 / Comparison Ranking</dd>
-            </div>
-          </dl>
-          <section class="demo-result-panel" aria-labelledby="demo-result-title">
-            <div class="demo-panel-header">
-              <div>
-                <p class="demo-label">Live Demo</p>
-                <h2 id="demo-result-title">Decision Result</h2>
-              </div>
-              <span class="demo-status" id="demo-status" aria-live="polite">Ready</span>
-            </div>
-            <p class="demo-hint" id="demo-hint">
-              Start the local backend, then run a demo battle to receive a deployment recommendation.
-            </p>
-            <div class="demo-output" id="demo-output" hidden>
-              <div class="demo-winner">
-                <span class="winner-mark" id="demo-winner-mark">?</span>
-                <div>
-                  <strong id="demo-recommended-agent">Waiting</strong>
-                  <span id="demo-confidence">Confidence 0.00</span>
-                </div>
-              </div>
-              <div class="demo-grid">
-                <div>
-                  <h3>Ranking</h3>
-                  <ol class="demo-ranking" id="demo-ranking"></ol>
-                </div>
-                <div>
-                  <h3>Failure Summary</h3>
-                  <ul class="demo-failures" id="demo-failures"></ul>
-                </div>
-              </div>
-            </div>
-          </section>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+      <div class="hero-copy-block">
+        <p class="eyebrow"><span></span>硅基放大演化生态</p>
+        <h1>在把人工智能智能体放进真实业务前，<em>先看它长期会不会稳。</em></h1>
+        <p class="hero-copy">SAEE 通过长期演练、可靠性评估和证据边界，帮助智能体与团队识别漂移、失效和越界风险，并给出继续、修改或暂缓的可复核建议。</p>
+        <div class="hero-actions"><a class="button primary" href="for-ai-assistants.html">让智能体先判断 ↗</a><a class="button secondary" href="https://github.com/joy7758/SAEE">查看 GitHub</a></div>
+        <div class="trust-line"><span>中文优先发现</span><span>机器可读契约</span><span>保留历史 DOI</span></div>
+      </div>
+      <div class="hero-console" aria-label="SAEE 可靠性评估结果示意">
+        <div class="console-topline"><span class="console-label"><i></i>文件化评估结果</span><span class="console-window">长期 · 可复核</span></div>
+        <div class="console-grid">
+          <div class="console-score"><p>当前建议</p><strong>受控复测</strong><span>证据边界已保留</span></div>
+          <div class="chart"><div class="chart-grid"></div><i class="chart-line line-a"></i><i class="chart-line line-b"></i><i class="chart-line line-c"></i></div>
+          <div class="console-list"><div><span><i class="dot green"></i>长期稳定</span><strong>继续比较</strong></div><div><span><i class="dot amber"></i>边界不足</span><strong>补证后重测</strong></div><div><span><i class="dot red"></i>明显漂移</span><strong>暂缓进入业务</strong></div></div>
         </div>
-      </section>
+        <div class="console-footer">观察世界 <i></i> 模拟分支 <i></i> 比较适应度 <i></i> 不执行世界</div>
+      </div>
+    </section>
 
-      <section id="value" class="section">
-        <div class="section-heading">
-          <p class="section-kicker">为什么需要 SAEE</p>
-          <h2>上线前先看长期竞争，而不是只看一次效果。</h2>
-        </div>
-        <div class="value-grid">
-          <article class="value-card">
-            <span class="icon-chip blue" aria-hidden="true">↗</span>
-            <h3>看长期稳定性</h3>
-            <p>评估智能体在多轮运行、扰动和竞争后的收敛、震荡或崩溃趋势。</p>
-          </article>
-          <article class="value-card">
-            <span class="icon-chip violet" aria-hidden="true">≋</span>
-            <h3>比较多个智能体</h3>
-            <p>把 Agent 版本、Prompt 策略、Workflow 和 Policy 放到同一个评测环境里比较。</p>
-          </article>
-          <article class="value-card">
-            <span class="icon-chip green" aria-hidden="true">✓</span>
-            <h3>收敛成决策结论</h3>
-            <p>把长期表现压缩成稳定性评分、失败模式、生存曲线和可部署排名。</p>
-          </article>
-        </div>
-      </section>
+    <section class="signal-band" aria-label="SAEE 产品事实"><div><strong>1</strong><span>统一产品中心</span></div><div><strong>11</strong><span>模块与基础资产映射</span></div><div><strong>2</strong><span>中文与英文入口</span></div><div><strong>0</strong><span>自动外部执行</span></div></section>
 
-      <section id="workflow" class="section band">
-        <div class="section-heading compact">
-          <p class="section-kicker">核心流程</p>
-          <h2>从候选策略到部署建议，保持一个清晰闭环。</h2>
-        </div>
-        <ol class="workflow-list">
-          <li>
-            <span>1</span>
-            <strong>上传候选对象</strong>
-            <p>提交 Agent 版本、Prompt 策略、Workflow 结构或 Policy 配置。</p>
-          </li>
-          <li>
-            <span>2</span>
-            <strong>运行对战评测</strong>
-            <p>在选定场景、噪声水平和时间跨度下执行长期竞争评测。</p>
-          </li>
-          <li>
-            <span>3</span>
-            <strong>生成分析结果</strong>
-            <p>输出稳定性、失败模式、生存曲线、排名和风险摘要。</p>
-          </li>
-          <li>
-            <span>4</span>
-            <strong>形成部署建议</strong>
-            <p>帮助团队判断哪个智能体适合上线，哪个需要回退或重做。</p>
-          </li>
-        </ol>
-      </section>
+    <section id="method" class="section">
+      <p class="section-index">01 / 评估方法</p>
+      <div class="section-heading"><h2>不是再做一次单点评分，<br>而是看方案能否在变化中活下来。</h2><p>同一任务契约下施加长期扰动，观察执行、证据、边界和恢复表现，再把结果交给获授权主体决策。</p></div>
+      <div class="steps-grid"><article><span>01</span><h3>定义候选方案</h3><p>明确 Agent、Workflow 或 Policy 的比较边界。</p></article><article><span>02</span><h3>施加长期扰动</h3><p>模拟上下文变化、工具失败与资源压力。</p></article><article><span>03</span><h3>比较可靠性</h3><p>分析漂移、失效、证据缺口和恢复表现。</p></article><article><span>04</span><h3>输出有界建议</h3><p>给出继续、修改或暂缓，不自动批准部署。</p></article></div>
+    </section>
 
-      <section id="capabilities" class="section product-section">
-        <div class="product-copy">
-          <p class="section-kicker">产品能力</p>
-          <h2>把长期运行风险转成可以讨论的证据。</h2>
-          <p>
-            SAEE 的公开产品层只展示评测输入、运行状态和结果报告。私有评测内核、选择逻辑、变异逻辑和谱系内部结构不暴露在页面或 API 表面。
-          </p>
-          <ul class="check-list">
-            <li>多 Agent / 多策略同场比较</li>
-            <li>时间维度的 survival curve 和 drift trend</li>
-            <li>失败时间点、风险类型和部署建议</li>
-            <li>报告层 API 与本地 FastAPI MVP 后端保持一致</li>
-          </ul>
-        </div>
-        <div class="product-panel" aria-label="SAEE output preview">
-          <div class="panel-header">
-            <strong>Deployment Decision</strong>
-            <span>AI Recommendation</span>
-          </div>
-          <div class="winner-row">
-            <div class="winner-mark">A</div>
-            <div>
-              <strong>Agent A</strong>
-              <span>Recommended / High Confidence</span>
-            </div>
-            <b>0.82</b>
-          </div>
-          <div class="signal-stack">
-            <div><span class="dot green-dot"></span> Lowest stability drift</div>
-            <div><span class="dot green-dot"></span> Strong long-term survival probability</div>
-            <div><span class="dot green-dot"></span> Lower collapse risk under stress</div>
-          </div>
-        </div>
-      </section>
+    <section id="modules" class="section dark-section">
+      <p class="section-index light">02 / 产品模块</p>
+      <div class="section-heading light"><h2>一个产品入口，<br>保留每项研究资产的独立身份。</h2><p>SAEE 不把历史仓库粗暴合并为 monorepo，而是建立稳定的产品角色、机器索引和引用关系。</p></div>
+      <div class="module-grid"><article><b>核心</b><h3>Rehearsal Engine</h3><p>反事实模拟与沙盒发育。</p></article><article><b>核心</b><h3>Reliability Evaluation</h3><p>执行、证据、边界与运行可靠性。</p></article><article><b>免疫</b><h3>Evidence Subsystem</h3><p>证据充分性、档案与回滚支持。</p></article><article><b>接口</b><h3>Capability Runtime</h3><p>稳定调用契约与能力组合。</p></article><article><b>运输</b><h3>MCP / HTTP</h3><p>不增加权限或信任的适配层。</p></article><article><b>基础</b><h3>Architecture & Identity</h3><p>架构含义、人格与身份参考。</p></article></div>
+      <div class="section-links"><a href="product/SAEE_PRODUCT_ARCHITECTURE_V1.md">产品架构 ↗</a><a href="product/SAEE_MODULE_REGISTRY.md">模块注册表 ↗</a><a href="product/saee-product-ecosystem-map.v1.0.json">机器生态映射 ↗</a></div>
+    </section>
 
-      <section id="difference" class="section">
-        <div class="section-heading compact">
-          <p class="section-kicker">不是普通监控工具</p>
-          <h2>SAEE 关注上线前的长期竞争稳定性。</h2>
-        </div>
-        <div class="comparison-table" role="table" aria-label="SAEE comparison">
-          <div role="row" class="table-row table-head">
-            <span role="columnheader">工具类型</span>
-            <span role="columnheader">主要回答</span>
-            <span role="columnheader">SAEE 的差异</span>
-          </div>
-          <div role="row" class="table-row">
-            <span role="cell">Tracing / Debugging</span>
-            <span role="cell">这次调用发生了什么？</span>
-            <span role="cell">SAEE 关注多轮竞争后的稳定性和崩溃风险。</span>
-          </div>
-          <div role="row" class="table-row">
-            <span role="cell">Prompt Eval</span>
-            <span role="cell">哪个 Prompt 在测试集上更好？</span>
-            <span role="cell">SAEE 比较长期生存曲线和跨场景稳健性。</span>
-          </div>
-          <div role="row" class="table-row">
-            <span role="cell">Monitoring</span>
-            <span role="cell">上线后指标是否异常？</span>
-            <span role="cell">SAEE 让团队在上线前识别高风险策略。</span>
-          </div>
-        </div>
-      </section>
+    <section id="ecosystem" class="section">
+      <p class="section-index">03 / 智能体与云生态</p>
+      <div class="section-heading"><h2>先让智能体发现、理解、判断，<br>再谈生态接入。</h2><p>SAEE 为 MCP、百度智能云千帆、火山方舟与阿里云百炼准备有边界的能力描述；“准备接入”不等于官方集成。</p></div>
+      <div class="ecosystem-grid"><article><span>MCP</span><strong>能力发现与调用契约</strong><small>本地契约 / 非公共服务</small></article><article><span>百度千帆</span><strong>多模型演练候选入口</strong><small>准备接入 / 非官方集成</small></article><article><span>火山方舟</span><strong>多模型演练候选入口</strong><small>准备接入 / 非官方集成</small></article><article><span>阿里百炼</span><strong>能力生态候选入口</strong><small>准备接入 / 非官方集成</small></article></div>
+    </section>
 
-      <section id="scenarios" class="section band">
-        <div class="section-heading compact">
-          <p class="section-kicker">适用场景</p>
-          <h2>先服务正在把 Agent 推向真实流程的团队。</h2>
-        </div>
-        <div class="scenario-grid">
-          <article>
-            <h3>人工智能智能体评测</h3>
-            <p>比较多个 Agent 版本在长期任务、策略漂移和对抗变化中的稳定性。</p>
-          </article>
-          <article>
-            <h3>企业流程压力测试</h3>
-            <p>在上线前测试 RAG、Workflow 或自动化策略在复杂约束下是否失稳。</p>
-          </article>
-          <article>
-            <h3>决策策略比较</h3>
-            <p>把多个 Policy 放到同一评测场里，输出可讨论的风险和排名。</p>
-          </article>
-        </div>
-      </section>
+    <section id="boundary" class="section boundary-section">
+      <div class="boundary-card"><p class="section-index light">04 / 当前边界</p><h2>透明展示能力，<br>不把研究预览说成生产。</h2><div class="boundary-facts"><article><strong>否</strong><span>生产就绪</span></article><article><strong>否</strong><span>客户验证</span></article><article><strong>否</strong><span>官方云集成</span></article><article><strong>否</strong><span>私有内核公开</span></article></div></div>
+      <div class="boundary-grid"><article><p>适合现在使用</p><h3>智能体发现、研究引用、模块导航、toy abstraction 和可靠性方法理解。</h3></article><article class="not-fit"><p>暂不适合</p><h3>生产授权、安全认证、法律判断、真实客户数据或自动部署执行。</h3></article></div>
+    </section>
 
-      <section class="section boundary-section">
-        <div>
-          <p class="section-kicker">商业与安全边界</p>
-          <h2>公开页面只展示产品价值，不展示核心实现。</h2>
-        </div>
-        <ul class="boundary-list">
-          <li>不公开私有核心。</li>
-          <li>不公开选择、变异、谱系内部结构。</li>
-          <li>不执行未知外部仓库或安装脚本。</li>
-          <li>不声明已产品上线或已发布公开 SDK。</li>
-        </ul>
-      </section>
-
-      <section class="final-cta">
-        <h2>准备把智能体上线决策，从经验判断变成结构化证据？</h2>
-        <a class="button primary" href="mailto:joy7758@users.noreply.github.com?subject=SAEE%20Demo%20Request">
-          <span aria-hidden="true">▶</span>
-          申请演示
-        </a>
-      </section>
-    </main>
-  </body>
+    <section class="final-cta"><p>SAEE · Digital Biosphere Evolution Engine</p><h2>观察世界，模拟分支，<br>比较适应度，不执行世界。</h2><div><a class="button primary" href="for-ai-assistants.html">智能体使用指南</a><a class="button secondary" href="https://doi.org/10.5281/zenodo.21135471">查看 DOI</a></div></section>
+  </main>
+  <footer><strong>SAEE</strong><span>Silicon-Amplified Evolutionary Ecology</span><a href="https://github.com/joy7758/SAEE">GitHub</a><a href="../agent-index.json">机器索引</a></footer>
+</body>
 </html>
