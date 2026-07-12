@@ -5,13 +5,13 @@ execution evidence before real-world deployment.
 
 This Alpha candidate freezes a two-operation read-only capability surface,
 adds a deterministic Agent-readiness service, local MCP/CLI composition,
-controlled Qianfan-style simulations, three synthetic demos, and a complete
-local Cloud Entry Package.
+controlled Qianfan-style simulations, two sanitized real-provider synthetic
+scenario receipts, three synthetic demos, and a complete local Cloud Entry Package.
 
-Known limits: no official Baidu integration, real Qianfan product roundtrip,
-customer validation, public endpoint, deployment authority, production SLA,
+Known limits: no official Baidu integration, customer validation, public
+endpoint, deployment authority, production SLA,
 marketplace listing, or production-readiness claim. The score is evidence
 coverage, not a reliability or safety probability.
 
-These notes remain a local draft until license, commit scope, tag, push and
-GitHub Release are explicitly approved.
+These notes remain a local draft. The baseline is committed locally, while the
+public license, tag, push and GitHub Release are withheld or not authorized.

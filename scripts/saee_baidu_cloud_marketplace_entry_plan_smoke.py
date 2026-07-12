@@ -34,10 +34,11 @@ def main() -> None:
         "technical_whitepaper_local_validated",
         "three_minute_demo_video_local_validated",
         "release_candidate_prepared",
+        "qianfan_real_provider_product_roundtrip",
+        "external_action_authorized",
     ):
         require(boundary[key] is True, key)
     for key in (
-        "qianfan_real_provider_product_roundtrip",
         "public_release_created",
         "github_release_created",
         "baidu_partner_contacted",
@@ -47,17 +48,17 @@ def main() -> None:
         "public_price_points_approved",
         "customer_validated",
         "production_ready",
-        "external_action_authorized",
     ):
         require(boundary[key] is False, key)
     require("answer: conditional" in gate, "conditional recommendation")
     require("audit_first_reframe=false" in gate, "audit boundary")
-    require("overall_status=phases_0_to_3_local_complete_phase_4_human_gate" in matrix, "truth matrix status")
+    require("overall_status=phases_0_to_3_local_complete_real_qianfan_synthetic_roundtrip_phase_4_company_input_gate" in matrix, "truth matrix status")
     require("marketplace_submission=false" in matrix and "production_ready=false" in matrix, "matrix false boundaries")
     print(
         "SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_PLAN_SMOKE: PASS "
         "phases=5 local_phases_complete=4 public_operations_target=2 recommendation=conditional "
-        "external_action_authorized=false marketplace_submission=false production_ready=false"
+        "real_qianfan_synthetic_scenarios=2 external_action_authorized=true_scope_limited "
+        "marketplace_submission=false production_ready=false"
     )
 
 

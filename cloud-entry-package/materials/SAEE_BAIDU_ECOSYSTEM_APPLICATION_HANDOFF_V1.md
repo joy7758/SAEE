@@ -1,6 +1,6 @@
 # 百度智能云生态申请人工交接包 v1.0
 
-状态：`local_handoff_ready_external_action_not_authorized`。
+状态：`local_handoff_ready_submission_authorized_company_input_required`。
 
 ## 已准备材料
 
@@ -14,9 +14,9 @@
 ## 尚需人工完成
 
 - 填写并核验法定主体、百度账号、官网和联系人；
-- 选择公开许可证并审阅首个 commit 范围；
-- 审批真实 Qianfan 产品验证、公开价格和对外声明；
-- 分项授权 tag、push、GitHub Release、百度联系与申请提交。
+- 补全公司行业、主体名称、联系人、职位、手机并确认联系同意；
+- 公开价格仍需单独审批；
+- 许可证暂不公开，tag、push 和 GitHub Release 未授权。
 
 授权记录必须写入
 `agent-interface/ecosystem/saee-baidu-external-action-authorization-gate.v1.json`。
@@ -25,7 +25,8 @@
 ```text
 application_materials_local=true
 application_ready=false
-external_action_authorized=false
+external_action_authorized=true
+external_action_authorization_scope_limited=true
 baidu_partner_contacted=false
 marketplace_submission=false
 ```

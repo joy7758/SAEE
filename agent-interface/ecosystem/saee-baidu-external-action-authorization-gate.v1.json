@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "gate_id": "saee.baidu.external-action-authorization.v1",
-  "status": "local_git_baseline_authorized_external_actions_waiting",
+  "status": "scope_limited_authorization_recorded",
   "scope": [
     "choose_public_license",
     "push_public_repository",
@@ -16,32 +16,48 @@
     "objective_text": "main no commit must be fixed and SAEE-v0.1-alpha Release established",
     "allowlist": "release/SAEE-v0.1-alpha/public-source-allowlist.txt",
     "initial_commit_authorized": true,
-    "local_tag_authorized": true,
+    "local_tag_authorized": false,
     "files_staged": false,
-    "commit_created": false,
+    "commit_created": true,
+    "commit_sha": "c0cf49e17ef00038df8e33f7dd3d98956324260f",
+    "committed_file_count": 77,
     "tag_created": false
   },
   "authorization": {
-    "approved": false,
-    "approved_by": null,
-    "approved_at": null,
-    "approved_actions": [],
-    "evidence_ref": null
+    "approved": true,
+    "approved_by": "repository_owner_in_current_codex_task",
+    "approved_at": "2026-07-13",
+    "approved_actions": [
+      "run_real_qianfan_product_roundtrip",
+      "contact_baidu",
+      "submit_ecosystem_application",
+      "create_local_git_commit"
+    ],
+    "explicitly_not_authorized_actions": [
+      "publish_public_license",
+      "create_git_tag",
+      "push_public_repository",
+      "create_github_release",
+      "publish_public_price_points"
+    ],
+    "license_decision": "withhold_public_license_for_now",
+    "evidence_ref": "current Codex task user authorization dated 2026-07-13"
   },
   "preconditions": {
     "company_identity_verified": false,
     "public_license_selected": false,
     "initial_commit_scope_approved": true,
     "public_price_points_approved": false,
-    "real_qianfan_product_roundtrip_validated": false
+    "real_qianfan_product_roundtrip_validated": true
   },
   "truth_boundary": {
-    "git_commit_created": false,
+    "git_commit_created": true,
     "git_tag_created": false,
     "github_release_created": false,
     "baidu_partner_contacted": false,
     "marketplace_submission": false,
     "marketplace_listed": false,
-    "external_action_authorized": false
+    "external_action_authorized": true,
+    "authorization_is_scope_limited": true
   }
 }

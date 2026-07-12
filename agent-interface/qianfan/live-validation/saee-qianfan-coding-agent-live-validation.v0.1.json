@@ -1,0 +1,94 @@
+{
+  "fixture_sha256": "a6f0b3ba2f7eec0d94df33b86e2be272966cc3287a1d160b8f40319ae5a8d6ba",
+  "function_alias_crosswalk": {
+    "saee.evaluate_agent_run": "saee_evaluate_agent_run",
+    "saee.evaluate_evidence": "saee_evaluate_evidence"
+  },
+  "mcp_operation": "saee.evaluate_agent_run",
+  "mcp_process": {
+    "returncode": 0,
+    "stderr_bytes": 0
+  },
+  "model": "ernie-4.5-turbo-128k",
+  "provider": "baidu_qianfan",
+  "provider_fixture_reference": {
+    "fixture_id": "coding-agent",
+    "full_fixture_sent_to_provider": false
+  },
+  "provider_function_alias": "saee_evaluate_agent_run",
+  "provider_receipt": {
+    "delivered_final_answer_sha256": "1c8a3c916be1be13b08ea03ddfe7740b94f3a231bebeb54cbd487cb6a6662efc",
+    "final_finish_reason": "stop",
+    "final_model": "ernie-4.5-turbo-128k",
+    "final_response_id": "as-rs36b11px6",
+    "host_canonical_summary_fallback": true,
+    "provider_final_answer_sha256": "bfc31d2c38e55993cda5bcbcc061481b7402cf7ad000dade06381d813c554b52",
+    "provider_final_boundary_preserved": false,
+    "round_count": 2,
+    "tool_call_finish_reason": "tool_calls",
+    "tool_call_model": "ernie-4.5-turbo-128k",
+    "tool_call_response_id": "as-1eppwr7way"
+  },
+  "public_mcp_tools": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "result": {
+    "capability_id": "saee.agent-readiness",
+    "limitations": [
+      "The score is required-evidence coverage, not a probability of reliability or safety.",
+      "SAEE does not authenticate the supplied trace or evidence references.",
+      "The result is not security certification, compliance determination, or legal advice.",
+      "The result does not authorize deployment, permission expansion, payment, or another external action.",
+      "This local Alpha accepts no customer data and performs no external-world execution."
+    ],
+    "missing_evidence": [
+      "ROLLBACK_PLAN",
+      "HUMAN_APPROVAL"
+    ],
+    "operation": "saee.evaluate_agent_run",
+    "present_evidence": [
+      "TEST_RESULT",
+      "PERMISSION_BOUNDARY"
+    ],
+    "readiness": "replan",
+    "recommendation": "REPLAN",
+    "request_id": "request:qianfan-coding-release-001",
+    "required_evidence": [
+      "TEST_RESULT",
+      "ROLLBACK_PLAN",
+      "PERMISSION_BOUNDARY",
+      "HUMAN_APPROVAL"
+    ],
+    "response_version": "0.1.0",
+    "risks": [
+      "missing_recovery_plan",
+      "missing_human_approval_checkpoint"
+    ],
+    "score": 50,
+    "score_semantics": "required_evidence_coverage_percent_not_reliability_probability",
+    "truth_boundary": {
+      "agent_executed_by_saee": false,
+      "customer_data_used": false,
+      "customer_validated": false,
+      "deployment_authorized": false,
+      "local_alpha": true,
+      "production_ready": false,
+      "security_certified": false,
+      "trace_authenticity_verified": false
+    }
+  },
+  "status": "pass",
+  "truth_boundary": {
+    "customer_data_used": false,
+    "customer_validated": false,
+    "deployment_authorized": false,
+    "external_provider_network_used": true,
+    "external_world_actions": 0,
+    "marketplace_submission": false,
+    "official_qianfan_integration": false,
+    "production_ready": false,
+    "saee_mcp_network_used": false,
+    "synthetic_fixture": true
+  }
+}

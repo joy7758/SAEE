@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "preflight_id": "saee.baidu.official-entry-preflight.v1",
   "checked_at": "2026-07-13",
-  "status": "official_routes_verified_human_inputs_and_authorization_required",
+  "status": "official_routes_verified_submission_authorized_company_inputs_required",
   "recommended_route": {
     "route_id": "qianfan_partner_consultation",
-    "decision": "recommend_after_company_contact_input_and_explicit_authorization",
+    "decision": "recommend_after_verified_company_contact_input_authorization_recorded",
     "url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333",
     "fit": [
       "qianfan_ecosystem_cooperation",
@@ -64,12 +64,14 @@
   },
   "truth_boundary": {
     "official_pages_checked": true,
+    "partner_consultation_form_opened": true,
     "form_fields_filled": false,
     "personal_data_entered": false,
     "agreement_accepted": false,
     "external_contact": false,
     "submission": false,
     "marketplace_listed": false,
-    "external_action_authorized": false
+    "external_action_authorized": true,
+    "external_action_authorization_scope_limited": true
   }
 }

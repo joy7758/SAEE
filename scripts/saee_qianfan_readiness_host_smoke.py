@@ -31,8 +31,8 @@ def require(condition: bool, message: str) -> None:
 class FakeQianfan:
     model = "fake-qianfan-readiness-model"
 
-    def __init__(self, fixture: dict) -> None:
-        self.fixture = fixture
+    def __init__(self, fixture_id: str) -> None:
+        self.fixture_id = fixture_id
         self.calls = 0
         self.seen_tools: list[str] = []
 
@@ -43,7 +43,7 @@ class FakeQianfan:
             return {
                 "id": "fake-tool-response",
                 "choices": [{
-                    "message": {"role": "assistant", "content": "", "tool_calls": [{"id": "call-1", "type": "function", "function": {"name": "saee_evaluate_agent_run", "arguments": json.dumps(self.fixture, ensure_ascii=False)}}]},
+                    "message": {"role": "assistant", "content": "", "tool_calls": [{"id": "call-1", "type": "function", "function": {"name": "saee_evaluate_agent_run", "arguments": json.dumps({"fixture_id": self.fixture_id}, ensure_ascii=False)}}]},
                     "finish_reason": "tool_calls"
                 }]
             }
@@ -62,8 +62,8 @@ def main() -> None:
     results = []
     for scenario, path in FIXTURES.items():
         fixture = json.loads(path.read_text(encoding="utf-8"))
-        provider = FakeQianfan(fixture)
-        result = run_roundtrip(provider, fixture)
+        provider = FakeQianfan(scenario)
+        result = run_roundtrip(provider, fixture, scenario)
         require(result["status"] == "pass", scenario)
         require(provider.calls == 2, "provider rounds")
         require(provider.seen_tools == ["saee_evaluate_agent_run", "saee_evaluate_evidence"], "provider aliases")
@@ -78,12 +78,12 @@ def main() -> None:
 
     fixture = json.loads(FIXTURES["customer-service"].read_text(encoding="utf-8"))
     negatives = [
-        ("unknown", fake_response("describe_saee", fixture), "provider_tool_not_allowed"),
-        ("tampered", fake_response("saee_evaluate_agent_run", {**fixture, "task": "tampered"}), "provider_fixture_mismatch"),
+        ("unknown", fake_response("describe_saee", {"fixture_id": "customer-service"}), "provider_tool_not_allowed"),
+        ("tampered", fake_response("saee_evaluate_agent_run", {"fixture_id": "unapproved"}), "provider_fixture_mismatch"),
     ]
     for _, response, expected in negatives:
         try:
-            extract_call(response, fixture)
+            extract_call(response, fixture, "customer-service")
         except ReadinessHostError as exc:
             require(str(exc) == expected, expected)
         else:

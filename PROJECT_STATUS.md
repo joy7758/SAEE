@@ -4,7 +4,7 @@
 
 ## Baidu Cloud Marketplace Entry Plan v1.0
 
-Status: `phases_0_to_3_local_complete_phase_4_human_gate`.
+Status: `phases_0_to_3_local_complete_real_qianfan_synthetic_roundtrip_phase_4_company_input_gate`.
 
 The frozen external brand is `SAEE Agent Readiness Platform`; the first product
 shape is `SAEE Agent Readiness Assessment`. The Baidu-facing public capability
@@ -14,7 +14,10 @@ surface contains exactly `saee.evaluate_agent_run` and
 not product entry points.
 
 The two-tool local stdio MCP Adapter and three synthetic request examples are
-implemented and pass deterministic offline validation. The 30-minute Cloud
+implemented and pass deterministic offline validation. Two bounded synthetic
+business scenarios also completed real Qianfan function-calling roundtrips
+(four provider rounds total) with sanitized receipts and zero external-world
+actions. The 30-minute Cloud
 Entry Package, locally built product page, 10-page technical whitepaper, and
 180-second demo video are also locally validated. Official Baidu entry routes
 have been read-only verified; the Qianfan partner consultation is the first
@@ -29,7 +32,9 @@ external_brand=SAEE Agent Readiness Platform
 public_product_operation_count=2
 local_qianfan_readiness_mcp_adapter=true
 qianfan_product_adapter_offline_validated=true
-qianfan_real_provider_product_roundtrip=false
+qianfan_real_provider_product_roundtrip=true
+qianfan_live_synthetic_scenario_count=2
+qianfan_live_provider_round_count=4
 cloud_entry_package_validated=true
 product_page_local_build_validated=true
 technical_whitepaper_local_validated=true
@@ -44,7 +49,8 @@ marketplace_listed=false
 public_price_points_approved=false
 customer_validated=false
 production_ready=false
-external_action_authorized=false
+external_action_authorized=true
+external_action_authorization_scope_limited=true
 ```
 
 Validation: `python3 scripts/saee_cloud_entry_package_smoke.py`.

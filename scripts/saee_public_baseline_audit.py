@@ -70,10 +70,11 @@ def main() -> None:
         "truth_boundary": {
             "files_staged": bool(staged),
             "staged_file_count": len(staged),
-            "commit_created": False,
+            "commit_created": git_head_exists(),
             "tag_created": False,
             "github_release_created": False,
-            "external_action_authorized": False
+            "external_action_authorized": True,
+            "external_action_authorization_scope_limited": True
         }
     }
     REPORT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -24,11 +24,13 @@ agent-interface/qianfan/saee-evaluate-evidence-response.schema.v0.1.json
 agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json
 saee_backend/services/baidu_agent_readiness_service.py
 saee_backend/services/qianfan_readiness_mcp_adapter.py
+saee_backend/services/qianfan_client.py
 scripts/saee_baidu_readiness.py
 scripts/saee_qianfan_readiness_mcp_stdio.py
 scripts/saee_qianfan_readiness_mcp_smoke.py
 scripts/saee_qianfan_readiness_host.py
 scripts/saee_qianfan_readiness_host_smoke.py
+scripts/saee_qianfan_readiness_live_receipt_smoke.py
 scripts/saee_baidu_cloud_marketplace_entry_plan_smoke.py
 scripts/saee_cloud_entry_package_smoke.py
 scripts/saee_baidu_whitepaper_pdf.py
@@ -40,6 +42,8 @@ scripts/saee_baidu_goal_completion_audit.py
 examples/baidu-qianfan/customer-service-refund/request.json
 examples/baidu-qianfan/coding-agent-release/request.json
 examples/baidu-qianfan/evaluate-evidence/request.json
+agent-interface/qianfan/live-validation/saee-qianfan-customer-service-live-validation.v0.1.json
+agent-interface/qianfan/live-validation/saee-qianfan-coding-agent-live-validation.v0.1.json
 cloud-entry-package/README.md
 cloud-entry-package/快速开始.md
 cloud-entry-package/openapi.yaml

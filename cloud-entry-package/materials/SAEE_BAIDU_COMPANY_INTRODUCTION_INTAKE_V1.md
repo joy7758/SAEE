@@ -1,6 +1,6 @@
 # 百度生态申请主体信息补全卡 v1.0
 
-状态：`human_input_required_not_application_ready`。
+状态：`submission_authorized_human_company_input_required_not_application_ready`。
 
 以下信息不能从仓库推断，必须由负责人填写并核验来源：
 
@@ -20,6 +20,6 @@
 ```text
 company_identity_verified=false
 application_ready=false
-external_contact_authorized=false
+external_contact_authorized=true
 marketplace_submission=false
 ```

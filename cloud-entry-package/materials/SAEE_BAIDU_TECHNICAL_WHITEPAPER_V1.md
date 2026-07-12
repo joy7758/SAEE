@@ -77,9 +77,11 @@ Human Authorization 是独立虚线门：任何部署、退款、支付、权限
 - `saee_evaluate_agent_run` → `saee.evaluate_agent_run`
 - `saee_evaluate_evidence` → `saee.evaluate_evidence`
 
-宿主只接受 checked-in 合成 fixture；模型不能提供路径、URL、命令、代码、密钥或客户记录。Provider key 只从进程环境读取，并从 MCP 子进程环境移除。
+宿主只向模型暴露 checked-in 合成 fixture ID，完整 fixture 由宿主本地解析后交给 MCP；模型不能提供路径、URL、命令、代码、密钥或客户记录。Provider key 只从进程环境读取，并从 MCP 子进程环境移除。
 
-当前已完成本地 fake-provider function-calling roundtrip；真实产品 roundtrip 仍为 `false`，因为安全凭据文件尚未配置 Qianfan key。
+当前除本地 fake-provider function-calling roundtrip 外，已在两个合成业务场景中完成真实 Qianfan 产品 roundtrip：客服退款场景得分 75、编码发布场景得分 50，共 4 个 provider rounds。凭据未写入仓库或 receipt，外部世界动作保持 0；这不等于官方千帆集成、客户验证或生产就绪。
+
+真实 provider 验证时，模型自然语言摘要仅是候选输出。若它没有完整保留 `deployment_authorized=false` 与 `production_ready=false`，宿主会丢弃该摘要，并从 MCP structured result 生成确定性有界报告；receipt 会记录 fallback，而不会把模型文本升级为授权结论。
 
 <!-- PAGE_BREAK -->
 

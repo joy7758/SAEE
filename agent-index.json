@@ -1,7 +1,7 @@
 {
   "baidu_cloud_marketplace_entry_v1_0": {
     "name": "SAEE Baidu Cloud Marketplace Entry Plan v1.0",
-    "status": "phases_0_to_3_local_complete_phase_4_human_gate",
+    "status": "phases_0_to_3_local_complete_real_qianfan_synthetic_roundtrip_phase_4_company_input_gate",
     "external_brand": "SAEE Agent Readiness Platform",
     "external_brand_zh": "SAEE 智能体上线准备平台",
     "first_product": "SAEE Agent Readiness Assessment",
@@ -29,13 +29,16 @@
       "acceptance": "python3 scripts/saee_baidu_entry_acceptance.py",
       "official_entry_preflight": "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json",
       "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
+      "qianfan_live_receipt_validator": "python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py",
       "smoke": "python3 scripts/saee_cloud_entry_package_smoke.py"
     },
     "truth_boundary": {
       "local_alpha": true,
       "public_product_operation_count": 2,
       "qianfan_product_adapter_offline_validated": true,
-      "qianfan_real_provider_product_roundtrip": false,
+      "qianfan_real_provider_product_roundtrip": true,
+      "qianfan_live_synthetic_scenario_count": 2,
+      "qianfan_live_provider_round_count": 4,
       "cloud_entry_package_validated": true,
       "product_page_local_build_validated": true,
       "technical_whitepaper_local_validated": true,
@@ -50,7 +53,8 @@
       "public_price_points_approved": false,
       "customer_validated": false,
       "production_ready": false,
-      "external_action_authorized": false
+      "external_action_authorized": true,
+      "external_action_authorization_scope_limited": true
     }
   },
   "academic_paper_draft_v0_1": {

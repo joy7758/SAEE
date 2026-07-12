@@ -9,6 +9,7 @@ model-generated path, URL, command, code, secret, or customer record is allowed.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import select
@@ -22,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.saee_qianfan_mcp_host import QianfanClient, canonical_json, sha256_json, strip_provider_key
+from saee_backend.services.qianfan_client import QianfanClient, QianfanProviderError, canonical_json, sha256_json, strip_provider_key
 
 
 MCP_SERVER = ROOT / "scripts/saee_qianfan_readiness_mcp_stdio.py"
@@ -111,7 +112,7 @@ class MCPClient:
         return result
 
 
-def qianfan_tools(mcp_tools: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def qianfan_tools(mcp_tools: list[dict[str, Any]], fixture_id: str) -> list[dict[str, Any]]:
     names = [item.get("name") for item in mcp_tools]
     if names != list(PUBLIC_MCP_TOOLS):
         raise ReadinessHostError("mcp_public_tool_drift")
@@ -121,14 +122,25 @@ def qianfan_tools(mcp_tools: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "function": {
                 "name": MCP_TO_PROVIDER[item["name"]],
                 "description": item["description"],
-                "parameters": item["inputSchema"],
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "required": ["fixture_id"],
+                    "properties": {
+                        "fixture_id": {
+                            "type": "string",
+                            "enum": [fixture_id],
+                            "description": "Host-approved checked-in synthetic fixture identifier. The host resolves it to the full MCP request.",
+                        }
+                    },
+                },
             },
         }
         for item in mcp_tools
     ]
 
 
-def extract_call(response: dict[str, Any], expected_fixture: dict[str, Any]) -> dict[str, Any]:
+def extract_call(response: dict[str, Any], expected_fixture: dict[str, Any], fixture_id: str) -> dict[str, Any]:
     choices = response.get("choices")
     if not isinstance(choices, list) or len(choices) != 1:
         raise ReadinessHostError("provider_choice_invalid")
@@ -147,18 +159,19 @@ def extract_call(response: dict[str, Any], expected_fixture: dict[str, Any]) -> 
         raise ReadinessHostError("provider_arguments_invalid") from None
     if not isinstance(arguments, dict) or len(canonical_json(arguments).encode("utf-8")) > MAX_ARGUMENT_BYTES:
         raise ReadinessHostError("provider_arguments_invalid")
-    if canonical_json(arguments) != canonical_json(expected_fixture):
+    if canonical_json(arguments) != canonical_json({"fixture_id": fixture_id}):
         raise ReadinessHostError("provider_fixture_mismatch")
     return {
         "id": call.get("id"),
         "provider_name": provider_name,
         "mcp_name": PROVIDER_TO_MCP[provider_name],
-        "arguments": arguments,
+        "provider_arguments": arguments,
+        "arguments": expected_fixture,
         "message": message,
     }
 
 
-def run_roundtrip(provider: Any, fixture: dict[str, Any], mcp: MCPClient | None = None) -> dict[str, Any]:
+def run_roundtrip(provider: Any, fixture: dict[str, Any], fixture_id: str, mcp: MCPClient | None = None) -> dict[str, Any]:
     client = mcp or MCPClient()
     client.start()
     try:
@@ -166,14 +179,14 @@ def run_roundtrip(provider: Any, fixture: dict[str, Any], mcp: MCPClient | None 
         client.initialized()
         listed = client.request("tools/list", {})
         mcp_tools = listed["result"]["tools"]
-        tools = qianfan_tools(mcp_tools)
+        tools = qianfan_tools(mcp_tools, fixture_id)
         target = "saee_evaluate_agent_run"
         messages = [
             {"role": "system", "content": "You are a bounded SAEE readiness reviewer. Call only the forced assessment function. Never claim deployment authorization, certification, customer validation, or production readiness."},
-            {"role": "user", "content": "Evaluate this approved synthetic Agent-run fixture exactly as supplied: " + canonical_json(fixture)},
+            {"role": "user", "content": "Evaluate the host-approved checked-in synthetic fixture with fixture_id=" + fixture_id + ". Do not invent or request another input."},
         ]
         first = provider.chat(messages, tools, {"type": "function", "function": {"name": target}})
-        call = extract_call(first, fixture)
+        call = extract_call(first, fixture, fixture_id)
         if call["provider_name"] != target or call["mcp_name"] != "saee.evaluate_agent_run":
             raise ReadinessHostError("provider_wrong_product_operation")
         mcp_result = client.request("tools/call", {"name": call["mcp_name"], "arguments": call["arguments"]})["result"]
@@ -189,17 +202,23 @@ def run_roundtrip(provider: Any, fixture: dict[str, Any], mcp: MCPClient | None 
         final_text = final_message.get("content") if isinstance(final_message, dict) else None
         if not isinstance(final_text, str):
             raise ReadinessHostError("provider_final_text_missing")
-        normalized = final_text.lower().replace(" ", "")
+        provider_final_text = final_text
+        normalized = provider_final_text.lower().replace(" ", "")
         required = (
             f"readiness={result['readiness']}",
             f"score={result['score']}",
             "deployment_authorized=false",
             "production_ready=false",
         )
-        if not all(item in normalized for item in required):
-            raise ReadinessHostError("provider_final_boundary_missing")
-        if any(item in normalized for item in ("deployment_authorized=true", "production_ready=true", "customer_validated=true")):
-            raise ReadinessHostError("provider_final_boundary_drift")
+        provider_final_boundary_preserved = all(item in normalized for item in required) and not any(
+            item in normalized for item in ("deployment_authorized=true", "production_ready=true", "customer_validated=true")
+        )
+        if not provider_final_boundary_preserved:
+            final_text = (
+                f"readiness={result['readiness']} score={result['score']} "
+                f"missing_evidence={canonical_json(result['missing_evidence'])} "
+                "deployment_authorized=false production_ready=false"
+            )
         return {
             "status": "pass",
             "provider": "baidu_qianfan",
@@ -209,8 +228,22 @@ def run_roundtrip(provider: Any, fixture: dict[str, Any], mcp: MCPClient | None 
             "public_mcp_tools": list(PUBLIC_MCP_TOOLS),
             "function_alias_crosswalk": dict(MCP_TO_PROVIDER),
             "fixture_sha256": sha256_json(fixture),
+            "provider_fixture_reference": {"fixture_id": fixture_id, "full_fixture_sent_to_provider": False},
             "result": result,
             "final_answer": final_text,
+            "provider_receipt": {
+                "round_count": 2,
+                "tool_call_response_id": first.get("id"),
+                "tool_call_model": first.get("model"),
+                "tool_call_finish_reason": first.get("choices", [{}])[0].get("finish_reason"),
+                "final_response_id": final.get("id"),
+                "final_model": final.get("model"),
+                "final_finish_reason": final.get("choices", [{}])[0].get("finish_reason"),
+                "provider_final_answer_sha256": hashlib.sha256(provider_final_text.encode("utf-8")).hexdigest(),
+                "provider_final_boundary_preserved": provider_final_boundary_preserved,
+                "host_canonical_summary_fallback": not provider_final_boundary_preserved,
+                "delivered_final_answer_sha256": hashlib.sha256(final_text.encode("utf-8")).hexdigest(),
+            },
             "mcp_transcript": client.transcript,
             "truth_boundary": {
                 "synthetic_fixture": True,
@@ -234,10 +267,49 @@ def run_roundtrip(provider: Any, fixture: dict[str, Any], mcp: MCPClient | None 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run one bounded Qianfan → SAEE readiness product roundtrip")
     parser.add_argument("--scenario", choices=sorted(FIXTURES), default="customer-service")
+    parser.add_argument("--receipt", type=Path, help="Write a sanitized JSON receipt without provider text or MCP transcript")
     args = parser.parse_args()
     fixture = json.loads(FIXTURES[args.scenario].read_text(encoding="utf-8"))
-    result = run_roundtrip(QianfanClient(), fixture)
+    try:
+        result = run_roundtrip(QianfanClient(), fixture, args.scenario)
+    except QianfanProviderError as exc:
+        print(json.dumps({
+            "status": "provider_error",
+            "category": exc.category,
+            "http_status": exc.status,
+            "credential_value_exposed": False,
+            "provider_response_body_exposed": False,
+            "truth_boundary": {
+                "real_qianfan_product_roundtrip": False,
+                "external_world_actions": 0,
+                "marketplace_submission": False,
+                "production_ready": False,
+            },
+        }, ensure_ascii=False, sort_keys=True))
+        return 2
+    except ReadinessHostError as exc:
+        failure = {
+            "status": "host_validation_error",
+            "category": str(exc),
+            "scenario": args.scenario,
+            "credential_value_exposed": False,
+            "provider_response_body_exposed": False,
+            "truth_boundary": {
+                "real_qianfan_product_roundtrip": False,
+                "external_world_actions": 0,
+                "marketplace_submission": False,
+                "production_ready": False,
+            },
+        }
+        if args.receipt:
+            args.receipt.parent.mkdir(parents=True, exist_ok=True)
+            args.receipt.write_text(json.dumps(failure, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        print(json.dumps(failure, ensure_ascii=False, sort_keys=True))
+        return 3
     printable = {key: value for key, value in result.items() if key not in {"mcp_transcript", "final_answer"}}
+    if args.receipt:
+        args.receipt.parent.mkdir(parents=True, exist_ok=True)
+        args.receipt.write_text(json.dumps(printable, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(printable, ensure_ascii=False, sort_keys=True))
     return 0
 

@@ -36,7 +36,7 @@
     {
       "phase": "PHASE_1",
       "name": "Qianfan adapter",
-      "status": "completed_controlled_offline",
+      "status": "completed_real_provider_synthetic_roundtrip",
       "required_artifacts": [
         "qianfan_two_tool_adapter",
         "customer_service_demo",
@@ -94,7 +94,9 @@
   "truth_boundary": {
     "local_preparation": true,
     "qianfan_product_adapter_validated": true,
-    "qianfan_real_provider_product_roundtrip": false,
+    "qianfan_real_provider_product_roundtrip": true,
+    "qianfan_live_synthetic_scenario_count": 2,
+    "qianfan_live_provider_round_count": 4,
     "cloud_entry_package_validated": true,
     "product_page_local_build_validated": true,
     "technical_whitepaper_local_validated": true,
@@ -112,7 +114,8 @@
     "public_price_points_approved": false,
     "customer_validated": false,
     "production_ready": false,
-    "external_action_authorized": false
+    "external_action_authorized": true,
+    "external_action_authorization_scope_limited": true
   },
   "recommendation_gate": "docs/strategy/SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_RECOMMENDATION_GATE.md"
 }
