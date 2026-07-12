@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: SAEE Agent Readiness Platform API
+  version: 0.1.0-alpha
+  description: >-
+    Two-operation read-only contract projection for Baidu Qianfan technical
+    review. No public endpoint is deployed by this package. Scores are required
+    evidence coverage percentages, not reliability or safety probabilities.
+x-saee-package-stage: local_review_alpha
+x-saee-public-endpoint-available: false
+x-saee-official-qianfan-integration: false
+x-saee-marketplace-listed: false
+x-saee-production-ready: false
+paths:
+  /v1/evaluate-agent-run:
+    post:
+      operationId: saee.evaluate_agent_run
+      summary: Evaluate declared Agent run evidence coverage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json
+      responses:
+        '200':
+          description: Bounded readiness assessment; not deployment authorization.
+          content:
+            application/json:
+              schema:
+                $ref: ../agent-interface/qianfan/saee-evaluate-agent-run-response.schema.v0.1.json
+  /v1/evaluate-evidence:
+    post:
+      operationId: saee.evaluate_evidence
+      summary: Evaluate explicit readiness evidence coverage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../agent-interface/qianfan/saee-evaluate-evidence-request.schema.v0.1.json
+      responses:
+        '200':
+          description: Evidence coverage result; not certification or approval.
+          content:
+            application/json:
+              schema:
+                $ref: ../agent-interface/qianfan/saee-evaluate-evidence-response.schema.v0.1.json

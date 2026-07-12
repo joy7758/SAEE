@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "plan_id": "saee.baidu-cloud-marketplace-entry",
+  "plan_version": "1.0.0",
+  "status": "phases_0_to_3_local_complete_phase_4_human_gate",
+  "external_brand": {
+    "name": "SAEE Agent Readiness Platform",
+    "name_zh": "SAEE 智能体上线准备平台",
+    "market_category": "agent_reliability_assessment_service",
+    "first_product": "SAEE Agent Readiness Assessment"
+  },
+  "engineering_identity": {
+    "canonical_core": "Digital Biosphere Evolution Engine",
+    "audit_first_reframe": false,
+    "generic_agent_framework_reframe": false
+  },
+  "public_operations_target": [
+    "evaluate_agent_run",
+    "evaluate_evidence"
+  ],
+  "internal_debug_operations": [
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "phases": [
+    {
+      "phase": "PHASE_0",
+      "name": "Alpha freeze",
+      "status": "completed_local",
+      "required_artifacts": [
+        "canonical_product_identity",
+        "two_operation_public_contract",
+        "agent_readable_truth_sync"
+      ]
+    },
+    {
+      "phase": "PHASE_1",
+      "name": "Qianfan adapter",
+      "status": "completed_controlled_offline",
+      "required_artifacts": [
+        "qianfan_two_tool_adapter",
+        "customer_service_demo",
+        "coding_agent_demo",
+        "controlled_interoperability_smoke"
+      ]
+    },
+    {
+      "phase": "PHASE_2",
+      "name": "Cloud Entry Package",
+      "status": "completed_local_validated",
+      "required_artifacts": [
+        "quick_start",
+        "openapi",
+        "mcp_manifest",
+        "capability_card",
+        "demos",
+        "screenshots",
+        "architecture_visual",
+        "faq",
+        "thirty_minute_validator"
+      ]
+    },
+    {
+      "phase": "PHASE_3",
+      "name": "Baidu ecosystem materials",
+      "status": "completed_local_materials",
+      "required_artifacts": [
+        "product_page",
+        "technical_whitepaper",
+        "three_minute_demo_video_package"
+      ]
+    },
+    {
+      "phase": "PHASE_4",
+      "name": "Baidu ecosystem cooperation",
+      "status": "human_authorization_required",
+      "required_artifacts": [
+        "company_introduction",
+        "product_introduction",
+        "technical_whitepaper",
+        "demo_reference",
+        "git_release_reference",
+        "commercial_model"
+      ]
+    }
+  ],
+  "current_blockers": [
+    "qianfan_real_provider_product_roundtrip_missing",
+    "public_release_baseline_and_license_missing",
+    "company_identity_and_public_price_approval_missing",
+    "direct_marketplace_qualification_and_software_copyright_evidence_missing",
+    "external_authorization_missing"
+  ],
+  "truth_boundary": {
+    "local_preparation": true,
+    "qianfan_product_adapter_validated": true,
+    "qianfan_real_provider_product_roundtrip": false,
+    "cloud_entry_package_validated": true,
+    "product_page_local_build_validated": true,
+    "technical_whitepaper_local_validated": true,
+    "three_minute_demo_video_local_validated": true,
+    "release_candidate_prepared": true,
+    "official_entry_routes_verified": true,
+    "qianfan_partner_consultation_preflight_ready": true,
+    "partner_product_solution_docx_ready": true,
+    "public_release_created": false,
+    "github_release_created": false,
+    "baidu_partner_contacted": false,
+    "baidu_ecosystem_application_submitted": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "public_price_points_approved": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "external_action_authorized": false
+  },
+  "recommendation_gate": "docs/strategy/SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_RECOMMENDATION_GATE.md"
+}

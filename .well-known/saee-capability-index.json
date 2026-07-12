@@ -1,0 +1,21 @@
+{
+  "discovery_version": "0.1.0",
+  "service": "SAEE Agent Readiness Platform",
+  "publication_status": "repository_public_surface_prepared_not_deployed",
+  "capabilities": [
+    {"id": "saee.agent-readiness", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"}
+  ],
+  "capability_reference": "agent-interface/public/saee-public-capability-surface.v0.1.json",
+  "product_identity_reference": "agent-interface/product/saee-agent-readiness-platform.v0.1.json",
+  "public_operations": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+  "limitations_reference": "docs/public/SAEE_AGENT_NATIVE_CAPABILITY_SURFACE.md#7-limitations",
+  "quick_understanding_reference": "docs/public/SAEE_AGENT_QUICK_UNDERSTANDING.md",
+  "discovery_validation_reference": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json",
+  "alpha_release_reference": "agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+  "ecosystem_validation_preparation_reference": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json",
+  "ecosystem_demo_reference": "examples/ecosystem-demo-v1/README.md",
+  "publicly_deployed": false,
+  "public_api": false,
+  "public_service": false,
+  "production_ready": false
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "gate_id": "saee.baidu.external-action-authorization.v1",
+  "status": "local_git_baseline_authorized_external_actions_waiting",
+  "scope": [
+    "choose_public_license",
+    "push_public_repository",
+    "create_github_release",
+    "run_real_qianfan_product_roundtrip",
+    "approve_public_price_points",
+    "contact_baidu",
+    "submit_ecosystem_application"
+  ],
+  "local_git_actions": {
+    "authorization_source": "/Users/zhangbin/.codex/attachments/27435c0e-d446-4678-899b-afa6b469886a/goal-objective.md",
+    "objective_text": "main no commit must be fixed and SAEE-v0.1-alpha Release established",
+    "allowlist": "release/SAEE-v0.1-alpha/public-source-allowlist.txt",
+    "initial_commit_authorized": true,
+    "local_tag_authorized": true,
+    "files_staged": false,
+    "commit_created": false,
+    "tag_created": false
+  },
+  "authorization": {
+    "approved": false,
+    "approved_by": null,
+    "approved_at": null,
+    "approved_actions": [],
+    "evidence_ref": null
+  },
+  "preconditions": {
+    "company_identity_verified": false,
+    "public_license_selected": false,
+    "initial_commit_scope_approved": true,
+    "public_price_points_approved": false,
+    "real_qianfan_product_roundtrip_validated": false
+  },
+  "truth_boundary": {
+    "git_commit_created": false,
+    "git_tag_created": false,
+    "github_release_created": false,
+    "baidu_partner_contacted": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "external_action_authorized": false
+  }
+}

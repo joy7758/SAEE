@@ -1,0 +1,47 @@
+{
+  "card_version": "0.1.0",
+  "capability_id": "saee.agent-readiness",
+  "product": "SAEE Agent Readiness Platform",
+  "product_zh": "SAEE 智能体上线准备平台",
+  "first_product": "SAEE Agent Readiness Assessment",
+  "stage": "local_review_alpha",
+  "description": "Evaluate declared Agent trace metadata and required execution-evidence coverage before a separately authorized deployment decision.",
+  "use_when": [
+    "An Agent is preparing a high-impact or externally consequential action.",
+    "A workflow needs missing test, rollback, permission, or human-approval evidence.",
+    "A Qianfan or MCP reviewer needs a read-only structured readiness result."
+  ],
+  "do_not_use_when": [
+    "The caller needs deployment authorization, runtime blocking, or permission enforcement.",
+    "The caller requests security, compliance, legal, or production certification.",
+    "The input contains customer, personal, secret, or unapproved production data.",
+    "The task is a simple low-risk lookup, rewrite, or calculation."
+  ],
+  "public_operations": [
+    {
+      "name": "saee.evaluate_agent_run",
+      "status": "implemented_local_offline_alpha",
+      "request_schema": "../agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json",
+      "response_schema": "../agent-interface/qianfan/saee-evaluate-agent-run-response.schema.v0.1.json"
+    },
+    {
+      "name": "saee.evaluate_evidence",
+      "status": "implemented_local_offline_alpha",
+      "request_schema": "../agent-interface/qianfan/saee-evaluate-evidence-request.schema.v0.1.json",
+      "response_schema": "../agent-interface/qianfan/saee-evaluate-evidence-response.schema.v0.1.json"
+    }
+  ],
+  "score_semantics": "required_evidence_coverage_percent_not_reliability_probability",
+  "composition": ["QIANFAN_AGENT", "SAEE_READINESS_ASSESSMENT", "BOUNDED_REPORT", "SEPARATELY_AUTHORIZED_DECISION"],
+  "truth_boundary": {
+    "read_only": true,
+    "tool_count": 2,
+    "agent_execution": false,
+    "deployment_authorization": false,
+    "remote_mcp": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

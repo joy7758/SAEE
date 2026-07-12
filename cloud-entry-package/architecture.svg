@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SAEE Baidu Cloud target composition architecture</title>
+  <desc id="desc">Sanitized evidence may be referenced from BOS, passes through Qianfan and an Agent application to the two-tool SAEE connector, evaluation engine, evidence analysis, and bounded report. The local Alpha does not access BOS or provide deployment authority.</desc>
+  <rect width="1600" height="900" fill="#f7f9fc"/>
+  <text x="70" y="84" font-family="Arial, PingFang SC, sans-serif" font-size="42" font-weight="700" fill="#172033">SAEE × 百度智能云：智能体上线准备评估</text>
+  <text x="70" y="128" font-family="Arial, PingFang SC, sans-serif" font-size="22" fill="#536078">Target composition · local review implementation · read-only · no deployment authority</text>
+  <g font-family="Arial, PingFang SC, sans-serif">
+    <g transform="translate(45 260)">
+      <rect width="180" height="150" rx="20" fill="#fff7e6" stroke="#b7791f" stroke-width="3" stroke-dasharray="10 7"/>
+      <text x="90" y="50" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">BOS</text>
+      <text x="90" y="84" text-anchor="middle" font-size="17" fill="#536078">对象存储</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#b7791f">sanitized ref</text>
+    </g>
+    <g transform="translate(265 260)">
+      <rect width="180" height="150" rx="20" fill="#ffffff" stroke="#2f6feb" stroke-width="3"/>
+      <text x="90" y="50" text-anchor="middle" font-size="23" font-weight="700" fill="#172033">百度千帆</text>
+      <text x="90" y="84" text-anchor="middle" font-size="17" fill="#536078">Qianfan</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#6f7b91">model / workflow</text>
+    </g>
+    <g transform="translate(485 260)">
+      <rect width="180" height="150" rx="20" fill="#ffffff" stroke="#2f6feb" stroke-width="3"/>
+      <text x="90" y="50" text-anchor="middle" font-size="22" font-weight="700" fill="#172033">Agent 应用</text>
+      <text x="90" y="84" text-anchor="middle" font-size="17" fill="#536078">Agent App</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#6f7b91">trace + evidence</text>
+    </g>
+    <g transform="translate(705 260)">
+      <rect width="180" height="150" rx="20" fill="#eef4ff" stroke="#2f6feb" stroke-width="4"/>
+      <text x="90" y="50" text-anchor="middle" font-size="21" font-weight="700" fill="#172033">SAEE Connector</text>
+      <text x="90" y="84" text-anchor="middle" font-size="16" fill="#2f6feb">2 MCP tools</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#536078">run · evidence</text>
+    </g>
+    <g transform="translate(925 260)">
+      <rect width="180" height="150" rx="20" fill="#ffffff" stroke="#6b7280" stroke-width="3"/>
+      <text x="90" y="50" text-anchor="middle" font-size="20" font-weight="700" fill="#172033">Evaluation</text>
+      <text x="90" y="80" text-anchor="middle" font-size="20" font-weight="700" fill="#172033">Engine</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#6f7b91">no Agent execution</text>
+    </g>
+    <g transform="translate(1145 260)">
+      <rect width="180" height="150" rx="20" fill="#ffffff" stroke="#6b7280" stroke-width="3"/>
+      <text x="90" y="50" text-anchor="middle" font-size="20" font-weight="700" fill="#172033">Evidence</text>
+      <text x="90" y="80" text-anchor="middle" font-size="20" font-weight="700" fill="#172033">Analysis</text>
+      <text x="90" y="116" text-anchor="middle" font-size="14" fill="#6f7b91">coverage + gaps</text>
+    </g>
+    <g transform="translate(1365 260)">
+      <rect width="190" height="150" rx="20" fill="#eef9f4" stroke="#278a5b" stroke-width="4"/>
+      <text x="95" y="48" text-anchor="middle" font-size="19" font-weight="700" fill="#172033">Readiness</text>
+      <text x="95" y="77" text-anchor="middle" font-size="19" font-weight="700" fill="#172033">Report</text>
+      <text x="95" y="112" text-anchor="middle" font-size="14" fill="#278a5b">bounded advice</text>
+    </g>
+    <g stroke="#2f6feb" stroke-width="4" fill="none" marker-end="url(#arrow)">
+      <path d="M225 335 H255"/>
+      <path d="M445 335 H475"/>
+      <path d="M665 335 H695"/>
+      <path d="M885 335 H915"/>
+      <path d="M1105 335 H1135"/>
+      <path d="M1325 335 H1355"/>
+    </g>
+    <g transform="translate(1145 560)">
+      <rect width="410" height="150" rx="22" fill="#fff7e6" stroke="#b7791f" stroke-width="4" stroke-dasharray="12 8"/>
+      <text x="205" y="50" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">Human Authorization</text>
+      <text x="205" y="88" text-anchor="middle" font-size="18" fill="#b7791f">separate consequential-action gate</text>
+      <text x="205" y="121" text-anchor="middle" font-size="16" fill="#536078">deployment stays outside SAEE</text>
+    </g>
+    <path d="M1460 410 V548" stroke="#b7791f" stroke-width="5" stroke-dasharray="12 8" fill="none" marker-end="url(#arrowGold)"/>
+    <g transform="translate(70 535)">
+      <rect width="880" height="175" rx="22" fill="#ffffff" stroke="#d8deea" stroke-width="2"/>
+      <text x="30" y="44" font-size="19" font-weight="700" fill="#172033">当前实现边界</text>
+      <text x="30" y="80" font-size="17" fill="#536078">BOS target composition only · BOS access implemented=false</text>
+      <text x="30" y="112" font-size="17" fill="#536078">Qianfan-style offline host validated=true · real product roundtrip=false</text>
+      <text x="30" y="144" font-size="17" fill="#536078">customer data=false · external execution=0 · official integration=false</text>
+    </g>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2f6feb"/></marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#b7791f"/></marker>
+  </defs>
+  <text x="70" y="820" font-family="Arial, PingFang SC, sans-serif" font-size="18" fill="#536078">Digital Biosphere Evolution Engine remains the engineering core · marketplace_submission=false · production_ready=false</text>
+</svg>

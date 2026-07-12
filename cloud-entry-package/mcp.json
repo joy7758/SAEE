@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "saee-agent-readiness": {
+      "command": "python3",
+      "args": ["scripts/saee_qianfan_readiness_mcp_stdio.py"],
+      "cwd": "REPOSITORY_ROOT",
+      "transport": "stdio",
+      "tools": ["saee.evaluate_agent_run", "saee.evaluate_evidence"]
+    }
+  },
+  "truth_boundary": {
+    "local_stdio_only": true,
+    "remote_mcp": false,
+    "network_listener": false,
+    "provider_credentials_required": false,
+    "official_qianfan_integration": false,
+    "production_ready": false
+  }
+}

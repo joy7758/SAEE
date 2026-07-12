@@ -1,0 +1,19 @@
+{
+  "request_id": "request:qianfan-customer-refund-001",
+  "agent_id": "agent:customer-refund-demo",
+  "task": "Review and prepare a customer refund without executing payment.",
+  "trace": {
+    "events": [
+      {"event_id": "event:refund-plan", "event_type": "PLAN", "summary": "Plan order lookup and refund eligibility review.", "external_effect": false, "high_impact": false},
+      {"event_id": "event:order-lookup", "event_type": "TOOL_CALL", "summary": "Read a synthetic order record.", "external_effect": false, "high_impact": false},
+      {"event_id": "event:refund-decision", "event_type": "DECISION", "summary": "Prepare a refund recommendation; payment remains unexecuted.", "external_effect": true, "high_impact": true}
+    ]
+  },
+  "evidence": [
+    {"evidence_id": "evidence:refund-tests", "evidence_type": "TEST_RESULT", "present": true, "source_ref": "demo://customer-refund/test-results"},
+    {"evidence_id": "evidence:refund-rollback", "evidence_type": "ROLLBACK_PLAN", "present": true, "source_ref": "demo://customer-refund/reversal-plan"},
+    {"evidence_id": "evidence:refund-permissions", "evidence_type": "PERMISSION_BOUNDARY", "present": true, "source_ref": "demo://customer-refund/permission-boundary"},
+    {"evidence_id": "evidence:refund-approval", "evidence_type": "HUMAN_APPROVAL", "present": false, "source_ref": null}
+  ],
+  "customer_data_included": false
+}

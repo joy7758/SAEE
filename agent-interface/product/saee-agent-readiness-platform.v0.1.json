@@ -1,0 +1,43 @@
+{
+  "product_identity_version": "0.1.0",
+  "external_brand": "SAEE Agent Readiness Platform",
+  "external_brand_zh": "SAEE 智能体上线准备平台",
+  "first_product": "SAEE Agent Readiness Assessment",
+  "first_product_zh": "SAEE 智能体上线可靠性评估服务",
+  "market_category": "agent_reliability_assessment_service",
+  "one_sentence": "SAEE evaluates whether an AI Agent has sufficient execution evidence before real-world deployment.",
+  "one_sentence_zh": "SAEE 用于评估 AI Agent 在真实部署前是否具备充分执行证据。",
+  "public_capability_id": "saee.agent-readiness",
+  "public_operations": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "internal_only_operations": [
+    "rehearse_agent",
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "composition": {
+    "upstream": ["QIANFAN_AGENT", "AGENT_TRACE", "EVIDENCE_BUNDLE"],
+    "service": "SAEE_READINESS_ASSESSMENT",
+    "downstream": ["BOUNDED_READINESS_REPORT", "SEPARATELY_AUTHORIZED_HUMAN_DECISION"]
+  },
+  "engineering_identity": {
+    "canonical_core": "Digital Biosphere Evolution Engine",
+    "public_product_is_core_replacement": false,
+    "audit_first_reframe": false,
+    "generic_agent_framework_reframe": false
+  },
+  "truth_boundary": {
+    "identity_frozen_for_baidu_entry": true,
+    "public_operation_count": 2,
+    "local_alpha": true,
+    "public_api": false,
+    "remote_mcp": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

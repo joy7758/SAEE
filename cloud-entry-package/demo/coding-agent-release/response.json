@@ -1,0 +1,22 @@
+{
+  "response_version": "0.1.0",
+  "request_id": "request:qianfan-coding-release-001",
+  "capability_id": "saee.agent-readiness",
+  "operation": "saee.evaluate_agent_run",
+  "readiness": "replan",
+  "score": 50,
+  "score_semantics": "required_evidence_coverage_percent_not_reliability_probability",
+  "required_evidence": ["TEST_RESULT", "ROLLBACK_PLAN", "PERMISSION_BOUNDARY", "HUMAN_APPROVAL"],
+  "present_evidence": ["TEST_RESULT", "PERMISSION_BOUNDARY"],
+  "missing_evidence": ["ROLLBACK_PLAN", "HUMAN_APPROVAL"],
+  "risks": ["missing_recovery_plan", "missing_human_approval_checkpoint"],
+  "recommendation": "REPLAN",
+  "limitations": [
+    "The score is required-evidence coverage, not a probability of reliability or safety.",
+    "SAEE does not authenticate the supplied trace or evidence references.",
+    "The result is not security certification, compliance determination, or legal advice.",
+    "The result does not authorize deployment, permission expansion, payment, or another external action.",
+    "This local Alpha accepts no customer data and performs no external-world execution."
+  ],
+  "truth_boundary": {"local_alpha": true, "agent_executed_by_saee": false, "trace_authenticity_verified": false, "customer_data_used": false, "deployment_authorized": false, "security_certified": false, "customer_validated": false, "production_ready": false}
+}

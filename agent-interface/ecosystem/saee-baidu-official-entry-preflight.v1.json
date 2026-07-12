@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "preflight_id": "saee.baidu.official-entry-preflight.v1",
+  "checked_at": "2026-07-13",
+  "status": "official_routes_verified_human_inputs_and_authorization_required",
+  "recommended_route": {
+    "route_id": "qianfan_partner_consultation",
+    "decision": "recommend_after_company_contact_input_and_explicit_authorization",
+    "url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333",
+    "fit": [
+      "qianfan_ecosystem_cooperation",
+      "service_product_shape",
+      "product_integration_capability",
+      "application_scenario_co_creation"
+    ],
+    "required_human_inputs": [
+      "company_name",
+      "contact_name",
+      "contact_role",
+      "mobile_phone",
+      "real_name_account_confirmation",
+      "contact_consent"
+    ]
+  },
+  "later_routes": [
+    {
+      "route_id": "general_technical_product_partner",
+      "decision": "conditional",
+      "url": "https://cloud.baidu.com/partner/apply.html",
+      "missing_evidence": [
+        "verified_company_qualification",
+        "company_website_and_address",
+        "support_hotline",
+        "responsible_contact",
+        "agreement_review"
+      ]
+    },
+    {
+      "route_id": "partner_product_certification",
+      "decision": "do_not_recommend_before_partner_registration",
+      "url": "https://cloud.baidu.com/partner/product-certification.html"
+    },
+    {
+      "route_id": "cloud_marketplace_provider",
+      "decision": "do_not_recommend_currently",
+      "conditions_url": "https://cloud.baidu.com/doc/Market/s/ojy6wl8sd",
+      "process_url": "https://cloud.baidu.com/doc/Market/s/9jy6y1c8f",
+      "missing_evidence": [
+        "company_qualification",
+        "technical_and_support_team_at_least_10",
+        "industry_service_experience_at_least_2_years",
+        "online_support_at_least_5x8",
+        "software_copyright_certificate",
+        "dedicated_enterprise_verified_baidu_cloud_account",
+        "marketplace_agreement_acceptance"
+      ]
+    }
+  ],
+  "local_materials": {
+    "product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
+    "technical_whitepaper": "output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf",
+    "demo_video": "output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4",
+    "release_candidate": "release/SAEE-v0.1-alpha/release-manifest.json"
+  },
+  "truth_boundary": {
+    "official_pages_checked": true,
+    "form_fields_filled": false,
+    "personal_data_entered": false,
+    "agreement_accepted": false,
+    "external_contact": false,
+    "submission": false,
+    "marketplace_listed": false,
+    "external_action_authorized": false
+  }
+}

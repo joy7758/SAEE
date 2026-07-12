@@ -1,0 +1,12 @@
+{
+  "request_id": "request:qianfan-evidence-001",
+  "evidence_bundle": {
+    "items": [
+      {"evidence_id": "evidence:bundle-tests", "evidence_type": "TEST_RESULT", "present": true, "source_ref": "demo://evidence/test-results"},
+      {"evidence_id": "evidence:bundle-rollback", "evidence_type": "ROLLBACK_PLAN", "present": false, "source_ref": null},
+      {"evidence_id": "evidence:bundle-permissions", "evidence_type": "PERMISSION_BOUNDARY", "present": true, "source_ref": "demo://evidence/permission-boundary"}
+    ]
+  },
+  "required_evidence_types": ["TEST_RESULT", "ROLLBACK_PLAN", "PERMISSION_BOUNDARY"],
+  "customer_data_included": false
+}

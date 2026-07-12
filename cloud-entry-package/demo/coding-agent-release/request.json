@@ -1,0 +1,19 @@
+{
+  "request_id": "request:qianfan-coding-release-001",
+  "agent_id": "agent:coding-release-demo",
+  "task": "Prepare software release v2.0 without deploying it.",
+  "trace": {
+    "events": [
+      {"event_id": "event:code-change", "event_type": "TOOL_CALL", "summary": "Modify a synthetic repository fixture.", "external_effect": false, "high_impact": false},
+      {"event_id": "event:test-run", "event_type": "CHECK", "summary": "Run the approved local test fixture.", "external_effect": false, "high_impact": false},
+      {"event_id": "event:release-decision", "event_type": "DECISION", "summary": "Prepare deployment recommendation; deployment remains unexecuted.", "external_effect": true, "high_impact": true}
+    ]
+  },
+  "evidence": [
+    {"evidence_id": "evidence:release-tests", "evidence_type": "TEST_RESULT", "present": true, "source_ref": "demo://coding-release/test-results"},
+    {"evidence_id": "evidence:release-rollback", "evidence_type": "ROLLBACK_PLAN", "present": false, "source_ref": null},
+    {"evidence_id": "evidence:release-permissions", "evidence_type": "PERMISSION_BOUNDARY", "present": true, "source_ref": "demo://coding-release/permission-boundary"},
+    {"evidence_id": "evidence:release-approval", "evidence_type": "HUMAN_APPROVAL", "present": false, "source_ref": null}
+  ],
+  "customer_data_included": false
+}

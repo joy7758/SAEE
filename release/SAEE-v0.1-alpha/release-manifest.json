@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "release_id": "SAEE-v0.1-alpha",
+  "status": "local_release_candidate_human_gate",
+  "product": "SAEE Agent Readiness Platform",
+  "public_operations": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "artifacts": {
+    "cloud_entry_package": "cloud-entry-package/README.md",
+    "product_page_record": "docs/product/SAEE_PRODUCT_PAGE_LOCAL_BUILD.md",
+    "product_page_source_repo": "sites/saee-commercial",
+    "product_page_local_commit": "7730d98",
+    "technical_whitepaper": "output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf",
+    "demo_video": "output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4",
+    "video_manifest": "output/video/SAEE_Baidu_Cloud_Demo_v1.0.manifest.json",
+    "application_handoff": "cloud-entry-package/materials/SAEE_BAIDU_ECOSYSTEM_APPLICATION_HANDOFF_V1.md",
+    "official_entry_preflight": "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json",
+    "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
+    "public_baseline_audit": "release/SAEE-v0.1-alpha/public-baseline-audit.json",
+    "release_notes": "release/SAEE-v0.1-alpha/RELEASE_NOTES.md"
+  },
+  "validation_commands": [
+    "python3 scripts/saee_qianfan_readiness_mcp_smoke.py",
+    "python3 scripts/saee_qianfan_readiness_host_smoke.py",
+    "python3 scripts/saee_cloud_entry_package_smoke.py",
+    "python3 scripts/saee_public_baseline_audit.py",
+    "python3 scripts/saee_baidu_entry_acceptance.py",
+    "python3 scripts/saee_baidu_goal_completion_audit.py",
+    "cd sites/saee-commercial && npm run test"
+  ],
+  "open_gates": [
+    "owner_selected_root_license_missing",
+    "initial_public_commit_scope_not_approved",
+    "real_qianfan_product_roundtrip_missing",
+      "explicit_public_release_authorization_missing"
+  ],
+  "truth_boundary": {
+    "release_candidate_prepared": true,
+    "root_license_present": false,
+    "git_commit_created": false,
+    "git_tag_created": false,
+    "github_release_created": false,
+    "public_release_executed": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "external_action_authorized": false
+  }
+}

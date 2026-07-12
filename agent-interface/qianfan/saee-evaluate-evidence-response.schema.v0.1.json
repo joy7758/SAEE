@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-evaluate-evidence-response.schema.v0.1.json",
+  "title": "SAEE Evaluate Evidence Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["response_version", "request_id", "capability_id", "operation", "evidence_quality", "coverage_score", "score_semantics", "required_evidence", "present_evidence", "missing_evidence", "reason_codes", "limitations", "truth_boundary"],
+  "properties": {
+    "response_version": {"const": "0.1.0"},
+    "request_id": {"type": "string"},
+    "capability_id": {"const": "saee.agent-readiness"},
+    "operation": {"const": "saee.evaluate_evidence"},
+    "evidence_quality": {"enum": ["SUFFICIENT", "PARTIAL", "INSUFFICIENT"]},
+    "coverage_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "score_semantics": {"const": "required_evidence_coverage_percent_not_reliability_probability"},
+    "required_evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "present_evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^READINESS_[A-Z0-9_]+$"}},
+    "limitations": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "truth_boundary": {"$ref": "#/$defs/truth_boundary"}
+  },
+  "$defs": {
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local_alpha", "agent_executed_by_saee", "trace_authenticity_verified", "customer_data_used", "deployment_authorized", "security_certified", "customer_validated", "production_ready"],
+      "properties": {
+        "local_alpha": {"const": true},
+        "agent_executed_by_saee": {"const": false},
+        "trace_authenticity_verified": {"const": false},
+        "customer_data_used": {"const": false},
+        "deployment_authorized": {"const": false},
+        "security_certified": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

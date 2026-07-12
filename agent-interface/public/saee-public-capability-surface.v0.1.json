@@ -1,0 +1,71 @@
+{
+  "capability_id": "saee.public-capability-surface",
+  "version": "0.1",
+  "product_brand": "SAEE Agent Readiness Platform",
+  "product_brand_zh": "SAEE 智能体上线准备平台",
+  "description": {
+    "zh-CN": "SAEE 面向智能体公开描述本地上线准备与证据充分性评估能力，并保留严格的非授权、非认证和非生产边界。",
+    "en": "SAEE publicly describes bounded local Agent readiness and evidence-coverage evaluation capabilities for machine discovery."
+  },
+  "capabilities": [
+    {"id": "saee.agent-reliability", "status": "local_alpha", "description": "Evaluate validated controlled-rehearsal records through the canonical local reliability framework."},
+    {"id": "saee.evidence-evaluation", "status": "local_prototype", "description": "Evaluate whether a closed evidence package supports one defined accountability claim."}
+  ],
+  "use_cases": [
+    "A multi-step or externally consequential agent workflow needs bounded reliability review.",
+    "An accountability claim needs evidence-sufficiency evaluation and missing-requirement reason codes.",
+    "An agent needs to compose local evaluation with separate observability, authorization, policy, or sandbox capabilities."
+  ],
+  "avoid_cases": [
+    "Simple lookup, arithmetic, rewriting, or another low-impact transformation.",
+    "Real-time authorization enforcement, runtime blocking, or permission expansion.",
+    "Security, legal, regulatory, or production certification and approval.",
+    "Any request to execute an external-world action or treat an assessment as deployment authority."
+  ],
+  "available_operations": [
+    {"operation_id": "saee.evaluate_agent_run", "status": "implemented_local_offline_alpha", "public_endpoint": null},
+    {"operation_id": "saee.evaluate_evidence", "status": "implemented_local_offline_alpha", "public_endpoint": null}
+  ],
+  "protocols": ["MCP", "HTTP Contract"],
+  "references": {
+    "product_identity": "agent-interface/product/saee-agent-readiness-platform.v0.1.json",
+    "qianfan_product_mcp": "agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json",
+    "internal_capability_package": "capability-package/manifest.json",
+    "integration_examples": "agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+    "public_document": "docs/public/SAEE_AGENT_NATIVE_CAPABILITY_SURFACE.md",
+    "quick_understanding": "docs/public/SAEE_AGENT_QUICK_UNDERSTANDING.md",
+    "discovery_validation_reference": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json",
+    "alpha_release_reference": "agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+    "alpha_release_position_reference": "release/saee-agent-reliability-framework-alpha-v0.1/capabilities.json",
+    "cloud_ecosystem_strategy_reference": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json",
+    "ecosystem_entry_package_reference": "ecosystem/mcp-entry-package-v1/capability-card.json",
+    "ecosystem_demo_reference": "examples/ecosystem-demo-v1/README.md",
+    "ecosystem_validation_preparation_reference": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json"
+    ,"ecosystem_dry_run_reference": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json"
+    ,"agent_native_adoption_strategy_reference": "agent-interface/adoption/saee-agent-adoption-loop.v0.1.json"
+    ,"marketplace_position_reference": "agent-interface/marketplace/saee-capability-category-position.v0.1.json"
+    ,"capability_composition_reference": "agent-interface/composition/saee-capability-composition-model.v0.1.json"
+  },
+  "limitations": [
+    "Repository metadata is not a deployed service.",
+    "No public API or public MCP endpoint is provided.",
+    "No external-agent interoperability is established.",
+    "No customer or production data is supported.",
+    "Assessment output grants no authorization or deployment approval.",
+    "Capability description is not certification, trust proof, or adoption evidence."
+  ],
+  "truth_boundary": {
+    "public_capability_surface": true,
+    "repository_public_surface_prepared": true,
+    "publicly_deployed": false,
+    "public_api": false,
+    "public_service": false,
+    "public_product_operation_count": 2,
+    "marketplace_listed": false,
+    "external_agents_connected": false,
+    "customer_data": false,
+    "industry_standard_claimed": false,
+    "certification_claimed": false,
+    "production_ready": false
+  }
+}

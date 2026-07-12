@@ -1,0 +1,30 @@
+{
+  "adapter_id": "saee.qianfan.agent-readiness.mcp",
+  "adapter_version": "0.1.0",
+  "stage": "local_stdio_alpha",
+  "product": "SAEE Agent Readiness Platform",
+  "transport": "stdio",
+  "protocol_revision": "2025-11-25",
+  "command": "python3 scripts/saee_qianfan_readiness_mcp_stdio.py",
+  "public_tools": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "internal_tools_excluded": [
+    "rehearse_agent",
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "truth_boundary": {
+    "local_adapter_available": true,
+    "tool_count": 2,
+    "read_only": true,
+    "network_listener": false,
+    "remote_mcp": false,
+    "qianfan_native_mcp_validated": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
