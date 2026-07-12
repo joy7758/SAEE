@@ -29,6 +29,9 @@ explicit authorization. The configured redirect to the Qianfan product page
 was observed; the page exposed no backend submission ID or persistent success
 text. The sanitized receipt and parent public allowlist do not duplicate the
 company/contact/mobile values; pre-existing nested site surfaces are a separate scope.
+An Agent-readable response tracker now holds `waiting_for_initial_baidu_response`.
+No official response SLA, follow-up date, Baidu approval or automated follow-up
+is asserted.
 Three synthetic demos now also have a publication-ready local index and a
 bounded Qianfan technical-article draft. Neither has been published because
 community, article, Git push and GitHub Release actions are not authorized.
@@ -60,6 +63,9 @@ github_release_created=false
 baidu_partner_contacted=true
 qianfan_partner_consultation_submitted=true
 qianfan_partner_submission_acknowledgement=redirect_no_backend_id
+baidu_response_tracker_ready=true
+baidu_response_received=false
+baidu_partnership_approved=false
 marketplace_submission=false
 marketplace_listed=false
 public_price_points_approved=false

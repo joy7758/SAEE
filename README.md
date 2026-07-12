@@ -13,6 +13,7 @@
 - 真实 Qianfan 合成场景回执校验：`python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py`
 - 百度伙伴咨询申请契约：`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`
 - 百度伙伴咨询脱敏提交回执：`agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json`
+- 百度反馈 tracker：`agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json`
 - 三个公开 Demo 的本地发布包：`cloud-entry-package/public-demos/README.md`
 - 千帆技术文章草案：`cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md`
 - 30 分钟技术包：`cloud-entry-package/README.md`
@@ -31,6 +32,9 @@ qianfan_live_synthetic_scenario_count=2
 qianfan_partner_consultation_payload_contract_ready=true
 qianfan_partner_consultation_submitted=true
 baidu_partner_contacted=true
+baidu_response_tracker_ready=true
+baidu_response_received=false
+baidu_partnership_approved=false
 public_demo_package_local_ready=true
 technical_article_draft_ready=true
 public_demos_published=false

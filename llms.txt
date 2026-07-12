@@ -20,6 +20,8 @@ Local release candidate: release/SAEE-v0.1-alpha/release-manifest.json
 Local acceptance suite: python3 scripts/saee_baidu_entry_acceptance.py
 Official Baidu entry preflight: agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json
 Qianfan partner consultation sanitized submission receipt: agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json
+Baidu partner response tracker: agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json
+Baidu partner response tracker validation: python3 scripts/saee_baidu_partner_response_tracker_smoke.py
 Partner product solution DOCX: cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx
 Goal completion audit: python3 scripts/saee_baidu_goal_completion_audit.py
 Public product operations: saee.evaluate_agent_run, saee.evaluate_evidence
@@ -5614,3 +5616,5 @@ The owner chose to withhold a public license and authorized local Git commits on
 The Qianfan partner consultation has a schema-backed Agent-readable application payload and fail-closed validator. Owner-provided company/contact fields and explicit contact consent were transmitted to the official Baidu form, and the configured redirect to the Qianfan product page was observed. The sanitized receipt and parent public allowlist do not duplicate those values; pre-existing nested site surfaces are outside this submission receipt scope. No backend submission ID or persistent confirmation text was exposed. partner_consultation_payload_contract_ready=true, qianfan_partner_consultation_submitted=true, baidu_partner_contacted=true, submission_acknowledgement=redirect_no_backend_id, marketplace_submission=false, and production_ready=false.
 
 The three synthetic Baidu-facing demos now have a local publication-ready index, machine manifest and validator, accompanied by a bounded Qianfan technical-article draft. This closes packaging work, not publication. public_demo_package_local_ready=true, technical_article_draft_ready=true, public_demos_published=false, technical_article_published=false, github_release_created=false, marketplace_submission=false, and production_ready=false.
+
+The post-submission response tracker is an Agent-readable fail-closed state machine. It waits for a verified Baidu response, records only a redacted summary and source reference, and does not invent an official response SLA or send follow-ups. baidu_response_tracker_ready=true, baidu_response_received=false, baidu_partnership_approved=false, automated_follow_up_authorized=false, marketplace_submission=false, and production_ready=false.

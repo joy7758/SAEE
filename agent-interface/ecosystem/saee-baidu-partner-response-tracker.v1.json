@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "tracker_id": "saee.baidu.qianfan-partner-response-tracker.v1",
+  "status": "waiting_for_initial_baidu_response",
+  "submission_receipt_ref": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json",
+  "submission": {
+    "submitted_at": "2026-07-13T04:31:31+08:00",
+    "acknowledgement": "redirect_and_official_client_behavior_no_backend_id"
+  },
+  "response": {
+    "received": false,
+    "received_at": null,
+    "channel": null,
+    "source_reference": null,
+    "redacted_summary": null,
+    "baidu_decision": null
+  },
+  "follow_up": {
+    "official_response_sla_published": false,
+    "due_at": null,
+    "automated_follow_up_authorized": false,
+    "follow_up_sent": false,
+    "next_authorized_action": "wait_for_baidu_response"
+  },
+  "state_transition_contract": [
+    {
+      "from": "waiting_for_initial_baidu_response",
+      "event": "verified_baidu_response_received",
+      "to": "response_received_human_review_required"
+    },
+    {
+      "from": "response_received_human_review_required",
+      "event": "response_requests_technical_review",
+      "to": "technical_review_handoff_candidate"
+    },
+    {
+      "from": "response_received_human_review_required",
+      "event": "response_declines_or_defers",
+      "to": "deferred_or_declined_recorded"
+    },
+    {
+      "from": "waiting_for_initial_baidu_response",
+      "event": "explicit_follow_up_authorized",
+      "to": "follow_up_ready_human_send_gate"
+    }
+  ],
+  "evidence_requirements": {
+    "response_received": [
+      "received_at",
+      "channel",
+      "source_reference",
+      "redacted_summary"
+    ],
+    "technical_review_handoff": [
+      "verified_baidu_request",
+      "requested_materials",
+      "new_external_action_authorization"
+    ]
+  },
+  "privacy": {
+    "store_raw_email_or_call_recording": false,
+    "store_contact_phone": false,
+    "store_only_redacted_summary_and_source_reference": true
+  },
+  "truth_boundary": {
+    "qianfan_partner_consultation_submitted": true,
+    "baidu_response_received": false,
+    "baidu_partnership_approved": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

@@ -6,7 +6,7 @@
 |---|---|---|---|
 | Day 1–30 | 品牌、两工具、Qianfan Adapter、双场景、Cloud Entry Package、Alpha Release 候选 | 本地 validators、白皮书、视频、公开基线候选与三个本地 commit | `local_deliverables_complete_public_release_withheld` |
 | Day 31–60 | 真实 Qianfan 产品 roundtrip、百度工程审阅、定价与主体材料 | 两个真实 provider 合成场景通过；官方入口、Word 方案、申请契约和 owner 主体输入已完成 | `technical_roundtrip_and_application_inputs_complete` |
-| Day 61–90 | 公开 GitHub Release、百度生态申请、受控合作验证 | 千帆伙伴咨询已提交并观察到产品页跳转；三 Demo 发布包和技术文章草案已准备；无 tag 或 GitHub Release | `partner_consultation_submitted_publication_actions_incomplete` |
+| Day 61–90 | 公开 GitHub Release、百度生态申请、受控合作验证 | 千帆伙伴咨询已提交并观察到产品页跳转；响应 tracker 已进入等待；三 Demo 发布包和技术文章草案已准备；无 tag 或 GitHub Release | `partner_consultation_submitted_waiting_response_publication_actions_incomplete` |
 
 ## Day 1–30 已完成的最小事实
 
@@ -33,6 +33,9 @@ technical_article_published=false
 github_release_created=false
 baidu_partner_contacted=true
 qianfan_partner_consultation_submitted=true
+baidu_response_tracker_ready=true
+baidu_response_received=false
+baidu_partnership_approved=false
 marketplace_submission=false
 marketplace_listed=false
 customer_validated=false

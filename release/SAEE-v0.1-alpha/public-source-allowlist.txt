@@ -8,9 +8,11 @@ agent-index.json
 .well-known/saee-capability-index.json
 docs/product/SAEE_PRODUCT_IDENTITY_V1.md
 docs/strategy/SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_RECOMMENDATION_GATE.md
+docs/strategy/SAEE_BAIDU_PARTNER_RESPONSE_TRACKER_RECOMMENDATION_GATE.md
 docs/ecosystem/SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_TRUTH_MATRIX.md
 docs/ecosystem/SAEE_BAIDU_90_DAY_EXECUTION_BOARD_V1.md
 docs/ecosystem/SAEE_BAIDU_OFFICIAL_ENTRY_PREFLIGHT_2026-07-13.md
+docs/ecosystem/SAEE_BAIDU_PARTNER_RESPONSE_RUNBOOK_V1.md
 agent-interface/product/saee-agent-readiness-platform.v0.1.json
 agent-interface/public/saee-public-capability-surface.v0.1.json
 agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json
@@ -19,6 +21,7 @@ agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json
+agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json
 agent-interface/ecosystem/saee-baidu-publication-package.v1.json
 agent-interface/qianfan/saee-readiness-evidence-item.schema.v0.1.json
 agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json
@@ -45,6 +48,7 @@ scripts/saee_baidu_partner_product_solution_docx.py
 scripts/saee_baidu_goal_completion_audit.py
 scripts/saee_baidu_partner_consultation_application_smoke.py
 scripts/saee_baidu_publication_package_smoke.py
+scripts/saee_baidu_partner_response_tracker_smoke.py
 examples/baidu-qianfan/customer-service-refund/request.json
 examples/baidu-qianfan/coding-agent-release/request.json
 examples/baidu-qianfan/evaluate-evidence/request.json
