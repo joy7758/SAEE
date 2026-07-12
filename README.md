@@ -12,6 +12,8 @@
 - 两工具本地 MCP：`python3 scripts/saee_qianfan_readiness_mcp_stdio.py`
 - 真实 Qianfan 合成场景回执校验：`python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py`
 - 百度伙伴咨询申请契约：`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`
+- 三个公开 Demo 的本地发布包：`cloud-entry-package/public-demos/README.md`
+- 千帆技术文章草案：`cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md`
 - 30 分钟技术包：`cloud-entry-package/README.md`
 - 白皮书：`output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf`
 - 3 分钟 Demo：`output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4`
@@ -26,6 +28,9 @@ release_candidate_prepared=true
 qianfan_real_provider_product_roundtrip=true
 qianfan_live_synthetic_scenario_count=2
 qianfan_partner_consultation_payload_contract_ready=true
+public_demo_package_local_ready=true
+technical_article_draft_ready=true
+public_demos_published=false
 github_release_created=false
 official_qianfan_integration=false
 marketplace_submission=false

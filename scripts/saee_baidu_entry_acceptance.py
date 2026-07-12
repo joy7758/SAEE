@@ -16,6 +16,7 @@ COMMANDS = [
     "scripts/saee_qianfan_readiness_host_smoke.py",
     "scripts/saee_qianfan_readiness_live_receipt_smoke.py",
     "scripts/saee_baidu_partner_consultation_application_smoke.py",
+    "scripts/saee_baidu_publication_package_smoke.py",
     "scripts/saee_cloud_entry_package_smoke.py",
     "scripts/saee_public_baseline_audit.py",
     "scripts/saee_baidu_goal_completion_audit.py",
@@ -51,7 +52,7 @@ def main() -> None:
     output = ROOT / "output/SAEE_BAIDU_ENTRY_LOCAL_ACCEPTANCE_V1.json"
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
-        "SAEE_BAIDU_ENTRY_ACCEPTANCE: PASS local_phases_complete=4 checks=8 "
+        "SAEE_BAIDU_ENTRY_ACCEPTANCE: PASS local_phases_complete=4 checks=9 "
         "real_qianfan_product_roundtrip=true github_release=false "
         "marketplace_submission=false production_ready=false"
     )

@@ -18,6 +18,7 @@ agent-interface/ecosystem/saee-baidu-external-action-authorization-gate.v1.json
 agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json
 agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json
+agent-interface/ecosystem/saee-baidu-publication-package.v1.json
 agent-interface/qianfan/saee-readiness-evidence-item.schema.v0.1.json
 agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json
 agent-interface/qianfan/saee-evaluate-agent-run-response.schema.v0.1.json
@@ -42,12 +43,14 @@ scripts/saee_baidu_entry_acceptance.py
 scripts/saee_baidu_partner_product_solution_docx.py
 scripts/saee_baidu_goal_completion_audit.py
 scripts/saee_baidu_partner_consultation_application_smoke.py
+scripts/saee_baidu_publication_package_smoke.py
 examples/baidu-qianfan/customer-service-refund/request.json
 examples/baidu-qianfan/coding-agent-release/request.json
 examples/baidu-qianfan/evaluate-evidence/request.json
 agent-interface/qianfan/live-validation/saee-qianfan-customer-service-live-validation.v0.1.json
 agent-interface/qianfan/live-validation/saee-qianfan-coding-agent-live-validation.v0.1.json
 cloud-entry-package/README.md
+cloud-entry-package/public-demos/README.md
 cloud-entry-package/快速开始.md
 cloud-entry-package/openapi.yaml
 cloud-entry-package/mcp.json
@@ -76,6 +79,7 @@ cloud-entry-package/materials/SAEE_BAIDU_COMMERCIAL_PACKAGING_DRAFT_V1.md
 cloud-entry-package/materials/SAEE_BAIDU_COMPANY_INTRODUCTION_INTAKE_V1.md
 cloud-entry-package/materials/SAEE_BAIDU_ECOSYSTEM_APPLICATION_HANDOFF_V1.md
 cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx
+cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md
 docs/product/SAEE_PRODUCT_PAGE_LOCAL_BUILD.md
 release/SAEE-v0.1-alpha/README.md
 release/SAEE-v0.1-alpha/RELEASE_NOTES.md

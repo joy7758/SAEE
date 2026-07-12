@@ -27,6 +27,9 @@ The official form is also represented by a fail-closed Agent-readable payload
 and receipt contract. It remains `awaiting_verified_human_inputs`; industry,
 company name, contact name, role, mobile phone and contact consent are not
 inferred or filled.
+Three synthetic demos now also have a publication-ready local index and a
+bounded Qianfan technical-article draft. Neither has been published because
+community, article, Git push and GitHub Release actions are not authorized.
 This does not establish
 Qianfan-native MCP compatibility, a remote MCP service, official Baidu support,
 GitHub Release, marketplace submission, customer validation, or production readiness.
@@ -47,6 +50,10 @@ release_candidate_prepared=true
 official_entry_routes_verified=true
 partner_product_solution_docx_ready=true
 qianfan_partner_consultation_payload_contract_ready=true
+public_demo_package_local_ready=true
+technical_article_draft_ready=true
+public_demos_published=false
+technical_article_published=false
 github_release_created=false
 baidu_partner_contacted=false
 marketplace_submission=false

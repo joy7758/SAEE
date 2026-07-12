@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "package_id": "saee.baidu.publication-package.v1",
+  "status": "local_publication_ready_external_publication_not_authorized",
+  "audience": [
+    "baidu_qianfan_engineer",
+    "agent_application_builder",
+    "ecosystem_partner_reviewer"
+  ],
+  "public_demos": [
+    {
+      "demo_id": "customer-service-refund",
+      "title": "智能客服退款 Agent 上线前检查",
+      "request": "cloud-entry-package/demo/customer-service-refund/request.json",
+      "response": "cloud-entry-package/demo/customer-service-refund/response.json",
+      "operation": "saee.evaluate_agent_run",
+      "expected_readiness": "conditional",
+      "expected_score": 75
+    },
+    {
+      "demo_id": "coding-agent-release",
+      "title": "代码 Agent 发布准备检查",
+      "request": "cloud-entry-package/demo/coding-agent-release/request.json",
+      "response": "cloud-entry-package/demo/coding-agent-release/response.json",
+      "operation": "saee.evaluate_agent_run",
+      "expected_readiness": "replan",
+      "expected_score": 50
+    },
+    {
+      "demo_id": "evaluate-evidence",
+      "title": "Evidence Bundle 充分性检查",
+      "request": "cloud-entry-package/demo/evaluate-evidence/request.json",
+      "response": "cloud-entry-package/demo/evaluate-evidence/response.json",
+      "operation": "saee.evaluate_evidence",
+      "expected_quality": "PARTIAL"
+    }
+  ],
+  "human_entrypoint": "cloud-entry-package/public-demos/README.md",
+  "technical_article": "cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md",
+  "publication_channels": [
+    {
+      "channel": "GitHub Release",
+      "status": "not_authorized"
+    },
+    {
+      "channel": "Qianfan community",
+      "status": "not_authorized"
+    },
+    {
+      "channel": "Baidu ecosystem application",
+      "status": "authorized_inputs_missing"
+    }
+  ],
+  "truth_boundary": {
+    "public_demo_package_local_ready": true,
+    "public_demo_count": 3,
+    "technical_article_draft_ready": true,
+    "public_demos_published": false,
+    "technical_article_published": false,
+    "github_release_created": false,
+    "official_qianfan_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
