@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.openai.partner-network.submission-receipt.v1",
+  "status": "submitted_explicit_thanks_observed",
+  "recorded_at": "2026-07-13T05:01:41+08:00",
+  "destination": {
+    "site": "OpenAI",
+    "form_heading": "OpenAI Partner Network Interest Form",
+    "form_url": "https://www.openai.com/form/partner-network-interest"
+  },
+  "submitted_payload_shape": {
+    "first_and_last_name_present_at_submission": true,
+    "owner_confirmed_work_email_present_at_submission": true,
+    "owner_confirmed_company_website_present_at_submission": true
+  },
+  "browser_observation": {
+    "submit_action_executed": true,
+    "confirmation_text_observed": true,
+    "confirmation_text_summary": "submission thanked; entries will be reviewed and selected applicants contacted",
+    "backend_submission_id_available": false
+  },
+  "privacy": {
+    "contact_name_stored_in_submission_receipt": false,
+    "email_address_stored_in_submission_receipt": false,
+    "company_website_stored_in_submission_receipt": false
+  },
+  "truth_boundary": {
+    "openai_partner_interest_submitted": true,
+    "submission_acknowledgement_strength": "explicit_thanks_no_backend_id",
+    "partner_membership_approved": false,
+    "official_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

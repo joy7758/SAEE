@@ -31,9 +31,13 @@ def main() -> None:
     receipt = json.loads((ROOT / receipt_ref).read_text(encoding="utf-8"))
     require(receipt["status"] == "submitted_success_text_observed", "Volcengine submission")
     require(receipt["truth_boundary"]["ai_partner_consultation_submitted"] is True, "Volcengine truth")
-    require(all(providers[name]["recommendation"] == "conditional" for name in providers if name != "Volcengine"), "conditional routes")
-    require(aggregate["submitted_count"] == 1, "submitted count")
-    require(aggregate["blocked_count"] == 4, "blocked count")
+    openai_receipt = json.loads((ROOT / providers["OpenAI"]["submission_receipt_ref"]).read_text(encoding="utf-8"))
+    require(providers["OpenAI"]["recommendation"] == "recommend", "OpenAI route recommendation")
+    require(openai_receipt["truth_boundary"]["openai_partner_interest_submitted"] is True, "OpenAI submission")
+    require(all(providers[name]["recommendation"] == "conditional" for name in ("Google Cloud", "Alibaba Cloud", "Tencent Cloud")), "conditional routes")
+    require(providers["Google Cloud"]["current_state"] == "blocked_personal_email_domain_rejected", "Google email rejection")
+    require(aggregate["submitted_count"] == 2, "submitted count")
+    require(aggregate["blocked_count"] == 3, "blocked count")
     for key in ("provider_approved_count", "marketplace_submission_count", "marketplace_listed_count"):
         require(aggregate[key] == 0, key)
     require(aggregate["customer_validated"] is False, "customer validation")
@@ -41,14 +45,14 @@ def main() -> None:
 
     serialized = "\n".join(
         path.read_text(encoding="utf-8")
-        for path in (MATRIX, AUTH, ROOT / receipt_ref)
+        for path in (MATRIX, AUTH, ROOT / receipt_ref, ROOT / providers["OpenAI"]["submission_receipt_ref"])
     )
     for forbidden in ("18518485118", "139115", "joy7759@gmail.com", "张斌", "山西游骑兵电子商务有限公司"):
         require(forbidden not in serialized, "sensitive value stored")
 
     print(
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
-        "providers=5 submitted=1 blocked=4 provider_approved=0 "
+        "providers=5 submitted=2 blocked=3 provider_approved=0 "
         "marketplace_submission=0 production_ready=false"
     )
 

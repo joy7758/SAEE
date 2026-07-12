@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
-  "status": "one_submitted_four_blocked_on_missing_owner_or_account_inputs",
-  "observed_at": "2026-07-13T04:55:15+08:00",
+  "status": "two_submitted_three_blocked_on_company_domain_email_or_account_inputs",
+  "observed_at": "2026-07-13T05:01:41+08:00",
   "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
   "providers": [
     {
@@ -21,13 +21,11 @@
       "provider": "OpenAI",
       "official_route": "OpenAI Partner Network Interest Form",
       "official_url": "https://www.openai.com/form/partner-network-interest",
-      "recommendation": "conditional",
-      "agent_readable_reason": "The interest route is suitable for a bounded capability provider, but the form requires verified company-facing identity fields.",
-      "current_state": "blocked_missing_owner_inputs",
-      "missing_inputs": [
-        "work_email",
-        "company_website_confirmation"
-      ],
+      "recommendation": "recommend",
+      "agent_readable_reason": "The owner supplied the required identity fields and the interest route fits a bounded capability provider without a marketplace claim.",
+      "current_state": "submitted_explicit_thanks_observed",
+      "submission_receipt_ref": "agent-interface/ecosystem/saee-openai-partner-network-submission-receipt.v1.json",
+      "missing_inputs": [],
       "marketplace_submission": false,
       "provider_approval": false
     },
@@ -38,9 +36,9 @@
       "official_url": "https://partners.cloud.google.com/enrollment/enter-email",
       "recommendation": "conditional",
       "agent_readable_reason": "Partner Network enrollment is truthful; direct Cloud Marketplace or AI Agents listing is not recommendable before production and enterprise support evidence exists.",
-      "current_state": "blocked_missing_company_email",
+      "current_state": "blocked_personal_email_domain_rejected",
       "missing_inputs": [
-        "company_email"
+        "company_domain_email"
       ],
       "marketplace_submission": false,
       "provider_approval": false
@@ -67,9 +65,10 @@
       "official_url": "https://partner.cloud.tencent.com/apply-agent?trade=6&url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fprocurement%2Fsupplier-apply%2Fproduct%3Fview%3DbasicsInfo",
       "recommendation": "conditional",
       "agent_readable_reason": "Product partnership is preferable to ISV, service, reseller, or marketplace routes; Tencent requires a dedicated partner account registered with a company email.",
-      "current_state": "blocked_company_email_and_partner_account",
+      "current_state": "blocked_user_password_sms_and_partner_account_registration",
       "missing_inputs": [
-        "company_email",
+        "user_selected_account_password",
+        "sms_verification",
         "tencent_partner_dedicated_account",
         "enterprise_real_name_verification"
       ],
@@ -79,8 +78,8 @@
   ],
   "aggregate_truth": {
     "provider_count": 5,
-    "submitted_count": 1,
-    "blocked_count": 4,
+    "submitted_count": 2,
+    "blocked_count": 3,
     "provider_approved_count": 0,
     "marketplace_submission_count": 0,
     "marketplace_listed_count": 0,

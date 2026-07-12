@@ -16,10 +16,12 @@ recommendation_gate:
   recommend_now:
     - Volcengine AI partner consultation / MCP cooperation
   conditional_routes:
-    - OpenAI Partner Network interest
     - Google Cloud Partner Network enrollment for Gemini-related cooperation
     - Alibaba Cloud product ecosystem and Tongyi/Bailian cooperation
     - Tencent Cloud product partner application
+  completed_interest_submissions:
+    - Volcengine AI partner consultation / MCP cooperation
+    - OpenAI Partner Network interest
   do_not_recommend_now:
     - direct cloud marketplace listing
     - reseller or distribution partnership
@@ -31,8 +33,8 @@ recommendation_gate:
   reasons_not_to_recommend_unconditionally:
     - Only bounded local and synthetic provider evidence exists; no provider has approved partner membership or integration.
     - Production support, customer validation, marketplace readiness, and public licensing remain unresolved.
-    - Four official application paths require company email, website confirmation, account login, or enterprise verification that the repository owner has not supplied in this task.
-  final_decision: submit the Volcengine MCP cooperation consultation; prepare but do not fabricate missing inputs for the four conditional routes
+    - Google Cloud requires a company-domain email and explicitly rejects Gmail; Alibaba Cloud and Tencent Cloud require owner-controlled account actions or enterprise verification.
+  final_decision: retain the two acknowledged interest submissions; do not fabricate company-domain email, passwords, login state, or enterprise verification for the three blocked routes
 ```
 
 ## Per-provider decision
@@ -40,10 +42,10 @@ recommendation_gate:
 | Provider | Route | Decision | Current result |
 | --- | --- | --- | --- |
 | Volcengine | AI partner consultation / MCP cooperation | `recommend` | submitted; explicit success text observed |
-| OpenAI | Partner Network Interest Form | `conditional` | blocked on work email and company website confirmation |
-| Google Cloud / Gemini | Partner Network enrollment | `conditional` | blocked on company email; Marketplace is not recommended now |
+| OpenAI | Partner Network Interest Form | `recommend` | submitted; explicit thanks observed |
+| Google Cloud / Gemini | Partner Network enrollment | `conditional` | Gmail explicitly rejected; company-domain email required |
 | Alibaba Cloud / Tongyi | Product ecosystem partner | `conditional` | blocked on account login and enterprise verification |
-| Tencent Cloud | Product partner | `conditional` | blocked on company email and dedicated partner account |
+| Tencent Cloud | Product partner | `conditional` | registration page reached; user-selected password, SMS verification, and dedicated partner account required |
 
 ## Agent-native three-question gate
 

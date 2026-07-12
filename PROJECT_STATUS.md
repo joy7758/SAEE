@@ -4,22 +4,22 @@
 
 ## Multi-Cloud Partner Entry v1.0
 
-Status: `one_submitted_four_blocked_on_missing_owner_or_account_inputs`.
+Status: `two_submitted_three_blocked_on_company_domain_email_or_account_inputs`.
 
 Under explicit scope-limited owner authorization, the official Volcengine AI
 partner consultation was submitted for MCP/product-integration cooperation and
-returned an explicit success state. OpenAI Partner Network, Google Cloud Partner
-Network, Alibaba Cloud product ecosystem, and Tencent Cloud product partner
-routes were inspected to their first authoritative blocking field. They remain
-unsubmitted because company email, company website confirmation, provider login,
-enterprise verification, or a dedicated partner account is missing. No personal
-email was substituted for a company email, and no missing qualification was
+returned an explicit success state. The OpenAI Partner Network Interest Form was
+also submitted and returned explicit thanks. Google Cloud rejected Gmail and
+requires a company-domain email. Alibaba Cloud remains at account login and
+enterprise verification. Tencent Cloud reached the dedicated partner-account
+registration page but requires an owner-selected password and SMS verification.
+No missing qualification, password, login state, or enterprise verification was
 invented.
 
 ```text
 provider_count=5
 volcengine_ai_partner_consultation_submitted=true
-openai_partner_interest_submitted=false
+openai_partner_interest_submitted=true
 google_cloud_partner_enrollment_submitted=false
 alibaba_cloud_product_partner_submitted=false
 tencent_cloud_product_partner_submitted=false
