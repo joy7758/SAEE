@@ -14,6 +14,9 @@
 - 百度伙伴咨询申请契约：`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`
 - 百度伙伴咨询脱敏提交回执：`agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json`
 - 百度反馈 tracker：`agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json`
+- 多云伙伴入口矩阵：`agent-interface/ecosystem/saee-multi-cloud-partner-entry-matrix.v1.json`
+- 火山引擎 AI 伙伴脱敏提交回执：`agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json`
+- 多云伙伴入口验证：`python3 scripts/saee_multi_cloud_partner_entry_smoke.py`
 - 三个公开 Demo 的本地发布包：`cloud-entry-package/public-demos/README.md`
 - 千帆技术文章草案：`cloud-entry-package/materials/SAEE_QIANFAN_TECHNICAL_ARTICLE_DRAFT_V1.md`
 - 30 分钟技术包：`cloud-entry-package/README.md`
@@ -35,6 +38,12 @@ baidu_partner_contacted=true
 baidu_response_tracker_ready=true
 baidu_response_received=false
 baidu_partnership_approved=false
+volcengine_ai_partner_consultation_submitted=true
+openai_partner_interest_submitted=false
+google_cloud_partner_enrollment_submitted=false
+alibaba_cloud_product_partner_submitted=false
+tencent_cloud_product_partner_submitted=false
+provider_approved_count=0
 public_demo_package_local_ready=true
 technical_article_draft_ready=true
 public_demos_published=false

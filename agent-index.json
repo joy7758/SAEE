@@ -1,4 +1,28 @@
 {
+  "multi_cloud_partner_entry_v1": {
+    "name": "SAEE Multi-Cloud Partner Entry v1.0",
+    "status": "one_submitted_four_blocked_on_missing_owner_or_account_inputs",
+    "entrypoints": {
+      "matrix": "agent-interface/ecosystem/saee-multi-cloud-partner-entry-matrix.v1.json",
+      "recommendation_gate": "docs/strategy/SAEE_MULTI_CLOUD_PARTNER_ENTRY_RECOMMENDATION_GATE.md",
+      "authorization_gate": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
+      "volcengine_submission_receipt": "agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json",
+      "validator": "python3 scripts/saee_multi_cloud_partner_entry_smoke.py"
+    },
+    "truth_boundary": {
+      "provider_count": 5,
+      "volcengine_ai_partner_consultation_submitted": true,
+      "openai_partner_interest_submitted": false,
+      "google_cloud_partner_enrollment_submitted": false,
+      "alibaba_cloud_product_partner_submitted": false,
+      "tencent_cloud_product_partner_submitted": false,
+      "provider_approved_count": 0,
+      "marketplace_submission_count": 0,
+      "marketplace_listed_count": 0,
+      "customer_validated": false,
+      "production_ready": false
+    }
+  },
   "baidu_cloud_marketplace_entry_v1_0": {
     "name": "SAEE Baidu Cloud Marketplace Entry Plan v1.0",
     "status": "phases_0_to_4_partner_consultation_submitted_public_release_withheld",

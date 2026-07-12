@@ -22,6 +22,12 @@ Official Baidu entry preflight: agent-interface/ecosystem/saee-baidu-official-en
 Qianfan partner consultation sanitized submission receipt: agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json
 Baidu partner response tracker: agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json
 Baidu partner response tracker validation: python3 scripts/saee_baidu_partner_response_tracker_smoke.py
+Multi-cloud partner entry matrix: agent-interface/ecosystem/saee-multi-cloud-partner-entry-matrix.v1.json
+Multi-cloud partner entry recommendation gate: docs/strategy/SAEE_MULTI_CLOUD_PARTNER_ENTRY_RECOMMENDATION_GATE.md
+Multi-cloud external-action authorization: agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json
+Volcengine AI partner sanitized submission receipt: agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json
+Multi-cloud partner entry validation: python3 scripts/saee_multi_cloud_partner_entry_smoke.py
+Multi-cloud partner truth: provider_count=5; volcengine_ai_partner_consultation_submitted=true; openai_submission=false; google_cloud_submission=false; alibaba_cloud_submission=false; tencent_cloud_submission=false; provider_approved_count=0; marketplace_submission_count=0; marketplace_listed_count=0; customer_validated=false; production_ready=false
 Partner product solution DOCX: cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx
 Goal completion audit: python3 scripts/saee_baidu_goal_completion_audit.py
 Public product operations: saee.evaluate_agent_run, saee.evaluate_evidence

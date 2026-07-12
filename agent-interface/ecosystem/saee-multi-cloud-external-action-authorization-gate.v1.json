@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "gate_id": "saee.multi-cloud.external-action-authorization.v1",
+  "status": "scope_limited_authorization_recorded",
+  "authorization": {
+    "approved": true,
+    "approved_by": "repository_owner_in_current_codex_task",
+    "approved_at": "2026-07-13",
+    "approved_destinations": [
+      "Volcengine",
+      "Tencent Cloud",
+      "Alibaba Cloud",
+      "OpenAI",
+      "Google Cloud"
+    ],
+    "approved_actions": [
+      "inspect_official_partner_entry",
+      "transmit_owner_supplied_company_and_contact_values",
+      "request_destination_sms_verification",
+      "submit_partner_or_ecosystem_interest_application",
+      "create_local_git_commit"
+    ],
+    "explicitly_not_authorized_actions": [
+      "invent_missing_company_fields",
+      "use_personal_email_as_company_email_without_owner_confirmation",
+      "accept_partner_contracts_or_pricing_terms",
+      "publish_public_license",
+      "create_git_tag",
+      "push_public_repository",
+      "create_github_release",
+      "claim_marketplace_listing_or_provider_approval"
+    ],
+    "evidence_ref": "current Codex task user authorization dated 2026-07-13"
+  },
+  "privacy": {
+    "store_contact_name": false,
+    "store_mobile_phone": false,
+    "store_sms_verification_code": false,
+    "store_email_address": false,
+    "store_company_name_in_public_receipts": false
+  },
+  "truth_boundary": {
+    "external_action_authorized": true,
+    "authorization_is_scope_limited": true,
+    "provider_interest_submission_is_not_provider_approval": true,
+    "partner_membership_approved": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

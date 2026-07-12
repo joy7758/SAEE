@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.volcengine.ai-partner.submission-receipt.v1",
+  "status": "submitted_success_text_observed",
+  "recorded_at": "2026-07-13T04:55:15+08:00",
+  "destination": {
+    "site": "Volcengine",
+    "form_heading": "AI伙伴合作咨询",
+    "form_url": "https://www.volcengine.com/contact/ai-partner",
+    "route_intent": "MCP项目合作"
+  },
+  "submitted_payload_shape": {
+    "required_contact_fields_present_at_submission": true,
+    "company_field_present_at_submission": true,
+    "cooperation_scenario_present_at_submission": true,
+    "service_and_privacy_terms_accepted": true,
+    "sms_verification_completed": true,
+    "cooperation_scope": [
+      "Volcengine Ark",
+      "MCP ecosystem",
+      "product integration",
+      "application scenario co-development"
+    ]
+  },
+  "browser_observation": {
+    "submit_action_executed": true,
+    "success_image_alt_observed": "Submit success",
+    "confirmation_text_observed": true,
+    "confirmation_text_summary": "application submitted; staff will contact by phone",
+    "backend_submission_id_available": false
+  },
+  "privacy": {
+    "company_name_stored_in_submission_receipt": false,
+    "contact_name_stored_in_submission_receipt": false,
+    "mobile_phone_stored_in_submission_receipt": false,
+    "sms_verification_code_stored_in_submission_receipt": false,
+    "email_address_stored_in_submission_receipt": false
+  },
+  "truth_boundary": {
+    "volcengine_partner_contacted": true,
+    "ai_partner_consultation_submitted": true,
+    "submission_acknowledgement_strength": "explicit_success_text_no_backend_id",
+    "partner_membership_approved": false,
+    "official_integration": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

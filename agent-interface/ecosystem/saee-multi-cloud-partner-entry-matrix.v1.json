@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
+  "status": "one_submitted_four_blocked_on_missing_owner_or_account_inputs",
+  "observed_at": "2026-07-13T04:55:15+08:00",
+  "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
+  "providers": [
+    {
+      "provider": "Volcengine",
+      "official_route": "AI伙伴合作咨询 / MCP项目合作",
+      "official_url": "https://www.volcengine.com/contact/ai-partner",
+      "recommendation": "recommend",
+      "agent_readable_reason": "The route directly accepts MCP cooperation scenarios and does not require a production marketplace claim.",
+      "current_state": "submitted_success_text_observed",
+      "submission_receipt_ref": "agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json",
+      "missing_inputs": [],
+      "marketplace_submission": false,
+      "provider_approval": false
+    },
+    {
+      "provider": "OpenAI",
+      "official_route": "OpenAI Partner Network Interest Form",
+      "official_url": "https://www.openai.com/form/partner-network-interest",
+      "recommendation": "conditional",
+      "agent_readable_reason": "The interest route is suitable for a bounded capability provider, but the form requires verified company-facing identity fields.",
+      "current_state": "blocked_missing_owner_inputs",
+      "missing_inputs": [
+        "work_email",
+        "company_website_confirmation"
+      ],
+      "marketplace_submission": false,
+      "provider_approval": false
+    },
+    {
+      "provider": "Google Cloud",
+      "product_context": "Gemini",
+      "official_route": "Google Cloud Partner Network enrollment",
+      "official_url": "https://partners.cloud.google.com/enrollment/enter-email",
+      "recommendation": "conditional",
+      "agent_readable_reason": "Partner Network enrollment is truthful; direct Cloud Marketplace or AI Agents listing is not recommendable before production and enterprise support evidence exists.",
+      "current_state": "blocked_missing_company_email",
+      "missing_inputs": [
+        "company_email"
+      ],
+      "marketplace_submission": false,
+      "provider_approval": false
+    },
+    {
+      "provider": "Alibaba Cloud",
+      "product_context": "Tongyi / Bailian",
+      "official_route": "Product ecosystem partner / Tongyi large-model cooperation plan",
+      "official_url": "https://chanpinshengtai.aliyun.com/partner/productpartner",
+      "application_url": "https://aps.aliyun.com/partnerApply/#/identityInfo?param=product-ecology",
+      "recommendation": "conditional",
+      "agent_readable_reason": "Product integration is the appropriate route; reseller and marketplace routes would overstate current commercial readiness.",
+      "current_state": "blocked_login_and_enterprise_verification",
+      "missing_inputs": [
+        "aliyun_account_login",
+        "enterprise_real_name_verification"
+      ],
+      "marketplace_submission": false,
+      "provider_approval": false
+    },
+    {
+      "provider": "Tencent Cloud",
+      "official_route": "Product partner application",
+      "official_url": "https://partner.cloud.tencent.com/apply-agent?trade=6&url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fprocurement%2Fsupplier-apply%2Fproduct%3Fview%3DbasicsInfo",
+      "recommendation": "conditional",
+      "agent_readable_reason": "Product partnership is preferable to ISV, service, reseller, or marketplace routes; Tencent requires a dedicated partner account registered with a company email.",
+      "current_state": "blocked_company_email_and_partner_account",
+      "missing_inputs": [
+        "company_email",
+        "tencent_partner_dedicated_account",
+        "enterprise_real_name_verification"
+      ],
+      "marketplace_submission": false,
+      "provider_approval": false
+    }
+  ],
+  "aggregate_truth": {
+    "provider_count": 5,
+    "submitted_count": 1,
+    "blocked_count": 4,
+    "provider_approved_count": 0,
+    "marketplace_submission_count": 0,
+    "marketplace_listed_count": 0,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
