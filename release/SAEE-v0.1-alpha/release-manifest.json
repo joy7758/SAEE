@@ -18,6 +18,7 @@
     "application_handoff": "cloud-entry-package/materials/SAEE_BAIDU_ECOSYSTEM_APPLICATION_HANDOFF_V1.md",
     "official_entry_preflight": "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json",
     "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
+    "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
     "qianfan_live_receipts": "agent-interface/qianfan/live-validation/",
     "public_baseline_audit": "release/SAEE-v0.1-alpha/public-baseline-audit.json",
     "release_notes": "release/SAEE-v0.1-alpha/RELEASE_NOTES.md"
@@ -30,6 +31,7 @@
     "python3 scripts/saee_public_baseline_audit.py",
     "python3 scripts/saee_baidu_entry_acceptance.py",
     "python3 scripts/saee_baidu_goal_completion_audit.py",
+    "python3 scripts/saee_baidu_partner_consultation_application_smoke.py",
     "cd sites/saee-commercial && npm run test"
   ],
   "open_gates": [

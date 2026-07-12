@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/schemas/saee-baidu-partner-consultation-application.schema.v1.json",
+  "title": "SAEE Baidu Qianfan Partner Consultation Application",
+  "type": "object",
+  "required": ["application_id", "route", "form_fields", "submission_receipt", "truth_boundary"],
+  "properties": {
+    "application_id": {"const": "saee.baidu.qianfan-partner-consultation.v1"},
+    "status": {
+      "enum": [
+        "awaiting_verified_human_inputs",
+        "ready_for_authorized_submission",
+        "submitted_receipt_recorded"
+      ]
+    },
+    "route": {
+      "type": "object",
+      "required": ["route_id", "form_url"],
+      "properties": {
+        "route_id": {"const": "qianfan_partner_consultation"},
+        "form_url": {"const": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333"}
+      },
+      "additionalProperties": true
+    },
+    "form_fields": {
+      "type": "object",
+      "required": [
+        "industry",
+        "product_shape",
+        "service_capability",
+        "partner_rights",
+        "company_name",
+        "contact_name",
+        "contact_role",
+        "mobile_phone",
+        "contact_consent"
+      ],
+      "properties": {
+        "industry": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"enum": ["金融", "教育", "制造业", "零售与电商", "政务", "智能硬件", "法律", "企业办公", "资讯服务", "其他"]}
+        },
+        "product_shape": {"const": ["服务"]},
+        "service_capability": {"const": ["产品集成"]},
+        "partner_rights": {"const": ["应用场景共建", "技术赋能提升"]},
+        "company_name": {"type": "string", "minLength": 2},
+        "contact_name": {"type": "string", "minLength": 2},
+        "contact_role": {"type": "string", "minLength": 2},
+        "mobile_phone": {"type": "string", "pattern": "^1[3-9][0-9]{9}$"},
+        "contact_consent": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "submission_receipt": {
+      "type": "object",
+      "required": ["submitted", "submitted_at", "confirmation_text", "screenshot_path"],
+      "properties": {
+        "submitted": {"type": "boolean"},
+        "submitted_at": {"type": ["string", "null"]},
+        "confirmation_text": {"type": ["string", "null"]},
+        "screenshot_path": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "truth_boundary": {
+      "type": "object",
+      "required": ["authorization_scope_limited", "marketplace_submission", "marketplace_listed", "production_ready"],
+      "properties": {
+        "authorization_scope_limited": {"const": true},
+        "marketplace_submission": {"const": false},
+        "marketplace_listed": {"const": false},
+        "production_ready": {"const": false}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

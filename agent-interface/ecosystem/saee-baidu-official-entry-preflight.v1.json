@@ -57,6 +57,8 @@
     }
   ],
   "local_materials": {
+    "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
+    "partner_consultation_schema": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json",
     "product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
     "technical_whitepaper": "output/pdf/SAEE_Baidu_Cloud_Technical_Whitepaper_v1.0.pdf",
     "demo_video": "output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4",
@@ -65,6 +67,7 @@
   "truth_boundary": {
     "official_pages_checked": true,
     "partner_consultation_form_opened": true,
+    "partner_consultation_payload_contract_ready": true,
     "form_fields_filled": false,
     "personal_data_entered": false,
     "agreement_accepted": false,

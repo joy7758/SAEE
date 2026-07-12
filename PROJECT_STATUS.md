@@ -23,6 +23,10 @@ Entry Package, locally built product page, 10-page technical whitepaper, and
 have been read-only verified; the Qianfan partner consultation is the first
 recommended route after company/contact input and explicit authorization. A
 six-page human-fillable Word product solution attachment has passed visual QA.
+The official form is also represented by a fail-closed Agent-readable payload
+and receipt contract. It remains `awaiting_verified_human_inputs`; industry,
+company name, contact name, role, mobile phone and contact consent are not
+inferred or filled.
 This does not establish
 Qianfan-native MCP compatibility, a remote MCP service, official Baidu support,
 GitHub Release, marketplace submission, customer validation, or production readiness.
@@ -42,6 +46,7 @@ three_minute_demo_video_local_validated=true
 release_candidate_prepared=true
 official_entry_routes_verified=true
 partner_product_solution_docx_ready=true
+qianfan_partner_consultation_payload_contract_ready=true
 github_release_created=false
 baidu_partner_contacted=false
 marketplace_submission=false

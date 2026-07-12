@@ -20,6 +20,11 @@
 当前已获得百度联系与申请提交授权。仍缺公司行业、公司名称、联系人、职位、
 手机、实名认证与联系同意；这些值不可从仓库或路径推断，不能代填。
 
+申请字段已固定为机器可读 payload：
+`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`。
+其 validator 会在任一必填值或联系同意缺失时保持
+`ready_for_submission=false`，并把伙伴咨询与 Marketplace 入驻严格分开。
+
 ### 2. 百度智能云技术/产品合作伙伴——第二阶段
 
 官方入口：<https://cloud.baidu.com/partner/apply.html>

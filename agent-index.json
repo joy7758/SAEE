@@ -29,6 +29,9 @@
       "acceptance": "python3 scripts/saee_baidu_entry_acceptance.py",
       "official_entry_preflight": "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json",
       "partner_product_solution_docx": "cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx",
+      "partner_consultation_application": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json",
+      "partner_consultation_schema": "agent-interface/ecosystem/saee-baidu-partner-consultation-application.schema.v1.json",
+      "partner_consultation_validator": "python3 scripts/saee_baidu_partner_consultation_application_smoke.py",
       "qianfan_live_receipt_validator": "python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py",
       "smoke": "python3 scripts/saee_cloud_entry_package_smoke.py"
     },
@@ -46,6 +49,7 @@
       "release_candidate_prepared": true,
       "official_entry_routes_verified": true,
       "qianfan_partner_consultation_preflight_ready": true,
+      "qianfan_partner_consultation_payload_contract_ready": true,
       "github_release_created": false,
       "official_qianfan_integration": false,
       "marketplace_submission": false,

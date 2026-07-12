@@ -1,8 +1,8 @@
 {
   "audit_id": "saee-v0.1-alpha-public-baseline-audit",
   "status": "human_review_required",
-  "candidate_file_count": 81,
-  "candidate_bytes": 4168562,
+  "candidate_file_count": 84,
+  "candidate_bytes": 4179952,
   "missing_files": [],
   "unsafe_filenames": [],
   "high_confidence_secret_findings": [],

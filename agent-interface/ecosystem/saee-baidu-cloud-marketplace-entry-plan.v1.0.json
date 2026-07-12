@@ -105,6 +105,7 @@
     "official_entry_routes_verified": true,
     "qianfan_partner_consultation_preflight_ready": true,
     "partner_product_solution_docx_ready": true,
+    "partner_consultation_payload_contract_ready": true,
     "public_release_created": false,
     "github_release_created": false,
     "baidu_partner_contacted": false,

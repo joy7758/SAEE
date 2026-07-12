@@ -10,6 +10,8 @@
 - 3 分钟 Demo：`output/video/SAEE_Baidu_Cloud_Demo_v1.0.mp4`
 - 本地 Release 候选：`release/SAEE-v0.1-alpha/release-manifest.json`
 - 商业包装草案：`cloud-entry-package/materials/SAEE_BAIDU_COMMERCIAL_PACKAGING_DRAFT_V1.md`
+- 千帆伙伴咨询 payload：`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`
+- 提交前验证：`python3 scripts/saee_baidu_partner_consultation_application_smoke.py`
 
 ## 尚需人工完成
 

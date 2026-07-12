@@ -1,0 +1,56 @@
+{
+  "$schema": "./saee-baidu-partner-consultation-application.schema.v1.json",
+  "application_id": "saee.baidu.qianfan-partner-consultation.v1",
+  "status": "awaiting_verified_human_inputs",
+  "route": {
+    "route_id": "qianfan_partner_consultation",
+    "form_url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333",
+    "form_opened_at": "2026-07-13",
+    "official_form_heading": "千帆伙伴咨询"
+  },
+  "authorization": {
+    "contact_baidu": true,
+    "submit_ecosystem_application": true,
+    "authorization_scope_limited": true,
+    "evidence_ref": "agent-interface/ecosystem/saee-baidu-external-action-authorization-gate.v1.json"
+  },
+  "form_fields": {
+    "industry": [],
+    "product_shape": ["服务"],
+    "service_capability": ["产品集成"],
+    "partner_rights": ["应用场景共建", "技术赋能提升"],
+    "company_name": "",
+    "contact_name": "",
+    "contact_role": "",
+    "mobile_phone": "",
+    "contact_consent": null
+  },
+  "field_provenance": {
+    "industry": "owner_input_required_not_inferable",
+    "product_shape": "SAEE Agent Readiness Assessment product identity",
+    "service_capability": "bounded Qianfan product integration evidence",
+    "partner_rights": "recommended cooperation route in official-entry preflight",
+    "company_name": "owner_input_required_not_inferable",
+    "contact_name": "owner_input_required_personal_data",
+    "contact_role": "owner_input_required_personal_data",
+    "mobile_phone": "owner_input_required_personal_data",
+    "contact_consent": "explicit_data_contact_consent_required"
+  },
+  "submission_receipt": {
+    "submitted": false,
+    "submitted_at": null,
+    "confirmation_text": null,
+    "screenshot_path": null
+  },
+  "truth_boundary": {
+    "form_fields_complete": false,
+    "ready_for_submission": false,
+    "baidu_partner_contacted": false,
+    "qianfan_partner_consultation_submitted": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "authorization_scope_limited": true
+  }
+}
