@@ -8,7 +8,7 @@
   "urgency": "产品使用咨询",
   "initial_status": "已分派",
   "observed_status": "处理中",
-  "last_observed_at": "2026-07-13T16:36:44+08:00",
+  "last_observed_at": "2026-07-13T16:55:54+08:00",
   "engineer_acknowledged_at": "2026-07-13T16:21:53+08:00",
   "engineer_acknowledgement": "已收到您提交的问题",
   "interaction_events": [
@@ -23,6 +23,18 @@
       "actor": "SAEE owner",
       "type": "scope_confirmation",
       "summary": "Confirmed Qoder CN as the priority path and kept the global partner application as separate background."
+    },
+    {
+      "at": "2026-07-13T16:45:37+08:00",
+      "actor": "Alibaba Cloud after-sales engineer",
+      "type": "support_scope_routing",
+      "summary": "Stated that ecosystem and integration cooperation is outside the support-ticket scope, reported a handoff to a business colleague, and said the business colleague would contact the owner."
+    },
+    {
+      "at": "2026-07-13T16:55:54+08:00",
+      "actor": "SAEE owner",
+      "type": "business_handoff_receipt_request",
+      "summary": "Asked for the expected contact channel, any routing reference or responsible team name, and for the ticket to remain open until business contact occurs."
     }
   ],
   "source_route_receipt_ref": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
@@ -42,7 +54,13 @@
     "engineer_acknowledgement_is_completed_technical_conversation": false,
     "provider_scoping_question_received": true,
     "qoder_cn_scope_confirmed": true,
-    "technical_conversation_in_progress": true,
+    "technical_conversation_in_progress": false,
+    "support_scope_closed_without_technical_answer": true,
+    "provider_business_handoff_stated": true,
+    "provider_business_handoff_pending": true,
+    "business_contact_received": false,
+    "business_contact_channel_confirmed": false,
+    "business_handoff_reference_received": false,
     "provider_technical_response_received": false,
     "technical_conversation_scheduled": false,
     "technical_conversation_completed": false,

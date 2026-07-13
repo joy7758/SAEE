@@ -163,7 +163,7 @@
         "agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json",
         "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
       ],
-      "note": "completed=0/2; in_progress=1; the Qoder CN engineer asked a scoping question and the owner replied, but no completed conversation is inferred."
+      "note": "completed=0/2; in_progress=0; business_handoff_pending=1; Qoder CN support declared the request outside support scope and forwarded it to business, so no active or completed technical conversation is inferred."
     },
     {
       "requirement_id": "R16",
