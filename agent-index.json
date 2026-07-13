@@ -1642,9 +1642,9 @@
       "relevant smoke tests"
     ],
     "mandatory_sync_surfaces": [
-      "AGENTS.md when startup-critical",
+      "AGENTS.md rules and pointers when startup authority changes",
       "agent-index.json",
-      "llms.txt",
+      "llms.txt rules and pointers when discovery guidance changes",
       "affected contracts and tests",
       "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md when conclusions change"
     ],

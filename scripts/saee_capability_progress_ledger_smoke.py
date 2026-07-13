@@ -80,17 +80,10 @@ def validate(
     ledger_updated = ledger.get("ledger_updated")
     if not isinstance(ledger_updated, str) or not ledger_updated:
         errors.append("ledger.ledger_updated must be a non-empty date string")
-    else:
-        if f"ledger_updated={ledger_updated}" not in agents:
-            errors.append("AGENTS.md ledger_updated does not match machine ledger")
-        if f"Capability progress ledger updated: {ledger_updated}" not in llms:
-            errors.append("llms.txt ledger date does not match machine ledger")
 
     assessment_base_commit = ledger.get("assessment_base_commit")
     if not isinstance(assessment_base_commit, str) or not assessment_base_commit:
         errors.append("ledger.assessment_base_commit must be a non-empty commit id")
-    elif f"assessment_base_commit={assessment_base_commit}" not in agents:
-        errors.append("AGENTS.md assessment base does not match machine ledger")
 
     canonical = load_canonical_inventory()
     expected_status_projection = {
@@ -161,9 +154,9 @@ def validate(
         f"canonical_capability_source={CANONICAL_SOURCE}",
         f"machine_ledger_projection={INDEX_FILE}#capability_progress_ledger_v1",
         f"ledger_validator={VALIDATOR_FILE}",
-        f"completed_governance_change={CURRENT_PR}",
         f"roadmap_reference={ROADMAP_REFERENCE}",
-        "do_not_rebuild=synthetic OpenTelemetry-style candidate evidence mapping",
+        "do_not_rebuild_from_historical_roadmap=true",
+        "Do not copy live capability statuses",
         "Mandatory ledger synchronization",
     )
     for token in required_agent_tokens:
@@ -176,12 +169,32 @@ def validate(
         f"Detailed capability assessment: {REPORT_FILE}",
         f"Capability ledger recommendation gate: {GATE_FILE}",
         f"Capability ledger validation: python3 {VALIDATOR_FILE}",
-        f"Completed governance change: {CURRENT_PR}.",
-        "Duplicate-build prohibition: do not rebuild synthetic OpenTelemetry-style candidate evidence mapping",
+        "Capability lookup rule: read current status, lifecycle, canonical route and MCP classification from the canonical source",
+        "Duplicate-build prohibition: do not start from historical roadmap text",
+        "do not copy a live status snapshot into this file",
     )
     for token in required_llms_tokens:
         if token not in llms:
             errors.append(f"llms.txt missing ledger token: {token}")
+
+    forbidden_agent_snapshot_tokens = (
+        "Current canonical progress snapshot",
+        "otel_style_candidate_mapping=implemented_local_offline_synthetic_only",
+        "otel_sdk_or_otlp_ingestion=not_implemented",
+        f"completed_governance_change={CURRENT_PR}",
+    )
+    for token in forbidden_agent_snapshot_tokens:
+        if token in agents:
+            errors.append(f"AGENTS.md must not copy live capability snapshot: {token}")
+
+    forbidden_llms_snapshot_tokens = (
+        "Capability progress ledger updated:",
+        "Current OTEL truth:",
+        f"Completed governance change: {CURRENT_PR}.",
+    )
+    for token in forbidden_llms_snapshot_tokens:
+        if token in llms:
+            errors.append(f"llms.txt must not copy live capability snapshot: {token}")
 
     required_report_tokens = (
         "# SAEE Architecture Capability Assessment Report",
@@ -236,6 +249,8 @@ def main() -> int:
 
     negative_cases.append(("AGENTS startup token removed", index, agents.replace("ledger_validator=", "validator_removed="), llms, report, gate))
     negative_cases.append(("llms ledger route removed", index, agents, llms.replace("Canonical capability source:", "Removed source:"), report, gate))
+    negative_cases.append(("AGENTS copied live status", index, agents + "\notel_sdk_or_otlp_ingestion=not_implemented\n", llms, report, gate))
+    negative_cases.append(("llms copied dated snapshot", index, agents, llms + "\nCapability progress ledger updated: 2099-01-01\n", report, gate))
 
     undetected = [name for name, *state in negative_cases if not validate(*state)]
     if undetected:

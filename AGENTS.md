@@ -28,38 +28,27 @@ All code and repository surfaces must include an agent-readable layer.
 Every Agent must read this section before proposing architecture or feature work.
 每个智能体在提出架构或功能工作前，必须先阅读本节。
 
-Current canonical progress snapshot（当前规范进度快照）:
+Canonical lookup and rule pointers（规范查询入口与规则指针）:
 
 ```text
-ledger_updated=2026-07-13
-assessment_base_commit=00d8d0467
-assessment_report=reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md
 canonical_capability_source=capability-package/manifest.json#canonical_inventory
 machine_ledger_projection=agent-index.json#capability_progress_ledger_v1
 recommendation_gate=docs/strategy/SAEE_CAPABILITY_PROGRESS_LEDGER_RECOMMENDATION_GATE.md
 ledger_validator=scripts/saee_capability_progress_ledger_smoke.py
-
-otel_style_candidate_mapping=implemented_local_offline_synthetic_only
-otel_sdk_or_otlp_ingestion=not_implemented
-general_trace_normalization=partially_implemented
-trace_to_candidate_evidence_to_adequacy=implemented_bounded
-trusted_trace_to_evidence_conversion=not_implemented
-evidence_to_readiness_recommendation=implemented_local_partial_enterprise
-external_identity_binding=not_implemented
-delegation_binding=not_implemented
-public_mcp_or_api_service=false
-production_ready=false
-customer_validated=false
-
-completed_governance_change=Canonical Capability Inventory, Routing and Deprecation Map v1
 roadmap_reference=reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs
-do_not_rebuild=synthetic OpenTelemetry-style candidate evidence mapping
+do_not_rebuild_from_historical_roadmap=true
 ```
+
+Do not copy live capability statuses, MCP classifications or completed-work
+snapshots into this start file. Resolve them at read time from the canonical
+inventory and verify the machine projection before acting.
+不得在本启动文件中手工复制实时能力状态、MCP 分类或已完成工作快照；执行前必须从
+规范清单实时解析，并验证机器投影。
 
 Mandatory duplicate-build check（强制重复建设检查）:
 
-1. Read `capability-package/manifest.json#canonical_inventory`, then search `agent-index.json`, `llms.txt`, `reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md`, relevant schemas, services, examples and smoke tests before proposing a new capability.
-   在提出新能力前，必须先读取 `capability-package/manifest.json#canonical_inventory`，再检索 `agent-index.json`、`llms.txt`、能力评估报告、相关 schema、service、example 和 smoke test。
+1. Read `capability-package/manifest.json#canonical_inventory`, run the canonical validator, then search relevant schemas, services, examples, tests and historical reports before proposing a new capability.
+   在提出新能力前，必须先读取 `capability-package/manifest.json#canonical_inventory` 并运行规范校验器，再检索相关 schema、service、example、test 和历史报告。
 2. Classify the target as `implemented`, `partial`, `design_only`, `missing`, `deprecated`, or `superseded`; do not infer implementation from documentation alone.
    必须把目标分类为 `implemented`、`partial`、`design_only`、`missing`、`deprecated` 或 `superseded`；不得从文档存在推断代码已实现。
 3. If equivalent code already exists, do not create another implementation. Prefer reuse, canonical routing, consolidation, migration or deprecation.
@@ -71,10 +60,10 @@ Mandatory duplicate-build check（强制重复建设检查）:
 
 Mandatory ledger synchronization（强制台账同步）:
 
-- Any change to capability status, implementation scope, canonical route, lifecycle, limitation, or next-PR recommendation must update the affected `agent-index.json` object in the same change.
-- 能力状态、实现范围、规范路由、生命周期、限制或下一 PR 建议发生变化时，必须在同一次变更中更新对应的 `agent-index.json` 对象。
-- If the change affects startup-critical understanding or duplicate-build risk, update this `AGENTS.md` snapshot and the top capability-progress block in `llms.txt` in the same change.
-- 如果变更影响智能体启动理解或重复建设风险，必须同步更新本 `AGENTS.md` 快照和 `llms.txt` 顶部能力进度块。
+- Any change to capability facts must update the canonical inventory first and its `agent-index.json` projection in the same change; roadmap advice remains outside both capability-fact surfaces.
+- 能力事实变化时，必须先更新规范清单，并在同一次变更中更新其 `agent-index.json` 投影；路线图建议仍与这两个能力事实表面分离。
+- Update `AGENTS.md` and the top `llms.txt` block only when authority pointers, startup rules or duplicate-build procedure change. Never synchronize by copying live capability status into them.
+- 只有规范指针、启动规则或防重复建设流程变化时才更新 `AGENTS.md` 与 `llms.txt` 顶部区块；不得通过复制实时能力状态来“同步”。
 - Update the detailed assessment report when its conclusions change; do not leave a completed target as an active next PR anywhere in the repository.
 - 当详细评估结论变化时同步报告；任何已完成目标不得继续以 active next PR 留在仓库中。
 - Preserve staged truth: local code, synthetic pass, package readiness, external integration, customer validation and production readiness are separate states.

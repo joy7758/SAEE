@@ -405,11 +405,13 @@ def validate_repository_inventory(
     expected_doc_tokens = {
         "AGENTS.md": [
             f"canonical_capability_source={CANONICAL_SOURCE}",
-            "do_not_rebuild=synthetic OpenTelemetry-style candidate evidence mapping",
+            "do_not_rebuild_from_historical_roadmap=true",
+            "Do not copy live capability statuses",
         ],
         "llms.txt": [
             f"Canonical capability source: {CANONICAL_SOURCE}",
             "agent-index.json recommended_next_pr fields are deprecated compatibility metadata",
+            "do not copy a live status snapshot into this file",
         ],
         "README.md": [
             "python3 scripts/saee_agent_readiness_mcp_stdio.py",

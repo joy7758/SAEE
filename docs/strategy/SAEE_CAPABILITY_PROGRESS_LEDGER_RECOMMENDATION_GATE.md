@@ -16,17 +16,20 @@ agent recommend the capability-progress ledger and startup duplicate-build gate?
   historical `recommended_next_pr` fields still described that work as future.
 - Multiple local MCP and readiness projections make canonical routing difficult
   to infer without a lifecycle and ownership ledger.
-- A startup-visible progress snapshot improves discovery, reuse, archive
-  integrity and rollback safety without expanding runtime permissions.
+- Startup-visible authority pointers and duplicate-build rules improve
+  discovery, reuse, archive integrity and rollback safety without copying a
+  second capability-status snapshot or expanding runtime permissions.
 
 ## Required Scope
 
-1. Keep `AGENTS.md` as the startup-critical summary.
+1. Keep `AGENTS.md` as the startup-critical rule and authority-pointer surface;
+   do not copy live capability statuses into it.
 2. Keep `capability-package/manifest.json#canonical_inventory` as the sole
    capability-fact authority.
 3. Keep `agent-index.json#capability_progress_ledger_v1` as a validated machine
    projection, not an independent capability or roadmap authority.
-4. Keep the top capability-progress block in `llms.txt` synchronized.
+4. Keep the top `llms.txt` block synchronized only for authority pointers and
+   working rules; resolve live status from the canonical inventory.
 5. Update the detailed assessment when its material conclusions change.
 6. Mark completed or superseded next-PR instructions explicitly and treat
    `recommended_next_pr` as deprecated compatibility metadata.
