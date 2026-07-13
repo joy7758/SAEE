@@ -65,12 +65,14 @@ def main() -> None:
     require(alibaba_marketplace["marketplace_console_observations"]["publish_product_unblocked_state_currently_verified"] is True, "Alibaba Marketplace publish verification")
     require(alibaba_marketplace["marketplace_console_observations"]["store_profile_required_text_fields_prepared"] is True, "Alibaba Marketplace store-profile preparation")
     require(alibaba_marketplace["marketplace_console_observations"]["store_profile_submission"] is True, "Alibaba Marketplace store-profile submission")
-    require(alibaba_marketplace["marketplace_console_observations"]["product_type_owner_selected"] is False, "Alibaba Marketplace product-type boundary")
+    require(alibaba_marketplace["marketplace_console_observations"]["product_type_owner_selected"] is True, "Alibaba Marketplace product type")
     require(alibaba_marketplace["deposit_evidence"]["guarantee_deposit_owner_confirmed_paid"] is True, "Alibaba deposit owner confirmation")
     require(alibaba_marketplace["deposit_evidence"]["guarantee_deposit_platform_receipt_observed_in_this_inspection"] is False, "Alibaba deposit receipt boundary")
     require(alibaba_marketplace["partner_workbench_observations"]["cooperation_product_record_count"] == 0, "Alibaba cooperation product count")
     require(alibaba_marketplace["partner_workbench_observations"]["integration_certification_application_count"] == 0, "Alibaba certification application count")
-    require(alibaba_marketplace["truth_boundary"]["marketplace_product_submission"] is False, "Alibaba Marketplace submission boundary")
+    require(alibaba_marketplace["truth_boundary"]["marketplace_product_submission"] is True, "Alibaba Marketplace submission")
+    require(alibaba_marketplace["truth_boundary"]["marketplace_product_review_in_progress"] is True, "Alibaba Marketplace review")
+    require(alibaba_marketplace["truth_boundary"]["marketplace_product_listed"] is False, "Alibaba Marketplace listing boundary")
     require(alibaba_ticket["truth_boundary"]["technical_conversation_request_submitted"] is True, "Alibaba Qoder ticket")
     require(alibaba_ticket["truth_boundary"]["technical_conversation_completed"] is False, "Alibaba Qoder conversation boundary")
     tencent_handoff = json.loads((ROOT / providers["Tencent Cloud"]["contact_handoff_ref"]).read_text(encoding="utf-8"))
@@ -80,8 +82,8 @@ def main() -> None:
     require(aggregate["submitted_provider_count"] == 3, "submitted provider count")
     require(aggregate["partner_or_ecosystem_interest_submission_count"] == 2, "interest submission count")
     require(aggregate["provider_contact_inquiry_count"] == 1, "contact inquiry count")
-    require(aggregate["external_submission_event_count"] == 4, "external submission event count")
-    require(aggregate["acknowledged_external_intake_count"] == 3, "acknowledged intake count")
+    require(aggregate["external_submission_event_count"] == 5, "external submission event count")
+    require(aggregate["acknowledged_external_intake_count"] == 4, "acknowledged intake count")
     require(aggregate["incomplete_form_handoff_count"] == 1, "handoff count")
     require(aggregate["enterprise_verified_provider_count"] == 1, "enterprise verified provider count")
     require(aggregate["formal_partner_application_started_count"] == 1, "formal application started count")
@@ -96,8 +98,8 @@ def main() -> None:
     require(aggregate["marketplace_publish_product_entry_unblocked_count"] == 1, "publish-entry count")
     require(aggregate["blocked_count"] == 2, "blocked count")
     require(aggregate["provider_approved_count"] == 1, "provider approved count")
-    for key in ("marketplace_submission_count", "marketplace_listed_count"):
-        require(aggregate[key] == 0, key)
+    require(aggregate["marketplace_submission_count"] == 1, "marketplace submission count")
+    require(aggregate["marketplace_listed_count"] == 0, "marketplace listed count")
     require(aggregate["customer_validated"] is False, "customer validation")
     require(aggregate["production_ready"] is False, "production readiness")
 
@@ -124,9 +126,9 @@ def main() -> None:
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
         "providers=5 interest_submitted=2 contact_inquiry=1 enterprise_verified=1 "
         "formal_application_started=1 formal_partner_application=1 approved=1 membership_active=1 "
-        "marketplace_route_available=1 category_qualification=1 settlement_account=1 withholding_authorization=1 store_profile_prepared=1 store_profile_submission=1 publish_entry_unblocked=1 product_type_owner_selected=0 "
+        "marketplace_route_available=1 category_qualification=1 settlement_account=1 withholding_authorization=1 store_profile_prepared=1 store_profile_submission=1 publish_entry_unblocked=1 product_type_owner_selected=1 "
         "captcha_handoff=1 blocked=2 provider_approved=1 "
-        "marketplace_submission=0 production_ready=false"
+        "marketplace_submission=1 marketplace_review=审核中 marketplace_listed=0 production_ready=false"
     )
 
 

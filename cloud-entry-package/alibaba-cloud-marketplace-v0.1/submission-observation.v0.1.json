@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "saee.alibaba-cloud.marketplace-submission-observation.v0.1",
+  "observed_on": "2026-07-13",
+  "observation_method": "owner_confirmation_plus_logged_in_marketplace_product_management_observation",
+  "marketplace_commodity_id": "68657",
+  "marketplace_product_code": "cmfw00074657",
+  "product_name": "SAEE AI智能体上线前可靠性评估｜Agent工作流证据检查",
+  "product_type": "服务类",
+  "platform_observation": {
+    "review_status": "审核中",
+    "listing_status": "未上架",
+    "created_on": "2026-07-13",
+    "listed_on": null
+  },
+  "truth_boundary": {
+    "marketplace_product_submission": true,
+    "marketplace_product_review_in_progress": true,
+    "marketplace_product_review_approved": false,
+    "marketplace_product_review_rejected": false,
+    "marketplace_product_listed": false,
+    "customer_order_available": false,
+    "paid_order_received": false,
+    "commercial_delivery_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

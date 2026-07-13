@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "artifact_id": "saee.alibaba-cloud.marketplace-sales-pricing.v0.1",
-  "status": "form_fields_entered_validity_confirmation_pending_not_saved_not_published",
+  "status": "submitted_review_in_progress_not_listed",
   "marketplace_commodity_id": "68657",
+  "marketplace_product_code": "cmfw00074657",
   "sales_mode": "PAY_PER_USE",
   "enterprise_customers_only": false,
   "initial_sku": {
@@ -14,7 +15,7 @@
     "standard_price_after_delivery_validation_cny": 1999,
     "marketplace_form_entered": true,
     "validity_current_ui_selection": "1年",
-    "validity_owner_approved": false
+    "validity_owner_approved": true
   },
   "scope_controls": [
     "normalized_authorized_sanitized_metadata_only",
@@ -34,9 +35,12 @@
   "truth_boundary": {
     "public_price_points_approved": true,
     "marketplace_sales_information_form_fields_entered": true,
-    "marketplace_sales_information_saved": false,
+    "marketplace_sales_information_saved": true,
+    "marketplace_protocol_information_saved": true,
     "price_published": false,
-    "marketplace_product_submission": false,
+    "marketplace_product_submission": true,
+    "marketplace_product_review_status": "审核中",
+    "marketplace_product_listing_status": "未上架",
     "marketplace_product_listed": false,
     "paid_order_received": false,
     "commercial_delivery_completed": false,

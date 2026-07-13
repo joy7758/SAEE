@@ -2,19 +2,18 @@
 
 ## Live platform state
 
-- Marketplace draft commodity ID: `68657`.
+- Marketplace commodity ID: `68657`; product code: `cmfw00074657`.
 - Product access information completed: `服务类`, SPI notification `否`,
   public `最简服务流`, and the provider company as the delivery provider.
 - Product basic information is saved, including the main image, logo,
   introduction, four highlights, product detail, PDF guide, after-sales copy,
   and the 16:9 architecture diagram.
-- Current handoff: business information is saved. On the sales-information
-  page, PAY_PER_USE, enterprise-only=false, SKU `单工作流单场景首发评估`, and
-  RMB 999 are entered. The required validity control remains at its pre-existing
-  `1年` selection and is not owner-approved, so the page is not saved. Final
-  product submission remains a separate gate.
-- `marketplace_product_submission=false`, `marketplace_product_listed=false`,
-  and `production_ready=false`.
+- Sales and protocol information were completed and the owner submitted the
+  product. The logged-in product-management table now shows review status
+  `审核中` and listing status `未上架`.
+- `marketplace_product_submission=true`,
+  `marketplace_product_review_in_progress=true`,
+  `marketplace_product_listed=false`, and `production_ready=false`.
 
 This is a local, agent-readable preparation package for the first bounded SAEE
 Alibaba Cloud Marketplace product. It does not submit a cooperation product,
@@ -52,7 +51,9 @@ or rank Agents universally.
   and retrieval agents.
 - `service-user-guide.md`: source for the required Marketplace PDF guide.
 - `sales-pricing.v0.1.json`: owner-authorized RMB 999 per-use initial SKU;
-  not yet saved or published on the Marketplace.
+  submitted for review but not yet listed or publicly orderable.
+- `submission-observation.v0.1.json`: machine-readable observation of product
+  code `cmfw00074657`, review status `审核中`, and listing status `未上架`.
 - Marketplace delivery bridge:
   `docs/commercial/SAEE_ALIBABA_MARKETPLACE_DELIVERY_BRIDGE_V0_1.md`.
 - Marketplace intake, bundle, and receipt schemas:
@@ -99,22 +100,22 @@ marketplace_product_basic_info_saved=true
 marketplace_product_business_info_form_fill_authorized=true
 marketplace_product_business_info_saved=true
 marketplace_product_sales_information_opened=true
-marketplace_product_submission=false
+marketplace_product_submission=true
+marketplace_product_review_in_progress=true
 marketplace_product_listed=false
 public_price_points_approved=true
 marketplace_sales_information_form_fields_entered=true
-marketplace_sales_information_saved=false
+marketplace_sales_information_saved=true
 customer_validated=false
 production_ready=false
 ```
 
-The saved business information uses no service-region
+The submitted business information uses no service-region
 restriction, category `AI应用及服务市场 / AI应用`, delivery method `人工服务`,
 application object `企业`, application scenario `应用开发`, and tags `数据智能`
 and `数据分析`. Delivery time and warranty time remain empty because no
-owner-approved commitment exists. The sales-information page is open. The
-RMB 999 per-use launch price and SKU are entered but are not yet saved or
-public. The next gate is owner confirmation of the required validity; `1年` is
-only the current UI default, not an approved commitment. Agreements,
-cooperation-product submission,
-certification, Marketplace submission, and listing remain separate gates.
+owner-approved fixed commitment exists. The RMB 999 per-use launch price, SKU,
+one-year validity, service agreement, and qualification statement were included
+in the submitted form. The next gate is the Marketplace review outcome.
+Cooperation-product submission, certification, listing, paid orders, customer
+validation, and production readiness remain separate states.

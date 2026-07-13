@@ -20,8 +20,8 @@ recommendation_gate:
     - The package makes Alibaba Cloud product association, delivery, pricing, settlement, and submission gates machine-readable.
   reasons_not_to_recommend:
     - Alibaba Cloud Model Studio interoperability has not been tested.
-    - Delivery timing, tax, support, refund, acceptance, agreement, and final submission decisions remain open.
-    - The Marketplace delivery bridge and RMB 999 per-use initial price are locally approved, but no sales information has been saved or published.
+    - The Marketplace review is still in progress and the product is not listed.
+    - Fixed delivery timing, tax presentation, support, retention, and customer-order operations still require an approved operational policy before a real order is accepted.
   decomposition:
     - blocker: Marketplace store profile information is incomplete on the official startup guide until the prepared form is submitted.
       subsystem: Evolutionary Archive / Rollback Immune System
@@ -45,7 +45,7 @@ recommendation_gate:
       acceptance_criteria: public_price_points_approved=true and delivery_terms_owner_approved=true
       status: open
       partial_closure_evidence: public_price_points_approved=true; delivery_terms_owner_approved=false
-  final_decision: Recommend the bounded Marketplace draft now. Keep unsourced delivery and warranty commitments, sales information, agreement information, cooperation-product submission, certification application, Marketplace product submission, listing, and production claims behind separate owner gates.
+  final_decision: Recommend the bounded submitted product for Marketplace review. Keep review approval, listing, public order availability, customer validation, revenue, and production claims behind separate evidence gates.
 ```
 
 ## Live settlement handoff observed on 2026-07-13
@@ -148,8 +148,24 @@ recommendation_gate:
 - The SEO product name was entered and the platform created Marketplace draft
   commodity `68657`, then opened the product basic-information page.
 - The basic-information page then remained a separate explicit owner gate.
-- `marketplace_product_submission=false`, `marketplace_product_listed=false`,
+- At this historical stage,
+  `marketplace_product_submission=false`, `marketplace_product_listed=false`,
   `customer_validated=false`, and `production_ready=false`.
+
+## Marketplace product submission follow-up observed on 2026-07-13
+
+- The owner confirmed final product submission for commodity `68657`.
+- The logged-in Marketplace product-management table exposed product code
+  `cmfw00074657` for
+  `SAEE AI智能体上线前可靠性评估｜Agent工作流证据检查`.
+- The platform displayed review status `审核中` and listing status `未上架`.
+- Therefore `marketplace_product_submission=true` and
+  `marketplace_product_review_in_progress=true`, while
+  `marketplace_product_review_approved=false`,
+  `marketplace_product_listed=false`, `customer_validated=false`, and
+  `production_ready=false`.
+- Machine-readable observation:
+  `cloud-entry-package/alibaba-cloud-marketplace-v0.1/submission-observation.v0.1.json`.
 
 ## Product basic-information and business-information follow-up observed on 2026-07-13
 
@@ -169,5 +185,6 @@ recommendation_gate:
 - Delivery time and warranty time remain empty because no owner-approved
   commitment exists. The business-information page has not been saved; clicking
   `下一步` remains a separate confirmation gate.
-- `marketplace_product_submission=false`, `marketplace_product_listed=false`,
+- At this historical stage,
+  `marketplace_product_submission=false`, `marketplace_product_listed=false`,
   `customer_validated=false`, and `production_ready=false`.

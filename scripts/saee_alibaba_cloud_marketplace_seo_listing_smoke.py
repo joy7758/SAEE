@@ -68,16 +68,18 @@ def main() -> None:
     require(truth["marketplace_product_business_info_form_fill_authorized"] is True, "business info authorization")
     require(truth["marketplace_product_business_info_saved"] is True, "business info saved")
     require(truth["marketplace_product_sales_information_opened"] is True, "sales information opened")
-    require(truth["marketplace_product_sales_information_saved"] is False, "sales information save boundary")
+    require(truth["marketplace_product_sales_information_saved"] is True, "sales information saved")
+    require(truth["marketplace_protocol_information_saved"] is True, "protocol information saved")
     require(truth["marketplace_product_draft_created"] is True, "draft creation")
     for key in (
-        "marketplace_product_submission",
         "marketplace_product_listed",
         "official_bailian_integration",
         "customer_validated",
         "production_ready",
     ):
         require(truth[key] is False, key)
+    require(truth["marketplace_product_submission"] is True, "marketplace submission")
+    require(truth["marketplace_product_review_status"] == "审核中", "marketplace review status")
 
     for key in ("main_image", "product_logo", "usage_guide_pdf", "architecture_image", "architecture_source"):
         require((ROOT / listing[key]).is_file(), f"missing {key}")
@@ -92,8 +94,8 @@ def main() -> None:
         "marketplace_product_access_form_fill_authorized=true marketplace_product_draft_created=true "
         "marketplace_product_basic_info_form_fill_authorized=true marketplace_product_basic_info_saved=true "
         "marketplace_product_business_info_form_fill_authorized=true marketplace_product_business_info_saved=true "
-        "marketplace_product_sales_information_opened=true marketplace_product_sales_information_saved=false "
-        "marketplace_submission=false production_ready=false"
+        "marketplace_product_sales_information_opened=true marketplace_product_sales_information_saved=true "
+        "marketplace_protocol_information_saved=true marketplace_submission=true marketplace_review=审核中 marketplace_listed=false production_ready=false"
     )
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+- Recorded the owner-confirmed Alibaba Cloud Marketplace product submission
+  and the logged-in platform observation for commodity `68657`, product code
+  `cmfw00074657`: review status is `审核中` and listing status is `未上架`.
+  Agent-readable Marketplace, SEO, pricing, multi-cloud, `llms.txt`, and index
+  truth surfaces now distinguish submission from approval, listing, customer
+  validation, commercial delivery, and production readiness.
+
 - Consolidated the 2026-07-13 worktree into a portable, agent-readable source
   set: durable code, schemas, recommendation gates, research evidence, and
   marketplace artifacts are retained; runtime logs, browser captures, temporary

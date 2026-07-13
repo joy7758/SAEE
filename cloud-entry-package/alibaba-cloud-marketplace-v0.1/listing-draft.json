@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "draft_id": "saee.alibaba-cloud.marketplace-listing-draft.v0.1",
-  "status": "marketplace_product_draft_68657_sales_fields_entered_validity_confirmation_pending",
+  "status": "marketplace_product_submitted_review_in_progress_not_listed",
   "marketplace_commodity_id": "68657",
+  "marketplace_product_code": "cmfw00074657",
   "product": {
     "name_en": "SAEE Agent Readiness Assessment",
     "name_zh": "SAEE 智能体上线可靠性评估服务",
@@ -57,7 +58,7 @@
     "public_price_cny": 999,
     "marketplace_form_entered": true,
     "validity_current_ui_selection": "1年",
-    "validity_owner_approved": false,
+    "validity_owner_approved": true,
     "tax_rate": null,
     "delivery_business_days": null,
     "warranty_days": null,
@@ -101,7 +102,7 @@
     "support_terms",
     "acceptance_terms",
     "marketplace_product_business_info_next_step",
-    "marketplace_submission_authorization"
+    "marketplace_review_outcome"
   ],
   "forbidden_claims": [
     "certification",
@@ -118,7 +119,8 @@
     "delivery_terms_owner_approved": false,
     "public_price_points_approved": true,
     "marketplace_sales_information_form_fields_entered": true,
-    "marketplace_sales_information_saved": false,
+    "marketplace_sales_information_saved": true,
+    "marketplace_protocol_information_saved": true,
     "bailian_synthetic_interoperability_validated": false,
     "marketplace_product_access_form_fill_authorized": true,
     "marketplace_product_basic_info_form_fill_authorized": true,
@@ -127,7 +129,9 @@
     "marketplace_product_business_info_saved": true,
     "marketplace_product_sales_information_opened": true,
     "marketplace_product_draft_created": true,
-    "marketplace_product_submission": false,
+    "marketplace_product_submission": true,
+    "marketplace_product_review_status": "审核中",
+    "marketplace_product_listing_status": "未上架",
     "marketplace_product_listed": false,
     "commercial_delivery_completed": false,
     "customer_validated": false,

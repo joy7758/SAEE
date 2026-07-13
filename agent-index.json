@@ -654,11 +654,15 @@
       "form_entry_authorized": true,
       "initial_price_cny": 999,
       "marketplace_form_fields_entered": true,
-      "marketplace_sales_information_saved": false,
+      "marketplace_sales_information_saved": true,
+      "marketplace_protocol_information_saved": true,
+      "marketplace_product_code": "cmfw00074657",
+      "marketplace_product_submission": true,
+      "marketplace_product_review_status": "审核中",
       "price_published": false,
       "sales_mode": "PAY_PER_USE",
       "validity_current_ui_selection": "1\u5e74",
-      "validity_owner_approved": false
+      "validity_owner_approved": true
     },
     "purpose": "Prepare a bounded one-workflow one-scenario human-delivered assessment by reusing saee.evaluate_agent_run and producing digest-bound JSON, Chinese report, review, and deletion receipts.",
     "should_not_use": [
@@ -681,6 +685,8 @@
       "customer_validated": false,
       "marketplace_delivery_completed": false,
       "marketplace_product_listed": false,
+      "marketplace_product_review_in_progress": true,
+      "marketplace_product_submission": true,
       "normalized_customer_metadata_used": true,
       "pii_absence_verified_by_saee": false,
       "production_ready": false,
@@ -25867,13 +25873,13 @@
       "volcengine_submission_receipt": "agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json"
     },
     "name": "SAEE Multi-Cloud Partner Entry v1.0",
-    "status": "two_submitted_three_blocked_on_company_domain_email_or_account_inputs",
+    "status": "alibaba_marketplace_product_submitted_review_in_progress_not_listed",
     "truth_boundary": {
       "alibaba_cloud_product_partner_submitted": false,
       "customer_validated": false,
       "google_cloud_partner_enrollment_submitted": false,
       "marketplace_listed_count": 0,
-      "marketplace_submission_count": 0,
+      "marketplace_submission_count": 1,
       "openai_partner_interest_submitted": true,
       "production_ready": false,
       "provider_approved_count": 0,

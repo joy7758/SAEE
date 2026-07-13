@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "artifact_id": "saee.alibaba-cloud.marketplace-seo-listing-copy.v0.1",
-  "status": "marketplace_product_draft_68657_sales_fields_entered_validity_confirmation_pending",
+  "status": "marketplace_product_submitted_review_in_progress_not_listed",
   "marketplace_commodity_id": "68657",
+  "marketplace_product_code": "cmfw00074657",
   "official_rule_sources": [
     "https://help.aliyun.com/zh/marketplace/description-of-publishing",
     "https://help.aliyun.com/zh/marketplace/user-guide-1",
@@ -22,7 +23,7 @@
       "public_price_and_tax",
       "delivery_and_warranty_terms",
       "refund_acceptance_and_support_terms",
-      "marketplace_product_submission"
+      "marketplace_review_outcome"
     ]
   },
   "required_design_check": {
@@ -123,9 +124,12 @@
     "marketplace_product_business_info_saved": true,
     "marketplace_product_sales_information_opened": true,
     "marketplace_product_sales_information_form_fields_entered": true,
-    "marketplace_product_sales_information_saved": false,
+    "marketplace_product_sales_information_saved": true,
+    "marketplace_protocol_information_saved": true,
     "marketplace_product_draft_created": true,
-    "marketplace_product_submission": false,
+    "marketplace_product_submission": true,
+    "marketplace_product_review_status": "审核中",
+    "marketplace_product_listing_status": "未上架",
     "marketplace_product_listed": false,
     "official_bailian_integration": false,
     "customer_validated": false,

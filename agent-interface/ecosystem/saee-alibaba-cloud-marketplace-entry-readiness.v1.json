@@ -3,7 +3,7 @@
   "receipt_id": "saee.alibaba-cloud.marketplace-entry-readiness.v1",
   "provider": "Alibaba Cloud",
   "observed_on": "2026-07-13",
-  "status": "marketplace_product_draft_68657_business_info_prepared_next_step_pending_confirmation",
+  "status": "marketplace_product_submitted_review_in_progress_not_listed",
   "source_surfaces": {
     "product_ecosystem_workbench": "https://aps.aliyun.com/#/",
     "marketplace_service_provider_console": "https://msp.aliyun.com/msp/index",
@@ -59,13 +59,13 @@
       "business_registration_number"
     ],
     "custody_account_provider_owner_selected": "enterprise_alipay",
-    "current_handoff_surface": "marketplace_product_business_info_next_step_pending_confirmation",
+    "current_handoff_surface": "marketplace_product_management_review_in_progress",
     "mybank_activation_performed": false,
     "withholding_authorization_performed": true,
     "withholding_authorization_owner_confirmed": true,
     "withholding_authorization_platform_status_observed": true,
     "marketplace_product_record_count_before_draft_creation": 0,
-    "marketplace_product_record_count_currently_reobserved": false,
+    "marketplace_product_record_count_currently_reobserved": true,
     "publish_product_entry_visible": true,
     "publish_product_action_blocked_by_startup_guide": false,
     "publish_product_block_reason": null,
@@ -114,6 +114,7 @@
     "marketplace_product_name_entered": "SAEE AI智能体上线前可靠性评估｜Agent工作流证据检查",
     "marketplace_product_draft_record_created": true,
     "marketplace_product_draft_commodity_id": "68657",
+    "marketplace_product_code": "cmfw00074657",
     "marketplace_product_basic_info_page_opened": true,
     "marketplace_product_basic_info_form_fields_modified_by_codex": true,
     "marketplace_product_basic_info_main_image_uploaded": true,
@@ -144,9 +145,15 @@
     "marketplace_product_sku_name_entered": "单工作流单场景首发评估",
     "marketplace_product_price_cny_entered": 999,
     "marketplace_product_validity_current_ui_selection": "1年",
-    "marketplace_product_validity_owner_approved": false,
+    "marketplace_product_validity_owner_approved": true,
     "marketplace_product_sales_information_form_fields_entered": true,
-    "marketplace_product_sales_information_saved": false
+    "marketplace_product_sales_information_saved": true,
+    "marketplace_product_protocol_information_entered": true,
+    "marketplace_product_protocol_information_saved": true,
+    "marketplace_product_submission_owner_confirmed": true,
+    "marketplace_product_submission_platform_followup_observed": true,
+    "marketplace_product_review_status": "审核中",
+    "marketplace_product_listing_status": "未上架"
   },
   "deposit_evidence": {
     "guarantee_deposit_owner_confirmed_paid": true,
@@ -171,17 +178,17 @@
     "marketplace_delivery_bridge_ready": true,
     "marketplace_delivery_bridge_validation": "python3 scripts/saee_marketplace_assessment_delivery_smoke.py",
     "sales_pricing_decision_ready": true,
+    "submission_observation_ready": true,
     "seo_offline_validator": "python3 scripts/saee_alibaba_cloud_marketplace_seo_listing_smoke.py",
     "offline_validator": "python3 scripts/saee_alibaba_cloud_marketplace_entry_readiness_smoke.py"
   },
   "required_sequence": [
-    "fill_owner_authorized_marketplace_sales_information",
-    "owner_reviews_and_authorizes_marketplace_sales_information_save",
+    "monitor_marketplace_review_outcome",
     "owner_reviews_and_authorizes_cooperation_product_submission",
     "run_bailian_synthetic_interoperability_validation",
     "owner_reviews_and_authorizes_integration_certification_application",
     "owner_approves_tax_delivery_refund_and_support_terms",
-    "owner_reviews_and_authorizes_marketplace_submission"
+    "prepare_order_delivery_only_after_listing_and_real_order"
   ],
   "privacy": {
     "account_email_stored": false,
@@ -211,10 +218,14 @@
     "marketplace_product_business_info_saved": true,
     "marketplace_product_sales_information_opened": true,
     "marketplace_product_sales_information_form_fields_entered": true,
-    "marketplace_product_sales_information_saved": false,
+    "marketplace_product_sales_information_saved": true,
+    "marketplace_product_protocol_information_saved": true,
     "marketplace_product_access_form_modified_by_codex": true,
     "marketplace_product_draft_created": true,
-    "marketplace_product_submission": false,
+    "marketplace_product_submission": true,
+    "marketplace_product_review_in_progress": true,
+    "marketplace_product_review_approved": false,
+    "marketplace_product_review_rejected": false,
     "marketplace_product_listed": false,
     "public_price_points_approved": true,
     "customer_input_adapter_ready": true,
@@ -223,5 +234,5 @@
     "revenue_confirmed": false,
     "production_ready": false
   },
-  "next_human_gate": "Draft 68657 sales fields are entered: PAY_PER_USE, enterprise_customers_only=false, SKU name=单工作流单场景首发评估, price_cny_per_use=999. The required validity control remains at its pre-existing 1年 selection and is not owner-approved. Confirm a validity before saving. Tax, delivery, warranty, acceptance, refund, agreement, final Marketplace submission, listing, and production claims remain separate owner-authorized gates."
+  "next_human_gate": "Marketplace product 68657 / cmfw00074657 is submitted. The product-management table shows review_status=审核中 and listing_status=未上架. Monitor the review outcome; do not claim approval, listing, public order availability, customer validation, revenue, or production readiness before separate platform evidence exists."
 }

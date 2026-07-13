@@ -38,8 +38,9 @@
     "bailian_integrated": false,
     "integration_certification_application_submission": false,
     "official_support": false,
-    "marketplace_product_submission": false,
+    "marketplace_product_submission": true,
+    "marketplace_product_review_status": "审核中",
+    "marketplace_product_listed": false,
     "production_ready": false
   }
 }
-
