@@ -27,6 +27,7 @@
     "approved_cloud_marketplace_route_available": true,
     "technical_conversation_request_events_submitted": 4,
     "technical_conversation_distinct_vendor_targets": 2,
+    "cloud_vendor_technical_conversation_in_progress": 1,
     "qoder_technical_conversation_completed": false,
     "official_qoder_integration": false,
     "marketplace_listed": false,

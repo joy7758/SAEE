@@ -18,7 +18,7 @@ Overall: `goal_complete=false`; proven complete: `17/23`.
 | R12 | Adjust GitHub discovery structure and first sentence | `proven_complete` | Frozen first sentence and Agent-readable entrypoints present. |
 | R13 | Validate MCP Capability locally | `proven_complete` | Two-tool stdio discovery and calls pass. |
 | R14 | Keep OpenAPI stable | `proven_complete` | Local package validation passes; no public service inferred. |
-| R15 | Complete two cloud-vendor technical conversations | `incomplete` | completed=0/2; four request events cover two vendor targets and the QoderCn ticket is assigned, but no completed conversation is inferred. |
+| R15 | Complete two cloud-vendor technical conversations | `incomplete` | completed=0/2; in_progress=1; the Qoder CN engineer asked a scoping question and the owner replied, but no completed conversation is inferred. |
 | R16 | Complete one external ecosystem presentation | `incomplete` | completed=0/1; owned public demo is tracked separately. |
 | R17 | Complete three consented external developer tests | `incomplete` | completed=0/3; protocol and intake are ready but no external observation is counted. |
 | R18 | Confirm one Design Partner | `incomplete` | completed=0/1. |
