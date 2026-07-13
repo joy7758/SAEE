@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "identity_id": "saee.agent-readiness-capability.v2",
+  "name": "SAEE Agent Readiness Capability",
+  "name_zh": "SAEE 智能体就绪评估能力",
+  "one_sentence": "SAEE is an Agent Readiness Infrastructure that evaluates whether AI agents have sufficient execution evidence before real-world deployment.",
+  "category": "agent_readiness_capability",
+  "engineering_core": "Digital Biosphere Evolution Engine",
+  "public_operations": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "internal_operations": [
+    "rehearse_agent",
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "decision_flow": [
+    "AGENT_PLATFORM",
+    "SAEE_CAPABILITY",
+    "EVIDENCE_EVALUATION",
+    "READINESS_CONTEXT",
+    "INDEPENDENTLY_AUTHORIZED_DECISION"
+  ],
+  "protocols": ["MCP_STDIO", "HTTP_CONTRACT"],
+  "truth_boundary": {
+    "local_two_tool_runtime_available": true,
+    "read_only": true,
+    "external_world_execution": false,
+    "authorization_output": false,
+    "qoder_configuration_ready": true,
+    "qoder_runtime_validated": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "cross_framework_templates_ready": true,
+    "cross_framework_interoperability_validated": false,
+    "marketplace_listed": false,
+    "external_adoption_validated": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

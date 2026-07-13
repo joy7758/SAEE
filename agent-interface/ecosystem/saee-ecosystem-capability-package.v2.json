@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "package_id": "saee.ecosystem-capability-package.v2",
+  "name": "SAEE Agent Readiness Capability Ecosystem Package",
+  "stage": "local_qoder_first_compatibility_package",
+  "identity": "agent-interface/product/saee-agent-readiness-capability.v2.json",
+  "capability_card": "saee-capability-card.json",
+  "public_operations": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+  "adapters": {
+    "qoder": "adapters/qoder/qoder-project.mcp.json",
+    "qianfan": "adapters/qianfan/README.md",
+    "langchain": "adapters/langchain/mcp-config.json",
+    "crewai": "adapters/crewai/mcp-server-params.json",
+    "claude_code": "adapters/claude-code/claude-project.mcp.json"
+  },
+  "demo": {
+    "request": "examples/qoder-saee-readiness-demo/request.json",
+    "response": "examples/qoder-saee-readiness-demo/response.json",
+    "expected_readiness": "replan",
+    "expected_recommendation": "REPLAN",
+    "expected_missing_evidence": ["ROLLBACK_PLAN", "HUMAN_APPROVAL"]
+  },
+  "materials": {
+    "one_page": "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_LAYER_ONE_PAGER.md",
+    "ten_page_source": "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_TECHNICAL_SOLUTION_V2.md",
+    "ten_page_pdf": "output/pdf/SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf",
+    "three_minute_video": "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+    "joint_solution_draft": "docs/ecosystem/SAEE_QODER_JOINT_SOLUTION_DRAFT_V0_1.md",
+    "external_developer_test_protocol": "docs/ecosystem/SAEE_EXTERNAL_DEVELOPER_TEST_PROTOCOL_V1.md",
+    "cloud_technical_conversation_brief": "agent-interface/ecosystem/saee-cloud-technical-conversation-brief.v1.json",
+    "qoder_partner_application_receipt": "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+  },
+  "validators": [
+    "scripts/saee_qoder_adapter_smoke.py",
+    "scripts/saee_ecosystem_occupancy_v2_smoke.py",
+    "scripts/saee_ecosystem_occupancy_v2_completion_audit.py"
+  ],
+  "truth_boundary": {
+    "local_package_ready": true,
+    "qoder_process_executed": false,
+    "qoder_partner_application_submitted": true,
+    "qoder_technical_conversation_completed": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "cross_framework_interoperability_validated": false,
+    "cloud_vendor_technical_conversations_complete": false,
+    "external_developer_tests_complete": false,
+    "design_partner_confirmed": false,
+    "joint_solution_confirmed": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "external_adoption_validated": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

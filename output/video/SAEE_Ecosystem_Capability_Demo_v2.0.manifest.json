@@ -1,0 +1,67 @@
+{
+  "video_package_version": "2.0.0",
+  "video": "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+  "subtitles": "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.zh-CN.srt",
+  "duration_seconds": 180.021,
+  "resolution": "1280x720",
+  "audio": "local_zh_CN_TTS_no_music",
+  "scene_count": 9,
+  "sha256": "b35d400ca4bab64d27ab75ec8051e93c120ead8c44231ae0f0321b2c742da2a0",
+  "scenes": [
+    {
+      "scene_id": "01-position",
+      "duration_seconds": 20,
+      "narration_seconds": 8.294
+    },
+    {
+      "scene_id": "02-gap",
+      "duration_seconds": 20,
+      "narration_seconds": 9.238
+    },
+    {
+      "scene_id": "03-tools",
+      "duration_seconds": 20,
+      "narration_seconds": 8.839
+    },
+    {
+      "scene_id": "04-qoder-flow",
+      "duration_seconds": 20,
+      "narration_seconds": 9.939
+    },
+    {
+      "scene_id": "05-result",
+      "duration_seconds": 20,
+      "narration_seconds": 8.435
+    },
+    {
+      "scene_id": "06-branches",
+      "duration_seconds": 20,
+      "narration_seconds": 9.006
+    },
+    {
+      "scene_id": "07-boundary",
+      "duration_seconds": 20,
+      "narration_seconds": 9.211
+    },
+    {
+      "scene_id": "08-route",
+      "duration_seconds": 20,
+      "narration_seconds": 10.211
+    },
+    {
+      "scene_id": "09-next",
+      "duration_seconds": 20,
+      "narration_seconds": 9.849
+    }
+  ],
+  "truth_boundary": {
+    "self_explanatory_local_demo": true,
+    "qoder_process_executed": false,
+    "official_platform_integration": false,
+    "customer_data_used": false,
+    "external_world_actions": 0,
+    "marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

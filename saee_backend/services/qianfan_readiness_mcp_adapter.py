@@ -79,9 +79,16 @@ def _depth(value: Any, depth: int = 0) -> int:
 
 
 class QianfanReadinessMCPAdapter:
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        *,
+        server_name: str = "saee-qianfan-agent-readiness",
+        server_title: str = "SAEE 智能体上线准备平台",
+    ) -> None:
         self.initialized = False
         self.initialize_responded = False
+        self.server_name = server_name
+        self.server_title = server_title
 
     def handle(self, message: Any) -> dict[str, Any] | None:
         if not isinstance(message, dict) or message.get("jsonrpc") != "2.0":
@@ -95,7 +102,7 @@ class QianfanReadinessMCPAdapter:
             self.initialize_responded = True
             requested = params.get("protocolVersion")
             selected = requested if requested in SUPPORTED_PROTOCOLS else PROTOCOL_VERSION
-            return {"jsonrpc": "2.0", "id": request_id, "result": {"protocolVersion": selected, "capabilities": {"tools": {"listChanged": False}}, "serverInfo": {"name": "saee-qianfan-agent-readiness", "title": "SAEE 智能体上线准备平台", "version": "0.1.0"}, "instructions": "Only two read-only assessment tools are public. Results are evidence context, not deployment authorization."}}
+            return {"jsonrpc": "2.0", "id": request_id, "result": {"protocolVersion": selected, "capabilities": {"tools": {"listChanged": False}}, "serverInfo": {"name": self.server_name, "title": self.server_title, "version": "0.1.0"}, "instructions": "Only two read-only assessment tools are public. Results are evidence context, not deployment authorization."}}
         if method == "notifications/initialized":
             self.initialized = self.initialize_responded
             return None
@@ -120,8 +127,17 @@ class QianfanReadinessMCPAdapter:
         return {"jsonrpc": "2.0", "id": request_id, "error": {"code": -32601, "message": "Method not found"}}
 
 
-def serve(input_stream: BinaryIO, output_stream: BinaryIO) -> int:
-    adapter = QianfanReadinessMCPAdapter()
+def serve(
+    input_stream: BinaryIO,
+    output_stream: BinaryIO,
+    *,
+    server_name: str = "saee-qianfan-agent-readiness",
+    server_title: str = "SAEE 智能体上线准备平台",
+) -> int:
+    adapter = QianfanReadinessMCPAdapter(
+        server_name=server_name,
+        server_title=server_title,
+    )
     while True:
         line = input_stream.readline(MAX_LINE_BYTES + 1)
         if not line:

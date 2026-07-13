@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "brief_id": "saee.cloud-technical-conversation-brief.v1",
+  "capability": "SAEE Agent Readiness Capability",
+  "request": "A 30-minute technical conversation and controlled demo about read-only pre-deployment evidence evaluation through MCP or OpenAPI.",
+  "public_operations": [
+    "saee.evaluate_agent_run",
+    "saee.evaluate_evidence"
+  ],
+  "agenda_minutes": [
+    {"minutes": 5, "topic": "Capability positioning and non-goals"},
+    {"minutes": 10, "topic": "Host discovers and invokes the two public operations"},
+    {"minutes": 10, "topic": "REPLAN result when rollback and approval evidence are absent"},
+    {"minutes": 5, "topic": "Interoperability questions and next evidence gate"}
+  ],
+  "evidence_to_capture": [
+    "meeting_or_ticket identifier",
+    "vendor participant role",
+    "host invocation observation",
+    "questions or objections",
+    "agreed next step"
+  ],
+  "truth_boundary": {
+    "this_brief_is_a_completed_conversation": false,
+    "application_submission_is_a_completed_conversation": false,
+    "vendor_reviewed_joint_solution": false,
+    "official_integration": false,
+    "production_ready": false
+  }
+}

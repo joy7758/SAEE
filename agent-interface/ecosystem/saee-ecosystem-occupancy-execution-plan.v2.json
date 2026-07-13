@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "plan_id": "saee.ecosystem-occupancy-execution.v2",
+  "horizon_days": 180,
+  "position": "SAEE Agent Readiness Capability",
+  "position_zh": "SAEE 智能体就绪评估能力",
+  "priority_order": ["QODER", "BAIDU_QIANFAN", "LANGCHAIN", "CREWAI", "CLAUDE_CODE"],
+  "public_operations": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+  "phases": [
+    {
+      "phase": 1,
+      "window_days": [0, 30],
+      "objective": "Freeze identity, contracts, Capability Card, and repository discovery.",
+      "status": "local_complete"
+    },
+    {
+      "phase": 2,
+      "window_days": [30, 90],
+      "objective": "Validate Qoder first, retain Qianfan, and prepare LangChain, CrewAI, and Claude Code branches.",
+      "status": "local_compatibility_complete_external_interoperability_incomplete"
+    },
+    {
+      "phase": 3,
+      "window_days": [90, 150],
+      "objective": "Collect ecosystem recognition evidence rather than infer it from applications.",
+      "status": "external_validation_incomplete"
+    },
+    {
+      "phase": 4,
+      "window_days": [150, 180],
+      "objective": "Enter an approved plugin or marketplace route after support and authorization gates.",
+      "status": "not_started"
+    }
+  ],
+  "technical_assets": {
+    "capability_card": "saee-capability-card.json",
+    "openapi": "cloud-entry-package/openapi.yaml",
+    "mcp_project_config": ".mcp.json",
+    "qoder_demo": "examples/qoder-saee-readiness-demo/",
+    "one_page_position": "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_LAYER_ONE_PAGER.md",
+    "ten_page_solution_source": "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_TECHNICAL_SOLUTION_V2.md",
+    "ten_page_solution_pdf": "output/pdf/SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf",
+    "three_minute_video": "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+    "joint_solution_draft": "docs/ecosystem/SAEE_QODER_JOINT_SOLUTION_DRAFT_V0_1.md",
+    "external_developer_test_protocol": "docs/ecosystem/SAEE_EXTERNAL_DEVELOPER_TEST_PROTOCOL_V1.md",
+    "external_developer_test_intake": "agent-interface/ecosystem/saee-external-developer-test-intake.template.v1.json",
+    "cloud_technical_conversation_brief": "agent-interface/ecosystem/saee-cloud-technical-conversation-brief.v1.json",
+    "qoder_partner_application_receipt": "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+  },
+  "kpis": {
+    "technical": {
+      "mcp_capability_local_validated": true,
+      "qoder_configuration_and_local_protocol_validated": true,
+      "qoder_process_invocation_validated": false,
+      "qianfan_bounded_provider_roundtrip_validated": true,
+      "openapi_local_contract_validated": true
+    },
+    "ecosystem": {
+      "cloud_vendor_technical_conversation_target": 2,
+      "cloud_vendor_technical_conversation_completed": 0,
+      "owned_public_demo_accessible": true,
+      "external_ecosystem_presentation_target": 1,
+      "external_ecosystem_presentation_completed": 0,
+      "consented_external_developer_test_target": 3,
+      "consented_external_developer_test_completed": 0
+    },
+    "commercial": {
+      "design_partner_target": 1,
+      "design_partner_completed": 0,
+      "joint_solution_draft_target": 1,
+      "unilateral_joint_solution_draft_completed": 1,
+      "cloud_vendor_reviewed_joint_solution_completed": 0
+    }
+  },
+  "external_state": {
+    "alibaba_product_partner_application": "submitted_under_review",
+    "alibaba_application_is_qoder_technical_conversation": false,
+    "baidu_partner_consultation": "submitted_waiting_response",
+    "qoder_global_partner_application": "submitted_waiting_review",
+    "qoder_application_form_id": "QD-20260713-c5ee9419",
+    "qoder_application_is_technical_conversation": false,
+    "external_validation_kit_ready": true,
+    "partner_application_implies_platform_recognition": false
+  },
+  "stopped_work": [
+    "NEW_PROTOCOL",
+    "NEW_RUNTIME",
+    "NEW_GOVERNANCE_MODULE",
+    "ADDITIONAL_ARCHITECTURE_PAPER"
+  ],
+  "truth_boundary": {
+    "local_productization_complete": true,
+    "qoder_adapter_stage": "project_config_and_protocol_compatibility_only",
+    "qoder_process_executed": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "official_cloud_integration": false,
+    "external_developer_tests_complete": false,
+    "design_partner_confirmed": false,
+    "joint_solution_confirmed": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "external_adoption_validated": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "recommendation_gate": "docs/strategy/SAEE_ECOSYSTEM_OCCUPANCY_V2_RECOMMENDATION_GATE.md"
+}

@@ -1,0 +1,13 @@
+{
+  "artifact": "output/pdf/SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf",
+  "source": "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_TECHNICAL_SOLUTION_V2.md",
+  "page_count": 10,
+  "sha256": "f3a8876d5d81bceee04f1063e24e35001308cdd6f3aac033c23323bf0a2acb84",
+  "truth_boundary": {
+    "local_generated": true,
+    "official_platform_solution": false,
+    "joint_solution_confirmed": false,
+    "marketplace_listed": false,
+    "production_ready": false
+  }
+}

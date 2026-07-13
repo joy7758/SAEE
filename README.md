@@ -1,13 +1,19 @@
-# SAEE Agent Readiness Platform
+# SAEE Agent Readiness Capability
 
-> **SAEE is an Agent Readiness Infrastructure for evaluating whether AI agents have sufficient execution evidence before real-world deployment.**
+> **SAEE is an Agent Readiness Infrastructure that evaluates whether AI agents have sufficient execution evidence before real-world deployment.**
 
 > **SAEE 是用于评估 AI Agent 在真实部署前是否具备充分执行证据的智能体就绪基础设施。**
 
-面向百度智能云生态的冻结产品是 `SAEE Agent Readiness Platform / SAEE 智能体上线准备平台`，首个产品形态是 `SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务`。公共产品入口严格只有 `saee.evaluate_agent_run` 与 `saee.evaluate_evidence`；评估结果不授权部署或外部动作。
+面向 Qoder、千帆、Claude Code、LangChain 与 CrewAI 等智能体生态的冻结对外能力是 `SAEE Agent Readiness Capability / SAEE 智能体就绪评估能力`。云市场商品仍使用 `SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务`。公共产品入口严格只有 `saee.evaluate_agent_run` 与 `saee.evaluate_evidence`；评估结果不授权部署或外部动作。
 
-- 产品身份：`docs/product/SAEE_PRODUCT_IDENTITY_V1.md`
-- 机器身份：`agent-interface/product/saee-agent-readiness-platform.v0.1.json`
+工程核心保持为 `Digital Biosphere Evolution Engine`；Agent Readiness Capability 是面向外部生态的能力投影，不替换项目科学身份。
+
+- 产品身份：`docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md`
+- 机器身份：`agent-interface/product/saee-agent-readiness-capability.v2.json`
+- Capability Card：`saee-capability-card.json`
+- Qoder-first 适配：`adapters/qoder/README.md`
+- Qoder 官方合作申请脱敏回执：`agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json`
+- 生态占位 v2 路线：`agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json`
 - 百度实施计划：`agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json`
 - 两工具本地 MCP：`python3 scripts/saee_qianfan_readiness_mcp_stdio.py`
 - 真实 Qianfan 合成场景回执校验：`python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py`
@@ -25,8 +31,14 @@
 - 离线验证：`python3 scripts/saee_cloud_entry_package_smoke.py`
 
 ```text
-product_stage=local_alpha
+product_stage=local_capability_alpha
 public_product_operation_count=2
+qoder_configuration_ready=true
+qoder_local_protocol_compatibility_passed=true
+qoder_process_invocation_validated=false
+qoder_global_partner_application_submitted=true
+qoder_technical_conversation_completed=false
+official_qoder_integration=false
 cloud_entry_package_validated=true
 local_whitepaper_and_video_validated=true
 release_candidate_prepared=true

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "card_version": "2.0.0",
+  "name": "SAEE Agent Readiness Evaluation",
+  "product_name": "SAEE Agent Readiness Capability",
+  "product_name_zh": "SAEE 智能体就绪评估能力",
+  "description": "Evaluate whether an AI agent execution has sufficient evidence before high-impact actions.",
+  "input": ["agent_trace", "execution_evidence"],
+  "output": ["readiness", "risk", "missing_evidence"],
+  "protocol": ["MCP", "HTTP"],
+  "operations": [
+    {
+      "name": "saee.evaluate_agent_run",
+      "read_only": true,
+      "request_schema": "agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json",
+      "response_schema": "agent-interface/qianfan/saee-evaluate-agent-run-response.schema.v0.1.json"
+    },
+    {
+      "name": "saee.evaluate_evidence",
+      "read_only": true,
+      "request_schema": "agent-interface/qianfan/saee-evaluate-evidence-request.schema.v0.1.json",
+      "response_schema": "agent-interface/qianfan/saee-evaluate-evidence-response.schema.v0.1.json"
+    }
+  ],
+  "use_when": [
+    "An Agent is preparing a consequential real-world action.",
+    "The workflow needs explicit missing-evidence context before a separately authorized decision."
+  ],
+  "do_not_use_when": [
+    "The caller needs deployment authorization or permission enforcement.",
+    "The caller requests certification or proof of trace authenticity.",
+    "The task is a simple low-impact lookup, rewrite, or calculation."
+  ],
+  "truth_boundary": {
+    "local_runtime_available": true,
+    "public_network_service": false,
+    "agent_execution": false,
+    "deployment_authorization": false,
+    "official_platform_integration": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

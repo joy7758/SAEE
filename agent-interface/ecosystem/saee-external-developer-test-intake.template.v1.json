@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "template_id": "saee.external-developer-test-intake.v1",
+  "test_id": "replace-with-non-identifying-id",
+  "consent": {
+    "explicit_consent_obtained": false,
+    "consent_record_reference": null,
+    "public_attribution_allowed": false
+  },
+  "environment": {
+    "adapter": "qoder",
+    "host_version": null,
+    "saee_commit": null,
+    "offline_or_sandbox_only": true
+  },
+  "tasks": [
+    "discover_capability",
+    "understand_use_and_non_use_conditions",
+    "invoke_evaluate_agent_run",
+    "invoke_evaluate_evidence",
+    "interpret_replan_or_ready_result"
+  ],
+  "observations": {
+    "discovered_without_private_guidance": null,
+    "invocation_completed": null,
+    "result_interpreted_correctly": null,
+    "unexpected_permission_request": null,
+    "notes": null
+  },
+  "truth_boundary": {
+    "counts_toward_external_developer_kpi": false,
+    "count_only_after_consent_and_completed_observation": true,
+    "production_deployment_allowed": false,
+    "customer_or_personal_data_allowed": false
+  }
+}

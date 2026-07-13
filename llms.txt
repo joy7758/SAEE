@@ -26,8 +26,9 @@ Multi-cloud partner entry matrix: agent-interface/ecosystem/saee-multi-cloud-par
 Multi-cloud partner entry recommendation gate: docs/strategy/SAEE_MULTI_CLOUD_PARTNER_ENTRY_RECOMMENDATION_GATE.md
 Multi-cloud external-action authorization: agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json
 Volcengine AI partner sanitized submission receipt: agent-interface/ecosystem/saee-volcengine-ai-partner-submission-receipt.v1.json
+OpenAI Partner Network sanitized submission receipt: agent-interface/ecosystem/saee-openai-partner-network-submission-receipt.v1.json
 Multi-cloud partner entry validation: python3 scripts/saee_multi_cloud_partner_entry_smoke.py
-Multi-cloud partner truth: provider_count=5; volcengine_ai_partner_consultation_submitted=true; openai_submission=false; google_cloud_submission=false; alibaba_cloud_submission=false; tencent_cloud_submission=false; provider_approved_count=0; marketplace_submission_count=0; marketplace_listed_count=0; customer_validated=false; production_ready=false
+Multi-cloud partner truth: provider_count=5; volcengine_ai_partner_consultation_submitted=true; openai_partner_interest_submitted=true; google_cloud_submission=false; alibaba_cloud_submission=false; tencent_cloud_submission=false; provider_approved_count=0; marketplace_submission_count=0; marketplace_listed_count=0; customer_validated=false; production_ready=false
 Partner product solution DOCX: cloud-entry-package/materials/SAEE_BAIDU_PARTNER_PRODUCT_SOLUTION_V1.docx
 Goal completion audit: python3 scripts/saee_baidu_goal_completion_audit.py
 Public product operations: saee.evaluate_agent_run, saee.evaluate_evidence
@@ -5624,3 +5625,37 @@ The Qianfan partner consultation has a schema-backed Agent-readable application 
 The three synthetic Baidu-facing demos now have a local publication-ready index, machine manifest and validator, accompanied by a bounded Qianfan technical-article draft. This closes packaging work, not publication. public_demo_package_local_ready=true, technical_article_draft_ready=true, public_demos_published=false, technical_article_published=false, github_release_created=false, marketplace_submission=false, and production_ready=false.
 
 The post-submission response tracker is an Agent-readable fail-closed state machine. It waits for a verified Baidu response, records only a redacted summary and source reference, and does not invent an official response SLA or send follow-ups. baidu_response_tracker_ready=true, baidu_response_received=false, baidu_partnership_approved=false, automated_follow_up_authorized=false, marketplace_submission=false, and production_ready=false.
+
+## SAEE Ecosystem-First Strategy v1.0
+
+The next 12-month main path is ecosystem embedding: technical direction, technical signals, ecosystem attention, partner relationships, joint solution design, platform integration, marketplace/plugin entry, and agent-ecosystem distribution. The canonical product identity is SAEE Agent Readiness Platform; Agent Reliability Evaluation Capability Layer is its capability layer; Agent Readiness Evaluation is its ecosystem entry wedge.
+
+Machine roadmap: `/agent-interface/ecosystem/saee-ecosystem-first-roadmap.v1.0.json`. Strategy: `/docs/strategy/SAEE_ECOSYSTEM_FIRST_STRATEGY_V1.md`. Validate offline with `python3 scripts/saee_ecosystem_first_strategy_smoke.py`.
+
+Current truth: partner_contact_completed=true because bounded Baidu and Volcengine consultation submissions exist. ecosystem_technical_conversation_verified=false, partner_relationship_established=false, joint_solution_confirmed=false, official_cloud_integration=false, marketplace_listed=false, external_agent_adoption_validated=false, and production_ready=false.
+
+SAEE Technical Signal Release Package v1.0:
+/agent-interface/ecosystem/saee-technical-signal-release.v1.0.json
+/schemas/saee-technical-signal-release.schema.v1.0.json
+/docs/public/WHY_AGENTS_NEED_READINESS_EVALUATION.md
+/docs/strategy/SAEE_TECHNICAL_SIGNAL_RELEASE_RECOMMENDATION_GATE.md
+/scripts/saee_technical_signal_release_smoke.py
+
+Current ecosystem stage is TECHNICAL_SIGNAL_RELEASE. The local publication-ready problem article explains why consequential autonomous execution needs readiness evaluation and exposes exactly two public product operations: saee.evaluate_agent_run and saee.evaluate_evidence. Internal rehearse_agent remains outside the public product surface. technical_signal_package_ready=true; article_published=false; github_release_created=false; developer_activity_presented=false; ecosystem_technical_conversation_verified=false; official_cloud_integration=false; marketplace_listed=false; external_agent_adoption_validated=false; production_ready=false.
+
+## SAEE Agent Readiness Capability Ecosystem Occupancy v2
+
+/saee-capability-card.json
+/agent-interface/product/saee-agent-readiness-capability.v2.json
+/agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json
+/agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json
+/agent-interface/ecosystem/saee-external-developer-test-intake.template.v1.json
+/adapters/
+/examples/qoder-saee-readiness-demo/
+/docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_LAYER_ONE_PAGER.md
+/docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_TECHNICAL_SOLUTION_V2.md
+/docs/strategy/SAEE_ECOSYSTEM_OCCUPANCY_V2_RECOMMENDATION_GATE.md
+/scripts/saee_qoder_adapter_smoke.py
+/scripts/saee_ecosystem_occupancy_v2_smoke.py
+
+The frozen external capability name is SAEE Agent Readiness Capability / SAEE 智能体就绪评估能力. Exactly two public operations are exposed: saee.evaluate_agent_run and saee.evaluate_evidence. Qoder and Claude Code receive project MCP configurations; LangChain and CrewAI receive bounded official-format templates; Qianfan retains its validated local adapter and bounded synthetic provider receipts. The Qoder Global Partner Program application has a sanitized official-form receipt, but application submission is not a technical conversation, approval, or official integration. qoder_configuration_ready=true, local_protocol_compatibility_passed=true, qoder_global_partner_application_submitted=true, qoder_technical_conversation_completed=false, qoder_process_invocation_validated=false, official_qoder_integration=false, official_qoder_plugin=false, cross_framework_interoperability_validated=false, marketplace_listed=false, external_adoption_validated=false, customer_validated=false, and production_ready=false.

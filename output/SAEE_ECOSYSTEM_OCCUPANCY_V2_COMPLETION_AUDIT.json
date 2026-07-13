@@ -1,0 +1,251 @@
+{
+  "audit_id": "saee.ecosystem-occupancy-v2.completion-audit",
+  "requirement_count": 23,
+  "proven_complete_count": 16,
+  "incomplete_requirement_ids": [
+    "R05",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R21",
+    "R22"
+  ],
+  "goal_complete": false,
+  "requirements": [
+    {
+      "requirement_id": "R01",
+      "title": "Freeze SAEE Agent Readiness Capability identity",
+      "status": "proven_complete",
+      "evidence": [
+        "README.md",
+        "docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md"
+      ],
+      "note": "Human and machine names agree."
+    },
+    {
+      "requirement_id": "R02",
+      "title": "Expose exactly evaluate_agent_run and evaluate_evidence",
+      "status": "proven_complete",
+      "evidence": [
+        "saee-capability-card.json",
+        "agent-interface/product/saee-agent-readiness-capability.v2.json"
+      ],
+      "note": "Two public operations; three internal operations excluded."
+    },
+    {
+      "requirement_id": "R03",
+      "title": "Create the SAEE Capability Card",
+      "status": "proven_complete",
+      "evidence": [
+        "saee-capability-card.json"
+      ],
+      "note": "Discovery, use/do-not-use, schemas and boundaries are file-backed."
+    },
+    {
+      "requirement_id": "R04",
+      "title": "Create Qoder-first adapter configuration",
+      "status": "proven_complete",
+      "evidence": [
+        ".mcp.json",
+        "adapters/qoder/qoder-project.mcp.json"
+      ],
+      "note": "Official-format project config and local protocol compatibility pass."
+    },
+    {
+      "requirement_id": "R05",
+      "title": "Validate a Qoder process invoking SAEE",
+      "status": "incomplete",
+      "evidence": [
+        "adapters/qoder/README.md"
+      ],
+      "note": "Qoder CLI is absent; no Qoder process receipt exists."
+    },
+    {
+      "requirement_id": "R06",
+      "title": "Complete Qoder coding-release Demo",
+      "status": "proven_complete",
+      "evidence": [
+        "examples/qoder-saee-readiness-demo/request.json",
+        "examples/qoder-saee-readiness-demo/response.json"
+      ],
+      "note": "REPLAN with rollback and approval missing; no deployment."
+    },
+    {
+      "requirement_id": "R07",
+      "title": "Retain Qianfan adapter evidence",
+      "status": "proven_complete",
+      "evidence": [
+        "adapters/qianfan/README.md",
+        "agent-interface/qianfan/live-validation/"
+      ],
+      "note": "Bounded synthetic provider receipts pass; official integration false."
+    },
+    {
+      "requirement_id": "R08",
+      "title": "Prepare LangChain, CrewAI, and Claude Code branches",
+      "status": "proven_complete",
+      "evidence": [
+        "adapters/langchain/",
+        "adapters/crewai/",
+        "adapters/claude-code/"
+      ],
+      "note": "Configuration templates only; framework processes not run."
+    },
+    {
+      "requirement_id": "R09",
+      "title": "Prepare one-page technical positioning",
+      "status": "proven_complete",
+      "evidence": [
+        "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_LAYER_ONE_PAGER.md"
+      ],
+      "note": "Platform-neutral position and boundaries present."
+    },
+    {
+      "requirement_id": "R10",
+      "title": "Prepare ten-page technical solution",
+      "status": "proven_complete",
+      "evidence": [
+        "docs/ecosystem/SAEE_AGENT_READINESS_CAPABILITY_TECHNICAL_SOLUTION_V2.md",
+        "output/pdf/SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf"
+      ],
+      "note": "Exactly ten rendered pages."
+    },
+    {
+      "requirement_id": "R11",
+      "title": "Prepare self-explanatory three-minute Demo video",
+      "status": "proven_complete",
+      "evidence": [
+        "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+        "output/video/SAEE_Ecosystem_Capability_Demo_v2.0.manifest.json"
+      ],
+      "note": "Nine scenes, 180 seconds, Chinese narration and subtitles."
+    },
+    {
+      "requirement_id": "R12",
+      "title": "Adjust GitHub discovery structure and first sentence",
+      "status": "proven_complete",
+      "evidence": [
+        "README.md",
+        "agent-index.json",
+        "llms.txt",
+        "adapters/",
+        "examples/"
+      ],
+      "note": "Frozen first sentence and Agent-readable entrypoints present."
+    },
+    {
+      "requirement_id": "R13",
+      "title": "Validate MCP Capability locally",
+      "status": "proven_complete",
+      "evidence": [
+        ".mcp.json",
+        "scripts/saee_qoder_adapter_smoke.py"
+      ],
+      "note": "Two-tool stdio discovery and calls pass."
+    },
+    {
+      "requirement_id": "R14",
+      "title": "Keep OpenAPI stable",
+      "status": "proven_complete",
+      "evidence": [
+        "capability-package/openapi.yaml",
+        "scripts/saee_cloud_entry_package_smoke.py"
+      ],
+      "note": "Local package validation passes; no public service inferred."
+    },
+    {
+      "requirement_id": "R15",
+      "title": "Complete two cloud-vendor technical conversations",
+      "status": "incomplete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-cloud-technical-conversation-brief.v1.json",
+        "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+      ],
+      "note": "completed=0/2; the Qoder application is submitted but is not a conversation."
+    },
+    {
+      "requirement_id": "R16",
+      "title": "Complete one external ecosystem presentation",
+      "status": "incomplete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json"
+      ],
+      "note": "completed=0/1; owned public demo is tracked separately."
+    },
+    {
+      "requirement_id": "R17",
+      "title": "Complete three consented external developer tests",
+      "status": "incomplete",
+      "evidence": [
+        "docs/ecosystem/SAEE_EXTERNAL_DEVELOPER_TEST_PROTOCOL_V1.md",
+        "agent-interface/ecosystem/saee-external-developer-test-intake.template.v1.json"
+      ],
+      "note": "completed=0/3; protocol and intake are ready but no external observation is counted."
+    },
+    {
+      "requirement_id": "R18",
+      "title": "Confirm one Design Partner",
+      "status": "incomplete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json"
+      ],
+      "note": "completed=0/1."
+    },
+    {
+      "requirement_id": "R19",
+      "title": "Prepare one joint-solution draft",
+      "status": "proven_complete",
+      "evidence": [
+        "docs/ecosystem/SAEE_QODER_JOINT_SOLUTION_DRAFT_V0_1.md"
+      ],
+      "note": "Unilateral bounded draft complete; Alibaba review and confirmation remain false."
+    },
+    {
+      "requirement_id": "R20",
+      "title": "Stop new protocol, Runtime, governance modules, and architecture papers",
+      "status": "proven_complete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json"
+      ],
+      "note": "This package reuses the existing two-tool Runtime."
+    },
+    {
+      "requirement_id": "R21",
+      "title": "Obtain Qoder Plugin or Qianfan Capability entry",
+      "status": "incomplete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-ecosystem-capability-package.v2.json",
+        "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+      ],
+      "note": "The Qoder partner application is submitted; no approved plugin or official capability entry exists."
+    },
+    {
+      "requirement_id": "R22",
+      "title": "Enter an approved cloud marketplace route",
+      "status": "incomplete",
+      "evidence": [
+        "agent-interface/ecosystem/saee-multi-cloud-partner-entry-matrix.v1.json"
+      ],
+      "note": "Alibaba product-partner application is under review; marketplace submission/listing remain false."
+    },
+    {
+      "requirement_id": "R23",
+      "title": "Preserve non-audit, non-execution, and authorization boundaries",
+      "status": "proven_complete",
+      "evidence": [
+        "docs/strategy/SAEE_ECOSYSTEM_OCCUPANCY_V2_RECOMMENDATION_GATE.md",
+        "saee-capability-card.json"
+      ],
+      "note": "Evaluation remains a read-only capability projection."
+    }
+  ],
+  "truth_boundary": {
+    "local_package_ready": true,
+    "qoder_process_executed": false,
+    "official_qoder_integration": false,
+    "external_kpis_complete": false,
+    "marketplace_listed": false,
+    "production_ready": false
+  }
+}

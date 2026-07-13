@@ -1,0 +1,7 @@
+{
+  "saee-readiness": {
+    "transport": "stdio",
+    "command": "python3",
+    "args": ["${SAEE_REPO}/scripts/saee_agent_readiness_mcp_stdio.py"]
+  }
+}

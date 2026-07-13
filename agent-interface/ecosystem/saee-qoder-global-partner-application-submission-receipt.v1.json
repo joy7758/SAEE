@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.qoder-global-partner-application-submission-receipt.v1",
+  "provider": "Qoder",
+  "program": "Qoder Global Partner Program",
+  "official_entry_url": "https://qoder.com/zh/partners",
+  "submitted_on": "2026-07-13",
+  "application_form_id": "QD-20260713-c5ee9419",
+  "observed_success_message": "申请提交成功；Qoder 表示将在 3 个工作日内联系。",
+  "current_state": "submitted_waiting_review",
+  "submitted_scope": {
+    "company_name_present": true,
+    "contact_person_present": true,
+    "phone_present": true,
+    "email_present": true,
+    "region": "中国大陆·山西省",
+    "preferred_contact_method": "email",
+    "customer_scale_band": "below_50",
+    "technical_request": "A technical conversation and controlled demo for project-scoped MCP invocation of the read-only SAEE Agent Readiness Capability before deployment."
+  },
+  "repository_privacy": {
+    "raw_phone_stored": false,
+    "raw_email_stored": false,
+    "contact_person_name_stored": false,
+    "browser_screenshot_stored": false
+  },
+  "truth_boundary": {
+    "application_submitted": true,
+    "application_approved": false,
+    "technical_conversation_completed": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
