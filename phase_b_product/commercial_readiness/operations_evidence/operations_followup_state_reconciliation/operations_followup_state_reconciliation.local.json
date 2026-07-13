@@ -27,7 +27,7 @@
   "external_alert_delivery_satisfied_by_profile": true,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T14:01:39.874019+00:00",
+  "generated_at": "2026-07-13T14:04:21.674228+00:00",
   "human_review_required": true,
   "incident_commander_assigned_by_codex": false,
   "kernel_modified": false,

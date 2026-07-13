@@ -5,7 +5,7 @@
   "status": "ready_for_separate_evidence_builder_request",
   "commercial_status": "hold",
   "production_launch_status": "hold",
-  "generated_at": "2026-07-13T14:01:42.853876+00:00",
+  "generated_at": "2026-07-13T14:04:24.428031+00:00",
   "generated_by": "scripts/saee_commercial_readiness_begin_here.py",
   "make_target": "make check-commercial-readiness-begin-here",
   "source_summary_json": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json",

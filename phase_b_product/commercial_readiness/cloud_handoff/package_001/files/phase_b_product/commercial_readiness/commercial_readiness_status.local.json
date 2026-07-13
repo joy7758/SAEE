@@ -61,7 +61,7 @@
   "external_calls_made": false,
   "external_model_api_called": false,
   "full_quick_fill_missing_value_row_count": 0,
-  "generated_at": "2026-07-13T14:00:21.755214+00:00",
+  "generated_at": "2026-07-13T14:04:23.639090+00:00",
   "generated_by": "scripts/saee_commercial_readiness_status_snapshot.py",
   "go_no_go_type": "commercial_readiness_go_no_go",
   "human_filled_templates_written": false,

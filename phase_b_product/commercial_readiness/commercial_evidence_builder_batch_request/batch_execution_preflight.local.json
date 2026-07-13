@@ -18,7 +18,7 @@
   "execution_mode": "dry_run",
   "execution_results": [],
   "external_calls_made": false,
-  "generated_at": "2026-07-13T14:01:50.422310+00:00",
+  "generated_at": "2026-07-13T14:04:31.457145+00:00",
   "human_reviewer_name": "",
   "next_human_action": "Record the exact canonical human approval and resolve every preflight error before any apply attempt.",
   "preflight_passed": false,

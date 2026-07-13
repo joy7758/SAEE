@@ -12,7 +12,7 @@
   "exact_human_approval_phrase": "\u6279\u51c6\u672c\u5730\u6279\u91cf\u8bc1\u636e builder \u6267\u884c\uff1a\u4ec5\u8fd0\u884c production_monitoring\u3001production_restore_policy\u3001formal_security_review\u3001pricing_page \u56db\u4e2a builder\uff0c\u4e0d\u5173\u95ed blocker\uff0c\u4e0d\u8054\u7cfb\u4efb\u4f55\u4eba\uff0c\u4e0d\u53d1\u5e03\uff0c\u4e0d\u58f0\u660e\u751f\u4ea7\u53ef\u7528\u3002",
   "exact_human_approval_phrase_required": true,
   "external_calls_made": false,
-  "generated_at": "2026-07-13T14:01:50.104862+00:00",
+  "generated_at": "2026-07-13T14:04:31.142252+00:00",
   "human_approval_recorded": false,
   "next_human_action": "Review the four target rows and, only if the scope is approved, provide the exact human approval phrase in a separate approval-intake step.",
   "private_core_exposed": false,

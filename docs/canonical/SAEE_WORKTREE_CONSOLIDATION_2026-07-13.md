@@ -1,10 +1,10 @@
 ---
 schema: saee.worktree_consolidation_record.v1
 record_date: 2026-07-13
-status: validation_passed_ready_for_content_commit
+status: committed_locally_not_pushed
 evolution_subsystem: evolutionary_archive_and_rollback_immune_system
-content_commit: pending
-tracking_commit: pending
+content_commit: be6ab57878dc7346da733e2f3b134aa3d3049af8
+tracking_commit: see_commit_containing_this_record
 external_action_performed: false
 parent_remote_push_performed: false
 production_ready: false
@@ -43,7 +43,8 @@ surface for this consolidation.
 | Agent-readable surfaces (`README`, `agent-index.json`, `llms.txt`, contracts, examples) | yes | preserve as first-class product surfaces |
 | Recommendation gates, commercial and ecosystem packages | yes | preserve with existing local/review truth states |
 | Research result manifests, summaries, figures, and referenced raw evidence | yes | preserve reproducibility and existing hashes |
-| `tmp/`, `output/`, `.playwright-cli/`, `.saee_runtime/` | no | preserve locally; ignore as regenerable or operator-local output |
+| New `tmp/`, `output/`, `.playwright-cli/`, `.saee_runtime/` artifacts | no | preserve locally; ignore as regenerable or operator-local output |
+| Nine curated `output/` artifacts already tracked before consolidation | yes | retain existing history; do not delete or newly add output artifacts |
 | `.env*`, `.secrets/`, `.venv/`, caches and build output | no | retain existing secret/runtime exclusions |
 | `sites/saee-commercial/` | no | manage as an independent clean Git repository |
 | Private attachment contents | no | do not copy; retain only redacted provenance references |
@@ -57,6 +58,7 @@ ignored_playwright_files=18
 ignored_runtime_files=8
 ignored_tmp_files=230
 ignored_output_files=60
+pre_existing_tracked_output_files=9
 nested_site_branch=main
 nested_site_head=d69e596
 nested_site_worktree_clean=true
@@ -110,6 +112,36 @@ fail-closed rule that preview mode must explicitly set
 after its source manifest detected a changed authorization-context hash. These
 repairs did not enable production auth, formal security review, privacy/legal
 review, customer validation, or product launch.
+
+## Commit outcome
+
+```text
+content_commit=be6ab57878dc7346da733e2f3b134aa3d3049af8
+content_commit_subject=chore: consolidate agent-readable SAEE worktree
+content_commit_files_changed=5096
+content_commit_created_files=5086
+content_commit_deleted_files=0
+content_commit_insertions=1096157
+content_commit_deletions=64
+content_commit_candidate_size_kib=106016
+largest_committed_file_kib=25388
+staged_forbidden_path_count=0
+staged_known_private_value_match_count=0
+staged_secret_pattern_match_count=0
+staged_absolute_owner_path_match_count=0
+parent_worktree_clean_after_content_commit=true
+parent_remote_configured=false
+parent_remote_push_performed=false
+nested_site_head=d69e596
+nested_site_worktree_clean=true
+pre_existing_tracked_output_files=9
+```
+
+The default Git whitespace diagnostic reported legacy CRLF research CSV rows,
+intentional Markdown hard-break spaces, and blank terminal lines. Those files
+were retained byte-for-byte where reproducibility hashes matter. The compatible
+diagnostic with `blank-at-eol` and `blank-at-eof` disabled passed; JSON, Python,
+YAML/CFF, repository smokes, and staged security/path checks remained strict.
 
 ## Truth boundary
 

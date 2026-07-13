@@ -15,7 +15,7 @@
   "external_model_api_called": false,
   "final_closure_decision_ready": true,
   "final_closure_decision_validator_status": "ready_for_separate_matrix_update_request_no_closure",
-  "generated_at": "2026-07-13T14:01:43.396237+00:00",
+  "generated_at": "2026-07-13T14:04:24.927530+00:00",
   "human_filled_refresh_status": "support_contact_human_filled_evidence_ready_for_review_only",
   "human_review_required": true,
   "kernel_modified": false,

@@ -28,8 +28,8 @@
     {
       "package_path": "files/PROJECT_STATUS.md",
       "safe_to_upload": true,
-      "sha256": "293e6b2fbab146fc502c28bbd8c8de57cce6bb327661fb89f5c3eb6e4a087398",
-      "size_bytes": 353985,
+      "sha256": "0c60b55fc9b85d11567800c56b5cd3010d8e5afb33745050b658a7eb6c973bdc",
+      "size_bytes": 354427,
       "source_path": "PROJECT_STATUS.md"
     },
     {
@@ -63,7 +63,7 @@
     {
       "package_path": "files/agent-index.json",
       "safe_to_upload": true,
-      "sha256": "00a5175153ede19c65c177a5580375021d2f11d9582c755a194c177f554cdb2e",
+      "sha256": "a3e94f08a93ac054858aad2ec3218fe1ac4f8276a6027fef8f28fab1f7062e32",
       "size_bytes": 2091199,
       "source_path": "agent-index.json"
     },
@@ -140,7 +140,7 @@
     {
       "package_path": "files/phase_b_product/commercial_readiness/commercial_readiness_status.local.json",
       "safe_to_upload": true,
-      "sha256": "30ae78982a9926093e0af6b018abdbca3bbfa158b68c7de6d3925949c3ece3c1",
+      "sha256": "581448aa3c15963495118006bf3fc47ffeb5d44f4168dcd63ec1d83ed6d9580d",
       "size_bytes": 16270,
       "source_path": "phase_b_product/commercial_readiness/commercial_readiness_status.local.json"
     },
@@ -161,7 +161,7 @@
     {
       "package_path": "files/phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json",
       "safe_to_upload": true,
-      "sha256": "e0ce01b06d6f3acdd4321a76f7d9c3549081676ce7e8599326dfa6abc4d52221",
+      "sha256": "10b1d50a101b74e9eba10cebd85113d21d92efa92224e8f7f0249e270c2b859a",
       "size_bytes": 15023,
       "source_path": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json"
     },
@@ -286,7 +286,7 @@
     }
   ],
   "files_root": "phase_b_product/commercial_readiness/cloud_handoff/package_001/files",
-  "generated_at": "2026-07-13T14:01:38.513059+00:00",
+  "generated_at": "2026-07-13T14:07:14.073060+00:00",
   "generated_by": "scripts/saee_baidu_cloud_handoff_package.py",
   "human_cloud_clear_confirmation_required": true,
   "human_cloud_upload_confirmation_required": true,

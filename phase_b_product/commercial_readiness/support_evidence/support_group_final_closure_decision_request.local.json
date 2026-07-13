@@ -63,7 +63,7 @@
   "external_calls_made": false,
   "external_model_api_called": false,
   "final_human_decision_recorded": false,
-  "generated_at": "2026-07-13T14:01:43.619613+00:00",
+  "generated_at": "2026-07-13T14:04:25.133899+00:00",
   "kernel_modified": false,
   "next_human_action": "fill support_group_final_closure_decision_template.json if the team wants to approve, hold, or reject promotion into a separate matrix update request",
   "on_call_rotation_started_by_codex": false,

@@ -25,7 +25,7 @@
     "rbac": true,
     "tenant_storage_isolation": true
   },
-  "generated_at": "2026-07-13T14:01:45.922534+00:00",
+  "generated_at": "2026-07-13T14:04:27.226363+00:00",
   "human_filled_evidence_item_count": 33,
   "human_review_required": true,
   "identity_provider_contacted_by_codex": false,

@@ -4,13 +4,15 @@
 
 ## Worktree Consolidation — 2026-07-13
 
-Status: `validation_passed_ready_for_content_commit`.
+Status: `committed_locally_not_pushed`.
 
 The parent repository worktree has been classified into durable source/evidence,
 machine-local runtime output, private material, and an independent nested site
 repository. Durable artifacts remain candidates for the consolidation commit.
-Machine-local `tmp/`, `output/`, `.playwright-cli/`, and `.saee_runtime/`
-artifacts are preserved on disk but excluded from Git. `sites/saee-commercial`
+New machine-local `tmp/`, `output/`, `.playwright-cli/`, and `.saee_runtime/`
+artifacts are preserved on disk but excluded from Git. Nine curated `output/`
+artifacts that were already tracked before this consolidation remain in history;
+none was deleted or newly added. `sites/saee-commercial`
 remains a clean independent repository at `d69e596` and is not vendored into
 this history. Owner-specific absolute paths have been made portable; private
 attachment references are redacted without copying their contents.
@@ -25,12 +27,23 @@ production_ready=false
 product_launched=false
 external_action_performed=false
 parent_remote_push_performed=false
+pre_existing_tracked_output_files=9
 ```
 
 Tracking record: `docs/canonical/SAEE_WORKTREE_CONSOLIDATION_2026-07-13.md`.
 Repository validation completed with `make check` at 638 PASS lines and zero
 failure lines. The final standalone `mainline_guard` also passed after portable
 path normalization and cloud-handoff package regeneration.
+
+```text
+content_commit=be6ab57878dc7346da733e2f3b134aa3d3049af8
+content_commit_files_changed=5096
+content_commit_insertions=1096157
+content_commit_deletions=64
+parent_worktree_clean_after_content_commit=true
+parent_remote_configured=false
+parent_remote_push_performed=false
+```
 
 <!-- END SAEE_WORKTREE_CONSOLIDATION_2026_07_13 -->
 

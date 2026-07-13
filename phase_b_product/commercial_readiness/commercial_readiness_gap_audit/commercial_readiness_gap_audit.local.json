@@ -5,7 +5,7 @@
   "status": "hold_formal_commercial_requirements_unmet",
   "commercial_status": "hold",
   "production_launch_status": "hold",
-  "generated_at": "2026-07-13T14:01:42.056311+00:00",
+  "generated_at": "2026-07-13T14:04:23.707768+00:00",
   "generated_by": "scripts/saee_commercial_readiness_gap_audit.py",
   "make_target": "make check-commercial-readiness-gap-audit",
   "formal_commercial_ready": false,

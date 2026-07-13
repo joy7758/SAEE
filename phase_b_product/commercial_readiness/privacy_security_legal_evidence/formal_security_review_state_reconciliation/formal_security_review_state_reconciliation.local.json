@@ -30,7 +30,7 @@
   "formal_security_review_report_recorded": true,
   "formal_security_review_state_reconciliation_v0_1": true,
   "gap_matrix_open": true,
-  "generated_at": "2026-07-13T14:01:45.407664+00:00",
+  "generated_at": "2026-07-13T14:04:26.755360+00:00",
   "human_review_required": true,
   "kernel_modified": false,
   "next_human_action": "Human security owner may review the human-filled evidence and decide whether to create a separate matrix update request. Do not claim a completed security review, contact reviewers, run tests, or close blockers.",
