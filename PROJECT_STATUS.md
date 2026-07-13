@@ -89,8 +89,14 @@ An Agent-readable response tracker now holds `waiting_for_initial_baidu_response
 No official response SLA, follow-up date, Baidu approval or automated follow-up
 is asserted.
 Three synthetic demos now also have a publication-ready local index and a
-bounded Qianfan technical-article draft. Neither has been published because
-community, article, Git push and GitHub Release actions are not authorized.
+bounded Qianfan technical-article draft. The deployable site source now adds a
+human-readable `/baidu-demos` route, six matching machine request/receipt assets,
+and a tested JSON reader flow. Read-only live validation confirms the public
+page, homepage entry, seven JSON assets, and reader all return `200` and match
+the local source. The deployment was observed outside this change; it was not
+performed here, and no deployment authorization is inferred from the main
+external-action gate. Qianfan community publication, the technical article,
+Git push, and GitHub Release remain unpublished or unauthorized.
 The direct Marketplace qualification matrix currently records `verified=0/7`,
 `partial=1/7`, and `missing=6/7`; company-document observations are only partial
 evidence and do not substitute for Baidu acceptance, team/service history,
@@ -123,8 +129,15 @@ official_entry_routes_verified=true
 partner_product_solution_docx_ready=true
 qianfan_partner_consultation_payload_contract_ready=true
 public_demo_package_local_ready=true
+public_demo_site_source_ready=true
+public_demo_site_local_browser_validated=true
+public_demo_site_deployment_observed=true
+public_demo_site_live_validated=true
+public_site_demos_accessible=true
 technical_article_draft_ready=true
 public_demos_published=false
+public_demos_published_channel_scope=github_release_or_qianfan_community
+qianfan_community_demos_published=false
 technical_article_published=false
 github_release_created=false
 baidu_partner_contacted=true

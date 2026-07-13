@@ -31,6 +31,21 @@
     "public_release_allowlist_included": false,
     "release_candidate_refresh_required": true
   },
+  "public_demo_site": {
+    "repository": "sites/saee-commercial",
+    "feature_commit": "48e669865c74c5c2f94b56cec8127d0dae25fe65",
+    "audited_site_head": "544479e4a59a68474a37687da8060e3cc23099e8",
+    "human_entrypoint": "/baidu-demos",
+    "machine_manifest": "/agent-baidu-publication-package.json",
+    "machine_demo_asset_count": 6,
+    "local_build_validated": true,
+    "local_browser_flow_validated": true,
+    "deployment_authorization_recorded_in_main_gate": false,
+    "deployment_performed_by_current_change": false,
+    "deployment_observed": true,
+    "deployed": true,
+    "live_validated": true
+  },
   "phases": [
     {
       "phase": "PHASE_0",
@@ -95,7 +110,7 @@
   ],
   "current_blockers": [
     "public_license_tag_push_and_github_release_withheld",
-    "public_demo_and_technical_article_publication_not_authorized",
+    "qianfan_community_and_technical_article_publication_not_authorized",
     "baidu_partner_response_pending",
     "public_price_approval_missing",
     "direct_marketplace_qualification_and_software_copyright_evidence_missing",
@@ -117,8 +132,14 @@
     "partner_product_solution_docx_ready": true,
     "partner_consultation_payload_contract_ready": true,
     "public_demo_package_local_ready": true,
+    "public_demo_site_source_ready": true,
+    "public_demo_site_deployment_observed": true,
+    "public_demo_site_live_validated": true,
+    "public_site_demos_accessible": true,
     "technical_article_draft_ready": true,
     "public_demos_published": false,
+    "public_demos_published_channel_scope": "github_release_or_qianfan_community",
+    "qianfan_community_demos_published": false,
     "technical_article_published": false,
     "public_release_created": false,
     "github_release_created": false,

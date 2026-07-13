@@ -45,6 +45,11 @@ recommendation_gate:
       fix_task: prepare product page, concise whitepaper, video package, Git release manifest, and commercial packaging draft
       acceptance_criteria: all artifacts are locally validated and truthfully marked not published
       status: partially_resolved_local_materials_complete_public_release_blocked
+    - blocker: public_demo_site_was_not_deployable
+      subsystem: Trait Extraction
+      fix_task: add one human-readable three-demo route, six machine-readable request/receipt assets, and a safe JSON reading flow to the deployable site source
+      acceptance_criteria: site build, receipt-source equality tests, desktop/mobile rendering, one end-to-end JSON reader click pass, and read-only live equality validation
+      status: resolved_public_site_live_deployment_observed_outside_current_change
     - blocker: external_authorization_missing
       subsystem: Evolutionary Archive / Rollback Immune System
       fix_task: create a separate human authorization gate for Baidu contact, public release, submission, and price publication
@@ -63,6 +68,15 @@ recommendation_gate:
    composition: the two-tool adapter delegates to stable deterministic services,
    and two real Qianfan scenarios passed. Official Qianfan integration remains
    unverified.
+
+The deployable site source exposes `/baidu-demos` plus a machine manifest and
+six request/receipt assets. Read-only validation now confirms that the public
+page, homepage discovery link, seven JSON endpoints, and JSON reader are live
+and match the local source. The deployment was observed, not performed by this
+change, and the main external-action gate does not record authorization for
+that deployment; no retroactive authorization is inferred. The legacy
+`public_demos_published=false` flag remains scoped to GitHub Release or Qianfan
+community publication, both of which remain false.
 
 ## Required evolution design check
 
