@@ -3,16 +3,19 @@
   "receipt_id": "saee.baidu.qianfan-partner-consultation.submission-receipt.v1",
   "status": "submitted_redirect_acknowledged",
   "submitted_at": "2026-07-13T04:31:31+08:00",
+  "resubmitted_at": "2026-07-13T16:51:00+08:00",
+  "submission_event_count": 2,
   "destination": {
     "site": "Baidu AI Cloud",
     "form_heading": "千帆伙伴咨询",
     "form_url": "https://cloud.baidu.com/survey/qianfanpartnerconsultation.html?track=C841333"
   },
   "submitted_selection": {
-    "industry_option": "其他，请补充",
-    "industry_other_text": "可信AI",
-    "product_shape": ["服务"],
-    "service_capability": ["产品集成"],
+    "industry_option": ["零售与电商", "其他，请补充"],
+    "industry_other_text": "可信AI（智能体就绪评估能力）",
+    "product_shape": ["SaaS", "服务"],
+    "service_capability": ["产品集成", "其他，请补充"],
+    "service_capability_other_text": "智能体运行与证据就绪度评估（只读MCP Capability）",
     "partner_rights": ["应用场景共建", "技术赋能提升"],
     "contact_consent": true,
     "required_personal_fields_present_at_submission": true
@@ -21,6 +24,7 @@
     "submit_button_unique_and_enabled": true,
     "submit_action_executed": true,
     "redirect_observed": true,
+    "post_submit_countdown_observed_on_resubmission": true,
     "redirect_url": "https://cloud.baidu.com/product-s/qianfan_home",
     "confirmation_text_observed": false,
     "backend_submission_id_available": false
@@ -42,6 +46,8 @@
   "truth_boundary": {
     "baidu_partner_contacted": true,
     "qianfan_partner_consultation_submitted": true,
+    "qianfan_partner_consultation_submission_event_count": 2,
+    "duplicate_submission_does_not_count_as_second_vendor_or_completed_conversation": true,
     "submission_acknowledgement_strength": "redirect_and_official_client_behavior_no_backend_id",
     "marketplace_submission": false,
     "marketplace_listed": false,
