@@ -49,6 +49,15 @@ def main() -> None:
     require(alibaba_submission["truth_boundary"]["application_under_review"] is True, "Alibaba application under review")
     require(alibaba_submission["truth_boundary"]["agreement_signed"] is False, "Alibaba agreement boundary")
     require(alibaba_submission["truth_boundary"]["guarantee_deposit_paid"] is False, "Alibaba deposit boundary")
+    alibaba_activation = json.loads((ROOT / providers["Alibaba Cloud"]["partner_activation_receipt_ref"]).read_text(encoding="utf-8"))
+    alibaba_ticket = json.loads((ROOT / providers["Alibaba Cloud"]["qoder_technical_consultation_ticket_receipt_ref"]).read_text(encoding="utf-8"))
+    require(alibaba_activation["truth_boundary"]["partner_application_review_approved"] is True, "Alibaba application approval")
+    require(alibaba_activation["truth_boundary"]["partner_contract_signature_observed"] is True, "Alibaba signed agreement observation")
+    require(alibaba_activation["truth_boundary"]["product_ecosystem_partner_membership_active"] is True, "Alibaba partner membership")
+    require(alibaba_activation["truth_boundary"]["approved_cloud_marketplace_route_available"] is True, "Alibaba marketplace route")
+    require(alibaba_activation["truth_boundary"]["marketplace_product_submission"] is False, "Alibaba marketplace product boundary")
+    require(alibaba_ticket["truth_boundary"]["technical_conversation_request_submitted"] is True, "Alibaba Qoder ticket")
+    require(alibaba_ticket["truth_boundary"]["technical_conversation_completed"] is False, "Alibaba Qoder conversation boundary")
     tencent_handoff = json.loads((ROOT / providers["Tencent Cloud"]["contact_handoff_ref"]).read_text(encoding="utf-8"))
     require(tencent_handoff["truth_boundary"]["human_slider_captcha_required"] is True, "Tencent CAPTCHA handoff")
     require(tencent_handoff["truth_boundary"]["business_cooperation_inquiry_submitted"] is False, "Tencent inquiry boundary")
@@ -62,9 +71,13 @@ def main() -> None:
     require(aggregate["enterprise_verified_provider_count"] == 1, "enterprise verified provider count")
     require(aggregate["formal_partner_application_started_count"] == 1, "formal application started count")
     require(aggregate["formal_partner_application_count"] == 1, "formal application count")
-    require(aggregate["formal_partner_application_under_review_count"] == 1, "formal application under review count")
+    require(aggregate["formal_partner_application_under_review_count"] == 0, "formal application under review count")
+    require(aggregate["formal_partner_application_approved_count"] == 1, "formal application approved count")
+    require(aggregate["partner_program_membership_active_count"] == 1, "partner membership active count")
+    require(aggregate["approved_marketplace_route_available_count"] == 1, "marketplace route count")
     require(aggregate["blocked_count"] == 2, "blocked count")
-    for key in ("provider_approved_count", "marketplace_submission_count", "marketplace_listed_count"):
+    require(aggregate["provider_approved_count"] == 1, "provider approved count")
+    for key in ("marketplace_submission_count", "marketplace_listed_count"):
         require(aggregate[key] == 0, key)
     require(aggregate["customer_validated"] is False, "customer validation")
     require(aggregate["production_ready"] is False, "production readiness")
@@ -78,6 +91,8 @@ def main() -> None:
             ROOT / providers["OpenAI"]["submission_receipt_ref"],
             ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"],
             ROOT / providers["Alibaba Cloud"]["application_submission_receipt_ref"],
+            ROOT / providers["Alibaba Cloud"]["partner_activation_receipt_ref"],
+            ROOT / providers["Alibaba Cloud"]["qoder_technical_consultation_ticket_receipt_ref"],
             ROOT / providers["Tencent Cloud"]["contact_handoff_ref"],
         )
     )
@@ -88,8 +103,8 @@ def main() -> None:
     print(
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
         "providers=5 interest_submitted=2 contact_inquiry=1 enterprise_verified=1 "
-        "formal_application_started=1 formal_partner_application=1 under_review=1 "
-        "captcha_handoff=1 blocked=2 provider_approved=0 "
+        "formal_application_started=1 formal_partner_application=1 approved=1 membership_active=1 "
+        "marketplace_route_available=1 captcha_handoff=1 blocked=2 provider_approved=1 "
         "marketplace_submission=0 production_ready=false"
     )
 

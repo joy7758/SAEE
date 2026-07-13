@@ -40,6 +40,8 @@
     "qoder_process_executed": false,
     "qoder_partner_application_submitted": true,
     "qoder_technical_conversation_completed": false,
+    "alibaba_product_ecosystem_partner_active": true,
+    "approved_cloud_marketplace_route_available": true,
     "official_qoder_integration": false,
     "official_qoder_plugin": false,
     "cross_framework_interoperability_validated": false,

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.alibaba-product-ecosystem-partner-activation-receipt.v1",
+  "provider": "Alibaba Cloud",
+  "program": "意向产品生态伙伴FY27",
+  "review_approved_at": "2026-07-13T14:26:34+08:00",
+  "official_workbench_url": "https://aps.aliyun.com/#/",
+  "company_name": "山西游骑兵电子商务有限公司",
+  "observations": {
+    "approval_email_observed": true,
+    "contract_signature_success_observed": true,
+    "contract_signature_performed_by_codex": false,
+    "product_ecosystem_partner_workbench_accessible": true,
+    "partner_labels": [
+      "通用产品伙伴",
+      "AI伙伴"
+    ],
+    "product_partner_level": "基础级 Lv.1",
+    "ai_partner_level": "基础级 Lv.1",
+    "cloud_marketplace_self_service_route_available": true,
+    "partner_manager_support_route_available": true
+  },
+  "repository_privacy": {
+    "account_email_stored": false,
+    "account_id_stored": false,
+    "account_balance_stored": false,
+    "contract_body_stored": false
+  },
+  "truth_boundary": {
+    "partner_application_review_approved": true,
+    "partner_contract_signature_observed": true,
+    "product_ecosystem_partner_membership_active": true,
+    "approved_cloud_marketplace_route_available": true,
+    "guarantee_deposit_status": "not_verified",
+    "marketplace_product_submission": false,
+    "marketplace_product_listed": false,
+    "qoder_technical_conversation_completed": false,
+    "official_qoder_integration": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

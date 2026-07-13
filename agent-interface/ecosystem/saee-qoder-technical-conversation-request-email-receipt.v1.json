@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.qoder-technical-conversation-request-email-receipt.v1",
+  "channel": "gmail",
+  "recipient": "partner@qoder.com",
+  "sent_at": "2026-07-13T15:50:32+08:00",
+  "gmail_message_id": "19f5a74cf2c29ca2",
+  "subject": "Qoder 合作申请 QD-20260713-c5ee9419｜SAEE Agent Readiness Capability 技术交流与受控 Demo",
+  "related_application_form_id": "QD-20260713-c5ee9419",
+  "request": "Arrange a 30-minute technical conversation and controlled demo about project-scoped, read-only MCP readiness evaluation before deployment.",
+  "verified_attachments": [
+    {
+      "filename": "SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf",
+      "size_bytes": 143142
+    },
+    {
+      "filename": "SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+      "size_bytes": 2849130
+    },
+    {
+      "filename": "saee-capability-card.json",
+      "size_bytes": 1815
+    }
+  ],
+  "repository_privacy": {
+    "raw_sender_address_stored": false,
+    "phone_stored": false,
+    "gmail_attachment_ids_stored": false
+  },
+  "truth_boundary": {
+    "outbound_request_sent": true,
+    "gmail_sent_label_observed": true,
+    "recipient_delivery_confirmed": false,
+    "reply_received": false,
+    "technical_conversation_scheduled": false,
+    "technical_conversation_completed": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

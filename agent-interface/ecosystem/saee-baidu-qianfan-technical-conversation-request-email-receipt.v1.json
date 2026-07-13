@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.baidu-qianfan-technical-conversation-request-email-receipt.v1",
+  "channel": "gmail",
+  "recipient": "partner_feedback@baidu.com",
+  "recipient_source": "https://cloud.baidu.com/partner/plan.html",
+  "sent_at": "2026-07-13T16:00:49+08:00",
+  "gmail_message_id": "19f5a7e3903de0c8",
+  "subject": "百度智能云千帆生态技术交流申请｜SAEE Agent Readiness Capability",
+  "request": "Arrange a 30-minute technical conversation and controlled demo about a read-only MCP or OpenAPI capability for Qianfan agents before high-impact actions.",
+  "verified_attachments": [
+    {
+      "filename": "SAEE_Agent_Readiness_Capability_Technical_Solution_v2.0.pdf",
+      "size_bytes": 143142
+    },
+    {
+      "filename": "SAEE_Ecosystem_Capability_Demo_v2.0.mp4",
+      "size_bytes": 2849130
+    },
+    {
+      "filename": "saee-capability-card.json",
+      "size_bytes": 1815
+    }
+  ],
+  "repository_privacy": {
+    "raw_sender_address_stored": false,
+    "phone_stored": false,
+    "gmail_attachment_ids_stored": false
+  },
+  "truth_boundary": {
+    "outbound_request_sent": true,
+    "gmail_sent_label_observed": true,
+    "recipient_delivery_confirmed": false,
+    "reply_received": false,
+    "technical_conversation_scheduled": false,
+    "technical_conversation_completed": false,
+    "official_qianfan_integration": false,
+    "qianfan_marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

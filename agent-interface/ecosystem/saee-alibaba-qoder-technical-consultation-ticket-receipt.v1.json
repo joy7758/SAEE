@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.alibaba-qoder-technical-consultation-ticket-receipt.v1",
+  "provider": "Alibaba Cloud Product Ecosystem Partner Workbench",
+  "ticket_id": "4220915",
+  "submitted_at": "2026-07-13T15:55:00+08:00",
+  "category": "产品生态伙伴/平台操作/新产品合作提案",
+  "title": "Qoder + SAEE Agent Readiness Capability 技术交流与受控 Demo 申请",
+  "observed_status": "处理中",
+  "request": "Obtain a Qoder technical contact, a formal third-party Capability validation path, and Plugin or ecosystem-entry guidance for a two-operation read-only MCP capability.",
+  "repository_privacy": {
+    "contact_email_stored": false,
+    "account_email_stored": false,
+    "account_id_stored": false
+  },
+  "truth_boundary": {
+    "technical_conversation_request_submitted": true,
+    "ticket_processing": true,
+    "provider_response_received": false,
+    "technical_conversation_scheduled": false,
+    "technical_conversation_completed": false,
+    "joint_solution_confirmed": false,
+    "official_qoder_integration": false,
+    "marketplace_product_submission": false,
+    "production_ready": false
+  }
+}

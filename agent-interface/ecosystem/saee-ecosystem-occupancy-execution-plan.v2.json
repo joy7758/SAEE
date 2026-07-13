@@ -45,7 +45,11 @@
     "external_developer_test_protocol": "docs/ecosystem/SAEE_EXTERNAL_DEVELOPER_TEST_PROTOCOL_V1.md",
     "external_developer_test_intake": "agent-interface/ecosystem/saee-external-developer-test-intake.template.v1.json",
     "cloud_technical_conversation_brief": "agent-interface/ecosystem/saee-cloud-technical-conversation-brief.v1.json",
-    "qoder_partner_application_receipt": "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+    "qoder_partner_application_receipt": "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json",
+    "qoder_technical_conversation_email_receipt": "agent-interface/ecosystem/saee-qoder-technical-conversation-request-email-receipt.v1.json",
+    "alibaba_product_partner_activation_receipt": "agent-interface/ecosystem/saee-alibaba-product-ecosystem-partner-activation-receipt.v1.json",
+    "alibaba_qoder_technical_ticket_receipt": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
+    "baidu_qianfan_technical_conversation_email_receipt": "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
   },
   "kpis": {
     "technical": {
@@ -58,6 +62,8 @@
     "ecosystem": {
       "cloud_vendor_technical_conversation_target": 2,
       "cloud_vendor_technical_conversation_completed": 0,
+      "technical_conversation_request_events_submitted": 3,
+      "technical_conversation_distinct_vendor_targets": 2,
       "owned_public_demo_accessible": true,
       "external_ecosystem_presentation_target": 1,
       "external_ecosystem_presentation_completed": 0,
@@ -73,12 +79,21 @@
     }
   },
   "external_state": {
-    "alibaba_product_partner_application": "submitted_under_review",
+    "alibaba_product_partner_application": "approved_contract_signed_partner_workbench_active",
     "alibaba_application_is_qoder_technical_conversation": false,
-    "baidu_partner_consultation": "submitted_waiting_response",
+    "alibaba_product_ecosystem_partner_active": true,
+    "alibaba_product_partner_level": "basic_lv1",
+    "alibaba_ai_partner_level": "basic_lv1",
+    "alibaba_cloud_marketplace_self_service_route_available": true,
+    "alibaba_marketplace_product_submission": false,
+    "alibaba_marketplace_product_listed": false,
+    "baidu_partner_consultation": "form_and_partner_email_sent_waiting_response",
+    "baidu_qianfan_technical_conversation_request_email": "sent_waiting_response",
     "qoder_global_partner_application": "submitted_waiting_review",
     "qoder_application_form_id": "QD-20260713-c5ee9419",
     "qoder_application_is_technical_conversation": false,
+    "qoder_technical_conversation_request_email": "sent_waiting_response",
+    "alibaba_qoder_technical_consultation_ticket": "processing_4220915",
     "external_validation_kit_ready": true,
     "partner_application_implies_platform_recognition": false
   },
@@ -94,6 +109,8 @@
     "qoder_process_executed": false,
     "official_qoder_integration": false,
     "official_qoder_plugin": false,
+    "alibaba_product_ecosystem_partner_active": true,
+    "approved_cloud_marketplace_route_available": true,
     "official_cloud_integration": false,
     "external_developer_tests_complete": false,
     "design_partner_confirmed": false,

@@ -1,6 +1,6 @@
 # SAEE Ecosystem Occupancy v2 Completion Audit
 
-Overall: `goal_complete=false`; proven complete: `16/23`.
+Overall: `goal_complete=false`; proven complete: `17/23`.
 
 | ID | Requirement | Status | Note |
 |---|---|---|---|
@@ -18,14 +18,14 @@ Overall: `goal_complete=false`; proven complete: `16/23`.
 | R12 | Adjust GitHub discovery structure and first sentence | `proven_complete` | Frozen first sentence and Agent-readable entrypoints present. |
 | R13 | Validate MCP Capability locally | `proven_complete` | Two-tool stdio discovery and calls pass. |
 | R14 | Keep OpenAPI stable | `proven_complete` | Local package validation passes; no public service inferred. |
-| R15 | Complete two cloud-vendor technical conversations | `incomplete` | completed=0/2; the Qoder application is submitted but is not a conversation. |
+| R15 | Complete two cloud-vendor technical conversations | `incomplete` | completed=0/2; three request events cover two vendor targets, but no completed conversation is inferred. |
 | R16 | Complete one external ecosystem presentation | `incomplete` | completed=0/1; owned public demo is tracked separately. |
 | R17 | Complete three consented external developer tests | `incomplete` | completed=0/3; protocol and intake are ready but no external observation is counted. |
 | R18 | Confirm one Design Partner | `incomplete` | completed=0/1. |
 | R19 | Prepare one joint-solution draft | `proven_complete` | Unilateral bounded draft complete; Alibaba review and confirmation remain false. |
 | R20 | Stop new protocol, Runtime, governance modules, and architecture papers | `proven_complete` | This package reuses the existing two-tool Runtime. |
 | R21 | Obtain Qoder Plugin or Qianfan Capability entry | `incomplete` | The Qoder partner application is submitted; no approved plugin or official capability entry exists. |
-| R22 | Enter an approved cloud marketplace route | `incomplete` | Alibaba product-partner application is under review; marketplace submission/listing remain false. |
+| R22 | Enter an approved cloud marketplace route | `proven_complete` | Alibaba Product Ecosystem Partner and AI Partner Basic Lv.1 workbench access exposes a cloud-marketplace self-service route; no SAEE product submission or listing is inferred. |
 | R23 | Preserve non-audit, non-execution, and authorization boundaries | `proven_complete` | Evaluation remains a read-only capability projection. |
 
 Incomplete requirements require a real platform process, independently verifiable external participation, or provider approval. Local configuration, applications, templates, and owned demos do not close those gates.

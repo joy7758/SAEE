@@ -1,15 +1,14 @@
 {
   "audit_id": "saee.ecosystem-occupancy-v2.completion-audit",
   "requirement_count": 23,
-  "proven_complete_count": 16,
+  "proven_complete_count": 17,
   "incomplete_requirement_ids": [
     "R05",
     "R15",
     "R16",
     "R17",
     "R18",
-    "R21",
-    "R22"
+    "R21"
   ],
   "goal_complete": false,
   "requirements": [
@@ -159,10 +158,11 @@
       "title": "Complete two cloud-vendor technical conversations",
       "status": "incomplete",
       "evidence": [
-        "agent-interface/ecosystem/saee-cloud-technical-conversation-brief.v1.json",
-        "agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json"
+        "agent-interface/ecosystem/saee-qoder-technical-conversation-request-email-receipt.v1.json",
+        "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
+        "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
       ],
-      "note": "completed=0/2; the Qoder application is submitted but is not a conversation."
+      "note": "completed=0/2; three request events cover two vendor targets, but no completed conversation is inferred."
     },
     {
       "requirement_id": "R16",
@@ -223,11 +223,11 @@
     {
       "requirement_id": "R22",
       "title": "Enter an approved cloud marketplace route",
-      "status": "incomplete",
+      "status": "proven_complete",
       "evidence": [
-        "agent-interface/ecosystem/saee-multi-cloud-partner-entry-matrix.v1.json"
+        "agent-interface/ecosystem/saee-alibaba-product-ecosystem-partner-activation-receipt.v1.json"
       ],
-      "note": "Alibaba product-partner application is under review; marketplace submission/listing remain false."
+      "note": "Alibaba Product Ecosystem Partner and AI Partner Basic Lv.1 workbench access exposes a cloud-marketplace self-service route; no SAEE product submission or listing is inferred."
     },
     {
       "requirement_id": "R23",

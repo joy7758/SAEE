@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
-  "status": "two_interest_submissions_one_human_contact_one_alibaba_formal_application_under_review_one_captcha_handoff_two_routes_blocked",
-  "observed_at": "2026-07-13T13:56:53+08:00",
+  "status": "two_interest_submissions_one_human_contact_one_alibaba_partner_membership_active_one_captcha_handoff_two_routes_blocked",
+  "observed_at": "2026-07-13T16:00:49+08:00",
   "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
   "providers": [
     {
@@ -54,16 +54,22 @@
       "contact_url": "https://smartservice.console.aliyun.com/pre-sale/chat?entrance=201",
       "recommendation": "conditional",
       "agent_readable_reason": "Product integration is the appropriate route; reseller and marketplace routes would overstate current commercial readiness.",
-      "current_state": "formal_product_partner_application_submitted_under_review",
+      "current_state": "product_ecosystem_partner_membership_active_ai_partner_basic_lv1",
       "contact_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-pre-sales-cooperation-inquiry-receipt.v1.json",
       "application_submission_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-product-partner-application-submission-receipt.v1.json",
+      "partner_activation_receipt_ref": "agent-interface/ecosystem/saee-alibaba-product-ecosystem-partner-activation-receipt.v1.json",
+      "qoder_technical_consultation_ticket_receipt_ref": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
       "missing_inputs": [],
+      "completed_consequential_human_gates": [
+        "agreement_signature_observed_as_human_completed"
+      ],
       "later_consequential_human_gates": [
-        "agreement_review_and_signature",
-        "guarantee_deposit_decision_and_payment"
+        "guarantee_deposit_decision_and_payment_if_required"
       ],
       "marketplace_submission": false,
-      "provider_approval": false
+      "marketplace_route_available": true,
+      "provider_approval": true,
+      "provider_approval_scope": "product_ecosystem_partner_membership_not_product_integration"
     },
     {
       "provider": "Tencent Cloud",
@@ -98,9 +104,12 @@
     "enterprise_verified_provider_count": 1,
     "formal_partner_application_started_count": 1,
     "formal_partner_application_count": 1,
-    "formal_partner_application_under_review_count": 1,
+    "formal_partner_application_under_review_count": 0,
+    "formal_partner_application_approved_count": 1,
+    "partner_program_membership_active_count": 1,
+    "approved_marketplace_route_available_count": 1,
     "blocked_count": 2,
-    "provider_approved_count": 0,
+    "provider_approved_count": 1,
     "marketplace_submission_count": 0,
     "marketplace_listed_count": 0,
     "customer_validated": false,
