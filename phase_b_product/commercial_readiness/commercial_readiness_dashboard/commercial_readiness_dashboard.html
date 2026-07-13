@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 商用准备总览</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8f7f2;
+        --surface: #ffffff;
+        --soft: #eef3ed;
+        --text: #171717;
+        --muted: #63675f;
+        --line: #deded5;
+        --accent: #10a37f;
+        --accent-dark: #087a5a;
+        --danger: #9f2f24;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: radial-gradient(circle at 80% 0%, rgba(16, 163, 127, 0.12), transparent 32%), var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0; }
+      .hero {
+        padding: clamp(28px, 5vw, 56px);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 48px rgba(23, 23, 23, 0.08);
+      }
+      .eyebrow { margin: 0 0 10px; color: var(--accent-dark); font-size: 13px; font-weight: 800; }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1.04; letter-spacing: 0; }
+      .lead { max-width: 760px; margin: 22px 0 0; color: var(--muted); font-size: 18px; }
+      .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+      .stat, .phase-card, .panel {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      .stat { padding: 18px; }
+      .stat strong { display: block; font-size: 30px; line-height: 1; }
+      .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+      .danger strong { color: var(--danger); }
+      section { margin-top: 28px; }
+      h2 { margin: 0 0 14px; font-size: 28px; line-height: 1.15; }
+      .entry-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+      .entry-card {
+        min-height: 190px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      .entry-card span {
+        display: inline-grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--accent-dark);
+        font-weight: 800;
+      }
+      .entry-card h3 { margin: 14px 0 8px; font-size: 17px; }
+      .entry-card p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+      .entry-card code {
+        display: block;
+        color: var(--accent-dark);
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+      .phase-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+      .phase-card { padding: 16px; }
+      .phase-card h3 { margin: 0 0 12px; font-size: 17px; }
+      dl { display: grid; gap: 8px; margin: 0; }
+      dl div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+      dt { color: var(--muted); font-size: 13px; }
+      dd { margin: 0; font-weight: 800; }
+      .panel { overflow: hidden; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { background: var(--soft); font-size: 13px; }
+      tr:last-child td { border-bottom: 0; }
+      .boundary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 0; margin: 0; list-style: none; }
+      .boundary li { padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--muted); }
+      .boundary strong { color: var(--text); }
+      .next { padding: 18px; border-left: 4px solid var(--accent); background: var(--soft); border-radius: 10px; }
+      code { color: var(--accent-dark); }
+      @media (max-width: 900px) {
+        .stats, .entry-grid, .phase-grid, .boundary { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 640px) {
+        main { width: min(100% - 24px, 1120px); padding: 24px 0; }
+        .stats, .entry-grid, .phase-grid, .boundary { grid-template-columns: 1fr; }
+        table { font-size: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SAEE 商用准备 · 本地总览</p>
+        <h1>现在还不能正式商用。</h1>
+        <p class="lead">
+          这个页面把当前商用阻塞点放在一起，方便人工审查下一步该补什么证据。它不会执行任务，不会联系客户，不会发布产品，也不会关闭阻塞点。
+        </p>
+        <div class="stats" aria-label="商用准备关键数字">
+          <div class="stat danger"><strong>24</strong><span>仍然打开的生产阻塞点</span></div>
+          <div class="stat"><strong>149</strong><span>需要的生产证据项</span></div>
+          <div class="stat"><strong>37</strong><span>已有本地公开壳证据</span></div>
+          <div class="stat danger"><strong>112</strong><span>仍缺的生产证据</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>下一步商用准备入口</h2>
+        <div class="entry-grid">
+
+          <article class="entry-card">
+            <span>1</span>
+            <h3>从这里开始</h3>
+            <p>确认当前商用状态和人工填写顺序。</p>
+            <code>phase_b_product/commercial_readiness/commercial_readiness_begin_here/commercial_readiness_begin_here.html</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>2</span>
+            <h3>查看工作簿导入批准请求</h3>
+            <p>确认 64 条人工值已经齐全，但不授权导入。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_workbook_import_approval_request_packet.md</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>3</span>
+            <h3>查看 64 条已确认值来源</h3>
+            <p>确认当前缺失值已经清零，仍不关闭任何 blocker。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_completion_queue.html</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>4</span>
+            <h3>查看导入前 dry run</h3>
+            <p>只读检查导入预览；没有单独批准不得执行真实导入。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_workbook_import_dry_run.md</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>5</span>
+            <h3>查看导入器边界</h3>
+            <p>确认导入器当前未被授权执行。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_workbook_importer.md</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>6</span>
+            <h3>查看 64 行完整补证据队列</h3>
+            <p>按 blocker 和 owner lane 查看全部缺失人工值。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_completion_queue.html</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>7</span>
+            <h3>填后本地验证手册</h3>
+            <p>人工填值后再运行本地 dry run 和守卫。</p>
+            <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_review_batch_post_fill_validation_runbook.html</code>
+          </article>
+        
+
+          <article class="entry-card">
+            <span>8</span>
+            <h3>阻塞点关闭准备板</h3>
+            <p>只用于最终人工审查；当前没有可关闭 blocker。</p>
+            <code>phase_b_product/commercial_readiness/commercial_blocker_closure_readiness_board/closure_readiness_board.html</code>
+          </article>
+        
+        </div>
+      </section>
+
+      <section>
+        <h2>五个阶段</h2>
+        <div class="phase-grid">
+
+          <article class="phase-card">
+            <p class="eyebrow">phase_1_identity_and_tenant_boundary</p>
+            <h3>第 1 阶段</h3>
+            <dl>
+              <div><dt>阻塞点</dt><dd>4</dd></div>
+              <div><dt>需要证据</dt><dd>33</dd></div>
+              <div><dt>已占位</dt><dd>16</dd></div>
+              <div><dt>还缺</dt><dd>17</dd></div>
+            </dl>
+          </article>
+        
+
+          <article class="phase-card">
+            <p class="eyebrow">phase_2_data_and_operations_resilience</p>
+            <h3>第 2 阶段</h3>
+            <dl>
+              <div><dt>阻塞点</dt><dd>5</dd></div>
+              <div><dt>需要证据</dt><dd>26</dd></div>
+              <div><dt>已占位</dt><dd>8</dd></div>
+              <div><dt>还缺</dt><dd>18</dd></div>
+            </dl>
+          </article>
+        
+
+          <article class="phase-card">
+            <p class="eyebrow">phase_3_support_security_legal</p>
+            <h3>第 3 阶段</h3>
+            <dl>
+              <div><dt>阻塞点</dt><dd>7</dd></div>
+              <div><dt>需要证据</dt><dd>45</dd></div>
+              <div><dt>已占位</dt><dd>10</dd></div>
+              <div><dt>还缺</dt><dd>35</dd></div>
+            </dl>
+          </article>
+        
+
+          <article class="phase-card">
+            <p class="eyebrow">phase_4_commercial_packaging_and_billing</p>
+            <h3>第 4 阶段</h3>
+            <dl>
+              <div><dt>阻塞点</dt><dd>6</dd></div>
+              <div><dt>需要证据</dt><dd>33</dd></div>
+              <div><dt>已占位</dt><dd>2</dd></div>
+              <div><dt>还缺</dt><dd>31</dd></div>
+            </dl>
+          </article>
+        
+
+          <article class="phase-card">
+            <p class="eyebrow">phase_5_customer_validation_and_launch_review</p>
+            <h3>第 5 阶段</h3>
+            <dl>
+              <div><dt>阻塞点</dt><dd>2</dd></div>
+              <div><dt>需要证据</dt><dd>12</dd></div>
+              <div><dt>已占位</dt><dd>1</dd></div>
+              <div><dt>还缺</dt><dd>11</dd></div>
+            </dl>
+          </article>
+        
+        </div>
+      </section>
+
+      <section>
+        <h2>按类别看缺口</h2>
+        <div class="panel">
+          <table>
+            <thead>
+              <tr><th>类别</th><th>打开阻塞点</th><th>需要证据</th><th>已有占位</th><th>仍缺证据</th></tr>
+            </thead>
+            <tbody>
+
+          <tr>
+            <td>auth</td>
+            <td>3</td>
+            <td>15</td>
+            <td>2</td>
+            <td>13</td>
+          </tr>
+        
+
+          <tr>
+            <td>billing</td>
+            <td>6</td>
+            <td>33</td>
+            <td>2</td>
+            <td>31</td>
+          </tr>
+        
+
+          <tr>
+            <td>data_ops</td>
+            <td>2</td>
+            <td>12</td>
+            <td>7</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>operations</td>
+            <td>3</td>
+            <td>14</td>
+            <td>1</td>
+            <td>13</td>
+          </tr>
+        
+
+          <tr>
+            <td>privacy_security</td>
+            <td>4</td>
+            <td>29</td>
+            <td>7</td>
+            <td>22</td>
+          </tr>
+        
+
+          <tr>
+            <td>support</td>
+            <td>3</td>
+            <td>16</td>
+            <td>3</td>
+            <td>13</td>
+          </tr>
+        
+
+          <tr>
+            <td>tenant</td>
+            <td>1</td>
+            <td>18</td>
+            <td>14</td>
+            <td>4</td>
+          </tr>
+        
+
+          <tr>
+            <td>validation</td>
+            <td>2</td>
+            <td>12</td>
+            <td>1</td>
+            <td>11</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>24 个阻塞点</h2>
+        <div class="panel">
+          <table>
+            <thead>
+              <tr><th>阻塞点</th><th>类别</th><th>阶段</th><th>状态</th><th>仍缺证据</th></tr>
+            </thead>
+            <tbody>
+
+          <tr>
+            <td>customer_support</td>
+            <td>support</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>2</td>
+          </tr>
+        
+
+          <tr>
+            <td>customer_validated</td>
+            <td>validation</td>
+            <td>phase_5_customer_validation_and_launch_review</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>data_processing_agreement</td>
+            <td>privacy_security</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>external_alert_delivery</td>
+            <td>operations</td>
+            <td>phase_2_data_and_operations_resilience</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>formal_security_review</td>
+            <td>privacy_security</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>3</td>
+          </tr>
+        
+
+          <tr>
+            <td>invoice_process</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>oauth_oidc</td>
+            <td>auth</td>
+            <td>phase_1_identity_and_tenant_boundary</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>on_call_rotation</td>
+            <td>operations</td>
+            <td>phase_2_data_and_operations_resilience</td>
+            <td>open</td>
+            <td>3</td>
+          </tr>
+        
+
+          <tr>
+            <td>payment_provider</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>pilot_results</td>
+            <td>validation</td>
+            <td>phase_5_customer_validation_and_launch_review</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>pricing_page</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>4</td>
+          </tr>
+        
+
+          <tr>
+            <td>privacy_legal_review</td>
+            <td>privacy_security</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_identity_provider</td>
+            <td>auth</td>
+            <td>phase_1_identity_and_tenant_boundary</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_monitoring</td>
+            <td>operations</td>
+            <td>phase_2_data_and_operations_resilience</td>
+            <td>open</td>
+            <td>4</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_restore_policy</td>
+            <td>data_ops</td>
+            <td>phase_2_data_and_operations_resilience</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>rbac</td>
+            <td>auth</td>
+            <td>phase_1_identity_and_tenant_boundary</td>
+            <td>open</td>
+            <td>3</td>
+          </tr>
+        
+
+          <tr>
+            <td>refund_policy</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>restore_tested</td>
+            <td>data_ops</td>
+            <td>phase_2_data_and_operations_resilience</td>
+            <td>open</td>
+            <td>0</td>
+          </tr>
+        
+
+          <tr>
+            <td>sla</td>
+            <td>support</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>support_contact</td>
+            <td>support</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>tax_review</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>5</td>
+          </tr>
+        
+
+          <tr>
+            <td>tenant_billing_isolation</td>
+            <td>billing</td>
+            <td>phase_4_commercial_packaging_and_billing</td>
+            <td>open</td>
+            <td>6</td>
+          </tr>
+        
+
+          <tr>
+            <td>tenant_storage_isolation</td>
+            <td>tenant</td>
+            <td>phase_1_identity_and_tenant_boundary</td>
+            <td>open</td>
+            <td>4</td>
+          </tr>
+        
+
+          <tr>
+            <td>vulnerability_management</td>
+            <td>privacy_security</td>
+            <td>phase_3_support_security_legal</td>
+            <td>open</td>
+            <td>7</td>
+          </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>边界</h2>
+        <ul class="boundary">
+          <li><strong>production_ready:</strong> false</li>
+          <li><strong>product_launched:</strong> false</li>
+          <li><strong>customer_validated:</strong> false</li>
+          <li><strong>private_core_exposed:</strong> false</li>
+          <li><strong>execution_authorized:</strong> false</li>
+          <li><strong>evidence_collection_authorized:</strong> false</li>
+          <li><strong>runtime_modified:</strong> false</li>
+          <li><strong>backend_modified:</strong> false</li>
+          <li><strong>kernel_modified:</strong> false</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>下一步</h2>
+        <p class="next">Open the begin-here page and review the workbook import approval request packet. Do not run workbook import, template transfer, validator execution on real input, evidence collection, or blocker closure unless a separate explicit human execution request exists.</p>
+      </section>
+    </main>
+  </body>
+</html>

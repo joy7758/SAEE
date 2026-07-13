@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-invocation-receipt.schema.v0.1.json",
+  "title": "SAEE Capability Invocation Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["receipt_id", "request_id", "request_digest", "capability_id", "operation", "timestamp", "timestamp_source", "status", "runtime_version", "result_ref", "persistence_performed", "sensitive_payload_recorded"],
+  "properties": {
+    "receipt_id": {"type": "string", "pattern": "^receipt:sha256:[a-f0-9]{64}$"},
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "request_digest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "capability_id": {"const": "saee.agent-reliability"},
+    "operation": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "UNKNOWN"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "timestamp_source": {"enum": ["caller_declared", "invalid_request_fallback"]},
+    "status": {"enum": ["SUCCESS", "FAILED", "REJECTED", "CONTRACT_ONLY"]},
+    "runtime_version": {"const": "0.1.0-local-alpha"},
+    "result_ref": {"type": "string", "pattern": "^inline-result:sha256:[a-f0-9]{64}$"},
+    "persistence_performed": {"const": false},
+    "sensitive_payload_recorded": {"const": false}
+  }
+}
+

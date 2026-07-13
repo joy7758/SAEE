@@ -1,0 +1,421 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "saee_genome_map",
+  "generated_at": "2026-07-02",
+  "scope": {
+    "mode": "genome_scan",
+    "analysis_only": true,
+    "refactor_performed": false,
+    "target_repositories_executed": false,
+    "canonical_saee_root": "."
+  },
+  "repositories": [
+    {
+      "repo": "fdo-kernel-mvk",
+      "local_path": "~/GitHub/fdo-kernel-mvk",
+      "role_in_system": "Execution-integrity reference kernel that provides deterministic object identity, state replay, checkpoint integrity, and tamper-detection surfaces.",
+      "layer_membership": [
+        "Archive Layer",
+        "Immune Layer",
+        "Selection Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Supports sandbox verification, rollback evidence, and selection rejection through replay and checkpoint checks; it does not branch or mutate genomes.",
+      "static_or_evolutionary": "STATIC_REFERENCE_WITH_EVOLUTION_SUPPORT",
+      "genome_traits": [
+        "Deterministic object identity from metadata, drift threshold, and initial state.",
+        "Constraint binding into object identity instead of mutable external parameters.",
+        "Deterministic state transition rule with no implicit environment dependency.",
+        "Checkpoint hash chain over object identity and state snapshots.",
+        "Replay verification that recomputes object id, state transitions, drift values, checkpoints, and final hash.",
+        "Fail-closed tamper detection for state or object-definition changes."
+      ],
+      "mutation_surface": [
+        "Object metadata and declared initial state.",
+        "Drift threshold and toy transition examples.",
+        "Input/output examples and AEP bridge packaging.",
+        "Validation walkthroughs, schema notes, and demonstration traces."
+      ],
+      "selection_signals": [
+        "EXECUTION_OK",
+        "REPLAY_PASS",
+        "CONFORMANCE_FAIL",
+        "Checkpoint hash equality or mismatch.",
+        "Drift threshold acceptance or rejection."
+      ],
+      "lineage_support": "medium",
+      "lineage_evidence": [
+        "Git tags v0.1.0 and v0.2.0 are present.",
+        "Checkpoint chains preserve local execution state lineage.",
+        "No SAEE genome parent/child lineage record was found in this repo."
+      ],
+      "source_evidence": [
+        "README.md",
+        "llms.txt",
+        "docs/invariants.md"
+      ]
+    },
+    {
+      "repo": "agent-evidence",
+      "local_path": "~/GitHub/agent-evidence",
+      "role_in_system": "Portable evidence-object and verification layer that packages runtime events, policy references, provenance, hashes, validation, receipts, and review packs.",
+      "layer_membership": [
+        "Archive Layer",
+        "Immune Layer",
+        "Selection Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Provides retained evidence, validation receipts, event chains, and offline verification signals that can support lineage memory and fitness evaluation.",
+      "static_or_evolutionary": "EVOLUTIONARY_SUPPORT_SUBSYSTEM",
+      "genome_traits": [
+        "Execution Evidence and Operation Accountability Profile schema.",
+        "Structured operation, policy, provenance, evidence, validation, subject, and actor fields.",
+        "Semantic event envelope with previous-event hash and cumulative chain hash.",
+        "Validation and verification receipts as portable review artifacts.",
+        "Local JSONL and SQL-backed evidence stores.",
+        "Optional signed export metadata and local review-pack packaging.",
+        "Agent-readable CLI, OpenAPI, MCP, schema, citation, and recommendation-policy surfaces."
+      ],
+      "mutation_surface": [
+        "Profile schema extensions under explicit compatibility discipline.",
+        "Integration adapters for LangChain, OpenAI-compatible runtimes, Automaton, AGT, and CrewAI.",
+        "Storage backend selection and local wrapper surfaces.",
+        "Review-pack templates and examples.",
+        "Evidence object examples and invalid fixtures."
+      ],
+      "selection_signals": [
+        "Validator ok true or false.",
+        "Primary validation error codes.",
+        "Hash-chain verification result.",
+        "Bundle verification receipt.",
+        "Focused test and CI pass/fail state.",
+        "Recommendation policy boundaries and claims-to-avoid checks."
+      ],
+      "lineage_support": "high",
+      "lineage_evidence": [
+        "DOI 10.5281/zenodo.19334061 is recorded.",
+        "agent-index.json records version 0.6.0, callable surfaces, artifacts, claims boundaries, and citation metadata.",
+        "Development ledger, release notes, lineage docs, event chains, and provenance fields exist.",
+        "Multiple release and rc tags are present."
+      ],
+      "source_evidence": [
+        "README.md",
+        "agent-index.json"
+      ]
+    },
+    {
+      "repo": "execution-integrity-core",
+      "local_path": "~/GitHub/execution-integrity-core",
+      "role_in_system": "VAES/ARO execution runtime kernel for policy-gated tool execution, belief world-model state, semantic execution algebra, proof generation, and VES local attestation.",
+      "layer_membership": [
+        "Governance Layer",
+        "Selection Layer",
+        "Archive Layer",
+        "Immune Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Provides the strongest executable substrate for sandbox development, controlled execution, proof export, belief-state evaluation, and verifier rejection; it is not itself a population-level evolution loop.",
+      "static_or_evolutionary": "PARTIAL_EVOLUTIONARY_RUNTIME",
+      "genome_traits": [
+        "POP identity binding before tool execution.",
+        "Policy and risk boundary before action.",
+        "Action canonicalization and partial-order constraint lattice.",
+        "Execution semantic algebra and algebraic closure checks.",
+        "Semantic grounding from execution calculus to observable effects.",
+        "Belief world model with partial observability and probabilistic effects.",
+        "Uncertainty propagation and belief consistency checks.",
+        "Kernel-issued capability token gate.",
+        "Hash-linked events, states, causal graphs, fixed points, reversible diffs, and exported evidence objects.",
+        "VES manifest to identity to policy to proof gate to execution to attestation to registry record path."
+      ],
+      "mutation_surface": [
+        "Execution manifests and tool-call arguments.",
+        "Static policies, path-risk decisions, and constraint precedence inputs.",
+        "Registered local tools behind kernel-issued capability tokens.",
+        "Adapter wrappers for MCP, LangGraph, and Temporal.",
+        "Belief seeds, observed effects, uncertainty thresholds, and verifier acceptance thresholds.",
+        "Workflow graph compiler inputs."
+      ],
+      "selection_signals": [
+        "ARO_VERIFY: PASS or failure.",
+        "VES_VERIFY: PASS or failure.",
+        "Gate proof accepted or rejected.",
+        "Fixed-point convergence or rejection.",
+        "Belief consistency score with uncertainty threshold.",
+        "Divergence report between predicted and observed effect.",
+        "Formal execution validity and root hash integrity."
+      ],
+      "lineage_support": "medium",
+      "lineage_evidence": [
+        "agent-index.json records version 0.8.0 and runtime layer map.",
+        "Release/Zenodo status files exist under release/zenodo.",
+        "Hash-linked event and state proof surfaces preserve run lineage.",
+        "No git tag was returned by the local tag query for the current clone."
+      ],
+      "source_evidence": [
+        "README.md",
+        "SPEC.md",
+        "agent-index.json"
+      ]
+    },
+    {
+      "repo": "aro-audit",
+      "local_path": "~/GitHub/aro-audit",
+      "role_in_system": "Post-execution receipt and audit-format reference surface for independent receipt verification, lifecycle receipts, conformance vectors, and tamper rejection.",
+      "layer_membership": [
+        "Immune Layer",
+        "Archive Layer",
+        "Selection Layer",
+        "Governance Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Supports rollback immunity, retained audit facts, and survival/rejection decisions through receipt validation; it is not the primary capture substrate or execution kernel.",
+      "static_or_evolutionary": "STATIC_REFERENCE_WITH_IMMUNE_FUNCTION",
+      "genome_traits": [
+        "AAR receipt schema and minimal receipt validation.",
+        "JCS plus SHA-256 canonical signature input discipline.",
+        "WORM checkpoint coverage with Merkle root and store fingerprint.",
+        "Single-writer per trace rule.",
+        "Lifecycle receipt examples for init, fork, merge, activate, and terminate.",
+        "Conformance vectors and boundary attack fixtures."
+      ],
+      "mutation_surface": [
+        "Receipt examples and lifecycle conformance vectors.",
+        "Cookbook adapters and callback-to-receipt examples.",
+        "Index/manifest interpretation layer outside the frozen facts layer.",
+        "Spec profiles and validation fixtures."
+      ],
+      "selection_signals": [
+        "Receipt validation pass/fail.",
+        "Tamper rejection.",
+        "Lifecycle conformance test pass/fail.",
+        "Boundary attack vector rejection.",
+        "External citation surface gate pass/fail."
+      ],
+      "lineage_support": "high",
+      "lineage_evidence": [
+        "Tags include v0.1.0, v0.1.1, v1.0.0, v1.0.1, spec/v2.0.0-rc1, and aro-lifecycle-conformance-rc1.",
+        "Lifecycle receipt fixtures preserve lineage IDs and protected hash tamper cases.",
+        "Archive folder preserves legacy versions and release materials."
+      ],
+      "source_evidence": [
+        "README.md",
+        "llms.txt",
+        "spec/AAR_v1.0.md"
+      ]
+    },
+    {
+      "repo": "token-governor",
+      "local_path": "~/GitHub/token-governor",
+      "role_in_system": "Pre-execution governance and budget-window policy checkpoint that produces cost, success, latency, fallback, and guardrail signals.",
+      "layer_membership": [
+        "Governance Layer",
+        "Selection Layer",
+        "Immune Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Acts as a selection-pressure source for cost, budget, fallback, and policy constraints; it does not own mutation or reproduction.",
+      "static_or_evolutionary": "STATIC_GOVERNANCE_SURFACE_WITH_SELECTION_SIGNALS",
+      "genome_traits": [
+        "Budget-window policy examples.",
+        "Restricted-tool and persona-aware policy fields.",
+        "Drive-mode and strategy trade-off framing.",
+        "Benchmark guardrails and KPI reporting surfaces.",
+        "Runtime safety kit examples for agent run, budget policy, and budget report."
+      ],
+      "mutation_surface": [
+        "Policy thresholds and budget windows.",
+        "Drive modes and strategy modes.",
+        "Model profile inputs.",
+        "Benchmark task sets and guardrail thresholds.",
+        "Adapter demonstrations for governed runs."
+      ],
+      "selection_signals": [
+        "Token savings.",
+        "Latency.",
+        "Success rate.",
+        "Fallback rate.",
+        "Budget verdict.",
+        "Preflight pass/fail report.",
+        "Benchmark guardrail pass/fail state."
+      ],
+      "lineage_support": "medium",
+      "lineage_evidence": [
+        "Tag v0.2.0 is present.",
+        "Benchmark history JSONL and trend files preserve metric history.",
+        "The README explicitly says production routing, fallback, scoring, and decision history are not public in this repo."
+      ],
+      "source_evidence": [
+        "README.md",
+        "llms.txt",
+        "docs/governance-checkpoint.md"
+      ]
+    },
+    {
+      "repo": "agent-object-protocol",
+      "local_path": "~/GitHub/agent-object-protocol",
+      "role_in_system": "Portable executable object contract and conformance-specification layer for agent object manifests, policy, decisions, evidence, and profile schemas.",
+      "layer_membership": [
+        "Genome Layer",
+        "Governance Layer",
+        "Selection Layer",
+        "Archive Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Defines reusable object-contract traits and conformance gates that can become genome material; it has no runtime evolution loop.",
+      "static_or_evolutionary": "EVOLUTION_READY_SPECIFICATION",
+      "genome_traits": [
+        "AOP object manifest schema with id, kind, name, description, input schema, and output schema.",
+        "Governance sections for invocation, capabilities, and security.",
+        "Policy schema and policy-decision envelope with strategy semantics.",
+        "Evidence envelope and optional evidence profile schemas.",
+        "Positive and negative fixtures as protocol-by-artifacts examples.",
+        "Conformance levels and machine-readable vector suite.",
+        "AEP-backed versioning and public API freeze discipline."
+      ],
+      "mutation_surface": [
+        "AEP-backed schema changes with SemVer handling.",
+        "Non-normative registry and resolve-response schemas.",
+        "Experimental vendor extension fields under x-* namespace.",
+        "Fixture suite expansion and conformance-level additions.",
+        "Optional DSSE and in-toto profile compatibility layers."
+      ],
+      "selection_signals": [
+        "Schema compilation success.",
+        "Positive fixture validation pass.",
+        "Negative fixture rejection.",
+        "Conformance vector summary.",
+        "Conformance level achieved.",
+        "CI gate pass/fail state."
+      ],
+      "lineage_support": "high",
+      "lineage_evidence": [
+        "Tags include v0.4.0 through v1.1.2 and lifecycle-profile-v0.1-rc1.",
+        "AEP files record compatibility and release changes.",
+        "V1 public API candidate is frozen at v1.0.0.",
+        "README records DOI 10.5281/zenodo.18876796 and paper evidence baselines."
+      ],
+      "source_evidence": [
+        "README.md",
+        "V1_PUBLIC_API_CANDIDATE.md",
+        "CONFORMANCE.md"
+      ]
+    },
+    {
+      "repo": "persona-object-protocol",
+      "local_path": "~/GitHub/persona-object-protocol",
+      "role_in_system": "Portable persona object and runtime projection layer that represents persona traits, boundaries, provenance, lifecycle state, and framework projections.",
+      "layer_membership": [
+        "Genome Layer",
+        "Mutation Layer",
+        "Archive Layer",
+        "Governance Layer"
+      ],
+      "contributes_to_evolution_loop": true,
+      "contribution_summary": "Provides mutable persona-trait objects, projection surfaces, and lifecycle operations useful for genome variation; it does not evaluate or select populations.",
+      "static_or_evolutionary": "PARTIAL_EVOLUTIONARY_OBJECT_LAYER",
+      "genome_traits": [
+        "Persona object tuple with id, role, traits, boundaries, status, provenance, and version.",
+        "Separation of persona object from runtime policy, memory state, and tool execution logic.",
+        "Boundary fields treated as constraints rather than capability grants.",
+        "Lifecycle operations: attach, detach, project, replace, revoke.",
+        "Runtime projection semantics for CrewAI, LangChain, AutoGen, and related surfaces.",
+        "Schema-backed persona validation and projection examples."
+      ],
+      "mutation_surface": [
+        "Persona traits, roles, boundaries, status, provenance, and versions.",
+        "Projection mappings into runtime-specific config shapes.",
+        "Plugin discovery definitions for stages, personas, and task types.",
+        "Migration documents and release-plan surfaces.",
+        "Fixture corpus for valid, invalid, and projected persona cases."
+      ],
+      "selection_signals": [
+        "Schema validation pass/fail.",
+        "Projection preservation or loss reports.",
+        "Runtime integration tests.",
+        "Plugin config validation.",
+        "Lifecycle consistency tests."
+      ],
+      "lineage_support": "high",
+      "lineage_evidence": [
+        "Tags include v0.1.0 through v0.1.7 plus draft/archive tags.",
+        "POP object model carries provenance and version fields.",
+        "Migration docs and schema evolution docs are present.",
+        "README records DOI and PyPI package surfaces."
+      ],
+      "source_evidence": [
+        "README.md",
+        "llms.txt",
+        "spec/POP-core.md"
+      ]
+    },
+    {
+      "repo": "digital-biosphere-architecture",
+      "local_path": "~/GitHub/digital-biosphere-architecture",
+      "role_in_system": "Architecture, vocabulary, repository-map, citation, and public meaning hub for the earlier Digital Biosphere Architecture stack.",
+      "layer_membership": [
+        "Governance Layer",
+        "Archive Layer"
+      ],
+      "contributes_to_evolution_loop": false,
+      "contribution_summary": "Provides conceptual and citation context, but explicitly does not publish a runnable end-to-end path or production source map.",
+      "static_or_evolutionary": "STATIC_ARCHITECTURE_HUB",
+      "genome_traits": [
+        "Canonical five-layer stack vocabulary.",
+        "Repository role map and layer placement.",
+        "Public boundary and non-claim discipline.",
+        "AI discovery index and citation map.",
+        "Architecture diagrams and canonical terms."
+      ],
+      "mutation_surface": [
+        "Terminology and repository-role documentation.",
+        "Architecture diagrams and bridge maps.",
+        "Outreach and reference-pack text.",
+        "Status and ecosystem mapping docs."
+      ],
+      "selection_signals": [
+        "Architecture consistency against repository map.",
+        "Citation-map completeness.",
+        "Boundary wording and non-claim consistency.",
+        "No runtime fitness signal found."
+      ],
+      "lineage_support": "medium",
+      "lineage_evidence": [
+        "Git history preserves architecture-map changes.",
+        "Repository has citation metadata and source-of-truth print-sync docs.",
+        "No release tag was returned by the local tag query."
+      ],
+      "source_evidence": [
+        "README.md",
+        "llms.txt",
+        "docs/repository-map.md"
+      ]
+    }
+  ],
+  "cross_repository_observations": {
+    "strongest_genome_sources": [
+      "agent-object-protocol",
+      "persona-object-protocol"
+    ],
+    "strongest_execution_substrate": [
+      "execution-integrity-core",
+      "fdo-kernel-mvk"
+    ],
+    "strongest_archive_and_immune_sources": [
+      "agent-evidence",
+      "aro-audit"
+    ],
+    "strongest_selection_signal_source": [
+      "token-governor",
+      "execution-integrity-core",
+      "agent-evidence"
+    ],
+    "weak_or_missing_surfaces": [
+      "No scanned repository owns SAEE-level global sensing.",
+      "No scanned repository owns SAEE-level trait extraction from external systems into reusable genomes.",
+      "No scanned repository owns population-level genome branching and recombination.",
+      "No scanned repository owns a closed-loop scheduler that moves candidates through sandbox development, fitness evaluation, selection, dormancy, rollback, and next generation.",
+      "The architecture hub remains a static meaning layer, not an evolution kernel."
+    ]
+  }
+}

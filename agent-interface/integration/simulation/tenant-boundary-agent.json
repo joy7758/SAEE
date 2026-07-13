@@ -1,0 +1,40 @@
+{
+  "saee_external_agent_simulation_scenario_v0_1": true,
+  "simulation_version": "0.1",
+  "scenario_id": "simulation:synthetic:tenant-boundary",
+  "scenario_type": "TENANT_BOUNDARY_AGENT",
+  "synthetic_scenario": true,
+  "agent_identity": {
+    "saee_synthetic_agent_v0_1": true,
+    "simulation_version": "0.1",
+    "agent_id": "agent:synthetic-external:tenant-boundary",
+    "agent_type": "EVALUATION_AGENT",
+    "declared_purpose": "Evaluate evidence in the declared Tenant context.",
+    "organization_context": "synthetic-organization",
+    "capability_context": "saee.evidence-adequacy",
+    "identity_as_trust": false,
+    "identity_as_authentication": false,
+    "synthetic_agent": true
+  },
+  "tenant_context": {
+    "saee_synthetic_tenant_context_v0_1": true,
+    "simulation_version": "0.1",
+    "tenant_id": "tenant:synthetic:alpha",
+    "namespace": "tenant:synthetic:alpha:evidence",
+    "access_scope": "EVIDENCE_EVALUATION_ONLY",
+    "requested_tenant_id": "tenant:synthetic:beta",
+    "cross_tenant_access": true,
+    "tenant_label_is_authorization": false,
+    "tenant_runtime_implemented": false
+  },
+  "request_intent": {
+    "requested_operation": "EVALUATE_EVIDENCE",
+    "treats_purpose_as_permission": false,
+    "autonomous_authorization_requested": false,
+    "human_gate_bypass_requested": false,
+    "human_gate_retained": true
+  },
+  "security_payload": {},
+  "mcp_request": {"tool_name": "evaluate_evidence_adequacy", "arguments": {"synthetic": true}},
+  "expected_outcome": "FAIL"
+}

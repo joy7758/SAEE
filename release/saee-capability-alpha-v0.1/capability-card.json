@@ -1,0 +1,11 @@
+{
+  "release_id": "saee-capability-alpha-v0.1",
+  "version": "0.1.0",
+  "capability_identity": ["saee.agent-reliability", "saee.evidence-evaluation"],
+  "canonical_capability_card_reference": "../../capability-package/capability-card.json",
+  "public_surface_reference": "../../agent-interface/public/saee-public-capability-surface.v0.1.json",
+  "release_status": "ALPHA_PREPARATION",
+  "business_logic_duplicated": false,
+  "public_release": false,
+  "production_ready": false
+}

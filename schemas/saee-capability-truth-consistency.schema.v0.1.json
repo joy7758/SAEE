@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-truth-consistency.schema.v0.1.json",
+  "title": "SAEE Capability Truth Consistency Result v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["validation_version", "capability_id", "version", "checked_sources", "capability_aliases", "version_namespaces", "identity_match", "operation_match", "status_match", "lifecycle_match", "protocol_match", "boundary_match", "source_references", "conflicts_detected", "conflicts", "limitations", "truth_boundary"],
+  "properties": {
+    "validation_version": {"const": "0.1"},
+    "capability_id": {"const": "saee.agent-reliability"},
+    "version": {"const": "0.1.0"},
+    "checked_sources": {"type": "array", "minItems": 8, "maxItems": 8, "uniqueItems": true, "items": {"enum": ["CAPABILITY_OBJECT", "CAPABILITY_REGISTRY", "CAPABILITY_PACKAGE", "ALPHA_RELEASE_MANIFEST", "PUBLIC_CAPABILITY_SURFACE", "MCP_METADATA", "HTTP_METADATA", "CAPABILITY_RUNTIME"]}},
+    "capability_aliases": {
+      "type": "object", "additionalProperties": false,
+      "required": ["saee.evidence-adequacy"],
+      "properties": {"saee.evidence-adequacy": {"const": "saee.evidence-evaluation"}}
+    },
+    "version_namespaces": {
+      "type": "object", "additionalProperties": false,
+      "required": ["capability_object", "package_contract", "alpha_release", "adapter"],
+      "properties": {
+        "capability_object": {"const": "0.1"},
+        "package_contract": {"const": "1.0.0"},
+        "alpha_release": {"const": "0.1.0"},
+        "adapter": {"const": "0.1.0"}
+      }
+    },
+    "identity_match": {"const": true},
+    "operation_match": {"const": true},
+    "status_match": {"const": true},
+    "lifecycle_match": {"const": true},
+    "protocol_match": {"const": true},
+    "boundary_match": {"const": true},
+    "source_references": {
+      "type": "object", "minProperties": 8, "maxProperties": 8,
+      "additionalProperties": {"type": "string", "minLength": 8, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"}
+    },
+    "conflicts_detected": {"const": false},
+    "conflicts": {"type": "array", "maxItems": 0},
+    "limitations": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 12}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["validation_only", "alpha_release", "public_release", "production_ready", "marketplace_listed", "external_adoption", "customer_validated", "external_trust_established", "certification_established"],
+      "properties": {
+        "validation_only": {"const": true},
+        "alpha_release": {"const": true},
+        "public_release": {"const": false},
+        "production_ready": {"const": false},
+        "marketplace_listed": {"const": false},
+        "external_adoption": {"const": false},
+        "customer_validated": {"const": false},
+        "external_trust_established": {"const": false},
+        "certification_established": {"const": false}
+      }
+    }
+  }
+}

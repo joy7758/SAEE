@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-internal-reliability-benchmark-result.schema.v1.0.json",
+  "title": "SAEE Internal Reliability Benchmark Result v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["benchmark_version", "benchmark_id", "internal_benchmark", "public_benchmark", "agents_count", "scenarios_count", "repetitions", "runs_attempted", "runs_completed", "runs_failed", "run_manifest_coverage", "failure_taxonomy_coverage", "dimensions_evaluated", "dimension_statistics", "failure_distribution_reference", "run_manifests_reference", "assessments_reference", "report_reference", "methodology_review_reference", "methodology_correction_applied", "leaderboard_generated", "ranking_generated", "certification", "intelligence_score_generated", "best_agent_selected", "production_ready", "external_validation_completed"],
+  "properties": {
+    "benchmark_version": {"const": "1.0"}, "benchmark_id": {"const": "saee-internal-reliability-v1.0"},
+    "internal_benchmark": {"const": true}, "public_benchmark": {"const": false},
+    "agents_count": {"type": "integer", "minimum": 3}, "scenarios_count": {"type": "integer", "minimum": 5}, "repetitions": {"type": "integer", "minimum": 3},
+    "runs_attempted": {"type": "integer", "minimum": 45}, "runs_completed": {"type": "integer", "minimum": 0}, "runs_failed": {"type": "integer", "minimum": 0},
+    "run_manifest_coverage": {"const": 1.0}, "failure_taxonomy_coverage": {"const": 1.0},
+    "dimensions_evaluated": {"type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["task_execution_reliability", "recovery_reliability", "boundary_reliability", "evidence_reliability", "assessment_availability"]}},
+    "dimension_statistics": {"type": "object", "minProperties": 5, "maxProperties": 5},
+    "failure_distribution_reference": {"const": "agent-interface/reliability/benchmark-runs/failure_distribution.json"},
+    "run_manifests_reference": {"const": "agent-interface/reliability/benchmark-runs/saee-internal-reliability-run-manifests.v1.0.json"},
+    "assessments_reference": {"const": "agent-interface/reliability/benchmark-runs/saee-internal-reliability-assessments.v1.0.json"},
+    "report_reference": {"const": "docs/research/SAEE_INTERNAL_RELIABILITY_BENCHMARK_REPORT_V1.md"},
+    "methodology_review_reference": {"const": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json"},
+    "methodology_correction_applied": {"const": true},
+    "leaderboard_generated": {"const": false}, "ranking_generated": {"const": false}, "certification": {"const": false}, "intelligence_score_generated": {"const": false}, "best_agent_selected": {"const": false}, "production_ready": {"const": false}, "external_validation_completed": {"const": false}
+  }
+}

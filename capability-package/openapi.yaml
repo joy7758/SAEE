@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: SAEE Agent Reliability Capability Contract
+  version: 1.0.0-alpha
+  description: >-
+    机器可读的契约投影。它描述现有本地 SAEE 能力与未来能力边界，
+    不声明公网服务器、生产可用性、安全认证或部署批准。
+x-saee-package-stage: local_contract_alpha
+x-saee-local-runtime-available: true
+x-saee-local-runtime-reference: ../saee_backend/services/capability_runtime/capability_invocation.py
+x-saee-local-http-adapter-available: true
+x-saee-local-bind-address: 127.0.0.1
+x-saee-network-api-available: false
+x-saee-production-ready: false
+paths:
+  /capabilities/evaluate-agent-run:
+    post:
+      operationId: evaluate_agent_run
+      summary: 评估已验证 SAEE 演练运行的可靠性证据
+      x-saee-implementation-status: implemented_local_offline_alpha
+      x-saee-network-endpoint-available: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/saee-capability-http-request.schema.v0.1.json
+      responses:
+        '200':
+          description: 本地能力的有边界评估结果；不代表任务成功、安全或部署批准。
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/saee-capability-http-response.schema.v0.1.json
+  /capabilities/evaluate-evidence:
+    post:
+      operationId: evaluate_evidence
+      summary: 评估封闭证据包是否满足固定责任声明剖面
+      x-saee-implementation-status: implemented_local_offline_prototype
+      x-saee-network-endpoint-available: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/saee-capability-http-request.schema.v0.1.json
+      responses:
+        '200':
+          description: 证据充分性结果、缺失项、原因码和限制。
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/saee-capability-http-response.schema.v0.1.json
+  /capabilities/rehearse-agent:
+    post:
+      operationId: rehearse_agent
+      summary: 预留的受控智能体演练契约
+      x-saee-implementation-status: contract_only_not_available
+      x-saee-network-endpoint-available: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ../schemas/saee-capability-http-request.schema.v0.1.json
+      responses:
+        '501':
+          description: Phase 10.1 只定义契约，不提供独立 rehearse_agent 服务。
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/saee-capability-http-response.schema.v0.1.json
+components:
+  schemas:
+    RehearseAgentRequest:
+      type: object
+      additionalProperties: false
+      required: [agent_reference, scenario_reference, consent_scope]
+      properties:
+        agent_reference:
+          type: string
+          minLength: 1
+        scenario_reference:
+          type: string
+          minLength: 1
+        consent_scope:
+          type: string
+          const: local_controlled_synthetic_only
+    CapabilityUnavailable:
+      type: object
+      additionalProperties: false
+      required: [operation_id, status, reason_code, production_ready]
+      properties:
+        operation_id:
+          type: string
+          const: rehearse_agent
+        status:
+          type: string
+          const: NOT_IMPLEMENTED
+        reason_code:
+          type: string
+          const: CAPABILITY_CONTRACT_ONLY
+        production_ready:
+          type: boolean
+          const: false

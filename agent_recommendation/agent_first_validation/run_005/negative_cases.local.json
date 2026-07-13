@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1.0",
+  "cases": [
+    {
+      "case_id": "unknown_tool",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "path",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "url",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "command",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "code",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "secret",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "prompt",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "non_json_arguments",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "fixture_mismatch",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "unexpected_order",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "wrong_depth",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "oversized",
+      "outcome": "rejected",
+      "side_effects": "none"
+    },
+    {
+      "case_id": "deep",
+      "outcome": "rejected",
+      "side_effects": "none"
+    }
+  ],
+  "passed": 13,
+  "total": 13
+}

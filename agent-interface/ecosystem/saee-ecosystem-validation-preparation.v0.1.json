@@ -1,0 +1,27 @@
+{
+  "preparation_version": "0.1",
+  "status": "PREPARATION_ONLY",
+  "protocol_reference": "agent-interface/ecosystem/saee-controlled-ecosystem-validation-protocol.v0.1.json",
+  "participant_package_reference": "ecosystem/participant-package-v0.1/README.md",
+  "compatibility_matrix_reference": "agent-interface/ecosystem/saee-ecosystem-compatibility-matrix.v0.1.json",
+  "feedback_schema_reference": "schemas/saee-ecosystem-validation-feedback.schema.v0.1.json",
+  "evidence_boundary_reference": "docs/ecosystem/SAEE_ECOSYSTEM_VALIDATION_EVIDENCE_BOUNDARY.md",
+  "ecosystem_dry_run_reference": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json",
+  "external_validation_design_reference": "agent-interface/ecosystem/saee-controlled-external-validation-design.v0.1.json",
+  "external_validation_simulation_reference": "agent-interface/ecosystem/saee-external-validation-simulation-result.v0.1.json",
+  "external_validation_readiness_review_reference": "agent-interface/ecosystem/saee-external-validation-readiness-review.v0.1.json",
+  "participant_types": ["agent_framework", "cloud_platform", "developer", "research_group"],
+  "validation_dimensions": ["DISCOVERY_COMPATIBILITY", "CAPABILITY_UNDERSTANDING", "INVOCATION_COMPATIBILITY", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"],
+  "truth_boundary": {
+    "ecosystem_validation_preparation": true,
+    "external_validation_completed": false,
+    "external_agents_connected": false,
+    "customer_validated": false,
+    "market_validation": false,
+    "marketplace_listed": false,
+    "adoption_validated": false,
+    "production_ready": false,
+    "external_parties_contacted": false,
+    "participants_invited": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "matrix_version":"0.1",
+  "capabilities":["SAEE","OBSERVABILITY","AUTHORIZATION","POLICY_ENGINE","EXECUTION_ENGINE"],
+  "relations":[
+    {"source":"SAEE","target":"AUTHORIZATION","relation":"COMPLEMENT","meaning":"SAEE context may inform an agent while authorization retains authority."},
+    {"source":"SAEE","target":"OBSERVABILITY","relation":"CONSUMES","meaning":"SAEE may consume bounded observation references."},
+    {"source":"SAEE","target":"POLICY_ENGINE","relation":"PROVIDES_CONTEXT","meaning":"SAEE context may be one non-authoritative policy input."},
+    {"source":"SAEE","target":"EXECUTION_ENGINE","relation":"PROVIDES_CONTEXT","meaning":"SAEE context may inform preparation but cannot start execution."},
+    {"source":"SAEE","target":"AUTHORIZATION","relation":"NOT_REPLACEMENT","meaning":"SAEE cannot replace authorization."},
+    {"source":"SAEE","target":"OBSERVABILITY","relation":"NOT_REPLACEMENT","meaning":"SAEE cannot replace runtime observation."},
+    {"source":"SAEE","target":"POLICY_ENGINE","relation":"NOT_REPLACEMENT","meaning":"SAEE cannot replace policy evaluation or enforcement."},
+    {"source":"SAEE","target":"EXECUTION_ENGINE","relation":"NOT_REPLACEMENT","meaning":"SAEE cannot replace or control execution."}
+  ],
+  "invalid_relation":{"source":"SAEE","target":"AUTHORIZATION","relation":"INVALID","meaning":"SAEE replacing authorization is invalid."},
+  "truth_boundary":{"matrix_is_design_only":true,"external_interoperability_tested":false,"external_systems_connected":false,"standards_compliance_claimed":false,"production_ready":false}
+}

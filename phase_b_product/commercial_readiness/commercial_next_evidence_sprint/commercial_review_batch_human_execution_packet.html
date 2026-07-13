@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 10 行人工执行包</title>
+    <style>
+      body { margin: 0; background: #f6f7f4; color: #111827; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+      main { max-width: 1120px; margin: 0 auto; padding: 32px 20px 56px; }
+      h1 { font-size: clamp(30px, 5vw, 54px); line-height: 1.08; margin: 0 0 16px; letter-spacing: 0; }
+      h2 { margin-top: 34px; }
+      .panel { background: #ffffff; border: 1px solid #dce5df; border-radius: 8px; padding: 18px; margin: 16px 0; }
+      .status { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: #e6f3ef; color: #0b5f59; font-weight: 800; }
+      table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #dce5df; }
+      th, td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid #dce5df; }
+      th { background: #edf3ef; }
+      code { background: #edf3ef; padding: 2px 5px; border-radius: 5px; }
+      .warn { color: #7a4b00; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="status">ready_for_human_10_row_entry</p>
+      <h1>SAEE 10 行人工执行包</h1>
+      <div class="panel">
+        <p>真正填写位置：<code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.csv</code></p>
+        <p>只填写 <code>human_value_to_enter</code> 和可选 <code>notes_for_human</code>。</p>
+        <p class="warn">不要导入工作簿，不要关闭 blocker，不要声称生产可用。</p>
+      </div>
+      <h2>10 行填写清单</h2>
+      <table>
+        <thead>
+          <tr><th>行</th><th>字段</th><th>通俗说明</th><th>怎么填</th><th>什么时候留空</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><code>assigned_human_owner</code></td><td>谁负责确认支持入口</td><td>填已确认的负责人姓名、角色或内部负责人标识。</td><td>没有明确负责人就留空。</td></tr>
+<tr><td>2</td><td><code>owner_contact_reference</code></td><td>负责人或内部记录在哪里</td><td>填内部可追溯记录，例如工单、会议纪要、文档路径或审批编号。</td><td>没有内部记录或审批来源就留空。</td></tr>
+<tr><td>3</td><td><code>target_review_date</code></td><td>计划哪天确认完</td><td>填目标日期，建议 YYYY-MM-DD。</td><td>没有目标日期就留空。</td></tr>
+<tr><td>4</td><td><code>owner_acknowledged_scope</code></td><td>负责人是否确认范围</td><td>填负责人已确认的范围，例如只确认支持入口，不代表正式上线。</td><td>负责人还没确认范围就留空。</td></tr>
+<tr><td>5</td><td><code>human_approval_reference</code></td><td>人工批准记录编号</td><td>填人工批准、会议纪要或审查记录编号。</td><td>没有人工批准记录就留空。</td></tr>
+<tr><td>6</td><td><code>human_reviewer_name</code></td><td>谁做了本次审查</td><td>填本次人工审查人的姓名、角色或内部标识。</td><td>没有实际审查人就留空。</td></tr>
+<tr><td>7</td><td><code>review_date</code></td><td>审查日期</td><td>填实际审查日期，建议 YYYY-MM-DD。</td><td>还没审查就留空。</td></tr>
+<tr><td>8</td><td><code>selected_support_contact_channel</code></td><td>客户以后从哪里找支持</td><td>填人工选择的支持入口类型，例如邮箱、表单、工单系统或暂不开放。</td><td>支持入口尚未人工决定就留空。</td></tr>
+<tr><td>9</td><td><code>decision_summary</code></td><td>一句话说明选择原因</td><td>用一句话说明当前支持入口决策，不要写成已经对客户正式开放。</td><td>还没有形成决策就留空。</td></tr>
+<tr><td>10</td><td><code>abuse_handling_path_defined</code></td><td>滥用或异常请求由谁处理</td><td>填是否已有滥用处理路径及负责人；没有人工确认就留空。</td><td>滥用处理路径还没人工确认就留空。</td></tr>
+        </tbody>
+      </table>
+      <h2>填完后先跑</h2>
+      <div class="panel">
+        <p><code>python3 scripts/saee_commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.py</code></p>
+        <p><code>python3 -m json.tool phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.local.json</code></p>
+        <p><code>python3 scripts/mainline_guard.py</code></p>
+        <p><code>make check-commercial-review-batch-human-execution-packet</code></p>
+      </div>
+    </main>
+  </body>
+</html>

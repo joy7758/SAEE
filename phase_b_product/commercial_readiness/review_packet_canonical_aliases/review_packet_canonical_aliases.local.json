@@ -1,0 +1,213 @@
+{
+  "alias_count": 10,
+  "alias_scope": "root_level_agent_readable_review_packet_pointers_only",
+  "aliases": [
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "tenant_storage_isolation"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/TENANT_SECURITY_PRIVACY_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_tenant_security_privacy_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/tenant_storage_isolation_evidence/tenant_security_privacy_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/tenant_storage_isolation_evidence/tenant_security_privacy_review_packet.md",
+      "title": "Tenant Security / Privacy Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "production_monitoring",
+        "external_alert_delivery",
+        "on_call_rotation"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/OPERATIONS_MONITORING_ALERT_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_operations_monitoring_alert_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/operations_evidence/operations_monitoring_alert_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/operations_evidence/operations_monitoring_alert_review_packet.md",
+      "title": "Operations Monitoring / Alert / On-call Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "sla",
+        "customer_support"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/SUPPORT_SLA_ON_CALL_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_support_sla_on_call_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/support_evidence/support_sla_on_call_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/support_evidence/support_sla_on_call_review_packet.md",
+      "title": "Support / SLA / On-call Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "pricing_page"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/PRICING_PAGE_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_pricing_page_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_review_packet.md",
+      "title": "Pricing Page Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "payment_provider"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/PAYMENT_PROVIDER_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_payment_provider_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_review_packet.md",
+      "title": "Payment Provider Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "invoice_process"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/INVOICE_PROCESS_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_invoice_process_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/invoice_process_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/invoice_process_review_packet.md",
+      "title": "Invoice Process Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "tax_review"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/TAX_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_tax_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/tax_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/tax_review_packet.md",
+      "title": "Tax Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "refund_policy"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/REFUND_POLICY_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_refund_policy_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_review_packet.md",
+      "title": "Refund Policy Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "tenant_billing_isolation"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/TENANT_BILLING_ISOLATION_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_tenant_billing_isolation_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/tenant_billing_isolation_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/tenant_billing_isolation_review_packet.md",
+      "title": "Tenant Billing Isolation Review Packet"
+    },
+    {
+      "blocker_closure_allowed": false,
+      "blocker_targets": [
+        "production_restore_policy"
+      ],
+      "canonical_alias_written": true,
+      "canonical_path": "phase_b_product/commercial_readiness/PRODUCTION_RESTORE_POLICY_REVIEW_PACKET_V0_1.md",
+      "human_review_required": true,
+      "packet_type": "saee_production_restore_policy_review_packet",
+      "ready_for_agent_lookup": true,
+      "separate_execution_approval_required": true,
+      "source_packet_exists": true,
+      "source_packet_json": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_review_packet.local.json",
+      "source_packet_json_exists": true,
+      "source_packet_path": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_review_packet.md",
+      "title": "Production Restore Policy Review Packet"
+    }
+  ],
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_aliases": 0,
+  "canonical_alias_count": 10,
+  "commercial_review_packet_canonical_aliases_v0_1": true,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "customer_validation_claim": false,
+  "development_permission_granted": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_validation_success_claim": false,
+  "generated_at": "2026-07-06",
+  "generated_by": "scripts/saee_commercial_review_packet_canonical_aliases.py",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "missing_alias_count": 0,
+  "missing_aliases": [],
+  "missing_source_count": 0,
+  "missing_sources": [],
+  "next_action": "Run production blocker evidence path coverage audit again so the canonical review packet paths are visible in the blocker map. Do not close blockers without separate real evidence and approval.",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "production_ready_claim": false,
+  "public_sdk_released": false,
+  "ready_for_agent_lookup": true,
+  "runtime_modified": false,
+  "separate_execution_approval_required": true,
+  "source_packet_count": 10,
+  "source_packet_json_count": 10,
+  "status": "ready_for_agent_lookup_no_blocker_closure",
+  "task_candidates_executed": false
+}

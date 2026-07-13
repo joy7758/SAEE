@@ -1,0 +1,40 @@
+{
+  "release_id": "saee-agent-reliability-framework-alpha-v0.1",
+  "title": "SAEE Agent Reliability Framework Alpha v0.1",
+  "version": "0.1.0-alpha-positioning",
+  "subtitle": "A framework for controlled rehearsal, reliability assessment, and evidence-grounded analysis of autonomous agents.",
+  "subtitle_zh": "面向自主智能体的受控演练、可靠性评估和证据化分析框架。",
+  "engineering_core": "Digital Biosphere Evolution Engine",
+  "capabilities": [
+    {"id": "controlled_rehearsal", "status": "local_alpha", "canonical_ref": "docs/architecture/SAEE_STATEFUL_REHEARSAL_RUNTIME_ARCHITECTURE.md"},
+    {"id": "agent_reliability_assessment", "status": "local_alpha", "canonical_ref": "schemas/saee-agent-reliability-assessment.schema.v1.0.json"},
+    {"id": "evidence_adequacy_evaluation", "status": "local_prototype", "canonical_ref": "docs/EVIDENCE_ADEQUACY_PROFILE.md"},
+    {"id": "bounded_review_reporting", "status": "local_synthetic_prototype", "canonical_ref": "docs/commercial/SAEE_SYNTHETIC_EVIDENCE_REVIEW_REPORT_EXAMPLE.md"}
+  ],
+  "composition": {
+    "local_runtime_ref": "docs/architecture/SAEE_CAPABILITY_RUNTIME_ALPHA.md",
+    "mcp_adapter_ref": "docs/architecture/SAEE_CAPABILITY_MCP_ADAPTER_ALPHA.md",
+    "http_adapter_ref": "docs/architecture/SAEE_CAPABILITY_HTTP_ADAPTER_ALPHA.md"
+  },
+  "entrypoints": {
+    "agent_quick_start": "docs/public/SAEE_AGENT_QUICK_START.md",
+    "developer_quick_start": "docs/public/SAEE_DEVELOPER_QUICK_START.md",
+    "demo_index": "examples/public-demo/README.md",
+    "research_index": "docs/research/SAEE_RESEARCH_ARTIFACT_INDEX.md",
+    "asset_map": "docs/release/SAEE_ALPHA_ASSET_MAP.md",
+    "cloud_ecosystem_strategy_reference": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json",
+    "ecosystem_entry_package_reference": "ecosystem/mcp-entry-package-v1/capability-card.json"
+  },
+  "limitations_ref": "release/saee-agent-reliability-framework-alpha-v0.1/limitations.md",
+  "truth_boundary": {
+    "alpha_release_preparation": true,
+    "public_release_package": true,
+    "public_release_executed": false,
+    "production_ready": false,
+    "commercial_service": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "adoption_validated": false,
+    "external_validation": false
+  }
+}

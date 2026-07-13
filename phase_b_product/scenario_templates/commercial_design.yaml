@@ -1,0 +1,27 @@
+scenario_id: commercial_design
+display_name: Commercial Design Plan Evaluation
+description: Compare commercial design strategies under budget, schedule, revision, and construction constraints.
+target_customer: Commercial design studios, retail operators, and project owners
+decision_question: Which design strategy is more feasible and stable under real project pressure?
+candidate_input:
+  - design_strategy
+  - budget
+  - construction_constraints
+  - brand_goal
+simulation_environment: commercial_design_project_pressure
+stress_factors:
+  - budget_reduction
+  - customer_revision
+  - schedule_change
+  - material_constraint
+evaluation_focus:
+  - feasibility
+  - adaptation
+  - cost_risk
+  - implementation_stability
+output_report:
+  - ranking
+  - feasibility_summary
+  - cost_risk_summary
+  - implementation_recommendation
+business_value: Helps decision makers compare design strategies before committing budget and construction resources.

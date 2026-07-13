@@ -1,0 +1,1 @@
+{"scenario_id":"CUSTOMER_DATA_ATTEMPT","participant_id":"SIM_DEVELOPER_VALIDATOR","requested_test":"integration_test","contains_customer_data":true,"credential_exposure":false,"adoption_claim":false,"expected_result":"TERMINATED","expected_reason_code":"CUSTOMER_DATA_RECEIVED","external_execution":false}

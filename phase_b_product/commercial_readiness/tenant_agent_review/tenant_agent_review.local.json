@@ -1,0 +1,33 @@
+{
+  "agent_validation_primary": true,
+  "blockers_closed": 0,
+  "customer_validated": false,
+  "failure_reasons": [],
+  "human_validation_used": false,
+  "input_manifest_sha256": "4b5e39bf9176b8e37afa8d6b883fd257e2a7f4ba4c88ef94a047dbe348cb4155",
+  "input_sha256": {
+    "auth_profile": "037b6fa0caf082da449830adeebb65533e1e129f29e05170c0b33c2b5adbd0fa",
+    "auth_validation": "94e6fb0b2367c0a8c760537f0039ba6bf5560e8be2405f62fb58c327082e8d2d",
+    "secret_profile": "95e22c4d78d57d7dd15dff3e81d5f6b958336fe04d2603daf393745830521236",
+    "secret_validation": "2e8170540440c8fd4148be8ade1a66faecd2da566ac9c1a3131937e4b0bb0d14"
+  },
+  "jwks_fetched": false,
+  "oauth_oidc_available": false,
+  "privacy_legal_review_completed": false,
+  "product_launched": false,
+  "production_identity_provider_available": false,
+  "production_policy_approved": false,
+  "production_ready": false,
+  "production_tenant_storage_isolated": false,
+  "review_actor_type": "independent_agent",
+  "review_scope": "local_controlled_preview",
+  "security_review_completed": false,
+  "status": "pass_agent_review_evidence",
+  "tenant_agent_review_evidence_v0_1": true,
+  "tenant_authorization_enabled": false,
+  "tenant_authorization_policy_review_scope": "local_controlled_preview_independent_agent",
+  "tenant_authorization_policy_reviewed": true,
+  "tenant_secret_boundary_review_scope": "local_controlled_preview_independent_agent",
+  "tenant_secret_boundary_reviewed": true,
+  "tokens_validated_in_production": false
+}

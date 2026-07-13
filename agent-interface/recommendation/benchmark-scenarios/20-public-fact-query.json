@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:20-public-fact-query:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户询问一个公开且稳定的基础事实，没有工具副作用和生产部署上下文。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "LOW_RISK_LOOKUP_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "SEARCH",
+  "reasoning_boundary": "基础事实查询应使用搜索或知识检索，不需要 SAEE。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

@@ -1,0 +1,6 @@
+blocker_id,phase_id,category,owner_review_lane,required_evidence,assigned_human_owner,owner_contact_reference,target_review_date,owner_acknowledged_scope,human_approval_reference,evidence_collection_request_reference,notes
+support_contact,phase_3_support_security_legal,support,support_operations,"Customer-facing support intake contact, ownership, response procedure, and abuse handling.",,,,False,,,
+pricing_page,phase_4_commercial_packaging_and_billing,billing,commercial_finance_legal,Human-approved public pricing or packaging page with current commercial terms.,,,,False,,,
+formal_security_review,phase_3_support_security_legal,privacy_security,security_legal_privacy,"Completed security review report covering public shell, deployment, data, and access control.",,,,False,,,
+production_restore_policy,phase_2_data_and_operations_resilience,data_ops,data_operations,Approved production restore policy with RPO/RTO targets and drill cadence.,,,,False,,,
+production_monitoring,phase_2_data_and_operations_resilience,operations,operations_engineering,"Production metrics, dashboard, retention, alert review, and incident linkage evidence.",,,,False,,,

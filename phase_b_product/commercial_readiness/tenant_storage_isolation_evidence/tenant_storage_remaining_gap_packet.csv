@@ -1,0 +1,2 @@
+gap_id,blocker_id,evidence_key,gap_status,human_review_required,agent_review_required,external_dependency_required,owner_lane,default_decision,closure_allowed_by_packet
+TSG-001,tenant_storage_isolation,privacy_legal_review_completed,missing_human_production_evidence,False,True,False,independent_agent_privacy_legal,hold,False

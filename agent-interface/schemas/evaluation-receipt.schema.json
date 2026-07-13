@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Agent Evaluation Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_agent_evaluation_receipt_v0_1",
+    "schema_version",
+    "receipt_id",
+    "evaluation_mode",
+    "request_sha256",
+    "content_sha256",
+    "provenance",
+    "evaluation_summary",
+    "stability_reports",
+    "failure_mode_reports",
+    "survival_curves",
+    "comparison_ranking",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_agent_evaluation_receipt_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "receipt_id": {"type": "string", "pattern": "^saee-receipt-[0-9a-f]{16}$"},
+    "evaluation_mode": {"const": "synthetic_descriptor_simulation"},
+    "request_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_kind",
+        "descriptor_text_affects_simulation",
+        "observed_agent_trace_evaluation",
+        "candidate_code_executed",
+        "external_calls_made",
+        "private_core_loaded",
+        "scoring_formula",
+        "engine"
+      ],
+      "properties": {
+        "input_kind": {"const": "non_executable_agent_descriptors"},
+        "descriptor_text_affects_simulation": {"const": true},
+        "observed_agent_trace_evaluation": {"const": false},
+        "candidate_code_executed": {"const": false},
+        "external_calls_made": {"const": false},
+        "private_core_loaded": {"const": false},
+        "scoring_formula": {"const": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score"},
+        "engine": {"const": "saee_public_mvp_descriptor_simulator_v0.1"}
+      }
+    },
+    "evaluation_summary": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/EvaluationRunSummary"},
+    "stability_reports": {
+      "type": "array",
+      "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/StabilityReport"}
+    },
+    "failure_mode_reports": {
+      "type": "array",
+      "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/FailureModeReport"}
+    },
+    "survival_curves": {
+      "type": "array",
+      "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/SurvivalCurve"}
+    },
+    "comparison_ranking": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/ComparisonRanking"},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "empirical_agent_behavior_validated",
+        "production_ready",
+        "product_launched",
+        "customer_validated",
+        "external_agent_execution",
+        "private_core_exposed"
+      ],
+      "properties": {
+        "empirical_agent_behavior_validated": {"const": false},
+        "production_ready": {"const": false},
+        "product_launched": {"const": false},
+        "customer_validated": {"const": false},
+        "external_agent_execution": {"const": false},
+        "private_core_exposed": {"const": false}
+      }
+    }
+  }
+}

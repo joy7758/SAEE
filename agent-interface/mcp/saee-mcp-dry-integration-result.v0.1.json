@@ -1,0 +1,308 @@
+{
+  "result_version": "0.1",
+  "validation_id": "saee.mcp-ecosystem-dry-integration",
+  "scenario_results": [
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:authorization_task",
+      "scenario_id": "AUTHORIZATION_TASK",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "NONE",
+        "selection_status": "REJECTED_NOT_SAEE_CAPABILITY"
+      },
+      "adapter_call": {
+        "called": false,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": false,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "NOT_INVOKED"
+      },
+      "result_type": "SELECTION_REJECTED",
+      "interpretation_result": {
+        "status": "NOT_APPLICABLE",
+        "meaning": "SAEE_NOT_SELECTED",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    },
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:deployment_approval_task",
+      "scenario_id": "DEPLOYMENT_APPROVAL_TASK",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "NONE",
+        "selection_status": "REJECTED_NOT_SAEE_CAPABILITY"
+      },
+      "adapter_call": {
+        "called": false,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": false,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "NOT_INVOKED"
+      },
+      "result_type": "SELECTION_REJECTED",
+      "interpretation_result": {
+        "status": "NOT_APPLICABLE",
+        "meaning": "SAEE_NOT_SELECTED",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    },
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:evidence_evaluation_task",
+      "scenario_id": "EVIDENCE_EVALUATION_TASK",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "evaluate_evidence",
+        "selection_status": "SELECTED"
+      },
+      "adapter_call": {
+        "called": true,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": true,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "EVIDENCE_ADEQUACY"
+      },
+      "result_type": "SUCCESS",
+      "interpretation_result": {
+        "status": "VALID",
+        "meaning": "PROFILE_REQUIREMENT_SATISFIED",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    },
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:rehearsal_request",
+      "scenario_id": "REHEARSAL_REQUEST",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "rehearse_agent",
+        "selection_status": "SELECTED"
+      },
+      "adapter_call": {
+        "called": true,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": true,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "CONTRACT_ONLY"
+      },
+      "result_type": "CONTRACT_ONLY",
+      "interpretation_result": {
+        "status": "VALID",
+        "meaning": "CAPABILITY_CONTRACT_ONLY",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    },
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:reliability_assessment_task",
+      "scenario_id": "RELIABILITY_ASSESSMENT_TASK",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "evaluate_agent_run",
+        "selection_status": "SELECTED"
+      },
+      "adapter_call": {
+        "called": true,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": true,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "AGENT_RUN_CAPABILITY"
+      },
+      "result_type": "SUCCESS",
+      "interpretation_result": {
+        "status": "VALID",
+        "meaning": "BOUNDED_RELIABILITY_CONTEXT",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    },
+    {
+      "trace_version": "0.1",
+      "trace_id": "trace:mcp-dry:simple_query_task",
+      "scenario_id": "SIMPLE_QUERY_TASK",
+      "agent_id": "agent:synthetic-mcp:dry-validator",
+      "discovery_event": {
+        "package_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+        "tools_discovered": [
+          "evaluate_agent_run",
+          "evaluate_evidence",
+          "rehearse_agent"
+        ]
+      },
+      "tool_selection": {
+        "selected_tool": "NONE",
+        "selection_status": "ABSTAINED_NO_SAEE_NEED"
+      },
+      "adapter_call": {
+        "called": false,
+        "adapter_ref": "saee_backend/services/capability_mcp_adapter.py"
+      },
+      "runtime_delegation": {
+        "delegated": false,
+        "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+        "canonical_service_path": "NOT_INVOKED"
+      },
+      "result_type": "ABSTAINED",
+      "interpretation_result": {
+        "status": "NOT_APPLICABLE",
+        "meaning": "SAEE_NOT_SELECTED",
+        "overinterpretation_rejected": true
+      },
+      "truth_boundary": {
+        "synthetic_agent_only": true,
+        "external_mcp": false,
+        "external_agent": false,
+        "customer_data": false,
+        "secret_recorded": false,
+        "prompt_recorded": false,
+        "chain_of_thought_recorded": false,
+        "private_model_state_recorded": false,
+        "production_ready": false
+      }
+    }
+  ],
+  "tool_results": {
+    "tools_discovered": 3,
+    "runtime_invocations": 3,
+    "contract_only_results": 1,
+    "selection_rejections": 2,
+    "abstentions": 1
+  },
+  "runtime_path": [
+    "saee_backend/services/capability_mcp_adapter.py",
+    "saee_backend/services/capability_runtime/capability_invocation.py",
+    "saee_backend/services/capability_runtime/capability_router.py"
+  ],
+  "trace_digest": "sha256:5d609df66a8265a64c69c70cbbeaee3e297ff70788992613c1bc4dfbe86ed1c6",
+  "boundary_results": {
+    "overinterpretations_rejected": [
+      "APPROVED",
+      "CERTIFIED",
+      "SAFE",
+      "DEPLOYED"
+    ],
+    "external_mcp": false,
+    "external_agent": false,
+    "direct_evaluator_imports": 0
+  },
+  "limitations": [
+    "The Agent is a deterministic synthetic selector, not an external MCP client.",
+    "The flow uses the repository-local MCP Adapter and Capability Runtime only.",
+    "A successful local result does not establish external compatibility, adoption, authorization, or production readiness."
+  ],
+  "truth_boundary": {
+    "mcp_dry_integration_validation": true,
+    "synthetic_agent_only": true,
+    "external_mcp_connection": false,
+    "external_agents_connected": false,
+    "official_support": false,
+    "marketplace_listed": false,
+    "production_ready": false
+  }
+}

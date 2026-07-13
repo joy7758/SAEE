@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-http-response.schema.v0.1.json",
+  "title": "SAEE Local HTTP Capability Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_capability_http_response_v0_1", "http_adapter_version", "request_id", "capability_id", "operation", "status", "result", "reason_codes", "limitations", "invocation_receipt", "truth_boundary"],
+  "properties": {
+    "saee_capability_http_response_v0_1": {"const": true},
+    "http_adapter_version": {"const": "0.1.0"},
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "capability_id": {"const": "saee.agent-reliability"},
+    "operation": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "UNKNOWN"]},
+    "status": {"enum": ["SUCCESS", "FAILED", "REJECTED", "CONTRACT_ONLY"]},
+    "result": {"type": "object"},
+    "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "limitations": {"type": "array", "minItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "invocation_receipt": {"$ref": "saee-capability-invocation-receipt.schema.v0.1.json"},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_stage", "http_adapter_available", "bind_address", "network_public_access", "public_service", "request_persisted", "payload_persisted", "customer_data_used", "external_world_actions", "oauth_available", "multi_tenant", "production_ready"],
+      "properties": {
+        "runtime_stage": {"const": "local_alpha"},
+        "http_adapter_available": {"const": true},
+        "bind_address": {"const": "127.0.0.1"},
+        "network_public_access": {"const": false},
+        "public_service": {"const": false},
+        "request_persisted": {"const": false},
+        "payload_persisted": {"const": false},
+        "customer_data_used": {"const": false},
+        "external_world_actions": {"const": false},
+        "oauth_available": {"const": false},
+        "multi_tenant": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}
+

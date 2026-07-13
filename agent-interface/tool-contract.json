@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "0.1.0",
+  "interface_languages": ["zh-CN", "en"],
+  "transport_adapters": {
+    "mcp_stdio": {
+      "protocol_version": "2025-11-25",
+      "command": "python3 scripts/saee_mcp_stdio.py",
+      "config": "agent-interface/mcp/stdio-config.json",
+      "tools": ["describe_saee", "compare_observed_traces"],
+      "network": false,
+      "dynamic_tools": false,
+      "arbitrary_file_input": false
+    }
+  },
+  "transport": "local_cli_json",
+  "tools": [
+    {
+      "name": "compare_candidates",
+      "description": "Compare non-executable AI agent or workflow descriptors in a deterministic synthetic long-horizon stress simulation. Does not run or observe submitted agents.",
+      "description_zh": "在确定性的合成长周期压力模拟中比较不可执行的智能体或工作流描述符；不运行也不观察提交的智能体。",
+      "command": "python3 scripts/saee_agent_cli.py evaluate --input <request.json>",
+      "input_schema": "schemas/saee_mvp_api.schema.json#/$defs/ScenarioBatchRequest",
+      "output_schema": "agent-interface/schemas/evaluation-receipt.schema.json",
+      "error_schema": "agent-interface/schemas/agent-error.schema.json",
+      "hash_contract": {
+        "algorithm": "sha256",
+        "encoding": "utf-8",
+        "canonical_json": "sort_keys=true, ensure_ascii=false, separators=[comma,colon]",
+        "request_sha256_covers": "normalized ScenarioBatchRequest",
+        "content_sha256_covers": "the five report fields in the evaluation receipt"
+      },
+      "side_effects": "writes only --output when explicitly supplied",
+      "network": false,
+      "candidate_code_execution": false
+    },
+    {
+      "name": "compare_observed_traces",
+      "description": "Compare allowlisted numerical evidence from sanitized observed agent trace bundles. Does not capture traces, execute agents, verify source authenticity, or prove absence of PII.",
+      "description_zh": "比较脱敏真实运行轨迹包中的数值白名单证据；不采集轨迹、不执行智能体、不验证来源真实性，也不证明不存在个人身份信息。",
+      "command": "python3 scripts/saee_agent_cli.py evaluate-traces --input <observed-trace-bundle.json>",
+      "input_schema": "agent-interface/schemas/observed-trace-bundle.schema.json",
+      "output_schema": "agent-interface/schemas/observed-trace-receipt.schema.json",
+      "error_schema": "agent-interface/schemas/agent-error.schema.json",
+      "side_effects": "writes only --output when explicitly supplied",
+      "network": false,
+      "trace_capture": false,
+      "candidate_code_execution": false,
+      "source_authenticity_verification": false
+    },
+    {
+      "name": "describe_saee",
+      "description": "Return the compact SAEE agent discovery manifest.",
+      "description_zh": "返回紧凑的 SAEE 智能体发现清单。",
+      "command": "python3 scripts/saee_agent_cli.py describe",
+      "input_schema": null,
+      "output_schema": "agent-interface/schemas/saee-agent-manifest.schema.json",
+      "error_schema": "agent-interface/schemas/agent-error.schema.json",
+      "side_effects": "none",
+      "network": false
+    }
+  ]
+}

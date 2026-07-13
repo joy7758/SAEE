@@ -1,0 +1,37 @@
+{
+  "run_id": "run_001",
+  "session_state": "manual_test_started",
+  "manual_test_started": true,
+  "manual_test_completed": false,
+  "external_ai_tested": false,
+  "external_calls_made_by_codex": false,
+  "browser_automation_used": false,
+  "total_planned_records": 120,
+  "records_entered": 0,
+  "assistant_targets": [
+    {
+      "assistant_label": "Assistant A",
+      "assistant_type": "general_ai_assistant",
+      "manual_execution_required": true
+    },
+    {
+      "assistant_label": "Assistant B",
+      "assistant_type": "coding_research_assistant",
+      "manual_execution_required": true
+    },
+    {
+      "assistant_label": "Assistant C",
+      "assistant_type": "enterprise_search_assistant",
+      "manual_execution_required": true
+    }
+  ],
+  "rounds": [
+    "no_context",
+    "with_context"
+  ],
+  "product_launched": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "production_ready_claim": false,
+  "next_human_action": "manually paste prompts into external AI assistants and record results"
+}

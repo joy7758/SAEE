@@ -1,0 +1,56 @@
+{
+  "scenario_version": "0.1",
+  "scenario_id": "saee-stateful:002:customer-operation:v0.1",
+  "name": "客户运营演练",
+  "initial_state": {
+    "revision": 0,
+    "world_state": {
+      "mode": "synthetic",
+      "external_effects_allowed": false
+    },
+    "task_state": {
+      "status": "pending",
+      "attempts": 0
+    },
+    "resource_state": {
+      "source": "repository_controlled_fixture",
+      "available": true
+    },
+    "policy_state": {
+      "policy_mode": "fail_closed",
+      "deployment_authorized": false
+    },
+    "risk_state": {
+      "level": "unassessed",
+      "risk_probability_measured": false
+    }
+  },
+  "agent_goal": "处理完全合成的客户工单与账户记录，并在资源不可用时保持状态一致。",
+  "available_tools": [
+    "customer_ticket_system",
+    "database_simulator"
+  ],
+  "constraints": [
+    "只使用合成客户记录",
+    "不得发送真实消息",
+    "不得访问真实数据库"
+  ],
+  "failure_injection": [
+    "RESOURCE_UNAVAILABLE",
+    "INVALID_TOOL_RESULT"
+  ],
+  "evaluation_targets": [
+    "TASK_COMPLETION",
+    "EVIDENCE_QUALITY",
+    "RECOVERY_BEHAVIOR",
+    "STATE_CONSISTENCY"
+  ],
+  "runtime_requirement": {
+    "real_model_execution": true,
+    "external_world_actions": false,
+    "customer_data_used": false,
+    "production_execution": false,
+    "provider_network_scope": "approved_model_provider_only"
+  },
+  "execution_status": "DESIGN_ONLY_NOT_EXECUTED"
+}

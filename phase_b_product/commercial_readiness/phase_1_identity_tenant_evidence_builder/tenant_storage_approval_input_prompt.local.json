@@ -1,0 +1,194 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "builder_ready": false,
+  "category": "tenant",
+  "check_target": "make check-tenant-storage-approval-input-prompt",
+  "completed_metadata_field_count": 0,
+  "completed_tenant_storage_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/tenant_storage_approval_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_data_processed": false,
+  "customer_data_processing_started": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_builder_command_after_separate_approval": "python3 scripts/saee_phase1_identity_tenant_evidence_builder.py --input phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/tenant_storage_approval_input.human_filled.local.json",
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:07.580374+00:00",
+  "generated_by": "scripts/saee_tenant_storage_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/tenant_storage_approval_input.human_filled.local.json",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "live_customer_data_migrated": false,
+  "make_target": "make tenant-storage-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "evidence_source_notes",
+      "human_must_provide": true
+    }
+  ],
+  "migration_executed": false,
+  "multi_tenant_production_ready": false,
+  "next_human_action": "Copy the Phase 1 identity/tenant template, fill the three review metadata fields, set only the eighteen tenant storage evidence_review keys after human approval, add source notes for those keys, then run the tenant storage approval input validator. Stop before evidence builder execution, storage behavior changes, migrations, or customer data processing.",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_database_modified": false,
+  "production_ready": false,
+  "production_tenant_storage_enabled": false,
+  "production_tenant_storage_evidence_built_by_prompt": false,
+  "production_tenant_storage_isolated": false,
+  "prompt_scope": "local_human_tenant_storage_approval_input_prompt_only",
+  "prompt_type": "saee_tenant_storage_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "required_metadata_field_count": 3,
+  "required_tenant_storage_evidence_item_count": 18,
+  "runtime_modified": false,
+  "separate_evidence_builder_request_required": true,
+  "separate_validator_required": true,
+  "source_template": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
+  "source_validation": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/tenant_storage_approval_input_validation.local.json",
+  "status": "hold_human_tenant_storage_approval_input_required",
+  "storage_behavior_modified": false,
+  "storage_migration_executed": false,
+  "target_blocker_ids": [
+    "tenant_storage_isolation"
+  ],
+  "task_candidates_executed": false,
+  "tenant_authorization_enabled": false,
+  "tenant_storage_approval_input_prompt_v0_1": true,
+  "tenant_storage_approved": false,
+  "tenant_storage_approved_by_prompt": false,
+  "tenant_storage_available": false,
+  "tenant_storage_available_by_prompt": false,
+  "tenant_storage_evidence_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "production_tenant_data_model_approved",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_scoped_primary_keys_or_partitions_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_query_enforcement_design_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_storage_migration_plan_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "same_experiment_id_cross_tenant_partition_tests_passed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "cross_tenant_read_denial_tests_passed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "cross_tenant_write_denial_tests_passed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_scoped_listing_tests_passed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_scoped_report_endpoint_tests_passed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_scoped_audit_metadata_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_backup_restore_boundary_approved",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_deletion_retention_boundary_approved",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_storage_observability_plan_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_authorization_policy_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_secret_boundary_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "security_review_completed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "privacy_legal_review_completed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_data_processing_non_claim_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "tenant_storage_isolated": false,
+  "validation_status": "hold",
+  "validator_builder_ready": false,
+  "validator_command": "python3 scripts/saee_tenant_storage_approval_input_validator.py --input phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/tenant_storage_approval_input.human_filled.local.json"
+}

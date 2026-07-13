@@ -1,0 +1,426 @@
+{
+  "schema_version": "0.1.0",
+  "protocol": "SAEE-GSP",
+  "system": "SAEE",
+  "state_name": "SAEE Global State Protocol",
+  "generated_at": "2026-07-02",
+  "version": "v1.2 + v1.1 + v0.8 unified",
+  "canonical_status": "local_canonical_state_snapshot",
+  "single_source_of_truth": true,
+  "source_layers": {
+    "theory_layer": {
+      "canonical_versions": [
+        "saee_v1_theory",
+        "v1.1 formalization"
+      ],
+      "source_files": [
+        "saee_v1_theory/formal_model.md",
+        "saee_v1_theory/evolution_laws.md",
+        "saee_v1_theory/reflexivity_theory.md",
+        "saee_v1_theory/identity_theory.md",
+                "saee_v1_theory/phase_transition_theory.md",
+                "docs/science/THEORY_COMPRESSION.md",
+                "docs/science/ACADEMIC_POSITIONING.md",
+                "docs/science/PAPER_FINALIZATION_PLAN.md",
+                "docs/science/SUBMISSION_FREEZE.md",
+                "paper_final/abstract_final.md",
+                "paper_final/introduction_outline.md",
+                "paper_final/contributions.md",
+                "paper_final/related_work_mapping.md",
+                "paper_final/positioning_statement.md",
+                "paper_final/conclusion.md",
+                "paper_alife/format_notes.md",
+                "paper_alife/main.tex",
+                "paper_alife/abstract.tex",
+                "paper_alife/introduction.tex",
+                "paper_alife/related_work.tex",
+                "paper_alife/model.tex",
+                "paper_alife/experiments.tex",
+                "paper_alife/results.tex",
+                "paper_alife/discussion.tex",
+                "paper_alife/conclusion.tex",
+                "paper_alife/REVIEW_RESPONSE.md",
+                "paper_alife_lba/README.md",
+                "paper_alife_lba/format_notes.md",
+                "paper_alife_lba/main.tex",
+                "paper_alife_lba/submission_checklist.md"
+      ],
+      "status": "theoretical_reference"
+    },
+    "engineering_layer": {
+      "canonical_versions": [
+        "v0.5 physics",
+        "v0.6 observability",
+        "v0.7 reflexivity",
+        "v0.8 identity stability",
+        "v1.0 stable runtime"
+      ],
+      "source_files": [
+        "saee_v0_5/SAEE_V0_5_SYSTEM_SPEC.md",
+        "saee_v0_6/SAEE_V0_6_SYSTEM_SPEC.md",
+        "saee_v0_7/SAEE_V0_7_SYSTEM_SPEC.md",
+        "saee_v0_8/SAEE_V0_8_SYSTEM_SPEC.md",
+        "saee_v1_0/SAEE_V1_0_SYSTEM_SPEC.md"
+      ],
+      "status": "local_prototype_and_runtime_views"
+    },
+        "experiment_layer": {
+            "canonical_versions": [
+                "v1.0 long-horizon experiment",
+                "v1.2 empirical alignment"
+      ],
+      "source_files": [
+        "saee_experiments/LONG_HORIZON_EXPERIMENT_SPEC.md",
+        "saee_v1_2/V1_2_SYSTEM_SPEC.md",
+        "saee_v1_2/results/demo-run/experiment_summary.json",
+        "saee_v1_2/results/demo-run/simulation_logs/saee_trace.json"
+            ],
+            "status": "local_empirical_observation"
+        },
+        "architecture_layer": {
+            "canonical_versions": [
+                "final architecture spec"
+            ],
+            "source_files": [
+                "docs/architecture/FINAL_ARCHITECTURE_SPEC.md"
+            ],
+            "status": "local_drift_proof_architecture_contract"
+        }
+    },
+    "architecture_state": {
+        "architecture_name": "Three-Layer Reflexive Evolutionary Architecture System",
+        "layer_1": {
+            "name": "Frozen Scientific Object",
+            "object": "LCR-REDS Object",
+            "authority": "defines scientific truth and SAEE identity",
+            "mutable_by_downstream": false
+        },
+        "layer_2": {
+            "name": "Meta-Protocol System",
+            "object": "SAEE-MP",
+            "authority": "coordinates interpretation and synchronization only",
+            "can_redefine_layer_1": false
+        },
+        "layer_3": {
+            "name": "Engineering / Runtime / Experiment Layer",
+            "object": "runtime and local experiment projections",
+            "authority": "instantiates behavior and generates observations only",
+            "can_modify_layer_1_or_2": false
+        },
+        "dependency_direction": "L1 -> L2 -> L3",
+        "forbidden_reverse_dependencies": [
+            "Layer 3 cannot modify Layer 2",
+            "Layer 3 cannot modify Layer 1",
+            "Layer 2 cannot modify Layer 1"
+        ],
+        "boundary": "documentation_only_no_theory_or_runtime_modification"
+    },
+    "theory_state": {
+    "core_model": "(Omega, G, T, S, L, R, mu)",
+    "expanded_model": "SAEE_Theory = (G, M, S, L, E, I)",
+    "state_form": "X_t = (P_t, G, M_t, S_t, L_t, Q_t, O_t, I_t)",
+    "operator_mapping": {
+      "Omega": "phase space over population, operators, lineage, observer, identity, and context",
+      "G": "genome space",
+      "T": "transformation operator, mapped to mutation operator field M",
+      "S": "selection pressure field",
+      "L": "lineage topology",
+      "R": "reflexive observer state, mapped to observation O_t",
+      "mu": "population measure, mapped to P_t",
+      "I": "identity constraint function",
+      "E": "evolution dynamics function"
+    },
+    "laws": [
+      "Variation Under Constraint",
+      "Selection Pressure Drift",
+      "Lineage Entropy",
+      "Reflexive Feedback Coupling",
+      "Identity Stability in Dynamic Evolution",
+      "Attractor Formation",
+      "Regime Transition",
+      "Dimensional Emergence"
+    ],
+    "compressed_laws": [
+      "Reflexive Coupled Evolution Law",
+      "Dynamic Selection Topology Law",
+      "Bounded Identity Drift Law"
+    ],
+    "unified_equation": {
+      "population_update": "P_(t+1) = S_theta_t(T_phi_t(P_t))",
+      "selection_parameter_update": "theta_t = g(P_t, R_t, L_t)",
+      "transformation_parameter_update": "phi_t = h(P_t, R_t, L_t)",
+      "observer_update": "R_(t+1) = Psi(R_t, P_t, L_t)",
+      "identity_constraint": "I(X_t, X_(t+1)) >= theta_I"
+    },
+    "candidate_universality_class": {
+      "name": "Reflexive Evolutionary Dynamical Systems with Mutable Operators",
+      "short_name": "REDS-MO",
+      "claim_status": "candidate_universality_class",
+      "external_validation": false
+    },
+        "academic_positioning": {
+            "definition": "local canonical scientific object for studying reflexive evolutionary dynamics with mutable operators and bounded identity constraints",
+            "object_name": "Local Canonical Reflexive Evolutionary Dynamical System Object",
+            "object_abbreviation": "LCR-REDS Object",
+            "primary_coordinate": "Artificial Life",
+      "secondary_coordinates": [
+        "Evolutionary Computation",
+        "Complex Systems",
+        "Self-modifying / Reflexive Systems"
+      ],
+            "first_submission_fit": "ALife Conference",
+            "claim_boundary": "candidate class, not universal theory"
+        },
+        "paper_state": {
+            "paper_finalization_plan": "docs/science/PAPER_FINALIZATION_PLAN.md",
+            "submission_freeze": "docs/science/SUBMISSION_FREEZE.md",
+            "final_interpretation_package": "paper_final/",
+            "final_interpretation_surfaces": [
+                "paper_final/abstract_final.md",
+                "paper_final/introduction_outline.md",
+                "paper_final/contributions.md",
+                "paper_final/related_work_mapping.md",
+                "paper_final/positioning_statement.md",
+                "paper_final/conclusion.md"
+            ],
+            "alife_format_package": "paper_alife/",
+            "alife_format_surfaces": [
+                "paper_alife/format_notes.md",
+                "paper_alife/main.tex",
+                "paper_alife/abstract.tex",
+                "paper_alife/introduction.tex",
+                "paper_alife/related_work.tex",
+                "paper_alife/model.tex",
+                "paper_alife/experiments.tex",
+                "paper_alife/results.tex",
+                "paper_alife/discussion.tex",
+                "paper_alife/conclusion.tex",
+                "paper_alife/REVIEW_RESPONSE.md",
+                "paper_alife/figures/"
+            ],
+            "alife_format_status": {
+                "format_status": "local_alife_style_paper_skeleton",
+                "official_template_compliance_claim": false,
+                "new_theory_claim": false,
+                "new_experiment_claim": false,
+                "submission_claim": false,
+                "publication_claim": false
+            },
+            "alife_hostile_review_repair_status": {
+                "repair_status": "local_paper_facing_repair_applied",
+                "venue_compliance_blocker_repaired": true,
+                "anonymous_front_matter_removed": true,
+                "double_blind_language_removed": true,
+                "candidate_law_language_demoted": true,
+                "operational_definition_surface_added": true,
+                "new_theory_claim": false,
+                "new_experiment_claim": false,
+                "runtime_modification_claim": false,
+                "submission_claim": false,
+                "publication_claim": false
+            },
+            "alife_lba_package": "paper_alife_lba/",
+            "alife_lba_surfaces": [
+                "paper_alife_lba/README.md",
+                "paper_alife_lba/format_notes.md",
+                "paper_alife_lba/main.tex",
+                "paper_alife_lba/submission_checklist.md"
+            ],
+            "alife_lba_status": {
+                "route_status": "linklings_late_breaking_abstract_submitted_under_evaluation",
+                "full_paper_route_closed": true,
+                "late_breaking_abstract_route_open_on_checked_date": true,
+                "max_pages_excluding_references": 2,
+                "official_template_compliance_claim": false,
+                "portal_upload_claim": true,
+                "final_submission_claim": true,
+                "submission_id": "lb120",
+                "portal_status": "Under Evaluation",
+                "portal_date": "07/02/26",
+                "submitted_pdf": "paper_alife_lba/build/main.pdf",
+                "funding_statement": "No external funding was received for this work.",
+                "ai_use_disclosure_present": true,
+                "acceptance_claim": false,
+                "publication_claim": false,
+                "doi_assignment_claim": false,
+                "external_validation_claim": false,
+                "new_theory_claim": false,
+                "new_experiment_claim": false,
+                "runtime_modification_claim": false
+            },
+            "submission_ready": true,
+            "lba_local_package_ready": true,
+            "submitted": true,
+            "accepted": false,
+            "published": false,
+            "released": false,
+            "doi_assigned": false,
+            "claim_status": "alife_lba_submitted_under_evaluation_not_accepted_not_published"
+        },
+        "reflexivity": true,
+    "identity_constraint": true,
+    "phase_transition_theory": true,
+    "boundary": "theory_defines_universe_not_runtime"
+  },
+  "engineering_state": {
+    "kernel_version": "v0.8 identity-stable reflexive prototype",
+    "stable_runtime_version": "v1.0 stable evolutionary runtime",
+    "physics_layer": "v0.5 generated evolution physics",
+    "observability_layer": "v0.6 evolution observability",
+    "reflexivity_layer": "v0.7 reflexive evolution",
+    "identity_layer": "v0.8 identity stability",
+    "meta_evolution": true,
+    "phase_transition": true,
+    "identity_stability": true,
+    "runtime_boundary": {
+      "v1_0_core": "single loop, single population pool, single unified fitness, single lineage DAG",
+      "v0_5_to_v0_8": "side-layer prototype views, not v1.0 runtime dependencies"
+    },
+    "hard_boundaries": [
+      "abstract_signal_objects_only",
+      "no_real_api_calls",
+      "no_external_repository_execution",
+      "no_permission_expansion",
+      "no_external_code_as_genome",
+      "local_reproducible_only"
+    ]
+  },
+  "experimental_state": {
+    "empirical_layer": "v1.2 empirical alignment",
+    "experiment_id": "saee_v1_2_empirical_alignment",
+    "generations": 24,
+    "population_size": 12,
+    "dimensions": 3,
+    "metrics": 5,
+    "measured_metrics": [
+      "lineage_entropy",
+      "regime_stability_index",
+      "attractor_convergence_rate",
+      "reflexive_feedback_strength",
+      "mutation_diversity_index"
+    ],
+    "attractors": 1,
+    "regime_transition_frequency": 24,
+    "regimes_observed": [
+      "chaotic",
+      "exploratory",
+      "stable"
+    ],
+    "reflexive_coupling_strength": 0.091126,
+    "lineage_entropy_delta": 4.968506,
+    "regime_stability_index": 0.916667,
+    "terminal_convergence_rate": 1.0,
+    "baselines": [
+      "GA",
+      "ES",
+      "ALife"
+    ],
+    "baseline_count": 3,
+    "validation": {
+      "minimal_executable_model": true,
+      "at_least_three_metrics": true,
+      "attractors_detectable": true,
+      "regime_transitions_measurable": true,
+      "reflexive_coupling_quantified": true,
+      "baseline_comparisons_executable": true
+    },
+    "boundary": "local_empirical_alignment_not_external_scientific_validation"
+  },
+  "lineage_state": {
+    "measured_v1_2_trace": {
+      "nodes": 156,
+      "edges": 144,
+      "active_population_nodes": 12,
+      "graph_type": "finite weighted parent-child lineage DAG"
+    },
+    "cross_layer_lineage_types": [
+      "v1.0 single lineage DAG",
+      "v0.5 generated physics hypergraph",
+      "v0.6 semantic lineage graph",
+      "v0.7 explanation-influenced DAG",
+      "v0.8 identity-preserving lineage graph",
+      "v1.2 finite empirical lineage DAG"
+    ],
+    "canonical_graph_type": "DAG + hypergraph + semantic lineage views",
+    "lineage_continuity_required": true
+  },
+  "global_properties": {
+    "reflexive_system": true,
+    "identity_stable": true,
+    "open_ended_candidate": true,
+    "drift_controlled": true,
+    "single_system_multiple_views": true,
+    "external_validation_claim": false,
+        "public_release_claim": false,
+        "submission_claim": false,
+        "publication_claim": false,
+        "production_claim": false
+  },
+  "state_synchronization": {
+    "mapped_layers": [
+      "theory_state",
+      "engineering_state",
+            "experimental_state",
+            "lineage_state",
+            "architecture_state",
+            "global_properties"
+        ],
+    "orphan_states": [],
+    "undefined_subsystems": [],
+    "bidirectional_traceability": true
+  },
+  "drift_analysis": {
+    "consistency_score": 0.92,
+    "score_basis": {
+      "layer_coverage": 1.0,
+      "traceability": 1.0,
+      "notation_alignment": 0.9,
+      "runtime_theory_alignment": 0.85,
+      "empirical_alignment": 0.8,
+      "boundary_integrity": 1.0
+    },
+    "drift_findings": [
+      {
+        "id": "GSP-DRIFT-001",
+        "type": "notation_drift",
+        "severity": "low",
+        "status": "mapped",
+        "summary": "v1.1 theory uses both (Omega, G, T, S, L, R, mu) and expanded (G, M, S, L, E, I) notation. GSP maps T to M, mu to P_t, and R to O_t."
+      },
+      {
+        "id": "GSP-DRIFT-002",
+        "type": "runtime_scope_drift",
+        "severity": "controlled",
+        "status": "intentional_boundary",
+        "summary": "v1.0 stable runtime is deliberately simpler than v0.5-v0.8 side layers. GSP treats v1.0 as runtime core and v0.5-v0.8 as engineering views."
+      },
+      {
+        "id": "GSP-DRIFT-003",
+        "type": "empirical_abstraction_drift",
+        "severity": "medium",
+        "status": "bounded",
+        "summary": "v1.2 is a finite deterministic simulation and does not instantiate every theoretical degree of freedom. Its role is local empirical alignment, not proof of universal SAEE laws."
+      }
+    ]
+  },
+  "identity_constraint": {
+    "identity_name": "Digital Biosphere Evolution Engine / SAEE",
+    "invariants": [
+      "SAEE remains evolution-first, not audit-first",
+      "audit remains immune/evidence subsystem",
+      "external world may be observed but not executed",
+      "traits are extracted; external code is not copied as genome",
+      "theory, engineering, and experiment layers remain synchronized through GSP",
+      "claims remain local-only unless external evidence is explicitly added"
+    ],
+    "continuity_rule": "A new SAEE layer is identity-consistent only if it maps to the canonical state, preserves safety boundaries, and does not redefine SAEE away from Digital Biosphere Evolution Engine.",
+    "violation_rules": [
+      "unmapped layer",
+      "external execution without explicit boundary approval",
+      "audit-first reframing",
+      "generic multi-agent workflow reframing",
+      "external validation or release claim without evidence",
+      "semantic drift that breaks identity invariants"
+    ]
+  }
+}

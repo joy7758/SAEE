@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-commercial-assessment-service-request.schema.v1.0.json",
+  "title": "SAEE Commercial Assessment Service Request v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_version", "request_id", "benchmark_result_ref", "run_manifests_ref", "assessments_ref", "scope", "language", "customer_data_used", "deployment_decision_requested"],
+  "properties": {
+    "request_version": {"const": "1.0"},
+    "request_id": {"$ref": "#/$defs/id"},
+    "benchmark_result_ref": {"$ref": "#/$defs/ref"},
+    "run_manifests_ref": {"$ref": "#/$defs/ref"},
+    "assessments_ref": {"$ref": "#/$defs/ref"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent_profiles", "scenario_ids"],
+      "properties": {
+        "agent_profiles": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "scenario_ids": {"type": "array", "minItems": 1, "maxItems": 50, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}}
+      }
+    },
+    "language": {"const": "zh-CN"},
+    "customer_data_used": {"const": false},
+    "deployment_decision_requested": {"const": false}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,159}$"},
+    "ref": {"type": "string", "minLength": 1, "maxLength": 500, "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"}
+  }
+}

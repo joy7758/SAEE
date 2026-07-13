@@ -1,0 +1,41 @@
+{
+  "experiment_id": "agent-first-example",
+  "agents": [
+    {
+      "agent_id": "candidate-a",
+      "config": {
+        "workflow": "experimental-fast-unguarded-workflow"
+      },
+      "type": "workflow"
+    },
+    {
+      "agent_id": "candidate-b",
+      "config": {
+        "workflow": "bounded-retry-monitored-stable-workflow"
+      },
+      "type": "workflow"
+    },
+    {
+      "agent_id": "candidate-c",
+      "config": {
+        "policy": "conservative-rule-with-safe-fallback"
+      },
+      "type": "rule"
+    }
+  ],
+  "environment": {
+    "scenario_type": "agent_workflow_descriptor_stress_test",
+    "noise_level": 0.25,
+    "competition_intensity": 0.55,
+    "time_horizon": 60
+  },
+  "evaluation_config": {
+    "metrics": [
+      "stability",
+      "survival",
+      "failure_mode",
+      "ranking"
+    ],
+    "repeat_runs": 5
+  }
+}

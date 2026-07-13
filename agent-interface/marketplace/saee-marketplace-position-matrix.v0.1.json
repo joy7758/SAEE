@@ -1,0 +1,11 @@
+{
+  "matrix_version":"0.1",
+  "columns":["capability_layer","role","input","output","composition_partner","not_replacement"],
+  "positions":[
+    {"capability_layer":"SAEE_AGENT_RELIABILITY","role":"Reliability Context Provider","input":["agent execution information","evidence objects"],"output":["bounded reliability and evidence context"],"composition_partner":["OBSERVABILITY","AUTHORIZATION_SYSTEM","POLICY_ENGINE"],"not_replacement":["AUTHORIZATION","OBSERVABILITY","SECURITY_MONITORING","POLICY_ENGINE"]},
+    {"capability_layer":"AUTHORIZATION","role":"Permission Decision Authority","input":["identity","policy","requested action"],"output":["allow or deny decision"],"composition_partner":["SAEE_AGENT_RELIABILITY","POLICY_ENGINE"],"not_replacement":["RELIABILITY_ASSESSMENT"]},
+    {"capability_layer":"OBSERVABILITY","role":"Runtime Observation Provider","input":["runtime events"],"output":["traces metrics and logs"],"composition_partner":["SAEE_AGENT_RELIABILITY","SECURITY_MONITORING"],"not_replacement":["EVIDENCE_ADEQUACY","AUTHORIZATION"]},
+    {"capability_layer":"POLICY_ENGINE","role":"Policy Evaluation and Enforcement","input":["policy","context","action"],"output":["policy decision"],"composition_partner":["SAEE_AGENT_RELIABILITY","AUTHORIZATION"],"not_replacement":["RELIABILITY_ASSESSMENT"]}
+  ],
+  "truth_boundary":{"positioning_matrix_only":true,"marketplace_created":false,"marketplace_listed":false,"ranking_generated":false,"ecosystem_support_established":false,"agent_adoption_validated":false,"production_ready":false}
+}

@@ -1,0 +1,56 @@
+{
+  "boundary_flags": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "customer_data_processed": false,
+    "customer_validated": false,
+    "external_calls_made": false,
+    "kernel_modified": false,
+    "live_customer_data_migrated": false,
+    "migration_executed": false,
+    "multi_tenant_production_ready": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_database_modified": false,
+    "production_ready": false,
+    "production_tenant_storage_isolated": false,
+    "runtime_modified": false,
+    "storage_behavior_modified": false,
+    "tenant_storage_isolated": false
+  },
+  "data_model_review": {
+    "customer_data_model_reviewed": false,
+    "live_production_database_reviewed": false,
+    "public_experiment_id_separate_from_tenant_scope": true,
+    "same_public_experiment_id_partition_model_reviewed": true,
+    "tenant_scope_field_reviewed": true
+  },
+  "generated_by": "scripts/saee_tenant_storage_isolation_evidence_runner.py",
+  "key_partition_review": {
+    "memory_store_partition_key_reviewed": true,
+    "sqlite_store_partition_key_reviewed": true,
+    "tenant_id_required_for_scoped_record_lookup": true,
+    "unscoped_lookup_must_not_return_scoped_records": true
+  },
+  "migration_plan_review": {
+    "live_customer_data_migration_allowed": false,
+    "migration_execution_allowed": false,
+    "migration_plan_reviewed_for_required_steps": true,
+    "rollback_plan_required_before_execution": true,
+    "separate_human_execution_approval_required": true
+  },
+  "query_enforcement_review": {
+    "list_query_tenant_scope_reviewed": true,
+    "production_authorization_layer_reviewed": false,
+    "report_query_tenant_scope_reviewed": true,
+    "same_experiment_id_cross_tenant_report_paths_reviewed": true
+  },
+  "review_results": {
+    "production_tenant_data_model_approved": true,
+    "tenant_query_enforcement_design_reviewed": true,
+    "tenant_scoped_primary_keys_or_partitions_reviewed": true,
+    "tenant_storage_migration_plan_reviewed": true
+  },
+  "storage_model_boundary_scope": "local_public_shell_review_only",
+  "storage_model_boundary_type": "tenant_storage_model_boundary"
+}

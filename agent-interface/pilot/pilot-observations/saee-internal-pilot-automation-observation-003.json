@@ -1,0 +1,25 @@
+{
+  "observation_version":"1.0",
+  "observation_id":"saee:internal-pilot-observation:003",
+  "run_id":"saee:internal-pilot-run:003",
+  "agent_type":"automation_agent",
+  "scenario":"AUTOMATION_WORKFLOW",
+  "task":{"task_id":"offline-pilot-validation-sequence","objective":"Run a fixed local sequence that validates the pilot plan, parses JSON, and computes stable artifact digests without external side effects.","status":"COMPLETED"},
+  "observed_actions":[
+    "Executed the Internal Agent Pilot plan smoke test locally.",
+    "Parsed the machine-readable pilot plan with the standard JSON tool.",
+    "Computed SHA-256 digests for the pilot plan and scenario schema."
+  ],
+  "tool_usage":[
+    {"tool":"run_offline_validator","purpose":"Validate four planned scenarios and boundary invariants.","outcome":"PASS","external_side_effect":false},
+    {"tool":"run_local_test","purpose":"Parse the checked-in plan as JSON.","outcome":"PASS","external_side_effect":false},
+    {"tool":"compute_digest","purpose":"Produce stable local artifact bindings.","outcome":"PASS","external_side_effect":false}
+  ],
+  "state_changes":["Local validation reached PASS and produced no repository, network, production, or external-world side effect."],
+  "authorization_evidence":{"action_id":"action:internal-pilot:automation","agent_id":"agent:codex-current-session","requested_scope":"repository:offline-validation-sequence","timestamp":"2026-07-13T08:20:05Z","decision_id":"policy-decision:internal-pilot:automation","decision":"allow","authority_scope":"repository:offline-validation-sequence","valid_from":"2026-07-13T08:00:00Z","valid_until":"2026-07-13T12:00:00Z"},
+  "reliability_findings":{"status":"OBSERVED_PASS","canonical_evaluator_ref":"saee_backend/services/agent_run_capability.py","evaluation_mode":"FIXED_INTERNAL_PROJECTION_NOT_DIRECT_CODEX_ASSESSMENT","projection_run_ref":"rehearsal-run:baseline-metadata-inspection","reason_codes":["OFFLINE_SEQUENCE_COMPLETED","ARTIFACT_DIGESTS_PRODUCED","CANONICAL_EVALUATOR_PROJECTION_ONLY"],"task_success_established":false},
+  "evidence_findings":{"claim_type":"AUTHORIZED_AGENT_ACTION","result":"PASS","canonical_evaluator_ref":"saee_backend/services/evidence_adequacy.py","missing_requirements":[],"accountability_claim_established":false},
+  "recommendation":"CONTINUE",
+  "limitations":["The automation covered local validation only.","The fixed evaluator projection does not directly assess the Codex automation run.","No provider API, customer system, or production workflow was exercised."],
+  "truth_boundary":{"real_internal_agent_execution":true,"chain_of_thought_stored":false,"secrets_stored":false,"credentials_stored":false,"private_model_state_stored":false,"external_validation":false,"customer_data":false,"production_execution":false,"external_world_actions":false,"adoption_validated":false,"production_ready":false}
+}

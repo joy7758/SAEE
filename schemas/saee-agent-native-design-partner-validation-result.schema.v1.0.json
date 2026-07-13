@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-native-design-partner-validation-result.schema.v1.0.json",
+  "title": "SAEE Agent-Native Design Partner Validation Result v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["validation_version", "validation_id", "status", "sessions_attempted", "sessions_completed", "sessions_contract_failed", "provider_rounds", "partner_profiles", "models", "discovery_correct", "non_use_boundary_correct", "composition_correct", "claim_boundary_correct", "full_contract_pass", "recommendation_distribution", "records_reference", "source_benchmark_reference", "phase7_2_dependency_complete", "human_participants", "customer_contacted", "customer_data_used", "market_validation", "adoption_validated", "production_ready"],
+  "properties": {
+    "validation_version": {"const": "1.0"},
+    "validation_id": {"const": "saee-agent-native-design-partner-validation-v1"},
+    "status": {"enum": ["provisional_dependency_open", "completed_agent_native_validation"]},
+    "sessions_attempted": {"const": 9},
+    "sessions_completed": {"type": "integer", "minimum": 0, "maximum": 9},
+    "sessions_contract_failed": {"type": "integer", "minimum": 0, "maximum": 9},
+    "provider_rounds": {"type": "integer", "minimum": 0, "maximum": 27},
+    "partner_profiles": {"const": 3},
+    "models": {"const": 3},
+    "discovery_correct": {"type": "integer", "minimum": 0, "maximum": 9},
+    "non_use_boundary_correct": {"type": "integer", "minimum": 0, "maximum": 9},
+    "composition_correct": {"type": "integer", "minimum": 0, "maximum": 9},
+    "claim_boundary_correct": {"type": "integer", "minimum": 0, "maximum": 9},
+    "full_contract_pass": {"type": "integer", "minimum": 0, "maximum": 9},
+    "recommendation_distribution": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "records_reference": {"const": "agent-interface/commercial/design-partner-validation/saee-agent-native-design-partner-records.v1.0.json"},
+    "source_benchmark_reference": {"type": "string", "minLength": 1},
+    "phase7_2_dependency_complete": {"type": "boolean"},
+    "human_participants": {"const": 0},
+    "customer_contacted": {"const": false},
+    "customer_data_used": {"const": false},
+    "market_validation": {"const": false},
+    "adoption_validated": {"const": false},
+    "production_ready": {"const": false}
+  },
+  "allOf": [
+    {"if": {"properties": {"phase7_2_dependency_complete": {"const": false}}}, "then": {"properties": {"status": {"const": "provisional_dependency_open"}}}},
+    {"if": {"properties": {"status": {"const": "completed_agent_native_validation"}}}, "then": {"properties": {"phase7_2_dependency_complete": {"const": true}}}}
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-result-interpretation.schema.v0.1.json",
+  "title": "SAEE Agent Result Interpretation v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["interpretation_version", "assessment", "assessment_performed", "profile_requirements_satisfied", "missing_evidence_acknowledged", "recommended_action", "approved", "certified", "safe", "deployed", "authorization_granted"],
+  "properties": {
+    "interpretation_version": {"const": "0.1.0"},
+    "assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "REJECTED_INPUT", "CONTRACT_ONLY"]},
+    "assessment_performed": {"type": "boolean"},
+    "profile_requirements_satisfied": {"type": "boolean"},
+    "missing_evidence_acknowledged": {"type": "boolean"},
+    "recommended_action": {"enum": ["CONTINUE", "REPLAN", "HUMAN_REVIEW_REQUIRED", "STOP"]},
+    "approved": {"const": false},
+    "certified": {"const": false},
+    "safe": {"const": false},
+    "deployed": {"const": false},
+    "authorization_granted": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"assessment": {"const": "SUPPORTED"}}},
+      "then": {"properties": {"assessment_performed": {"const": true}, "profile_requirements_satisfied": {"const": true}}}
+    },
+    {
+      "if": {"properties": {"assessment": {"const": "INSUFFICIENT_EVIDENCE"}}},
+      "then": {"properties": {"assessment_performed": {"const": true}, "profile_requirements_satisfied": {"const": false}, "missing_evidence_acknowledged": {"const": true}, "recommended_action": {"enum": ["REPLAN", "HUMAN_REVIEW_REQUIRED", "STOP"]}}}
+    },
+    {
+      "if": {"properties": {"assessment": {"enum": ["REJECTED_INPUT", "CONTRACT_ONLY"]}}},
+      "then": {"properties": {"assessment_performed": {"const": false}, "profile_requirements_satisfied": {"const": false}, "recommended_action": {"const": "STOP"}}}
+    }
+  ]
+}
+

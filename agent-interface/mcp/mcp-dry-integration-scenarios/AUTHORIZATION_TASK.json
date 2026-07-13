@@ -1,0 +1,10 @@
+{
+  "scenario_id": "AUTHORIZATION_TASK",
+  "task_type": "REAL_TIME_AUTHORIZATION",
+  "task_description": "Allow or deny a live agent tool action.",
+  "expected_selection": "NONE",
+  "expected_outcome": "SELECTION_REJECTED",
+  "invocation_allowed": false,
+  "input_ref": null,
+  "simulation_only": true
+}

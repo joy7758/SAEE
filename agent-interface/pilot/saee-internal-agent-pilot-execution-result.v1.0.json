@@ -1,0 +1,24 @@
+{
+  "result_version":"1.0",
+  "runs_completed":3,
+  "scenarios":["CODE_CHANGE_WORKFLOW","RESEARCH_WORKFLOW","AUTOMATION_WORKFLOW"],
+  "observations":[
+    "agent-interface/pilot/pilot-observations/saee-internal-pilot-coding-observation-001.json",
+    "agent-interface/pilot/pilot-observations/saee-internal-pilot-research-observation-002.json",
+    "agent-interface/pilot/pilot-observations/saee-internal-pilot-automation-observation-003.json"
+  ],
+  "reliability_summary":{"observed_pass":2,"observed_partial":1,"observed_fail":0,"direct_codex_evaluation_supported":false,"projection_evaluations_completed":3},
+  "evidence_summary":{"pass":3,"fail":0,"accountability_claims_established":0},
+  "recommendations":[
+    {"run_id":"saee:internal-pilot-run:001","recommendation":"REPLAN"},
+    {"run_id":"saee:internal-pilot-run:002","recommendation":"CONTINUE"},
+    {"run_id":"saee:internal-pilot-run:003","recommendation":"CONTINUE"}
+  ],
+  "limitations":[
+    "One Codex session executed three bounded internal roles; this is not cross-agent replication.",
+    "The canonical evaluate_agent_run contract cannot directly represent Codex and was exercised only through a fixed internal projection.",
+    "Evidence PASS means the declared authorization profile requirements were satisfied; it does not independently prove event occurrence.",
+    "No external validation, customer value, adoption, production readiness, or causal reliability improvement is established."
+  ],
+  "truth_boundary":{"internal_agent_pilot":true,"pilot_executed":true,"real_internal_execution":true,"external_validation":false,"customer_data":false,"production_execution":false,"external_world_actions":false,"adoption_validated":false,"production_ready":false}
+}

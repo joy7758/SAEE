@@ -1,0 +1,106 @@
+{
+  "schema": "saee.parasitic_phase.empirical_laws.v1",
+  "generated_on": "2026-07-06",
+  "scope": "local_synthetic_dbi_parameter_space",
+  "module": "saee_v1_2/parasitic_phase",
+  "logic_mutation": false,
+  "external_validation_claim": false,
+  "production_claim": false,
+  "source_evidence": {
+    "statistical_summary": "results/scientific-closure-demo/statistical_summary.json",
+    "parameter_phase_map": "results/scientific-closure-demo/parameter_phase_map.json",
+    "causal_phi_graph": "results/scientific-closure-demo/causal_phi_graph.json",
+    "summary": "results/scientific-closure-demo/summary.json"
+  },
+  "confidence_score_policy": {
+    "range": [0.0, 1.0],
+    "meaning": "Local empirical support within generated stochastic runs and sampled parameter sweep only.",
+    "not_meaning": "Not an external validation score, not a universality probability, and not a production-readiness score."
+  },
+  "laws": [
+    {
+      "id": "law_1_local_gain_amplification",
+      "name": "Local gain amplification",
+      "statement": "Higher reward-mutation pressure increases the observed probability of entering the parasitic phase in the sampled DBI sweep.",
+      "mathematical_expression": "Pr(tau < T | mu = 0.3) > Pr(tau < T | mu = 0.1) > Pr(tau < T | mu = 0.0), where tau = first t with Phi(t) > Phi_c and dPhi/dt > epsilon.",
+      "supporting_experimental_evidence": {
+        "parameter_sweep_total_cells": 27,
+        "mutation_rate_0_0": {
+          "crossing_cells": 0,
+          "total_cells": 9,
+          "crossing_rate": 0.0
+        },
+        "mutation_rate_0_1": {
+          "crossing_cells": 6,
+          "total_cells": 9,
+          "crossing_rate": 0.666667
+        },
+        "mutation_rate_0_3": {
+          "crossing_cells": 8,
+          "total_cells": 9,
+          "crossing_rate": 0.888889
+        },
+        "evidence_reference": "results/scientific-closure-demo/parameter_phase_map.json"
+      },
+      "confidence_score": 0.888889,
+      "confidence_basis": "8 of 9 high-mutation sweep cells crossed while 0 of 9 zero-mutation cells crossed.",
+      "boundary": "Observed in the current synthetic DBI sweep only."
+    },
+    {
+      "id": "law_2_constraint_lag",
+      "name": "Constraint lag",
+      "statement": "Weak governance delays the parasitic transition but does not eliminate it in the stochastic A/B/C experiment set.",
+      "mathematical_expression": "E[tau_B | tau_B < T] - E[tau_A | tau_A < T] = 46.260870 - 34.555556 > 0, while Pr(tau_B < T) = 23/30.",
+      "supporting_experimental_evidence": {
+        "A_no_governance": {
+          "transition_rate": 0.9,
+          "mean_phase_transition_step": 34.555556,
+          "phase_transition_step_ci_95": {
+            "low": 26.433516,
+            "high": 42.677595
+          }
+        },
+        "B_weak_governance": {
+          "transition_rate": 0.766667,
+          "mean_phase_transition_step": 46.26087,
+          "phase_transition_step_ci_95": {
+            "low": 37.009848,
+            "high": 55.511891
+          }
+        },
+        "mean_delay_steps": 11.705314,
+        "evidence_reference": "results/scientific-closure-demo/statistical_summary.json"
+      },
+      "confidence_score": 0.766667,
+      "confidence_basis": "23 of 30 weak-governance stochastic runs still crossed, with later mean crossing than no governance.",
+      "boundary": "Applies to weak-governance preset behavior in the current synthetic DBI."
+    },
+    {
+      "id": "law_3_parasitic_attractor_emergence",
+      "name": "Parasitic attractor emergence",
+      "statement": "Without governance, the DBI tends toward a parasitic phase within the observed run horizon.",
+      "mathematical_expression": "Pr(tau_A < T | G = none) = 27/30 = 0.9, with E[tau_A | tau_A < T] = 34.555556.",
+      "supporting_experimental_evidence": {
+        "A_no_governance": {
+          "transition_count": 27,
+          "sample_size": 30,
+          "transition_rate": 0.9,
+          "mean_phase_transition_step": 34.555556,
+          "phase_transition_step_ci_95": {
+            "low": 26.433516,
+            "high": 42.677595
+          },
+          "mean_final_phi": 0.555396
+        },
+        "single_seed_baseline": {
+          "phase_transition_step": 39,
+          "final_phi": 0.640105
+        },
+        "evidence_reference": "results/scientific-closure-demo/statistical_summary.json"
+      },
+      "confidence_score": 0.9,
+      "confidence_basis": "27 of 30 no-governance stochastic runs crossed Phi_c.",
+      "boundary": "This is a sampled synthetic attractor claim, not a universal theorem for all multi-agent systems."
+    }
+  ]
+}

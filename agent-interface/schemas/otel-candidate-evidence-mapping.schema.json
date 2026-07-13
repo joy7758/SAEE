@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE OpenTelemetry-Style Candidate Evidence Mapping v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_otel_candidate_evidence_mapping_v0_1",
+    "schema_version",
+    "trace_source",
+    "trace_event_id",
+    "observed_timestamp",
+    "candidate_evidence_fields",
+    "missing_evidence_requirements",
+    "mapping_confidence",
+    "trace_mapping_result",
+    "reason_codes",
+    "limitations",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_otel_candidate_evidence_mapping_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "trace_source": {"const": "synthetic_opentelemetry_style"},
+    "trace_event_id": {"$ref": "#/$defs/reference"},
+    "observed_agent_id": {"$ref": "#/$defs/reference"},
+    "observed_action_type": {"$ref": "#/$defs/reference"},
+    "observed_resource_reference": {"type": "string", "minLength": 1, "maxLength": 512},
+    "observed_tool_name": {"$ref": "#/$defs/reference"},
+    "observed_timestamp": {"type": "string", "format": "date-time"},
+    "candidate_evidence_fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {"$ref": "#/$defs/reference"},
+        "action_id": {"$ref": "#/$defs/reference"},
+        "action_type": {"$ref": "#/$defs/reference"},
+        "resource_reference": {"type": "string", "minLength": 1, "maxLength": 512},
+        "tool_name": {"$ref": "#/$defs/reference"},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "human_identity_claim": {"$ref": "#/$defs/reference"},
+        "sandbox_reference": {"$ref": "#/$defs/reference"},
+        "status_observation": {"enum": ["success", "error", "unknown"]}
+      }
+    },
+    "missing_evidence_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}
+    },
+    "mapping_confidence": {
+      "enum": ["complete_observation", "partial_observation", "insufficient"]
+    },
+    "trace_mapping_result": {"enum": ["PASS", "PARTIAL", "FAIL"]},
+    "reason_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^OTEL_[A-Z0-9_]+$"}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 256}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace_is_evidence",
+        "identity_authenticity_verified",
+        "authorization_validity_verified",
+        "resource_authenticity_verified",
+        "human_approval_authenticity_verified",
+        "accountability_claim_established",
+        "opentelemetry_compliance_claimed",
+        "production_ready"
+      ],
+      "properties": {
+        "trace_is_evidence": {"const": false},
+        "identity_authenticity_verified": {"const": false},
+        "authorization_validity_verified": {"const": false},
+        "resource_authenticity_verified": {"const": false},
+        "human_approval_authenticity_verified": {"const": false},
+        "accountability_claim_established": {"const": false},
+        "opentelemetry_compliance_claimed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/#-]{0,255}$"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "gap_version": "0.1",
+  "gaps": [
+    {"gap_id":"EVR-SECURITY-001","category":"security","description":"No externally reviewed participant identity, credential-exchange and data-handling control exists.","severity":"CRITICAL","required_before_external_validation":true,"status":"OPEN"},
+    {"gap_id":"EVR-OPERATIONS-001","category":"operations","description":"No named external-session operator, incident escalation path or recovery evidence exists.","severity":"CRITICAL","required_before_external_validation":true,"status":"OPEN"},
+    {"gap_id":"EVR-PARTICIPANT-001","category":"participant_management","description":"No real participant authorization, consent, revocation or scope record exists.","severity":"CRITICAL","required_before_external_validation":true,"status":"OPEN"},
+    {"gap_id":"EVR-SUPPORT-001","category":"support","description":"No reviewed support response process or issue ownership commitment exists for an external session.","severity":"HIGH","required_before_external_validation":true,"status":"OPEN"},
+    {"gap_id":"EVR-DOCUMENTATION-001","category":"documentation","description":"External onboarding, data notice and execution runbook have not been reviewed with an authorized participant.","severity":"HIGH","required_before_external_validation":true,"status":"OPEN"}
+  ],
+  "open_required_gap_count": 5,
+  "critical_open_gap_count": 3
+}
+

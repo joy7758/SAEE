@@ -1,0 +1,1857 @@
+{
+  "action_rows": [
+    {
+      "blocker_id": "oauth_oidc",
+      "category": "auth",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "production_identity_provider"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-006",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "oauth_oidc_flow_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-007",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "token_validation_test_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-008",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "claims_mapping_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "phase_order": 1,
+      "required_evidence": "OIDC issuer, client, callback, token validation, and logout behavior evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "production_identity_provider",
+      "category": "auth",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-001",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "production_identity_provider_selected",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-002",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "identity_provider_admin_owner_named",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-003",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "oidc_issuer_verified",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "phase_order": 1,
+      "required_evidence": "Production identity-provider configuration, security review, and operator runbook.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "oauth_oidc",
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "rbac",
+      "category": "auth",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "production_identity_provider",
+        "oauth_oidc"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": false,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-011",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "rbac_policy_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-012",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "role_matrix_reviewed",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        },
+        {
+          "collection_record_id": "ECP-013",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_auth_evidence",
+          "evidence_key": "tenant_role_boundary_reviewed",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_security"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "phase_order": 1,
+      "required_evidence": "Role model, permission matrix, enforcement tests, and admin recovery process.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_storage_isolation"
+      ]
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "category": "tenant",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "rbac"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": false,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-016",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_tenant_storage_evidence",
+          "evidence_key": "production_tenant_data_model_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_data_security"
+        },
+        {
+          "collection_record_id": "ECP-017",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_tenant_storage_evidence",
+          "evidence_key": "tenant_scoped_primary_keys_or_partitions_reviewed",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_data_security"
+        },
+        {
+          "collection_record_id": "ECP-018",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_tenant_storage_evidence",
+          "evidence_key": "tenant_query_enforcement_design_reviewed",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "engineering_data_security"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "engineering_data_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "phase_order": 1,
+      "required_evidence": "Tenant-isolated storage design, migration proof, and cross-tenant isolation tests.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_billing_isolation"
+      ]
+    },
+    {
+      "blocker_id": "external_alert_delivery",
+      "category": "operations",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "production_monitoring"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-039",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "external_alert_channel_configured",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-040",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "alert_routing_policy_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-041",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "alert_delivery_test_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "phase_order": 2,
+      "required_evidence": "External alert destination, escalation route, delivery test, and failure handling evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "on_call_rotation"
+      ]
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "category": "operations",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "production_monitoring",
+        "external_alert_delivery"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-045",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "on_call_rotation_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-046",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "escalation_schedule_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-047",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "incident_commander_named",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "phase_order": 2,
+      "required_evidence": "Named on-call process, escalation schedule, handoff rules, and coverage evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "production_monitoring",
+      "category": "operations",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-034",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "production_monitoring_plan_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-035",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "metrics_coverage_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        },
+        {
+          "collection_record_id": "ECP-036",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_operations_evidence",
+          "evidence_key": "slo_dashboard_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "operations_engineering"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "phase_order": 2,
+      "required_evidence": "Production metrics, dashboard, retention, alert review, and incident linkage evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "external_alert_delivery",
+        "on_call_rotation",
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "category": "data_ops",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": false,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-054",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "production_restore_policy_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        },
+        {
+          "collection_record_id": "ECP-055",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "backup_retention_policy_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        },
+        {
+          "collection_record_id": "ECP-056",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "tenant_restore_boundary_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "data_operations",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "phase_order": 2,
+      "required_evidence": "Approved production restore policy with RPO/RTO targets and drill cadence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "restore_tested"
+      ]
+    },
+    {
+      "blocker_id": "restore_tested",
+      "category": "data_ops",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "production_restore_policy"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": false,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-048",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "production_like_restore_test_plan_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        },
+        {
+          "collection_record_id": "ECP-049",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "isolated_restore_environment_used",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        },
+        {
+          "collection_record_id": "ECP-050",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_data_operations_evidence",
+          "evidence_key": "restore_integrity_checks_passed",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "data_operations"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "data_operations",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "phase_order": 2,
+      "required_evidence": "Successful restore test with manifest, scope, non-live path proof, and operator review.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "customer_support",
+      "category": "support",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "support_contact"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-065",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "staffed_support_process_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-066",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "case_triage_workflow_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-067",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "customer_communication_template_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Staffed support process, triage workflow, customer communication template, and audit trail.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "sla"
+      ]
+    },
+    {
+      "blocker_id": "data_processing_agreement",
+      "category": "privacy_security",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "privacy_legal_review"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-091",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "customer_dpa_template_available",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-092",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "dpa_terms_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-093",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "subprocessor_terms_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Approved DPA or equivalent customer data-processing agreement ready for use.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "category": "privacy_security",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-076",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "formal_security_review_report",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-077",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "public_shell_threat_model_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-078",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "dependency_review_completed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Completed security review report covering public shell, deployment, data, and access control.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "vulnerability_management"
+      ]
+    },
+    {
+      "blocker_id": "privacy_legal_review",
+      "category": "privacy_security",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-082",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "privacy_notice_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-083",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "privacy_notice_published",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-084",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "data_inventory_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Completed legal privacy review for collected data, processors, notices, and retention.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "data_processing_agreement",
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "sla",
+      "category": "support",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "support_contact",
+        "customer_support"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-070",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "human_approved_sla_terms",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-071",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "support_hours_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-072",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "response_targets_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Human-approved SLA terms, exclusions, support hours, and response target approval.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "support_contact",
+      "category": "support",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-060",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "customer_facing_support_contact_configured",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-061",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "support_contact_owner_named",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        },
+        {
+          "collection_record_id": "ECP-062",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_support_sla_evidence",
+          "evidence_key": "support_contact_test_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "support_operations"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Customer-facing support intake contact, ownership, response procedure, and abuse handling.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "customer_support",
+        "pilot_results",
+        "sla"
+      ]
+    },
+    {
+      "blocker_id": "vulnerability_management",
+      "category": "privacy_security",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "formal_security_review"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-097",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "security_contact_configured",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-098",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "coordinated_disclosure_policy_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        },
+        {
+          "collection_record_id": "ECP-099",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_privacy_security_legal_evidence",
+          "evidence_key": "vulnerability_case_dry_run_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "security_legal_privacy"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "phase_order": 3,
+      "required_evidence": "Vulnerability disclosure policy, triage process, remediation targets, and security contact.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "invoice_process",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "pricing_page",
+        "tax_review"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-116",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "invoice_owner_named",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-117",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "invoice_workflow_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-118",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "contract_handoff_defined",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Invoice workflow, contract handoff, bookkeeping process, and payment reconciliation evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "payment_provider",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "pricing_page",
+        "tax_review",
+        "refund_policy"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-110",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "payment_provider_selected",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-111",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "test_mode_configuration_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-112",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "checkout_enablement_approval_required",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Configured payment provider in the intended environment with checkout disabled until approval.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_billing_isolation"
+      ]
+    },
+    {
+      "blocker_id": "pricing_page",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-105",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "human_approved_pricing_page_copy",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-106",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "approved_plan_and_usage_terms",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-107",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "legal_review_completed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Human-approved public pricing or packaging page with current commercial terms.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "invoice_process",
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "refund_policy",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-127",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "refund_policy_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-128",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "cancellation_process_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-129",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "trial_conversion_policy_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Human-approved refund/cancellation policy connected to payment and support processes.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "tax_review",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-122",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "target_jurisdictions_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-123",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "tax_obligations_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-124",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "invoice_wording_approved",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Tax review for target jurisdictions, invoice wording, and payment collection process.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "invoice_process",
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "tenant_billing_isolation",
+      "category": "billing",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "tenant_storage_isolation",
+        "payment_provider"
+      ],
+      "engineering_implementation_required": true,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": false,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-132",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "tenant_billing_account_model_approved",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-133",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "tenant_invoice_partitioning_tested",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        },
+        {
+          "collection_record_id": "ECP-134",
+          "collection_status": "not_started",
+          "engineering_implementation_required": true,
+          "evidence_file_type": "production_billing_revenue_evidence",
+          "evidence_key": "tenant_payment_event_partitioning_tested",
+          "external_dependency_required": false,
+          "manual_collection_required": true,
+          "owner_review_lane": "commercial_finance_legal"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "phase_order": 4,
+      "required_evidence": "Tenant-aware billing records, invoice partitioning, and payment-event isolation evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "customer_validated",
+      "category": "validation",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "pilot_results"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-144",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "real_customer_or_target_user_feedback_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        },
+        {
+          "collection_record_id": "ECP-145",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "permission_to_use_feedback_recorded",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        },
+        {
+          "collection_record_id": "ECP-146",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "customer_problem_fit_reviewed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "customer_validation",
+      "phase_id": "phase_5_customer_validation_and_launch_review",
+      "phase_order": 5,
+      "required_evidence": "Real customer validation evidence reviewed and approved for use in product claims.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "pilot_results",
+      "category": "validation",
+      "closure_allowed_by_board": false,
+      "default_decision": "hold",
+      "dependency_state": "blocked_by_open_dependencies",
+      "depends_on_blockers": [
+        "support_contact",
+        "privacy_legal_review",
+        "data_processing_agreement",
+        "production_monitoring"
+      ],
+      "engineering_implementation_required": false,
+      "evidence_sample_count": 3,
+      "execution_allowed_by_board": false,
+      "external_dependency_required": true,
+      "first_evidence_items": [
+        {
+          "collection_record_id": "ECP-138",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "at_least_one_human_approved_pilot_session_completed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        },
+        {
+          "collection_record_id": "ECP-139",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "pilot_result_template_completed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        },
+        {
+          "collection_record_id": "ECP-140",
+          "collection_status": "not_started",
+          "engineering_implementation_required": false,
+          "evidence_file_type": "production_customer_validation_evidence",
+          "evidence_key": "feedback_form_completed",
+          "external_dependency_required": true,
+          "manual_collection_required": true,
+          "owner_review_lane": "customer_validation"
+        }
+      ],
+      "must_not_touch": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "customer_data_without_approval",
+        "payment_collection",
+        "customer_contact_without_approval"
+      ],
+      "next_human_action": "Assign a human owner, collect or review the listed production evidence in a separate approved request, then rerun commercial go/no-go.",
+      "owner_review_lane": "customer_validation",
+      "phase_id": "phase_5_customer_validation_and_launch_review",
+      "phase_order": 5,
+      "required_evidence": "Recorded pilot sessions, user feedback, failure notes, and permission to use evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "customer_validated"
+      ]
+    }
+  ],
+  "active_sprint_action_rows": [
+    {
+      "blocker_id": "production_monitoring",
+      "closure_allowed_by_board": false,
+      "completed_value_row_count": 0,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "evidence_collection_authorized": false,
+      "execution_allowed_by_board": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "monitoring_evidence_keys_to_review"
+      ],
+      "missing_value_row_count": 10,
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "quick_fill_row_count": 10
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "closure_allowed_by_board": false,
+      "completed_value_row_count": 0,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "evidence_collection_authorized": false,
+      "execution_allowed_by_board": false,
+      "input_groups": [
+        "formal_security_review_keys_to_review",
+        "metadata_fields_to_fill"
+      ],
+      "missing_value_row_count": 12,
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "quick_fill_row_count": 12
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "closure_allowed_by_board": false,
+      "completed_value_row_count": 0,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "evidence_collection_authorized": false,
+      "execution_allowed_by_board": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "policy_evidence_keys_to_review"
+      ],
+      "missing_value_row_count": 13,
+      "owner_review_lane": "data_operations",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "quick_fill_row_count": 13
+    },
+    {
+      "blocker_id": "pricing_page",
+      "closure_allowed_by_board": false,
+      "completed_value_row_count": 0,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "evidence_collection_authorized": false,
+      "execution_allowed_by_board": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "pricing_page_keys_to_review"
+      ],
+      "missing_value_row_count": 14,
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "quick_fill_row_count": 14
+    },
+    {
+      "blocker_id": "support_contact",
+      "closure_allowed_by_board": false,
+      "completed_value_row_count": 0,
+      "default_decision": "hold",
+      "dependency_state": "ready_for_human_review",
+      "evidence_collection_authorized": false,
+      "execution_allowed_by_board": false,
+      "input_groups": [
+        "first_owner_input",
+        "support_contact_candidate_slot",
+        "support_contact_decision_metadata",
+        "support_contact_evidence_review"
+      ],
+      "missing_value_row_count": 15,
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "quick_fill_row_count": 15
+    }
+  ],
+  "active_sprint_blocker_count": 5,
+  "active_sprint_missing_value_row_count": 64,
+  "active_sprint_ready_action_count": 5,
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blocked_by_dependency_blocker_count": 15,
+  "blockers_closed_by_board": 0,
+  "blockers_ready_to_close": [],
+  "board_scope": "local_commercial_human_action_review",
+  "board_status": "hold_human_action_required",
+  "board_type": "saee_commercial_human_action_board",
+  "board_version": "0.1",
+  "browser_readable_human_action_board": true,
+  "commercial_status": "hold",
+  "customer_contacted": false,
+  "customer_data_collected": false,
+  "customer_data_processed": false,
+  "customer_validated": false,
+  "customer_validation_claim_added": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-06T17:59:55.844537+00:00",
+  "generated_by": "scripts/saee_commercial_human_action_board.py",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "launch_claim_added": false,
+  "local_static_human_action_board_html": true,
+  "manual_collection_required": true,
+  "next_human_action": "Review ready_for_human_review rows, assign human owners, and open separate approved evidence-collection or implementation requests.",
+  "open_blocker_count": 24,
+  "owner_lane_summary": [
+    {
+      "blocked_by_dependency_count": 3,
+      "blocker_count": 6,
+      "blocker_ids": [
+        "invoice_process",
+        "payment_provider",
+        "pricing_page",
+        "refund_policy",
+        "tax_review",
+        "tenant_billing_isolation"
+      ],
+      "engineering_implementation_count": 1,
+      "external_dependency_count": 5,
+      "owner_review_lane": "commercial_finance_legal",
+      "ready_for_human_review_count": 3,
+      "title": "commercial finance legal"
+    },
+    {
+      "blocked_by_dependency_count": 2,
+      "blocker_count": 2,
+      "blocker_ids": [
+        "customer_validated",
+        "pilot_results"
+      ],
+      "engineering_implementation_count": 0,
+      "external_dependency_count": 2,
+      "owner_review_lane": "customer_validation",
+      "ready_for_human_review_count": 0,
+      "title": "customer validation"
+    },
+    {
+      "blocked_by_dependency_count": 1,
+      "blocker_count": 2,
+      "blocker_ids": [
+        "production_restore_policy",
+        "restore_tested"
+      ],
+      "engineering_implementation_count": 2,
+      "external_dependency_count": 0,
+      "owner_review_lane": "data_operations",
+      "ready_for_human_review_count": 1,
+      "title": "data operations"
+    },
+    {
+      "blocked_by_dependency_count": 1,
+      "blocker_count": 1,
+      "blocker_ids": [
+        "tenant_storage_isolation"
+      ],
+      "engineering_implementation_count": 1,
+      "external_dependency_count": 0,
+      "owner_review_lane": "engineering_data_security",
+      "ready_for_human_review_count": 0,
+      "title": "engineering data security"
+    },
+    {
+      "blocked_by_dependency_count": 2,
+      "blocker_count": 3,
+      "blocker_ids": [
+        "oauth_oidc",
+        "production_identity_provider",
+        "rbac"
+      ],
+      "engineering_implementation_count": 3,
+      "external_dependency_count": 2,
+      "owner_review_lane": "engineering_security",
+      "ready_for_human_review_count": 1,
+      "title": "engineering security"
+    },
+    {
+      "blocked_by_dependency_count": 2,
+      "blocker_count": 3,
+      "blocker_ids": [
+        "external_alert_delivery",
+        "on_call_rotation",
+        "production_monitoring"
+      ],
+      "engineering_implementation_count": 2,
+      "external_dependency_count": 3,
+      "owner_review_lane": "operations_engineering",
+      "ready_for_human_review_count": 1,
+      "title": "operations engineering"
+    },
+    {
+      "blocked_by_dependency_count": 2,
+      "blocker_count": 4,
+      "blocker_ids": [
+        "data_processing_agreement",
+        "formal_security_review",
+        "privacy_legal_review",
+        "vulnerability_management"
+      ],
+      "engineering_implementation_count": 0,
+      "external_dependency_count": 4,
+      "owner_review_lane": "security_legal_privacy",
+      "ready_for_human_review_count": 2,
+      "title": "security legal privacy"
+    },
+    {
+      "blocked_by_dependency_count": 2,
+      "blocker_count": 3,
+      "blocker_ids": [
+        "customer_support",
+        "sla",
+        "support_contact"
+      ],
+      "engineering_implementation_count": 0,
+      "external_dependency_count": 3,
+      "owner_review_lane": "support_operations",
+      "ready_for_human_review_count": 1,
+      "title": "support operations"
+    }
+  ],
+  "owner_review_lane_count": 8,
+  "payment_collected": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_blocker_count": 24,
+  "production_claim_added": false,
+  "production_launch_status": "hold",
+  "production_ready": false,
+  "public_sdk_released": false,
+  "ready_for_human_review_blocker_count": 9,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "separate_execution_approval_required": true,
+  "source_active_human_input_board": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_active_human_input_board.local.json",
+  "source_dashboard": "phase_b_product/commercial_readiness/commercial_readiness_dashboard/commercial_readiness_dashboard.local.json",
+  "source_dependency_plan": "phase_b_product/commercial_readiness/commercial_blocker_dependency_plan/dependency_plan.local.json",
+  "source_evidence_packet": "phase_b_product/commercial_readiness/commercial_production_evidence_collection_packet/commercial_production_evidence_collection_packet.local.json",
+  "source_human_action_board_html": "phase_b_product/commercial_readiness/commercial_human_action_board/commercial_human_action_board.html",
+  "task_candidates_executed": false,
+  "total_local_public_shell_present_count": 37,
+  "total_missing_production_evidence_count": 112,
+  "total_required_evidence_item_count": 149
+}

@@ -1,0 +1,11 @@
+review_batch_row_id,quick_fill_row_id,blocker_id,owner_review_lane,input_key,expected_value_shape,codex_prefill_allowed,safe_prefill_decision,safe_prefill_reason,placeholder_or_hold_value_allowed_by_codex,requires_human_approval
+QFRB-001,QF-001,support_contact,support_operations,assigned_human_owner,first-owner coordination field,False,human_required,Requires a real owner selected by a human.,False,True
+QFRB-002,QF-002,support_contact,support_operations,owner_contact_reference,first-owner coordination field,False,human_required,Requires a human-approved internal record reference.,False,True
+QFRB-003,QF-003,support_contact,support_operations,target_review_date,first-owner coordination field,False,human_required,Requires a real target date chosen by a human.,False,True
+QFRB-004,QF-004,support_contact,support_operations,owner_acknowledged_scope,first-owner coordination field,False,human_required,"Requires owner acknowledgement, not a generated assertion.",False,True
+QFRB-005,QF-005,support_contact,support_operations,human_approval_reference,first-owner coordination field,False,human_required,Requires an actual approval record.,False,True
+QFRB-006,QF-006,support_contact,support_operations,human_reviewer_name,support-contact decision metadata,False,human_required,Requires the actual reviewer or approved reviewer role.,False,True
+QFRB-007,QF-007,support_contact,support_operations,review_date,support-contact decision metadata,False,human_required,Requires the real review date.,False,True
+QFRB-008,QF-008,support_contact,support_operations,selected_support_contact_channel,support-contact decision metadata,False,human_required,Requires a human decision on the support channel.,False,True
+QFRB-009,QF-009,support_contact,support_operations,decision_summary,support-contact decision metadata,False,human_required,Requires a human decision summary.,False,True
+QFRB-010,QF-010,support_contact,support_operations,abuse_handling_path_defined,support-contact bridge value,False,human_required,Requires a human-approved abuse handling path.,False,True

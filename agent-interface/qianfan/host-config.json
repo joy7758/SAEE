@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.1",
+  "adapter_id": "saee-qianfan-mcp-host-v0.1",
+  "provider": "baidu_qianfan",
+  "endpoint": "https://qianfan.baidubce.com/v2/chat/completions",
+  "default_model": "ernie-4.5-turbo-128k",
+  "api_key_env": "QIANFAN_API_KEY",
+  "model_env": "QIANFAN_MODEL",
+  "mcp_protocol_version": "2025-11-25",
+  "mcp_command": [
+    "python3",
+    "scripts/saee_mcp_stdio.py"
+  ],
+  "allowed_tools": [
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "approved_fixture": "agent-interface/examples/observed-trace-bundle.json",
+  "provider_timeout_seconds": 60,
+  "mcp_timeout_seconds": 10,
+  "overall_deadline_seconds": 180,
+  "maximum_provider_rounds": 3,
+  "maximum_tool_calls": 2,
+  "maximum_provider_response_bytes": 2000000,
+  "maximum_tool_arguments_bytes": 2000000,
+  "maximum_json_depth": 64,
+  "network_scope": "qianfan_endpoint_only",
+  "qianfan_native_mcp_support_proven": false,
+  "production_ready": false,
+  "canonical_host_script": "scripts/saee_qianfan_mcp_host.py",
+  "validation_evidence": "agent_recommendation/agent_first_validation/run_005/VALIDATION_REPORT.md",
+  "recommendation_scope": "recommend_limited_user_supplied_credential"
+}

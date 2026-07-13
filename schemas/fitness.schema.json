@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/fitness.schema.json",
+  "title": "SAEE Pareto Fitness Record",
+  "type": "object",
+  "required": ["id", "genome_id", "scores", "decision"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "genome_id": {"type": "string", "minLength": 1},
+    "scores": {
+      "type": "object",
+      "required": ["technical", "safety", "cost", "novelty", "evolvability"],
+      "additionalProperties": false,
+      "properties": {
+        "technical": {"type": "number", "minimum": 0, "maximum": 1},
+        "market": {"type": "number", "minimum": 0, "maximum": 1},
+        "safety": {"type": "number", "minimum": 0, "maximum": 1},
+        "cost": {"type": "number", "minimum": 0, "maximum": 1},
+        "novelty": {"type": "number", "minimum": 0, "maximum": 1},
+        "evolvability": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "decision": {"type": "string", "enum": ["select", "dormant", "rollback", "reject", "needs_more_evidence"]},
+    "rationale": {"type": "string"}
+  }
+}
+

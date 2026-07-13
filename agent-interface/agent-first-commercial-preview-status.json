@@ -1,0 +1,231 @@
+{
+  "contract_id": "saee-agent-first-commercial-preview-status-v0.1",
+  "schema_version": "0.1.0",
+  "status": "recommend_limited_agent_first_commercial_preview",
+  "recommendation": "recommend",
+  "preview_capabilities": {
+    "mcp_stdio": {
+      "verdict": "recommend",
+      "scope": "local_fixed_two_tool",
+      "protocol_version": "2025-11-25",
+      "tools": [
+        "describe_saee",
+        "compare_observed_traces"
+      ]
+    },
+    "qianfan_host_bridge": {
+      "verdict": "recommend",
+      "scope": "limited_user_supplied_credential",
+      "provider": "baidu_qianfan",
+      "model": "ernie-4.5-turbo-128k",
+      "roundtrip_runs": 3,
+      "negative_cases": "13/13",
+      "qianfan_native_mcp_support_proven": false
+    },
+    "observed_trace_adapter": {
+      "verdict": "recommend",
+      "scope": "sanitized_file_bundle",
+      "trace_authenticity_verified": false,
+      "pii_absence_verified_by_saee": false,
+      "trace_capture_by_saee": false
+    },
+    "commercial_walkthroughs": {
+      "verdict": "recommend",
+      "scope": "simulated_teaching_examples",
+      "case_count": 3,
+      "evidence_status": "simulated_example",
+      "real_customer_evidence": false
+    },
+    "dataflow_inventory": {
+      "status": "documented",
+      "scope": "run_005_provider_payload_classes",
+      "privacy_legal_approval": false,
+      "official_policy_snapshot": {
+        "profile": "phase_b_product/commercial_readiness/provider_data_processing/qianfan_provider_data_processing_profile.local.json",
+        "catalog_url": "https://cloud.baidu.com/doc/qianfan/s/Umleypdhw",
+        "observed_clause_count": 3,
+        "retention_terms_verified": false,
+        "dpa_completed": false
+      }
+    },
+    "tenant_preview_storage": {
+      "verdict": "conditional",
+      "scope": "local_preview_only",
+      "same_experiment_id_partitioned": true,
+      "invalid_tenant_id_rejected": true,
+      "reserved_experiment_prefix_rejected": true,
+      "sqlite_reload_preserves_scope": true,
+      "production_tenant_storage_isolated": false,
+      "multi_tenant_production_ready": false
+    },
+    "preview_auth": {
+      "verdict": "recommend",
+      "scope": "controlled_preview_only",
+      "default_off": true,
+      "jwt_preview_available": true,
+      "production_auth_ready": false,
+      "external_identity_provider_contacted": false
+    },
+    "restore_drill": {
+      "verdict": "recommend",
+      "scope": "local_public_shell_isolated_restore_drill",
+      "integrity_checks_passed": true,
+      "restore_to_live_path": false,
+      "production_restore_policy_available": false,
+      "production_restore_tested": false,
+      "production_data_operations_ready": false
+    },
+    "controlled_preview_request": {
+      "verdict": "recommend",
+      "scope": "local_or_private_controlled_preview_only",
+      "schema": "agent-interface/schemas/controlled-preview-request.schema.json",
+      "validator": "scripts/saee_controlled_preview_request_validator.py",
+      "external_execution": false,
+      "production_ready": false,
+      "blockers_closed": 0
+    },
+    "commercial_quote_request": {
+      "verdict": "recommend",
+      "scope": "private_no_price_no_payment_intake",
+      "request_schema": "agent-interface/schemas/commercial-quote-request.schema.json",
+      "response_schema": "agent-interface/schemas/commercial-quote-response.schema.json",
+      "validator": "scripts/saee_commercial_quote_request_validator.py",
+      "quote_status": "owner_pricing_review_required",
+      "public_price_points_approved": false,
+      "payment_enabled": false,
+      "blockers_closed": 0
+    },
+    "agent_support_intake": {
+      "verdict": "recommend",
+      "scope": "sanitized_agent_receipt_only",
+      "request_schema": "agent-interface/schemas/agent-support-case-request.schema.json",
+      "response_schema": "agent-interface/schemas/agent-support-case-response.schema.json",
+      "validator": "scripts/saee_agent_support_case_validator.py",
+      "support_status": "owner_support_channel_required",
+      "external_dispatch_performed": false,
+      "customer_contacted": false,
+      "production_ready": false,
+      "blockers_closed": 0
+    },
+    "phase_1_local_hardening": {
+      "verdict": "recommend",
+      "scope": "local_code_contracts_tests_sanitized_evidence",
+      "target_blockers": [
+        "production_identity_provider",
+        "oauth_oidc",
+        "rbac",
+        "tenant_storage_isolation"
+      ],
+      "authorization": "phase_b_product/commercial_readiness/phase_1_local_execution_authorization/authorization.local.json",
+      "rbac_consistency_profile": "phase_b_product/commercial_readiness/auth_evidence/rbac_role_permission_consistency.local.json",
+      "tenant_required_storage_guard_evidence": "phase_b_product/commercial_readiness/tenant_storage_isolation_evidence/tenant_storage_isolation_evidence.local.json",
+      "rbac_negative_cases": "5/5",
+      "tenant_required_storage_guard": true,
+      "memory_store_unscoped_operations_denied": true,
+      "sqlite_store_unscoped_operations_denied": true,
+      "default_local_unscoped_mode_preserved": true,
+      "production_tenant_storage_isolated": false,
+      "local_development_authorized": true,
+      "external_execution_authorized": false,
+      "production_deployment_authorized": false,
+      "production_data_migration_authorized": false,
+      "blockers_closed": 0
+    }
+  },
+  "truth_boundary": {
+    "external_provider_network_used": true,
+    "saee_mcp_network_used": false,
+    "qianfan_native_mcp_support_proven": false,
+    "candidate_code_executed": false,
+    "external_system_executed": false,
+    "human_validation_is_primary": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "product_launched": false,
+    "customer_contacted": false,
+    "revenue_validated": false
+  },
+  "production_readiness": {
+    "verdict": "hold",
+    "production_ready": false,
+    "production_launch_status": "hold",
+    "production_blocker_count": 24,
+    "open_production_blocker_count": 24,
+    "blockers_closed_by_contract": 0,
+    "production_checks_satisfied_by_contract": 0,
+    "blocker_matrix": "phase_b_product/commercial_readiness/production_blocker_gap_matrix/gap_matrix.local.json",
+    "next_review_lane": "provider_data_processing_and_production_commercialization_evidence"
+  },
+  "production_blocker_truth_source": "canonical_default_go_no_go",
+  "local_fixture_or_human_profile_promoted_to_production_truth": false,
+  "production_blockers": [
+    "production_identity_provider",
+    "oauth_oidc",
+    "rbac",
+    "tenant_storage_isolation",
+    "production_monitoring",
+    "external_alert_delivery",
+    "on_call_rotation",
+    "sla",
+    "support_contact",
+    "customer_support",
+    "formal_security_review",
+    "privacy_legal_review",
+    "data_processing_agreement",
+    "vulnerability_management",
+    "pilot_results",
+    "customer_validated",
+    "pricing_page",
+    "payment_provider",
+    "invoice_process",
+    "tax_review",
+    "refund_policy",
+    "tenant_billing_isolation",
+    "restore_tested",
+    "production_restore_policy"
+  ],
+  "allowed_claims": [
+    "SAEE can be discovered through file-backed agent contracts",
+    "SAEE can compare sanitized observed-trace bundles",
+    "a bounded user-supplied Qianfan host bridge has passed its recorded roundtrips",
+    "commercial walkthroughs explain simulated use cases"
+  ],
+  "forbidden_claims": [
+    "MCP validation implies production integration readiness",
+    "Qianfan roundtrips imply Qianfan-native MCP or customer adoption",
+    "observed bundle evaluation proves trace authenticity or no PII",
+    "walkthrough recommendation is real customer evidence",
+    "dataflow documentation is privacy/legal/security approval",
+    "agent recommendation is human or customer validation",
+    "contract creation or retrieval closes a production blocker"
+  ],
+  "zero_effect_assertions": {
+    "blockers_closed_by_contract": 0,
+    "matrix_mutated_by_contract": false,
+    "production_release_performed": false,
+    "external_execution_performed": false,
+    "customer_contact_performed": false
+  },
+  "evidence_refs": {
+    "current_action": "phase_b_product/commercial_readiness/current_commercial_primary_action/current_commercial_primary_action.local.json",
+    "blocker_matrix": "phase_b_product/commercial_readiness/production_blocker_gap_matrix/gap_matrix.local.json",
+    "qianfan_validation": "agent_recommendation/agent_first_validation/run_005/independent_agent_validation.local.json",
+    "provider_data_profile": "phase_b_product/commercial_readiness/provider_data_processing/qianfan_provider_data_processing_profile.local.json"
+  },
+  "source_hashes": {
+    "current_action_sha256": "754024eced47a6e0cd045f585372b009afc9f05aebe5aee2d6431817429a6760",
+    "blocker_matrix_sha256": "35b99cf07dcd0050671d78338e34fdeef6e82e01db54f9b8b24aeb524dce7532",
+    "qianfan_validation_sha256": "5f4b6622bacc5000c2072436c5c6d4bb3b91d0dd79c47e174acbbd3399b67e6f"
+  },
+  "agent_next_actions": [
+    "python3 scripts/saee_phase1_identity_tenant_evidence_profile.py --json",
+    "Read phase_b_product/commercial_readiness/provider_data_processing/qianfan_provider_data_processing_profile.local.json and its policy snapshot gate; keep retention, DPA, and privacy/legal approval false.",
+    "Review phase_b_product/commercial_readiness/commercial_evidence_builder_batch_request/batch_request.local.json before any separate builder approval.",
+    "Keep scripts/saee_commercial_evidence_builder_batch_executor.py in dry-run mode until the exact approval phrase is recorded.",
+    "Read this contract before interpreting any production status.",
+    "Keep the 24 canonical production blockers open until source-backed evidence and approvals exist."
+  ],
+  "site_entrypoint": "https://saee-stability-lab.zhangbin1982.chatgpt.site/for-agents",
+  "generated_by": "scripts/saee_agent_first_commercial_preview_status.py",
+  "generated_at": "2026-07-10"
+}

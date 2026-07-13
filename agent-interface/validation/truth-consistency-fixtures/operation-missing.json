@@ -1,0 +1,1 @@
+{"fixture_id":"OPERATION_MISSING","mutation":{"operation":"remove_list_item","target":"release","path":["operations"],"match_key":"operation_id","match_value":"evaluate_evidence"},"expected_reason_code":"TRUTH_OPERATION_SET_MISMATCH"}

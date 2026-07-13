@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://redcrag.cn/schemas/saee-ecosystem-first-roadmap.schema.v1.0.json",
+  "title":"SAEE Ecosystem-First Roadmap v1.0",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["strategy_version","strategy_id","horizon_months","current_stage_id","canonical_product_surface","capability_layer","ecosystem_entry_wedge","decision_flow","stages","first_90_day_metrics","target_ecosystems","external_action_gate","truth_boundary"],
+  "properties":{
+    "strategy_version":{"const":"1.0"},
+    "strategy_id":{"const":"saee.ecosystem-first.v1"},
+    "horizon_months":{"const":12},
+    "current_stage_id":{"const":"TECHNICAL_SIGNAL_RELEASE"},
+    "canonical_product_surface":{"const":"SAEE Agent Readiness Platform"},
+    "capability_layer":{"const":"Agent Reliability Evaluation Capability Layer"},
+    "ecosystem_entry_wedge":{"const":"Agent Readiness Evaluation"},
+    "decision_flow":{"type":"array","const":["PROPOSED_ACTION","SAEE_READINESS_EVALUATION","CONTINUE_REVIEW_STOP_CONTEXT","INDEPENDENT_AUTHORIZED_DECISION"]},
+    "stages":{"type":"array","minItems":8,"maxItems":8,"items":{"type":"object","additionalProperties":false,"required":["order","stage_id","window_months","status","objective","exit_evidence"],"properties":{"order":{"type":"integer","minimum":0,"maximum":7},"stage_id":{"type":"string","minLength":3},"window_months":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"integer","minimum":0,"maximum":12}},"status":{"enum":["COMPLETED","ACTIVE","PLANNED"]},"objective":{"type":"string","minLength":10},"exit_evidence":{"type":"array","minItems":1,"items":{"type":"string","minLength":3}}}}},
+    "first_90_day_metrics":{"type":"object","additionalProperties":false,"required":["technical","ecosystem","commercial"],"properties":{"technical":{"$ref":"#/$defs/metrics"},"ecosystem":{"$ref":"#/$defs/metrics"},"commercial":{"$ref":"#/$defs/metrics"}}},
+    "target_ecosystems":{"type":"array","minItems":7,"uniqueItems":true,"items":{"type":"string"}},
+    "external_action_gate":{"type":"array","minItems":8,"uniqueItems":true,"items":{"type":"string"}},
+    "truth_boundary":{"type":"object","additionalProperties":false,"required":["ecosystem_strategy_defined","technical_signal_package_ready","technical_article_published","developer_activity_presented","partner_contact_completed","partner_relationship_established","joint_solution_confirmed","official_cloud_integration","marketplace_listed","external_agent_adoption_validated","customer_validated","production_ready"],"properties":{"ecosystem_strategy_defined":{"const":true},"technical_signal_package_ready":{"const":true},"technical_article_published":{"const":false},"developer_activity_presented":{"const":false},"partner_contact_completed":{"const":true},"partner_relationship_established":{"const":false},"joint_solution_confirmed":{"const":false},"official_cloud_integration":{"const":false},"marketplace_listed":{"const":false},"external_agent_adoption_validated":{"const":false},"customer_validated":{"const":false},"production_ready":{"const":false}}}
+  },
+  "$defs":{"metrics":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["metric_id","baseline","target","unit","boundary"],"properties":{"metric_id":{"type":"string","minLength":3},"baseline":{"type":"integer","minimum":0},"target":{"type":"integer","minimum":1},"unit":{"type":"string","minLength":3},"boundary":{"type":"string","minLength":3}}}}}
+}

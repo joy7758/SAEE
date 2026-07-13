@@ -1,0 +1,10 @@
+{
+  "scenario_id": "WRONG_USAGE",
+  "participant_id": "SYNTHETIC_DEVELOPER",
+  "input_reference": "synthetic://claim/saee-authorizes-deployment",
+  "expected_result": "REJECTED",
+  "expected_reason_code": "AUTHORIZATION_OVERCLAIM_REJECTED",
+  "should_accept": false,
+  "external_execution": false
+}
+

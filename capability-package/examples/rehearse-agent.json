@@ -1,0 +1,19 @@
+{
+  "example_version": "1.0.0",
+  "operation_id": "rehearse_agent",
+  "implementation_status": "contract_only_not_available",
+  "request_example": {
+    "agent_reference": "agent:synthetic-example",
+    "scenario_reference": "scenario:controlled-example",
+    "consent_scope": "local_controlled_synthetic_only"
+  },
+  "expected_response": {
+    "operation_id": "rehearse_agent",
+    "status": "NOT_IMPLEMENTED",
+    "reason_code": "CAPABILITY_CONTRACT_ONLY",
+    "production_ready": false
+  },
+  "execution_performed": false,
+  "network_required": false
+}
+

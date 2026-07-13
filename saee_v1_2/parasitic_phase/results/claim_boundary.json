@@ -1,0 +1,89 @@
+{
+  "schema": "saee.parasitic_phase.claim_boundary.v1",
+  "generated_on": "2026-07-06",
+  "module": "saee_v1_2/parasitic_phase",
+  "artifact_type": "scientific_claim_boundary_map",
+  "synthetic_validated": true,
+  "real_world_validated": false,
+  "universality_claim": "forbidden",
+  "production_ready": false,
+  "external_validation_claim": false,
+  "experiment_logic_modified": false,
+  "recommended_use": "internal_research_and_publication_preparation",
+  "agent_recommendation_gate": {
+    "answer": "conditional",
+    "recommendation": "conditional_internal_experiment",
+    "recommend_for": [
+      "scientific packaging",
+      "paper preparation",
+      "local reproducibility review",
+      "synthetic phase-transition demonstration"
+    ],
+    "do_not_recommend_for": [
+      "real-world deployment",
+      "production governance",
+      "universal multi-agent safety theorem",
+      "external validation claim"
+    ],
+    "blocking_reasons": [
+      "No independent external replication.",
+      "No real-world system validation.",
+      "Phi weights and Phi_c need sensitivity analysis before stronger theory claims.",
+      "Current theorems are empirical synthetic statements, not full mathematical proofs."
+    ]
+  },
+  "allowed_claims": [
+    {
+      "claim": "The local synthetic DBI produces observable, bounded, and governance-sensitive parasitic phase transitions in the sampled parameter space.",
+      "status": "allowed",
+      "evidence": [
+        "results/scientific-closure-demo/statistical_summary.json",
+        "results/scientific-closure-demo/parameter_phase_map.json",
+        "results/scientific-closure-demo/causal_phi_graph.json"
+      ]
+    },
+    {
+      "claim": "Phi acts as an empirical order parameter for the implemented DBI.",
+      "status": "allowed_with_scope",
+      "scope": "implemented synthetic DBI only",
+      "evidence": [
+        "theory/theorems.md",
+        "results/figures/paper_main_figure.svg"
+      ]
+    },
+    {
+      "claim": "Weak governance delays transition while strong governance suppresses transition in the current closure run.",
+      "status": "allowed_with_scope",
+      "scope": "current governance presets and stochastic closure run",
+      "evidence": [
+        "results/scientific-closure-demo/statistical_summary.json"
+      ]
+    }
+  ],
+  "forbidden_claims": [
+    {
+      "claim": "Parasitic phase transition is inevitable in all multi-agent systems.",
+      "reason": "Current evidence is synthetic and sampled; no universal proof or real-world validation exists."
+    },
+    {
+      "claim": "SAEE governance is production-ready.",
+      "reason": "No production deployment, customer validation, or real-world governance validation has been established."
+    },
+    {
+      "claim": "The theorem package proves universal multi-agent physics.",
+      "reason": "The theorem package formalizes empirical synthetic observations only."
+    },
+    {
+      "claim": "The system has been externally validated.",
+      "reason": "All evidence is local synthetic evidence."
+    }
+  ],
+  "truth_surface": {
+    "local_code": true,
+    "local_outputs": true,
+    "external_review": false,
+    "accepted_publication": false,
+    "production_deployment": false,
+    "customer_validation": false
+  }
+}

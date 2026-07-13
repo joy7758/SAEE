@@ -1,0 +1,68 @@
+{
+  "saee_observation_envelope_v0_1": true,
+  "schema_version": "0.1.0",
+  "observation_id": "observation:synthetic-envelope-001",
+  "trace_id": "trace:synthetic-envelope-001",
+  "created_at": "2026-07-11T14:00:00Z",
+  "producer": {
+    "producer_id": "producer:saee-synthetic-generator",
+    "type": "synthetic_generator",
+    "version": "synthetic-generator:v0.1",
+    "adapter_implemented": false
+  },
+  "source": {
+    "source_type": "synthetic_environment",
+    "runtime_ref": "runtime:synthetic-none",
+    "adapter_ref": "adapter:synthetic-declaration-only",
+    "receive_only": true,
+    "external_execution_by_saee": false,
+    "raw_content_included": false
+  },
+  "authorization": {
+    "status": "synthetic_declared_only",
+    "authorization_ref": "authorization:synthetic-envelope-001",
+    "scope": "local synthetic observation contract validation only",
+    "independently_verified": false,
+    "authorization_inferred_from_trace": false
+  },
+  "sanitization": {
+    "status": "synthetic_no_raw_content",
+    "method": "synthetic_generation",
+    "raw_content_excluded": true,
+    "independently_verified": false
+  },
+  "events": [
+    {
+      "event_id": "event:synthetic-state-001",
+      "sequence": 0,
+      "timestamp": "2026-07-11T14:00:01Z",
+      "event_type": "state_transition",
+      "summary": "Synthetic state transitioned from ready to response-generated without external execution.",
+      "digest_algorithm": "sha256",
+      "summary_digest": "89964b59c4935d7a9177689cfa204d8bc8b022e1cf05cd9982334c7b039eca8d",
+      "payload_included": false,
+      "observation_is_evidence": false,
+      "authorization_inferred": false,
+      "deployment_decision_inferred": false
+    }
+  ],
+  "privacy": {
+    "retention_ref": "retention:synthetic-local-ephemeral",
+    "deletion_ref": "deletion:synthetic-local-ephemeral",
+    "personal_data_included": false,
+    "retention_verified": false,
+    "deletion_verified": false
+  },
+  "truth_boundary": {
+    "observation_only": true,
+    "evidence_established": false,
+    "trace_authenticity_verified": false,
+    "authorization_proven": false,
+    "deployment_authorized": false,
+    "automatic_decision": false,
+    "real_agent_executed_by_saee": false,
+    "network_accessed": false,
+    "production_ready": false
+  }
+}
+

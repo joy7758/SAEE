@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 客户验证行动板</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f7f4; color: #171717; }
+    main { max-width: 920px; margin: 0 auto; padding: 40px 20px; }
+    h1 { font-size: 34px; margin: 0 0 10px; }
+    .status { color: #555; line-height: 1.7; }
+    .card { background: #fff; border: 1px solid #e4e0d8; border-radius: 8px; padding: 18px; margin: 14px 0; }
+    .step { font-weight: 700; color: #0f5b4f; }
+    code { background: #f0eee8; padding: 2px 5px; border-radius: 4px; }
+    .warn { border-left: 4px solid #b45309; padding-left: 12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SAEE 客户验证行动板</h1>
+    <p class="status">当前唯一收口目标：<code>customer_validated</code>。这不是自动验证，也不是发布。下面每一步都需要人工执行。</p>
+    <section class="card warn"><p>推荐路径已锁定：只使用 <code>external_customer_validation_minimum_session_packet/minimum_session_form.html</code>。其他访谈脚本和旧工作台只作为参考。</p></section>
+    <section class="card"><div class="step">ECV-001</div><p>先筛选一个真实外部目标用户。</p><code>PARTICIPANT_SCREENING_CHECKLIST.md</code></section>
+    <section class="card"><div class="step">ECV-002</div><p>人工发送邀请草稿。</p><code>INVITATION_MESSAGE_DRAFT.md</code></section>
+    <section class="card"><div class="step">ECV-003</div><p>会前确认同意和边界说明。</p><code>CONSENT_AND_BOUNDARY_SCRIPT.md</code></section>
+    <section class="card"><div class="step">ECV-004</div><p>只使用 12 个最小会话问题记录反馈。</p><code>MINIMUM_SESSION_QUESTIONS.md</code></section>
+    <section class="card"><div class="step">ECV-005</div><p>用最小会话表单生成并保存 JSON。</p><code>minimum_session_form.html</code></section>
+    <section class="card"><div class="step">ECV-006</div><p>只有人工结果文件存在后，才运行导入和 validator。</p><code>saee_external_customer_validation_session_entry_importer.py --apply</code></section>
+    <section class="card warn"><p>边界：Codex 不联系客户、不运行访谈、不推断反馈、不关闭 blocker、不声明生产可用。</p></section>
+  </main>
+</body>
+</html>

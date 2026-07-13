@@ -1,0 +1,10 @@
+{
+  "scenario_id": "SIMPLE_QUERY_TASK",
+  "task_type": "SIMPLE_INFORMATION_QUERY",
+  "task_description": "Answer a low-impact factual lookup with no execution effect.",
+  "expected_selection": "NONE",
+  "expected_outcome": "ABSTAINED",
+  "invocation_allowed": false,
+  "input_ref": null,
+  "simulation_only": true
+}

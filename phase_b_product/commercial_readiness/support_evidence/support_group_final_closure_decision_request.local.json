@@ -1,0 +1,100 @@
+{
+  "allowed_final_decisions": [
+    "approve_for_separate_matrix_update_request",
+    "hold",
+    "reject"
+  ],
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blocker_closure_authorized": false,
+  "blockers_closed_by_request": 0,
+  "canonical_closure_board_modified": false,
+  "canonical_gap_matrix_modified": false,
+  "combined_support_boundary_flags": {
+    "codex_published_support_contact": false,
+    "codex_sent_support_contact_test": false,
+    "on_call_rotation_started_by_codex": false,
+    "sla_published_by_codex": false
+  },
+  "customer_contacted": false,
+  "customer_validated": false,
+  "decision_row_count": 4,
+  "decision_rows": [
+    {
+      "blocker_id": "support_contact",
+      "closure_authorized_by_this_request": false,
+      "evidence_complete": true,
+      "matrix_update_authorized_by_this_request": false,
+      "recommended_final_decision": "approve_for_separate_matrix_update_request",
+      "recommended_reason": "local support evidence complete; still requires separate matrix update request",
+      "source_group": "support_contact"
+    },
+    {
+      "blocker_id": "customer_support",
+      "closure_authorized_by_this_request": false,
+      "evidence_complete": true,
+      "matrix_update_authorized_by_this_request": false,
+      "recommended_final_decision": "approve_for_separate_matrix_update_request",
+      "recommended_reason": "local support evidence complete; still requires separate matrix update request",
+      "source_group": "customer_support"
+    },
+    {
+      "blocker_id": "sla",
+      "closure_authorized_by_this_request": false,
+      "evidence_complete": true,
+      "matrix_update_authorized_by_this_request": false,
+      "recommended_final_decision": "approve_for_separate_matrix_update_request",
+      "recommended_reason": "local support evidence complete; still requires separate matrix update request",
+      "source_group": "sla"
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "closure_authorized_by_this_request": false,
+      "evidence_complete": true,
+      "matrix_update_authorized_by_this_request": false,
+      "recommended_final_decision": "approve_for_separate_matrix_update_request",
+      "recommended_reason": "local support evidence complete; still requires separate matrix update request",
+      "source_group": "on_call"
+    }
+  ],
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "final_human_decision_recorded": false,
+  "generated_at": "2026-07-13T14:01:43.619613+00:00",
+  "kernel_modified": false,
+  "next_human_action": "fill support_group_final_closure_decision_template.json if the team wants to approve, hold, or reject promotion into a separate matrix update request",
+  "on_call_rotation_started_by_codex": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "production_support_available": true,
+  "public_sdk_released": false,
+  "recommended_approve_for_separate_matrix_update_count": 4,
+  "recommended_human_decision": "approve_for_separate_matrix_update_request",
+  "request_type": "human_final_closure_decision_request_no_execution",
+  "runtime_modified": false,
+  "sla_published_by_codex": false,
+  "source_combined_support_evidence": "phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.combined_from_all_support_human_filled.local.json",
+  "source_packet_status": "ready_for_human_final_closure_review_no_auto_closure",
+  "source_refresh_status": "support_group_human_filled_evidence_complete_for_review_only",
+  "source_support_group_closure_review_packet": "phase_b_product/commercial_readiness/support_evidence/support_group_closure_review_packet.local.json",
+  "source_support_group_refresh": "phase_b_product/commercial_readiness/support_evidence/support_group_human_filled_evidence_refresh.local.json",
+  "status": "ready_for_human_final_closure_decision_input",
+  "support_contact_published_by_codex": false,
+  "support_contact_test_sent_by_codex": false,
+  "support_group_closure_candidate_count": 4,
+  "support_group_evidence_complete": true,
+  "support_group_final_closure_decision_request_v0_1": true,
+  "support_vendor_contacted": false,
+  "target_blocker_group": "support",
+  "target_blockers": [
+    "support_contact",
+    "customer_support",
+    "sla",
+    "on_call_rotation"
+  ],
+  "template_path": "phase_b_product/commercial_readiness/support_evidence/support_group_final_closure_decision_template.json"
+}

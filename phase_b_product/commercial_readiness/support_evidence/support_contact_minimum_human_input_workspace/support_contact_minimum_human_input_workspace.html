@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE support_contact 最小人工输入工作台</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f7f2;
+        --card: #ffffff;
+        --ink: #111111;
+        --text: #343430;
+        --muted: #63635f;
+        --line: #e2e1da;
+        --accent: #10a37f;
+        --soft: #e8f6f1;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      main { width: min(1160px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+      h1 { margin: 0; color: var(--ink); font-size: clamp(34px, 5vw, 58px); line-height: 1.08; letter-spacing: 0; }
+      h2 { margin: 0 0 14px; color: var(--ink); }
+      p { margin: 16px 0 0; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+      .card, table { border: 1px solid var(--line); border-radius: 10px; background: var(--card); box-shadow: 0 18px 48px rgba(17, 17, 17, 0.06); }
+      .card { padding: 22px; }
+      .status { display: inline-flex; margin-top: 22px; padding: 8px 12px; border-radius: 999px; color: #0e7f67; background: var(--soft); font-weight: 800; }
+      code { padding: 2px 6px; border-radius: 6px; background: #f0f0eb; color: var(--ink); word-break: break-word; }
+      table { width: 100%; margin-top: 28px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+      th, td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { color: var(--ink); background: #f0f0eb; }
+      tr:last-child td { border-bottom: 0; }
+      .commands { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+      .boundary { margin-top: 24px; background: #111111; color: #f7f7f2; }
+      .boundary h2 { color: #ffffff; }
+      .boundary code { background: rgba(255,255,255,0.1); color: #ffffff; }
+      @media (max-width: 840px) { .hero, .commands { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>只看 support_contact 最少要人填什么。</h1>
+          <p>这个页面不保存输入，也不提交表单。它只是把第一优先商用 blocker 的最小人工字段列清楚。</p>
+          <span class="status">状态：hold_minimum_human_input_required</span>
+        </div>
+        <aside class="card">
+          <h2>当前边界</h2>
+          <p><code>support_contact_published: false</code></p>
+          <p><code>values_saved_by_workspace: false</code></p>
+          <p><code>production_ready: false</code></p>
+          <p><code>blocker_closure_authorized: false</code></p>
+        </aside>
+      </section>
+
+      <table>
+        <thead><tr><th>字段</th><th>分组</th><th>填到哪里</th><th>说明</th></tr></thead>
+        <tbody><tr><td><code>first_owner_input.assigned_human_owner</code></td><td>first_owner</td><td>support_contact_human_input_bridge_input.human_filled.local.json</td><td>填写负责推进 support_contact 的人名或内部角色。</td></tr>
+<tr><td><code>first_owner_input.owner_contact_reference</code></td><td>first_owner</td><td>support_contact_human_input_bridge_input.human_filled.local.json</td><td>填写内部可追溯的负责人联系方式或工单引用，不要写敏感凭据。</td></tr>
+<tr><td><code>first_owner_input.target_review_date</code></td><td>first_owner</td><td>support_contact_human_input_bridge_input.human_filled.local.json</td><td>填写目标审查日期。</td></tr>
+<tr><td><code>first_owner_input.human_approval_reference</code></td><td>first_owner</td><td>support_contact_human_input_bridge_input.human_filled.local.json</td><td>填写人工批准来源，例如本地会议纪要或内部审批编号。</td></tr>
+<tr><td><code>first_owner_input.owner_acknowledged_scope</code></td><td>first_owner</td><td>support_contact_human_input_bridge_input.human_filled.local.json</td><td>负责人确认只推进支持入口证据，不发布产品、不联系客户。</td></tr>
+<tr><td><code>support_contact_decision_input.human_reviewer_name</code></td><td>decision_metadata</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写实际审查人。</td></tr>
+<tr><td><code>support_contact_decision_input.review_date</code></td><td>decision_metadata</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写审查日期。</td></tr>
+<tr><td><code>support_contact_decision_input.selected_support_contact_channel</code></td><td>decision_metadata</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写被人工选定的支持渠道类型或内部引用。</td></tr>
+<tr><td><code>support_contact_decision_input.decision_summary</code></td><td>decision_metadata</td><td>support_contact_decision_input.human_filled.local.json</td><td>用一句话说明为什么该支持入口可进入下一步本地验证。</td></tr>
+<tr><td><code>support_contact_decision_input.evidence_review.customer_facing_support_contact_configured</code></td><td>evidence_review</td><td>support_contact_decision_input.human_filled.local.json</td><td>只有人工确认真实证据存在时才设为 true。</td></tr>
+<tr><td><code>support_contact_decision_input.source_notes_by_key.customer_facing_support_contact_configured</code></td><td>source_notes</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写人工可追溯来源说明；不要写密钥、密码或私人凭据。</td></tr>
+<tr><td><code>support_contact_decision_input.evidence_review.support_contact_owner_named</code></td><td>evidence_review</td><td>support_contact_decision_input.human_filled.local.json</td><td>只有人工确认真实证据存在时才设为 true。</td></tr>
+<tr><td><code>support_contact_decision_input.source_notes_by_key.support_contact_owner_named</code></td><td>source_notes</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写人工可追溯来源说明；不要写密钥、密码或私人凭据。</td></tr>
+<tr><td><code>support_contact_decision_input.evidence_review.abuse_handling_path_defined</code></td><td>evidence_review</td><td>support_contact_decision_input.human_filled.local.json</td><td>只有人工确认真实证据存在时才设为 true。</td></tr>
+<tr><td><code>support_contact_decision_input.source_notes_by_key.abuse_handling_path_defined</code></td><td>source_notes</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写人工可追溯来源说明；不要写密钥、密码或私人凭据。</td></tr>
+<tr><td><code>support_contact_decision_input.evidence_review.customer_notice_route_defined</code></td><td>evidence_review</td><td>support_contact_decision_input.human_filled.local.json</td><td>只有人工确认真实证据存在时才设为 true。</td></tr>
+<tr><td><code>support_contact_decision_input.source_notes_by_key.customer_notice_route_defined</code></td><td>source_notes</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写人工可追溯来源说明；不要写密钥、密码或私人凭据。</td></tr>
+<tr><td><code>support_contact_decision_input.evidence_review.support_contact_test_recorded</code></td><td>evidence_review</td><td>support_contact_decision_input.human_filled.local.json</td><td>只有人工确认真实证据存在时才设为 true。</td></tr>
+<tr><td><code>support_contact_decision_input.source_notes_by_key.support_contact_test_recorded</code></td><td>source_notes</td><td>support_contact_decision_input.human_filled.local.json</td><td>填写人工可追溯来源说明；不要写密钥、密码或私人凭据。</td></tr>
+<tr><td><code>support_contact_decision_input.candidate_contact_slots[minimum_one_complete]</code></td><td>candidate_contact_slot</td><td>support_contact_decision_input.human_filled.local.json</td><td>至少补全一个候选支持入口槽位；只记录人工批准的公开/可公开信息。</td></tr></tbody>
+      </table>
+
+      <section class="commands">
+        <article class="card">
+          <h2>先复制模板</h2>
+          <p><code>cp phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.human_filled.local.json<br>cp phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.template.json phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.human_filled.local.json</code></p>
+        </article>
+        <article class="card">
+          <h2>人工填完后再跑</h2>
+          <p><code>python3 scripts/saee_support_contact_human_input_bridge_completion_helper.py --combined-input phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.human_filled.local.json<br>python3 scripts/saee_commercial_evidence_sprint_first_owner_input_validator.py --input phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input.human_filled.local.json<br>python3 scripts/saee_support_contact_approval_input_validator.py --input phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.human_filled.local.json<br>python3 scripts/saee_support_contact_readiness_board.py</code></p>
+        </article>
+      </section>
+
+      <section class="card boundary">
+        <h2>禁止越界</h2>
+        <p>本工作台不发布支持入口、不联系客户、不运行证据 builder、不导入工作簿、不关闭 blocker、不声明生产可用。</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "release_version": "0.1",
+  "release_type": "agent_discovery_layer",
+  "validation_timestamp": "2026-07-11T12:51:11Z",
+  "research_prototype": true,
+  "production_service": false,
+  "commercial_service": false,
+  "customer_data": false,
+  "external_validation": false,
+  "certification_claim": false,
+  "included_files": [
+    ".well-known/agent-index.json",
+    "PUBLIC_RELEASE_MANIFEST.json",
+    "PUBLIC_RELEASE_SCAN_REPORT.md",
+    "README.md",
+    "capabilities/saee-capability-manifest.v0.1.json",
+    "docs/architecture-overview.md",
+    "docs/evidence-adequacy.md",
+    "docs/limitations.md",
+    "docs/overview.md",
+    "docs/reproducibility-overview.md",
+    "examples/synthetic-review-example.json",
+    "index.html",
+    "llms.txt",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "excluded_categories": [
+    "non_public_strategy_material",
+    "business_preparation_material",
+    "participant_feedback_material",
+    "experiment_preparation_material",
+    "non_public_evaluation_material",
+    "source_repository_metadata",
+    "credential_material",
+    "development_artifacts"
+  ],
+  "deployment": {
+    "canonical_url": "https://redcrag.cn/",
+    "public_path": "/",
+    "legacy_compatibility_path": "/saee/",
+    "static_only": true,
+    "directory_listing": false,
+    "runtime_services": false
+  },
+  "truth_boundary": {
+    "product_release": false,
+    "agent_adoption_established": false,
+    "capability_validation_established": false,
+    "production_ready": false
+  }
+}

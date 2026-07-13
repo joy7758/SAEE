@@ -1,0 +1,46 @@
+{
+  "result_version": "1.0",
+  "result_id": "saee.demo.coding-agent-preflight",
+  "result_kind": "SYNTHETIC_EXAMPLE_NOT_EXECUTION_RECORD",
+  "scenario_ref": "examples/ecosystem-demo-v1/scenario/coding-agent-preflight.json",
+  "first_validation_candidate_reference": "agent-interface/ecosystem/saee-first-validation-candidate-matrix.v0.1.json",
+  "recommendation": "REPLAN",
+  "findings": [
+    "missing_test_evidence",
+    "insufficient_recovery_plan"
+  ],
+  "capability_results": [
+    {
+      "operation": "evaluate_agent_run",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "meaning": "补齐测试和恢复证据后重新演练"
+    },
+    {
+      "operation": "evaluate_evidence",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "meaning": "当前证据不足以支持定义的责任声明"
+    }
+  ],
+  "next_agent_actions": [
+    "补充测试执行证据",
+    "定义失败恢复和回滚计划",
+    "重新运行本地受控演练"
+  ],
+  "limitations": [
+    "not_authorization",
+    "not_certification",
+    "not_security_guarantee",
+    "not_deployment_approval",
+    "not_external_compatibility_evidence"
+  ],
+  "truth_boundary": {
+    "ecosystem_demo": true,
+    "local_demo_only": true,
+    "synthetic_example": true,
+    "external_agent": false,
+    "external_execution": false,
+    "customer_validated": false,
+    "marketplace_listed": false,
+    "production_ready": false
+  }
+}

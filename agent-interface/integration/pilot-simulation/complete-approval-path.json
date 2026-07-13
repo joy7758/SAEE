@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1",
+  "simulation_id": "simulation:pilot:complete-approval-path",
+  "scenario_type": "COMPLETE_APPROVAL_PATH",
+  "synthetic": true,
+  "initial_state": "DESIGN_ONLY",
+  "gate_states": {
+    "TECHNICAL_READINESS": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:technical", "approval_reference": "synthetic:approval:technical"},
+    "SECURITY_REVIEW": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:security", "approval_reference": "synthetic:approval:security"},
+    "DATA_APPROVAL": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:data", "approval_reference": "synthetic:approval:data"},
+    "HUMAN_RESPONSIBILITY_ASSIGNMENT": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:human", "approval_reference": "synthetic:approval:human"},
+    "EXECUTION_AUTHORIZATION": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:execution", "approval_reference": "synthetic:approval:execution"}
+  },
+  "requested_transitions": ["TECHNICAL_READY", "SECURITY_READY", "DATA_READY", "HUMAN_OWNER_ASSIGNED", "EXECUTION_AUTHORIZED", "PILOT_ACTIVE"],
+  "boundary_events": {"customer_data_without_approval": false, "secret_exposure": false, "unauthorized_action": false},
+  "termination_request": false,
+  "closure_actions": {"revoke_access": false, "delete_simulated_data": false, "retain_artifacts": false},
+  "expected_result": {"simulation_result": "PASS", "current_state": "PILOT_ACTIVE", "stop_reason": "NONE", "cleanup_result": "NOT_REQUIRED"}
+}

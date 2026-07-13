@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-mcp-local-response.schema.v0.1.json",
+  "title": "SAEE Local MCP Response v0.1",
+  "description": "Bounded local MCP projection of the canonical SAEE Evidence Adequacy Tool result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool_result",
+    "claim_assessment",
+    "evidence_sufficiency_status",
+    "missing_requirements",
+    "reason_codes",
+    "limitations",
+    "boundary_statement"
+  ],
+  "properties": {
+    "tool_result": {"enum": ["SUCCESS", "REJECTED_INPUT"]},
+    "claim_assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "UNKNOWN"]},
+    "evidence_sufficiency_status": {"enum": ["SUFFICIENT", "INSUFFICIENT", "UNKNOWN"]},
+    "missing_requirements": {
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 256}
+    },
+    "reason_codes": {
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^(?:MCP|TOOL|EVIDENCE)_[A-Z0-9_]+$", "maxLength": 96}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 512}
+    },
+    "boundary_statement": {
+      "const": "SAEE tool capability evaluates evidence adequacy. It does not authorize actions, approve deployment, certify safety or compliance, or establish a legal conclusion."
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"tool_result": {"const": "SUCCESS"}}},
+      "then": {
+        "properties": {
+          "claim_assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE"]},
+          "evidence_sufficiency_status": {"enum": ["SUFFICIENT", "INSUFFICIENT"]}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"tool_result": {"const": "REJECTED_INPUT"}}},
+      "then": {
+        "properties": {
+          "claim_assessment": {"const": "UNKNOWN"},
+          "evidence_sufficiency_status": {"const": "UNKNOWN"},
+          "reason_codes": {"minItems": 1}
+        }
+      }
+    }
+  ]
+}

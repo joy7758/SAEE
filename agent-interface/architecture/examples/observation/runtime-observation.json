@@ -1,0 +1,68 @@
+{
+  "saee_observation_envelope_v0_1": true,
+  "schema_version": "0.1.0",
+  "observation_id": "observation:runtime-envelope-001",
+  "trace_id": "trace:runtime-envelope-001",
+  "created_at": "2026-07-11T14:10:00Z",
+  "producer": {
+    "producer_id": "producer:synthetic-runtime-declaration",
+    "type": "runtime_adapter_declaration",
+    "version": "runtime-declaration:v0.1",
+    "adapter_implemented": false
+  },
+  "source": {
+    "source_type": "runtime_observation",
+    "runtime_ref": "runtime:synthetic-agent-runtime-001",
+    "adapter_ref": "adapter:runtime-future-receive-only",
+    "receive_only": true,
+    "external_execution_by_saee": false,
+    "raw_content_included": false
+  },
+  "authorization": {
+    "status": "synthetic_declared_only",
+    "authorization_ref": "authorization:runtime-envelope-001",
+    "scope": "local synthetic runtime metadata review only",
+    "independently_verified": false,
+    "authorization_inferred_from_trace": false
+  },
+  "sanitization": {
+    "status": "synthetic_no_raw_content",
+    "method": "synthetic_generation",
+    "raw_content_excluded": true,
+    "independently_verified": false
+  },
+  "events": [
+    {
+      "event_id": "event:runtime-state-001",
+      "sequence": 0,
+      "timestamp": "2026-07-11T14:10:01Z",
+      "event_type": "runtime_state",
+      "summary": "Synthetic runtime declaration recorded one bounded agent-output state.",
+      "digest_algorithm": "sha256",
+      "summary_digest": "7974cebca3f43c92d640b132d58e553ba3f92ae364d4af9d14d70ed4fd3764d6",
+      "payload_included": false,
+      "observation_is_evidence": false,
+      "authorization_inferred": false,
+      "deployment_decision_inferred": false
+    }
+  ],
+  "privacy": {
+    "retention_ref": "retention:synthetic-runtime-local",
+    "deletion_ref": "deletion:synthetic-runtime-local",
+    "personal_data_included": false,
+    "retention_verified": false,
+    "deletion_verified": false
+  },
+  "truth_boundary": {
+    "observation_only": true,
+    "evidence_established": false,
+    "trace_authenticity_verified": false,
+    "authorization_proven": false,
+    "deployment_authorized": false,
+    "automatic_decision": false,
+    "real_agent_executed_by_saee": false,
+    "network_accessed": false,
+    "production_ready": false
+  }
+}
+

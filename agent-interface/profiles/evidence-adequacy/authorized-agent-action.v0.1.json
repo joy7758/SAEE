@@ -1,0 +1,71 @@
+{
+  "saee_evidence_adequacy_profile_v0_1": true,
+  "profile_version": "0.1.0",
+  "profile_id": "saee-adequacy-authorized-agent-action-v0.1",
+  "claim_type": "AUTHORIZED_AGENT_ACTION",
+  "claim_description": "The synthetic action record is consistently bound to an allow decision whose agent, action, scope, and validity window cover the action.",
+  "required_evidence_fields": [
+    "/action/action_id",
+    "/action/agent_id",
+    "/action/requested_scope",
+    "/action/timestamp",
+    "/policy_decision/decision_id",
+    "/policy_decision/decision",
+    "/policy_decision/agent_id",
+    "/policy_decision/action_id",
+    "/policy_decision/authority_scope",
+    "/policy_decision/valid_from",
+    "/policy_decision/valid_until"
+  ],
+  "required_relationships": [
+    {
+      "relationship_id": "agent_reference_matches",
+      "relationship_type": "reference_equals",
+      "source_path": "/action/agent_id",
+      "target_path": "/policy_decision/agent_id",
+      "reason_code": "EVIDENCE_AGENT_BINDING_MISMATCH"
+    },
+    {
+      "relationship_id": "action_reference_matches",
+      "relationship_type": "reference_equals",
+      "source_path": "/action/action_id",
+      "target_path": "/policy_decision/action_id",
+      "reason_code": "EVIDENCE_ACTION_BINDING_MISMATCH"
+    },
+    {
+      "relationship_id": "authority_window_covers_action",
+      "relationship_type": "timestamp_within_authority_window",
+      "source_path": "/action/timestamp",
+      "target_path": "/policy_decision",
+      "reason_code": "EVIDENCE_AUTHORITY_WINDOW_INVALID"
+    },
+    {
+      "relationship_id": "authority_scope_covers_action",
+      "relationship_type": "scope_covers",
+      "source_path": "/action/requested_scope",
+      "target_path": "/policy_decision/authority_scope",
+      "reason_code": "EVIDENCE_AUTHORITY_SCOPE_INSUFFICIENT"
+    }
+  ],
+  "optional_evidence_fields": [],
+  "failure_reason_codes": [
+    "EVIDENCE_ACTION_ID_MISSING",
+    "EVIDENCE_AGENT_ID_MISSING",
+    "EVIDENCE_ACTION_SCOPE_MISSING",
+    "EVIDENCE_ACTION_TIMESTAMP_MISSING",
+    "EVIDENCE_POLICY_DECISION_MISSING",
+    "EVIDENCE_REQUIRED_FIELD_MISSING",
+    "EVIDENCE_AGENT_BINDING_MISMATCH",
+    "EVIDENCE_ACTION_BINDING_MISMATCH",
+    "EVIDENCE_AUTHORITY_WINDOW_INVALID",
+    "EVIDENCE_AUTHORITY_SCOPE_INSUFFICIENT",
+    "EVIDENCE_POLICY_DECISION_NOT_ALLOW"
+  ],
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  }
+}

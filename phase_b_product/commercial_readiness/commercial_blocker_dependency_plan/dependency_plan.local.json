@@ -1,0 +1,742 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers": [
+    {
+      "blocker_id": "production_identity_provider",
+      "can_start_without_external_dependency": false,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Production identity-provider configuration, security review, and operator runbook.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "oauth_oidc",
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "can_start_without_external_dependency": false,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_identity_provider"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "OIDC issuer, client, callback, token validation, and logout behavior evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "rbac",
+      "can_start_without_external_dependency": true,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_identity_provider",
+        "oauth_oidc"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Role model, permission matrix, enforcement tests, and admin recovery process.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_storage_isolation"
+      ]
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "can_start_without_external_dependency": true,
+      "category": "tenant",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "rbac"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/tenant_storage_isolation_evidence/tenant_storage_isolation_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_data_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Tenant-isolated storage design, migration proof, and cross-tenant isolation tests.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_billing_isolation"
+      ]
+    },
+    {
+      "blocker_id": "production_monitoring",
+      "can_start_without_external_dependency": false,
+      "category": "operations",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.combined_profile.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "required_evidence": "Production metrics, dashboard, retention, alert review, and incident linkage evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "external_alert_delivery",
+        "on_call_rotation",
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "external_alert_delivery",
+      "can_start_without_external_dependency": false,
+      "category": "operations",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_monitoring"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.combined_profile.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "required_evidence": "External alert destination, escalation route, delivery test, and failure handling evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "on_call_rotation"
+      ]
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "can_start_without_external_dependency": false,
+      "category": "operations",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_monitoring",
+        "external_alert_delivery"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.combined_profile.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "operations_engineering",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "required_evidence": "Named on-call process, escalation schedule, handoff rules, and coverage evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "sla",
+      "can_start_without_external_dependency": false,
+      "category": "support",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "support_contact",
+        "customer_support"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/support_evidence/support_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Human-approved SLA terms, exclusions, support hours, and response target approval.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "support_contact",
+      "can_start_without_external_dependency": false,
+      "category": "support",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/support_evidence/support_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Customer-facing support intake contact, ownership, response procedure, and abuse handling.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "customer_support",
+        "pilot_results",
+        "sla"
+      ]
+    },
+    {
+      "blocker_id": "customer_support",
+      "can_start_without_external_dependency": false,
+      "category": "support",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "support_contact"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/support_evidence/support_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "support_operations",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Staffed support process, triage workflow, customer communication template, and audit trail.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "sla"
+      ]
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "can_start_without_external_dependency": false,
+      "category": "privacy_security",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_security_legal_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Completed security review report covering public shell, deployment, data, and access control.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "vulnerability_management"
+      ]
+    },
+    {
+      "blocker_id": "privacy_legal_review",
+      "can_start_without_external_dependency": false,
+      "category": "privacy_security",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_security_legal_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Completed legal privacy review for collected data, processors, notices, and retention.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "data_processing_agreement",
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "data_processing_agreement",
+      "can_start_without_external_dependency": false,
+      "category": "privacy_security",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "privacy_legal_review"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_security_legal_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Approved DPA or equivalent customer data-processing agreement ready for use.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "pilot_results"
+      ]
+    },
+    {
+      "blocker_id": "vulnerability_management",
+      "can_start_without_external_dependency": false,
+      "category": "privacy_security",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "formal_security_review"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_security_legal_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "security_legal_privacy",
+      "phase_id": "phase_3_support_security_legal",
+      "required_evidence": "Vulnerability disclosure policy, triage process, remediation targets, and security contact.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "pilot_results",
+      "can_start_without_external_dependency": false,
+      "category": "validation",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "support_contact",
+        "privacy_legal_review",
+        "data_processing_agreement",
+        "production_monitoring"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "customer_validation",
+      "phase_id": "phase_5_customer_validation_and_launch_review",
+      "required_evidence": "Recorded pilot sessions, user feedback, failure notes, and permission to use evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "customer_validated"
+      ]
+    },
+    {
+      "blocker_id": "customer_validated",
+      "can_start_without_external_dependency": false,
+      "category": "validation",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "pilot_results"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "customer_validation",
+      "phase_id": "phase_5_customer_validation_and_launch_review",
+      "required_evidence": "Real customer validation evidence reviewed and approved for use in product claims.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "pricing_page",
+      "can_start_without_external_dependency": false,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Human-approved public pricing or packaging page with current commercial terms.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "invoice_process",
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "payment_provider",
+      "can_start_without_external_dependency": false,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "pricing_page",
+        "tax_review",
+        "refund_policy"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Configured payment provider in the intended environment with checkout disabled until approval.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_billing_isolation"
+      ]
+    },
+    {
+      "blocker_id": "invoice_process",
+      "can_start_without_external_dependency": false,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "pricing_page",
+        "tax_review"
+      ],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Invoice workflow, contract handoff, bookkeeping process, and payment reconciliation evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "tax_review",
+      "can_start_without_external_dependency": false,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Tax review for target jurisdictions, invoice wording, and payment collection process.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "invoice_process",
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "refund_policy",
+      "can_start_without_external_dependency": false,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": false,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Human-approved refund/cancellation policy connected to payment and support processes.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "payment_provider"
+      ]
+    },
+    {
+      "blocker_id": "tenant_billing_isolation",
+      "can_start_without_external_dependency": true,
+      "category": "billing",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "tenant_storage_isolation",
+        "payment_provider"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "commercial_finance_legal",
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "required_evidence": "Tenant-aware billing records, invoice partitioning, and payment-event isolation evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "restore_tested",
+      "can_start_without_external_dependency": true,
+      "category": "data_ops",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_restore_policy"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.combined_profile.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "data_operations",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "required_evidence": "Successful restore test with manifest, scope, non-live path proof, and operator review.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": []
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "can_start_without_external_dependency": true,
+      "category": "data_ops",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.combined_profile.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "data_operations",
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "required_evidence": "Approved production restore policy with RPO/RTO targets and drill cadence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "restore_tested"
+      ]
+    }
+  ],
+  "blockers_closed_by_plan": 0,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-10",
+  "generated_by": "scripts/saee_commercial_blocker_dependency_plan.py",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "next_action": "Human reviewers should choose one phase, then open a separate evidence task for one blocker; this plan itself authorizes no execution or launch.",
+  "open_blocker_count": 24,
+  "phase_count": 5,
+  "phases": [
+    {
+      "blocker_count": 4,
+      "blocker_ids": [
+        "production_identity_provider",
+        "oauth_oidc",
+        "rbac",
+        "tenant_storage_isolation"
+      ],
+      "closure_allowed_by_phase": false,
+      "default_decision": "hold",
+      "depends_on": [],
+      "execution_allowed_by_phase": false,
+      "exit_evidence": [
+        "production identity-provider approval",
+        "OIDC validation evidence",
+        "RBAC enforcement tests",
+        "tenant storage isolation tests"
+      ],
+      "objective": "Establish production identity, authorization, and tenant isolation evidence before multi-tenant or paid use.",
+      "open_blocker_count": 4,
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "requires_human_approval": true,
+      "title": "Identity, authorization, and tenant boundary"
+    },
+    {
+      "blocker_count": 5,
+      "blocker_ids": [
+        "production_restore_policy",
+        "restore_tested",
+        "production_monitoring",
+        "external_alert_delivery",
+        "on_call_rotation"
+      ],
+      "closure_allowed_by_phase": false,
+      "default_decision": "hold",
+      "depends_on": [
+        "phase_1_identity_and_tenant_boundary"
+      ],
+      "execution_allowed_by_phase": false,
+      "exit_evidence": [
+        "approved production restore policy",
+        "restore drill report",
+        "production monitoring dashboard evidence",
+        "external alert delivery test",
+        "on-call rotation approval"
+      ],
+      "objective": "Establish recoverability, monitoring, alert delivery, and operational ownership evidence.",
+      "open_blocker_count": 5,
+      "phase_id": "phase_2_data_and_operations_resilience",
+      "requires_human_approval": true,
+      "title": "Data recovery and production operations"
+    },
+    {
+      "blocker_count": 7,
+      "blocker_ids": [
+        "support_contact",
+        "customer_support",
+        "sla",
+        "formal_security_review",
+        "privacy_legal_review",
+        "data_processing_agreement",
+        "vulnerability_management"
+      ],
+      "closure_allowed_by_phase": false,
+      "default_decision": "hold",
+      "depends_on": [
+        "phase_1_identity_and_tenant_boundary",
+        "phase_2_data_and_operations_resilience"
+      ],
+      "execution_allowed_by_phase": false,
+      "exit_evidence": [
+        "customer-facing support intake approval",
+        "staffed support process",
+        "approved SLA",
+        "formal security review",
+        "privacy legal approval",
+        "approved DPA",
+        "vulnerability management policy"
+      ],
+      "objective": "Establish customer-facing support, security review, privacy/legal review, and data-processing evidence.",
+      "open_blocker_count": 7,
+      "phase_id": "phase_3_support_security_legal",
+      "requires_human_approval": true,
+      "title": "Support, security, privacy, and legal readiness"
+    },
+    {
+      "blocker_count": 6,
+      "blocker_ids": [
+        "pricing_page",
+        "payment_provider",
+        "invoice_process",
+        "tax_review",
+        "refund_policy",
+        "tenant_billing_isolation"
+      ],
+      "closure_allowed_by_phase": false,
+      "default_decision": "hold",
+      "depends_on": [
+        "phase_1_identity_and_tenant_boundary",
+        "phase_3_support_security_legal"
+      ],
+      "execution_allowed_by_phase": false,
+      "exit_evidence": [
+        "human-approved pricing or packaging",
+        "payment-provider configuration review",
+        "invoice workflow approval",
+        "tax review",
+        "refund policy",
+        "tenant billing isolation evidence"
+      ],
+      "objective": "Establish pricing, billing, invoice, tax, refund, and tenant-billing evidence without enabling paid use prematurely.",
+      "open_blocker_count": 6,
+      "phase_id": "phase_4_commercial_packaging_and_billing",
+      "requires_human_approval": true,
+      "title": "Commercial packaging and billing controls"
+    },
+    {
+      "blocker_count": 2,
+      "blocker_ids": [
+        "pilot_results",
+        "customer_validated"
+      ],
+      "closure_allowed_by_phase": false,
+      "default_decision": "hold",
+      "depends_on": [
+        "phase_2_data_and_operations_resilience",
+        "phase_3_support_security_legal",
+        "phase_4_commercial_packaging_and_billing"
+      ],
+      "execution_allowed_by_phase": false,
+      "exit_evidence": [
+        "completed pilot result records",
+        "customer value evidence",
+        "claim permission review",
+        "final human launch decision"
+      ],
+      "objective": "Collect human-approved pilot evidence and run final launch review only after operational, legal, and commercial controls exist.",
+      "open_blocker_count": 2,
+      "phase_id": "phase_5_customer_validation_and_launch_review",
+      "requires_human_approval": true,
+      "title": "Customer validation and launch review"
+    }
+  ],
+  "plan_scope": "local_commercial_blocker_dependency_planning",
+  "plan_status": "hold",
+  "plan_type": "saee_commercial_blocker_dependency_plan",
+  "plan_version": "v0.1",
+  "planned_blocker_count": 24,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_blocker_count": 24,
+  "production_launch_status": "hold",
+  "production_ready": false,
+  "public_sdk_released": false,
+  "runtime_modified": false,
+  "source_gap_matrix": "phase_b_product/commercial_readiness/production_blocker_gap_matrix/gap_matrix.local.json",
+  "source_go_no_go": "scripts/saee_commercial_go_no_go.py",
+  "task_candidates_executed": false
+}

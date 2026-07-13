@@ -1,0 +1,71 @@
+{
+  "claim_boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "core_file_hashes_checked": {
+    "./saee_v1_2/parasitic_phase/__init__.py": "935cba4f60a4773011f0a280f3fed8141d8e4b760acac55313552527eb49a3e3",
+    "./saee_v1_2/parasitic_phase/model.py": "584b8b33fbf9278f27d133bf97c38c50f58ad2eef0c676b5d82b4f010080ca79",
+    "./saee_v1_2/parasitic_phase/run_parasitic_phase_experiment.py": "a104662e458e7e2931ba3e5e431cc640ff5f380cd236974e014b54e23776c069",
+    "./saee_v1_2/universality_test/dbi2_model.py": "3d8f080873c9bd7a5ff1769ac2f6fc4a533cdc9c117e25497dec66ea09659470",
+    "./saee_v1_2/universality_test/run_universality_experiment.py": "35a6cd918f61b390f6709a08ea300b0d214b3d894c8a38cc490c1bafbed05594"
+  },
+  "forbidden_core_modified": false,
+  "output_file_hashes": {
+    "./saee_v1_2/universality_test/results/baselines/baseline_comparison.svg": "9bc9e191e39ee1dc2e0af2ebd27f9dbad80cc4b598518d8136aad3e12fa7684b",
+    "./saee_v1_2/universality_test/results/baselines/baseline_heatmaps.svg": "c884b864d843b941c9318156cfc49657f7b171338877b07e10e018d5f653759a",
+    "./saee_v1_2/universality_test/results/baselines/baseline_manifest.json": "b3e6dd55fd87770a274a6bae46a616d304662b8c69243edc1e66bcbe9a10bf23",
+    "./saee_v1_2/universality_test/results/baselines/baseline_similarity_matrix.csv": "03c5caea065c179df895487ed267856af46afc280f2d3118e7ab7b0ba5f4da41",
+    "./saee_v1_2/universality_test/results/baselines/baseline_suite_summary.json": "0e2e0cad607a9068b717fc8811eaa953565765033c4a93dcead5143b1274d144",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_curves.svg": "f409b98e64775ad783345b5d61d56e7cbd171f990aced3ff143626099008f5d4",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_manifest.json": "6418af2558b5a63020daec413112c39bc7a135f74987ab01fff91b60ad2326d7",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_metrics.csv": "cc20fbc93da2e9e7f3f481547400ededea5e3663cdfbde73f5b26c6ab9168558",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_summary.json": "4bfdb3b5fc7b1a1c694eb0fb8d839e0be7db50acc3e3ef17c1dbacf383832acd",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_trace.jsonl": "68cb9b8f5e54d6b12759c0e7e3bc9e21ad13278a8316651bdb62dc110ce75040",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_heatmap.svg": "acadb598fc03f62aa5ca0c89b21ae36c9d6265edeaf16019e5dfaa48e4fb1383",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_manifest.json": "2e252d8930012fc821ee1c6080023429af5e1536eaf0ca9b37281c517161c69f",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_summary.json": "5e5a533e1f2afaae5b44642b9aa679062f8531602cd96b69d804d7a4a3d40e08",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_component_importance.csv": "e83d05eb306fbaf85628e93acf7edf99a698ff57c5c24c2c7335c62fff94c624",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_component_roc.csv": "c204fcd2879970b43619960585fda2c1e1603983c68cb097437919895dfce69e",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/bootstrap_transition_intervals.json": "1053c2fca46dc5c8e4258dd4c6414adfbf0b45eacee514894b3e787d49e0fea7",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surface_rows.csv": "37d2236a357e2c6cc74203a56b1b2e16b59453fab2e7ac7b8b9c918d635e6e8b",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surfaces.svg": "9aa0a7026212ab682d19dfdf4c6c973ed04b91b72d2fe6b1cf2c663f4522085f",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistical_upgrade_summary.json": "8aa4fdf0a1f78571bd484554f483b2e7a3e9fd8bd5c27e301c18507e70db9c3f",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistics_upgrade_manifest.json": "8f4ea3f6d47afbf1268ff792caf6ccb5305d46faa642641e0f4436191b045bf4",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/transition_step_violin.svg": "e05c3fc8ac08407a2cb6396d3a41d0ff47719e89d8474d7f3d94ac9fd375f733"
+  },
+  "output_files": [
+    "./saee_v1_2/universality_test/results/baselines/baseline_comparison.svg",
+    "./saee_v1_2/universality_test/results/baselines/baseline_heatmaps.svg",
+    "./saee_v1_2/universality_test/results/baselines/baseline_manifest.json",
+    "./saee_v1_2/universality_test/results/baselines/baseline_similarity_matrix.csv",
+    "./saee_v1_2/universality_test/results/baselines/baseline_suite_summary.json",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_curves.svg",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_manifest.json",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_metrics.csv",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_summary.json",
+    "./saee_v1_2/universality_test/results/dbi3/dbi3_trace.jsonl",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_heatmap.svg",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_manifest.json",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_ablation_summary.json",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_component_importance.csv",
+    "./saee_v1_2/universality_test/results/phi_ablation/phi_component_roc.csv",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/bootstrap_transition_intervals.json",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surface_rows.csv",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surfaces.svg",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistical_upgrade_summary.json",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistics_upgrade_manifest.json",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/transition_step_violin.svg"
+  ],
+  "purpose": "P1-P4 hostile-reviewer repair outputs with reproducibility hashes.",
+  "schema": "saee.universality_test.reviewer_proofing_manifest.v1",
+  "sub_manifest_count": 4,
+  "sub_manifests": [
+    "saee_v1_2/universality_test/results/dbi3/dbi3_manifest.json",
+    "saee_v1_2/universality_test/results/phi_ablation/phi_ablation_manifest.json",
+    "saee_v1_2/universality_test/results/baselines/baseline_manifest.json",
+    "saee_v1_2/universality_test/results/statistics_upgrade/statistics_upgrade_manifest.json"
+  ]
+}

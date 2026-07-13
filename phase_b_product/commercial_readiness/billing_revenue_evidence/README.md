@@ -1,0 +1,327 @@
+# SAEE Billing / Revenue Evidence
+
+Status: local public-shell billing/revenue review evidence, not production
+billing readiness.
+
+This directory contains generated local evidence files for controlled preview
+billing and revenue materials. It records only what the local runner and
+human-review packet can prove.
+
+It does not publish pricing, send sales offers, configure payment providers,
+enable checkout, create payment links, create or send invoices, contact
+customers, contact payment/tax/legal vendors, collect payment, validate
+revenue, modify runtime behavior, modify backend behavior, modify API schema,
+or expose private core.
+
+Primary files:
+
+```text
+billing_revenue_evidence.local.json
+pricing_page_review_packet.local.json
+pricing_page_review_packet.md
+pricing_page_copy_draft.local.json
+pricing_page_copy_draft.md
+pricing_page_copy_draft_boundary_audit.md
+pricing_page_evidence_input.template.json
+pricing_page_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_pricing_page.local.json
+pricing_page_evidence_builder_report.md
+pricing_page_approval_input_prompt.local.json
+pricing_page_approval_input_prompt.md
+pricing_page_approval_input_prompt.html
+payment_provider_review_packet.local.json
+payment_provider_review_packet.md
+payment_provider_evidence_input.template.json
+payment_provider_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_payment_provider.local.json
+payment_provider_evidence_builder_report.md
+payment_provider_approval_input_prompt.local.json
+payment_provider_approval_input_prompt.md
+payment_provider_approval_input_prompt.html
+payment_provider_approval_input_validation.local.json
+payment_provider_approval_input_validation.md
+invoice_process_review_packet.local.json
+invoice_process_review_packet.md
+invoice_process_evidence_input.template.json
+invoice_process_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_invoice_process.local.json
+invoice_process_evidence_builder_report.md
+invoice_process_approval_input_prompt.local.json
+invoice_process_approval_input_prompt.md
+invoice_process_approval_input_prompt.html
+invoice_process_approval_input_validation.local.json
+invoice_process_approval_input_validation.md
+tax_review_packet.local.json
+tax_review_packet.md
+tax_review_evidence_input.template.json
+tax_review_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_tax_review.local.json
+tax_review_evidence_builder_report.md
+tax_review_approval_input_prompt.local.json
+tax_review_approval_input_prompt.md
+tax_review_approval_input_prompt.html
+tax_review_approval_input_validation.local.json
+tax_review_approval_input_validation.md
+refund_policy_review_packet.local.json
+refund_policy_review_packet.md
+refund_policy_evidence_input.template.json
+refund_policy_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_refund_policy.local.json
+refund_policy_evidence_builder_report.md
+refund_policy_approval_input_prompt.local.json
+refund_policy_approval_input_prompt.md
+refund_policy_approval_input_prompt.html
+refund_policy_approval_input_validation.local.json
+refund_policy_approval_input_validation.md
+tenant_billing_isolation_review_packet.local.json
+tenant_billing_isolation_review_packet.md
+tenant_billing_isolation_evidence_input.template.json
+tenant_billing_isolation_evidence_builder_output.local.json
+production_billing_revenue_evidence.from_tenant_billing_isolation.local.json
+tenant_billing_isolation_evidence_builder_report.md
+tenant_billing_isolation_approval_input_prompt.local.json
+tenant_billing_isolation_approval_input_prompt.md
+tenant_billing_isolation_approval_input_prompt.html
+tenant_billing_isolation_approval_input_validation.local.json
+tenant_billing_isolation_approval_input_validation.md
+billing_revenue_evidence_profile.local.json
+production_billing_revenue_evidence.combined_profile.local.json
+billing_revenue_evidence_profile_report.md
+```
+
+Generate it with:
+
+```bash
+python3 scripts/saee_billing_revenue_evidence_runner.py
+python3 scripts/saee_pricing_page_review_packet.py
+python3 scripts/saee_pricing_page_copy_draft.py
+python3 scripts/saee_pricing_page_evidence_builder.py
+python3 scripts/saee_pricing_page_approval_input_prompt.py
+python3 scripts/saee_payment_provider_review_packet.py
+python3 scripts/saee_payment_provider_evidence_builder.py
+python3 scripts/saee_payment_provider_approval_input_prompt.py
+python3 scripts/saee_payment_provider_approval_input_validator.py
+python3 scripts/saee_invoice_process_review_packet.py
+python3 scripts/saee_invoice_process_evidence_builder.py
+python3 scripts/saee_invoice_process_approval_input_prompt.py
+python3 scripts/saee_invoice_process_approval_input_validator.py
+python3 scripts/saee_tax_review_packet.py
+python3 scripts/saee_tax_review_evidence_builder.py
+python3 scripts/saee_tax_review_approval_input_prompt.py
+python3 scripts/saee_tax_review_approval_input_validator.py
+python3 scripts/saee_refund_policy_review_packet.py
+python3 scripts/saee_refund_policy_evidence_builder.py
+python3 scripts/saee_refund_policy_approval_input_prompt.py
+python3 scripts/saee_refund_policy_approval_input_validator.py
+python3 scripts/saee_tenant_billing_isolation_review_packet.py
+python3 scripts/saee_tenant_billing_isolation_evidence_builder.py
+python3 scripts/saee_tenant_billing_isolation_approval_input_prompt.py
+python3 scripts/saee_tenant_billing_isolation_approval_input_validator.py
+python3 scripts/saee_billing_revenue_evidence_profile.py
+```
+
+Boundary:
+
+```yaml
+evidence_scope: local_public_shell_billing_revenue_review_packet
+pricing_packaging_plan_available: true
+internal_price_bands_available: true
+billing_policy_draft_available: true
+pricing_page_review_packet_ready: true
+pricing_page_copy_draft_available: true
+pricing_page_copy_draft_status: draft_not_approved
+pricing_page_evidence_builder_available: true
+pricing_page_evidence_builder_status: local_builder_available_default_hold
+pricing_page_evidence_complete_for_review: false
+pricing_page_evidence_complete: false
+pricing_page_publication_approval_status: not_approved
+pricing_page_approval_input_prompt_available: true
+pricing_page_approval_input_prompt_status: hold_human_pricing_page_input_required
+pricing_page_approval_input_prompt_plain_language_entry: true
+plain_language_pricing_page_review_entry_v0_2: true
+pricing_page_approval_input_prompt_required_metadata_fields: 9
+pricing_page_approval_input_prompt_required_pricing_page_evidence_items: 5
+pricing_page_approval_input_prompt_ready_for_validator: false
+pricing_page_approval_input_prompt_builder_ready: false
+pricing_page_approval_input_prompt_closes_blockers: false
+payment_provider_review_packet_ready: true
+payment_provider_evidence_complete: false
+provider_selection_status: not_selected
+payment_provider_evidence_builder_available: true
+payment_provider_evidence_builder_status: local_builder_available_default_hold
+payment_provider_evidence_complete_for_review: false
+payment_provider_approval_input_prompt_available: true
+payment_provider_approval_input_prompt_status: hold_human_payment_provider_input_required
+payment_provider_approval_input_prompt_plain_language_entry: true
+plain_language_payment_provider_review_entry_v0_2: true
+payment_provider_approval_input_prompt_required_metadata_fields: 7
+payment_provider_approval_input_prompt_required_payment_provider_evidence_items: 6
+payment_provider_approval_input_prompt_ready_for_evidence_builder: false
+payment_provider_approval_input_prompt_builder_ready: false
+payment_provider_approval_input_prompt_closes_blockers: false
+payment_provider_approval_input_validator_available: true
+payment_provider_approval_input_validator_status: hold
+payment_provider_approval_input_validator_builder_ready: false
+payment_provider_approval_input_validator_closes_blockers: 0
+invoice_process_review_packet_ready: true
+invoice_process_evidence_complete: false
+invoice_process_approval_status: not_approved
+invoice_process_evidence_builder_available: true
+invoice_process_evidence_builder_status: local_builder_available_default_hold
+invoice_process_evidence_complete_for_review: false
+invoice_process_approval_input_prompt_available: true
+invoice_process_approval_input_prompt_status: hold_human_invoice_process_input_required
+invoice_process_approval_input_prompt_plain_language_entry: true
+plain_language_invoice_process_review_entry_v0_2: true
+invoice_process_approval_input_prompt_required_metadata_fields: 8
+invoice_process_approval_input_prompt_required_invoice_process_evidence_items: 6
+invoice_process_approval_input_prompt_ready_for_evidence_builder: false
+invoice_process_approval_input_prompt_builder_ready: false
+invoice_process_approval_input_prompt_closes_blockers: false
+invoice_process_approval_input_validator_available: true
+invoice_process_approval_input_validator_status: hold
+invoice_process_approval_input_validator_builder_ready: false
+invoice_process_approval_input_validator_closes_blockers: 0
+tax_review_packet_ready: true
+tax_review_evidence_complete: false
+tax_review_approval_status: not_approved
+tax_review_evidence_builder_available: true
+tax_review_evidence_builder_status: local_builder_available_default_hold
+tax_review_evidence_complete_for_review: false
+tax_review_approval_input_prompt_available: true
+tax_review_approval_input_prompt_status: hold_human_tax_review_input_required
+tax_review_approval_input_prompt_plain_language_entry: true
+plain_language_tax_review_entry_v0_2: true
+tax_review_approval_input_prompt_required_metadata_fields: 9
+tax_review_approval_input_prompt_required_tax_review_evidence_items: 5
+tax_review_approval_input_prompt_ready_for_evidence_builder: false
+tax_review_approval_input_prompt_builder_ready: false
+tax_review_approval_input_prompt_closes_blockers: false
+tax_review_approval_input_validator_available: true
+tax_review_approval_input_validator_status: hold
+tax_review_approval_input_validator_builder_ready: false
+tax_review_approval_input_validator_closes_blockers: 0
+refund_policy_review_packet_ready: true
+refund_policy_evidence_complete: false
+refund_policy_approval_status: not_approved
+refund_policy_evidence_builder_available: true
+refund_policy_evidence_builder_status: local_builder_available_default_hold
+refund_policy_evidence_complete_for_review: false
+refund_policy_approval_input_prompt_available: true
+refund_policy_approval_input_prompt_status: hold_human_refund_policy_input_required
+refund_policy_approval_input_prompt_plain_language_entry: true
+plain_language_refund_policy_entry_v0_2: true
+refund_policy_approval_input_prompt_required_metadata_fields: 11
+refund_policy_approval_input_prompt_required_refund_policy_evidence_items: 5
+refund_policy_approval_input_prompt_ready_for_evidence_builder: false
+refund_policy_approval_input_prompt_builder_ready: false
+refund_policy_approval_input_prompt_closes_blockers: false
+refund_policy_approval_input_validator_available: true
+refund_policy_approval_input_validator_status: hold
+refund_policy_approval_input_validator_builder_ready: false
+refund_policy_approval_input_validator_closes_blockers: 0
+tenant_billing_isolation_review_packet_ready: true
+tenant_billing_isolation_evidence_complete: false
+tenant_billing_isolation_approval_status: not_approved
+tenant_billing_isolation_evidence_builder_available: true
+tenant_billing_isolation_evidence_builder_status: local_builder_available_default_hold
+tenant_billing_isolation_evidence_complete_for_review: false
+tenant_billing_isolation_approval_input_prompt_available: true
+tenant_billing_isolation_approval_input_prompt_status: hold_human_tenant_billing_isolation_input_required
+tenant_billing_isolation_approval_input_prompt_required_metadata_fields: 11
+tenant_billing_isolation_approval_input_prompt_required_tenant_billing_isolation_evidence_items: 6
+tenant_billing_isolation_approval_input_prompt_browser_readable_html: true
+plain_language_tenant_billing_isolation_entry_v0_2: true
+tenant_billing_isolation_approval_input_prompt_ready_for_evidence_builder: false
+tenant_billing_isolation_approval_input_prompt_builder_ready: false
+tenant_billing_isolation_approval_input_prompt_closes_blockers: false
+tenant_billing_isolation_approval_input_validator_available: true
+tenant_billing_isolation_approval_input_validator_status: hold
+tenant_billing_isolation_approval_input_validator_builder_ready: false
+tenant_billing_isolation_approval_input_validator_closes_blockers: 0
+billing_revenue_evidence_profile_available: true
+billing_revenue_evidence_profile_status: local_combined_billing_revenue_profile_hold
+billing_revenue_evidence_profile_scope: combined_billing_revenue_evidence_profile_to_go_no_go
+billing_revenue_evidence_profile_target_blockers_satisfied: 0
+billing_revenue_evidence_profile_production_blocker_count: 24
+billing_revenue_evidence_profile_closes_blockers: false
+pricing_page_published: false
+payment_provider_configured: false
+checkout_enabled: false
+invoice_process_ready: false
+tax_review_completed: false
+refund_policy_available: false
+tenant_billing_isolated: false
+production_billing_revenue_ready: false
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false
+external_calls_made: false
+customer_contacted: false
+```
+
+The pricing page review packet is a draft for human review only. It does not
+publish pricing, create a sales offer, configure payment providers, enable
+checkout, collect payment, validate revenue, contact customers, or make SAEE
+production-ready.
+
+The pricing page copy draft is a documentation-only human-review surface. It
+does not publish pricing, create customer-facing offers, approve plan names,
+configure payment, collect payment, validate revenue, contact customers, or
+make SAEE production-ready.
+
+The payment provider review packet is a draft for human review only. It does
+not select or contact a payment provider, configure test or live mode, enable
+checkout, create payment links, collect payment, validate revenue, contact
+customers, or make SAEE production-ready.
+
+The payment provider evidence builder is a local human-input converter. It
+does not select or contact a payment provider, configure test or live mode,
+enable checkout, create payment links, process webhooks, collect payment,
+validate revenue, close blockers, or make SAEE production-ready.
+
+The invoice process review packet is a draft for human review only. It does
+not create invoice templates, create or send invoices, sign contracts, perform
+reconciliation, collect payment, validate revenue, contact customers, or make
+SAEE production-ready.
+
+The invoice process evidence builder is a local human-input converter. It does
+not create invoice templates, create or send invoices, sign contracts, perform
+reconciliation, collect payment, validate revenue, close blockers, or make
+SAEE production-ready.
+
+The tax review packet is a draft for human review only. It does not contact
+tax advisors or legal counsel, complete tax review, configure tax collection,
+collect payment, validate revenue, contact customers, or make SAEE
+production-ready.
+
+The tax review evidence builder is a local human-input converter. It does not
+contact tax advisors or legal counsel, complete tax review, configure tax
+rates, start tax collection, collect payment, validate revenue, close blockers,
+or make SAEE production-ready.
+
+The refund policy review packet is a draft for human review only. It does not
+publish a refund policy, approve cancellation handling, process refunds,
+configure payment-provider refund handling, collect payment, validate revenue,
+contact customers, or make SAEE production-ready.
+
+The refund policy evidence builder is a local human-input converter. It does
+not publish a refund policy, approve cancellation handling, process refunds,
+configure payment-provider refund handling, collect payment, validate revenue,
+close blockers, or make SAEE production-ready.
+
+The tenant billing isolation review packet is a draft for human review only.
+It does not approve a tenant billing account model, test cross-tenant billing
+access, configure payment-provider tenant mapping, collect payment, validate
+revenue, contact customers, or make SAEE production-ready.
+
+The tenant billing isolation evidence builder is a local human-input converter.
+It does not approve a tenant billing account model, test cross-tenant billing
+access, configure payment-provider tenant mapping, collect payment, validate
+revenue, close blockers, or make SAEE production-ready.
+
+The billing / revenue evidence profile is a local go/no-go input combiner. It
+does not create any evidence source, publish pricing, select payment providers,
+enable checkout, issue invoices, collect payment, validate revenue, contact
+customers, close blockers by itself, or make SAEE production-ready.

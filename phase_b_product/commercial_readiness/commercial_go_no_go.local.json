@@ -1,0 +1,438 @@
+{
+  "api_schema_modified": false,
+  "auth_evidence_oauth_oidc_available": false,
+  "auth_evidence_production_identity_provider_available": false,
+  "auth_evidence_rbac_available": false,
+  "billing_revenue_evidence_invoice_process_complete": false,
+  "billing_revenue_evidence_payment_provider_complete": false,
+  "billing_revenue_evidence_pricing_page_complete": false,
+  "billing_revenue_evidence_refund_policy_complete": false,
+  "billing_revenue_evidence_tax_review_complete": false,
+  "billing_revenue_evidence_tenant_billing_isolation_complete": false,
+  "blockers": [
+    {
+      "blocker_id": "production_identity_provider",
+      "category": "auth",
+      "message": "Production identity provider must be available before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "category": "auth",
+      "message": "OAuth/OIDC must be available before production authentication can be claimed.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "rbac",
+      "category": "auth",
+      "message": "Role-based access control must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "category": "tenant",
+      "message": "Tenant-isolated storage is required before multi-tenant production use.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "production_monitoring",
+      "category": "operations",
+      "message": "Production monitoring must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "external_alert_delivery",
+      "category": "operations",
+      "message": "External alert delivery must be available before production operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "category": "operations",
+      "message": "On-call rotation must be available before production operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "sla",
+      "category": "support",
+      "message": "SLA must be approved before commercial production support is claimed.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "support_contact",
+      "category": "support",
+      "message": "Support contact must be configured before customer-facing preview support.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "customer_support",
+      "category": "support",
+      "message": "Customer support must be available before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "category": "privacy_security",
+      "message": "Formal security review must be complete before production readiness.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "privacy_legal_review",
+      "category": "privacy_security",
+      "message": "Privacy legal review must be complete before customer data processing.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "data_processing_agreement",
+      "category": "privacy_security",
+      "message": "A data processing agreement is required before customer data processing.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "vulnerability_management",
+      "category": "privacy_security",
+      "message": "Vulnerability management must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "pilot_results",
+      "category": "validation",
+      "message": "Pilot results must be recorded before claiming customer validation.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "customer_validated",
+      "category": "validation",
+      "message": "Real customer validation is required before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "pricing_page",
+      "category": "billing",
+      "message": "Published pricing must be approved before self-serve commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "payment_provider",
+      "category": "billing",
+      "message": "Payment provider must be configured before paid trials or checkout.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "invoice_process",
+      "category": "billing",
+      "message": "Invoice process must be ready before enterprise paid pilots.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tax_review",
+      "category": "billing",
+      "message": "Tax review must be complete before collecting payment.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "refund_policy",
+      "category": "billing",
+      "message": "Refund policy must be available before paid checkout.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tenant_billing_isolation",
+      "category": "billing",
+      "message": "Tenant billing isolation must be available before multi-tenant paid use.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "restore_tested",
+      "category": "data_ops",
+      "message": "Restore must be tested before production data operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "category": "data_ops",
+      "message": "Production restore policy must exist before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    }
+  ],
+  "boundary_violation_count": 0,
+  "boundary_violations": [],
+  "commercial_status": "hold",
+  "controlled_preview_preflight_status": "hold",
+  "controlled_preview_status": "hold",
+  "customer_contract_template_available": false,
+  "customer_data_processing_ready": false,
+  "customer_validated": false,
+  "customer_validation_evidence_boundary_review_complete": false,
+  "customer_validation_evidence_claim_permission_complete": false,
+  "customer_validation_evidence_complete": false,
+  "customer_validation_evidence_customer_value_complete": false,
+  "customer_validation_evidence_pilot_results_complete": false,
+  "data_ops_evidence_production_restore_policy_available": false,
+  "data_ops_evidence_production_restore_tested": false,
+  "data_ops_evidence_restore_tested": false,
+  "data_processing_agreement_available": false,
+  "data_processing_agreement_draft_available": true,
+  "dpa_review_packet_available": true,
+  "environment": "local",
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_by": "scripts/saee_commercial_readiness_status_snapshot.py",
+  "go_no_go_type": "commercial_readiness_go_no_go",
+  "kernel_modified": false,
+  "legal_approval_completed": false,
+  "legal_readiness_status": "hold",
+  "legal_readiness_v0_1": true,
+  "next_action": "resolve production launch blockers before commercial release",
+  "operations_evidence_external_alert_delivery_available": false,
+  "operations_evidence_on_call_rotation_available": false,
+  "operations_evidence_production_monitoring_available": false,
+  "privacy_legal_review_completed": false,
+  "privacy_notice_draft_available": true,
+  "privacy_notice_published": false,
+  "privacy_security_legal_evidence_data_processing_agreement_available": false,
+  "privacy_security_legal_evidence_formal_security_review_completed": false,
+  "privacy_security_legal_evidence_privacy_legal_review_completed": false,
+  "privacy_security_legal_evidence_vulnerability_management_available": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_auth_evidence_file_parseable": false,
+  "production_auth_evidence_path_configured": false,
+  "production_auth_evidence_status": "hold",
+  "production_billing_revenue_evidence_file_parseable": false,
+  "production_billing_revenue_evidence_path_configured": false,
+  "production_billing_revenue_evidence_status": "hold",
+  "production_blocker_count": 24,
+  "production_customer_validation_evidence_file_parseable": false,
+  "production_customer_validation_evidence_path_configured": false,
+  "production_customer_validation_evidence_status": "hold",
+  "production_data_operations_evidence_file_parseable": false,
+  "production_data_operations_evidence_path_configured": false,
+  "production_data_operations_evidence_status": "hold",
+  "production_launch_status": "hold",
+  "production_legal_ready": false,
+  "production_operations_evidence_file_parseable": false,
+  "production_operations_evidence_path_configured": false,
+  "production_operations_evidence_status": "hold",
+  "production_privacy_security_legal_evidence_file_parseable": false,
+  "production_privacy_security_legal_evidence_path_configured": false,
+  "production_privacy_security_legal_evidence_status": "hold",
+  "production_ready": false,
+  "production_support_evidence_file_parseable": false,
+  "production_support_evidence_path_configured": false,
+  "production_support_evidence_status": "hold",
+  "production_tenant_storage_evidence_file_parseable": false,
+  "production_tenant_storage_evidence_path_configured": false,
+  "production_tenant_storage_evidence_status": "hold",
+  "public_sdk_released": false,
+  "readiness_score": 0.0,
+  "runtime_modified": false,
+  "satisfied_production_checks": 0,
+  "source_settings": "load_settings_empty_default_no_external_evidence_paths",
+  "support_evidence_customer_support_available": false,
+  "support_evidence_on_call_rotation_available": false,
+  "support_evidence_sla_available": false,
+  "tenant_storage_evidence_isolation_complete": false,
+  "tenant_storage_evidence_model_complete": false,
+  "tenant_storage_evidence_operations_complete": false,
+  "tenant_storage_evidence_security_privacy_complete": false,
+  "terms_legal_review_completed": false,
+  "terms_of_service_draft_available": true,
+  "terms_of_service_published": false,
+  "total_production_checks": 24,
+  "unsatisfied_blockers": [
+    {
+      "blocker_id": "production_identity_provider",
+      "category": "auth",
+      "message": "Production identity provider must be available before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "category": "auth",
+      "message": "OAuth/OIDC must be available before production authentication can be claimed.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "rbac",
+      "category": "auth",
+      "message": "Role-based access control must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "category": "tenant",
+      "message": "Tenant-isolated storage is required before multi-tenant production use.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "production_monitoring",
+      "category": "operations",
+      "message": "Production monitoring must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "external_alert_delivery",
+      "category": "operations",
+      "message": "External alert delivery must be available before production operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "category": "operations",
+      "message": "On-call rotation must be available before production operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "sla",
+      "category": "support",
+      "message": "SLA must be approved before commercial production support is claimed.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "support_contact",
+      "category": "support",
+      "message": "Support contact must be configured before customer-facing preview support.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "customer_support",
+      "category": "support",
+      "message": "Customer support must be available before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "category": "privacy_security",
+      "message": "Formal security review must be complete before production readiness.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "privacy_legal_review",
+      "category": "privacy_security",
+      "message": "Privacy legal review must be complete before customer data processing.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "data_processing_agreement",
+      "category": "privacy_security",
+      "message": "A data processing agreement is required before customer data processing.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "vulnerability_management",
+      "category": "privacy_security",
+      "message": "Vulnerability management must be available before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "pilot_results",
+      "category": "validation",
+      "message": "Pilot results must be recorded before claiming customer validation.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "customer_validated",
+      "category": "validation",
+      "message": "Real customer validation is required before commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "pricing_page",
+      "category": "billing",
+      "message": "Published pricing must be approved before self-serve commercial launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "payment_provider",
+      "category": "billing",
+      "message": "Payment provider must be configured before paid trials or checkout.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "invoice_process",
+      "category": "billing",
+      "message": "Invoice process must be ready before enterprise paid pilots.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tax_review",
+      "category": "billing",
+      "message": "Tax review must be complete before collecting payment.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "refund_policy",
+      "category": "billing",
+      "message": "Refund policy must be available before paid checkout.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "tenant_billing_isolation",
+      "category": "billing",
+      "message": "Tenant billing isolation must be available before multi-tenant paid use.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "restore_tested",
+      "category": "data_ops",
+      "message": "Restore must be tested before production data operations.",
+      "satisfied": false,
+      "scope": "production_launch"
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "category": "data_ops",
+      "message": "Production restore policy must exist before production launch.",
+      "satisfied": false,
+      "scope": "production_launch"
+    }
+  ]
+}

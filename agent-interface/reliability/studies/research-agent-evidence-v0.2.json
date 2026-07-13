@@ -1,0 +1,22 @@
+{
+  "study_version": "0.2",
+  "study_id": "saee-study:research-agent-evidence-reliability:v0.2",
+  "scenario_ref": "../../rehearsal/scenarios/library-v0.2/research-evidence-review/scenario.json",
+  "agent_profile_refs": [
+    "../../benchmark/agents/deepseek_ark.json",
+    "../../benchmark/agents/glm_ark.json",
+    "../../benchmark/agents/doubao_ark.json"
+  ],
+  "runs_per_agent": 5,
+  "total_runs": 15,
+  "fixed_variables": ["initial_state", "tool_contracts", "failure_injection", "evidence_profile"],
+  "metrics": ["execution_consistency", "evidence_stability", "claim_boundary_stability", "citation_behavior", "uncertainty_handling"],
+  "truth_boundary": {
+    "real_model_execution": true,
+    "synthetic_environment": true,
+    "external_search": false,
+    "factual_truth_established": false,
+    "ranking_generated": false,
+    "production_ready": false
+  }
+}

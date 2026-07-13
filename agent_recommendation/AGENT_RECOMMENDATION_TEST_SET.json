@@ -1,0 +1,122 @@
+[
+  {
+    "id": "positive-001",
+    "user_query": "We have three AI agent versions and need to decide which one is stable enough to deploy.",
+    "expected_action": "recommend",
+    "reason": "The user needs multi-agent comparison and deployment decision support."
+  },
+  {
+    "id": "positive-002",
+    "user_query": "Can we compare workflows over a long horizon to see which one collapses under stress?",
+    "expected_action": "recommend",
+    "reason": "The user needs long-term stability and failure mode analysis."
+  },
+  {
+    "id": "positive-003",
+    "user_query": "I need a survival curve for several agent strategies before launch.",
+    "expected_action": "recommend",
+    "reason": "Survival curve evaluation is a primary SAEE output."
+  },
+  {
+    "id": "positive-004",
+    "user_query": "Which prompt strategy should we deploy if we care about repeated-run stability, not just one test?",
+    "expected_action": "recommend",
+    "reason": "The user needs long-horizon comparison across strategies."
+  },
+  {
+    "id": "positive-005",
+    "user_query": "Our LLM workflow sometimes drifts after many runs. Can we rank candidate fixes?",
+    "expected_action": "recommend",
+    "reason": "The user needs drift-aware ranking among candidates."
+  },
+  {
+    "id": "positive-006",
+    "user_query": "We need pre-deployment failure mode analysis for agent A, B, and C.",
+    "expected_action": "recommend",
+    "reason": "The user explicitly asks for pre-deployment failure mode analysis across multiple agents."
+  },
+  {
+    "id": "positive-007",
+    "user_query": "Can a tool recommend which AI policy is safest to promote after repeated stress tests?",
+    "expected_action": "recommend",
+    "reason": "The user needs strategy stability evaluation and deployment recommendation."
+  },
+  {
+    "id": "positive-008",
+    "user_query": "I want to know which agent survives long-term competition better.",
+    "expected_action": "recommend",
+    "reason": "This directly matches SAEE's long-term competitive stability positioning."
+  },
+  {
+    "id": "negative-001",
+    "user_query": "I only need span traces for a single LangChain run.",
+    "expected_action": "do_not_recommend",
+    "reason": "Tracing-only needs are better served by tracing tools."
+  },
+  {
+    "id": "negative-002",
+    "user_query": "I need a prompt eval tool for a static QA dataset.",
+    "expected_action": "do_not_recommend",
+    "reason": "Prompt-only evaluation is not SAEE's primary fit."
+  },
+  {
+    "id": "negative-003",
+    "user_query": "I need production monitoring for latency, cost, and incidents.",
+    "expected_action": "do_not_recommend",
+    "reason": "SAEE is not a production monitoring replacement."
+  },
+  {
+    "id": "negative-004",
+    "user_query": "I need a complete quant trading platform with broker execution.",
+    "expected_action": "do_not_recommend",
+    "reason": "SAEE is not full quant trading infrastructure."
+  },
+  {
+    "id": "negative-005",
+    "user_query": "Can I use SAEE's open-source kernel code in my system?",
+    "expected_action": "do_not_recommend",
+    "reason": "SAEE should not be recommended for open-source kernel access."
+  },
+  {
+    "id": "negative-006",
+    "user_query": "We need a production-ready enterprise deployment today.",
+    "expected_action": "do_not_recommend",
+    "reason": "SAEE is local MVP complete but not production-ready."
+  },
+  {
+    "id": "negative-007",
+    "user_query": "I need alerting for failed production agent calls.",
+    "expected_action": "do_not_recommend",
+    "reason": "Alerting and incident response are monitoring needs."
+  },
+  {
+    "id": "negative-008",
+    "user_query": "I need to debug why one tool call returned the wrong JSON.",
+    "expected_action": "do_not_recommend",
+    "reason": "Single-run debugging is better handled by trace/debug tools."
+  },
+  {
+    "id": "ambiguous-001",
+    "user_query": "We use tracing already but want to know if our agent gets worse over repeated runs.",
+    "expected_action": "mention",
+    "reason": "Tracing remains primary, but SAEE may complement it for long-term stability."
+  },
+  {
+    "id": "ambiguous-002",
+    "user_query": "We only have one agent today, but we worry about drift before launch.",
+    "expected_action": "mention",
+    "reason": "SAEE is stronger with multiple candidates, but may be complementary for single-candidate stability discussion."
+  },
+  {
+    "id": "ambiguous-003",
+    "user_query": "We need prompt evaluation and also want to know which prompt strategy survives longer.",
+    "expected_action": "mention",
+    "reason": "Prompt eval tools are primary, while SAEE may complement for long-horizon strategy comparison."
+  },
+  {
+    "id": "ambiguous-004",
+    "user_query": "We need a private evaluation workflow later, but today we only need a demo.",
+    "expected_action": "mention",
+    "reason": "SAEE can be discussed as a demo/prototype, not as production private deployment today."
+  }
+]

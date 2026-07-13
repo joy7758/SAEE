@@ -1,0 +1,300 @@
+{
+  "api_schema_modified": false,
+  "automated_customer_contact": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_customer_validation_approval_input_prompt": true,
+  "builder_command_after_separate_approval": "python3 scripts/saee_customer_validation_evidence_builder.py --input phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json",
+  "builder_ready": false,
+  "case_study_published": false,
+  "category": "customer_validation",
+  "check_target": "make check-customer-validation-approval-input-prompt",
+  "codex_collected_customer_data": false,
+  "codex_contacted_customer": false,
+  "codex_executed_pilot": false,
+  "codex_inferred_missing_results": false,
+  "completed_review_key_count": 0,
+  "completed_session_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.template.json phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_contacted_by_codex": false,
+  "customer_data_collected": false,
+  "customer_data_processing_started": false,
+  "customer_secrets_collected": false,
+  "customer_validated": false,
+  "customer_validation_approval_input_prompt_v0_1": true,
+  "customer_validation_approved": false,
+  "customer_validation_human_review_step_count": 5,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:20.161185+00:00",
+  "generated_by": "scripts/saee_customer_validation_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "local_static_customer_validation_approval_input_prompt_html": true,
+  "make_target": "make customer-validation-approval-input-prompt",
+  "next_human_action": "Copy the template, fill at least one real human-approved pilot session, set evidence_review keys only from real pilot/customer evidence, then run the validator. Stop before any customer-validation claim or evidence-builder execution unless a separate request explicitly approves it.",
+  "paid_pilot_completed": false,
+  "pilot_results_recorded": false,
+  "plain_language_customer_validation_approval_input_prompt_v0_2": true,
+  "plain_language_next_action": "\u5148\u7531\u4eba\u7c7b\u586b\u5199\u771f\u5b9e\u8bd5\u7528/\u8bbf\u8c08\u8bb0\u5f55\u3001\u8bc4\u5206\u3001\u6765\u6e90\u8bf4\u660e\u548c\u8fb9\u754c\u786e\u8ba4\uff0c\u518d\u8fd0\u884c\u672c\u5730\u9a8c\u8bc1\u3002",
+  "plain_language_status_label": "\u5ba2\u6237\u9a8c\u8bc1\u8fd8\u6ca1\u6709\u5b8c\u6210\uff0c\u4e5f\u4e0d\u80fd\u5bf9\u5916\u58f0\u79f0\u5df2\u9a8c\u8bc1\u3002",
+  "plain_language_stop_point": "\u53ea\u5230\u672c\u5730\u8bc1\u636e\u51c6\u5907\u4e3a\u6b62\uff1b\u6ca1\u6709\u5355\u72ec\u6279\u51c6\uff0c\u4e0d\u8054\u7cfb\u5ba2\u6237\u3001\u4e0d\u6267\u884c\u8bd5\u70b9\u3001\u4e0d\u6536\u96c6\u5ba2\u6237\u6570\u636e\u3001\u4e0d\u53d1\u5e03\u5ba2\u6237\u9a8c\u8bc1\u7ed3\u8bba\u3002",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "product_market_fit_claimed": false,
+  "production_readiness_claimed": false,
+  "production_ready": false,
+  "prompt_scope": "local_human_customer_validation_input_prompt_only",
+  "prompt_type": "saee_customer_validation_approval_input_prompt",
+  "public_sdk_released": false,
+  "public_validation_claim_published": false,
+  "ready_for_evidence_builder": false,
+  "ready_for_validator": false,
+  "required_review_key_count": 25,
+  "required_session_boundary_false_key_count": 5,
+  "required_session_score_field_count": 4,
+  "required_session_text_field_count": 5,
+  "revenue_validated": false,
+  "review_keys_to_set_after_human_approval": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "at_least_one_human_approved_pilot_session_completed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "boundary_flags_reviewed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "claim_scope_approved",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_problem_fit_reviewed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_role_and_segment_recorded",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_validation_record_approved_by_human",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "decision_usefulness_observed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "deployment_decision_value_observed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "failure_summary_usefulness_observed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "feedback_form_completed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "go_hold_pivot_decision_recorded",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "negative_feedback_recorded",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "no_customer_secrets_collected",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "no_customer_upload_required",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "no_private_core_disclosed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "no_production_ready_claim_added",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "no_public_launch_claim_added",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "pain_point_fit_observed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "permission_to_use_feedback_recorded",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "pilot_result_reviewed_by_human",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "pilot_result_template_completed",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "real_customer_or_target_user_feedback_recorded",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "recommendation_output_understood",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "reviewer_approved_validation_claim",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "success_criteria_applied",
+      "human_must_provide_source_context": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "runtime_modified": false,
+  "separate_evidence_builder_request_required": true,
+  "separate_validator_run_required": true,
+  "session_boolean_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "willing_to_test_own_candidates",
+      "human_must_provide": true
+    }
+  ],
+  "session_boundary_flags_must_remain_false": [
+    "secrets_collected",
+    "production_data_collected",
+    "customer_data_uploaded",
+    "private_core_disclosed",
+    "production_ready_claim_made"
+  ],
+  "session_score_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "understanding_score",
+      "human_must_provide": true,
+      "required_range": "1-5"
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "trust_score",
+      "human_must_provide": true,
+      "required_range": "1-5"
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_influence_score",
+      "human_must_provide": true,
+      "required_range": "1-5"
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "repeat_usage_intent_score",
+      "human_must_provide": true,
+      "required_range": "1-5"
+    }
+  ],
+  "session_text_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "session_id",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "session_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "participant_role",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "team_type",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "current_evaluation_method",
+      "human_must_provide": true
+    }
+  ],
+  "source_customer_validation_approval_input_prompt_html": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.template.json",
+  "source_validator_output": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_approval_input_validation.local.json",
+  "status": "hold_human_customer_validation_input_required",
+  "target_blocker_ids": [
+    "pilot_results",
+    "customer_validated"
+  ],
+  "task_candidates_executed": false,
+  "testimonial_published": false,
+  "unsolicited_customer_contact": false,
+  "user_upload_enabled": false,
+  "validator_command_after_human_fill": "python3 scripts/saee_customer_validation_approval_input_validator.py --input phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json",
+  "validator_status": "hold"
+}

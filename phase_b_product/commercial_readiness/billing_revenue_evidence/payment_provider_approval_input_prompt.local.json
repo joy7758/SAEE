@@ -1,0 +1,178 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_payment_provider_approval_input_prompt": true,
+  "builder_command_after_separate_approval": "python3 scripts/saee_payment_provider_evidence_builder.py --input phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_input.human_filled.local.json",
+  "builder_ready": false,
+  "builder_status": "hold",
+  "category": "billing_revenue",
+  "check_target": "make check-payment-provider-approval-input-prompt",
+  "checkout_enabled": false,
+  "codex_configured_payment_provider": false,
+  "codex_contacted_payment_provider": false,
+  "codex_created_payment_link": false,
+  "codex_enabled_checkout": false,
+  "codex_inferred_missing_evidence": false,
+  "codex_processed_payment": false,
+  "codex_selected_payment_provider": false,
+  "completed_metadata_field_count": 0,
+  "completed_payment_provider_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_input.template.json phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_payment_collected": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "enterprise_contract_signed": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-07T18:38:00.068164+00:00",
+  "generated_by": "scripts/saee_payment_provider_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_input.human_filled.local.json",
+  "human_review_required": true,
+  "invoice_sent_to_customer": false,
+  "kernel_modified": false,
+  "local_static_payment_provider_approval_input_prompt_html": true,
+  "make_target": "make payment-provider-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "commercial_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "payment_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "security_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_record_reference",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_summary",
+      "human_must_provide": true
+    }
+  ],
+  "next_human_action": "\u5148\u8bfb\u652f\u4ed8\u670d\u52a1\u5ba1\u6279\u8f93\u5165\u63d0\u793a\uff0c\u518d\u590d\u5236\u6a21\u677f\u5e76\u7531\u4eba\u586b\u5199\u771f\u5b9e\u5ba1\u6279\u4fe1\u606f\u3002\u586b\u5b8c\u540e\u505c\u6b62\uff1bevidence builder \u6267\u884c\u3001\u670d\u52a1\u9009\u62e9\u3001\u4f9b\u5e94\u5546\u8054\u7cfb\u3001\u652f\u4ed8\u914d\u7f6e\u3001\u7ed3\u8d26\u3001\u56de\u8c03\u3001\u6536\u6b3e\u3001\u6536\u5165\u9a8c\u8bc1\u3001\u5ba2\u6237\u8054\u7cfb\u3001\u963b\u585e\u9879\u5173\u95ed\u548c\u751f\u4ea7\u53ef\u7528\u58f0\u660e\u90fd\u9700\u8981\u5355\u72ec\u6279\u51c6\u3002",
+  "paid_pilot_completed": false,
+  "paid_product_launched": false,
+  "payment_link_created": false,
+  "payment_provider_approval_input_prompt_v0_1": true,
+  "payment_provider_claim_published": false,
+  "payment_provider_completed_by_codex": false,
+  "payment_provider_configured": false,
+  "payment_provider_contacted": false,
+  "payment_provider_evidence_complete_for_review": false,
+  "payment_provider_execution_authorized": false,
+  "payment_provider_human_review_step_count": 4,
+  "payment_provider_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "payment_provider_selected",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "test_mode_configuration_reviewed",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "checkout_enablement_approval_required",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "webhook_signature_validation_tested",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "payment_event_redaction_reviewed",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "security_review_completed",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "payment_provider_live_mode_enabled": false,
+  "payment_provider_selected": false,
+  "plain_language_next_action": "\u5148\u7531\u4eba\u5ba1\u652f\u4ed8\u670d\u52a1\u3001\u7ed3\u8d26\u3001\u56de\u8c03\u548c\u5b89\u5168\u8fb9\u754c\uff0c\u518d\u586b\u5199\u672c\u5730\u8bc1\u636e\u6a21\u677f\u3002",
+  "plain_language_payment_provider_review_entry_v0_2": true,
+  "plain_language_status_label": "\u652f\u4ed8\u670d\u52a1\u8fd8\u6ca1\u6709\u9009\u62e9\uff0c\u4e5f\u6ca1\u6709\u914d\u7f6e",
+  "plain_language_stop_point": "\u53ea\u5230\u672c\u5730\u8bc1\u636e\u51c6\u5907\u4e3a\u6b62\uff1b\u6ca1\u6709\u5355\u72ec\u6279\u51c6\uff0c\u4e0d\u9009\u62e9\u652f\u4ed8\u670d\u52a1\u3001\u4e0d\u8054\u7cfb\u4f9b\u5e94\u5546\u3001\u4e0d\u914d\u7f6e\u652f\u4ed8\u3001\u4e0d\u542f\u7528\u7ed3\u8d26\u3001\u4e0d\u6536\u6b3e\u3001\u4e0d\u5173\u95ed\u963b\u585e\u9879\u3002",
+  "pricing_page_published": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_billing_enabled": false,
+  "production_ready": false,
+  "prompt_scope": "local_human_payment_provider_input_prompt_only",
+  "prompt_type": "saee_payment_provider_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "refund_policy_published": false,
+  "required_metadata_field_count": 7,
+  "required_payment_provider_evidence_item_count": 6,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "sales_offer_sent": false,
+  "separate_evidence_builder_request_required": true,
+  "source_builder_output": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_builder_output.local.json",
+  "source_payment_provider_approval_input_prompt_html": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/billing_revenue_evidence/payment_provider_evidence_input.template.json",
+  "status": "hold_human_payment_provider_input_required",
+  "target_blocker_ids": [
+    "payment_provider"
+  ],
+  "task_candidates_executed": false,
+  "tax_collection_started": false,
+  "webhook_endpoint_created": false,
+  "webhook_secret_configured": false
+}

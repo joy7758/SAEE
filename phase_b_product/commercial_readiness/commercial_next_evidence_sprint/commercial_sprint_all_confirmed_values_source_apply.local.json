@@ -1,0 +1,626 @@
+{
+  "commercial_sprint_all_confirmed_values_source_apply_v0_1": true,
+  "status": "source_values_applied_pending_safety_preflight",
+  "apply_scope": "copy_human_confirmed_preview_values_to_official_quick_fill_source_only",
+  "generated_at": "2026-07-13T13:59:27.804371+00:00",
+  "generated_by": "scripts/saee_commercial_sprint_all_confirmed_values_source_apply.py",
+  "source_quick_fill_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",
+  "preview_quick_fill_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_all_confirmed_values_quick_fill_preview.local.csv",
+  "source_quick_fill_row_count": 64,
+  "preview_value_row_count": 64,
+  "applied_value_row_count": 64,
+  "missing_preview_value_row_count": 0,
+  "source_quick_fill_packet_modified": true,
+  "ready_for_safety_preflight": true,
+  "ready_for_workbook_import": false,
+  "blockers_closed_by_source_apply": 0,
+  "boundary_violations": [],
+  "boundary_violation_count": 0,
+  "apply_rows": [
+    {
+      "quick_fill_row_id": "QF-001",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-002",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-003",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-004",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-005",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-006",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-007",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-008",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-009",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-010",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-011",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-012",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-013",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-014",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-015",
+      "blocker_id": "support_contact",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-016",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-017",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-018",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-019",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-020",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-021",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-022",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-023",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-024",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-025",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-026",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-027",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-028",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-029",
+      "blocker_id": "pricing_page",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-030",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-031",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-032",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-033",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-034",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-035",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-036",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-037",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-038",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-039",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-040",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-041",
+      "blocker_id": "formal_security_review",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-042",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-043",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-044",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-045",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-046",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-047",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-048",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-049",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-050",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-051",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-052",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-053",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-054",
+      "blocker_id": "production_restore_policy",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-055",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-056",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-057",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-058",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-059",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-060",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-061",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-062",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-063",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    },
+    {
+      "quick_fill_row_id": "QF-064",
+      "blocker_id": "production_monitoring",
+      "value_applied": true,
+      "source_status": "human_confirmed_value_present_pending_safety_preflight",
+      "value_imported_to_workbook": false,
+      "value_transferred": false,
+      "template_written": false
+    }
+  ],
+  "next_human_action": "Run local safety preflight, quick-fill validation, import dry run, and workbook import approval packet. Do not run workbook import without a separate explicit execution request.",
+  "quick_fill_imported_to_workbook": false,
+  "workbook_import_performed": false,
+  "workbook_written": false,
+  "values_transferred": false,
+  "human_filled_templates_written": false,
+  "validators_run_on_real_input": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "evidence_builder_executed": false,
+  "blocker_closure_authorized": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "vendor_contacted": false,
+  "public_sdk_released": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_ai_assistant_tested": false,
+  "development_permission_granted": false,
+  "task_candidates_executed": false,
+  "payment_collected": false,
+  "revenue_validated": false
+}

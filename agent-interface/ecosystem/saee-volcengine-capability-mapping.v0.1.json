@@ -1,0 +1,39 @@
+{
+  "mapping_version": "0.1",
+  "platform": "VOLCENGINE_ARK",
+  "position": "Agent Reliability Capability Layer",
+  "mappings": [
+    {
+      "entry_surface": "FUNCTION_CALLING",
+      "saee_capability": "evaluate_agent_run",
+      "integration_type": "ARK_TOOL_SCHEMA_PROJECTION",
+      "status": "DESIGN_ONLY",
+      "limitations": ["PROVIDER_FUNCTION_CALLING_OBSERVED", "SAEE_MAPPING_NOT_TESTED", "NO_OFFICIAL_INTEGRATION"]
+    },
+    {
+      "entry_surface": "MCP",
+      "saee_capability": "saee.agent-reliability",
+      "integration_type": "REMOTE_MCP_CANDIDATE",
+      "status": "DESIGN_ONLY",
+      "limitations": ["LOCAL_STDIO_ONLY", "ARK_INTEROPERABILITY_NOT_TESTED", "NO_OFFICIAL_INTEGRATION"]
+    },
+    {
+      "entry_surface": "HTTP_CAPABILITY",
+      "saee_capability": "saee.agent-reliability",
+      "integration_type": "HTTP_TOOL_CANDIDATE",
+      "status": "DESIGN_ONLY",
+      "limitations": ["LOCALHOST_ONLY", "NO_AUTHENTICATION", "NO_OFFICIAL_INTEGRATION"]
+    }
+  ],
+  "truth_boundary": {
+    "ecosystem_entry_package": true,
+    "volcengine_entry_package": true,
+    "provider_function_calling_observed": true,
+    "saee_mapping_local_tested": false,
+    "integration_executed": false,
+    "official_support": false,
+    "partner_contact": false,
+    "marketplace_submission": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "apply_requested": false,
+  "approval_errors": [
+    "canonical human approval record is missing"
+  ],
+  "approval_reference": "",
+  "approval_valid": false,
+  "blocker_closure_authorized": false,
+  "blockers_closed": 0,
+  "builder_execution_authorized": false,
+  "builders_executed": 0,
+  "builders_succeeded": 0,
+  "canonical_approval_path": "phase_b_product/commercial_readiness/commercial_evidence_builder_batch_request/batch_approval.human_filled.local.json",
+  "canonical_approval_present": false,
+  "commercial_evidence_builder_batch_executor_v0_1": true,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "execution_mode": "dry_run",
+  "execution_results": [],
+  "external_calls_made": false,
+  "generated_at": "2026-07-13T14:01:50.422310+00:00",
+  "human_reviewer_name": "",
+  "next_human_action": "Record the exact canonical human approval and resolve every preflight error before any apply attempt.",
+  "preflight_passed": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "request_errors": [],
+  "request_valid": true,
+  "separate_blocker_closure_review_required": true,
+  "separate_evidence_review_required": true,
+  "status": "hold_human_approval_missing_no_execution",
+  "target_blocker_ids": [
+    "production_monitoring",
+    "production_restore_policy",
+    "formal_security_review",
+    "pricing_page"
+  ],
+  "target_count": 4,
+  "target_preflights": [
+    {
+      "blocker_id": "production_monitoring",
+      "builder": "scripts/saee_production_monitoring_evidence_builder.py",
+      "builder_exists": true,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "scripts/saee_production_monitoring_evidence_builder.py",
+        "--input",
+        "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json"
+      ],
+      "input": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json",
+      "input_exists": true,
+      "output": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_builder_output.local.json",
+      "output_exists_before": true,
+      "preflight_errors": [],
+      "validator": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_approval_input_validation.local.json",
+      "validator_exists": true,
+      "validator_passed": true
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "builder": "scripts/saee_production_restore_policy_evidence_builder.py",
+      "builder_exists": true,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "scripts/saee_production_restore_policy_evidence_builder.py",
+        "--input",
+        "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.human_filled.local.json"
+      ],
+      "input": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.human_filled.local.json",
+      "input_exists": true,
+      "output": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_evidence_builder_output.local.json",
+      "output_exists_before": true,
+      "preflight_errors": [],
+      "validator": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input_validation.local.json",
+      "validator_exists": true,
+      "validator_passed": true
+    },
+    {
+      "blocker_id": "formal_security_review",
+      "builder": "scripts/saee_formal_security_review_evidence_builder.py",
+      "builder_exists": true,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "scripts/saee_formal_security_review_evidence_builder.py",
+        "--input",
+        "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json"
+      ],
+      "input": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json",
+      "input_exists": true,
+      "output": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_builder_output.local.json",
+      "output_exists_before": true,
+      "preflight_errors": [],
+      "validator": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_approval_input_validation.local.json",
+      "validator_exists": true,
+      "validator_passed": true
+    },
+    {
+      "blocker_id": "pricing_page",
+      "builder": "scripts/saee_pricing_page_evidence_builder.py",
+      "builder_exists": true,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "scripts/saee_pricing_page_evidence_builder.py",
+        "--input",
+        "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json"
+      ],
+      "input": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json",
+      "input_exists": true,
+      "output": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_builder_output.local.json",
+      "output_exists_before": true,
+      "preflight_errors": [],
+      "validator": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_approval_input_validation.local.json",
+      "validator_exists": true,
+      "validator_passed": true
+    }
+  ],
+  "targets_ready": true,
+  "vendor_contacted": false
+}

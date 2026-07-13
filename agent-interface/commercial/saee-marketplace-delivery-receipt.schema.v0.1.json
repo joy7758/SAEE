@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-marketplace-delivery-receipt.schema.v0.1.json",
+  "title": "SAEE Marketplace Delivery Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_marketplace_delivery_receipt_v0_1",
+    "receipt_version",
+    "receipt_id",
+    "stage",
+    "assessment_id",
+    "order_ref",
+    "artifacts",
+    "human_boundary_review",
+    "local_source_deletion",
+    "marketplace_delivery",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_marketplace_delivery_receipt_v0_1": {"const": true},
+    "receipt_version": {"const": "0.1.0"},
+    "receipt_id": {"type": "string", "pattern": "^saee-marketplace-delivery-[0-9a-f]{16}$"},
+    "stage": {"enum": ["prepared_for_human_review", "reviewed_ready_for_marketplace_delivery"]},
+    "assessment_id": {"type": "string"},
+    "order_ref": {"type": "string"},
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intake_sha256", "bundle_filename", "bundle_sha256", "report_filename", "report_sha256"],
+      "properties": {
+        "intake_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bundle_filename": {"const": "assessment-bundle.json"},
+        "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "report_filename": {"const": "assessment-report.zh-CN.md"},
+        "report_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "human_boundary_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "completed", "reviewer_role_token"],
+      "properties": {
+        "required": {"const": true},
+        "completed": {"type": "boolean"},
+        "reviewer_role_token": {"type": ["string", "null"], "pattern": "^[A-Za-z0-9._-]{1,80}$"}
+      }
+    },
+    "local_source_deletion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "completed", "deleted_input_sha256", "source_path_recorded"],
+      "properties": {
+        "required": {"const": true},
+        "completed": {"type": "boolean"},
+        "deleted_input_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "source_path_recorded": {"const": false}
+      }
+    },
+    "marketplace_delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ready", "completed", "customer_accepted"],
+      "properties": {
+        "ready": {"type": "boolean"},
+        "completed": {"const": false},
+        "customer_accepted": {"const": false}
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commercial_service_delivered", "customer_validated", "marketplace_product_listed", "production_ready"],
+      "properties": {
+        "commercial_service_delivered": {"const": false},
+        "customer_validated": {"const": false},
+        "marketplace_product_listed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"stage": {"const": "prepared_for_human_review"}}},
+      "then": {
+        "properties": {
+          "human_boundary_review": {"properties": {"completed": {"const": false}, "reviewer_role_token": {"const": null}}},
+          "local_source_deletion": {"properties": {"completed": {"const": false}, "deleted_input_sha256": {"const": null}}},
+          "marketplace_delivery": {"properties": {"ready": {"const": false}}}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"stage": {"const": "reviewed_ready_for_marketplace_delivery"}}},
+      "then": {
+        "properties": {
+          "human_boundary_review": {"properties": {"completed": {"const": true}, "reviewer_role_token": {"type": "string"}}},
+          "local_source_deletion": {"properties": {"completed": {"const": true}, "deleted_input_sha256": {"type": "string"}}},
+          "marketplace_delivery": {"properties": {"ready": {"const": true}}}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1265 @@
+{
+  "comparison_ranking": {
+    "experiment_id": "agent-first-example",
+    "ranking": [
+      {
+        "agent_id": "candidate-c",
+        "rank": 1,
+        "score": 0.56374
+      },
+      {
+        "agent_id": "candidate-a",
+        "rank": 2,
+        "score": 0.541848
+      },
+      {
+        "agent_id": "candidate-b",
+        "rank": 3,
+        "score": 0.444293
+      }
+    ]
+  },
+  "content_sha256": "4a423b52624ecc8cba75363b6f519ec6e4edac52dc5b441e4cd260413812830b",
+  "evaluation_mode": "synthetic_descriptor_simulation",
+  "evaluation_summary": {
+    "agents": [
+      {
+        "agent_id": "candidate-a",
+        "final_score": 0.541848
+      },
+      {
+        "agent_id": "candidate-b",
+        "final_score": 0.444293
+      },
+      {
+        "agent_id": "candidate-c",
+        "final_score": 0.56374
+      }
+    ],
+    "confidence_score": 0.56374,
+    "decision_result": {
+      "confidence_score": 0.56374,
+      "failure_modes_summary": {
+        "candidate-a": [
+          "collapse"
+        ],
+        "candidate-b": [
+          "collapse"
+        ],
+        "candidate-c": [
+          "collapse"
+        ]
+      },
+      "ranking": [
+        {
+          "agent_id": "candidate-c",
+          "rank": 1,
+          "score": 0.56374
+        },
+        {
+          "agent_id": "candidate-a",
+          "rank": 2,
+          "score": 0.541848
+        },
+        {
+          "agent_id": "candidate-b",
+          "rank": 3,
+          "score": 0.444293
+        }
+      ],
+      "recommended_agent": "candidate-c"
+    },
+    "experiment_id": "agent-first-example",
+    "overall_stats": {
+      "divergence_index": 0.119447,
+      "mean_stability": 0.500809,
+      "mean_survival": 0.891111
+    },
+    "recommended_agent": "candidate-c",
+    "run_id": "run-1ab5e44327147d6b",
+    "status": "completed"
+  },
+  "failure_mode_reports": [
+    {
+      "agent_id": "candidate-a",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 0.2,
+          "step": 39,
+          "type": "collapse"
+        }
+      ]
+    },
+    {
+      "agent_id": "candidate-b",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 0.4,
+          "step": 19,
+          "type": "collapse"
+        }
+      ]
+    },
+    {
+      "agent_id": "candidate-c",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 0.4,
+          "step": 57,
+          "type": "collapse"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "candidate_code_executed": false,
+    "descriptor_text_affects_simulation": true,
+    "engine": "saee_public_mvp_descriptor_simulator_v0.1",
+    "external_calls_made": false,
+    "input_kind": "non_executable_agent_descriptors",
+    "observed_agent_trace_evaluation": false,
+    "private_core_loaded": false,
+    "scoring_formula": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score"
+  },
+  "receipt_id": "saee-receipt-a2c82b1113a708d4",
+  "request_sha256": "a2c82b1113a708d4fc37dc0034a1ab4e556dffd20dd05f71fedd22f7493bb64a",
+  "saee_agent_evaluation_receipt_v0_1": true,
+  "schema_version": "0.1.0",
+  "stability_reports": [
+    {
+      "agent_id": "candidate-a",
+      "convergence_status": "unstable",
+      "drift_rate": 0.173427,
+      "stability_score": 0.527028,
+      "time_series": [
+        0.603636,
+        0.601135,
+        0.599392,
+        0.598375,
+        0.597952,
+        0.597902,
+        0.597956,
+        0.597822,
+        0.597232,
+        0.595976,
+        0.593929,
+        0.59107,
+        0.587486,
+        0.583356,
+        0.578931,
+        0.574498,
+        0.57034,
+        0.566703,
+        0.563755,
+        0.561571,
+        0.559744,
+        0.558502,
+        0.557627,
+        0.556845,
+        0.555864,
+        0.554416,
+        0.55229,
+        0.549362,
+        0.54561,
+        0.540263,
+        0.534326,
+        0.528057,
+        0.521748,
+        0.515688,
+        0.510124,
+        0.505226,
+        0.501061,
+        0.497593,
+        0.494676,
+        0.492083,
+        0.492114,
+        0.492341,
+        0.492311,
+        0.491601,
+        0.489871,
+        0.486913,
+        0.482679,
+        0.477284,
+        0.470996,
+        0.464195,
+        0.457321,
+        0.45082,
+        0.445079,
+        0.440373,
+        0.43683,
+        0.434414,
+        0.432928,
+        0.432041,
+        0.431264,
+        0.430209
+      ],
+      "variance": 0.003119
+    },
+    {
+      "agent_id": "candidate-b",
+      "convergence_status": "unstable",
+      "drift_rate": 0.305069,
+      "stability_score": 0.437253,
+      "time_series": [
+        0.603942,
+        0.598217,
+        0.592383,
+        0.586446,
+        0.580415,
+        0.574293,
+        0.568082,
+        0.561781,
+        0.555386,
+        0.54889,
+        0.542283,
+        0.535554,
+        0.528694,
+        0.521693,
+        0.514544,
+        0.507244,
+        0.499793,
+        0.492193,
+        0.484449,
+        0.476567,
+        0.471167,
+        0.465672,
+        0.460092,
+        0.454441,
+        0.448728,
+        0.442963,
+        0.43715,
+        0.431285,
+        0.425356,
+        0.422239,
+        0.419063,
+        0.415823,
+        0.412517,
+        0.409146,
+        0.405716,
+        0.402232,
+        0.398704,
+        0.395142,
+        0.391553,
+        0.387945,
+        0.384031,
+        0.380094,
+        0.376122,
+        0.372102,
+        0.368024,
+        0.363882,
+        0.359669,
+        0.355382,
+        0.351018,
+        0.346579,
+        0.34207,
+        0.337496,
+        0.332864,
+        0.328181,
+        0.323453,
+        0.318683,
+        0.313873,
+        0.30902,
+        0.303979,
+        0.298873
+      ],
+      "variance": 0.007694
+    },
+    {
+      "agent_id": "candidate-c",
+      "convergence_status": "unstable",
+      "drift_rate": 0.173658,
+      "stability_score": 0.538147,
+      "time_series": [
+        0.570115,
+        0.569971,
+        0.569741,
+        0.569385,
+        0.568877,
+        0.568211,
+        0.567407,
+        0.566492,
+        0.565514,
+        0.564531,
+        0.563603,
+        0.562783,
+        0.562109,
+        0.561598,
+        0.561248,
+        0.561029,
+        0.560899,
+        0.560801,
+        0.560674,
+        0.56046,
+        0.559525,
+        0.558432,
+        0.557173,
+        0.555762,
+        0.554231,
+        0.552628,
+        0.55101,
+        0.549434,
+        0.547952,
+        0.546159,
+        0.544509,
+        0.543001,
+        0.541611,
+        0.540299,
+        0.539009,
+        0.537686,
+        0.536273,
+        0.534726,
+        0.533018,
+        0.531141,
+        0.528523,
+        0.525766,
+        0.522917,
+        0.520031,
+        0.517167,
+        0.514376,
+        0.511701,
+        0.509163,
+        0.506765,
+        0.504487,
+        0.502293,
+        0.500131,
+        0.497946,
+        0.495682,
+        0.493293,
+        0.490748,
+        0.488037,
+        0.485168,
+        0.483599,
+        0.482017
+      ],
+      "variance": 0.00074
+    }
+  ],
+  "survival_curves": [
+    {
+      "agent_id": "candidate-a",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.603636,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.601135,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.599392,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.598375,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.597952,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.597902,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.597956,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.597822,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.597232,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.595976,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.593929,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.59107,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.587486,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.583356,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.578931,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.574498,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.57034,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.566703,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.563755,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.561571,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.559744,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.558502,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.557627,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.556845,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.555864,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.554416,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.55229,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.549362,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.54561,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.540263,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.534326,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.528057,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.521748,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.515688,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.510124,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.505226,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.501061,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.497593,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.494676,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.492083,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.492114,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.492341,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.492311,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.491601,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.489871,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.486913,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.482679,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.477284,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.470996,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.464195,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.457321,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.45082,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.445079,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.440373,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.43683,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.434414,
+          "t": 55
+        },
+        {
+          "alive": true,
+          "score": 0.432928,
+          "t": 56
+        },
+        {
+          "alive": true,
+          "score": 0.432041,
+          "t": 57
+        },
+        {
+          "alive": true,
+          "score": 0.431264,
+          "t": 58
+        },
+        {
+          "alive": true,
+          "score": 0.430209,
+          "t": 59
+        }
+      ]
+    },
+    {
+      "agent_id": "candidate-b",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.603942,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.598217,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.592383,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.586446,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.580415,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.574293,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.568082,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.561781,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.555386,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.54889,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.542283,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.535554,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.528694,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.521693,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.514544,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.507244,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.499793,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.492193,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.484449,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.476567,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.471167,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.465672,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.460092,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.454441,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.448728,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.442963,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.43715,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.431285,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.425356,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.422239,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.419063,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.415823,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.412517,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.409146,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.405716,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.402232,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.398704,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.395142,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.391553,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.387945,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.384031,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.380094,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.376122,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.372102,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.368024,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.363882,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.359669,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.355382,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.351018,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.346579,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.34207,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.337496,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.332864,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.328181,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.323453,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.318683,
+          "t": 55
+        },
+        {
+          "alive": true,
+          "score": 0.313873,
+          "t": 56
+        },
+        {
+          "alive": true,
+          "score": 0.30902,
+          "t": 57
+        },
+        {
+          "alive": true,
+          "score": 0.303979,
+          "t": 58
+        },
+        {
+          "alive": true,
+          "score": 0.298873,
+          "t": 59
+        }
+      ]
+    },
+    {
+      "agent_id": "candidate-c",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.570115,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.569971,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.569741,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.569385,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.568877,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.568211,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.567407,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.566492,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.565514,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.564531,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.563603,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.562783,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.562109,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.561598,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.561248,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.561029,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.560899,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.560801,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.560674,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.56046,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.559525,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.558432,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.557173,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.555762,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.554231,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.552628,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.55101,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.549434,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.547952,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.546159,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.544509,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.543001,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.541611,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.540299,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.539009,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.537686,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.536273,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.534726,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.533018,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.531141,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.528523,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.525766,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.522917,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.520031,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.517167,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.514376,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.511701,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.509163,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.506765,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.504487,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.502293,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.500131,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.497946,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.495682,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.493293,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.490748,
+          "t": 55
+        },
+        {
+          "alive": true,
+          "score": 0.488037,
+          "t": 56
+        },
+        {
+          "alive": true,
+          "score": 0.485168,
+          "t": 57
+        },
+        {
+          "alive": true,
+          "score": 0.483599,
+          "t": 58
+        },
+        {
+          "alive": true,
+          "score": 0.482017,
+          "t": 59
+        }
+      ]
+    }
+  ],
+  "truth_boundary": {
+    "customer_validated": false,
+    "empirical_agent_behavior_validated": false,
+    "external_agent_execution": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false
+  }
+}

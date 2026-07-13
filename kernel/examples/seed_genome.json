@@ -1,0 +1,22 @@
+{
+  "id": "saee_seed",
+  "version": 0,
+  "parents": [],
+  "mutation_history": [],
+  "traits": {
+    "sensing": ["github", "news", "history"],
+    "mutation_scope": ["prompt", "workflow"],
+    "fitness_weights": {
+      "technical": 0.3,
+      "market": 0.3,
+      "safety": 0.2,
+      "evolvability": 0.2
+    },
+    "constraints": [
+      "no_permission_escalation",
+      "no_external_code_execution"
+    ],
+    "niche_target": "agent_evolution_research"
+  }
+}
+

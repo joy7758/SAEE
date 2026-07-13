@@ -1,0 +1,371 @@
+{
+  "formal_security_review_minimum_human_input_workspace_v0_1": true,
+  "workspace_type": "minimum_formal_security_review_human_input_workspace",
+  "workspace_scope": "human_field_inventory_only_no_values_no_submit_no_execution",
+  "status": "hold_minimum_human_input_required",
+  "commercial_status": "hold",
+  "production_launch_status": "hold",
+  "target_blocker_id": "formal_security_review",
+  "source_prompt_json": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_approval_input_prompt.local.json",
+  "source_template_json": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.template.json",
+  "source_validation_json": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_approval_input_validation.local.json",
+  "source_scope_draft_json": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_scope_draft.local.json",
+  "generated_at": "2026-07-13T13:59:10.503968+00:00",
+  "minimum_required_field_count": 40,
+  "minimum_required_human_value_count": 40,
+  "filled_value_count": 0,
+  "blank_value_count": 40,
+  "metadata_field_count": 5,
+  "formal_security_review_evidence_key_count": 7,
+  "evidence_review_field_count": 7,
+  "source_note_field_count": 7,
+  "review_artifact_field_count": 21,
+  "field_rows": [
+    {
+      "field_id": "formal_security_review_evidence_input.human_reviewer_name",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实安全审查信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_date",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实安全审查信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.security_review_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实安全审查信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.report_reference",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实安全审查信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.decision_summary",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实安全审查信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.auth_and_tenant_boundary_reviewed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.auth_and_tenant_boundary_reviewed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.dependency_review_completed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.dependency_review_completed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[dependency_review_completed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[dependency_review_completed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[dependency_review_completed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.formal_security_review_report",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.formal_security_review_report",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[formal_security_review_report].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[formal_security_review_report].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[formal_security_review_report].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.private_core_non_exposure_review_completed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.private_core_non_exposure_review_completed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.public_shell_threat_model_reviewed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.public_shell_threat_model_reviewed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.review_findings_triaged",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.review_findings_triaged",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[review_findings_triaged].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[review_findings_triaged].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[review_findings_triaged].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.evidence_review.storage_backup_and_restore_reviewed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实安全审查证据存在时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.source_notes_by_key.storage_backup_and_restore_reviewed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查报告、范围记录或审批材料引用。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "formal_security_review_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    }
+  ],
+  "prompt_status": "hold_human_formal_security_review_input_required",
+  "validator_status": "pass",
+  "scope_draft_status": "draft_not_approved",
+  "human_review_required": true,
+  "human_input_required": true,
+  "next_human_action": "Copy formal_security_review_evidence_input.template.json to the human_filled path, fill only human-approved metadata, evidence flags, source notes, and review-artifact references, then run the local validator. Do not perform a security review, contact reviewers, run penetration tests, inspect private core, or close blockers.",
+  "copy_commands": [
+    "cp phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.template.json phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json"
+  ],
+  "post_fill_validation_commands": [
+    "python3 scripts/saee_formal_security_review_approval_input_validator.py --input phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json"
+  ],
+  "separate_execution_only_after_human_approval": [
+    "python3 scripts/saee_formal_security_review_evidence_builder.py --input phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json"
+  ],
+  "boundary_violations": [],
+  "boundary_violation_count": 0,
+  "production_ready": false,
+  "product_launched": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_ai_assistant_tested": false,
+  "workbook_import_authorized": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "blocker_closure_authorized": false,
+  "development_permission_granted": false,
+  "production_ready_claim": false,
+  "customer_validation_claim": false,
+  "human_values_generated_by_codex": false,
+  "human_input_filled_by_codex": false,
+  "validator_inputs_exported": false,
+  "validators_run": false,
+  "values_saved_by_workspace": false,
+  "form_submission_enabled": false,
+  "formal_security_review_approved": false,
+  "formal_security_review_completed": false,
+  "formal_security_review_report_approved": false,
+  "formal_security_review_available": false,
+  "formal_security_review_claim_published": false,
+  "security_review_claim_published": false,
+  "production_security_claim_published": false,
+  "production_security_enabled": false,
+  "dependency_review_completed": false,
+  "vulnerability_management_operational": false,
+  "private_core_inspected_by_codex": false,
+  "penetration_test_run_by_codex": false,
+  "codex_performed_security_review": false,
+  "codex_contacted_security_reviewer": false,
+  "codex_contacted_vendor": false,
+  "codex_ran_penetration_test": false,
+  "codex_inspected_private_core": false,
+  "security_vendor_contacted": false,
+  "legal_counsel_contacted": false,
+  "customer_data_processed": false,
+  "customer_data_processing_started": false,
+  "dpa_sent_to_customer": false,
+  "terms_published": false,
+  "privacy_notice_published": false
+}

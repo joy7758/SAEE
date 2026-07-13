@@ -1,0 +1,28 @@
+{
+  "$schema": "../schemas/controlled-preview-request.schema.json",
+  "contract_id": "saee-controlled-preview-request-v0.1",
+  "request_version": "0.1.0",
+  "tenant_id": "tenant-demo-cn",
+  "experiment_id": "preview-20260710-001",
+  "evaluation_mode": "observed_trace_bundle_evaluation",
+  "input": {
+    "kind": "sanitized_observed_agent_trace_bundle",
+    "sha256": "3d3f7b9b0c7d3f1a3e6c85d29f9d4b0b0f0f2c58d3b1a0e0d8a9c1e5f7b2a4c6",
+    "agent_count": 3,
+    "source_attestation": "self_attested_only"
+  },
+  "requested_outputs": ["stability", "failure", "survival", "ranking", "decision_material"],
+  "boundaries": {
+    "customer_data": false,
+    "candidate_code_execution": false,
+    "external_system_execution": false,
+    "trace_capture_by_saee": false,
+    "production_claim": false,
+    "payment": false,
+    "human_validation_primary": false
+  },
+  "receipt": {
+    "required": true,
+    "schema": "agent-interface/schemas/observed-trace-receipt.schema.json"
+  }
+}

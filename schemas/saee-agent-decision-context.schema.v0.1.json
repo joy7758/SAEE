@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"saee-agent-decision-context.schema.v0.1.json",
+  "title":"SAEE Agent Decision Context v0.1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["context_version","observability_context","reliability_context","authorization_context","policy_context","ownership_boundary"],
+  "properties":{
+    "context_version":{"const":"0.1"},
+    "observability_context":{"$ref":"#/$defs/context"},
+    "reliability_context":{"$ref":"#/$defs/context"},
+    "authorization_context":{"$ref":"#/$defs/context"},
+    "policy_context":{"$ref":"#/$defs/context"},
+    "ownership_boundary":{"type":"object","additionalProperties":false,"required":["observability_owner","reliability_owner","authorization_owner","policy_owner","saee_authority"],"properties":{"observability_owner":{"const":"OBSERVABILITY_PROVIDER"},"reliability_owner":{"const":"SAEE"},"authorization_owner":{"const":"AUTHORIZATION_PROVIDER"},"policy_owner":{"const":"POLICY_ENGINE"},"saee_authority":{"const":false}}}
+  },
+  "$defs":{"context":{"type":"object","additionalProperties":false,"required":["provider","available","reference"],"properties":{"provider":{"enum":["OBSERVABILITY_PROVIDER","SAEE","AUTHORIZATION_PROVIDER","POLICY_ENGINE","NONE"]},"available":{"type":"boolean"},"reference":{"type":"string","maxLength":240}}}}
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "SAEE Regime Transition Graph v1.0",
+  "science_lock": true,
+  "derivation_mode": "existing_logs_only",
+  "nodes": [
+    {
+      "id": "stable_regime",
+      "definition": "Population remains viable, lineage integrity is preserved, and fitness variance does not expand over the observation window.",
+      "observed": true,
+      "evidence": [
+        "saee_experiments/reports/stability_report.json: collapse_event_count=0, convergence_tendency=converging, generation_count=100",
+        "saee_experiments/reports/lineage_statistics.json: lineage_integrity_preserved=true",
+        "saee_phase2/output/demo-run/regime_transition_log.json: regime_counts.stable_regime=6"
+      ]
+    },
+    {
+      "id": "exploratory_regime",
+      "definition": "Population remains viable while turnover, mutation accumulation, or branching density indicates active search.",
+      "observed": false,
+      "evidence": [
+        "saee_experiments/output/demo-run/drift_report.json: mean_population_turnover=0.545531",
+        "docs/science/REGIME_CLASSIFICATION_FRAMEWORK.md: exploratory_regime is a secondary behavior label, not an observed regime transition"
+      ],
+      "note": "Exploratory behavior is observed inside the stable basin, but no explicit exploratory_regime state transition is present in existing regime logs."
+    },
+    {
+      "id": "chaotic_regime",
+      "definition": "Population remains alive but state signatures and fitness variance show unstable oscillation.",
+      "observed": false,
+      "evidence": [
+        "saee_experiments/reports/stability_report.json: convergence_tendency=converging",
+        "saee_phase2/output/demo-run/regime_transition_log.json: no chaotic_regime classifications"
+      ]
+    },
+    {
+      "id": "collapse_regime",
+      "definition": "Population viability fails or selection produces an empty or near-empty survivor set.",
+      "observed": false,
+      "evidence": [
+        "saee_experiments/reports/stability_report.json: collapse_event_count=0",
+        "saee_phase2/output/demo-run/regime_transition_log.json: no collapse_regime classifications"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "stable_regime",
+      "to": "stable_regime",
+      "probability": 1.0,
+      "transition_count": 5,
+      "transition_denominator": 5,
+      "evidence": [
+        "saee_phase2/output/demo-run/regime_transition_log.json: six consecutive classifications are stable_regime",
+        "saee_phase2/output/demo-run/phase2_summary.json: regime_transition_count=0, dominant_regime=stable_regime"
+      ],
+      "confidence": "local_observation"
+    }
+  ],
+  "unobserved_transitions": [
+    "stable_regime->exploratory_regime",
+    "exploratory_regime->chaotic_regime",
+    "chaotic_regime->collapse_regime",
+    "collapse_regime->stable_regime"
+  ],
+  "non_claims": [
+    "no_new_regime_mechanic",
+    "no_runtime_modification",
+    "no_speculative_transition_edges",
+    "not_external_validation"
+  ]
+}

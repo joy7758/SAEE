@@ -1,0 +1,19 @@
+{
+  "example_type": "bounded_http_response_interpretation",
+  "http_status": 200,
+  "runtime_status": "SUCCESS",
+  "assessment": "SUPPORTED",
+  "recommended_action": "CONTINUE",
+  "interpretation": {
+    "profile_requirements_satisfied": true,
+    "approved": false,
+    "certified": false,
+    "safe": false,
+    "deployed": false,
+    "authorization_granted": false
+  },
+  "response_schema_ref": "../../../schemas/saee-capability-http-response.schema.v0.1.json",
+  "public_service": false,
+  "production_ready": false
+}
+

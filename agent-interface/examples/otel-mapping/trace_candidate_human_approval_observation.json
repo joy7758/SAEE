@@ -1,0 +1,14 @@
+{
+  "saee_synthetic_otel_event_v0_1": true,
+  "schema_version": "0.1.0",
+  "trace_source": "synthetic_opentelemetry_style",
+  "trace_event_id": "trace-approval-observation-001",
+  "observed_timestamp": "2026-07-11T08:02:00Z",
+  "attributes": {
+    "agent.id": "agent:synthetic-review-target-001",
+    "action.type": "resource:inspect",
+    "tool.name": "approval.observe",
+    "human.id": "human:synthetic-reviewer-claim-001",
+    "status": "success"
+  }
+}

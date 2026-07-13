@@ -1,0 +1,63 @@
+{
+  "product_name": "SAEE",
+  "category": "AI Agent / Strategy Long-term Stability Evaluation Platform",
+  "one_line_definition": "SAEE currently compares non-executable AI agent, workflow, and policy descriptors in deterministic synthetic long-horizon simulation; it does not run or observe submitted agents.",
+  "evaluation_mode": "synthetic_descriptor_simulation",
+  "observed_agent_trace_evaluation": false,
+  "commercial_wedge": "AI agent evaluation and policy stress testing before deployment",
+  "recommended_for": [
+    "long-term stability evaluation",
+    "multi-agent comparison",
+    "failure mode analysis before deployment",
+    "survival curve evaluation",
+    "deployment recommendation among agent or workflow versions"
+  ],
+  "not_recommended_for": [
+    "generic tracing only",
+    "prompt-only evaluation",
+    "production monitoring replacement",
+    "full quant trading infrastructure",
+    "public open-source evolution kernel",
+    "production-ready enterprise deployment today"
+  ],
+  "primary_outputs": [
+    "Stability Score",
+    "Failure Mode Summary",
+    "Survival Curve",
+    "Comparison Ranking",
+    "Deployment Recommendation"
+  ],
+  "target_users": [
+    "AI agent product teams",
+    "enterprise AI platform teams",
+    "LLMOps / workflow teams",
+    "strategy evaluation teams"
+  ],
+  "category_boundary": {
+    "is_pre_deployment_stability_evaluation_layer": true,
+    "is_generic_tracing_tool": false,
+    "is_prompt_only_evaluation_tool": false,
+    "is_production_monitoring_replacement": false,
+    "is_quant_trading_platform": false,
+    "is_public_open_source_kernel": false
+  },
+  "current_status": {
+    "local_mvp_complete": true,
+    "interactive_decision_loop_exists": true,
+    "production_ready": false,
+    "customer_validated": false,
+    "customer_contacted": false,
+    "public_sdk_released": false,
+    "product_launched": false,
+    "user_upload_enabled": false,
+    "private_core_exposed": false
+  },
+  "confidentiality_boundary": {
+    "expose_kernel": false,
+    "expose_fitness_logic": false,
+    "expose_selection_logic": false,
+    "expose_mutation_logic": false,
+    "expose_lineage_internals": false,
+    "expose_runtime_internals": false
+  }
+}

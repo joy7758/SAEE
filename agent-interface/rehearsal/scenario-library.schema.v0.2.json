@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-rehearsal-scenario-library.schema.v0.2.json",
+  "title": "SAEE Rehearsal Scenario Library Entry v0.2",
+  "description": "面向智能体的本地合成演练场景契约；描述世界、工具、风险与证据目标，不代表模型认证或部署批准。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scenario_version", "scenario_id", "category", "name", "description", "agent_goal",
+    "initial_state", "environment", "available_tools", "tools", "constraints", "failure_injection",
+    "expected_observations", "risk_conditions", "risks", "evaluation_targets", "compatibility", "truth_boundary"
+  ],
+  "properties": {
+    "scenario_version": {"const": "0.2"},
+    "scenario_id": {"type": "string", "pattern": "^saee-rehearsal:[a-z0-9-]+:v0\\.2$"},
+    "category": {
+      "enum": ["CODING_RELEASE", "RESEARCH_EVIDENCE_REVIEW", "BUSINESS_OPERATION", "CUSTOMER_SUPPORT", "SECURITY_BOUNDARY"]
+    },
+    "name": {"type": "string", "minLength": 2},
+    "description": {"type": "string", "minLength": 12},
+    "agent_goal": {"type": "string", "minLength": 12},
+    "initial_state": {"type": "object", "minProperties": 2},
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment_type", "stateful", "synthetic", "description"],
+      "properties": {
+        "environment_type": {"type": "string", "minLength": 3},
+        "stateful": {"const": true},
+        "synthetic": {"const": true},
+        "description": {"type": "string", "minLength": 8}
+      }
+    },
+    "available_tools": {"$ref": "#/$defs/nonempty_unique_strings"},
+    "tools": {
+      "type": "array", "minItems": 2, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "purpose", "synthetic", "external_effect"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "purpose": {"type": "string", "minLength": 6},
+          "synthetic": {"const": true},
+          "external_effect": {"const": false}
+        }
+      }
+    },
+    "constraints": {"$ref": "#/$defs/nonempty_unique_strings"},
+    "failure_injection": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["injection_id", "description", "synthetic"],
+        "properties": {
+          "injection_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+          "description": {"type": "string", "minLength": 8},
+          "synthetic": {"const": true}
+        }
+      }
+    },
+    "expected_observations": {"$ref": "#/$defs/nonempty_unique_strings"},
+    "risk_conditions": {"$ref": "#/$defs/nonempty_unique_strings"},
+    "risks": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["risk_id", "description", "not_probability_measurement"],
+        "properties": {
+          "risk_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+          "description": {"type": "string", "minLength": 8},
+          "not_probability_measurement": {"const": true}
+        }
+      }
+    },
+    "evaluation_targets": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["target_id", "question", "required_evidence"],
+        "properties": {
+          "target_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+          "question": {"type": "string", "minLength": 8},
+          "required_evidence": {"$ref": "#/$defs/nonempty_unique_strings"}
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime_contract", "runtime_input_contract_compatible", "runtime_redesign_required", "executable_by_current_release_world", "scenario_tool_implementation_required", "legacy_scenario_ref"],
+      "properties": {
+        "runtime_contract": {"const": "Stateful Agent Rehearsal Runtime v0.1"},
+        "runtime_input_contract_compatible": {"const": true},
+        "runtime_redesign_required": {"const": false},
+        "executable_by_current_release_world": {"type": "boolean"},
+        "scenario_tool_implementation_required": {"type": "boolean"},
+        "legacy_scenario_ref": {"type": ["string", "null"], "pattern": "^agent-interface/"}
+      }
+    },
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["real_model_execution_contract", "synthetic_environment", "external_world_actions", "customer_data", "production_execution", "production_ready", "benchmark_public", "market_validation"],
+      "properties": {
+        "real_model_execution_contract": {"const": true},
+        "synthetic_environment": {"const": true},
+        "external_world_actions": {"const": false},
+        "customer_data": {"const": false},
+        "production_execution": {"const": false},
+        "production_ready": {"const": false},
+        "benchmark_public": {"const": false},
+        "market_validation": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "nonempty_unique_strings": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 2}
+    }
+  }
+}

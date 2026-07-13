@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-execution-evidence.schema.v0.1.json",
+  "title": "SAEE External Validation Execution Simulation Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "evidence_type", "simulation_ref", "result", "reason_code", "limitations", "external_validation_completed"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^execution-simulation-evidence:[a-z0-9._-]+$"},
+    "evidence_type": {"enum": ["simulation_execution_record", "decision_record", "termination_record", "limitation_record"]},
+    "simulation_ref": {"type": "string", "pattern": "^execution-simulation:[a-z0-9._-]+$"},
+    "result": {"enum": ["BLOCKED", "SIMULATION_ALLOWED", "TERMINATED"]},
+    "reason_code": {"type": "string", "minLength": 1, "maxLength": 100},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "external_validation_completed": {"const": false}
+  }
+}
+

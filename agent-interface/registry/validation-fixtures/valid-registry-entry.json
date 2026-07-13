@@ -1,0 +1,9 @@
+{
+  "fixture_version": "0.1",
+  "fixture_id": "valid-registry-entry",
+  "base_entry_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+  "synthetic": true,
+  "mutations": [],
+  "expected_status": "PASS",
+  "expected_errors": []
+}

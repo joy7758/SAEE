@@ -1,0 +1,17 @@
+{
+  "simulation_version":"0.1",
+  "entry_decision_reference":"agent-interface/ecosystem/saee-external-validation-entry-decision.v0.1.json",
+  "scenario_results":[
+    {"simulation_id":"ALL_GAPS_VERIFIED","decision_result":"ENTRY_READY","expected_result":"ENTRY_READY","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_ENTRY_READY"],"execution_authorized":false},
+    {"simulation_id":"CURRENT_HOLD_STATE","decision_result":"HOLD","expected_result":"HOLD","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_HOLD"],"execution_authorized":false},
+    {"simulation_id":"FAKE_ADOPTION_EVIDENCE","decision_result":"REJECTED","expected_result":"REJECTED","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_EXTERNAL_CLAIM_FORBIDDEN"],"execution_authorized":false},
+    {"simulation_id":"FAKE_EXECUTION_AUTHORIZATION","decision_result":"REJECTED","expected_result":"REJECTED","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_AUTHORIZATION_FORBIDDEN"],"execution_authorized":false},
+    {"simulation_id":"FAKE_GAP_CLOSURE","decision_result":"REJECTED","expected_result":"REJECTED","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_FAKE_CLOSURE"],"execution_authorized":false},
+    {"simulation_id":"FAKE_INDEPENDENT_REVIEW","decision_result":"REJECTED","expected_result":"REJECTED","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_FAKE_INDEPENDENT_REVIEW"],"execution_authorized":false},
+    {"simulation_id":"NON_CRITICAL_GAPS_ONLY","decision_result":"CONDITIONAL_ENTRY_REVIEW","expected_result":"CONDITIONAL_ENTRY_REVIEW","matched_expected":true,"reason_codes":["ENTRY_DECISION_SIMULATION_CONDITIONAL_ENTRY_REVIEW"],"execution_authorized":false}
+  ],
+  "decision_distribution":{"HOLD":1,"CONDITIONAL_ENTRY_REVIEW":1,"ENTRY_READY":1,"REJECTED":4},
+  "authorization_distribution":{"execution_authorized_count":0,"execution_not_authorized_count":7},
+  "limitations":["This is a deterministic local simulation and does not alter the current HOLD decision.","No result authorizes or executes external validation.","Synthetic closure records do not establish real gap closure, adoption, customer validation or production readiness."],
+  "truth_boundary":{"entry_decision_simulation":true,"external_validation":false,"execution_authorized":false,"real_participants":false,"participants_invited":0,"customer_validated":false,"adoption_validated":false,"production_ready":false,"network_accessed":false,"subprocess_started":false,"external_execution":false}
+}

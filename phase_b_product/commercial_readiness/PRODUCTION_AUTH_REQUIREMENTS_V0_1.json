@@ -1,0 +1,161 @@
+{
+  "account_lifecycle_available": false,
+  "admin_recovery_available": false,
+  "api_schema_modified": false,
+  "auth_blockers_covered_as_requirements": [
+    "production_identity_provider",
+    "oauth_oidc",
+    "rbac"
+  ],
+  "backend_modified": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "external_calls_made": false,
+  "external_identity_provider_contacted": false,
+  "external_model_api_called": false,
+  "kernel_modified": false,
+  "oauth_oidc_available": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_auth_implemented": false,
+  "production_auth_ready": false,
+  "production_auth_requirements_v0_1": true,
+  "production_identity_provider_available": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "rbac_available": false,
+  "requirements_status": "requirements_defined_implementation_hold",
+  "runtime_modified": false,
+  "session_management_available": false,
+  "task_candidates_executed": false,
+  "tenant_authorization_available": false,
+  "required_oidc_claims": [
+    "iss",
+    "sub",
+    "aud",
+    "exp",
+    "iat",
+    "tenant_id",
+    "roles"
+  ],
+  "optional_oidc_claims": [
+    "nbf",
+    "jti"
+  ],
+  "forbidden_identity_claims": [
+    "email",
+    "email_verified",
+    "phone",
+    "name",
+    "address"
+  ],
+  "role_matrix": [
+    {
+      "role": "owner",
+      "allowed_actions": [
+        "manage_tenant_settings",
+        "manage_admins",
+        "configure_billing_contacts",
+        "view_all_reports",
+        "export_public_shell_reports"
+      ],
+      "forbidden_actions": [
+        "access_private_core",
+        "modify_runtime",
+        "modify_kernel",
+        "bypass_tenant_boundary"
+      ]
+    },
+    {
+      "role": "admin",
+      "allowed_actions": [
+        "manage_preview_api_keys",
+        "manage_operator_access",
+        "view_audit_metadata",
+        "view_all_reports"
+      ],
+      "forbidden_actions": [
+        "access_private_core",
+        "modify_runtime",
+        "modify_kernel",
+        "change_billing_terms_without_owner"
+      ]
+    },
+    {
+      "role": "evaluator_operator",
+      "allowed_actions": [
+        "create_experiment",
+        "run_experiment",
+        "view_own_reports",
+        "view_tenant_reports"
+      ],
+      "forbidden_actions": [
+        "manage_users",
+        "view_cross_tenant_reports",
+        "change_auth_settings",
+        "access_private_core"
+      ]
+    },
+    {
+      "role": "viewer",
+      "allowed_actions": [
+        "view_tenant_reports",
+        "view_static_recommendation_materials"
+      ],
+      "forbidden_actions": [
+        "create_experiment",
+        "run_experiment",
+        "manage_users",
+        "access_private_core"
+      ]
+    },
+    {
+      "role": "support_operator",
+      "allowed_actions": [
+        "view_request_metadata",
+        "view_incident_records",
+        "prepare_support_summary"
+      ],
+      "forbidden_actions": [
+        "view_request_bodies",
+        "view_credentials",
+        "view_private_core",
+        "change_customer_data"
+      ]
+    }
+  ],
+  "evidence_required_before_closing_blockers": [
+    {
+      "blocker_id": "production_identity_provider",
+      "evidence": [
+        "selected_identity_provider",
+        "tenant_issuer_mapping",
+        "key_rotation_policy",
+        "operator_runbook",
+        "security_review"
+      ]
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "evidence": [
+        "issuer_validation",
+        "audience_validation",
+        "jwks_cache_policy",
+        "token_expiry_handling",
+        "callback_and_logout_flow",
+        "negative_auth_tests"
+      ]
+    },
+    {
+      "blocker_id": "rbac",
+      "evidence": [
+        "role_matrix_approved",
+        "route_permission_map",
+        "tenant_boundary_tests",
+        "admin_recovery_test",
+        "support_access_limits_test"
+      ]
+    }
+  ]
+}

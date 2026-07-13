@@ -1,0 +1,81 @@
+{
+  "saee_synthetic_review_case_v0_1": true,
+  "case_id": "review-case:synthetic-code-agent-tool-execution-001",
+  "report_id": "review-report:synthetic-code-agent-tool-execution-001",
+  "case_reference": "agent-interface/architecture/examples/phase1_5_cases/case-003-tool-failure.json",
+  "review_scope": {
+    "scenario": "Synthetic Code Agent Tool Execution",
+    "scope_description": "Review whether the available synthetic evidence supports selected accountability claims for a bounded code-agent tool execution scenario.",
+    "synthetic": true,
+    "customer_data_used": false,
+    "compliance_review": false,
+    "production_assessment": false
+  },
+  "observation_references": [
+    "agent-interface/architecture/examples/observation/tool-trace-observation.json"
+  ],
+  "evidence_package_references": [
+    "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+    "agent-interface/fixtures/evidence-adequacy/resource_authenticity_missing_digest.json",
+    "agent-interface/fixtures/evidence-adequacy/human_oversight_missing_context.json"
+  ],
+  "adequacy_results": [
+    {
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "result": "PASS",
+      "adequacy_profile_ref": "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json",
+      "supporting_evidence_refs": [
+        "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json"
+      ],
+      "missing_requirements": [],
+      "reason_codes": []
+    },
+    {
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "result": "FAIL",
+      "adequacy_profile_ref": "agent-interface/profiles/evidence-adequacy/resource-authenticity.v0.1.json",
+      "supporting_evidence_refs": [
+        "agent-interface/fixtures/evidence-adequacy/resource_authenticity_missing_digest.json"
+      ],
+      "missing_requirements": [
+        "publisher_identity",
+        "content_digest"
+      ],
+      "reason_codes": [
+        "EVIDENCE_PUBLISHER_IDENTITY_MISSING",
+        "EVIDENCE_DIGEST_MISSING"
+      ]
+    },
+    {
+      "claim_type": "HUMAN_OVERSIGHT",
+      "result": "FAIL",
+      "adequacy_profile_ref": "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json",
+      "supporting_evidence_refs": [
+        "agent-interface/fixtures/evidence-adequacy/human_oversight_missing_context.json"
+      ],
+      "missing_requirements": [
+        "approval_context"
+      ],
+      "reason_codes": [
+        "EVIDENCE_APPROVAL_CONTEXT_MISSING"
+      ]
+    }
+  ],
+  "limitations": [
+    "The scenario and all evidence references are synthetic and repository-local.",
+    "The report evaluates evidence adequacy only and does not establish that an event occurred.",
+    "Publisher identity, authorization, and human approval are not independently verified.",
+    "No customer data, external system, real Agent, or production Runtime is evaluated."
+  ],
+  "truth_boundary": {
+    "synthetic_only": true,
+    "customer_data_used": false,
+    "external_validation_completed": false,
+    "compliance_certification": false,
+    "legal_judgment": false,
+    "automated_decision": false,
+    "deployment_authorized": false,
+    "commercial_service_delivered": false,
+    "production_ready": false
+  }
+}

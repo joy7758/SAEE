@@ -1,0 +1,16 @@
+json_field,human_question,fill_guidance
+session_id,会话编号,由人工生成，例如 EXT-20260709-001
+session_date,会话日期,真实访谈或演示日期
+participant_role,参与者角色,例如 AI 平台负责人、产品负责人、工程负责人
+team_type,团队类型,例如 AI 平台团队、业务产品团队、研发团队
+current_evaluation_method,当前评测方式,现在如何比较 agent / workflow / policy
+candidate_count,候选方案数量,本次讨论中的 agent / 工作流 / 策略版本数量
+understanding_score,理解分 1-5,是否理解 SAEE 帮他做什么决策
+trust_score,信任分 1-5,是否愿意把结果带入部署评审
+decision_influence_score,决策影响分 1-5,是否影响部署/暂缓/重测判断
+repeat_usage_intent_score,复用意愿分 1-5,是否愿意用自己的候选方案继续测试
+time_to_value_minutes,理解耗时,从开始演示到理解价值的大概分钟数
+top_objection,最大顾虑,一句话记录最大阻碍
+evidence_missing,缺失证据,对方还需要什么证据才会信任
+willing_to_test_own_candidates,是否愿意测自己的候选方案,true/false
+notes,备注,只写摘要，不写秘密、源码、凭证、生产数据

@@ -1,0 +1,153 @@
+{
+  "saee_agent_capability_object_v0_1": true,
+  "object_id": "saee:capability:evidence-adequacy:0.1",
+  "object_type": "agent_capability",
+  "identity": {
+    "capability_id": "saee.evidence-adequacy",
+    "version": "0.1",
+    "object_id": "saee:capability:evidence-adequacy:0.1",
+    "identity_scope": "repository_local_specification"
+  },
+  "metadata": {
+    "name": "SAEE Evidence Adequacy Capability",
+    "description": {
+      "english": "Machine-readable representation of the local SAEE capability for evaluating whether evidence relationships satisfy a defined accountability profile.",
+      "chinese": "SAEE 本地证据充分性评估能力的机器可读表示，用于判断证据关系是否满足明确的责任剖面。"
+    },
+    "category": "agent evidence evaluation",
+    "purpose": {
+      "english": "Help an agent locate the capability description, lifecycle, provenance, contracts, and use boundaries before local composition.",
+      "chinese": "帮助智能体在本地组合前定位能力说明、生命周期、来源、契约和使用边界。"
+    },
+    "keywords": [
+      "agent accountability",
+      "capability object",
+      "evidence adequacy",
+      "machine readable",
+      "provenance",
+      "versioned capability"
+    ]
+  },
+  "lifecycle": {
+    "state": "LOCAL_PROTOTYPE",
+    "state_evidence_refs": [
+      "agent-interface/registry/saee-capability-registry-validation-result.v0.1.json",
+      "scripts/saee_capability_registry_validation_smoke.py",
+      "scripts/saee_local_tool_capability_smoke.py"
+    ],
+    "external_validation_completed": false,
+    "production_validation_completed": false,
+    "state_upgrade_authorized": false
+  },
+  "provenance": {
+    "created_by": "SAEE",
+    "created_version": "0.1",
+    "source_repository_reference": "local-repository:SAEE",
+    "creation_timestamp": "2026-07-11T00:00:00Z",
+    "change_history": [
+      {
+        "version": "0.1",
+        "timestamp": "2026-07-11T00:00:00Z",
+        "change_type": "OBJECT_CREATED",
+        "evidence_ref": "docs/architecture/SAEE_CAPABILITY_OBJECT_SPECIFICATION.md"
+      }
+    ],
+    "external_trust_established": false
+  },
+  "discovery": {
+    "canonical_url": "https://redcrag.cn/",
+    "manifest_url": "https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json",
+    "registry_reference": "docs/architecture/SAEE_CAPABILITY_REGISTRY_SPECIFICATION.md",
+    "capability_card_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+    "recommendation_reference": "agent-interface/recommendation/saee-agent-recommendation.v0.1.json",
+    "benchmark_reference": "agent-interface/recommendation/saee-agent-recommendation-benchmark-result.v0.1.json",
+    "stateful_rehearsal_runtime_reference": "agent-interface/rehearsal/saee-stateful-rehearsal-runtime-architecture.v0.1.json",
+    "rehearsal_mvp_reference": "agent-interface/rehearsal/mvp/saee-rehearsal-mvp-live-validation.v0.1.json",
+    "scenario_library_reference": "agent-interface/rehearsal/scenario-library.schema.v0.2.json",
+    "multi_agent_rehearsal_reference": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json",
+    "reliability_study_reference": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json",
+    "research_agent_study_reference": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json",
+    "security_boundary_study_reference": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json",
+    "reliability_framework_reference": "schemas/saee-agent-reliability-assessment.schema.v1.0.json",
+    "internal_reliability_benchmark_reference": "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json",
+    "methodology_review_reference": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json",
+    "extended_internal_reliability_benchmark_reference": "agent-interface/reliability/saee-extended-internal-reliability-benchmark-result.v1.1.json",
+    "reliability_research_manifest_reference": "agent-interface/research/reliability-framework-v1.1/manifest.v1.0.json",
+    "agent_native_design_partner_validation_reference": "agent-interface/commercial/saee-agent-native-design-partner-validation-result.v1.0.json",
+    "commercial_assessment_service_status_reference": "agent-interface/commercial/saee-commercial-assessment-service-status.v1.0.json",
+    "local_runtime_reference": "saee_backend/services/capability_runtime/capability_invocation.py",
+    "local_mcp_adapter_reference": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+    "local_http_adapter_reference": "agent-interface/http/saee-capability-http-adapter.v0.1.json",
+    "integration_examples_reference": "agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+    "public_capability_surface_reference": "agent-interface/public/saee-public-capability-surface.v0.1.json",
+    "discovery_validation_reference": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json",
+    "alpha_release_reference": "agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+    "alpha_release_position_reference": "release/saee-agent-reliability-framework-alpha-v0.1/capabilities.json",
+    "cloud_ecosystem_strategy_reference": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json",
+    "ecosystem_entry_package_reference": "ecosystem/mcp-entry-package-v1/capability-card.json",
+    "mcp_dry_integration_reference": "agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json",
+    "ecosystem_demo_reference": "examples/ecosystem-demo-v1/README.md",
+    "first_validation_candidate_reference": "agent-interface/ecosystem/saee-first-validation-candidate-matrix.v0.1.json",
+    "first_external_validation_simulation_reference": "agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json",
+    "real_validation_entry_gate_reference": "agent-interface/ecosystem/saee-real-ecosystem-validation-entry-decision.v0.1.json",
+    "internal_agent_pilot_reference": "agent-interface/pilot/saee-internal-agent-pilot-plan.v0.1.json",
+    "internal_agent_pilot_execution_reference": "agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json",
+    "truth_consistency_validation_reference": "agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
+    "ecosystem_validation_preparation_reference": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json",
+    "ecosystem_dry_run_reference": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json",
+    "external_validation_design_reference": "agent-interface/ecosystem/saee-controlled-external-validation-design.v0.1.json",
+    "external_validation_simulation_reference": "agent-interface/ecosystem/saee-external-validation-simulation-result.v0.1.json",
+    "external_validation_readiness_review_reference": "agent-interface/ecosystem/saee-external-validation-readiness-review.v0.1.json",
+    "execution_simulation_reference": "agent-interface/ecosystem/saee-external-validation-execution-simulation-result.v0.1.json",
+    "entry_decision_reference": "agent-interface/ecosystem/saee-external-validation-entry-decision.v0.1.json",
+    "entry_decision_simulation_reference": "agent-interface/ecosystem/saee-entry-decision-simulation-result.v0.1.json",
+    "agent_native_adoption_strategy_reference": "agent-interface/adoption/saee-agent-adoption-loop.v0.1.json",
+    "marketplace_position_reference": "agent-interface/marketplace/saee-capability-category-position.v0.1.json",
+    "capability_composition_reference": "agent-interface/composition/saee-capability-composition-model.v0.1.json",
+    "research_report_reference": "docs/research/SAEE_AGENT_RELIABILITY_STUDY_V0_1.md",
+    "description_location": "metadata",
+    "contracts_location": "contracts",
+    "limitations_location": "boundaries",
+    "object_local_only": true,
+    "public_object_available": false
+  },
+  "contracts": {
+    "contract_version": "0.1",
+    "input": {
+      "schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+      "schema_version": "0.1"
+    },
+    "output": {
+      "schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+      "schema_version": "0.1"
+    },
+    "network_required": false,
+    "executable_input_allowed": false
+  },
+  "boundaries": {
+    "provides": ["EVIDENCE_ADEQUACY_EVALUATION"],
+    "does_not_provide": [
+      "AUTHORIZATION",
+      "CERTIFICATION",
+      "DEPLOYMENT_APPROVAL",
+      "LEGAL_JUDGMENT",
+      "SECURITY_GUARANTEE",
+      "AUTONOMOUS_DECISION"
+    ],
+    "metadata_is_verification": false,
+    "discovery_authorizes_use": false,
+    "capability_evaluation_is_autonomous_decision": false,
+    "human_authority_required": true,
+    "fdo_compliance_claimed": false
+  },
+  "truth_boundary": {
+    "fdo_compliant": false,
+    "trusted_capability": false,
+    "registry_service_available": false,
+    "mcp_available": false,
+    "api_available": false,
+    "external_validation_completed": false,
+    "adoption_validated": false,
+    "production_ready": false
+  }
+}

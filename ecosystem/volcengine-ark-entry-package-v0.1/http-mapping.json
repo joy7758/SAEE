@@ -1,0 +1,12 @@
+{
+  "mapping_version": "0.1",
+  "platform": "VOLCENGINE_ARK",
+  "entry_surface": "HTTP_CAPABILITY",
+  "status": "DESIGN_ONLY",
+  "openapi_ref": "capability-package/openapi.yaml",
+  "canonical_adapter_ref": "agent-interface/http/saee-capability-http-adapter.v0.1.json",
+  "public_endpoint": null,
+  "ark_interoperability_tested": false,
+  "official_integration": false,
+  "production_ready": false
+}

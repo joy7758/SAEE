@@ -1,0 +1,45 @@
+{
+  "validation_version": "0.1",
+  "capability_id": "saee.agent-reliability",
+  "version": "0.1.0",
+  "checked_sources": ["CAPABILITY_OBJECT", "CAPABILITY_REGISTRY", "CAPABILITY_PACKAGE", "ALPHA_RELEASE_MANIFEST", "PUBLIC_CAPABILITY_SURFACE", "MCP_METADATA", "HTTP_METADATA", "CAPABILITY_RUNTIME"],
+  "capability_aliases": {"saee.evidence-adequacy": "saee.evidence-evaluation"},
+  "version_namespaces": {"capability_object":"0.1", "package_contract":"1.0.0", "alpha_release":"0.1.0", "adapter":"0.1.0"},
+  "identity_match": true,
+  "operation_match": true,
+  "status_match": true,
+  "lifecycle_match": true,
+  "protocol_match": true,
+  "boundary_match": true,
+  "source_references": {
+    "CAPABILITY_OBJECT": "agent-interface/registry/objects/saee-evidence-adequacy-capability-object.v0.1.json",
+    "CAPABILITY_REGISTRY": "agent-interface/registry/saee-capability-card.v0.1.json",
+    "CAPABILITY_PACKAGE": "capability-package/manifest.json",
+    "ALPHA_RELEASE_MANIFEST": "agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+    "PUBLIC_CAPABILITY_SURFACE": "agent-interface/public/saee-public-capability-surface.v0.1.json",
+    "MCP_METADATA": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+    "HTTP_METADATA": "agent-interface/http/saee-capability-http-adapter.v0.1.json",
+    "CAPABILITY_RUNTIME": "saee_backend/services/capability_runtime/capability_registry_loader.py"
+  },
+  "conflicts_detected": false,
+  "conflicts": [],
+  "limitations": [
+    "Historical saee.evidence-adequacy is explicitly mapped to saee.evidence-evaluation.",
+    "Artifact versions are validated within namespaces rather than treated as one universal version.",
+    "MCP and HTTP metadata expose local transports only; no public interoperability is established.",
+    "Consistency confirms descriptions agree but does not prove runtime correctness or external trust.",
+    "No external agent, customer data, marketplace, adoption, or production environment is evaluated.",
+    "A passing result does not authorize publication, deployment, certification, or lifecycle promotion."
+  ],
+  "truth_boundary": {
+    "validation_only": true,
+    "alpha_release": true,
+    "public_release": false,
+    "production_ready": false,
+    "marketplace_listed": false,
+    "external_adoption": false,
+    "customer_validated": false,
+    "external_trust_established": false,
+    "certification_established": false
+  }
+}

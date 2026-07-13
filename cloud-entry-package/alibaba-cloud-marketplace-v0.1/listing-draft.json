@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "draft_id": "saee.alibaba-cloud.marketplace-listing-draft.v0.1",
+  "status": "marketplace_product_draft_68657_sales_fields_entered_validity_confirmation_pending",
+  "marketplace_commodity_id": "68657",
+  "product": {
+    "name_en": "SAEE Agent Readiness Assessment",
+    "name_zh": "SAEE 智能体上线可靠性评估服务",
+    "marketplace_product_name_proposed": "SAEE AI智能体上线前可靠性评估｜Agent工作流证据检查",
+    "preferred_access_type": "SERVICE_HUMAN_DELIVERED",
+    "platform_product_type_selection_verified": true,
+    "platform_current_ui_selection_observed": "服务类",
+    "platform_current_ui_selection_actor_attribution": "owner_confirmed_existing_ui_state",
+    "platform_current_ui_selection_adopted_as_owner_decision": true,
+    "spi_notification_proposed": false,
+    "service_flow_template_proposed": "PUBLIC_MINIMAL_SERVICE_FLOW",
+    "service_flow_template_selected": "最简服务流",
+    "delivery_provider_selected": "山西游骑兵电子商务有限公司",
+    "delivery_provider_weight": 10,
+    "delivery_provider_max_active_orders": 1000,
+    "marketplace_basic_info_saved": true,
+    "marketplace_business_info_page_opened": true,
+    "one_sentence_value": "在真实部署前，评估一个 AI Agent 工作流是否具有充分、可追溯的执行证据。",
+    "target_customer_hypothesis": [
+      "AI_STARTUP_AGENT_TEAM",
+      "AGENT_SAAS_TEAM",
+      "ENTERPRISE_INTERNAL_AGENT_TEAM"
+    ],
+    "alibaba_cloud_anchor": "Alibaba Cloud Model Studio workflow execution evidence",
+    "alibaba_cloud_anchor_validation_status": "not_tested"
+  },
+  "initial_sku": {
+    "name": "单工作流单场景首发评估",
+    "sales_mode": "PAY_PER_USE",
+    "enterprise_customers_only": false,
+    "workflow_count": 1,
+    "scenario_count": 1,
+    "required_inputs": [
+      "agent_workflow_description",
+      "scenario",
+      "owner_approved_sanitized_execution_record",
+      "evidence_references"
+    ],
+    "outputs": [
+      "machine_readable_json_assessment",
+      "human_readable_assessment_report",
+      "missing_evidence_list",
+      "bounded_improvement_recommendations",
+      "limitations"
+    ],
+    "allowed_recommendations": [
+      "CONTINUE",
+      "REPLAN",
+      "HUMAN_REVIEW_REQUIRED",
+      "STOP"
+    ],
+    "public_price_cny": 999,
+    "marketplace_form_entered": true,
+    "validity_current_ui_selection": "1年",
+    "validity_owner_approved": false,
+    "tax_rate": null,
+    "delivery_business_days": null,
+    "warranty_days": null,
+    "refund_terms": null,
+    "support_terms": null,
+    "acceptance_terms": null
+  },
+  "marketplace_business_info": {
+    "form_fill_authorized": true,
+    "form_modified_by_codex": true,
+    "service_region_supported": false,
+    "delivery_time_entered": false,
+    "warranty_time_entered": false,
+    "category": "AI应用及服务市场 / AI应用",
+    "delivery_method": "人工服务",
+    "application_object": "企业",
+    "application_scenario": "应用开发",
+    "custom_tags": [
+      "数据智能",
+      "数据分析"
+    ],
+    "saved": true
+  },
+  "canonical_contracts": {
+    "product": "commercial/agent-readiness-assessment-package-v1/product.json",
+    "request_schema": "agent-interface/commercial/saee-marketplace-assessment-intake.schema.v0.1.json",
+    "response_schema": "agent-interface/commercial/saee-marketplace-assessment-bundle.schema.v0.1.json",
+    "delivery_receipt_schema": "agent-interface/commercial/saee-marketplace-delivery-receipt.schema.v0.1.json",
+    "delivery_bridge": "saee_backend/services/marketplace_assessment_delivery.py",
+    "report_template": "docs/commercial/SAEE_AGENT_READINESS_REPORT_TEMPLATE.md",
+    "public_operations": [
+      "saee.evaluate_agent_run",
+      "saee.evaluate_evidence"
+    ]
+  },
+  "owner_decisions_required": [
+    "validity",
+    "tax_rate",
+    "delivery_business_days",
+    "refund_terms",
+    "support_terms",
+    "acceptance_terms",
+    "marketplace_product_business_info_next_step",
+    "marketplace_submission_authorization"
+  ],
+  "forbidden_claims": [
+    "certification",
+    "compliance_approval",
+    "absolute_safety",
+    "deployment_authorization",
+    "official_bailian_integration",
+    "production_ready",
+    "customer_validated"
+  ],
+  "truth_boundary": {
+    "customer_input_adapter_ready": true,
+    "customer_input_adapter_scope": "normalized_authorized_sanitized_metadata_only",
+    "delivery_terms_owner_approved": false,
+    "public_price_points_approved": true,
+    "marketplace_sales_information_form_fields_entered": true,
+    "marketplace_sales_information_saved": false,
+    "bailian_synthetic_interoperability_validated": false,
+    "marketplace_product_access_form_fill_authorized": true,
+    "marketplace_product_basic_info_form_fill_authorized": true,
+    "marketplace_product_basic_info_saved": true,
+    "marketplace_product_business_info_form_fill_authorized": true,
+    "marketplace_product_business_info_saved": true,
+    "marketplace_product_sales_information_opened": true,
+    "marketplace_product_draft_created": true,
+    "marketplace_product_submission": false,
+    "marketplace_product_listed": false,
+    "commercial_delivery_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

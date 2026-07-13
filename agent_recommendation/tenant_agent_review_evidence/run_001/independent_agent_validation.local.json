@@ -1,0 +1,16 @@
+{
+  "agent_validation_type": "independent_agent_recommendation_gate",
+  "agent_validation_primary": true,
+  "blockers": [],
+  "blockers_closed_by_validation": 0,
+  "customer_validated": false,
+  "development_blockers": 0,
+  "generated_at": "2026-07-11",
+  "human_validation_used": false,
+  "independent_agent_profile": "recommendation_agent_validation",
+  "privacy_legal_review_completed": false,
+  "production_ready": false,
+  "recommendation_scope": "local_agent_review_evidence_adapter_only",
+  "security_review_completed": false,
+  "verdict": "recommend"
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "invariant": "lineage_integrity_invariant",
+    "category": "lineage_statistics",
+    "classification": "local_observation",
+    "evidence": [
+      "saee_experiments/reports/lineage_statistics.json: lineage_integrity_preserved=true",
+      "saee_experiments/reports/lineage_statistics.json: graph_type=lineage_dag, node_count=808, edge_count=1590"
+    ],
+    "stability_score": 1.0,
+    "score_basis": "all recorded lineage edges have valid endpoints in the existing lineage statistics"
+  },
+  {
+    "invariant": "population_viability_invariant",
+    "category": "population_stability",
+    "classification": "local_observation",
+    "evidence": [
+      "saee_experiments/reports/stability_report.json: population_count=8 for 100/100 generations",
+      "saee_experiments/reports/stability_report.json: collapse_event_count=0"
+    ],
+    "stability_score": 1.0,
+    "score_basis": "population_support_ratio=100/100 and collapse_event_count=0"
+  },
+  {
+    "invariant": "fitness_convergence_tendency",
+    "category": "fitness_convergence_trends",
+    "classification": "candidate_pattern",
+    "evidence": [
+      "saee_experiments/reports/stability_report.json: convergence_tendency=converging",
+      "saee_experiments/reports/stability_report.json: fitness_variance_mean=0.00000122",
+      "derived from existing stability report: first_10_variance_mean=0.000001839, last_10_variance_mean=0.000000705, variance_ratio=0.383360522"
+    ],
+    "stability_score": 0.616639478,
+    "score_basis": "1 - variance_ratio_last10_to_first10 from existing stability_report.json"
+  },
+  {
+    "invariant": "branching_density_range",
+    "category": "branching_density",
+    "classification": "candidate_pattern",
+    "evidence": [
+      "saee_experiments/reports/lineage_statistics.json: branching_density=1.967822",
+      "saee_experiments/reports/lineage_statistics.json: edge_count=1590, node_count=808",
+      "saee_phase2/output/demo-run/phase2_summary.json: branching_density=2.769231"
+    ],
+    "stability_score": 1.0,
+    "score_basis": "observed finite positive branching density with lineage_integrity_preserved=true; range is candidate only until repeated controlled runs exist"
+  }
+]

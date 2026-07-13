@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-release-boundary.schema.v0.1.json",
+  "title": "SAEE Capability Alpha Release Boundary v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["boundary_version", "release_id", "version", "release_status", "requirements", "truth_boundary"],
+  "properties": {
+    "boundary_version": {"const": "0.1"},
+    "release_id": {"const": "saee-capability-alpha-v0.1"},
+    "version": {"const": "0.1.0"},
+    "release_status": {"const": "ALPHA_PREPARATION"},
+    "requirements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["limitations_present", "version_present", "capability_identity_present"],
+      "properties": {
+        "limitations_present": {"const": true},
+        "version_present": {"const": true},
+        "capability_identity_present": {"const": true}
+      }
+    },
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["alpha_preparation", "public_release", "public_api", "public_service", "marketplace_listed", "external_adoption", "customer_validated", "production_ready", "certified", "approved", "trusted_by_all_agents"],
+      "properties": {
+        "alpha_preparation": {"const": true},
+        "public_release": {"const": false},
+        "public_api": {"const": false},
+        "public_service": {"const": false},
+        "marketplace_listed": {"const": false},
+        "external_adoption": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false},
+        "certified": {"const": false},
+        "approved": {"const": false},
+        "trusted_by_all_agents": {"const": false}
+      }
+    }
+  }
+}

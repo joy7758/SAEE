@@ -1,0 +1,93 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_builder": false,
+  "boundary_review": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "blockers_closed_by_builder": false,
+    "codex_contacted_customer": false,
+    "codex_contacted_vendor": false,
+    "codex_inferred_missing_evidence": false,
+    "customer_contacted": false,
+    "customer_validated": false,
+    "escalation_schedule_published_by_codex": false,
+    "execution_authorized": false,
+    "external_ai_assistant_tested": false,
+    "external_calls_made": false,
+    "external_model_api_called": false,
+    "incident_commander_assigned_by_codex": false,
+    "kernel_modified": false,
+    "on_call_rotation_started_by_codex": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_on_call_claim_published": false,
+    "production_ready": false,
+    "public_sdk_released": false,
+    "runtime_modified": false,
+    "support_operations_started": false,
+    "support_vendor_contacted": false
+  },
+  "codex_contacted_customer": false,
+  "codex_contacted_vendor": false,
+  "codex_inferred_missing_evidence": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "decision_summary": "Human-approved local on-call evidence for controlled-preview review only. Zhang Bin is the named single responsible owner for manual escalation review. This does not start a production on-call rotation, publish an escalation schedule, assign production incident command, contact customers or vendors, or create a production support claim.",
+  "escalation_schedule_published_by_codex": false,
+  "evidence_review": {
+    "escalation_schedule_defined": true,
+    "incident_commander_named": true,
+    "on_call_rotation_defined": true
+  },
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "human_reviewer_name": "张斌",
+  "incident_commander_assigned_by_codex": false,
+  "incident_operations_owner": "张斌",
+  "input_status": "human_filled_local_review_only",
+  "kernel_modified": false,
+  "on_call_evidence_slots": [
+    {
+      "evidence_key": "escalation_schedule_defined",
+      "evidence_reference": "human_confirmation_2026-07-08_manual_escalation_schedule_draft",
+      "human_source_note": "人工确认：当前仅记录受控预览阶段的人工升级安排草案，由张斌负责复核；不发布生产级升级时间表。",
+      "owner_named": true,
+      "reviewed_by_human": true
+    },
+    {
+      "evidence_key": "incident_commander_named",
+      "evidence_reference": "human_confirmation_2026-07-08_incident_operations_owner_zhang_bin",
+      "human_source_note": "人工确认：当前本地证据中记录张斌为事件处理责任人；这不是正式生产事件指挥任命。",
+      "owner_named": true,
+      "reviewed_by_human": true
+    },
+    {
+      "evidence_key": "on_call_rotation_defined",
+      "evidence_reference": "human_confirmation_2026-07-08_single_owner_manual_on_call_draft",
+      "human_source_note": "人工确认：当前以单人负责人方式记录本地 on-call 草案，用于商业准备审查；不代表已启动 7x24 值班。",
+      "owner_named": true,
+      "reviewed_by_human": true
+    }
+  ],
+  "on_call_owner": "张斌",
+  "on_call_rotation_started_by_codex": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_on_call_claim_published": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "review_date": "2026-07-08",
+  "runtime_modified": false,
+  "source_notes_by_key": {
+    "escalation_schedule_defined": "人工确认：存在受控预览阶段的人工升级安排草案，但未对外发布，也未启动生产支持运营。",
+    "incident_commander_named": "人工确认：张斌作为当前本地证据中的事件处理责任人；该记录不等于生产级事件指挥制度已运行。",
+    "on_call_rotation_defined": "人工确认：当前只有单人负责人张斌的本地 on-call 草案，用于审查，不代表正式轮值已经上线。"
+  },
+  "support_operations_started": false,
+  "support_vendor_contacted": false,
+  "template_type": "saee_on_call_evidence_input",
+  "template_version": "v0.1"
+}

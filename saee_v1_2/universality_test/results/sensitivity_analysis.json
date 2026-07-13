@@ -1,0 +1,419 @@
+{
+  "agent_replication_rate_perturbation": {
+    "levels": [
+      {
+        "crossing_cells": 5,
+        "crossing_rate": 0.555556,
+        "phase_transition_present_under_level": true,
+        "replication_rate": 0.65,
+        "replication_rate_label": "low",
+        "sampled_cells": 9
+      },
+      {
+        "crossing_cells": 5,
+        "crossing_rate": 0.555556,
+        "phase_transition_present_under_level": true,
+        "replication_rate": 1.0,
+        "replication_rate_label": "medium",
+        "sampled_cells": 9
+      },
+      {
+        "crossing_cells": 4,
+        "crossing_rate": 0.444444,
+        "phase_transition_present_under_level": true,
+        "replication_rate": 1.35,
+        "replication_rate_label": "high",
+        "sampled_cells": 9
+      }
+    ],
+    "method": "existing_parameter_phase_map_replication_rate_levels_only",
+    "presence_stability_score": 1.0
+  },
+  "analysis_mode": "post_hoc_existing_outputs_only",
+  "claim_boundary": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_validated": true,
+    "universality_claim": "forbidden"
+  },
+  "experimental_code_modified": false,
+  "generated_on": "2026-07-06",
+  "governance_delay_perturbation": {
+    "delay_stability_score": 1.0,
+    "details": {
+      "DBI-1": {
+        "final_phi_suppression_score": 0.448726,
+        "overall_governance_response_score": 0.816242,
+        "probability_suppression_score": 1.0,
+        "timing_delay_score": 1.0
+      },
+      "DBI-2": {
+        "final_phi_suppression_score": 0.062748,
+        "overall_governance_response_score": 0.066402,
+        "probability_suppression_score": 0.0,
+        "timing_delay_score": 0.136458
+      },
+      "delay_preserved_across_systems": true,
+      "mean_transition_steps_observed_only": {
+        "DBI-1": {
+          "none": 33.928571,
+          "strong": null,
+          "weak": 50.083333
+        },
+        "DBI-2": {
+          "none": 16.933333,
+          "strong": 38.766667,
+          "weak": 18.266667
+        }
+      },
+      "suppression_preserved_across_systems": false,
+      "transition_probabilities": {
+        "DBI-1": {
+          "none": 0.933333,
+          "strong": 0.0,
+          "weak": 0.8
+        },
+        "DBI-2": {
+          "none": 1.0,
+          "strong": 1.0,
+          "weak": 1.0
+        }
+      }
+    },
+    "interpretation": "Delay is robust across DBI-1 and DBI-2; suppression is architecture-dependent.",
+    "method": "existing_universality_governance_response_only",
+    "suppression_stability_score": 0.0
+  },
+  "phi_c_variance": {
+    "configured_phi_c_variance_across_systems": 0.0,
+    "observed_transition_phi_variance_across_systems": 3e-06,
+    "variance_stability_score": 0.9997
+  },
+  "phi_threshold_perturbation": {
+    "cases": [
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.54,
+            "transition_present": true,
+            "transition_step": 27
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.6,
+            "transition_present": true,
+            "transition_step": 39
+          },
+          {
+            "matches_baseline_presence": false,
+            "phi_threshold": 0.66,
+            "transition_present": false,
+            "transition_step": null
+          }
+        ],
+        "governance": "none",
+        "source_id": "DBI-1_single_seed_A_no_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.54,
+            "transition_present": true,
+            "transition_step": 22
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.6,
+            "transition_present": true,
+            "transition_step": 121
+          },
+          {
+            "matches_baseline_presence": false,
+            "phi_threshold": 0.66,
+            "transition_present": false,
+            "transition_step": null
+          }
+        ],
+        "governance": "weak",
+        "source_id": "DBI-1_single_seed_B_weak_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": false,
+        "cases": [
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.54,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.6,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.66,
+            "transition_present": false,
+            "transition_step": null
+          }
+        ],
+        "governance": "strong",
+        "source_id": "DBI-1_single_seed_C_strong_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.54,
+            "transition_present": true,
+            "transition_step": 27
+          },
+          {
+            "matches_baseline_presence": false,
+            "phi_threshold": 0.6,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "matches_baseline_presence": false,
+            "phi_threshold": 0.66,
+            "transition_present": false,
+            "transition_step": null
+          }
+        ],
+        "governance": "none",
+        "source_id": "DBI-1_universality_mean_no_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.54,
+            "transition_present": true,
+            "transition_step": 5
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.6,
+            "transition_present": true,
+            "transition_step": 16
+          },
+          {
+            "matches_baseline_presence": true,
+            "phi_threshold": 0.66,
+            "transition_present": true,
+            "transition_step": 50
+          }
+        ],
+        "governance": "none",
+        "source_id": "DBI-2_universality_mean_no_governance",
+        "system": "DBI-2"
+      }
+    ],
+    "perturbation": "Phi_c +/- 10 percent around 0.60",
+    "presence_stability_score": 0.733333,
+    "thresholds_tested": [
+      0.54,
+      0.6,
+      0.66
+    ]
+  },
+  "resource_noise_perturbation": {
+    "boundary": "No environment resources were changed and no simulation was rerun.",
+    "cases": [
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "final_phi_post_hoc": 0.614034,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.2,
+            "transition_present": true,
+            "transition_step": 105
+          },
+          {
+            "final_phi_post_hoc": 0.627069,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.1,
+            "transition_present": true,
+            "transition_step": 103
+          },
+          {
+            "final_phi_post_hoc": 0.633587,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.05,
+            "transition_present": true,
+            "transition_step": 102
+          },
+          {
+            "final_phi_post_hoc": 0.646622,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.05,
+            "transition_present": true,
+            "transition_step": 39
+          },
+          {
+            "final_phi_post_hoc": 0.65314,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.1,
+            "transition_present": true,
+            "transition_step": 39
+          },
+          {
+            "final_phi_post_hoc": 0.666175,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.2,
+            "transition_present": true,
+            "transition_step": 38
+          }
+        ],
+        "governance": "none",
+        "method": "post_hoc_resource_concentration_component_scaling_existing_trace",
+        "source_id": "DBI-1_single_seed_A_no_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": true,
+        "cases": [
+          {
+            "final_phi_post_hoc": 0.535799,
+            "matches_baseline_presence": false,
+            "resource_component_noise": -0.2,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.543413,
+            "matches_baseline_presence": false,
+            "resource_component_noise": -0.1,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.547221,
+            "matches_baseline_presence": false,
+            "resource_component_noise": -0.05,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.554835,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.05,
+            "transition_present": true,
+            "transition_step": 58
+          },
+          {
+            "final_phi_post_hoc": 0.558642,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.1,
+            "transition_present": true,
+            "transition_step": 58
+          },
+          {
+            "final_phi_post_hoc": 0.566257,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.2,
+            "transition_present": true,
+            "transition_step": 23
+          }
+        ],
+        "governance": "weak",
+        "method": "post_hoc_resource_concentration_component_scaling_existing_trace",
+        "source_id": "DBI-1_single_seed_B_weak_governance",
+        "system": "DBI-1"
+      },
+      {
+        "baseline_transition_present": false,
+        "cases": [
+          {
+            "final_phi_post_hoc": 0.362544,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.2,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.362816,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.1,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.362952,
+            "matches_baseline_presence": true,
+            "resource_component_noise": -0.05,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.363223,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.05,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.363359,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.1,
+            "transition_present": false,
+            "transition_step": null
+          },
+          {
+            "final_phi_post_hoc": 0.363631,
+            "matches_baseline_presence": true,
+            "resource_component_noise": 0.2,
+            "transition_present": false,
+            "transition_step": null
+          }
+        ],
+        "governance": "strong",
+        "method": "post_hoc_resource_concentration_component_scaling_existing_trace",
+        "source_id": "DBI-1_single_seed_C_strong_governance",
+        "system": "DBI-1"
+      }
+    ],
+    "method": "post_hoc_scaling_of_resource_concentration_component_in_existing_DBI1_traces",
+    "noise_levels": [
+      -0.2,
+      -0.1,
+      -0.05,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "presence_stability_score": 0.833333
+  },
+  "robustness_summary": {
+    "governance_delay_stability_score": 1.0,
+    "governance_suppression_stability_score": 0.0,
+    "main_finding": "Phase transition presence is robust under tested post-hoc perturbations, while governance suppression is not architecture-invariant.",
+    "overall_robustness_score": 0.913273,
+    "phi_c_variance_stability_score": 0.9997,
+    "replication_presence_stability_score": 1.0,
+    "resource_noise_presence_stability_score": 0.833333,
+    "threshold_presence_stability_score": 0.733333
+  },
+  "schema": "saee.jaamas_submission.sensitivity_analysis.v1",
+  "simulations_rerun_for_this_analysis": false,
+  "source_outputs": {
+    "dbi1_parameter_phase_map": "saee_v1_2/parasitic_phase/results/scientific-closure-demo/parameter_phase_map.json",
+    "dbi1_statistical_summary": "saee_v1_2/parasitic_phase/results/scientific-closure-demo/statistical_summary.json",
+    "dbi1_traces": "saee_v1_2/parasitic_phase/results/scientific-closure-demo/*/trace.jsonl",
+    "universality_metrics": "saee_v1_2/universality_test/results/universality_metrics.json"
+  }
+}

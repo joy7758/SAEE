@@ -1,0 +1,20 @@
+{
+  "$schema": "../schemas/commercial-quote-request.schema.json",
+  "contract_id": "saee-commercial-quote-request-v0.1",
+  "request_version": "0.1.0",
+  "tenant_id": "tenant-demo-cn",
+  "request_id": "quote-preview-20260710-001",
+  "package_id": "controlled_preview",
+  "evaluation_scope": "controlled_preview",
+  "requested_usage": {"agent_count": 3, "scenario_runs_per_month": 100},
+  "contact_mode": "agent_receipt_only",
+  "boundaries": {
+    "customer_data": false,
+    "customer_contact": false,
+    "payment": false,
+    "checkout": false,
+    "production_claim": false,
+    "external_execution": false
+  },
+  "receipt": {"required": true, "schema": "agent-interface/schemas/commercial-quote-response.schema.json"}
+}

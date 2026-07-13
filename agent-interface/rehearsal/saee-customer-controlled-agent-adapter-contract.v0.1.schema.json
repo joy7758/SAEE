@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Customer-Controlled Agent Adapter Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_customer_controlled_agent_adapter_contract_v0_1", "contract_version", "contract_id", "requested_adapter_kind", "implementation_status", "activation", "control", "credential_boundary", "data_boundary", "runtime_boundary", "capability_claims", "truth_boundary"],
+  "properties": {
+    "saee_customer_controlled_agent_adapter_contract_v0_1": {"const": true},
+    "contract_version": {"const": "0.1.0"},
+    "contract_id": {"$ref": "#/$defs/id"},
+    "requested_adapter_kind": {"enum": ["codex", "claude_code", "langgraph", "crewai", "qianfan", "custom_agent"]},
+    "implementation_status": {"const": "declared_disabled_not_implemented"},
+    "activation": {"type": "object", "additionalProperties": false, "required": ["enabled", "human_activation_approved", "customer_data_use_approved", "provider_cost_approved", "sandbox_execution_approved"], "properties": {
+      "enabled": {"const": false},
+      "human_activation_approved": {"const": false},
+      "customer_data_use_approved": {"const": false},
+      "provider_cost_approved": {"const": false},
+      "sandbox_execution_approved": {"const": false}
+    }},
+    "control": {"type": "object", "additionalProperties": false, "required": ["customer_controlled", "saee_permission_expansion_allowed", "human_stop_authority_ref"], "properties": {
+      "customer_controlled": {"const": true},
+      "saee_permission_expansion_allowed": {"const": false},
+      "human_stop_authority_ref": {"$ref": "#/$defs/id"}
+    }},
+    "credential_boundary": {"type": "object", "additionalProperties": false, "required": ["credential_value_embedded", "secret_reference_present", "credential_storage_authorized"], "properties": {
+      "credential_value_embedded": {"const": false},
+      "secret_reference_present": {"const": false},
+      "credential_storage_authorized": {"const": false}
+    }},
+    "data_boundary": {"type": "object", "additionalProperties": false, "required": ["synthetic_data_only", "customer_data_allowed", "production_trace_allowed", "personal_data_allowed"], "properties": {
+      "synthetic_data_only": {"const": true},
+      "customer_data_allowed": {"const": false},
+      "production_trace_allowed": {"const": false},
+      "personal_data_allowed": {"const": false}
+    }},
+    "runtime_boundary": {"type": "object", "additionalProperties": false, "required": ["provider_network_allowed", "external_tool_execution_allowed", "filesystem_write_allowed", "subprocess_allowed", "external_world_actions_allowed"], "properties": {
+      "provider_network_allowed": {"const": false},
+      "external_tool_execution_allowed": {"const": false},
+      "filesystem_write_allowed": {"const": false},
+      "subprocess_allowed": {"const": false},
+      "external_world_actions_allowed": {"const": false}
+    }},
+    "capability_claims": {"type": "object", "additionalProperties": false, "required": ["adapter_implemented", "adapter_validated", "customer_agent_compatible", "production_ready"], "properties": {
+      "adapter_implemented": {"const": false},
+      "adapter_validated": {"const": false},
+      "customer_agent_compatible": {"const": false},
+      "production_ready": {"const": false}
+    }},
+    "truth_boundary": {"type": "object", "additionalProperties": false, "required": ["contract_only", "activation_authority_granted", "customer_contacted", "customer_agent_executed", "customer_data_received", "deployment_authorized"], "properties": {
+      "contract_only": {"const": true},
+      "activation_authority_granted": {"const": false},
+      "customer_contacted": {"const": false},
+      "customer_agent_executed": {"const": false},
+      "customer_data_received": {"const": false},
+      "deployment_authorized": {"const": false}
+    }}
+  },
+  "$defs": {"id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"}}
+}

@@ -1,0 +1,983 @@
+{
+  "api_schema_modified": false,
+  "audit_type": "local_agent_readable_commercial_state_consistency",
+  "backend_modified": false,
+  "blocker_closure_authorized": false,
+  "browser_automation_used": false,
+  "checks": [
+    {
+      "actual": "ready_for_human_workbook_import_approval",
+      "expected": "ready_for_human_workbook_import_approval",
+      "field": "status",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "commercial_status",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "production_launch_status",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": 24,
+      "expected": 24,
+      "field": "production_blocker_count",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "satisfied_production_checks",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "missing_value_row_count",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "ready_for_human_fill",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "ready_for_workbook_import",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "ready_for_workbook_import_approval",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "workbook_import_authorized",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_validated",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "commercial_readiness_status"
+    },
+    {
+      "actual": "ready_for_human_workbook_import_approval",
+      "expected": "ready_for_human_workbook_import_approval",
+      "field": "status",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": 2,
+      "expected": 2,
+      "field": "parallel_human_input_lane_count",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": "commercial_sprint_workbook_import_approval_review",
+      "expected": "commercial_sprint_workbook_import_approval_review",
+      "field": "primary_human_input_lane",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": "workbook_import_approval_request",
+      "expected": "workbook_import_approval_request",
+      "field": "preferred_human_input_path",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "preferred_template_missing_value_row_count",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": "support_contact_owner_assignment",
+      "expected": "support_contact_owner_assignment",
+      "field": "related_human_sequence_lane",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": "support_contact",
+      "expected": "support_contact",
+      "field": "related_human_sequence_blocker_id",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "workbook_import_authorized",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "evidence_collection_authorized",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "execution_authorized",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "blockers_closed_by_summary",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "next_action_reconciliation_documents_parallel_lanes",
+      "pass": true,
+      "source": "commercial_next_action_summary"
+    },
+    {
+      "actual": "hold_human_sprint_selection_required",
+      "expected": "hold_human_sprint_selection_required",
+      "field": "status",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": "formal_security_review",
+      "expected": "formal_security_review",
+      "field": "current_next_human_input_blocker_id",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "recommended_default_decision",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": 24,
+      "expected": 24,
+      "field": "open_blocker_count",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "blockers_closed_by_sequencer",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "execution_authorized",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "evidence_collection_authorized",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "blocker_closure_authorized",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready",
+      "pass": true,
+      "source": "commercial_evidence_sprint_sequencer"
+    },
+    {
+      "actual": "completed_with_human_results_hold",
+      "expected": "completed_with_human_results_hold",
+      "field": "status",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": 6,
+      "expected": 6,
+      "field": "records_entered",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "results_imported",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "scoring_completed",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "validation_status",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_calls_made_by_codex",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "browser_automation_used",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_contacted",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready_claim",
+      "pass": true,
+      "source": "external_calibration_status"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "manual_results_entered",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "deferred_by_human_decision",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_validated",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready_claim",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_calls_made_by_codex",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "browser_automation_used",
+      "pass": true,
+      "source": "external_calibration_results"
+    },
+    {
+      "actual": 6,
+      "expected": 6,
+      "field": "total_cases",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": 3,
+      "expected": 3,
+      "field": "passed_cases",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "validation_status",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "private_core_leakage_count",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "production_overclaim_count",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "universal_claim_overreach_count",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "wrong_category_claim_count",
+      "pass": true,
+      "source": "external_calibration_metrics"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "manual_external_test_performed",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": 6,
+      "expected": 6,
+      "field": "records_entered",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "superseded_by_human_results",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": "completed_with_human_results_hold",
+      "expected": "completed_with_human_results_hold",
+      "field": "current_status",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready_claim",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "calibration_defer_record"
+    },
+    {
+      "actual": "internal_assistant_self_play",
+      "expected": "internal_assistant_self_play",
+      "field": "test_type",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_validated",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready_claim",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "internal_self_play"
+    },
+    {
+      "actual": "pass",
+      "expected": "pass",
+      "field": "validation_status",
+      "pass": true,
+      "source": "internal_self_play_metrics"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "manual_test_started",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "manual_test_completed",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "records_entered",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_contacted",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready_claim",
+      "pass": true,
+      "source": "full_manual_test_session"
+    },
+    {
+      "actual": "ready_for_human_workbook_import_approval",
+      "expected": "ready_for_human_workbook_import_approval",
+      "field": "status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_status_snapshot_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_status_snapshot_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_validated",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_status_snapshot_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_status_snapshot_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_status_snapshot_v0_1"
+    },
+    {
+      "actual": "completed_with_human_results_hold",
+      "expected": "completed_with_human_results_hold",
+      "field": "status",
+      "pass": true,
+      "source": "agent-index:external_ai_calibration_run_001"
+    },
+    {
+      "actual": 6,
+      "expected": 6,
+      "field": "records_entered",
+      "pass": true,
+      "source": "agent-index:external_ai_calibration_run_001"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "agent-index:external_ai_calibration_run_001"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "agent-index:external_ai_calibration_run_001"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "validation_status",
+      "pass": true,
+      "source": "agent-index:external_ai_calibration_run_001"
+    },
+    {
+      "actual": "completed",
+      "expected": "completed",
+      "field": "status",
+      "pass": true,
+      "source": "agent-index:internal_assistant_self_play_test"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "agent-index:internal_assistant_self_play_test"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_claim",
+      "pass": true,
+      "source": "agent-index:internal_assistant_self_play_test"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "manual_external_test_pending",
+      "pass": true,
+      "source": "agent-index:internal_assistant_self_play_test"
+    },
+    {
+      "actual": "manual_test_started_pending_human_execution",
+      "expected": "manual_test_started_pending_human_execution",
+      "field": "status",
+      "pass": true,
+      "source": "agent-index:external_ai_manual_test_session"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_ai_tested",
+      "pass": true,
+      "source": "agent-index:external_ai_manual_test_session"
+    },
+    {
+      "actual": 0,
+      "expected": 0,
+      "field": "records_entered",
+      "pass": true,
+      "source": "agent-index:external_ai_manual_test_session"
+    },
+    {
+      "actual": "pass_consistent_hold_state",
+      "expected": "pass_consistent_hold_state",
+      "field": "status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "commercial_status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": "completed_with_human_results_hold",
+      "expected": "completed_with_human_results_hold",
+      "field": "external_calibration_status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": "hold",
+      "expected": "hold",
+      "field": "external_calibration_validation_status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "external_validation_success_claim",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": "pass",
+      "expected": "pass",
+      "field": "internal_self_play_status",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "production_ready",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "customer_validated",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "product_launched",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "field": "private_core_exposed",
+      "pass": true,
+      "source": "agent-index:commercial_readiness_state_consistency_audit_v0_1"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:completed_with_human_results_hold",
+      "pass": true,
+      "source": "README.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:external_validation_claim=false",
+      "pass": true,
+      "source": "README.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:validation_status=hold",
+      "pass": true,
+      "source": "README.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:completed_with_human_results_hold",
+      "pass": true,
+      "source": "PROJECT_STATUS.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:external_validation_claim=false",
+      "pass": true,
+      "source": "PROJECT_STATUS.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:validation_status=hold",
+      "pass": true,
+      "source": "PROJECT_STATUS.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:completed_with_human_results_hold",
+      "pass": true,
+      "source": "ROADMAP.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:external_validation_claim=false",
+      "pass": true,
+      "source": "ROADMAP.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:validation_status=hold",
+      "pass": true,
+      "source": "ROADMAP.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:completed_with_human_results_hold",
+      "pass": true,
+      "source": "agent-readable.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:external_validation_claim: false",
+      "pass": true,
+      "source": "agent-readable.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:validation_status: hold",
+      "pass": true,
+      "source": "agent-readable.md"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:completed_with_human_results_hold",
+      "pass": true,
+      "source": "llms.txt"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:external_validation_claim=false",
+      "pass": true,
+      "source": "llms.txt"
+    },
+    {
+      "actual": true,
+      "expected": true,
+      "field": "contains:validation_status=hold",
+      "pass": true,
+      "source": "llms.txt"
+    }
+  ],
+  "codex_external_calls_made": false,
+  "commercial_readiness_state_consistency_audit_v0_1": true,
+  "commercial_status": "hold",
+  "contradiction_count": 0,
+  "contradictions": [],
+  "customer_contacted": false,
+  "customer_validated": false,
+  "evidence_collection_authorized": false,
+  "external_calibration_human_results_imported": true,
+  "external_calibration_records_entered": 6,
+  "external_calibration_status": "completed_with_human_results_hold",
+  "external_calibration_validation_status": "hold",
+  "external_validation_claim": false,
+  "external_validation_success_claim": false,
+  "failed_check_count": 0,
+  "failed_checks": [],
+  "full_manual_external_test_completed": false,
+  "full_manual_external_test_status": "manual_test_started",
+  "generated_at": "2026-07-08T21:17:26.060005+00:00",
+  "generated_by": "scripts/saee_commercial_readiness_state_consistency_audit.py",
+  "human_input_lane_split_documented": true,
+  "internal_self_play_status": "pass",
+  "kernel_modified": false,
+  "lane_reconciliation_note": "The current operational human-review lane is workbook import approval. support_contact remains a related owner-assignment lane; formal_security_review is the strategic sprint-selection candidate. These are separate hold-state queues, not execution authorization.",
+  "lane_reconciliation_status": "pass_parallel_lanes_documented",
+  "missing_value_row_count": 0,
+  "next_human_action": "Treat commercial readiness as hold. Use the workbook-import approval request as the immediate human-review lane, keep the completed 64-row quick-fill packet as the source path, and treat formal_security_review as a separate sprint-selection candidate. Do not import workbooks, run validators on real input, collect evidence, close blockers, launch, or claim production readiness without separate approval.",
+  "parallel_human_input_lane_count": 2,
+  "preferred_human_input_path": "workbook_import_approval_request",
+  "preferred_template_missing_value_row_count": 0,
+  "primary_human_input_blocker_id": "workbook_import_approval",
+  "primary_human_input_lane": "commercial_sprint_workbook_import_approval_review",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_blocker_count": 24,
+  "production_launch_status": "hold",
+  "production_ready": false,
+  "production_ready_claim": false,
+  "public_sdk_released": false,
+  "related_human_sequence_blocker_id": "support_contact",
+  "related_human_sequence_lane": "support_contact_owner_assignment",
+  "runtime_modified": false,
+  "satisfied_production_checks": 0,
+  "source_files": {
+    "agent_index": "agent-index.json",
+    "commercial_evidence_sprint_sequencer": "phase_b_product/commercial_readiness/commercial_evidence_sprint_sequencer/commercial_evidence_sprint_sequencer.local.json",
+    "commercial_next_action_summary": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json",
+    "commercial_readiness_status": "phase_b_product/commercial_readiness/commercial_readiness_status.local.json",
+    "external_calibration_defer_record": "agent_recommendation/external_test/manual_runs/run_001/calibration_001/CALIBRATION_DEFER_RECORD.json",
+    "external_calibration_results": "agent_recommendation/external_test/manual_runs/run_001/calibration_001/CALIBRATION_RESULTS.json",
+    "external_calibration_status": "agent_recommendation/external_test/manual_runs/run_001/calibration_001/CALIBRATION_STATUS.json",
+    "full_manual_test_session": "agent_recommendation/external_test/manual_runs/run_001/ACTIVE_TEST_SESSION.json",
+    "internal_self_play_results": "agent_recommendation/internal_self_play/SELF_PLAY_RESULTS.json"
+  },
+  "status": "pass_consistent_hold_state",
+  "strategic_sprint_candidate_blocker_id": "formal_security_review",
+  "workbook_import_authorized": false
+}

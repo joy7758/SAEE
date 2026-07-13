@@ -1,0 +1,10 @@
+model_a,model_b,curve_similarity
+bond_percolation,bond_percolation,1.0
+bond_percolation,marl_public_goods_q_learning,0.956103
+bond_percolation,sir_epidemic,0.77842
+marl_public_goods_q_learning,bond_percolation,0.956103
+marl_public_goods_q_learning,marl_public_goods_q_learning,1.0
+marl_public_goods_q_learning,sir_epidemic,0.855214
+sir_epidemic,bond_percolation,0.77842
+sir_epidemic,marl_public_goods_q_learning,0.855214
+sir_epidemic,sir_epidemic,1.0

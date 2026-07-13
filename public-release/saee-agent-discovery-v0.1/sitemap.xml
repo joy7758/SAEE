@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://redcrag.cn/</loc></url>
+  <url><loc>https://redcrag.cn/llms.txt</loc></url>
+  <url><loc>https://redcrag.cn/.well-known/agent-index.json</loc></url>
+  <url><loc>https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json</loc></url>
+  <url><loc>https://redcrag.cn/docs/overview.md</loc></url>
+  <url><loc>https://redcrag.cn/docs/architecture-overview.md</loc></url>
+  <url><loc>https://redcrag.cn/docs/evidence-adequacy.md</loc></url>
+  <url><loc>https://redcrag.cn/docs/reproducibility-overview.md</loc></url>
+  <url><loc>https://redcrag.cn/docs/limitations.md</loc></url>
+  <url><loc>https://redcrag.cn/examples/synthetic-review-example.json</loc></url>
+</urlset>

@@ -1,0 +1,121 @@
+{
+  "review_version": "1.0",
+  "review_id": "saee:methodology-review:internal-reliability:v1.0",
+  "benchmark_id": "saee-internal-reliability-v1.0",
+  "review_status": "PASS_WITH_LIMITATIONS_TO_PHASE7_2",
+  "extended_benchmark_allowed": true,
+  "new_model_runs": 0,
+  "findings": [
+    {
+      "finding_id": "MR-001",
+      "area": "matrix_design",
+      "status": "PASS",
+      "finding": "The planned 3 x 5 x 3 matrix is balanced and all 45 attempts have unique manifests.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-002",
+      "area": "manifest_integrity",
+      "status": "PASS",
+      "finding": "Run Manifest coverage and failed-run taxonomy coverage are complete.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-003",
+      "area": "assessment_availability",
+      "status": "PASS",
+      "finding": "Assessment unavailability remains separate from task, boundary, and security failure.",
+      "evidence_refs": [
+        "agent-interface/reliability/benchmark-runs/saee-internal-reliability-assessments.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-004",
+      "area": "dimension_independence",
+      "status": "FIXED",
+      "finding": "Task Execution was decoupled from Evidence Adequacy missing requirements.",
+      "evidence_refs": [
+        "agent-interface/reliability/benchmark-runs/saee-internal-reliability-assessments.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-005",
+      "area": "recovery_semantics",
+      "status": "FIXED",
+      "finding": "Recovery is now NOT_ASSESSED when no explicit recovery opportunity was preserved.",
+      "evidence_refs": [
+        "agent-interface/reliability/benchmark-runs/saee-internal-reliability-assessments.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-006",
+      "area": "cross_scenario_comparability",
+      "status": "LIMITATION",
+      "finding": "Scenario-specific evidence targets are not interchangeable and must remain stratified.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-007",
+      "area": "adapter_confounding",
+      "status": "LIMITATION",
+      "finding": "Structured-output and Tool-contract behavior confound model behavior with adapter compatibility.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-008",
+      "area": "statistical_power",
+      "status": "LIMITATION",
+      "finding": "Three repetitions per cell do not support population confidence intervals.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    },
+    {
+      "finding_id": "MR-009",
+      "area": "claim_boundary",
+      "status": "PASS",
+      "finding": "No overall score, winner, ranking, certification, or production decision is generated.",
+      "evidence_refs": [
+        "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "correction_id": "MC-001",
+      "description": "Decouple Task Execution status from Evidence Adequacy outcome.",
+      "applied": true,
+      "model_rerun_required": false
+    },
+    {
+      "correction_id": "MC-002",
+      "description": "Require explicit recovery opportunity before assigning a Recovery status.",
+      "applied": true,
+      "model_rerun_required": false
+    }
+  ],
+  "phase7_2_conditions": [
+    "Preserve scenario-level strata.",
+    "Add recovery_opportunity_observed to future run records.",
+    "Retain every contract-failed and unavailable run.",
+    "Do not produce an overall score, ranking, or winner.",
+    "Keep Evidence Adequacy profiles scenario-specific.",
+    "Report adapter and Provider versions as confounders."
+  ],
+  "truth_boundary": {
+    "benchmark_rerun": false,
+    "overall_score": false,
+    "ranking_generated": false,
+    "certification": false,
+    "production_ready": false,
+    "external_validation_completed": false
+  }
+}

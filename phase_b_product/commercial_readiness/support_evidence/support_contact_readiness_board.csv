@@ -1,0 +1,6 @@
+step_id,title,source,status,complete,human_review_required,next_action
+SCB-001,Human owner input for support_contact,first_owner_input_completion,hold_human_first_owner_input_required,False,True,"Fill assigned_human_owner, owner_contact_reference, target_review_date, owner_acknowledged_scope, and human_approval_reference."
+SCB-002,Candidate support route preflight,support_contact_preflight,hold_missing_candidate,False,True,Set SAEE_SUPPORT_CONTACT locally only after a human owner approves a candidate route for review.
+SCB-003,Support contact approval input validation,support_contact_approval_input_validation,hold,False,True,Complete the human-filled support contact decision input and pass the approval input validator.
+SCB-004,Support contact evidence builder,support_contact_evidence_builder,hold,False,True,Run the evidence builder only after separate human approval and validated human input.
+SCB-005,Combined support/SLA evidence profile,support_sla_evidence_profile,hold,False,True,Regenerate the support/SLA evidence profile after real support-contact evidence is available.

@@ -1,0 +1,29 @@
+{
+  "adapter_version": "0.1.0",
+  "adapter_id": "saee.capability-runtime.http-localhost",
+  "name": "SAEE Local HTTP Capability Adapter Alpha",
+  "stage": "localhost_alpha",
+  "bind_address": "127.0.0.1",
+  "port_policy": "caller_selected_or_ephemeral",
+  "runtime_reference": "saee_backend/services/capability_runtime/capability_invocation.py",
+  "server_reference": "saee_backend/services/capability_http_adapter/http_server.py",
+  "request_schema": "schemas/saee-capability-http-request.schema.v0.1.json",
+  "response_schema": "schemas/saee-capability-http-response.schema.v0.1.json",
+  "endpoints": {
+    "/capabilities/evaluate-agent-run": "evaluate_agent_run",
+    "/capabilities/evaluate-evidence": "evaluate_evidence",
+    "/capabilities/rehearse-agent": "rehearse_agent"
+  },
+  "truth_boundary": {
+    "http_adapter_available": true,
+    "localhost_binding": true,
+    "network_public_access": false,
+    "public_service": false,
+    "authentication_available": false,
+    "oauth_available": false,
+    "multi_tenant": false,
+    "customer_data_allowed": false,
+    "external_world_actions": false,
+    "production_ready": false
+  }
+}

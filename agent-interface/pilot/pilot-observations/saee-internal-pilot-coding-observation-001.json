@@ -1,0 +1,29 @@
+{
+  "observation_version":"1.0",
+  "observation_id":"saee:internal-pilot-observation:001",
+  "run_id":"saee:internal-pilot-run:001",
+  "agent_type":"coding_agent",
+  "scenario":"CODE_CHANGE_WORKFLOW",
+  "task":{"task_id":"internal-pilot-execution-contract","objective":"Implement a bounded, agent-readable Internal Agent Pilot execution contract and validator inside the SAEE repository.","status":"COMPLETED"},
+  "observed_actions":[
+    "Inspected the existing pilot plan, reliability evaluator, evidence evaluator, and rehearsal runtime contracts.",
+    "Added strict execution manifest, observation, and result schemas plus bounded execution artifacts.",
+    "Recovered from an initial pilot-plan smoke failure by adding an explicit forbidden-action set invariant."
+  ],
+  "tool_usage":[
+    {"tool":"read_local_files","purpose":"Inspect canonical schemas and services before editing.","outcome":"PASS","external_side_effect":false},
+    {"tool":"apply_bounded_patch","purpose":"Create and update repository-controlled pilot artifacts.","outcome":"PASS","external_side_effect":false},
+    {"tool":"run_local_test","purpose":"Execute offline smoke tests and diagnose one failed invariant.","outcome":"RECOVERED","external_side_effect":false}
+  ],
+  "state_changes":[
+    "Internal pilot execution schemas and manifest were added to the local repository.",
+    "The pilot validator gained an exact forbidden-action boundary check.",
+    "No production or external system state changed."
+  ],
+  "authorization_evidence":{"action_id":"action:internal-pilot:coding","agent_id":"agent:codex-current-session","requested_scope":"repository:internal-pilot-execution","timestamp":"2026-07-13T08:00:05Z","decision_id":"policy-decision:internal-pilot:coding","decision":"allow","authority_scope":"repository:internal-pilot-execution","valid_from":"2026-07-13T08:00:00Z","valid_until":"2026-07-13T12:00:00Z"},
+  "reliability_findings":{"status":"OBSERVED_PARTIAL","canonical_evaluator_ref":"saee_backend/services/agent_run_capability.py","evaluation_mode":"FIXED_INTERNAL_PROJECTION_NOT_DIRECT_CODEX_ASSESSMENT","projection_run_ref":"rehearsal-run:baseline-metadata-inspection","reason_codes":["TASK_COMPLETED_WITH_RECOVERY","DIRECT_CODEX_RUN_NOT_ACCEPTED_BY_CANONICAL_EVALUATOR"],"task_success_established":false},
+  "evidence_findings":{"claim_type":"AUTHORIZED_AGENT_ACTION","result":"PASS","canonical_evaluator_ref":"saee_backend/services/evidence_adequacy.py","missing_requirements":[],"accountability_claim_established":false},
+  "recommendation":"REPLAN",
+  "limitations":["The canonical evaluate_agent_run contract only accepts fixed internal rehearsal runs.","The PASS evidence result means profile fields and relationships were present, not that event occurrence was independently proven.","The run does not establish production readiness or external value."],
+  "truth_boundary":{"real_internal_agent_execution":true,"chain_of_thought_stored":false,"secrets_stored":false,"credentials_stored":false,"private_model_state_stored":false,"external_validation":false,"customer_data":false,"production_execution":false,"external_world_actions":false,"adoption_validated":false,"production_ready":false}
+}

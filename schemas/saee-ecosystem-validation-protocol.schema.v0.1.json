@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-ecosystem-validation-protocol.schema.v0.1.json",
+  "title": "SAEE Controlled Ecosystem Validation Protocol v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["validation_version", "participant_type", "integration_mode", "capability_reference", "test_scope", "expected_observations", "limitations", "protocol_status", "participant_connected"],
+  "properties": {
+    "validation_version": {"const": "0.1"},
+    "participant_type": {"enum": ["agent_framework", "cloud_platform", "developer", "research_group"]},
+    "integration_mode": {"enum": ["mcp_stdio_local", "http_localhost", "generic_adapter_pattern", "documentation_only"]},
+    "capability_reference": {"const": "agent-interface/release/saee-alpha-release-manifest.v0.1.json"},
+    "test_scope": {
+      "type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true,
+      "items": {"enum": ["DISCOVERY_COMPATIBILITY", "CAPABILITY_UNDERSTANDING", "INVOCATION_COMPATIBILITY", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"]}
+    },
+    "expected_observations": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string", "minLength": 12}},
+    "limitations": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 12}},
+    "protocol_status": {"const": "PREPARATION_ONLY"},
+    "participant_connected": {"const": false}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "agent_profile": "deepseek_ark",
+  "provider": "volcengine_ark",
+  "provider_gateway": "Volcengine Ark",
+  "model_vendor": "deepseek",
+  "model": "deepseek-v4-flash-260425",
+  "capabilities": ["text reasoning", "function calling through Ark", "multi-round synthetic tool use"],
+  "limitations": ["provider availability may change", "no production execution", "one controlled scenario only"],
+  "intelligence_score_defined": false
+}

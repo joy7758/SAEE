@@ -1,0 +1,20 @@
+{
+  "$schema": "../schemas/agent-support-case-request.schema.json",
+  "contract_id": "saee-agent-support-case-request-v0.1",
+  "request_version": "0.1.0",
+  "tenant_id": "tenant-demo-cn",
+  "case_id": "case-preview-schema-20260710-001",
+  "issue_type": "schema_validation",
+  "severity": "low",
+  "summary": "智能体读取报价申请契约时发现一个字段需要澄清。",
+  "evidence_refs": ["commercial_quote_request_v0_1", "agent_manifest_v0_1"],
+  "contact_mode": "agent_receipt_only",
+  "boundaries": {
+    "customer_data": false,
+    "customer_contact": false,
+    "external_dispatch": false,
+    "production_claim": false,
+    "payment": false
+  },
+  "receipt": {"required": true, "schema": "agent-interface/schemas/agent-support-case-response.schema.json"}
+}

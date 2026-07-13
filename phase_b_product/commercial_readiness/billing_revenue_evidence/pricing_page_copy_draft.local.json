@@ -1,0 +1,109 @@
+{
+  "api_schema_modified": false,
+  "approved_plan_and_usage_terms": false,
+  "backend_modified": false,
+  "blocker_closure_allowed_by_draft": false,
+  "blocker_target": "pricing_page",
+  "checkout_enabled": false,
+  "copy_sections": [
+    "headline_and_positioning",
+    "target_buyer_and_use_case_boundary",
+    "package_cards",
+    "internal_price_band_placeholders",
+    "usage_units_and_limits",
+    "controlled_preview_terms",
+    "non_production_ready_disclaimer",
+    "what_saee_is_not",
+    "private_core_exclusion",
+    "legal_tax_payment_handoff",
+    "publication_approval_record"
+  ],
+  "customer_contacted": false,
+  "customer_payment_collected": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "draft_copy_available": true,
+  "draft_status": "draft_not_approved",
+  "draft_type": "saee_pricing_page_copy_draft",
+  "draft_version": "v0.1",
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-04",
+  "generated_by": "scripts/saee_pricing_page_copy_draft.py",
+  "human_approved_pricing_page_copy": false,
+  "human_review_required": true,
+  "invoice_sent_to_customer": false,
+  "kernel_modified": false,
+  "landing_page_modified": false,
+  "paid_pilot_completed": false,
+  "paid_product_launched": false,
+  "payment_link_created": false,
+  "payment_provider_configured": false,
+  "plan_candidates": [
+    {
+      "customer_facing_offer": false,
+      "intended_use": "Local evaluation demos, academic exploration, and design-partner review.",
+      "plan_id": "controlled_preview",
+      "plan_name": "Controlled Preview",
+      "price_display": "internal_review_placeholder_only",
+      "price_source": "MVP_PRICING_AND_PACKAGING.md free tier concept"
+    },
+    {
+      "customer_facing_offer": false,
+      "intended_use": "Team-level multi-agent evaluation, saved reports, exports, and scenario packs.",
+      "plan_id": "pro_team_review",
+      "plan_name": "Pro Team Review",
+      "price_display": "99-499 USD/month internal_review_placeholder_not_public_offer",
+      "price_source": "MVP_PRICING_AND_PACKAGING.md target price band"
+    },
+    {
+      "customer_facing_offer": false,
+      "intended_use": "Private deployment review, custom scenarios, onboarding, and support review.",
+      "plan_id": "enterprise_private_review",
+      "plan_name": "Enterprise Private Review",
+      "price_display": "20k-200k USD/year internal_review_placeholder_not_public_offer",
+      "price_source": "MVP_PRICING_AND_PACKAGING.md target price band"
+    }
+  ],
+  "positioning": {
+    "not_recommended_for": [
+      "generic_tracing_only",
+      "prompt_only_evaluation",
+      "production_monitoring_replacement",
+      "full_quant_trading_platform",
+      "public_open_source_evolution_kernel"
+    ],
+    "primary_message": "We test which AI agents survive long-term competition.",
+    "primary_wedge": "AI agent evaluation and policy stress testing",
+    "recommended_for": [
+      "long_term_stability_evaluation",
+      "multi_agent_comparison",
+      "failure_mode_analysis",
+      "survival_curve_evaluation",
+      "deployment_recommendation"
+    ]
+  },
+  "pricing_page_approved": false,
+  "pricing_page_evidence_complete": false,
+  "pricing_page_publication_approval_recorded": false,
+  "pricing_page_published": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_billing_enabled": false,
+  "production_billing_revenue_ready": false,
+  "production_ready": false,
+  "public_price_points_approved": false,
+  "public_sdk_released": false,
+  "revenue_validated": false,
+  "review_scope": "pricing_page_copy_draft_for_human_review_only",
+  "runtime_modified": false,
+  "sales_offer_sent": false,
+  "separate_payment_enablement_approval_required": true,
+  "separate_publication_approval_required": true,
+  "source_inputs": [
+    "phase_b_product/mvp/MVP_PRICING_AND_PACKAGING.md",
+    "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_review_packet.md"
+  ],
+  "task_candidates_executed": false,
+  "tax_collection_started": false
+}

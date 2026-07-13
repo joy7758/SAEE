@@ -1,0 +1,15 @@
+scenario_id: string
+display_name: string
+description: string
+target_customer: string
+decision_question: string
+candidate_input:
+  - string
+simulation_environment: string
+stress_factors:
+  - string
+evaluation_focus:
+  - string
+output_report:
+  - string
+business_value: string

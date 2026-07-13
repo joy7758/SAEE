@@ -1,0 +1,13 @@
+{
+  "saee_synthetic_otel_event_v0_1": true,
+  "schema_version": "0.1.0",
+  "trace_source": "synthetic_opentelemetry_style",
+  "trace_event_id": "trace-tool-001",
+  "observed_timestamp": "2026-07-11T08:01:00Z",
+  "attributes": {
+    "agent.id": "agent:synthetic-tool-user-001",
+    "action.type": "tool:inspect",
+    "tool.name": "metadata.inspect",
+    "status": "success"
+  }
+}

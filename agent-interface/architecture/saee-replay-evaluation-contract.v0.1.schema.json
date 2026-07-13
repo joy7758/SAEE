@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Replay Evaluation Contract v0.1",
+  "description": "A strict local synthetic contract that binds an Observation Replay Contract to a pre-existing Evaluation Input and declares deterministic mapping lineage. It does not execute Replay, generate risk, make a decision, or authorize deployment.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_replay_evaluation_contract_v0_1",
+    "schema_version",
+    "replay_evaluation_id",
+    "created_at",
+    "contract_status",
+    "replay_contract_ref",
+    "replay_contract_digest",
+    "source_observation_refs",
+    "task_contract_ref",
+    "environment_contract_ref",
+    "mapping_profile_ref",
+    "mapping_profile_version",
+    "observation_mapping_rules",
+    "failure_estimate_source",
+    "transformation_provenance_ref",
+    "consent_ref",
+    "data_use_permission_ref",
+    "evaluation_input_ref",
+    "evaluation_input_digest",
+    "lineage_edges",
+    "operator_ref",
+    "stop_authority_ref",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_replay_evaluation_contract_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "replay_evaluation_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "contract_status": {"const": "local_synthetic_mapping_contract_only"},
+    "replay_contract_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/replay/[A-Za-z0-9._-]+\\.json$"
+    },
+    "replay_contract_digest": {"$ref": "#/$defs/digest"},
+    "source_observation_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": {"$ref": "#/$defs/source_observation_ref"}
+    },
+    "task_contract_ref": {"$ref": "#/$defs/id"},
+    "environment_contract_ref": {"$ref": "#/$defs/id"},
+    "mapping_profile_ref": {"$ref": "#/$defs/id"},
+    "mapping_profile_version": {"const": "0.1.0"},
+    "observation_mapping_rules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {"$ref": "#/$defs/mapping_rule"}
+    },
+    "failure_estimate_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "source_ref",
+        "generated_from_trace",
+        "generated_by_replay",
+        "risk_probability_measured"
+      ],
+      "properties": {
+        "source_type": {"const": "synthetic_rule_reference"},
+        "source_ref": {"$ref": "#/$defs/id"},
+        "generated_from_trace": {"const": false},
+        "generated_by_replay": {"const": false},
+        "risk_probability_measured": {"const": false}
+      }
+    },
+    "transformation_provenance_ref": {"$ref": "#/$defs/id"},
+    "consent_ref": {"$ref": "#/$defs/id"},
+    "data_use_permission_ref": {"$ref": "#/$defs/id"},
+    "evaluation_input_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/phase1_5_cases/[A-Za-z0-9._-]+\\.json$"
+    },
+    "evaluation_input_digest": {"$ref": "#/$defs/digest"},
+    "lineage_edges": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 16,
+      "items": {"$ref": "#/$defs/lineage_edge"}
+    },
+    "operator_ref": {"$ref": "#/$defs/id"},
+    "stop_authority_ref": {"$ref": "#/$defs/id"},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_only",
+        "mapping_executed",
+        "evaluation_input_generated",
+        "replay_executed",
+        "replay_generated_risk",
+        "risk_probability_measured",
+        "automatic_decision",
+        "deployment_authorized",
+        "architecture_implemented",
+        "risk_model_implemented",
+        "real_agent_executed",
+        "customer_data_processed",
+        "external_validation_completed",
+        "customer_validated",
+        "production_ready"
+      ],
+      "properties": {
+        "contract_only": {"const": true},
+        "mapping_executed": {"const": false},
+        "evaluation_input_generated": {"const": false},
+        "replay_executed": {"const": false},
+        "replay_generated_risk": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "automatic_decision": {"const": false},
+        "deployment_authorized": {"const": false},
+        "architecture_implemented": {"const": false},
+        "risk_model_implemented": {"const": false},
+        "real_agent_executed": {"const": false},
+        "customer_data_processed": {"const": false},
+        "external_validation_completed": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"
+    },
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_observation_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_id", "envelope_ref", "digest_algorithm", "envelope_digest"],
+      "properties": {
+        "observation_id": {"$ref": "#/$defs/id"},
+        "envelope_ref": {
+          "type": "string",
+          "pattern": "^agent-interface/architecture/examples/observation/[A-Za-z0-9._-]+\\.json$"
+        },
+        "digest_algorithm": {"const": "sha256"},
+        "envelope_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "mapping_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "source_observation_id",
+        "source_selector",
+        "target_selector",
+        "mapping_method",
+        "deterministic",
+        "executable"
+      ],
+      "properties": {
+        "rule_id": {"$ref": "#/$defs/id"},
+        "source_observation_id": {"$ref": "#/$defs/id"},
+        "source_selector": {"type": "string", "minLength": 1, "maxLength": 240},
+        "target_selector": {"type": "string", "minLength": 1, "maxLength": 240},
+        "mapping_method": {
+          "enum": ["declared_identity_binding", "synthetic_classification_projection", "synthetic_rule_reference_binding"]
+        },
+        "deterministic": {"const": true},
+        "executable": {"const": false}
+      }
+    },
+    "lineage_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge_id", "from_type", "from_ref", "to_type", "to_ref", "relationship"],
+      "properties": {
+        "edge_id": {"$ref": "#/$defs/id"},
+        "from_type": {
+          "enum": ["observation_envelope", "replay_contract", "replay_evaluation_contract", "evaluation_input", "derived_evidence_case"]
+        },
+        "from_ref": {"$ref": "#/$defs/id"},
+        "to_type": {
+          "enum": ["observation_envelope", "replay_contract", "replay_evaluation_contract", "evaluation_input", "derived_evidence_case"]
+        },
+        "to_ref": {"$ref": "#/$defs/id"},
+        "relationship": {
+          "enum": ["governed_by", "mapped_by", "binds_to", "derives_to", "reverse_lookup_anchor"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "saee_evaluation_scenario_v0_1": true,
+  "schema_version": "0.1.0",
+  "scenario_id": "code-agent-synthetic-002",
+  "scenario_class": "missing_evidence",
+  "task_description": "Evaluate a synthetic resource record whose evidence package omits the content digest.",
+  "agent_identity": {"agent_id": "agent:synthetic-002", "synthetic": true},
+  "observed_actions": [
+    {"action_id": "action:synthetic-resource-002", "type": "resource_access", "tool_name": "tool:synthetic-metadata-reader", "requested_scope": "resource:inspect-metadata", "timestamp": "2026-07-11T06:02:01Z", "synthetic": true}
+  ],
+  "resources": [
+    {"resource_id": "resource:synthetic-002", "requested_resource": "repository:synthetic-publisher/synthetic-resource@v0.1.0", "resolved_uri": "https://code.example.invalid/synthetic-publisher/synthetic-resource.git", "receipt_id": "saee-resource-resolution-0123456789abcdef", "content_digest": "896d81144f2697647c89ef46b6b2b2a53c9510afb12598a7f5c5424b95229ad5", "publisher_identity": "synthetic-publisher", "synthetic": true}
+  ],
+  "authorization_context": {"policy_id": "policy:synthetic-resource-inspection-002", "decision": "allow", "agent_id": "agent:synthetic-002", "action_id": "action:synthetic-resource-002", "authority_scope": "resource:inspect-metadata", "valid_from": "2026-07-11T06:02:00Z", "valid_until": "2026-07-11T06:03:00Z", "synthetic": true},
+  "human_oversight_context": {"human_id": "human:synthetic-not-applicable", "decision": "not_applicable", "action_id": "action:synthetic-resource-002", "approved_scope": "resource:inspect-metadata", "approval_timestamp": "2026-07-11T06:02:00Z", "synthetic": true},
+  "execution_effects": [
+    {"effect_id": "effect:synthetic-no-effect-002", "status": "not_applicable", "sandbox_ref": "sandbox:offline-non-execution-002", "resource_receipt_ref": "saee-resource-resolution-0123456789abcdef", "content_digest": "896d81144f2697647c89ef46b6b2b2a53c9510afb12598a7f5c5424b95229ad5", "synthetic": true}
+  ],
+  "expected_claims": ["RESOURCE_AUTHENTICITY"],
+  "claim_evidence": {
+    "saee_evidence_adequacy_input_v0_1": true,
+    "schema_version": "0.1.0",
+    "claim_type": "RESOURCE_AUTHENTICITY",
+    "evidence": {
+      "resource_receipt": {
+        "saee_resource_resolution_receipt_v0_1": true,
+        "schema_version": "0.1.0",
+        "receipt_id": "saee-resource-resolution-0123456789abcdef",
+        "receipt_type": "external_resource_resolution",
+        "created_at": "2026-07-11T04:00:02Z",
+        "agent_id": "synthetic-agent-resolver-001",
+        "requested_resource": "repository:synthetic-publisher/synthetic-resource@v0.1.0",
+        "requested_resource_type": "repository",
+        "resolved_uri": "https://code.example.invalid/synthetic-publisher/synthetic-resource.git",
+        "registry_or_host": "code.example.invalid",
+        "publisher_identity": {"identity_claim": "synthetic-publisher", "claim_status": "declared_not_independently_verified"},
+        "publisher_verification_method": "registry_namespace_record",
+        "content_binding": {"mode": "synthetic_inline_bytes", "encoding": "base64", "inline_base64": "eyJuYW1lIjoic3ludGhldGljLXJlc291cmNlIiwidmVyc2lvbiI6IjAuMS4wIn0=", "byte_length": 47},
+        "digest_algorithm": "sha-256",
+        "retrieval_timestamp": "2026-07-11T04:00:01Z",
+        "policy_decision_ref": "policy:synthetic-resource-inspection-002",
+        "authorization_boundary": {"allowed_action": "inspect_metadata_and_hash_only", "install": false, "import": false, "execute": false, "network": false, "permission_expansion": false},
+        "sandbox_ref": "sandbox:offline-non-execution-002",
+        "sandbox_boundary": {"kind": "offline_non_execution_boundary", "network": false, "subprocess": false, "execution": false},
+        "external_effect": {"status": "not_executed", "side_effect": "no_side_effect", "execution_effect_observed": false},
+        "truth_boundary": {"uri_dereferenced": false, "publisher_identity_verified": false, "external_resource_authenticity_verified": false, "license_verified": false, "malware_scanned": false, "supply_chain_verified": false, "install_performed": false, "resource_imported": false, "candidate_code_executed": false, "production_ready": false},
+        "integrity": {"canonicalization": "saee-canonical-json-v0.1", "digest_algorithm": "sha-256", "digest_scope": "all_receipt_fields_except_integrity", "receipt_digest": "ceebcdc262ed75ba7249deacf999e69f6f5e1b6efa9e86adb90d79096cdc9851"}
+      }
+    },
+    "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+  },
+  "reference_condition_expectations": {
+    "TRACE_ONLY": {"profile_support_expected": false, "expected_missing_requirements": ["/resource_receipt/resolved_uri", "/resource_receipt/publisher_identity", "/resource_receipt/content_digest", "/resource_receipt/policy_decision_ref"], "expected_failed_relationships": []},
+    "TRACE_PLUS_RECEIPT": {"profile_support_expected": false, "expected_missing_requirements": ["/resource_receipt/content_digest"], "expected_failed_relationships": []},
+    "TRACE_RECEIPT_RELATIONSHIPS": {"profile_support_expected": false, "expected_missing_requirements": ["/resource_receipt/content_digest"], "expected_failed_relationships": []},
+    "COMPLETE_SAEE_PACKAGE": {"profile_support_expected": false, "expected_missing_requirements": ["/resource_receipt/content_digest"], "expected_failed_relationships": []}
+  },
+  "limitations": ["The missing digest is a controlled omission, not an observed incident.", "No external resource was accessed or validated."],
+  "truth_boundary": {"real_agent_executed": false, "production_trace_observed": false, "external_data_used": false, "external_validation_completed": false, "production_ready": false}
+}

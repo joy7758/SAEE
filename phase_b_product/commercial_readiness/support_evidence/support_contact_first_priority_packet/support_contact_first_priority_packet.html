@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 支持入口第一阻塞项人审包</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f7f4; color: #202124; }
+    main { max-width: 1040px; margin: 0 auto; padding: 48px 20px; }
+    h1 { font-size: 40px; line-height: 1.1; margin: 0 0 12px; }
+    p, li { line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 28px 0; }
+    .card { background: white; border: 1px solid #e4e1da; border-radius: 14px; padding: 18px; box-shadow: 0 12px 40px rgba(15,17,21,.06); }
+    .label { color: #6f6f68; font-size: 13px; }
+    .value { font-size: 24px; margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #e4e1da; border-radius: 14px; overflow: hidden; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid #eeeae3; text-align: left; vertical-align: top; }
+    th { background: #f0efea; }
+    code { background: #efede8; padding: 2px 5px; border-radius: 5px; }
+    .boundary { border-left: 4px solid #2b5fd9; padding-left: 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>支持入口第一阻塞项人审包</h1>
+  <p>这是给人看的下一步入口：先补 <strong>support_contact</strong>。本页不会生成联系人，不会发布支持入口，不会联系客户，不会关闭 blocker。</p>
+  <section class="grid">
+    <div class="card"><div class="label">状态</div><div class="value">hold_human_support_contact_input_required</div></div>
+    <div class="card"><div class="label">10 行填写卡</div><div class="value">10</div></div>
+    <div class="card"><div class="label">空值</div><div class="value">10</div></div>
+    <div class="card"><div class="label">阻塞项</div><div class="value">support_contact</div></div>
+  </section>
+  <section class="boundary">
+    <p><strong>先做：</strong>打开 10 行填写卡，人工填写已确认的负责人、审批记录、支持入口判断和来源说明。</p>
+    <p><strong>停止点：</strong><code>support_contact_published=false</code>，<code>evidence_collection_authorized=false</code>，<code>blocker_closure_authorized=false</code>。</p>
+  </section>
+  <h2>人工步骤</h2>
+  <table><thead><tr><th>Step</th><th>要做什么</th><th>入口</th><th>人工动作</th></tr></thead><tbody>
+    <tr><td>SCFP-001</td><td>先打开 10 行填写卡</td><td><code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.csv</code></td><td>只填写 human_value_to_enter 和 notes_for_human 两列；没有人工确认就留空。</td></tr><tr><td>SCFP-002</td><td>复制支持入口合并模板</td><td><code>phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json</code></td><td>复制为 support_contact_human_input_bridge_input.human_filled.local.json 后由人填写。</td></tr><tr><td>SCFP-003</td><td>填写负责人信息</td><td><code>first_owner_input</code></td><td>填写负责人、内部记录、目标日期、审批引用和范围确认。</td></tr><tr><td>SCFP-004</td><td>填写支持入口判断</td><td><code>support_contact_decision_input</code></td><td>由人确认支持渠道、负责人、滥用处理、客户通知路径、测试记录和来源说明。</td></tr><tr><td>SCFP-005</td><td>人工填完后导出本地检查输入</td><td><code>phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_completion_guide.md</code></td><td>运行 completion helper，但只在人工填写完成后运行；不要发布支持入口。</td></tr><tr><td>SCFP-006</td><td>运行本地验证并刷新看板</td><td><code>scripts/saee_support_contact_approval_input_validator.py</code></td><td>分别运行负责人检查、支持入口输入检查和 readiness board 刷新。</td></tr>
+  </tbody></table>
+</main>
+</body>
+</html>

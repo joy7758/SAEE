@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:23-production-blocking:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "运营团队要求一个系统依据实时策略自动阻断生产环境中的危险动作。",
+  "risk_level": "CRITICAL",
+  "task_signals": [
+    "RUNTIME_BLOCKING_REQUIRED"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "POLICY_ENGINE",
+  "reasoning_boundary": "实时生产阻断属于策略引擎或运行时防护，不是 SAEE 的准备度评估。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

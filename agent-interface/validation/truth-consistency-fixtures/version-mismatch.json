@@ -1,0 +1,1 @@
+{"fixture_id":"VERSION_MISMATCH","mutation":{"operation":"set","target":"release","path":["version"],"value":"0.2.0"},"expected_reason_code":"TRUTH_VERSION_NAMESPACE_MISMATCH"}

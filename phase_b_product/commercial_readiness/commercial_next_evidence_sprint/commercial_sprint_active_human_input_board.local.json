@@ -1,0 +1,219 @@
+{
+  "api_schema_modified": false,
+  "approval_request_count": 1,
+  "backend_modified": false,
+  "blocker_closure_authorized": false,
+  "board_rows": [
+    {
+      "blocker_closure_authorized": false,
+      "blocker_id": "formal_security_review",
+      "completed_value_row_count": 12,
+      "evidence_collection_authorized": false,
+      "input_groups": [
+        "formal_security_review_keys_to_review",
+        "metadata_fields_to_fill"
+      ],
+      "missing_quick_fill_row_ids": [],
+      "missing_value_row_count": 0,
+      "next_human_action": "Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",
+      "owner_review_lanes": [
+        "security_legal_privacy"
+      ],
+      "quick_fill_row_count": 12,
+      "status": "filled_pending_safety_preflight",
+      "workbook_import_authorized": false
+    },
+    {
+      "blocker_closure_authorized": false,
+      "blocker_id": "pricing_page",
+      "completed_value_row_count": 14,
+      "evidence_collection_authorized": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "pricing_page_keys_to_review"
+      ],
+      "missing_quick_fill_row_ids": [],
+      "missing_value_row_count": 0,
+      "next_human_action": "Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",
+      "owner_review_lanes": [
+        "commercial_finance_legal"
+      ],
+      "quick_fill_row_count": 14,
+      "status": "filled_pending_safety_preflight",
+      "workbook_import_authorized": false
+    },
+    {
+      "blocker_closure_authorized": false,
+      "blocker_id": "production_monitoring",
+      "completed_value_row_count": 10,
+      "evidence_collection_authorized": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "monitoring_evidence_keys_to_review"
+      ],
+      "missing_quick_fill_row_ids": [],
+      "missing_value_row_count": 0,
+      "next_human_action": "Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",
+      "owner_review_lanes": [
+        "operations_engineering"
+      ],
+      "quick_fill_row_count": 10,
+      "status": "filled_pending_safety_preflight",
+      "workbook_import_authorized": false
+    },
+    {
+      "blocker_closure_authorized": false,
+      "blocker_id": "production_restore_policy",
+      "completed_value_row_count": 13,
+      "evidence_collection_authorized": false,
+      "input_groups": [
+        "metadata_fields_to_fill",
+        "policy_evidence_keys_to_review"
+      ],
+      "missing_quick_fill_row_ids": [],
+      "missing_value_row_count": 0,
+      "next_human_action": "Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",
+      "owner_review_lanes": [
+        "data_operations"
+      ],
+      "quick_fill_row_count": 13,
+      "status": "filled_pending_safety_preflight",
+      "workbook_import_authorized": false
+    },
+    {
+      "blocker_closure_authorized": false,
+      "blocker_id": "support_contact",
+      "completed_value_row_count": 15,
+      "evidence_collection_authorized": false,
+      "input_groups": [
+        "first_owner_input",
+        "support_contact_candidate_slot",
+        "support_contact_decision_metadata",
+        "support_contact_evidence_review"
+      ],
+      "missing_quick_fill_row_ids": [],
+      "missing_value_row_count": 0,
+      "next_human_action": "Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",
+      "owner_review_lanes": [
+        "support_operations"
+      ],
+      "quick_fill_row_count": 15,
+      "status": "filled_pending_safety_preflight",
+      "workbook_import_authorized": false
+    }
+  ],
+  "board_scope": "preferred_review_batch_template_and_full_quick_fill_status_only_no_values_no_import_no_execution",
+  "board_type": "current_commercial_sprint_human_input_board",
+  "boundary_violation_count": 0,
+  "boundary_violations": [],
+  "commercial_sprint_active_human_input_board_v0_1": true,
+  "completed_value_row_count": 64,
+  "current_stage": "human_workbook_import_approval_review",
+  "customer_contacted": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_builder_executed": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "full_quick_fill_missing_value_row_count": 0,
+  "full_quick_fill_row_count": 64,
+  "generated_at": "2026-07-13T13:59:28.253742+00:00",
+  "generated_by": "scripts/saee_commercial_sprint_active_human_input_board.py",
+  "human_filled_templates_written": false,
+  "human_input_filled_by_codex": false,
+  "human_input_required": true,
+  "human_review_required": true,
+  "kernel_modified": false,
+  "missing_value_row_count": 0,
+  "next_human_action": "Review the workbook import approval request and the 64 confirmed values. Do not run workbook import, validators on real input, evidence collection, or blocker closure without separate approval.",
+  "next_manual_step_count": 4,
+  "next_manual_steps": [
+    {
+      "action": "Fill only human_value_to_enter and optional notes_for_human in commercial_sprint_human_input_quick_fill_review_batch_input_template.csv.",
+      "command": "",
+      "execution_allowed_by_codex": false,
+      "stage": "review_batch_template_human_fill",
+      "step_id": "AHI-001"
+    },
+    {
+      "action": "Run the local 10-row template e2e dry run after human values are filled.",
+      "command": "python3 scripts/saee_commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.py",
+      "execution_allowed_by_codex": false,
+      "stage": "review_batch_template_e2e_dry_run",
+      "step_id": "AHI-002"
+    },
+    {
+      "action": "If the e2e dry run passes, request separate explicit approval before any local-output apply/import step.",
+      "command": "",
+      "execution_allowed_by_codex": false,
+      "stage": "separate_local_output_apply_request",
+      "step_id": "AHI-003"
+    },
+    {
+      "action": "Keep the 64-row source quick-fill path as the complete source path after the small-batch review; do not overwrite it in this board.",
+      "command": "",
+      "execution_allowed_by_codex": false,
+      "stage": "full_quick_fill_source_path_review",
+      "step_id": "AHI-004"
+    }
+  ],
+  "payment_collected": false,
+  "preferred_batch_size": 0,
+  "preferred_human_input_path": "workbook_import_approval_request",
+  "preferred_template_e2e_preview_validator_executed": false,
+  "preferred_template_e2e_preview_validator_passed": false,
+  "preferred_template_missing_value_row_count": 0,
+  "preferred_template_row_count": 0,
+  "preferred_template_value_present_row_count": 0,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "quick_fill_imported_to_workbook": false,
+  "quick_fill_row_count": 64,
+  "quick_fill_values_entered_by_codex": false,
+  "raw_values_recorded": false,
+  "ready_for_human_fill": false,
+  "ready_for_preferred_template_human_fill": false,
+  "ready_for_safety_preflight": true,
+  "ready_for_workbook_import": true,
+  "ready_for_workbook_import_approval": true,
+  "ready_import_approval_count": 1,
+  "real_evidence_created": false,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "safe_to_import_after_human_approval": true,
+  "selected_blocker_count": 5,
+  "separate_template_transfer_request_required": true,
+  "separate_validator_execution_request_required": true,
+  "separate_workbook_import_execution_request_required": true,
+  "source_approval_packet_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_workbook_import_approval_request_packet.local.json",
+  "source_approval_packet_status": "ready_for_human_workbook_import_approval",
+  "source_guidance_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_guidance.local.json",
+  "source_import_dry_run_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_workbook_import_dry_run.local.json",
+  "source_import_dry_run_status": "ready_for_workbook_import_pending_human_approval",
+  "source_importer_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_workbook_importer.local.json",
+  "source_importer_status": "ready_for_apply_pending_explicit_human_command",
+  "source_quick_fill_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",
+  "source_quick_fill_validation_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet_validation.local.json",
+  "source_quick_fill_validator_status": "ready_for_workbook_import_pending_human_approval",
+  "source_review_batch_template_e2e_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.local.json",
+  "source_review_batch_template_e2e_status": "superseded_by_full_quick_fill_values_pending_workbook_import_approval",
+  "source_review_batch_template_importer_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template_importer.local.json",
+  "source_review_batch_template_importer_status": "superseded_by_full_quick_fill_values_pending_workbook_import_approval",
+  "source_review_batch_template_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.local.json",
+  "source_review_batch_template_status": "superseded_by_full_quick_fill_values_pending_workbook_import_approval",
+  "source_safety_preflight_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_safety_preflight.local.json",
+  "source_safety_preflight_status": "pass_no_sensitive_values_found_pending_import_approval",
+  "status": "ready_for_human_workbook_import_approval",
+  "task_candidates_executed": false,
+  "validators_run_on_real_input": false,
+  "values_transferred": false,
+  "vendor_contacted": false,
+  "workbook_import_authorized": false,
+  "workbook_import_performed": false,
+  "workbook_written": false
+}

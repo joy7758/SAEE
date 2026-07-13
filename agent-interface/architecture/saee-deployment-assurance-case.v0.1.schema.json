@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE v3 Draft Deployment Assurance Case v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_deployment_assurance_case_v0_1",
+    "schema_version",
+    "architecture_version",
+    "case_id",
+    "created_at",
+    "case_status",
+    "governance_contract",
+    "task_contract",
+    "environment_contract",
+    "runtime_boundary",
+    "observation_contract",
+    "evaluation_contract",
+    "evidence_contract",
+    "risk_contract",
+    "decision_contract",
+    "feedback_contract",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_deployment_assurance_case_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "architecture_version": {"const": "3.0-draft"},
+    "case_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "case_status": {"enum": ["draft_contract_only", "synthetic_review_only"]},
+    "governance_contract": {"$ref": "#/$defs/governance"},
+    "task_contract": {"$ref": "#/$defs/task"},
+    "environment_contract": {"$ref": "#/$defs/environment"},
+    "runtime_boundary": {"$ref": "#/$defs/runtime"},
+    "observation_contract": {"$ref": "#/$defs/observation"},
+    "evaluation_contract": {"$ref": "#/$defs/evaluation"},
+    "evidence_contract": {"$ref": "#/$defs/evidence"},
+    "risk_contract": {"$ref": "#/$defs/risk"},
+    "decision_contract": {"$ref": "#/$defs/decision"},
+    "feedback_contract": {"$ref": "#/$defs/feedback"},
+    "truth_boundary": {"$ref": "#/$defs/truth"}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,159}$"},
+    "ref_array": {"type": "array", "minItems": 1, "maxItems": 128, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "governance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["governance_contract_id", "policy_ref", "evaluation_authorization_ref", "data_permission_ref", "version_refs", "risk_class", "audit_requirement_ref", "retention_and_deletion_ref", "stop_authority_ref", "execution_approved"],
+      "properties": {
+        "governance_contract_id": {"$ref": "#/$defs/id"}, "policy_ref": {"$ref": "#/$defs/id"},
+        "evaluation_authorization_ref": {"$ref": "#/$defs/id"}, "data_permission_ref": {"$ref": "#/$defs/id"},
+        "version_refs": {"$ref": "#/$defs/ref_array"}, "risk_class": {"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+        "audit_requirement_ref": {"$ref": "#/$defs/id"}, "retention_and_deletion_ref": {"$ref": "#/$defs/id"},
+        "stop_authority_ref": {"$ref": "#/$defs/id"}, "execution_approved": {"type": "boolean"}
+      }
+    },
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_contract_id", "objective", "prohibited_objectives", "task_category", "channel", "language", "candidate_refs", "context_policy_ref", "tool_policy_ref", "memory_policy_ref", "business_impact_class", "acceptance_criteria", "explicit_exclusions"],
+      "properties": {
+        "task_contract_id": {"$ref": "#/$defs/id"}, "objective": {"type": "string", "minLength": 1, "maxLength": 600},
+        "prohibited_objectives": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+        "task_category": {"$ref": "#/$defs/id"}, "channel": {"$ref": "#/$defs/id"}, "language": {"type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"},
+        "candidate_refs": {"$ref": "#/$defs/ref_array"}, "context_policy_ref": {"$ref": "#/$defs/id"},
+        "tool_policy_ref": {"$ref": "#/$defs/id"}, "memory_policy_ref": {"$ref": "#/$defs/id"},
+        "business_impact_class": {"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+        "acceptance_criteria": {"$ref": "#/$defs/ref_array"}, "explicit_exclusions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}}
+      }
+    },
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["environment_contract_id", "environment_version", "scenario_refs", "distribution_basis", "user_simulation_refs", "business_change_refs", "fault_refs", "deployment_grounded"],
+      "properties": {
+        "environment_contract_id": {"$ref": "#/$defs/id"}, "environment_version": {"$ref": "#/$defs/id"},
+        "scenario_refs": {"$ref": "#/$defs/ref_array"}, "distribution_basis": {"enum": ["synthetic", "approved_deidentified_replay"]},
+        "user_simulation_refs": {"$ref": "#/$defs/ref_array"}, "business_change_refs": {"$ref": "#/$defs/ref_array"},
+        "fault_refs": {"$ref": "#/$defs/ref_array"}, "deployment_grounded": {"type": "boolean"}
+      }
+    },
+    "runtime": {
+      "type": "object", "additionalProperties": false,
+      "required": ["execution_owner", "sandbox_ref", "allowed_tool_refs", "network_policy", "saee_executes_external_world", "unknown_external_code_allowed", "permission_expansion_allowed"],
+      "properties": {
+        "execution_owner": {"enum": ["external_customer_sandbox", "approved_researcher_sandbox"]},
+        "sandbox_ref": {"$ref": "#/$defs/id"}, "allowed_tool_refs": {"$ref": "#/$defs/ref_array"},
+        "network_policy": {"enum": ["denied", "explicit_allowlist"]},
+        "saee_executes_external_world": {"const": false}, "unknown_external_code_allowed": {"const": false},
+        "permission_expansion_allowed": {"const": false}
+      }
+    },
+    "observation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["observation_contract_id", "metric_names", "trace_refs", "state_change_refs", "sanitized", "observation_is_evidence"],
+      "properties": {
+        "observation_contract_id": {"$ref": "#/$defs/id"},
+        "metric_names": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["latency", "token_usage", "tool_call", "tool_result", "state_change", "memory_mutation", "failure", "retry", "policy_observation", "approval_observation"]}},
+        "trace_refs": {"$ref": "#/$defs/ref_array"}, "state_change_refs": {"$ref": "#/$defs/ref_array"},
+        "sanitized": {"type": "boolean"}, "observation_is_evidence": {"const": false}
+      }
+    },
+    "criterion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["criterion_id", "measurement_method_ref", "direction", "threshold", "aggregation_rule", "missing_data_behavior", "invalid_behavior", "business_relevance", "limitations"],
+      "properties": {
+        "criterion_id": {"$ref": "#/$defs/id"}, "measurement_method_ref": {"$ref": "#/$defs/id"},
+        "direction": {"enum": ["higher_is_better", "lower_is_better", "must_equal", "bounded_range"]},
+        "threshold": {"type": "number"}, "aggregation_rule": {"$ref": "#/$defs/id"},
+        "missing_data_behavior": {"enum": ["FAIL", "ABSTAIN", "INCREASE_UNCERTAINTY"]},
+        "invalid_behavior": {"enum": ["FAIL", "ABSTAIN"]},
+        "business_relevance": {"type": "string", "minLength": 1, "maxLength": 400},
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 300}}
+      }
+    },
+    "evaluation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evaluation_contract_id", "task_contract_ref", "environment_contract_ref", "candidate_refs", "data_source_ref", "sample_manifest_ref", "testing_criteria", "negative_and_adversarial_coverage_refs", "grader_refs", "repeat_policy_ref", "stop_condition_refs", "explicit_exclusions", "expected_output_schema_ref"],
+      "properties": {
+        "evaluation_contract_id": {"$ref": "#/$defs/id"}, "task_contract_ref": {"$ref": "#/$defs/id"},
+        "environment_contract_ref": {"$ref": "#/$defs/id"}, "candidate_refs": {"$ref": "#/$defs/ref_array"},
+        "data_source_ref": {"$ref": "#/$defs/id"}, "sample_manifest_ref": {"$ref": "#/$defs/id"},
+        "testing_criteria": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/criterion"}},
+        "negative_and_adversarial_coverage_refs": {"$ref": "#/$defs/ref_array"}, "grader_refs": {"$ref": "#/$defs/ref_array"},
+        "repeat_policy_ref": {"$ref": "#/$defs/id"}, "stop_condition_refs": {"$ref": "#/$defs/ref_array"},
+        "explicit_exclusions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+        "expected_output_schema_ref": {"$ref": "#/$defs/id"}
+      }
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_contract_id", "evaluation_contract_ref", "input_refs", "output_refs", "observation_refs", "receipt_refs", "authorization_and_oversight_refs", "version_manifest_ref", "grader_manifest_ref", "timestamp", "content_digest", "relationship_refs", "privacy_and_retention_refs", "adequacy_result", "truth_boundary_ref"],
+      "properties": {
+        "evidence_contract_id": {"$ref": "#/$defs/id"}, "evaluation_contract_ref": {"$ref": "#/$defs/id"},
+        "input_refs": {"$ref": "#/$defs/ref_array"}, "output_refs": {"$ref": "#/$defs/ref_array"},
+        "observation_refs": {"$ref": "#/$defs/ref_array"}, "receipt_refs": {"$ref": "#/$defs/ref_array"},
+        "authorization_and_oversight_refs": {"$ref": "#/$defs/ref_array"}, "version_manifest_ref": {"$ref": "#/$defs/id"},
+        "grader_manifest_ref": {"$ref": "#/$defs/id"}, "timestamp": {"type": "string", "format": "date-time"},
+        "content_digest": {"$ref": "#/$defs/digest"}, "relationship_refs": {"$ref": "#/$defs/ref_array"},
+        "privacy_and_retention_refs": {"$ref": "#/$defs/ref_array"},
+        "adequacy_result": {"enum": ["PASS", "FAIL", "NOT_EVALUATED"]}, "truth_boundary_ref": {"$ref": "#/$defs/id"}
+      }
+    },
+    "scenario_risk": {
+      "type": "object", "additionalProperties": false,
+      "required": ["scenario_ref", "weight", "failure_estimate", "business_impact", "exposure", "control_effectiveness", "uncertainty_penalty", "scenario_risk"],
+      "properties": {
+        "scenario_ref": {"$ref": "#/$defs/id"}, "weight": {"type": "number", "minimum": 0, "maximum": 1},
+        "failure_estimate": {"type": "number", "minimum": 0, "maximum": 1}, "business_impact": {"type": "number", "minimum": 0, "maximum": 1},
+        "exposure": {"type": "number", "minimum": 0, "maximum": 1}, "control_effectiveness": {"type": "number", "minimum": 0, "maximum": 1},
+        "uncertainty_penalty": {"type": "number", "minimum": 0, "maximum": 1}, "scenario_risk": {"type": "number", "minimum": 0, "maximum": 2}
+      }
+    },
+    "risk": {
+      "type": "object", "additionalProperties": false,
+      "required": ["risk_contract_id", "formula_version", "scenario_risks", "aggregate_risk", "deploy_threshold", "hold_threshold", "critical_evidence_gate_passed", "confidence", "limitations"],
+      "properties": {
+        "risk_contract_id": {"$ref": "#/$defs/id"}, "formula_version": {"const": "Rs=P*I*X*(1-C)+U;Rtotal=sum(w*Rs)"},
+        "scenario_risks": {"type": "array", "minItems": 1, "maxItems": 128, "items": {"$ref": "#/$defs/scenario_risk"}},
+        "aggregate_risk": {"type": "number", "minimum": 0, "maximum": 2}, "deploy_threshold": {"type": "number", "minimum": 0, "maximum": 2},
+        "hold_threshold": {"type": "number", "minimum": 0, "maximum": 2}, "critical_evidence_gate_passed": {"type": "boolean"},
+        "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]}, "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 300}}
+      }
+    },
+    "decision": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_contract_id", "recommendation", "scenario_scope", "recommended_candidate_ref", "allowed_use", "prohibited_use", "main_failure_triggers", "required_controls", "confidence", "evidence_refs", "retest_condition", "expires_at", "customer_execution_authorized"],
+      "properties": {
+        "decision_contract_id": {"$ref": "#/$defs/id"}, "recommendation": {"enum": ["DEPLOY_LIMITED", "HOLD", "RETEST", "DO_NOT_DEPLOY"]},
+        "scenario_scope": {"type": "string", "minLength": 1, "maxLength": 600}, "recommended_candidate_ref": {"$ref": "#/$defs/id"},
+        "allowed_use": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+        "prohibited_use": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+        "main_failure_triggers": {"$ref": "#/$defs/ref_array"}, "required_controls": {"$ref": "#/$defs/ref_array"},
+        "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]}, "evidence_refs": {"$ref": "#/$defs/ref_array"},
+        "retest_condition": {"type": "string", "minLength": 1, "maxLength": 500}, "expires_at": {"type": "string", "format": "date-time"},
+        "customer_execution_authorized": {"const": false}
+      }
+    },
+    "feedback": {
+      "type": "object", "additionalProperties": false,
+      "required": ["enabled", "feedback_source_refs", "data_permission_refs", "next_task_version_ref", "direct_runtime_control", "automatic_production_change", "automatic_core_mutation"],
+      "properties": {
+        "enabled": {"type": "boolean"}, "feedback_source_refs": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "data_permission_refs": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "next_task_version_ref": {"$ref": "#/$defs/id"}, "direct_runtime_control": {"const": false},
+        "automatic_production_change": {"const": false}, "automatic_core_mutation": {"const": false}
+      }
+    },
+    "truth": {
+      "type": "object", "additionalProperties": false,
+      "required": ["architecture_implemented", "risk_model_implemented", "real_agent_executed_by_saee", "customer_data_processed", "post_deployment_monitoring_available", "continuous_assurance_implemented", "external_validation_completed", "customer_validated", "production_ready"],
+      "properties": {
+        "architecture_implemented": {"const": false}, "risk_model_implemented": {"const": false},
+        "real_agent_executed_by_saee": {"const": false}, "customer_data_processed": {"const": false},
+        "post_deployment_monitoring_available": {"const": false}, "continuous_assurance_implemented": {"const": false},
+        "external_validation_completed": {"const": false}, "customer_validated": {"const": false}, "production_ready": {"const": false}
+      }
+    }
+  }
+}
+

@@ -1,0 +1,121 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_builder": false,
+  "boundary_review": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "blockers_closed_by_builder": false,
+    "codex_contacted_customer": false,
+    "codex_contacted_vendor": false,
+    "codex_inferred_missing_evidence": false,
+    "customer_communication_sent_by_codex": false,
+    "customer_contacted": false,
+    "customer_support_claim_published": false,
+    "customer_validated": false,
+    "execution_authorized": false,
+    "external_ai_assistant_tested": false,
+    "external_calls_made": false,
+    "external_model_api_called": false,
+    "kernel_modified": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false,
+    "public_sdk_released": false,
+    "runtime_modified": false,
+    "support_case_created_by_codex": false,
+    "support_operations_started": false,
+    "support_process_started_by_codex": false,
+    "support_vendor_contacted": false,
+    "support_vendor_contacted_by_codex": false
+  },
+  "codex_contacted_customer": false,
+  "codex_contacted_vendor": false,
+  "codex_inferred_missing_evidence": false,
+  "customer_communication_sent_by_codex": false,
+  "customer_contacted": false,
+  "customer_support_claim_published": false,
+  "customer_validated": false,
+  "decision_summary": "",
+  "evidence_review": {
+    "case_triage_workflow_defined": false,
+    "customer_communication_template_approved": false,
+    "handoff_to_engineering_defined": false,
+    "staffed_support_process_defined": false,
+    "support_case_audit_trail_available": false,
+    "support_process_dry_run_recorded": false
+  },
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "human_reviewer_name": "",
+  "input_status": "template_pending_human_input",
+  "kernel_modified": false,
+  "private_core_exposed": false,
+  "process_evidence_slots": [
+    {
+      "evidence_key": "staffed_support_process_defined",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "case_triage_workflow_defined",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "support_case_audit_trail_available",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "handoff_to_engineering_defined",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "customer_communication_template_approved",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "support_process_dry_run_recorded",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    }
+  ],
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "review_date": "",
+  "runtime_modified": false,
+  "source_notes_by_key": {
+    "case_triage_workflow_defined": "",
+    "customer_communication_template_approved": "",
+    "handoff_to_engineering_defined": "",
+    "staffed_support_process_defined": "",
+    "support_case_audit_trail_available": "",
+    "support_process_dry_run_recorded": ""
+  },
+  "support_case_created_by_codex": false,
+  "support_operations_started": false,
+  "support_process_owner": "",
+  "support_process_started_by_codex": false,
+  "support_vendor_contacted": false,
+  "support_vendor_contacted_by_codex": false,
+  "template_type": "saee_customer_support_evidence_input",
+  "template_version": "v0.1"
+}

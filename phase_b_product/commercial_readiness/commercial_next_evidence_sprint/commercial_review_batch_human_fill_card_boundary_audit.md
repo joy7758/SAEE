@@ -1,0 +1,31 @@
+# Commercial Review Batch Human Fill Card Boundary Audit
+
+- only_human_readable_fill_card_created: true
+- ordinary_user_chinese_fill_guidance: true
+- local_static_fill_companion_html: true
+- local_static_execution_panel: true
+- local_browser_manual_csv_builder: true
+- browser_only_csv_text_generation: true
+- manual_csv_builder_writes_files: false
+- manual_csv_builder_network_calls: false
+- manual_csv_builder_imports_workbook: false
+- post_fill_commands_execute_external_calls: false
+- post_fill_commands_import_workbook: false
+- post_fill_commands_close_blockers: false
+- generated_values: false
+- entered_values: false
+- source_quick_fill_packet_modified: false
+- workbook_import_authorized: false
+- workbook_import_performed: false
+- validators_run_on_real_input: false
+- evidence_collection_authorized: false
+- blocker_closure_authorized: false
+- runtime_modified: false
+- backend_modified: false
+- kernel_modified: false
+- api_schema_modified: false
+- private_core_exposed: false
+- production_ready: false
+- customer_validated: false
+- product_launched: false
+- boundary_violation_count: 0

@@ -1,0 +1,813 @@
+{
+  "analysis_type": "stability_analysis",
+  "collapse_event_count": 0,
+  "collapse_events": [],
+  "convergence_tendency": "converging",
+  "fitness_over_time": [
+    {
+      "fitness_variance": 3.79e-06,
+      "generation_index": 1,
+      "max_fitness": 0.602875,
+      "mean_fitness": 0.599284,
+      "min_fitness": 0.596529,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7e-07,
+      "generation_index": 2,
+      "max_fitness": 0.620741,
+      "mean_fitness": 0.619068,
+      "min_fitness": 0.61745,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.23e-06,
+      "generation_index": 3,
+      "max_fitness": 0.658362,
+      "mean_fitness": 0.656007,
+      "min_fitness": 0.654453,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.58e-06,
+      "generation_index": 4,
+      "max_fitness": 0.645024,
+      "mean_fitness": 0.642306,
+      "min_fitness": 0.640654,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.34e-06,
+      "generation_index": 5,
+      "max_fitness": 0.611435,
+      "mean_fitness": 0.609225,
+      "min_fitness": 0.607212,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 4.66e-06,
+      "generation_index": 6,
+      "max_fitness": 0.626931,
+      "mean_fitness": 0.62285,
+      "min_fitness": 0.618992,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8.3e-07,
+      "generation_index": 7,
+      "max_fitness": 0.637242,
+      "mean_fitness": 0.635224,
+      "min_fitness": 0.633974,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.42e-06,
+      "generation_index": 8,
+      "max_fitness": 0.622783,
+      "mean_fitness": 0.620608,
+      "min_fitness": 0.61876,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.71e-06,
+      "generation_index": 9,
+      "max_fitness": 0.663683,
+      "mean_fitness": 0.661259,
+      "min_fitness": 0.659091,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.13e-06,
+      "generation_index": 10,
+      "max_fitness": 0.628077,
+      "mean_fitness": 0.626412,
+      "min_fitness": 0.624604,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.6e-07,
+      "generation_index": 11,
+      "max_fitness": 0.632312,
+      "mean_fitness": 0.631671,
+      "min_fitness": 0.630979,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5.06e-06,
+      "generation_index": 12,
+      "max_fitness": 0.637565,
+      "mean_fitness": 0.633364,
+      "min_fitness": 0.6289,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.5e-07,
+      "generation_index": 13,
+      "max_fitness": 0.639869,
+      "mean_fitness": 0.637993,
+      "min_fitness": 0.636667,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 4.9e-07,
+      "generation_index": 14,
+      "max_fitness": 0.641161,
+      "mean_fitness": 0.63999,
+      "min_fitness": 0.639052,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.46e-06,
+      "generation_index": 15,
+      "max_fitness": 0.647125,
+      "mean_fitness": 0.642037,
+      "min_fitness": 0.637857,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.59e-06,
+      "generation_index": 16,
+      "max_fitness": 0.632478,
+      "mean_fitness": 0.629577,
+      "min_fitness": 0.62682,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.5e-07,
+      "generation_index": 17,
+      "max_fitness": 0.631764,
+      "mean_fitness": 0.630983,
+      "min_fitness": 0.630488,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.44e-06,
+      "generation_index": 18,
+      "max_fitness": 0.658479,
+      "mean_fitness": 0.656024,
+      "min_fitness": 0.653308,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.1e-07,
+      "generation_index": 19,
+      "max_fitness": 0.656065,
+      "mean_fitness": 0.655313,
+      "min_fitness": 0.654506,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8.5e-07,
+      "generation_index": 20,
+      "max_fitness": 0.608651,
+      "mean_fitness": 0.606778,
+      "min_fitness": 0.605279,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.04e-06,
+      "generation_index": 21,
+      "max_fitness": 0.653634,
+      "mean_fitness": 0.651155,
+      "min_fitness": 0.649803,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9e-08,
+      "generation_index": 22,
+      "max_fitness": 0.647581,
+      "mean_fitness": 0.646932,
+      "min_fitness": 0.646493,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5.4e-07,
+      "generation_index": 23,
+      "max_fitness": 0.642291,
+      "mean_fitness": 0.640694,
+      "min_fitness": 0.639249,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.9e-07,
+      "generation_index": 24,
+      "max_fitness": 0.66403,
+      "mean_fitness": 0.662667,
+      "min_fitness": 0.660985,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.47e-06,
+      "generation_index": 25,
+      "max_fitness": 0.629528,
+      "mean_fitness": 0.627507,
+      "min_fitness": 0.625999,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.3e-07,
+      "generation_index": 26,
+      "max_fitness": 0.620985,
+      "mean_fitness": 0.620608,
+      "min_fitness": 0.619877,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.4e-07,
+      "generation_index": 27,
+      "max_fitness": 0.666165,
+      "mean_fitness": 0.665399,
+      "min_fitness": 0.664902,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.5e-07,
+      "generation_index": 28,
+      "max_fitness": 0.651268,
+      "mean_fitness": 0.650258,
+      "min_fitness": 0.649452,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7e-08,
+      "generation_index": 29,
+      "max_fitness": 0.640591,
+      "mean_fitness": 0.640052,
+      "min_fitness": 0.639547,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.6e-06,
+      "generation_index": 30,
+      "max_fitness": 0.650939,
+      "mean_fitness": 0.647537,
+      "min_fitness": 0.642963,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7e-08,
+      "generation_index": 31,
+      "max_fitness": 0.639793,
+      "mean_fitness": 0.639142,
+      "min_fitness": 0.638736,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.6e-07,
+      "generation_index": 32,
+      "max_fitness": 0.623565,
+      "mean_fitness": 0.622867,
+      "min_fitness": 0.62224,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.8e-07,
+      "generation_index": 33,
+      "max_fitness": 0.67014,
+      "mean_fitness": 0.669352,
+      "min_fitness": 0.668664,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.1e-07,
+      "generation_index": 34,
+      "max_fitness": 0.657021,
+      "mean_fitness": 0.656309,
+      "min_fitness": 0.655124,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.1e-07,
+      "generation_index": 35,
+      "max_fitness": 0.620853,
+      "mean_fitness": 0.620342,
+      "min_fitness": 0.619825,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.7e-07,
+      "generation_index": 36,
+      "max_fitness": 0.657456,
+      "mean_fitness": 0.655943,
+      "min_fitness": 0.65486,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8e-08,
+      "generation_index": 37,
+      "max_fitness": 0.643102,
+      "mean_fitness": 0.642727,
+      "min_fitness": 0.642144,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.9e-07,
+      "generation_index": 38,
+      "max_fitness": 0.629374,
+      "mean_fitness": 0.628391,
+      "min_fitness": 0.627579,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.1e-07,
+      "generation_index": 39,
+      "max_fitness": 0.675699,
+      "mean_fitness": 0.675062,
+      "min_fitness": 0.674403,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5e-08,
+      "generation_index": 40,
+      "max_fitness": 0.63813,
+      "mean_fitness": 0.637895,
+      "min_fitness": 0.63733,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.8e-07,
+      "generation_index": 41,
+      "max_fitness": 0.623724,
+      "mean_fitness": 0.622791,
+      "min_fitness": 0.621426,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.1e-07,
+      "generation_index": 42,
+      "max_fitness": 0.66291,
+      "mean_fitness": 0.662433,
+      "min_fitness": 0.661999,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.9e-07,
+      "generation_index": 43,
+      "max_fitness": 0.647782,
+      "mean_fitness": 0.647196,
+      "min_fitness": 0.646568,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.1e-07,
+      "generation_index": 44,
+      "max_fitness": 0.63191,
+      "mean_fitness": 0.631167,
+      "min_fitness": 0.630331,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.215e-05,
+      "generation_index": 45,
+      "max_fitness": 0.657425,
+      "mean_fitness": 0.653762,
+      "min_fitness": 0.649553,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5.9e-07,
+      "generation_index": 46,
+      "max_fitness": 0.642166,
+      "mean_fitness": 0.641233,
+      "min_fitness": 0.639766,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.13e-06,
+      "generation_index": 47,
+      "max_fitness": 0.627039,
+      "mean_fitness": 0.625643,
+      "min_fitness": 0.624019,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.3e-07,
+      "generation_index": 48,
+      "max_fitness": 0.666852,
+      "mean_fitness": 0.666384,
+      "min_fitness": 0.665232,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.9e-07,
+      "generation_index": 49,
+      "max_fitness": 0.651725,
+      "mean_fitness": 0.650736,
+      "min_fitness": 0.649327,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7e-08,
+      "generation_index": 50,
+      "max_fitness": 0.615022,
+      "mean_fitness": 0.614534,
+      "min_fitness": 0.614204,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3e-08,
+      "generation_index": 51,
+      "max_fitness": 0.662131,
+      "mean_fitness": 0.661822,
+      "min_fitness": 0.661504,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 4.1e-07,
+      "generation_index": 52,
+      "max_fitness": 0.646108,
+      "mean_fitness": 0.645062,
+      "min_fitness": 0.643871,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.4e-07,
+      "generation_index": 53,
+      "max_fitness": 0.630981,
+      "mean_fitness": 0.629285,
+      "min_fitness": 0.628058,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.1e-07,
+      "generation_index": 54,
+      "max_fitness": 0.671856,
+      "mean_fitness": 0.671042,
+      "min_fitness": 0.670297,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.6e-07,
+      "generation_index": 55,
+      "max_fitness": 0.635251,
+      "mean_fitness": 0.634585,
+      "min_fitness": 0.633945,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.3e-07,
+      "generation_index": 56,
+      "max_fitness": 0.618964,
+      "mean_fitness": 0.617841,
+      "min_fitness": 0.615807,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.5e-07,
+      "generation_index": 57,
+      "max_fitness": 0.665924,
+      "mean_fitness": 0.665229,
+      "min_fitness": 0.663994,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8e-07,
+      "generation_index": 58,
+      "max_fitness": 0.650796,
+      "mean_fitness": 0.649393,
+      "min_fitness": 0.648086,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.24e-06,
+      "generation_index": 59,
+      "max_fitness": 0.635671,
+      "mean_fitness": 0.633778,
+      "min_fitness": 0.632469,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.05e-06,
+      "generation_index": 60,
+      "max_fitness": 0.654277,
+      "mean_fitness": 0.652139,
+      "min_fitness": 0.647125,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5e-07,
+      "generation_index": 61,
+      "max_fitness": 0.638779,
+      "mean_fitness": 0.637867,
+      "min_fitness": 0.636824,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.1e-07,
+      "generation_index": 62,
+      "max_fitness": 0.623652,
+      "mean_fitness": 0.622152,
+      "min_fitness": 0.620897,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.3e-07,
+      "generation_index": 63,
+      "max_fitness": 0.670612,
+      "mean_fitness": 0.669344,
+      "min_fitness": 0.668121,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.8e-07,
+      "generation_index": 64,
+      "max_fitness": 0.654739,
+      "mean_fitness": 0.653488,
+      "min_fitness": 0.652195,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5.8e-07,
+      "generation_index": 65,
+      "max_fitness": 0.618035,
+      "mean_fitness": 0.616956,
+      "min_fitness": 0.615946,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.1e-07,
+      "generation_index": 66,
+      "max_fitness": 0.659141,
+      "mean_fitness": 0.658734,
+      "min_fitness": 0.658303,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.2e-07,
+      "generation_index": 67,
+      "max_fitness": 0.643312,
+      "mean_fitness": 0.642648,
+      "min_fitness": 0.642237,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.6e-07,
+      "generation_index": 68,
+      "max_fitness": 0.626754,
+      "mean_fitness": 0.625532,
+      "min_fitness": 0.624253,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.2e-07,
+      "generation_index": 69,
+      "max_fitness": 0.674023,
+      "mean_fitness": 0.673009,
+      "min_fitness": 0.671819,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3e-08,
+      "generation_index": 70,
+      "max_fitness": 0.637227,
+      "mean_fitness": 0.636789,
+      "min_fitness": 0.636529,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.8e-07,
+      "generation_index": 71,
+      "max_fitness": 0.621254,
+      "mean_fitness": 0.61985,
+      "min_fitness": 0.618635,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.3e-07,
+      "generation_index": 72,
+      "max_fitness": 0.663154,
+      "mean_fitness": 0.662527,
+      "min_fitness": 0.661809,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9e-07,
+      "generation_index": 73,
+      "max_fitness": 0.64717,
+      "mean_fitness": 0.6458,
+      "min_fitness": 0.643731,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.06e-06,
+      "generation_index": 74,
+      "max_fitness": 0.631341,
+      "mean_fitness": 0.629625,
+      "min_fitness": 0.628408,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.62e-06,
+      "generation_index": 75,
+      "max_fitness": 0.657972,
+      "mean_fitness": 0.655829,
+      "min_fitness": 0.650456,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 5.1e-07,
+      "generation_index": 76,
+      "max_fitness": 0.64094,
+      "mean_fitness": 0.640101,
+      "min_fitness": 0.638855,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.09e-06,
+      "generation_index": 77,
+      "max_fitness": 0.625111,
+      "mean_fitness": 0.623528,
+      "min_fitness": 0.621313,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.3e-07,
+      "generation_index": 78,
+      "max_fitness": 0.667979,
+      "mean_fitness": 0.667264,
+      "min_fitness": 0.666763,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 4.5e-07,
+      "generation_index": 79,
+      "max_fitness": 0.651757,
+      "mean_fitness": 0.65077,
+      "min_fitness": 0.649846,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.6e-07,
+      "generation_index": 80,
+      "max_fitness": 0.614087,
+      "mean_fitness": 0.61323,
+      "min_fitness": 0.612128,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.2e-07,
+      "generation_index": 81,
+      "max_fitness": 0.661356,
+      "mean_fitness": 0.66083,
+      "min_fitness": 0.659579,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 9.7e-07,
+      "generation_index": 82,
+      "max_fitness": 0.645528,
+      "mean_fitness": 0.644061,
+      "min_fitness": 0.642193,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.26e-06,
+      "generation_index": 83,
+      "max_fitness": 0.629699,
+      "mean_fitness": 0.627757,
+      "min_fitness": 0.62636,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.1e-07,
+      "generation_index": 84,
+      "max_fitness": 0.671443,
+      "mean_fitness": 0.670492,
+      "min_fitness": 0.669292,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.8e-07,
+      "generation_index": 85,
+      "max_fitness": 0.634503,
+      "mean_fitness": 0.633717,
+      "min_fitness": 0.632586,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 7.4e-07,
+      "generation_index": 86,
+      "max_fitness": 0.618674,
+      "mean_fitness": 0.617302,
+      "min_fitness": 0.616236,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6e-07,
+      "generation_index": 87,
+      "max_fitness": 0.665944,
+      "mean_fitness": 0.664774,
+      "min_fitness": 0.663818,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8.3e-07,
+      "generation_index": 88,
+      "max_fitness": 0.649385,
+      "mean_fitness": 0.648234,
+      "min_fitness": 0.6471,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.07e-06,
+      "generation_index": 89,
+      "max_fitness": 0.633557,
+      "mean_fitness": 0.631964,
+      "min_fitness": 0.63071,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.42e-06,
+      "generation_index": 90,
+      "max_fitness": 0.655554,
+      "mean_fitness": 0.65364,
+      "min_fitness": 0.648987,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.4e-07,
+      "generation_index": 91,
+      "max_fitness": 0.63909,
+      "mean_fitness": 0.63848,
+      "min_fitness": 0.638048,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6.5e-07,
+      "generation_index": 92,
+      "max_fitness": 0.622531,
+      "mean_fitness": 0.621099,
+      "min_fitness": 0.619443,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 6e-07,
+      "generation_index": 93,
+      "max_fitness": 0.669801,
+      "mean_fitness": 0.668743,
+      "min_fitness": 0.667283,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.09e-06,
+      "generation_index": 94,
+      "max_fitness": 0.653972,
+      "mean_fitness": 0.652121,
+      "min_fitness": 0.649869,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 2.3e-07,
+      "generation_index": 95,
+      "max_fitness": 0.617032,
+      "mean_fitness": 0.615804,
+      "min_fitness": 0.615079,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 3.6e-07,
+      "generation_index": 96,
+      "max_fitness": 0.658885,
+      "mean_fitness": 0.658333,
+      "min_fitness": 0.657527,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 8.2e-07,
+      "generation_index": 97,
+      "max_fitness": 0.642948,
+      "mean_fitness": 0.641491,
+      "min_fitness": 0.640076,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.62e-06,
+      "generation_index": 98,
+      "max_fitness": 0.627119,
+      "mean_fitness": 0.624833,
+      "min_fitness": 0.622591,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 1.11e-06,
+      "generation_index": 99,
+      "max_fitness": 0.674388,
+      "mean_fitness": 0.672551,
+      "min_fitness": 0.670361,
+      "population_count": 8
+    },
+    {
+      "fitness_variance": 4.3e-07,
+      "generation_index": 100,
+      "max_fitness": 0.636718,
+      "mean_fitness": 0.636003,
+      "min_fitness": 0.635151,
+      "population_count": 8
+    }
+  ],
+  "fitness_variance_mean": 1.22e-06,
+  "generation_count": 100,
+  "kernel_modified": false,
+  "lineage_branching_density": 1.967822,
+  "observation_only": true
+}

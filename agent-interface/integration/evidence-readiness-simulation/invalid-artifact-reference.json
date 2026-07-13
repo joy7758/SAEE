@@ -1,0 +1,15 @@
+{
+  "simulation_version": "0.1",
+  "scenario_id": "evidence-readiness:invalid-artifact-reference",
+  "scenario_type": "INVALID_ARTIFACT_REFERENCE",
+  "synthetic_only": true,
+  "base_package_ref": "agent-interface/integration/evidence-readiness-simulation/complete-synthetic-artifact-package.json",
+  "mutation": {"operation": "SET_EVIDENCE_REFERENCE", "source_gap_id": "GAP_DATA_OWNERSHIP", "value": "agent-interface/integration/evidence-readiness-simulation/missing-reference.json#synthetic:artifact:data-ownership"},
+  "expected_reassessment_eligible": false,
+  "real_evidence_acquired": false,
+  "gaps_closed": false,
+  "readiness_status": "NOT_READY",
+  "pilot_authorized": false,
+  "execution_authorized": false,
+  "production_ready": false
+}

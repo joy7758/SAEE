@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/agent-support-case-response.schema.json",
+  "title": "SAEE Agent Support Case Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_id", "request_valid", "case_sha256", "support_status", "external_dispatch_performed", "customer_contacted", "production_ready", "blockers_closed", "errors"],
+  "properties": {
+    "contract_id": {"const": "saee-agent-support-case-response-v0.1"},
+    "request_valid": {"type": "boolean"},
+    "case_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "support_status": {"const": "owner_support_channel_required"},
+    "external_dispatch_performed": {"const": false},
+    "customer_contacted": {"const": false},
+    "production_ready": {"const": false},
+    "blockers_closed": {"const": 0},
+    "errors": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "saee_resource_resolution_receipt_v0_1": true,
+  "schema_version": "0.1.0",
+  "receipt_id": "saee-resource-resolution-0123456789abcdef",
+  "receipt_type": "external_resource_resolution",
+  "created_at": "2026-07-11T04:00:02Z",
+  "agent_id": "synthetic-agent-resolver-001",
+  "requested_resource": "repository:synthetic-publisher/synthetic-resource@v0.1.0",
+  "requested_resource_type": "repository",
+  "resolved_uri": "https://code.example.invalid/synthetic-publisher/synthetic-resource.git",
+  "registry_or_host": "code.example.invalid",
+  "publisher_verification_method": "registry_namespace_record",
+  "content_binding": {
+    "mode": "synthetic_inline_bytes",
+    "encoding": "base64",
+    "inline_base64": "eyJuYW1lIjoic3ludGhldGljLXJlc291cmNlIiwidmVyc2lvbiI6IjAuMS4wIn0=",
+    "byte_length": 47
+  },
+  "content_digest": "896d81144f2697647c89ef46b6b2b2a53c9510afb12598a7f5c5424b95229ad5",
+  "digest_algorithm": "sha-256",
+  "retrieval_timestamp": "2026-07-11T04:00:01Z",
+  "policy_decision_ref": "policy:synthetic-resource-inspection-001",
+  "authorization_boundary": {
+    "allowed_action": "inspect_metadata_and_hash_only",
+    "install": false,
+    "import": false,
+    "execute": false,
+    "network": false,
+    "permission_expansion": false
+  },
+  "sandbox_ref": "sandbox:offline-non-execution-001",
+  "sandbox_boundary": {
+    "kind": "offline_non_execution_boundary",
+    "network": false,
+    "subprocess": false,
+    "execution": false
+  },
+  "external_effect": {
+    "status": "not_executed",
+    "side_effect": "no_side_effect",
+    "execution_effect_observed": false
+  },
+  "truth_boundary": {
+    "uri_dereferenced": false,
+    "publisher_identity_verified": false,
+    "external_resource_authenticity_verified": false,
+    "license_verified": false,
+    "malware_scanned": false,
+    "supply_chain_verified": false,
+    "install_performed": false,
+    "resource_imported": false,
+    "candidate_code_executed": false,
+    "production_ready": false
+  },
+  "integrity": {
+    "canonicalization": "saee-canonical-json-v0.1",
+    "digest_algorithm": "sha-256",
+    "digest_scope": "all_receipt_fields_except_integrity",
+    "receipt_digest": "23e47912a07eeb62a3f7df5808e2db56f46cad37a9b958a8bf2c1298fbdefe58"
+  }
+}

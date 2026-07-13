@@ -1,0 +1,29 @@
+# Production Restore Policy Minimum Human Input Workspace Boundary Audit
+
+production_restore_policy_minimum_human_input_workspace_v0_1: true
+boundary_decision: pass
+status: hold_minimum_human_input_required
+minimum_required_field_count: 37
+blank_value_count: 37
+production_restore_policy_approved: false
+production_restore_policy_available: false
+restore_to_live_path_enabled: false
+live_restore_performed: false
+production_data_path_modified: false
+credentials_restored: false
+private_core_restored: false
+values_saved_by_workspace: false
+form_submission_enabled: false
+validator_inputs_exported: false
+validators_run: false
+blocker_closure_authorized: false
+runtime_modified: false
+backend_modified: false
+kernel_modified: false
+api_schema_modified: false
+private_core_exposed: false
+customer_contacted: false
+external_calls_made: false
+product_launched: false
+production_ready: false
+customer_validated: false

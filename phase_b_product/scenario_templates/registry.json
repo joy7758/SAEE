@@ -1,0 +1,46 @@
+{
+  "scenario_template_layer": "v1.0",
+  "core_runtime_modified": false,
+  "backend_decision_logic_modified": false,
+  "api_schema_modified": false,
+  "private_core_exposed": false,
+  "production_ready_claim": false,
+  "customer_validation_claim": false,
+  "scenarios": [
+    {
+      "id": "ai_agent_deployment",
+      "name": "AI Agent Deployment",
+      "display_name_zh": "AI 部署前评估",
+      "enabled": true,
+      "template": "ai_agent_deployment.yaml"
+    },
+    {
+      "id": "customer_service_ai",
+      "name": "AI Customer Service",
+      "display_name_zh": "AI 客服可靠性测试",
+      "enabled": true,
+      "template": "customer_service_ai.yaml"
+    },
+    {
+      "id": "sales_agent",
+      "name": "AI Sales Assistant",
+      "display_name_zh": "AI 销售助手测试",
+      "enabled": true,
+      "template": "sales_agent.yaml"
+    },
+    {
+      "id": "commercial_design",
+      "name": "Commercial Design",
+      "display_name_zh": "商业设计方案评估",
+      "enabled": true,
+      "template": "commercial_design.yaml"
+    },
+    {
+      "id": "business_strategy",
+      "name": "Business Strategy",
+      "display_name_zh": "商业策略压力测试",
+      "enabled": true,
+      "template": "business_strategy.yaml"
+    }
+  ]
+}

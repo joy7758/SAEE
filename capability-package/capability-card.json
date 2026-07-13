@@ -1,0 +1,99 @@
+{
+  "package_marker": "saee_capability_service_package_v1",
+  "package_version": "1.0.0",
+  "id": "saee.agent-reliability",
+  "name": "SAEE Agent Reliability Assessment",
+  "name_zh": "SAEE 智能体可靠性评估",
+  "type": "agent_capability",
+  "provider_role": "Agent Reliability Capability Provider",
+  "stage": "local_contract_alpha",
+  "purpose": "Evaluate agent behavior reliability in controlled rehearsal environments and assess whether bounded accountability claims have sufficient evidence.",
+  "purpose_zh": "在受控演练环境中评估智能体行为可靠性，并判断有边界的责任声明是否具有充分证据。",
+  "project_identity_boundary": {
+    "project": "SAEE",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "this_package_is_external_capability_projection": true,
+    "evidence_subsystem_is_project_core": false
+  },
+  "use_when": [
+    "An agent performs a high-impact or multi-step task and a bounded reliability review is needed.",
+    "A validated SAEE rehearsal run is available for evidence-backed assessment.",
+    "An accountability claim and a closed evidence package require adequacy evaluation.",
+    "A workflow needs missing-evidence reason codes before a separately authorized decision."
+  ],
+  "do_not_use_when": [
+    "The task is simple question answering, arithmetic, lookup, rewriting, or another low-risk operation.",
+    "The caller needs real-time authorization enforcement, malware detection, or runtime safety blocking.",
+    "The caller requests legal, compliance, security, or production certification.",
+    "The caller expects SAEE to approve deployment, select a winner, or execute an external-world action."
+  ],
+  "capabilities": [
+    {
+      "operation_id": "evaluate_agent_run",
+      "implementation_status": "implemented_local_offline_alpha",
+      "summary": "Evaluate a validated SAEE rehearsal run and its digest-bound evidence candidate.",
+      "local_invocation_available": true
+    },
+    {
+      "operation_id": "evaluate_evidence",
+      "implementation_status": "implemented_local_offline_prototype",
+      "summary": "Evaluate a closed evidence package against one fixed accountability profile.",
+      "local_invocation_available": true
+    },
+    {
+      "operation_id": "rehearse_agent",
+      "implementation_status": "contract_only",
+      "summary": "Describe a future controlled rehearsal request; no standalone service is provided in v1.0.",
+      "local_invocation_available": false
+    }
+  ],
+  "local_runtime": {
+    "runtime_stage": "local_alpha",
+    "invocation_service_ref": "../saee_backend/services/capability_runtime/capability_invocation.py",
+    "request_schema_ref": "../schemas/saee-capability-invocation-request.schema.v0.1.json",
+    "response_schema_ref": "../schemas/saee-capability-invocation-response.schema.v0.1.json",
+    "receipt_schema_ref": "../schemas/saee-capability-invocation-receipt.schema.v0.1.json",
+    "mcp_adapter_ref": "../agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+    "http_adapter_ref": "../agent-interface/http/saee-capability-http-adapter.v0.1.json",
+    "demo_ref": "../scripts/saee_capability_runtime_demo.py",
+    "validation_ref": "../scripts/saee_capability_runtime_smoke.py",
+    "package_operations_verified": true,
+    "local_stdio_mcp_adapter_available": true,
+    "local_http_adapter_available": true,
+    "network_required": false
+  },
+  "composition": {
+    "flow": ["AGENT_RUNTIME", "CONTROLLED_REHEARSAL", "OBSERVATION", "RELIABILITY_ASSESSMENT", "BOUNDED_REPORT"],
+    "complements": ["OBSERVABILITY", "AUTHORIZATION", "POLICY_ENGINE", "SANDBOX"],
+    "replaces": []
+  },
+  "integration_examples_reference": "../agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+  "public_capability_surface_reference": "../agent-interface/public/saee-public-capability-surface.v0.1.json",
+  "alpha_release_reference": "../agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+  "truth_consistency_validation_reference": "../agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
+  "limitations": [
+    "Not certification.",
+    "Not authorization.",
+    "Not production approval.",
+    "No public API or standard MCP transport is provided by this package.",
+    "No external adoption, customer validation, or market validation is established."
+  ],
+  "truth_boundary": {
+    "package_describes_existing_local_capabilities": true,
+    "package_adds_runtime_functionality": false,
+    "local_runtime_available": true,
+    "local_stdio_mcp_adapter_available": true,
+    "local_http_adapter_available": true,
+    "network_api_available": false,
+    "standard_mcp_transport_available": false,
+    "public_mcp_available": false,
+    "repository_public_surface_prepared": true,
+    "alpha_preparation": true,
+    "public_release": false,
+    "publicly_deployed": false,
+    "external_agent_connected": false,
+    "adoption_validated": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

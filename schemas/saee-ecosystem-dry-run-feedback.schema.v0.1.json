@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-ecosystem-dry-run-feedback.schema.v0.1.json",
+  "title": "SAEE Ecosystem Dry Run Feedback v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "discovery_result", "invocation_result", "interpretation_result", "boundary_result", "compatibility_notes", "limitations"],
+  "properties": {
+    "participant_id": {"type": "string", "pattern": "^SYNTHETIC_[A-Z_]+$"},
+    "discovery_result": {"enum": ["PASS", "FAIL", "NOT_TESTED"]},
+    "invocation_result": {"enum": ["PASS", "FAIL", "NOT_TESTED"]},
+    "interpretation_result": {"enum": ["PASS", "FAIL", "NOT_TESTED"]},
+    "boundary_result": {"enum": ["PASS", "REJECTED_OVERCLAIM", "FAIL"]},
+    "compatibility_notes": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}}
+  }
+}
+

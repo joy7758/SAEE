@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/kernel/genome_schema.json",
+  "title": "SAEE Kernel v0.1 Genome",
+  "type": "object",
+  "required": ["id", "traits", "version"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "mutation_history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "traits": {
+      "type": "object",
+      "required": [
+        "sensing",
+        "mutation_scope",
+        "fitness_weights",
+        "constraints",
+        "niche_target"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sensing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mutation_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fitness_weights": {
+          "type": "object",
+          "required": ["technical", "market", "safety", "evolvability"],
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "properties": {
+            "technical": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "market": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "safety": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "evolvability": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "niche_target": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saee:integration:external-agent-pilot-readiness:0.1",
+  "title": "SAEE External Agent Pilot Readiness Review v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "review_id",
+    "review_stage",
+    "documentation_ref",
+    "dimensions",
+    "readiness_score",
+    "blocking_conditions",
+    "human_boundary",
+    "pilot_authorized",
+    "external_agent_connected",
+    "external_validation_completed",
+    "customer_validated",
+    "production_ready",
+    "network_accessed",
+    "external_execution"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "review_id": {"const": "saee:review:external-agent-pilot-readiness:0.1"},
+    "review_stage": {"const": "read_only_gap_assessment"},
+    "documentation_ref": {"type": "string", "minLength": 1},
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "security", "data", "runtime", "human_governance"],
+      "properties": {
+        "identity": {"$ref": "#/$defs/dimension"},
+        "security": {"$ref": "#/$defs/dimension"},
+        "data": {"$ref": "#/$defs/dimension"},
+        "runtime": {"$ref": "#/$defs/dimension"},
+        "human_governance": {"$ref": "#/$defs/dimension"}
+      }
+    },
+    "readiness_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "satisfied_checks", "required_checks", "percentage", "is_probability", "operational_readiness_established"],
+      "properties": {
+        "method": {"const": "SATISFIED_CHECKS_OVER_REQUIRED_CHECKS"},
+        "satisfied_checks": {"type": "integer", "minimum": 0},
+        "required_checks": {"type": "integer", "minimum": 1},
+        "percentage": {"type": "integer", "minimum": 0, "maximum": 100},
+        "is_probability": {"const": false},
+        "operational_readiness_established": {"const": false}
+      }
+    },
+    "blocking_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "human_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["human_review_required", "responsible_owner_assigned", "execution_authority_assigned", "automatic_approval_allowed"],
+      "properties": {
+        "human_review_required": {"const": true},
+        "responsible_owner_assigned": {"const": false},
+        "execution_authority_assigned": {"const": false},
+        "automatic_approval_allowed": {"const": false}
+      }
+    },
+    "pilot_authorized": {"const": false},
+    "external_agent_connected": {"const": false},
+    "external_validation_completed": {"const": false},
+    "customer_validated": {"const": false},
+    "production_ready": {"const": false},
+    "network_accessed": {"const": false},
+    "external_execution": {"const": false}
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "blocking", "design_context_refs", "evidence_refs", "checks", "missing_evidence"],
+      "properties": {
+        "status": {"enum": ["READY", "PARTIAL", "NOT_READY"]},
+        "blocking": {"type": "boolean"},
+        "design_context_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/check"}
+        },
+        "missing_evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["check_id", "satisfied", "evidence_refs"],
+      "properties": {
+        "check_id": {"type": "string", "minLength": 1},
+        "satisfied": {"type": "boolean"},
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blocker_target": "support_contact",
+  "blockers_closed_by_packet": false,
+  "candidate_contact_slots": [
+    {
+      "abuse_handling_reviewed": null,
+      "contact_channel": "",
+      "customer_notice_route_reviewed": null,
+      "display_value_redacted": "",
+      "human_source_note": "",
+      "owner_named": null,
+      "slot_id": "support_contact_candidate_a",
+      "test_plan_reviewed": null
+    },
+    {
+      "abuse_handling_reviewed": null,
+      "contact_channel": "",
+      "customer_notice_route_reviewed": null,
+      "display_value_redacted": "",
+      "human_source_note": "",
+      "owner_named": null,
+      "slot_id": "support_contact_candidate_b",
+      "test_plan_reviewed": null
+    }
+  ],
+  "customer_contacted": false,
+  "customer_facing_support_contact_configured": false,
+  "customer_support_available": false,
+  "customer_validated": false,
+  "decision_scope": "human_review_of_customer_facing_support_contact",
+  "development_permission_granted": false,
+  "evidence_mapping": {
+    "abuse_handling_path_defined": {
+      "prefill_allowed": false,
+      "requires_human_source_note": true,
+      "target_blocker": "support_contact",
+      "target_source_note_path": "source_notes_by_key.abuse_handling_path_defined",
+      "target_template_path": "abuse_handling_path_defined"
+    },
+    "customer_facing_support_contact_configured": {
+      "prefill_allowed": false,
+      "requires_human_source_note": true,
+      "target_blocker": "support_contact",
+      "target_source_note_path": "source_notes_by_key.customer_facing_support_contact_configured",
+      "target_template_path": "customer_facing_support_contact_configured"
+    },
+    "customer_notice_route_defined": {
+      "prefill_allowed": false,
+      "requires_human_source_note": true,
+      "target_blocker": "support_contact",
+      "target_source_note_path": "source_notes_by_key.customer_notice_route_defined",
+      "target_template_path": "customer_notice_route_defined"
+    },
+    "support_contact_owner_named": {
+      "prefill_allowed": false,
+      "requires_human_source_note": true,
+      "target_blocker": "support_contact",
+      "target_source_note_path": "source_notes_by_key.support_contact_owner_named",
+      "target_template_path": "support_contact_owner_named"
+    },
+    "support_contact_test_recorded": {
+      "prefill_allowed": false,
+      "requires_human_source_note": true,
+      "target_blocker": "support_contact",
+      "target_source_note_path": "source_notes_by_key.support_contact_test_recorded",
+      "target_template_path": "support_contact_test_recorded"
+    }
+  },
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-09",
+  "generated_by": "scripts/saee_support_contact_decision_packet.py",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "next_human_action": "Human commercial/support owner reviews candidate support contact evidence, decides whether publication is appropriate, and only then fills production_support_sla_evidence.template.json-derived evidence.",
+  "on_call_rotation_available": false,
+  "owner_lane": "commercial_support",
+  "packet_type": "saee_support_contact_decision_packet",
+  "packet_version": "v0.1",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "production_support_available": false,
+  "public_sdk_released": false,
+  "required_human_decision_fields": [
+    "support_contact_channel",
+    "support_contact_owner",
+    "abuse_handling_note",
+    "customer_notice_route_note",
+    "support_contact_test_plan_note",
+    "security_privacy_review_note",
+    "rollback_or_disable_plan_note"
+  ],
+  "runtime_modified": false,
+  "selection_criteria": [
+    "A human owner can be named without exposing private credentials.",
+    "The support contact route can be reviewed before customer-facing publication.",
+    "Abuse handling and customer notice routing can be documented.",
+    "A support contact test can be planned without Codex sending messages.",
+    "Approved evidence can be copied into the production support/SLA evidence template only after human approval."
+  ],
+  "separate_execution_approval_required": true,
+  "sla_available": false,
+  "status": "ready_for_human_review_not_execution",
+  "support_contact_available": false,
+  "support_contact_configured": false,
+  "support_contact_published_by_codex": false,
+  "support_contact_test_performed_by_codex": false,
+  "support_process_available": false,
+  "support_vendor_contacted": false,
+  "target_support_evidence_keys": [
+    "customer_facing_support_contact_configured",
+    "support_contact_owner_named",
+    "abuse_handling_path_defined",
+    "customer_notice_route_defined",
+    "support_contact_test_recorded"
+  ],
+  "task_candidates_executed": false
+}

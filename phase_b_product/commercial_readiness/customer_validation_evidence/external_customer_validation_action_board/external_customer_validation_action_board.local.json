@@ -1,0 +1,81 @@
+{
+  "external_customer_validation_action_board_v0_1": true,
+  "status": "ready_for_human_customer_validation_session_sequence",
+  "board_type": "current_goal_customer_validation_human_action_board",
+  "current_goal_blocker": "customer_validated",
+  "recommended_path_locked": true,
+  "recommended_path_id": "minimum_session_packet",
+  "recommended_path_label": "12-question minimum external customer validation session",
+  "recommended_form": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_packet/minimum_session_form.html",
+  "recommended_questions": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_packet/MINIMUM_SESSION_QUESTIONS.md",
+  "alternative_paths_reference_only": true,
+  "deprecated_default_entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_session_entry_workbench.html",
+  "action_count": 6,
+  "first_action_id": "ECV-001",
+  "first_data_entry_action_id": "ECV-005",
+  "required_human_output": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_session_entry.human_filled.local.json",
+  "human_action_required": true,
+  "human_session_required": true,
+  "human_session_performed": false,
+  "human_result_entered": false,
+  "ready_for_import_after_human_entry": false,
+  "ready_for_validator_after_import": false,
+  "codex_may_contact_customer": false,
+  "codex_may_run_external_session": false,
+  "codex_may_infer_customer_feedback": false,
+  "customer_contacted_by_codex": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "external_model_api_called": false,
+  "blockers_closed_by_action_board": 0,
+  "actions": [
+    {
+      "action_id": "ECV-001",
+      "title": "筛选一个真实外部目标用户",
+      "entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/PARTICIPANT_SCREENING_CHECKLIST.md",
+      "human_only": true,
+      "codex_executable": false
+    },
+    {
+      "action_id": "ECV-002",
+      "title": "人工发送邀请草稿",
+      "entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/INVITATION_MESSAGE_DRAFT.md",
+      "human_only": true,
+      "codex_executable": false
+    },
+    {
+      "action_id": "ECV-003",
+      "title": "会前确认同意和边界说明",
+      "entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/CONSENT_AND_BOUNDARY_SCRIPT.md",
+      "human_only": true,
+      "codex_executable": false
+    },
+    {
+      "action_id": "ECV-004",
+      "title": "只使用 12 个最小会话问题记录反馈",
+      "entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_packet/MINIMUM_SESSION_QUESTIONS.md",
+      "secondary_entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_packet/MINIMUM_SESSION_FILLING_GUIDE.md",
+      "human_only": true,
+      "codex_executable": false
+    },
+    {
+      "action_id": "ECV-005",
+      "title": "用最小会话表单生成并保存 JSON",
+      "entrypoint": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_packet/minimum_session_form.html",
+      "expected_output": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_session_entry.human_filled.local.json",
+      "human_only": true,
+      "codex_executable": false
+    },
+    {
+      "action_id": "ECV-006",
+      "title": "人工结果存在后再导入并运行 validator",
+      "entrypoint": "scripts/saee_external_customer_validation_session_entry_importer.py --apply",
+      "secondary_entrypoint": "scripts/saee_customer_validation_approval_input_validator.py",
+      "human_only_until_result_exists": true,
+      "codex_executable": false
+    }
+  ]
+}

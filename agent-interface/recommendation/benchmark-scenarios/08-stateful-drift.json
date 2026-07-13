@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:08-stateful-drift:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "有状态业务智能体在多轮任务中可能遗忘约束，团队需要演练漂移并关联状态变化轨迹。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "MULTI_STEP_WORKFLOW",
+    "TRACE_DIAGNOSTICS_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE + OBSERVABILITY",
+  "reasoning_boundary": "SAEE 负责长程演练与证据评估，Observability 负责状态轨迹可见性。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

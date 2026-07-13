@@ -1,0 +1,9 @@
+{
+  "fixture_version": "0.1",
+  "fixture_id": "invalid-version-mismatch",
+  "base_entry_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+  "synthetic": true,
+  "mutations": [{"operation": "SET", "field": "input_contract.schema_version", "value": "0.2"}],
+  "expected_status": "FAIL",
+  "expected_errors": ["REGISTRY_CONTRACT_VERSION_MISMATCH"]
+}

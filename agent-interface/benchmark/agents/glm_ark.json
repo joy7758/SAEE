@@ -1,0 +1,10 @@
+{
+  "agent_profile": "glm_ark",
+  "provider": "volcengine_ark",
+  "provider_gateway": "Volcengine Ark",
+  "model_vendor": "zhipu",
+  "model": "glm-5-2-260617",
+  "capabilities": ["text reasoning", "function calling through Ark", "multi-round synthetic tool use"],
+  "limitations": ["provider availability may change", "no production execution", "one controlled scenario only"],
+  "intelligence_score_defined": false
+}

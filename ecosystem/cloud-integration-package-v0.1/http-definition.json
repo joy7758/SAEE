@@ -1,0 +1,12 @@
+{
+  "definition_version": "0.1",
+  "transport": "HTTP_CONTRACT",
+  "status": "LOCALHOST_ADAPTER_REFERENCE_ONLY",
+  "openapi_ref": "capability-package/openapi.yaml",
+  "adapter_ref": "agent-interface/http/saee-capability-http-adapter.v0.1.json",
+  "validation_ref": "scripts/saee_capability_http_adapter_smoke.py",
+  "public_endpoint": null,
+  "official_platform_integration": false,
+  "authorization_performed": false,
+  "production_ready": false
+}

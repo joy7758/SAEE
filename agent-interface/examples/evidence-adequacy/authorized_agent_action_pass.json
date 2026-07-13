@@ -1,0 +1,29 @@
+{
+  "saee_evidence_adequacy_input_v0_1": true,
+  "schema_version": "0.1.0",
+  "claim_type": "AUTHORIZED_AGENT_ACTION",
+  "evidence": {
+    "action": {
+      "action_id": "action:synthetic-inspection-001",
+      "agent_id": "agent:synthetic-001",
+      "requested_scope": "resource:inspect-metadata",
+      "timestamp": "2026-07-11T05:00:05Z"
+    },
+    "policy_decision": {
+      "decision_id": "policy-decision:synthetic-001",
+      "decision": "allow",
+      "agent_id": "agent:synthetic-001",
+      "action_id": "action:synthetic-inspection-001",
+      "authority_scope": "resource:inspect-metadata",
+      "valid_from": "2026-07-11T05:00:00Z",
+      "valid_until": "2026-07-11T05:01:00Z"
+    }
+  },
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  }
+}

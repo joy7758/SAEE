@@ -1,0 +1,364 @@
+{
+  "boundary_review": {
+    "checkout_enabled": false,
+    "customer_contacted": false,
+    "invoice_sent_to_customer": false,
+    "payment_collected": false,
+    "payment_provider_configured": false,
+    "payment_provider_contacted": false,
+    "payment_provider_selected": false,
+    "pricing_page_published": false,
+    "production_ready_claim": false,
+    "refund_policy_published": false,
+    "revenue_validated": false,
+    "tax_advisor_contacted": false,
+    "tax_collection_started": false,
+    "tenant_billing_isolated": false
+  },
+  "evidence_review": {
+    "approved_plan_and_usage_terms": false,
+    "billing_audit_metadata_policy_approved": false,
+    "billing_support_handoff_defined": false,
+    "bookkeeping_review_completed": false,
+    "cancellation_process_approved": false,
+    "checkout_enablement_approval_required": false,
+    "contract_handoff_defined": false,
+    "cross_tenant_billing_access_tests_passed": false,
+    "currency_policy_approved": false,
+    "human_approved_pricing_page_copy": false,
+    "invoice_owner_named": false,
+    "invoice_wording_approved": false,
+    "invoice_workflow_approved": false,
+    "legal_review_completed": false,
+    "payment_event_redaction_reviewed": false,
+    "payment_provider_selected": false,
+    "payment_reconciliation_tested": false,
+    "pricing_page_publication_approval_recorded": false,
+    "production_readiness_non_claim_reviewed": false,
+    "refund_policy_approved": false,
+    "security_review_completed": false,
+    "service_failure_remedy_boundary_approved": false,
+    "support_escalation_route_defined": false,
+    "target_jurisdictions_reviewed": false,
+    "tax_collection_approval_recorded": false,
+    "tax_obligations_reviewed": false,
+    "tenant_billing_account_model_approved": false,
+    "tenant_billing_retention_policy_approved": false,
+    "tenant_invoice_partitioning_tested": false,
+    "tenant_payment_event_partitioning_tested": false,
+    "test_mode_configuration_reviewed": false,
+    "trial_conversion_policy_approved": false,
+    "webhook_signature_validation_tested": false
+  },
+  "evidence_source_notes": "",
+  "human_reviewer_name": "",
+  "input_status": "priority_template_not_filled",
+  "phase_4_commercial_packaging_billing_priority_evidence_collection_v0_1": true,
+  "priority_collection_map_by_key": {
+    "approved_plan_and_usage_terms": {
+      "blocker_id": "pricing_page",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-001",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-106"
+    },
+    "billing_audit_metadata_policy_approved": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-028",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-136"
+    },
+    "billing_support_handoff_defined": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-012",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-120"
+    },
+    "bookkeeping_review_completed": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-013",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-121"
+    },
+    "cancellation_process_approved": {
+      "blocker_id": "refund_policy",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-023",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-128"
+    },
+    "checkout_enablement_approval_required": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-011",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-112"
+    },
+    "contract_handoff_defined": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-014",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-118"
+    },
+    "cross_tenant_billing_access_tests_passed": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-029",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-135"
+    },
+    "currency_policy_approved": {
+      "blocker_id": "tax_review",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-018",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-125"
+    },
+    "human_approved_pricing_page_copy": {
+      "blocker_id": "pricing_page",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-002",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-105"
+    },
+    "invoice_owner_named": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-015",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-116"
+    },
+    "invoice_wording_approved": {
+      "blocker_id": "tax_review",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-019",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-124"
+    },
+    "invoice_workflow_approved": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-016",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-117"
+    },
+    "legal_review_completed": {
+      "blocker_id": "pricing_page",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-003",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-107"
+    },
+    "payment_event_redaction_reviewed": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-006",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-114"
+    },
+    "payment_provider_selected": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-007",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-110"
+    },
+    "payment_reconciliation_tested": {
+      "blocker_id": "invoice_process",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-017",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-119"
+    },
+    "pricing_page_publication_approval_recorded": {
+      "blocker_id": "pricing_page",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-004",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-109"
+    },
+    "production_readiness_non_claim_reviewed": {
+      "blocker_id": "pricing_page",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-005",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-108"
+    },
+    "refund_policy_approved": {
+      "blocker_id": "refund_policy",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-024",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-127"
+    },
+    "security_review_completed": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-008",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-115"
+    },
+    "service_failure_remedy_boundary_approved": {
+      "blocker_id": "refund_policy",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-025",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-130"
+    },
+    "support_escalation_route_defined": {
+      "blocker_id": "refund_policy",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-026",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-131"
+    },
+    "target_jurisdictions_reviewed": {
+      "blocker_id": "tax_review",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-020",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-122"
+    },
+    "tax_collection_approval_recorded": {
+      "blocker_id": "tax_review",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-021",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-126"
+    },
+    "tax_obligations_reviewed": {
+      "blocker_id": "tax_review",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-022",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-123"
+    },
+    "tenant_billing_account_model_approved": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-030",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-132"
+    },
+    "tenant_billing_retention_policy_approved": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-031",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-137"
+    },
+    "tenant_invoice_partitioning_tested": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-032",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-133"
+    },
+    "tenant_payment_event_partitioning_tested": {
+      "blocker_id": "tenant_billing_isolation",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-033",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-134"
+    },
+    "test_mode_configuration_reviewed": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-009",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-111"
+    },
+    "trial_conversion_policy_approved": {
+      "blocker_id": "refund_policy",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-027",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-129"
+    },
+    "webhook_signature_validation_tested": {
+      "blocker_id": "payment_provider",
+      "evidence_file_type": "production_billing_revenue_evidence",
+      "phase_4_record_id": "P4-ECP-010",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-113"
+    }
+  },
+  "priority_collection_source": "phase_b_product/commercial_readiness/phase_4_commercial_packaging_billing_priority_evidence_collection/phase_4_commercial_packaging_billing_priority_evidence_collection.local.json",
+  "priority_evidence_key_order": [
+    "approved_plan_and_usage_terms",
+    "human_approved_pricing_page_copy",
+    "legal_review_completed",
+    "pricing_page_publication_approval_recorded",
+    "production_readiness_non_claim_reviewed",
+    "payment_event_redaction_reviewed",
+    "payment_provider_selected",
+    "security_review_completed",
+    "test_mode_configuration_reviewed",
+    "webhook_signature_validation_tested",
+    "checkout_enablement_approval_required",
+    "billing_support_handoff_defined",
+    "bookkeeping_review_completed",
+    "contract_handoff_defined",
+    "invoice_owner_named",
+    "invoice_workflow_approved",
+    "payment_reconciliation_tested",
+    "currency_policy_approved",
+    "invoice_wording_approved",
+    "target_jurisdictions_reviewed",
+    "tax_collection_approval_recorded",
+    "tax_obligations_reviewed",
+    "cancellation_process_approved",
+    "refund_policy_approved",
+    "service_failure_remedy_boundary_approved",
+    "support_escalation_route_defined",
+    "trial_conversion_policy_approved",
+    "billing_audit_metadata_policy_approved",
+    "cross_tenant_billing_access_tests_passed",
+    "tenant_billing_account_model_approved",
+    "tenant_billing_retention_policy_approved",
+    "tenant_invoice_partitioning_tested",
+    "tenant_payment_event_partitioning_tested"
+  ],
+  "review_date": "",
+  "source_collection_packet": "phase_b_product/commercial_readiness/commercial_production_evidence_collection_packet/commercial_production_evidence_collection_packet.local.json",
+  "source_notes_by_key": {
+    "approved_plan_and_usage_terms": "",
+    "billing_audit_metadata_policy_approved": "",
+    "billing_support_handoff_defined": "",
+    "bookkeeping_review_completed": "",
+    "cancellation_process_approved": "",
+    "checkout_enablement_approval_required": "",
+    "contract_handoff_defined": "",
+    "cross_tenant_billing_access_tests_passed": "",
+    "currency_policy_approved": "",
+    "human_approved_pricing_page_copy": "",
+    "invoice_owner_named": "",
+    "invoice_wording_approved": "",
+    "invoice_workflow_approved": "",
+    "legal_review_completed": "",
+    "payment_event_redaction_reviewed": "",
+    "payment_provider_selected": "",
+    "payment_reconciliation_tested": "",
+    "pricing_page_publication_approval_recorded": "",
+    "production_readiness_non_claim_reviewed": "",
+    "refund_policy_approved": "",
+    "security_review_completed": "",
+    "service_failure_remedy_boundary_approved": "",
+    "support_escalation_route_defined": "",
+    "target_jurisdictions_reviewed": "",
+    "tax_collection_approval_recorded": "",
+    "tax_obligations_reviewed": "",
+    "tenant_billing_account_model_approved": "",
+    "tenant_billing_retention_policy_approved": "",
+    "tenant_invoice_partitioning_tested": "",
+    "tenant_payment_event_partitioning_tested": "",
+    "test_mode_configuration_reviewed": "",
+    "trial_conversion_policy_approved": "",
+    "webhook_signature_validation_tested": ""
+  },
+  "template_note": "Human owners fill evidence_review and source_notes_by_key. Codex must not infer missing evidence, publish pricing, contact payment providers, configure checkout, collect payment, send invoices, contact tax advisors, publish refund policy, or claim tenant billing isolation."
+}

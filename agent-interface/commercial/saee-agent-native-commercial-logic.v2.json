@@ -1,0 +1,109 @@
+{
+  "saee_agent_native_commercial_logic_v2": true,
+  "logic_version": "2.0.0",
+  "status": "active_repository_decision_principle",
+  "project_identity": {
+    "theory_name": "Silicon-Amplified Evolutionary Ecology",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "commercial_capability_surface": "SAEE Evidence Capability Layer",
+    "audit_first_reframe": false
+  },
+  "positioning": {
+    "english": "SAEE provides machine-verifiable evidence adequacy evaluation for agent accountability workflows.",
+    "chinese": "SAEE 为智能体责任工作流提供机器可验证的证据充分性评估能力。"
+  },
+  "primary_flow": [
+    "AGENT_DISCOVERS_CAPABILITY",
+    "AGENT_UNDERSTANDS_FIT_AND_BOUNDARIES",
+    "AGENT_VALIDATES_AND_INVOKES_CAPABILITY",
+    "AGENT_SELECTS_REJECTS_OR_COMPOSES_CAPABILITY",
+    "HUMAN_AUTHORIZES_ONLY_CONSEQUENTIAL_EXTERNAL_ACTION"
+  ],
+  "design_principles": [
+    "MACHINE_READABLE",
+    "SEMANTIC_DISCOVERABILITY",
+    "COMPOSABILITY",
+    "VERIFIABILITY",
+    "REUSABLE_CAPABILITY"
+  ],
+  "mandatory_decision_gate": [
+    {
+      "gate_id": "AGENT_DISCOVERY",
+      "question": "Can an AI agent discover this capability?",
+      "required_answer": "yes"
+    },
+    {
+      "gate_id": "AGENT_UNDERSTANDING",
+      "question": "Can an AI agent understand when to use it?",
+      "required_answer": "yes"
+    },
+    {
+      "gate_id": "AGENT_COMPOSITION",
+      "question": "Can an AI agent compose this capability into workflows?",
+      "required_answer": "yes"
+    }
+  ],
+  "first_class_discovery_surfaces": [
+    "README.md",
+    "agent-index.json",
+    "llms.txt",
+    "capability_manifest",
+    "schema_registry",
+    "cli_or_tool_interface"
+  ],
+  "primary_ecosystem_nodes": [
+    "AGENT_FRAMEWORK_OR_WORKFLOW_PLATFORM",
+    "CODING_AGENT",
+    "AI_EVALUATION_AGENT",
+    "GOVERNANCE_AGENT",
+    "RETRIEVAL_RECOMMENDATION_INTEGRATION_AGENT"
+  ],
+  "priority_order": [
+    "AGENT_NATIVE_CAPABILITY_MANIFEST",
+    "MACHINE_DISCOVERABILITY",
+    "AGENT_TOOL_CAPABILITY",
+    "CONTROLLED_MULTI_AGENT_PREFERENCE_VALIDATION",
+    "CONTROLLED_AGENT_NATIVE_INTEGRATION",
+    "AGENT_ECONOMY_OPTIONAL_FUTURE"
+  ],
+  "lower_priority_surfaces": [
+    "DASHBOARD",
+    "HUMAN_FIRST_UI",
+    "MARKETING_WEBSITE_POLISH",
+    "MANUAL_SALES_AND_TRAINING"
+  ],
+  "human_authority_required_for": [
+    "EXTERNAL_CONTACT",
+    "CUSTOMER_OR_PERSONAL_DATA",
+    "PERMISSION_EXPANSION",
+    "PRICING_OR_CONTRACT",
+    "PILOT_APPROVAL",
+    "PRODUCTION_DEPLOYMENT",
+    "COMMERCIAL_OR_COMPLIANCE_CLAIMS"
+  ],
+  "current_route": {
+    "core_architecture": "complete",
+    "evidence_adequacy_engine": "complete_local_synthetic",
+    "synthetic_review_report": "complete_local_synthetic",
+    "design_partner_validation_protocol": "historical_inactive_human_participants_excluded",
+    "capability_manifest": "implemented_with_controlled_agent_preference_evidence",
+    "next_stage": "CONTROLLED_AGENT_NATIVE_INTEGRATION",
+    "machine_discoverability_test": "validated_local_and_public_snapshot",
+    "agent_tool_capability": "implemented_local_prototype",
+    "external_agent_recommendation_test": "validated_controlled_qianfan_synthetic_context",
+    "human_design_partner_validation": "excluded_by_user_direction",
+    "commercial_adoption": "not_started"
+  },
+  "truth_boundary": {
+    "customer_contacted": false,
+    "feedback_collected": false,
+    "external_agent_recommendation_validated": true,
+    "controlled_synthetic_agent_preference_validated": true,
+    "human_participants_used": false,
+    "customer_validated": false,
+    "market_fit_achieved": false,
+    "product_launched": false,
+    "production_ready": false
+  },
+  "next_action": "Controlled Agent-Native integration using SAEE with Observability"
+}

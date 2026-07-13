@@ -1,0 +1,35 @@
+{
+  "tool_projection_version": "1.0",
+  "transport": "MCP",
+  "canonical_descriptor_ref": "capability-package/mcp-tool.json",
+  "tools": [
+    {
+      "name": "evaluate_agent_run",
+      "purpose": "Evaluate bounded reliability evidence from a validated SAEE rehearsal run.",
+      "status": "LOCAL_TESTED",
+      "side_effects": false,
+      "authorization_performed": false
+    },
+    {
+      "name": "evaluate_evidence",
+      "purpose": "Evaluate whether a closed evidence package satisfies a fixed accountability profile.",
+      "status": "LOCAL_TESTED",
+      "side_effects": false,
+      "authorization_performed": false
+    },
+    {
+      "name": "rehearse_agent",
+      "purpose": "Describe a future controlled rehearsal request.",
+      "status": "CONTRACT_ONLY",
+      "side_effects": false,
+      "authorization_performed": false
+    }
+  ],
+  "truth_boundary": {
+    "local_stdio_adapter_available": true,
+    "remote_mcp_service": false,
+    "external_agent_connected": false,
+    "external_mcp_interoperability_validated": false,
+    "production_ready": false
+  }
+}

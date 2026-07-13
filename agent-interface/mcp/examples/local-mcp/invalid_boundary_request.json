@@ -1,0 +1,9 @@
+{
+  "tool_name": "evaluate_evidence_adequacy",
+  "arguments": {
+    "evidence_object": {"synthetic": true},
+    "accountability_claim": "AUTHORIZED_AGENT_ACTION",
+    "evaluation_profile": "authorized-agent-action",
+    "authorize": true
+  }
+}

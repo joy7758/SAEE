@@ -1,0 +1,54 @@
+{
+  "release_id": "saee-capability-alpha-v0.1",
+  "version": "0.1.0",
+  "capabilities": [
+    {"capability_id":"saee.agent-reliability","status":"local_alpha"},
+    {"capability_id":"saee.evidence-evaluation","status":"local_prototype"}
+  ],
+  "operations": [
+    {"operation_id":"evaluate_agent_run","status":"implemented_local_offline_alpha"},
+    {"operation_id":"evaluate_evidence","status":"implemented_local_offline_prototype"},
+    {"operation_id":"rehearse_agent","status":"contract_only"}
+  ],
+  "protocols": ["MCP", "HTTP Contract"],
+  "limitations": [
+    "Alpha preparation is not public release.",
+    "No public API, public service, or public MCP endpoint is available.",
+    "No marketplace listing, ecosystem support, or external adoption is established.",
+    "No customer validation or customer-data support is established.",
+    "No authorization, certification, safety guarantee, or deployment approval is provided.",
+    "Production readiness is not established."
+  ],
+  "source_references": {
+    "release_package": "release/saee-capability-alpha-v0.1/manifest.json",
+    "capability_package": "capability-package/manifest.json",
+    "capability_runtime": "saee_backend/services/capability_runtime/capability_invocation.py",
+    "mcp_adapter": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+    "http_adapter": "agent-interface/http/saee-capability-http-adapter.v0.1.json",
+    "integration_examples": "agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+    "public_capability_surface": "agent-interface/public/saee-public-capability-surface.v0.1.json"
+  },
+  "validation_references": {
+    "alpha_release_smoke": "scripts/saee_capability_alpha_release_smoke.py",
+    "public_surface_smoke": "scripts/saee_public_capability_surface_smoke.py",
+    "discovery_validation_result": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json",
+    "truth_consistency_validation_reference": "agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
+    "ecosystem_validation_preparation_reference": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json",
+    "ecosystem_dry_run_reference": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json",
+    "external_validation_design_reference": "agent-interface/ecosystem/saee-controlled-external-validation-design.v0.1.json",
+    "external_validation_simulation_reference": "agent-interface/ecosystem/saee-external-validation-simulation-result.v0.1.json",
+    "external_validation_readiness_review_reference": "agent-interface/ecosystem/saee-external-validation-readiness-review.v0.1.json",
+    "mainline_guard": "scripts/mainline_guard.py"
+  },
+  "release_status": "ALPHA_PREPARATION",
+  "truth_boundary": {
+    "alpha_preparation": true,
+    "public_release": false,
+    "public_api": false,
+    "public_service": false,
+    "marketplace_listed": false,
+    "external_adoption": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

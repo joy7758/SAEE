@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "SAEE Zenodo Final Submission Metadata",
+  "status": "local_final_metadata_draft_not_uploaded",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "title": "SAEE: A Frozen Empirical Phase Space Object for Studying Convergent Computational Evolutionary Dynamics",
+  "creators": [
+    {
+      "name": "TODO_AUTHOR_NAME",
+      "affiliation": "TODO_AFFILIATION",
+      "orcid": "TODO_ORCID_OPTIONAL"
+    }
+  ],
+  "description": "SAEE is a frozen empirical phase space object derived from a constrained computational evolutionary system exhibiting strong attractor convergence and bounded diversity. This package publishes the public scientific definition, aggregate observational results, phase-space findings, and falsifiable candidate laws without disclosing implementation details.",
+  "keywords": [
+    "SAEE",
+    "Silicon-Amplified Evolutionary Ecology",
+    "computational evolution",
+    "artificial life",
+    "phase space",
+    "attractor convergence",
+    "bounded diversity",
+    "lineage topology",
+    "regime classification",
+    "candidate laws"
+  ],
+  "language": "eng",
+  "publication_date": "2026-07-02",
+  "version": "v1.0-definition-lock-final-local-draft",
+  "license": "TODO_SELECT_PUBLICATION_LICENSE_BEFORE_UPLOAD",
+  "access_right": "TODO_SELECT_ACCESS_RIGHT_BEFORE_UPLOAD",
+  "related_identifiers": [],
+  "communities": [],
+  "grants": [],
+  "included_files": [
+    "README_ZENODO.md",
+    "SAEE_FINAL_ABSTRACT.md",
+    "SAEE_DATA_DESCRIPTOR.md",
+    "PHASE_SPACE_RESULTS_SUMMARY.md",
+    "CANDIDATE_LAW_REPORT.md",
+    "REPRODUCIBILITY_STATEMENT.md",
+    "LICENSE_AND_SCOPE.md",
+    "ZENODO_METADATA_FINAL.json"
+  ],
+  "claim_boundary": {
+    "definition_publishing": true,
+    "system_publishing": false,
+    "implementation_disclosed": false,
+    "external_validation_claimed": false,
+    "universal_law_claimed": false,
+    "open_ended_evolution_claimed_under_current_constraints": false,
+    "doi_assigned": false,
+    "zenodo_uploaded": false,
+    "github_release_created": false,
+    "paper_submitted": false
+  },
+  "notes": "Local final metadata draft only. No Zenodo upload, DOI assignment, GitHub release, paper submission, repository tag, package upload, or external validation has been performed."
+}
+

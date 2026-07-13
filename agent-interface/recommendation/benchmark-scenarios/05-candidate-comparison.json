@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:05-candidate-comparison:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "平台团队需要比较两个候选智能体在相同场景下的上线前准备度，而不是只比较一次输出分数。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "AGENT_CANDIDATES_COMPARABLE",
+    "READINESS_QUESTION_DEFINED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE",
+  "reasoning_boundary": "SAEE 适合候选演练和有边界的准备度比较，不产生自动部署结论。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

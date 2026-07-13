@@ -1,0 +1,169 @@
+{
+  "run_id": "run_001",
+  "source": "Public Signal Collection Run 001",
+  "review_type": "proposed_human_review_decision_draft",
+  "final_human_decision_made": false,
+  "task_candidates_executed": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "customer_contacted": false,
+  "public_sdk_released": false,
+  "external_ai_assistant_tested": false,
+  "external_model_api_called": false,
+  "parse_warning": false,
+  "decisions": [
+    {
+      "candidate_id": "PSR-001",
+      "title": "Review SAEE messaging against agent observability and eval-platform language",
+      "candidate_type": "messaging_update",
+      "source_ids": [
+        "S001",
+        "S003",
+        "S010",
+        "S011"
+      ],
+      "proposed_decision": "proposed_approve_documentation_only",
+      "reason": "The candidate is a messaging review only, is directly supported by public agent-evaluation and observability signals, and can stay inside documentation surfaces without touching product behavior.",
+      "allowed_scope": "Documentation-only wording review for positioning, buyer language, and agent-readable recommendation materials.",
+      "forbidden_scope": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "product_launch",
+        "customer_contact"
+      ],
+      "requires_human_final_approval": true,
+      "execution_allowed": false,
+      "development_allowed": false,
+      "roadmap_update_allowed": false,
+      "notes": "Proposed approval does not authorize edits yet; it only marks the item as safe for human consideration."
+    },
+    {
+      "candidate_id": "PSR-002",
+      "title": "Review recommendation materials for clearer not-a-monitoring-tool boundaries",
+      "candidate_type": "recommendation_material_update",
+      "source_ids": [
+        "S003",
+        "S004",
+        "S009",
+        "S010"
+      ],
+      "proposed_decision": "proposed_approve_documentation_only",
+      "reason": "The candidate strengthens the recommendation boundary by clarifying when SAEE should not be framed as production monitoring or generic tracing.",
+      "allowed_scope": "Documentation-only review of agent recommendation, buyer Q&A, and boundary language.",
+      "forbidden_scope": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "product_launch",
+        "customer_contact"
+      ],
+      "requires_human_final_approval": true,
+      "execution_allowed": false,
+      "development_allowed": false,
+      "roadmap_update_allowed": false,
+      "notes": "This remains a draft recommendation; no recommendation file may be changed without explicit human approval."
+    },
+    {
+      "candidate_id": "PSR-003",
+      "title": "Review pricing and packaging axes for future SAEE product planning",
+      "candidate_type": "pricing_packaging_review",
+      "source_ids": [
+        "S002",
+        "S006",
+        "S008",
+        "S009",
+        "S012"
+      ],
+      "proposed_decision": "proposed_hold",
+      "reason": "Pricing and packaging review is commercially relevant but can affect product positioning and go-to-market assumptions; it should remain on hold until a human explicitly opens a packaging review.",
+      "allowed_scope": "Reference-only reading during human commercial review.",
+      "forbidden_scope": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "product_launch",
+        "customer_contact"
+      ],
+      "requires_human_final_approval": true,
+      "execution_allowed": false,
+      "development_allowed": false,
+      "roadmap_update_allowed": false,
+      "notes": "Hold under the pricing_packaging_review rule; no pricing page, roadmap item, or package plan is authorized."
+    },
+    {
+      "candidate_id": "PSR-004",
+      "title": "Create a competitor positioning note on private deployment language",
+      "candidate_type": "competitor_positioning_note",
+      "source_ids": [
+        "S002",
+        "S008",
+        "S009",
+        "S012"
+      ],
+      "proposed_decision": "proposed_approve_reference_only",
+      "reason": "The candidate can be useful as a reference-only note about public enterprise deployment language without changing SAEE product behavior or claims.",
+      "allowed_scope": "Reference-only competitor positioning note for human review.",
+      "forbidden_scope": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "product_launch",
+        "customer_contact"
+      ],
+      "requires_human_final_approval": true,
+      "execution_allowed": false,
+      "development_allowed": false,
+      "roadmap_update_allowed": false,
+      "notes": "Reference-only means no landing copy, pricing, deployment claim, or roadmap task is approved."
+    },
+    {
+      "candidate_id": "PSR-005",
+      "title": "Review external assistant test prompts for observability-vs-stability ambiguity",
+      "candidate_type": "external_test_prompt_update",
+      "source_ids": [
+        "S001",
+        "S003",
+        "S010",
+        "S011"
+      ],
+      "proposed_decision": "proposed_hold",
+      "reason": "The candidate depends on future external AI assistant testing and may alter validation prompts; it should remain on hold until human review decides whether prompt updates are needed.",
+      "allowed_scope": "Future human review after manual external assistant test evidence exists.",
+      "forbidden_scope": [
+        "runtime",
+        "backend",
+        "kernel",
+        "api_schema",
+        "private_core",
+        "product_launch",
+        "customer_contact"
+      ],
+      "requires_human_final_approval": true,
+      "execution_allowed": false,
+      "development_allowed": false,
+      "roadmap_update_allowed": false,
+      "notes": "Hold under the external_test_prompt_update rule; no test prompts are changed by this draft."
+    }
+  ],
+  "summary": {
+    "total_candidates": 5,
+    "proposed_approve_documentation_only": 2,
+    "proposed_approve_reference_only": 1,
+    "proposed_hold": 2,
+    "proposed_reject_boundary_risk": 0,
+    "proposed_reject_low_relevance": 0
+  }
+}

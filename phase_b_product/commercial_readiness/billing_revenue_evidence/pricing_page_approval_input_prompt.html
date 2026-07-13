@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAEE 定价页人工审批入口</title>
+  <style>
+    :root {
+      --bg: #f7f8f6;
+      --surface: #ffffff;
+      --surface-soft: #edf1ee;
+      --text: #161918;
+      --muted: #5f6863;
+      --line: #dde4df;
+      --accent: #0f766e;
+      --accent-strong: #0b5f59;
+      --danger: #b91c1c;
+      --shadow: 0 24px 70px rgba(19, 32, 27, 0.12);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(15, 118, 110, 0.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 46%, #edf1ee 100%);
+      color: var(--text);
+    }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #e6f4f1 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .kicker { margin: 0 0 10px; color: var(--accent-strong); font-weight: 700; }
+    h1 { margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.04; letter-spacing: 0; max-width: 760px; }
+    .lead { max-width: 760px; color: var(--muted); font-size: 20px; line-height: 1.7; }
+    .metrics, .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+    .metric, .step, .panel {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .metric strong { display: block; font-size: 30px; }
+    .metric span, .step p, .panel p, small { color: var(--muted); line-height: 1.6; }
+    section { margin-top: 28px; }
+    h2 { font-size: 24px; margin: 0 0 14px; }
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #111827;
+      color: #fff;
+      font-weight: 700;
+    }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; background: var(--surface); border-radius: 18px; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #2f3a35; background: var(--surface-soft); }
+    code {
+      display: block;
+      white-space: pre-wrap;
+      padding: 14px;
+      background: #111827;
+      color: #ecfeff;
+      border-radius: 14px;
+      line-height: 1.6;
+    }
+    .danger { color: var(--danger); font-weight: 700; }
+    @media (max-width: 840px) {
+      main { width: min(100% - 20px, 1120px); padding: 24px 0; }
+      .hero { padding: 24px; border-radius: 22px; }
+      .metrics, .grid { grid-template-columns: 1fr; }
+      table { font-size: 14px; }
+      th, td { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="kicker">定价页还没有批准，也没有发布</p>
+      <h1>先把定价说清楚，再决定能不能发布。</h1>
+      <p class="lead">
+        这是 `pricing_page` 的人工审批入口。它只帮人看清楚要填什么、审什么、停在哪里；
+        不会生成价格，不会发布定价页，不会联系客户，不会配置支付，也不会关闭商用阻塞项。
+      </p>
+      <div class="metrics">
+        <div class="metric"><strong>9</strong><span>个审批元数据字段</span></div>
+        <div class="metric"><strong>5</strong><span>个定价页证据项</span></div>
+        <div class="metric"><strong>0</strong><span>个已关闭阻塞项</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>人要怎么做</h2>
+      <div class="grid">
+        <article class="step">
+          <span>1</span>
+          <h3>先读草稿</h3>
+          <p>打开 pricing_page_copy_draft.md，确认定价文案只是草稿。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>2</span>
+          <h3>人工审批</h3>
+          <p>商业、产品、财务、法务、计费负责人逐项确认。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>3</span>
+          <h3>填写模板</h3>
+          <p>复制 pricing_page_evidence_input.template.json 后由人填写真实审批信息。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>4</span>
+          <h3>只做本地检查</h3>
+          <p>填完后运行 validator；发布、报价、支付和 builder 都需要单独批准。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        </div>
+    </section>
+
+    <section class="panel">
+      <h2>要填的负责人信息</h2>
+      <table>
+        <thead><tr><th>字段</th><th>要求</th><th>Codex 能不能代填</th></tr></thead>
+        <tbody><tr><td>human_reviewer_name</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>review_date</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>commercial_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>product_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>accounting_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>legal_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>billing_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>review_record_reference</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>decision_summary</td><td>人必须填写</td><td>Codex 不可代填</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>要审的定价页证据</h2>
+      <table>
+        <thead><tr><th>证据项</th><th>人工审批</th><th>来源说明</th><th>记录引用</th></tr></thead>
+        <tbody><tr><td>human_approved_pricing_page_copy</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>approved_plan_and_usage_terms</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>legal_review_completed</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>production_readiness_non_claim_reviewed</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>pricing_page_publication_approval_recorded</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>本地命令</h2>
+      <p>只在人工填完后运行校验。builder、发布、报价和支付配置都需要单独批准。</p>
+      <code>cp phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.template.json phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json</code>
+      <code>python3 scripts/saee_pricing_page_approval_input_validator.py --input phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json</code>
+    </section>
+
+    <section class="panel">
+      <h2>边界</h2>
+      <p class="danger">不发布定价页、不生成销售报价、不配置支付、不收款、不关闭 blocker、不声明生产可用。</p>
+      <p>
+        pricing_page_published: false · payment_provider_configured: false · checkout_enabled: false ·
+        customer_payment_collected: false · production_ready: false · product_launched: false · private_core_exposed: false
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "name": "SAEE Production Customer Validation Requirements v0.1",
+  "purpose": "Define production customer validation requirements and evidence without contacting customers, recording pilot results, closing validation blockers, or claiming customer validation.",
+  "production_customer_validation_requirements_v0_1": true,
+  "requirements_status": "requirements_defined_implementation_hold",
+  "validation_blockers_covered_as_requirements": [
+    "pilot_results",
+    "customer_validated"
+  ],
+  "required_pilot_evidence_controls": [
+    "human_approved_pilot_session_protocol",
+    "target_user_profile_defined",
+    "neutral_demo_script_used",
+    "consent_and_permission_recorded",
+    "feedback_form_completed",
+    "success_criteria_applied",
+    "pilot_result_reviewed",
+    "negative_feedback_recorded",
+    "no_private_core_disclosed",
+    "no_customer_secrets_collected"
+  ],
+  "required_customer_validation_evidence": [
+    "customer_role_and_segment_recorded",
+    "permission_to_use_feedback_recorded",
+    "pain_point_fit_observed",
+    "deployment_decision_value_observed",
+    "recommendation_output_understood",
+    "failure_summary_usefulness_observed",
+    "go_hold_pivot_decision_recorded",
+    "claim_scope_reviewed",
+    "reviewer_approved_validation_claim"
+  ],
+  "evidence_required_before_closing_blockers": [
+    {
+      "blocker_id": "pilot_results",
+      "required_evidence": [
+        "at_least_one_human_approved_pilot_session_completed",
+        "pilot_result_template_completed",
+        "feedback_form_completed",
+        "success_criteria_applied",
+        "boundary_flags_reviewed",
+        "pilot_result_reviewed_by_human"
+      ]
+    },
+    {
+      "blocker_id": "customer_validated",
+      "required_evidence": [
+        "real_customer_or_target_user_feedback_recorded",
+        "permission_to_use_feedback_recorded",
+        "customer_problem_fit_reviewed",
+        "decision_usefulness_observed",
+        "claim_scope_approved",
+        "customer_validation_record_approved_by_human"
+      ]
+    }
+  ],
+  "production_customer_validation_implemented": false,
+  "customer_validation_evidence_collected": false,
+  "pilot_results_recorded": false,
+  "pilot_sessions_completed": 0,
+  "customer_permission_recorded": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "product_market_fit_claimed": false,
+  "revenue_validated": false,
+  "production_readiness_claimed": false,
+  "user_upload_enabled": false,
+  "customer_data_processing_ready": false,
+  "production_customer_validation_ready": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "task_candidates_executed": false,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "customer_data_collected": false,
+  "customer_secrets_collected": false
+}

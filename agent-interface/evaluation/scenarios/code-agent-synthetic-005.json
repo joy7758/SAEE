@@ -1,0 +1,38 @@
+{
+  "saee_evaluation_scenario_v0_1": true,
+  "schema_version": "0.1.0",
+  "scenario_id": "code-agent-synthetic-005",
+  "scenario_class": "complete_evidence",
+  "task_description": "Evaluate a synthetic approval record whose context, scope, action reference, and time precede the planned action.",
+  "agent_identity": {"agent_id": "agent:synthetic-005", "synthetic": true},
+  "observed_actions": [
+    {"action_id": "action:synthetic-review-005", "type": "approval_gated_action", "tool_name": "tool:synthetic-local-editor", "requested_scope": "resource:inspect-metadata", "timestamp": "2026-07-11T06:08:05Z", "synthetic": true}
+  ],
+  "resources": [
+    {"resource_id": "resource:synthetic-005", "requested_resource": "artifact:synthetic-reviewed-source", "resolved_uri": "https://code.example.invalid/synthetic/reviewed-source.txt", "receipt_id": "receipt:synthetic-resource-005", "content_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "publisher_identity": "publisher:synthetic-005", "synthetic": true}
+  ],
+  "authorization_context": {"policy_id": "policy:synthetic-review-005", "decision": "allow", "agent_id": "agent:synthetic-005", "action_id": "action:synthetic-review-005", "authority_scope": "resource:inspect-metadata", "valid_from": "2026-07-11T06:08:00Z", "valid_until": "2026-07-11T06:09:00Z", "synthetic": true},
+  "human_oversight_context": {"human_id": "human:synthetic-reviewer-005", "decision": "approved", "action_id": "action:synthetic-review-005", "approved_scope": "resource:inspect-metadata", "approval_timestamp": "2026-07-11T06:08:00Z", "synthetic": true},
+  "execution_effects": [
+    {"effect_id": "effect:synthetic-005", "status": "recorded_synthetic_effect", "sandbox_ref": "sandbox:synthetic-005", "resource_receipt_ref": "receipt:synthetic-resource-005", "content_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "synthetic": true}
+  ],
+  "expected_claims": ["HUMAN_OVERSIGHT"],
+  "claim_evidence": {
+    "saee_evidence_adequacy_input_v0_1": true,
+    "schema_version": "0.1.0",
+    "claim_type": "HUMAN_OVERSIGHT",
+    "evidence": {
+      "action": {"action_id": "action:synthetic-review-005", "requested_scope": "resource:inspect-metadata", "timestamp": "2026-07-11T06:08:05Z"},
+      "approval": {"human_identity": "human:synthetic-reviewer-005", "approval_context": {"risk_summary": "Synthetic non-execution metadata inspection only.", "evidence_refs": ["receipt:synthetic-resource-005"]}, "approved_scope": "resource:inspect-metadata", "approval_timestamp": "2026-07-11T06:08:00Z", "action_id": "action:synthetic-review-005", "decision": "approved"}
+    },
+    "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+  },
+  "reference_condition_expectations": {
+    "TRACE_ONLY": {"profile_support_expected": false, "expected_missing_requirements": ["/approval/approval_context", "/approval/approved_scope", "/approval/approval_timestamp", "/approval/action_id", "/approval/decision"], "expected_failed_relationships": []},
+    "TRACE_PLUS_RECEIPT": {"profile_support_expected": false, "expected_missing_requirements": ["/approval/approved_scope", "/approval/approval_timestamp", "/approval/action_id"], "expected_failed_relationships": []},
+    "TRACE_RECEIPT_RELATIONSHIPS": {"profile_support_expected": true, "expected_missing_requirements": [], "expected_failed_relationships": []},
+    "COMPLETE_SAEE_PACKAGE": {"profile_support_expected": true, "expected_missing_requirements": [], "expected_failed_relationships": []}
+  },
+  "limitations": ["The reviewer identity and approval are synthetic declarations.", "Profile support does not prove meaningful real human review."],
+  "truth_boundary": {"real_agent_executed": false, "production_trace_observed": false, "external_data_used": false, "external_validation_completed": false, "production_ready": false}
+}

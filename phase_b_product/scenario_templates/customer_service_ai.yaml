@@ -1,0 +1,29 @@
+scenario_id: customer_service_ai
+display_name: Customer Service AI Reliability Test
+description: Compare AI customer service candidates under normal, angry, ambiguous, and high-volume customer conditions.
+target_customer: Support teams and companies evaluating AI customer service agents
+decision_question: Which customer service AI should handle customer conversations?
+candidate_input:
+  - agent_name
+  - service_scope
+  - policy_rules
+  - escalation_rules
+  - known_risks
+simulation_environment: customer_conversation_stability
+stress_factors:
+  - normal_customer
+  - angry_customer
+  - ambiguous_request
+  - policy_change
+  - high_volume_period
+evaluation_focus:
+  - response_consistency
+  - policy_compliance
+  - escalation_quality
+  - long_term_stability
+output_report:
+  - ranking
+  - consistency_summary
+  - policy_risk_summary
+  - escalation_recommendation
+business_value: Helps support teams avoid deploying a customer service AI that becomes inconsistent or unsafe under pressure.

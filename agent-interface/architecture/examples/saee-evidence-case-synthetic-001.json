@@ -1,0 +1,106 @@
+{
+  "saee_evidence_case_v0_1": true,
+  "schema_version": "0.1.0",
+  "architecture_version": "3.0-draft",
+  "case_id": "saee-case-synthetic-support-001",
+  "case_status": "local_synthetic_vertical_slice",
+  "created_at": "2026-07-11T12:00:00Z",
+  "identity": {
+    "case_type": "deployment_assurance_projection_case",
+    "owner_scope": "local_research_only",
+    "synthetic": true
+  },
+  "task_contract": {
+    "task_contract_id": "task-contract-synthetic-support-001",
+    "objective": "Compare two synthetic support-agent candidates under normal and long-context drift scenarios.",
+    "task_category": "customer-support-response",
+    "business_impact_class": "MEDIUM",
+    "candidate_refs": ["candidate:synthetic-a", "candidate:synthetic-b"],
+    "acceptance_criteria": ["Evidence adequacy must pass.", "Estimated risk must remain within scenario-scoped thresholds."],
+    "explicit_exclusions": ["No refund approval.", "No production deployment.", "No real customer conversation."]
+  },
+  "environment_contract": {
+    "environment_contract_id": "environment-contract-synthetic-support-001",
+    "environment_version": "environment-synthetic-v001",
+    "distribution_basis": "synthetic",
+    "scenarios": [
+      {
+        "scenario_id": "scenario:normal-multiturn",
+        "description": "Synthetic normal multi-turn support interaction.",
+        "weight": 0.5,
+        "business_impact": 0.4,
+        "exposure": 0.8,
+        "control_effectiveness": 0.5,
+        "uncertainty_penalty": 0.05
+      },
+      {
+        "scenario_id": "scenario:long-context-drift",
+        "description": "Synthetic long-context conversation with drift pressure.",
+        "weight": 0.5,
+        "business_impact": 0.8,
+        "exposure": 0.6,
+        "control_effectiveness": 0.2,
+        "uncertainty_penalty": 0.1
+      }
+    ]
+  },
+  "candidates": [
+    {"candidate_ref": "candidate:synthetic-a", "label": "Synthetic Agent A", "version_ref": "agent-a:v0.1", "synthetic": true},
+    {"candidate_ref": "candidate:synthetic-b", "label": "Synthetic Agent B", "version_ref": "agent-b:v0.1", "synthetic": true}
+  ],
+  "observations": [
+    {"observation_ref": "observation:a-normal", "candidate_ref": "candidate:synthetic-a", "scenario_ref": "scenario:normal-multiturn", "failure_estimate": 0.15, "reason": "Synthetic occasional response inconsistency.", "failure_class": "response-inconsistency", "evidence_ref": "evidence-contract:synthetic-a", "synthetic": true, "observation_is_evidence": false},
+    {"observation_ref": "observation:a-drift", "candidate_ref": "candidate:synthetic-a", "scenario_ref": "scenario:long-context-drift", "failure_estimate": 0.45, "reason": "Synthetic context drift increases after extended turns.", "failure_class": "long-context-drift", "evidence_ref": "evidence-contract:synthetic-a", "synthetic": true, "observation_is_evidence": false},
+    {"observation_ref": "observation:b-normal", "candidate_ref": "candidate:synthetic-b", "scenario_ref": "scenario:normal-multiturn", "failure_estimate": 0.1, "reason": "Synthetic low inconsistency under normal load.", "failure_class": "response-inconsistency", "evidence_ref": "evidence-contract:synthetic-b", "synthetic": true, "observation_is_evidence": false},
+    {"observation_ref": "observation:b-drift", "candidate_ref": "candidate:synthetic-b", "scenario_ref": "scenario:long-context-drift", "failure_estimate": 0.25, "reason": "Synthetic moderate drift under extended context.", "failure_class": "long-context-drift", "evidence_ref": "evidence-contract:synthetic-b", "synthetic": true, "observation_is_evidence": false}
+  ],
+  "evidence_packages": [
+    {
+      "candidate_ref": "candidate:synthetic-a",
+      "evidence_contract_ref": "evidence-contract:synthetic-a",
+      "claim_evidence": {
+        "saee_evidence_adequacy_input_v0_1": true,
+        "schema_version": "0.1.0",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "evidence": {
+          "action": {"action_id": "action:synthetic-a", "agent_id": "candidate:synthetic-a", "requested_scope": "support:respond-only", "timestamp": "2026-07-11T12:00:05Z"},
+          "policy_decision": {"decision_id": "policy:synthetic-a", "decision": "allow", "agent_id": "candidate:synthetic-a", "action_id": "action:synthetic-a", "authority_scope": "support:respond-only", "valid_from": "2026-07-11T12:00:00Z", "valid_until": "2026-07-11T12:01:00Z"}
+        },
+        "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+      }
+    },
+    {
+      "candidate_ref": "candidate:synthetic-b",
+      "evidence_contract_ref": "evidence-contract:synthetic-b",
+      "claim_evidence": {
+        "saee_evidence_adequacy_input_v0_1": true,
+        "schema_version": "0.1.0",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "evidence": {
+          "action": {"action_id": "action:synthetic-b", "agent_id": "candidate:synthetic-b", "requested_scope": "support:respond-only", "timestamp": "2026-07-11T12:00:05Z"},
+          "policy_decision": {"decision_id": "policy:synthetic-b", "decision": "allow", "agent_id": "candidate:synthetic-b", "action_id": "action:synthetic-b", "authority_scope": "support:respond-only", "valid_from": "2026-07-11T12:00:00Z", "valid_until": "2026-07-11T12:01:00Z"}
+        },
+        "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+      }
+    }
+  ],
+  "risk_policy": {
+    "formula_version": "Rs=P*I*X*(1-C)+U;Rtotal=sum(w*Rs)",
+    "deploy_limited_threshold": 0.14,
+    "retest_threshold": 0.25,
+    "threshold_scope": "local_synthetic_case_only",
+    "estimate_not_measurement": true
+  },
+  "truth_boundary": {
+    "real_agent_executed": false,
+    "external_tool_executed": false,
+    "production_trace_observed": false,
+    "customer_data_used": false,
+    "risk_probability_measured": false,
+    "deployment_authorized": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
+

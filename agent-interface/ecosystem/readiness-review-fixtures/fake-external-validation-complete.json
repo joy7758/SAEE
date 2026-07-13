@@ -1,0 +1,1 @@
+{"fixture_id":"FAKE_EXTERNAL_VALIDATION_COMPLETE","mutation":{"truth_boundary.external_validation_execution":true},"expected":"REJECT"}

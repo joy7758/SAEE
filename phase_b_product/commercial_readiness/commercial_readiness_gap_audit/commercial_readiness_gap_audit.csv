@@ -1,0 +1,25 @@
+blocker_id,category,owner_review_lane,local_completion_checks_passed,local_completion_checks_total,local_evidence_ready,engineering_implementation_required,external_dependency_required,human_approval_required,closure_allowed_by_audit,required_evidence
+production_identity_provider,auth,engineering_security,0,3,False,True,True,True,False,"Production identity-provider configuration, security review, and operator runbook."
+oauth_oidc,auth,engineering_security,0,3,False,True,True,True,False,"OIDC issuer, client, callback, token validation, and logout behavior evidence."
+rbac,auth,engineering_security,0,3,False,True,False,True,False,"Role model, permission matrix, enforcement tests, and admin recovery process."
+tenant_storage_isolation,tenant,engineering_data_security,3,4,False,True,False,True,False,"Tenant-isolated storage design, migration proof, and cross-tenant isolation tests."
+production_monitoring,operations,operations_engineering,0,3,False,True,True,True,False,"Production metrics, dashboard, retention, alert review, and incident linkage evidence."
+external_alert_delivery,operations,operations_engineering,0,3,False,True,True,True,False,"External alert destination, escalation route, delivery test, and failure handling evidence."
+on_call_rotation,operations,operations_engineering,0,3,False,False,True,True,False,"Named on-call process, escalation schedule, handoff rules, and coverage evidence."
+sla,support,support_operations,0,4,False,False,True,True,False,"Human-approved SLA terms, exclusions, support hours, and response target approval."
+support_contact,support,support_operations,0,4,False,False,True,True,False,"Customer-facing support intake contact, ownership, response procedure, and abuse handling."
+customer_support,support,support_operations,0,4,False,False,True,True,False,"Staffed support process, triage workflow, customer communication template, and audit trail."
+formal_security_review,privacy_security,security_legal_privacy,0,4,False,False,True,True,False,"Completed security review report covering public shell, deployment, data, and access control."
+privacy_legal_review,privacy_security,security_legal_privacy,0,4,False,False,True,True,False,"Completed legal privacy review for collected data, processors, notices, and retention."
+data_processing_agreement,privacy_security,security_legal_privacy,0,4,False,False,True,True,False,Approved DPA or equivalent customer data-processing agreement ready for use.
+vulnerability_management,privacy_security,security_legal_privacy,0,4,False,False,True,True,False,"Vulnerability disclosure policy, triage process, remediation targets, and security contact."
+pilot_results,validation,customer_validation,0,5,False,False,True,True,False,"Recorded pilot sessions, user feedback, failure notes, and permission to use evidence."
+customer_validated,validation,customer_validation,0,5,False,False,True,True,False,Real customer validation evidence reviewed and approved for use in product claims.
+pricing_page,billing,commercial_finance_legal,0,6,False,False,True,True,False,Human-approved public pricing or packaging page with current commercial terms.
+payment_provider,billing,commercial_finance_legal,0,6,False,False,True,True,False,Configured payment provider in the intended environment with checkout disabled until approval.
+invoice_process,billing,commercial_finance_legal,0,6,False,False,True,True,False,"Invoice workflow, contract handoff, bookkeeping process, and payment reconciliation evidence."
+tax_review,billing,commercial_finance_legal,0,6,False,False,True,True,False,"Tax review for target jurisdictions, invoice wording, and payment collection process."
+refund_policy,billing,commercial_finance_legal,0,6,False,False,True,True,False,Human-approved refund/cancellation policy connected to payment and support processes.
+tenant_billing_isolation,billing,commercial_finance_legal,0,6,False,True,False,True,False,"Tenant-aware billing records, invoice partitioning, and payment-event isolation evidence."
+restore_tested,data_ops,data_operations,1,2,False,True,False,True,False,"Successful restore test with manifest, scope, non-live path proof, and operator review."
+production_restore_policy,data_ops,data_operations,1,2,False,True,False,True,False,Approved production restore policy with RPO/RTO targets and drill cadence.

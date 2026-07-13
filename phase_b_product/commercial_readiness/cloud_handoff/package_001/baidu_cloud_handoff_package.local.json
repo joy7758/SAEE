@@ -1,0 +1,310 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "baidu_cloud_handoff_package_v0_1": true,
+  "blockers_closed_by_package": 0,
+  "browser_opened_by_script": false,
+  "cloud_clear_performed": false,
+  "cloud_clear_required_before_sync": true,
+  "cloud_delete_authorized": false,
+  "cloud_sync_performed": false,
+  "cloud_target_id": "i-8xOwPKN3",
+  "cloud_upload_authorized": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "destructive_cloud_operation_requires_separate_confirmation": true,
+  "expected_file_count": 38,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_validation_claim": false,
+  "files": [
+    {
+      "package_path": "files/README.md",
+      "safe_to_upload": true,
+      "sha256": "eebb7e9f98ccea8d311c943217fb3c9d12b7cf74d4af3ef83df49c1ea9290dd3",
+      "size_bytes": 455116,
+      "source_path": "README.md"
+    },
+    {
+      "package_path": "files/PROJECT_STATUS.md",
+      "safe_to_upload": true,
+      "sha256": "293e6b2fbab146fc502c28bbd8c8de57cce6bb327661fb89f5c3eb6e4a087398",
+      "size_bytes": 353985,
+      "source_path": "PROJECT_STATUS.md"
+    },
+    {
+      "package_path": "files/ROADMAP.md",
+      "safe_to_upload": true,
+      "sha256": "acf057d7279d21db0b9bb97bc26b0e26cc911110a7e9a98f29c675fc5e86621e",
+      "size_bytes": 315722,
+      "source_path": "ROADMAP.md"
+    },
+    {
+      "package_path": "files/CHANGELOG.md",
+      "safe_to_upload": true,
+      "sha256": "f871e8d7094bd05a007ed4bc809ef1ebc36c0e7c7ec704ae30ed036107496abd",
+      "size_bytes": 442963,
+      "source_path": "CHANGELOG.md"
+    },
+    {
+      "package_path": "files/agent-readable.md",
+      "safe_to_upload": true,
+      "sha256": "9a2f8c480544710737f9853e2ce25a4b91f276817ab46b4018f4df300a7011f8",
+      "size_bytes": 580164,
+      "source_path": "agent-readable.md"
+    },
+    {
+      "package_path": "files/llms.txt",
+      "safe_to_upload": true,
+      "sha256": "642fb228746889d7f79f5cb85cd6c85c5ff5ebd25cfbc3ab79f102848217d1ef",
+      "size_bytes": 491744,
+      "source_path": "llms.txt"
+    },
+    {
+      "package_path": "files/agent-index.json",
+      "safe_to_upload": true,
+      "sha256": "00a5175153ede19c65c177a5580375021d2f11d9582c755a194c177f554cdb2e",
+      "size_bytes": 2091199,
+      "source_path": "agent-index.json"
+    },
+    {
+      "package_path": "files/agent_recommendation/PRODUCT_FACTS.md",
+      "safe_to_upload": true,
+      "sha256": "9b249a09c70c2b1220f4865509ceb20903487b86ca256bb54ccf4a9d55d418cb",
+      "size_bytes": 3837,
+      "source_path": "agent_recommendation/PRODUCT_FACTS.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/PRODUCT_FACTS.json",
+      "safe_to_upload": true,
+      "sha256": "3985f861d3e0ba6ca9eb9f561217d68bc8a96fa697e0de8dc30f211286c6d10c",
+      "size_bytes": 2211,
+      "source_path": "agent_recommendation/PRODUCT_FACTS.json"
+    },
+    {
+      "package_path": "files/agent_recommendation/WHEN_TO_RECOMMEND_SAEE.md",
+      "safe_to_upload": true,
+      "sha256": "dfae9acd4549dfe0609a14c1cd39a01b0d4c1f1320e4bdae191489d9684ca2a3",
+      "size_bytes": 3746,
+      "source_path": "agent_recommendation/WHEN_TO_RECOMMEND_SAEE.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/WHEN_NOT_TO_RECOMMEND_SAEE.md",
+      "safe_to_upload": true,
+      "sha256": "83c31d667d020d3a7fed310edbe43c46f64ef55e16d9d7295a52c559dedc3857",
+      "size_bytes": 3057,
+      "source_path": "agent_recommendation/WHEN_NOT_TO_RECOMMEND_SAEE.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/RECOMMENDATION_DECISION_TREE.md",
+      "safe_to_upload": true,
+      "sha256": "d96a73ada3a2970e22478865711a489d9461a854da79410faeff1e7bc63ec3e8",
+      "size_bytes": 2641,
+      "source_path": "agent_recommendation/RECOMMENDATION_DECISION_TREE.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/BUYER_QUESTIONS_AND_ANSWERS.md",
+      "safe_to_upload": true,
+      "sha256": "e5ad93d24ad492e6f274fe60aed186e440b92c224094b73ef32e9e31b69d7f70",
+      "size_bytes": 3834,
+      "source_path": "agent_recommendation/BUYER_QUESTIONS_AND_ANSWERS.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/VALIDATION_RESULTS.md",
+      "safe_to_upload": true,
+      "sha256": "15af8e627fcc8a358ec65af596cc1daff88c849a69bc8d9105af236b32dfba78",
+      "size_bytes": 2849,
+      "source_path": "agent_recommendation/VALIDATION_RESULTS.md"
+    },
+    {
+      "package_path": "files/agent_recommendation/internal_self_play/SELF_PLAY_RESULTS.md",
+      "safe_to_upload": true,
+      "sha256": "483a61d5dd4afc8f5cff93b212b89d1321d6903b1845b62d6bbb7e2ff9b160d4",
+      "size_bytes": 1667,
+      "source_path": "agent_recommendation/internal_self_play/SELF_PLAY_RESULTS.md"
+    },
+    {
+      "package_path": "files/phase_b_product/landing/for-ai-assistants.html",
+      "safe_to_upload": true,
+      "sha256": "60b5db7f8723a24053e24a84c16a784cbbb8a8e674125780df167be80e829d77",
+      "size_bytes": 13012,
+      "source_path": "phase_b_product/landing/for-ai-assistants.html"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/commercial_readiness_status.md",
+      "safe_to_upload": true,
+      "sha256": "19b374ef7484c3f90978368fe9ca2fdbffd791b0ebf065459eed02bbe17f4e60",
+      "size_bytes": 10166,
+      "source_path": "phase_b_product/commercial_readiness/commercial_readiness_status.md"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/commercial_readiness_status.local.json",
+      "safe_to_upload": true,
+      "sha256": "30ae78982a9926093e0af6b018abdbca3bbfa158b68c7de6d3925949c3ece3c1",
+      "size_bytes": 16270,
+      "source_path": "phase_b_product/commercial_readiness/commercial_readiness_status.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/commercial_readiness_status.csv",
+      "safe_to_upload": true,
+      "sha256": "39a2660d5a8cff1a0ef05263c6de2cb40ad42afac28357ad42079f54c7d018ed",
+      "size_bytes": 354,
+      "source_path": "phase_b_product/commercial_readiness/commercial_readiness_status.csv"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.md",
+      "safe_to_upload": true,
+      "sha256": "6da27c3f15ef800596fd2f8ab8f9039e5dffee83eb7c5f2c4c81c1a9d65fa83d",
+      "size_bytes": 7717,
+      "source_path": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.md"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json",
+      "safe_to_upload": true,
+      "sha256": "e0ce01b06d6f3acdd4321a76f7d9c3549081676ce7e8599326dfa6abc4d52221",
+      "size_bytes": 15023,
+      "source_path": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/CONTROLLED_TRIAL_QUICKSTART_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "feb7e82f30e957a57deb1355c73dc24eaa1e64e6608fefdf6a077ae6a48b48ec",
+      "size_bytes": 3321,
+      "source_path": "phase_b_product/commercial_readiness/CONTROLLED_TRIAL_QUICKSTART_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/LOCAL_TRIAL_SESSION_MANAGER_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "b4a085ff92df144b6d96de4aa003d0ae7670b5f00a389c42392cca9545175f84",
+      "size_bytes": 4309,
+      "source_path": "phase_b_product/commercial_readiness/LOCAL_TRIAL_SESSION_MANAGER_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/commercial_readiness/LOCAL_TRIAL_MAKE_TARGETS_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "d1b8f5fba51cdb69f67b088c26f769a2485d723c61221133597c58dc48e3135b",
+      "size_bytes": 3397,
+      "source_path": "phase_b_product/commercial_readiness/LOCAL_TRIAL_MAKE_TARGETS_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/LOCAL_TRIAL_PREFLIGHT_SNAPSHOT_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "a3c6eeb6d975ebe04d58d4146023c4d7abd972c0c33d0f3820a1a4c03a816d23",
+      "size_bytes": 1856,
+      "source_path": "phase_b_product/validation/LOCAL_TRIAL_PREFLIGHT_SNAPSHOT_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_preflight_snapshot.local.json",
+      "safe_to_upload": true,
+      "sha256": "1abcb4348396f1630f4c2416a186364afa316cb5b6cc991ddff44d3865e44133",
+      "size_bytes": 1847,
+      "source_path": "phase_b_product/validation/local_trial_preflight_snapshot.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/LOCAL_TRIAL_COLD_START_PREFLIGHT_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "d140599d2dec9b015086ee5aeb1e5a1bc15804dcc65ba09b5323225a5af5ccb9",
+      "size_bytes": 1762,
+      "source_path": "phase_b_product/validation/LOCAL_TRIAL_COLD_START_PREFLIGHT_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_cold_start_preflight.local.json",
+      "safe_to_upload": true,
+      "sha256": "f98830386c4d02d1bd1cd14897d467ee256863f69d6df52a5196333ef2eebdc9",
+      "size_bytes": 2003,
+      "source_path": "phase_b_product/validation/local_trial_cold_start_preflight.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_cold_start_preflight.md",
+      "safe_to_upload": true,
+      "sha256": "80a4354a95bce4290063e0192068ea24dcf1b4f3f674411338105b713da8e5c8",
+      "size_bytes": 2007,
+      "source_path": "phase_b_product/validation/local_trial_cold_start_preflight.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/LOCAL_TRIAL_HTTP_E2E_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "725f559fcda15b6adf440254f99db4af9a3fef2cdb9724d2208f8885bc6d11ef",
+      "size_bytes": 1169,
+      "source_path": "phase_b_product/validation/LOCAL_TRIAL_HTTP_E2E_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.local.json",
+      "safe_to_upload": true,
+      "sha256": "f0c5ced512d441322e3440eb03e3d5d1b65a7d8e475e057e84c7080aadf67287",
+      "size_bytes": 1745,
+      "source_path": "phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.md",
+      "safe_to_upload": true,
+      "sha256": "57293429b99652a7766ae012b667399b5f55066bca5ed30afc056c1f18b30c11",
+      "size_bytes": 1741,
+      "source_path": "phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/LOCAL_TRIAL_LIFECYCLE_PROOF_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "f89bba59a4dd0a3dfc1ca3d1ff2bba71cafdfec0eaf31e402f65b85d884f8864",
+      "size_bytes": 1244,
+      "source_path": "phase_b_product/validation/LOCAL_TRIAL_LIFECYCLE_PROOF_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.local.json",
+      "safe_to_upload": true,
+      "sha256": "affb88ee58a8db1c343507d8a9502136b0d3c176933bfef1b3330176c9cde878",
+      "size_bytes": 4124,
+      "source_path": "phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.md",
+      "safe_to_upload": true,
+      "sha256": "5834781dee8aa297fe3340e21e2512f1b97f8b4d4b8108084b8476e7f61b175f",
+      "size_bytes": 2354,
+      "source_path": "phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/LOCAL_TRIAL_HANDOFF_PACKET_V0_1.md",
+      "safe_to_upload": true,
+      "sha256": "461fda4695cb8eefdff744e16f8fbf8eb660dc13150a0c18bd229f2a81ddf617",
+      "size_bytes": 1258,
+      "source_path": "phase_b_product/validation/LOCAL_TRIAL_HANDOFF_PACKET_V0_1.md"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_handoff_packet.local.json",
+      "safe_to_upload": true,
+      "sha256": "ed90b6ac9de884085f3a59bc2b67c8d9e602f17aacaa4361a074fa134f481e03",
+      "size_bytes": 2703,
+      "source_path": "phase_b_product/validation/local_trial_handoff_packet.local.json"
+    },
+    {
+      "package_path": "files/phase_b_product/validation/local_trial_handoff_packet.md",
+      "safe_to_upload": true,
+      "sha256": "cd89b42b571898ed1b929ac03ccb62eb1f61689ff879bbc749133391b04c7e1f",
+      "size_bytes": 2331,
+      "source_path": "phase_b_product/validation/local_trial_handoff_packet.md"
+    }
+  ],
+  "files_root": "phase_b_product/commercial_readiness/cloud_handoff/package_001/files",
+  "generated_at": "2026-07-13T14:01:38.513059+00:00",
+  "generated_by": "scripts/saee_baidu_cloud_handoff_package.py",
+  "human_cloud_clear_confirmation_required": true,
+  "human_cloud_upload_confirmation_required": true,
+  "human_review_required": true,
+  "kernel_modified": false,
+  "landing_page_interaction_modified": false,
+  "manifest_path": "phase_b_product/commercial_readiness/cloud_handoff/package_001/baidu_cloud_handoff_package_manifest.csv",
+  "package_id": "package_001",
+  "package_scope": "docs_and_readiness_files_only",
+  "packaged_file_count": 38,
+  "paid_trial_enabled": false,
+  "payment_provider_configured": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "runtime_modified": false,
+  "source_preflight_path": "phase_b_product/commercial_readiness/cloud_handoff/baidu_cloud_handoff_preflight.local.json",
+  "source_preflight_status": "ready_for_human_cloud_clear_confirmation",
+  "status": "local_package_ready_for_human_review"
+}

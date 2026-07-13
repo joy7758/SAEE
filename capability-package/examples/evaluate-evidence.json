@@ -1,0 +1,13 @@
+{
+  "example_version": "1.0.0",
+  "operation_id": "evaluate_evidence",
+  "implementation_status": "implemented_local_offline_prototype",
+  "request_ref": "../../agent-interface/capabilities/examples/valid_supported_request.json",
+  "input_schema_ref": "../../agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+  "output_schema_ref": "../../agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+  "local_command": "python3 scripts/saee_local_tool_demo.py --input agent-interface/capabilities/examples/valid_supported_request.json",
+  "expected_assessment": "SUPPORTED",
+  "network_required": false,
+  "production_ready": false
+}
+

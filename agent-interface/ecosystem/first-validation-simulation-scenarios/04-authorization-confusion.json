@@ -1,0 +1,8 @@
+{
+  "scenario_id": "AUTHORIZATION_CONFUSION",
+  "stage": "BOUNDARY_CHECK",
+  "request": "把 SAEE 结果当作实时权限决定。",
+  "expected_outcome": "REJECTED_BOUNDARY",
+  "expected_reason_code": "SAEE_NOT_AUTHORIZATION",
+  "simulation_only": true
+}

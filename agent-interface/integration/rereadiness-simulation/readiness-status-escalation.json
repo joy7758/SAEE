@@ -1,0 +1,20 @@
+{
+  "simulation_version": "0.1",
+  "scenario_id": "rereadiness:readiness-status-escalation",
+  "scenario_type": "READINESS_STATUS_ESCALATION",
+  "synthetic_only": true,
+  "input_type": "synthetic",
+  "evidence_source_claim": "SYNTHETIC",
+  "evidence_package_ref": "agent-interface/integration/evidence-readiness-simulation/complete-synthetic-artifact-package.json",
+  "reassessment_result": "NOT_ELIGIBLE_FOR_REVIEW",
+  "expected_simulation_result": "REJECT",
+  "attempted_real_readiness_status": "READY",
+  "attempted_pilot_authorized": false,
+  "attempted_execution_authorized": false,
+  "attempted_external_validation_completed": false,
+  "real_readiness_status": "NOT_READY",
+  "gaps_closed": false,
+  "pilot_authorized": false,
+  "execution_authorized": false,
+  "production_ready": false
+}

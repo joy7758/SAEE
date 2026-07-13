@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 生产恢复策略人工填写工作台</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f6f2;
+        --surface: #ffffff;
+        --text: #1f241f;
+        --muted: #66706a;
+        --line: #deded8;
+        --accent: #147a64;
+        --accent-soft: #e8f3ef;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, #ffffff 0%, var(--bg) 70%, var(--accent-soft) 100%);
+        line-height: 1.6;
+      }
+      main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 44px 0 64px; }
+      header, section { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 24px; margin-bottom: 18px; }
+      h1 { margin: 0; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; letter-spacing: 0; }
+      h2 { margin: 0 0 12px; font-size: 24px; }
+      p { margin: 8px 0 0; color: var(--muted); }
+      .badge { display: inline-flex; padding: 6px 10px; border-radius: 999px; color: var(--accent); background: var(--accent-soft); font-weight: 800; font-size: 13px; margin-bottom: 14px; }
+      .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+      .card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: #fbfbf9; }
+      .card strong { display: block; font-size: 24px; }
+      .card span { color: var(--muted); font-size: 13px; }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+      th, td { border-bottom: 1px solid var(--line); padding: 10px; text-align: left; vertical-align: top; }
+      th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+      .warning { border-color: #d7c79a; background: #fff9e8; }
+      @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } table { display: block; overflow-x: auto; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="badge">生产恢复策略 · 人工填写</div>
+        <h1>先让人补齐恢复策略证据，不让 Codex 猜。</h1>
+        <p>这个页面只是给人看的字段清单。它不会保存表单，不会执行恢复，不会运行 builder，不会关闭 blocker。</p>
+        <div class="grid">
+          <div class="card"><strong>37</strong><span>需要人工填写的字段</span></div>
+          <div class="card"><strong>37</strong><span>当前空值</span></div>
+          <div class="card"><strong>0</strong><span>已关闭 blocker</span></div>
+          <div class="card"><strong>否</strong><span>生产可用</span></div>
+        </div>
+      </header>
+      <section class="warning">
+        <h2>停止线</h2>
+        <p>填完后只运行本地 validator。运行 evidence builder、执行恢复、触碰实时数据路径、联系客户或声明生产恢复能力，都需要单独人工批准。</p>
+      </section>
+      <section>
+        <h2>字段清单</h2>
+        <table>
+          <thead><tr><th>字段</th><th>分组</th><th>写入位置</th><th>说明</th></tr></thead>
+          <tbody><tr><td><code>production_restore_policy_approval_input.human_reviewer_name</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.review_date</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.data_operations_owner</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.security_owner</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.privacy_legal_owner</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.incident_response_owner</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.decision_summary</code></td><td>metadata</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>由人填写真实恢复策略审批信息；Codex 不能代填。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.backup_retention_policy_approved</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.backup_retention_policy_approved</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[backup_retention_policy_approved].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[backup_retention_policy_approved].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[backup_retention_policy_approved].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.credential_secret_exclusion_reviewed</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.credential_secret_exclusion_reviewed</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[credential_secret_exclusion_reviewed].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[credential_secret_exclusion_reviewed].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[credential_secret_exclusion_reviewed].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.customer_notification_boundary_approved</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.customer_notification_boundary_approved</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[customer_notification_boundary_approved].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[customer_notification_boundary_approved].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[customer_notification_boundary_approved].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.incident_response_handoff_approved</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.incident_response_handoff_approved</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[incident_response_handoff_approved].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[incident_response_handoff_approved].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[incident_response_handoff_approved].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.production_restore_policy_approved</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.production_restore_policy_approved</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[production_restore_policy_approved].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[production_restore_policy_approved].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[production_restore_policy_approved].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_review.tenant_restore_boundary_approved</code></td><td>policy_evidence_review</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>只有人工确认真实恢复策略证据存在且已审查时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.source_notes_by_key.tenant_restore_boundary_approved</code></td><td>source_note</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写可追溯来源说明；不要写密钥、客户数据、账号或私人凭据。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[tenant_restore_boundary_approved].evidence_reference</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>填写人工审查材料、政策记录或演练记录引用。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[tenant_restore_boundary_approved].owner_named</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>production_restore_policy_approval_input.policy_evidence_slots[tenant_restore_boundary_approved].reviewed_by_human</code></td><td>policy_evidence_slot</td><td><code>production_restore_policy_approval_input.human_filled.local.json</code></td><td>对应材料已由人审过时才设为 true。</td></tr></tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

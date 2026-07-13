@@ -1,0 +1,35 @@
+{
+  "bootstrap_resamples": 5000,
+  "claim_boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "core_file_hashes_checked": {
+    "./saee_v1_2/parasitic_phase/__init__.py": "935cba4f60a4773011f0a280f3fed8141d8e4b760acac55313552527eb49a3e3",
+    "./saee_v1_2/parasitic_phase/model.py": "584b8b33fbf9278f27d133bf97c38c50f58ad2eef0c676b5d82b4f010080ca79",
+    "./saee_v1_2/parasitic_phase/run_parasitic_phase_experiment.py": "a104662e458e7e2931ba3e5e431cc640ff5f380cd236974e014b54e23776c069",
+    "./saee_v1_2/universality_test/dbi2_model.py": "3d8f080873c9bd7a5ff1769ac2f6fc4a533cdc9c117e25497dec66ea09659470",
+    "./saee_v1_2/universality_test/run_universality_experiment.py": "35a6cd918f61b390f6709a08ea300b0d214b3d894c8a38cc490c1bafbed05594"
+  },
+  "created_files": [
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistical_upgrade_summary.json",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/bootstrap_transition_intervals.json",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surface_rows.csv",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surfaces.svg",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/transition_step_violin.svg",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistics_upgrade_manifest.json"
+  ],
+  "forbidden_core_modified": false,
+  "manifest_hash_note": "Manifest file hash is omitted to avoid self-referential mutation.",
+  "num_seeds": 120,
+  "output_file_hashes": {
+    "./saee_v1_2/universality_test/results/statistics_upgrade/bootstrap_transition_intervals.json": "1053c2fca46dc5c8e4258dd4c6414adfbf0b45eacee514894b3e787d49e0fea7",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surface_rows.csv": "37d2236a357e2c6cc74203a56b1b2e16b59453fab2e7ac7b8b9c918d635e6e8b",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/sensitivity_surfaces.svg": "9aa0a7026212ab682d19dfdf4c6c973ed04b91b72d2fe6b1cf2c663f4522085f",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/statistical_upgrade_summary.json": "8aa4fdf0a1f78571bd484554f483b2e7a3e9fd8bd5c27e301c18507e70db9c3f",
+    "./saee_v1_2/universality_test/results/statistics_upgrade/transition_step_violin.svg": "e05c3fc8ac08407a2cb6396d3a41d0ff47719e89d8474d7f3d94ac9fd375f733"
+  },
+  "schema": "saee.universality_test.statistics_upgrade_manifest.v1"
+}

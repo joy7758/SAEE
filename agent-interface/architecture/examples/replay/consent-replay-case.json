@@ -1,0 +1,79 @@
+{
+  "saee_observation_replay_contract_v0_1": true,
+  "schema_version": "0.1.0",
+  "replay_id": "replay:consent-boundary-001",
+  "created_at": "2026-07-11T15:10:00Z",
+  "replay_status": "local_synthetic_contract_only",
+  "source_envelope_refs": [
+    {
+      "observation_id": "observation:runtime-envelope-001",
+      "envelope_ref": "agent-interface/architecture/examples/observation/runtime-observation.json",
+      "digest_algorithm": "sha256",
+      "envelope_digest": "f9a1540c8a9b2e33de1f61debe9fc05c3de6df138e1a75fe8ea499351b9462eb",
+      "authenticity_verified": false
+    }
+  ],
+  "purpose": {
+    "use_case": "Validate that replay requires explicit consent and data-use references without claiming they were externally verified.",
+    "allowed_scope": ["Local synthetic consent-boundary review."],
+    "prohibited_scope": ["No external dataset, production runtime, or customer decision."]
+  },
+  "consent_ref": "consent:synthetic-runtime-replay-001",
+  "consent_status": "synthetic_declared_only",
+  "data_use_permission_ref": "permission:synthetic-runtime-replay-001",
+  "data_use_permission_status": "synthetic_declared_only",
+  "content_boundary": {
+    "observable_behavior_only": true,
+    "hidden_reasoning_excluded": true,
+    "private_chain_of_thought_excluded": true,
+    "internal_model_state_excluded": true,
+    "raw_prompt_excluded": true,
+    "raw_output_excluded": true,
+    "boundary_basis": "synthetic_declaration",
+    "independently_verified": false
+  },
+  "transformation_log": {
+    "transformation_id": "transformation:runtime-none-001",
+    "method": "none_synthetic_source",
+    "transformation_applied": false,
+    "redaction_provenance_ref": "redaction:synthetic-runtime-none-001",
+    "provenance_ref": "provenance:synthetic-runtime-envelope-001",
+    "raw_content_retained": false,
+    "hidden_reasoning_retained": false,
+    "provenance_verified": false
+  },
+  "environment_manifest_ref": "environment:synthetic-runtime-replay-v001",
+  "replay_window": {"starts_at": "2026-07-11T15:11:00Z", "ends_at": "2026-07-11T15:16:00Z"},
+  "operator_ref": "operator:synthetic-consent-reviewer",
+  "stop_authority_ref": "stop-authority:synthetic-consent-reviewer",
+  "retention_ref": "retention:synthetic-consent-replay",
+  "deletion_ref": "deletion:synthetic-consent-replay",
+  "execution_policy": {
+    "replay_mode": "metadata_reconstruction_only",
+    "manual_start_required": true,
+    "automatic_replay_allowed": false,
+    "agent_execution_allowed": false,
+    "tool_execution_allowed": false,
+    "network_access_allowed": false,
+    "deployment_action_allowed": false
+  },
+  "truth_boundary": {
+    "contract_only": true,
+    "replay_executed": false,
+    "source_envelopes_authenticity_verified": false,
+    "consent_verified": false,
+    "data_use_permission_verified": false,
+    "transformation_provenance_verified": false,
+    "cognitive_boundary_verified": false,
+    "observation_established_as_evidence": false,
+    "replay_authorizes_execution": false,
+    "deployment_authorized": false,
+    "automatic_execution": false,
+    "real_agent_executed": false,
+    "customer_data_processed": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
+

@@ -12,7 +12,7 @@
     "submit_ecosystem_application"
   ],
   "local_git_actions": {
-    "authorization_source": "/Users/zhangbin/.codex/attachments/27435c0e-d446-4678-899b-afa6b469886a/goal-objective.md",
+    "authorization_source": "<private-attachment>/27435c0e-d446-4678-899b-afa6b469886a/goal-objective.md",
     "objective_text": "main no commit must be fixed and SAEE-v0.1-alpha Release established",
     "allowlist": "release/SAEE-v0.1-alpha/public-source-allowlist.txt",
     "initial_commit_authorized": true,

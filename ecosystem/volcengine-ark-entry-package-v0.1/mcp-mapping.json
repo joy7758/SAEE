@@ -1,0 +1,12 @@
+{
+  "mapping_version": "0.1",
+  "platform": "VOLCENGINE_ARK",
+  "entry_surface": "MCP",
+  "status": "DESIGN_ONLY",
+  "saee_mcp_entry_ref": "ecosystem/mcp-entry-package-v1/capability-card.json",
+  "canonical_adapter_ref": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+  "remote_mcp_deployed": false,
+  "ark_interoperability_tested": false,
+  "official_integration": false,
+  "production_ready": false
+}

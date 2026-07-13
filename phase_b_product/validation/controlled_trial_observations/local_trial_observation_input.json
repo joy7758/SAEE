@@ -1,0 +1,32 @@
+{
+  "agent_count": 3,
+  "agent_ids": [
+    "agent-a",
+    "agent-b",
+    "agent-c"
+  ],
+  "competition_intensity": 0.55,
+  "controlled_trial_observation_runner_v0_1": true,
+  "customer_data_allowed": false,
+  "customer_data_collected": false,
+  "customer_validated": false,
+  "experiment_id": "controlled-trial-local-e2e",
+  "external_calls_made": false,
+  "input_scope": "local_mvp_demo_observation",
+  "local_only": true,
+  "metrics": [
+    "stability",
+    "survival",
+    "failure_mode",
+    "ranking"
+  ],
+  "noise_level": 0.25,
+  "operator_template_session_scope": "local_mvp_demo_observation",
+  "operator_template_trial_status": "local_demo_available",
+  "production_ready": false,
+  "public_service_layer_used": true,
+  "repeat_runs": 5,
+  "scenario_type": "landing_demo_competition",
+  "source_operator_template": "phase_b_product/validation/controlled_trial_operator_packet/local_trial_session_template.json",
+  "time_horizon": 60
+}

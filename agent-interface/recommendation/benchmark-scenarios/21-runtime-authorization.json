@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:21-runtime-authorization:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "企业要求系统在运行时立即允许、拒绝或撤销智能体的每次工具调用。",
+  "risk_level": "CRITICAL",
+  "task_signals": [
+    "REAL_TIME_AUTHORIZATION_REQUIRED"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "AUTHORIZATION_SYSTEM",
+  "reasoning_boundary": "实时执行控制属于授权系统职责，SAEE 不能被误作策略执行器。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

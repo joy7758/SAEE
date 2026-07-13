@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Pilot Dataset Task Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_task_record_v0_1", "schema_version", "episode_id", "task_id", "task_description", "task_category", "risk_level", "allowed_actions", "constraints", "data_origin"],
+  "properties": {
+    "saee_task_record_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "episode_id": {"$ref": "#/$defs/id"},
+    "task_id": {"$ref": "#/$defs/id"},
+    "task_description": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "task_category": {"enum": ["resource_access", "tool_execution", "approval_gated_action", "denial_case"]},
+    "risk_level": {"enum": ["low", "medium", "high"]},
+    "allowed_actions": {"type": "array", "minItems": 1, "maxItems": 32, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "constraints": {"type": "array", "minItems": 1, "maxItems": 32, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+    "data_origin": {"enum": ["synthetic_controlled", "researcher_controlled_local", "approved_external"]}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"}
+  }
+}
+

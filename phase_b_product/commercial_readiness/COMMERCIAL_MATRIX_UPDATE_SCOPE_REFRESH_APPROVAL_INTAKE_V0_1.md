@@ -1,0 +1,15 @@
+# SAEE Commercial Matrix Update Scope Refresh Approval Intake v0.1
+
+commercial_matrix_update_scope_refresh_approval_intake_v0_1: true
+status: waiting_for_exact_human_scope_refresh_phrase
+previous_target_count: 5
+refreshed_target_count: 23
+exact_phrase_required: true
+human_filled_scope_approval_written: false
+separate_active_request_replacement_step_required: true
+separate_matrix_execution_approval_still_required: true
+active_matrix_request_replaced=false
+matrix_update_executed=false
+blockers_closed_by_scope_approval_intake=0
+production_ready=false
+customer_validated=false

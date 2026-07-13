@@ -1,0 +1,51 @@
+{
+  "descriptor_version": "1.0.0",
+  "descriptor_type": "mcp_tool_contract_projection",
+  "mcp_protocol_interoperability_validated": false,
+  "standard_mcp_transport_available": false,
+  "local_stdio_mcp_adapter_available": true,
+  "local_adapter_ref": "../agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+  "local_stdio_command": "python3 scripts/saee_capability_mcp_stdio.py",
+  "public_mcp_endpoint": null,
+  "tools": [
+    {
+      "name": "evaluate_agent_run",
+      "description": "Assess whether a validated SAEE rehearsal execution has sufficient bounded reliability evidence before a separately authorized high-impact decision.",
+      "implementation_status": "implemented_local_in_memory_tool",
+      "input_schema_ref": "../agent-interface/mcp/saee-mcp-evaluate-agent-run-request.v0.1.schema.json",
+      "output_schema_ref": "../agent-interface/mcp/saee-mcp-evaluate-agent-run-response.v0.1.schema.json",
+      "local_handler_ref": "../saee_backend/services/mcp_agent_run_tool_handler.py",
+      "side_effects": false,
+      "authorization_performed": false
+    },
+    {
+      "name": "evaluate_evidence",
+      "local_registered_name": "evaluate_evidence_adequacy",
+      "description": "Assess whether a closed evidence package satisfies a fixed accountability claim profile and return missing requirements without approving deployment.",
+      "implementation_status": "implemented_local_in_memory_tool",
+      "input_schema_ref": "../agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+      "output_schema_ref": "../agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+      "local_handler_ref": "../saee_backend/services/mcp_evidence_tool_handler.py",
+      "side_effects": false,
+      "authorization_performed": false
+    },
+    {
+      "name": "rehearse_agent",
+      "description": "Describe a future controlled rehearsal request for an agent and scenario; this package does not register or execute the tool.",
+      "implementation_status": "contract_only_not_registered",
+      "input_schema_ref": "openapi.yaml#/components/schemas/RehearseAgentRequest",
+      "output_schema_ref": "openapi.yaml#/components/schemas/CapabilityUnavailable",
+      "local_handler_ref": null,
+      "side_effects": false,
+      "authorization_performed": false
+    }
+  ],
+  "truth_boundary": {
+    "descriptor_is_server": false,
+    "descriptor_registers_tools": false,
+    "local_adapter_maps_declared_tools": true,
+    "network_access_available": false,
+    "external_agent_connected": false,
+    "production_ready": false
+  }
+}

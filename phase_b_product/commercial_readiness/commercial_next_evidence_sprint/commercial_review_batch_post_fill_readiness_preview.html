@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 10 行填后就绪预览</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f2;
+      --surface: #ffffff;
+      --line: #e2e2da;
+      --text: #20211f;
+      --muted: #696b65;
+      --accent: #0b6f5b;
+      --ink: #171815;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0; }
+    .hero { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    .kicker { margin: 0 0 8px; color: var(--accent); font-size: 13px; font-weight: 800; }
+    h1 { margin: 0; font-size: clamp(32px, 5vw, 56px); line-height: 1.05; }
+    p { color: var(--muted); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+    .stat { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fbfbf7; }
+    .stat strong { display: block; font-size: 26px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--surface); border: 1px solid var(--line); }
+    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #f0f1ec; }
+    code { padding: 2px 5px; border-radius: 5px; background: #f0f1ec; }
+    .command { margin-top: 24px; padding: 16px; border-radius: 8px; background: var(--ink); color: #fff; }
+    .command code { color: #fff; background: rgba(255,255,255,0.14); }
+    @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } table { font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="kicker">本地只读预览</p>
+      <h1>10 行填写流程已替代，下一步只审查导入批准。</h1>
+      <p>本页只记录旧流程已替代，不显示任何人工填写原文，也不授权工作簿导入。</p>
+      <div class="stats">
+        <div class="stat"><span>总行数</span><strong>0</strong></div>
+        <div class="stat"><span>已填</span><strong>0</strong></div>
+        <div class="stat"><span>未填</span><strong>0</strong></div>
+      </div>
+    </section>
+    <table>
+      <thead><tr><th>Row</th><th>Field</th><th>Expected shape</th><th>Value present</th><th>Status</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="command">
+      下一步审查：<code>python3 scripts/saee_commercial_sprint_workbook_import_approval_request_packet.py</code>
+    </div>
+  </main>
+</body>
+</html>

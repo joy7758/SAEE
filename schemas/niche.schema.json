@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/niche.schema.json",
+  "title": "SAEE Niche",
+  "type": "object",
+  "required": ["id", "target_need", "competition_density", "resource_constraints", "risk_profile"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "target_need": {"type": "string", "minLength": 1},
+    "competition_density": {"type": "string", "enum": ["unknown", "low", "medium", "high"]},
+    "resource_constraints": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "risk_profile": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "timing_notes": {"type": "string"}
+  }
+}
+

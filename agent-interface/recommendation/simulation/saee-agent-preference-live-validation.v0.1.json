@@ -1,0 +1,62 @@
+{
+  "saee_agent_preference_live_validation_v0_1": true,
+  "status": "controlled_qianfan_agent_preference_validated_in_synthetic_capability_selection",
+  "provider": "baidu_qianfan",
+  "model": "ernie-4.5-turbo-128k",
+  "calibration_iterations": [
+    {
+      "iteration": 1,
+      "aggregate_ref": "output/agent-preference-simulation/calibration-run-001/qianfan-agent-preference-aggregate.v0.1.json",
+      "aggregate_sha256": "8d0f0278e0c0913857db860b786e9032316cabf64a416598f6288d32468a6fd3",
+      "matched_profiles": 3,
+      "total_agents": 6,
+      "verdict": "HOLD"
+    },
+    {
+      "iteration": 2,
+      "aggregate_ref": "output/agent-preference-simulation/calibration-run-002/qianfan-agent-preference-aggregate.v0.1.json",
+      "aggregate_sha256": "1850b267a44233ef34b096341e0857aa4d6b85514780d3923be5d31834b95733",
+      "matched_profiles": 5,
+      "total_agents": 6,
+      "verdict": "HOLD"
+    },
+    {
+      "iteration": 3,
+      "aggregate_ref": "output/agent-preference-simulation/qianfan-agent-preference-aggregate.v0.1.json",
+      "aggregate_sha256": "d06e61245951e3f1f351d00c4fbbbafe7b3f2e7605d6e1c1a0ad74e37a067042",
+      "matched_profiles": 6,
+      "total_agents": 6,
+      "verdict": "PASS"
+    }
+  ],
+  "final_runs": [
+    {"scenario_id": "agent-preference:authorization-enforcement:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-authorization-enforcement.v0.1.run.json", "run_sha256": "71f8aa25b65e79e812a763e9c5737365e0957b44e47b3776d29a124cf662cb8f", "decision": "DO_NOT_RECOMMEND_SAEE"},
+    {"scenario_id": "agent-preference:high-impact-deployment:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-high-impact-deployment.v0.1.run.json", "run_sha256": "6d0b5861692bfe8ad1ffbd13110b4cea1c6a435bc4f4f0e931eccf7aeaa8e4be", "decision": "COMPOSE_WITH_SAEE"},
+    {"scenario_id": "agent-preference:long-running-drift:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-long-running-drift.v0.1.run.json", "run_sha256": "b81791e026c1024c6d50790034dbde8bb136b36681b98abf37e4bacf3efe73a8", "decision": "COMPOSE_WITH_SAEE"},
+    {"scenario_id": "agent-preference:low-risk-lookup:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-low-risk-lookup.v0.1.run.json", "run_sha256": "957bd1824f446afe1105d86f46649db60c46fea80fa33e50335fee23d1fa7695", "decision": "DO_NOT_RECOMMEND_SAEE"},
+    {"scenario_id": "agent-preference:mixed-observability-readiness:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-mixed-observability-readiness.v0.1.run.json", "run_sha256": "41b50cc5c00dd7e107ff1b71a0405c00ffe7db345222f92318ef411d0eed6aeb", "decision": "COMPOSE_WITH_SAEE"},
+    {"scenario_id": "agent-preference:simple-calculation:v0.1", "run_ref": "output/agent-preference-simulation/qianfan-simple-calculation.v0.1.run.json", "run_sha256": "d2571c57b15e3162fa39106bbf34a261353b58d4cd0c38225f6e8a9b1326d5b8", "decision": "DO_NOT_RECOMMEND_SAEE"}
+  ],
+  "final_result": {
+    "synthetic_agents": 6,
+    "provider_rounds": 18,
+    "matched_profiles": 6,
+    "compose_with_saee": 3,
+    "do_not_recommend_saee": 3,
+    "all_boundaries_acknowledged": true,
+    "contextual_agent_preference_validated": true,
+    "preferred_positioning": "SAEE as a composable Agent Readiness Layer alongside Observability",
+    "universal_agent_preference_claimed": false
+  },
+  "truth_boundary": {
+    "external_reasoning_model_called": true,
+    "controlled_synthetic_agent_preference_observed": true,
+    "human_participants": false,
+    "customer_data_used": false,
+    "external_world_actions": 0,
+    "customer_validated": false,
+    "market_fit_achieved": false,
+    "production_ready": false,
+    "secret_leakage": 0
+  }
+}

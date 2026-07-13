@@ -1,0 +1,1 @@
+{"fixture_id":"CAPABILITY_ID_MISMATCH","mutation":{"operation":"set","target":"mcp","path":["capability_id"],"value":"saee.other-capability"},"expected_reason_code":"TRUTH_IDENTITY_MISMATCH"}

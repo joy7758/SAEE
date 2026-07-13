@@ -1,0 +1,150 @@
+{
+  "simulation_version": "0.1",
+  "scenario_id": "evidence-readiness:complete-synthetic-artifact-package",
+  "scenario_type": "COMPLETE_SYNTHETIC_ARTIFACT_PACKAGE",
+  "synthetic_only": true,
+  "artifacts": [
+    {
+      "artifact_id": "synthetic:artifact:authentication-design",
+      "artifact_type": "APPROVED_AUTHENTICATION_DESIGN_RECORD",
+      "source_gap_id": "GAP_IDENTITY_AUTHENTICATION_DESIGN",
+      "artifact_version": "0.1",
+      "verification_method": "INDEPENDENT_AUTHENTICATION_ARCHITECTURE_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:authentication-design"
+    },
+    {
+      "artifact_id": "synthetic:artifact:external-identity-verification",
+      "artifact_type": "EXTERNAL_IDENTITY_VERIFICATION_RECORD",
+      "source_gap_id": "GAP_IDENTITY_EXTERNAL_IDENTITY_VERIFICATION",
+      "artifact_version": "0.1",
+      "verification_method": "IDENTITY_PROOF_AND_AUTHORITY_CHAIN_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:external-identity-verification"
+    },
+    {
+      "artifact_id": "synthetic:artifact:formal-security-review",
+      "artifact_type": "FORMAL_SECURITY_REVIEW_RECORD",
+      "source_gap_id": "GAP_SECURITY_FORMAL_REVIEW",
+      "artifact_version": "0.1",
+      "verification_method": "INDEPENDENT_THREAT_MODEL_AND_CONTROL_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:formal-security-review"
+    },
+    {
+      "artifact_id": "synthetic:artifact:credential-policy",
+      "artifact_type": "APPROVED_CREDENTIAL_POLICY",
+      "source_gap_id": "GAP_SECURITY_CREDENTIAL_POLICY",
+      "artifact_version": "0.1",
+      "verification_method": "LEAST_PRIVILEGE_ROTATION_REVOCATION_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:credential-policy"
+    },
+    {
+      "artifact_id": "synthetic:artifact:incident-handling",
+      "artifact_type": "INCIDENT_RESPONSE_EXERCISE_RECORD",
+      "source_gap_id": "GAP_SECURITY_INCIDENT_HANDLING",
+      "artifact_version": "0.1",
+      "verification_method": "CONTROLLED_INCIDENT_RESPONSE_TABLETOP_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:incident-handling"
+    },
+    {
+      "artifact_id": "synthetic:artifact:data-ownership",
+      "artifact_type": "DATA_OWNERSHIP_DECLARATION",
+      "source_gap_id": "GAP_DATA_OWNERSHIP",
+      "artifact_version": "0.1",
+      "verification_method": "SOURCE_AND_OWNERSHIP_AUTHORITY_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:data-ownership"
+    },
+    {
+      "artifact_id": "synthetic:artifact:data-usage-permission",
+      "artifact_type": "DATA_USAGE_AUTHORIZATION_RECORD",
+      "source_gap_id": "GAP_DATA_USAGE_PERMISSION",
+      "artifact_version": "0.1",
+      "verification_method": "PURPOSE_SCOPE_AND_CONSENT_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:data-usage-permission"
+    },
+    {
+      "artifact_id": "synthetic:artifact:data-retention-approval",
+      "artifact_type": "APPROVED_RETENTION_POLICY",
+      "source_gap_id": "GAP_DATA_RETENTION_APPROVAL",
+      "artifact_version": "0.1",
+      "verification_method": "RETENTION_SCOPE_DURATION_AND_ACCESS_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:data-retention-approval"
+    },
+    {
+      "artifact_id": "synthetic:artifact:data-deletion-process",
+      "artifact_type": "DELETION_PROCESS_TEST_RECORD",
+      "source_gap_id": "GAP_DATA_DELETION_PROCESS",
+      "artifact_version": "0.1",
+      "verification_method": "CONTROLLED_DELETION_AND_RESIDUAL_SCAN_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:data-deletion-process"
+    },
+    {
+      "artifact_id": "synthetic:artifact:runtime-isolation",
+      "artifact_type": "ENVIRONMENT_ISOLATION_TEST_RECORD",
+      "source_gap_id": "GAP_RUNTIME_ISOLATION_EVIDENCE",
+      "artifact_version": "0.1",
+      "verification_method": "FAIL_CLOSED_ISOLATION_NEGATIVE_TEST_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:runtime-isolation"
+    },
+    {
+      "artifact_id": "synthetic:artifact:runtime-monitoring",
+      "artifact_type": "MONITORING_VALIDATION_RECORD",
+      "source_gap_id": "GAP_RUNTIME_MONITORING_EVIDENCE",
+      "artifact_version": "0.1",
+      "verification_method": "BOUNDED_OBSERVATION_AND_ALERT_COVERAGE_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:runtime-monitoring"
+    },
+    {
+      "artifact_id": "synthetic:artifact:runtime-recovery",
+      "artifact_type": "RECOVERY_TEST_RECORD",
+      "source_gap_id": "GAP_RUNTIME_RECOVERY_EVIDENCE",
+      "artifact_version": "0.1",
+      "verification_method": "CONTROLLED_FAILURE_RECOVERY_REPLAY_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:runtime-recovery"
+    },
+    {
+      "artifact_id": "synthetic:artifact:runtime-rollback",
+      "artifact_type": "ROLLBACK_TEST_RECORD",
+      "source_gap_id": "GAP_RUNTIME_ROLLBACK_EVIDENCE",
+      "artifact_version": "0.1",
+      "verification_method": "STATE_RESTORE_AND_ARTIFACT_INTEGRITY_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:runtime-rollback"
+    },
+    {
+      "artifact_id": "synthetic:artifact:human-responsible-owner",
+      "artifact_type": "RESPONSIBILITY_AND_EXECUTION_AUTHORITY_ASSIGNMENT_RECORD",
+      "source_gap_id": "GAP_HUMAN_RESPONSIBLE_OWNER",
+      "artifact_version": "0.1",
+      "verification_method": "ROLE_SCOPE_STOP_AUTHORITY_AND_VALIDITY_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:human-responsible-owner"
+    },
+    {
+      "artifact_id": "synthetic:artifact:human-escalation-owner",
+      "artifact_type": "ESCALATION_AUTHORITY_ASSIGNMENT_RECORD",
+      "source_gap_id": "GAP_HUMAN_ESCALATION_OWNER",
+      "artifact_version": "0.1",
+      "verification_method": "ESCALATION_PATH_AVAILABILITY_AND_REVOCATION_REVIEW",
+      "verification_status": "VERIFIED",
+      "evidence_reference": "agent-interface/integration/evidence-readiness-simulation/synthetic-artifact-reference-registry.v0.1.json#synthetic:artifact:human-escalation-owner"
+    }
+  ],
+  "expected_reassessment_eligible": true,
+  "real_evidence_acquired": false,
+  "gaps_closed": false,
+  "readiness_status": "NOT_READY",
+  "pilot_authorized": false,
+  "execution_authorized": false,
+  "production_ready": false
+}

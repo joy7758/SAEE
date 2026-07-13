@@ -1,0 +1,6 @@
+step_id,title,source,status,complete,local_support_only,human_review_required,next_action
+PIDB-001,Production identity-provider decision packet,decision_packet,ready_for_human_review_not_execution,True,False,True,Human owner reviews candidate provider slots and decides whether to fill the production identity-provider input.
+PIDB-002,Human-filled identity-provider approval input validation,approval_input_validation,hold,False,False,True,"Fill human reviewer, selected provider, source notes, and evidence review fields; then rerun the approval input validator."
+PIDB-003,Phase 1 identity/tenant evidence builder,phase1_evidence_builder,hold,False,False,True,Run the Phase 1 evidence builder only after validated human-filled identity-provider input exists.
+PIDB-004,Local OIDC/RBAC fixture dry run,auth_fixture_dry_run,pass,True,True,True,Use fixture results as local review support only; they do not prove real identity-provider readiness.
+PIDB-005,Real production auth evidence path,auth_evidence_path,pass_fixture_only,False,False,True,Replace fixture-only proof with real human-approved identity-provider evidence before any go/no-go closure review.

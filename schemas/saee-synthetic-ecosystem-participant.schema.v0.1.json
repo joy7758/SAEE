@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-synthetic-ecosystem-participant.schema.v0.1.json",
+  "title": "SAEE Synthetic Ecosystem Participant v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "participant_type", "integration_mode", "capability_scope", "synthetic_only", "validation_goals", "identity", "scope", "available_tests", "expected_feedback_type"],
+  "properties": {
+    "participant_id": {"type": "string", "pattern": "^SYNTHETIC_[A-Z_]+$"},
+    "participant_type": {"enum": ["agent_framework", "developer", "cloud_platform", "research_group"]},
+    "integration_mode": {"enum": ["mcp_stdio_local", "http_localhost", "generic_adapter_pattern", "documentation_only"]},
+    "capability_scope": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["DISCOVERY", "LOCAL_INVOCATION", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"]}},
+    "synthetic_only": {"const": true},
+    "validation_goals": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 180}},
+    "identity": {"type": "object", "additionalProperties": false, "required": ["kind", "display_name"], "properties": {"kind": {"const": "synthetic_fixture"}, "display_name": {"type": "string", "minLength": 1, "maxLength": 100}}},
+    "scope": {"const": "local_synthetic_ecosystem_dry_run_only"},
+    "available_tests": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["SUCCESSFUL_DISCOVERY", "INVOCATION_COMPATIBILITY", "INTERPRETATION_BOUNDARY", "WRONG_USAGE", "FAKE_ADOPTION_CLAIM"]}},
+    "expected_feedback_type": {"const": "structured_synthetic_feedback"}
+  }
+}

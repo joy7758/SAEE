@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-marketplace-assessment-intake.schema.v0.1.json",
+  "title": "SAEE Marketplace Assessment Intake v0.1",
+  "description": "Closed intake contract for one workflow and one scenario using normalized, authorized, sanitized metadata only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_marketplace_assessment_intake_v0_1",
+    "intake_version",
+    "assessment_id",
+    "order_ref",
+    "scope",
+    "material_attestation",
+    "readiness_request",
+    "delivery_policy"
+  ],
+  "properties": {
+    "saee_marketplace_assessment_intake_v0_1": {"const": true},
+    "intake_version": {"const": "0.1.0"},
+    "assessment_id": {"type": "string", "pattern": "^assessment:[A-Za-z0-9._:-]{1,120}$"},
+    "order_ref": {"type": "string", "pattern": "^marketplace-order:[A-Za-z0-9._:-]{1,120}$"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow_id", "scenario_id", "language", "one_workflow", "one_scenario"],
+      "properties": {
+        "workflow_id": {"type": "string", "pattern": "^workflow:[A-Za-z0-9._:-]{1,120}$"},
+        "scenario_id": {"type": "string", "pattern": "^scenario:[A-Za-z0-9._:-]{1,120}$"},
+        "language": {"const": "zh-CN"},
+        "one_workflow": {"const": true},
+        "one_scenario": {"const": true}
+      }
+    },
+    "material_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_authorized",
+        "sanitization_attested",
+        "personal_data_excluded",
+        "secrets_excluded",
+        "raw_content_excluded",
+        "executable_content_excluded",
+        "arbitrary_urls_excluded",
+        "permission_expansion_requested"
+      ],
+      "properties": {
+        "source_authorized": {"const": true},
+        "sanitization_attested": {"const": true},
+        "personal_data_excluded": {"const": true},
+        "secrets_excluded": {"const": true},
+        "raw_content_excluded": {"const": true},
+        "executable_content_excluded": {"const": true},
+        "arbitrary_urls_excluded": {"const": true},
+        "permission_expansion_requested": {"const": false}
+      }
+    },
+    "readiness_request": {
+      "$ref": "../qianfan/saee-evaluate-agent-run-request.schema.v0.1.json"
+    },
+    "delivery_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_retention_days",
+        "local_source_deletion_required",
+        "human_boundary_review_required",
+        "marketplace_delivery_manual"
+      ],
+      "properties": {
+        "local_retention_days": {"const": 0},
+        "local_source_deletion_required": {"const": true},
+        "human_boundary_review_required": {"const": true},
+        "marketplace_delivery_manual": {"const": true}
+      }
+    }
+  }
+}

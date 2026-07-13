@@ -1,0 +1,14 @@
+{
+  "participant_id": "SIM_DEVELOPER_VALIDATOR",
+  "participant_type": "developer",
+  "authorization_status": "AUTHORIZED_FOR_VALIDATION",
+  "validation_scope": "scope:simulation-developer",
+  "simulation_only": true,
+  "limitations": ["Synthetic participant; no developer or external identity exists."],
+  "identity": {"kind": "synthetic_fixture", "display_name": "合成 Developer 验证者"},
+  "authorization": "simulation_record_only",
+  "scope": "local_synthetic_external_validation_simulation_only",
+  "allowed_tests": ["capability_discovery_test", "integration_test", "interpretation_test", "compatibility_feedback"],
+  "expected_feedback": "structured_simulation_feedback"
+}
+

@@ -1,0 +1,64 @@
+{
+  "bootstrap_resamples": 5000,
+  "boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "dbi3_design": "public_goods_imitation_network",
+  "graph_presets": [
+    "ER",
+    "WS",
+    "BA"
+  ],
+  "num_seeds": 120,
+  "phi_transition_stats": {
+    "mean_transition_phi": 0.603871,
+    "variance_transition_phi": 2.7e-05
+  },
+  "schema": "saee.universality_test.dbi3_summary.v1",
+  "transition_probability": {
+    "none": 0.886111,
+    "strong": 0.0,
+    "weak": 0.533333
+  },
+  "transition_step": {
+    "none": {
+      "bootstrap_95_ci": [
+        109.0,
+        122.0
+      ],
+      "mean": 117.793103,
+      "median": 115.0,
+      "transition_probability_bootstrap_95_ci": [
+        0.852778,
+        0.916667
+      ]
+    },
+    "strong": {
+      "bootstrap_95_ci": [
+        null,
+        null
+      ],
+      "mean": null,
+      "median": null,
+      "transition_probability_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "weak": {
+      "bootstrap_95_ci": [
+        150.5,
+        163.0
+      ],
+      "mean": 155.28125,
+      "median": 156.5,
+      "transition_probability_bootstrap_95_ci": [
+        0.483333,
+        0.583333
+      ]
+    }
+  }
+}

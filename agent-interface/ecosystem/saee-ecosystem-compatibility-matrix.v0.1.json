@@ -1,0 +1,17 @@
+{
+  "matrix_version": "0.1",
+  "integrations": [
+    {"integration":"MCP stdio","status":"local_tested","external_participant_connected":false},
+    {"integration":"HTTP local","status":"local_tested","external_participant_connected":false},
+    {"integration":"LangGraph","status":"not_tested","external_participant_connected":false},
+    {"integration":"CrewAI","status":"not_tested","external_participant_connected":false},
+    {"integration":"OpenAI Agents","status":"not_tested","external_participant_connected":false},
+    {"integration":"Claude ecosystem","status":"not_tested","external_participant_connected":false},
+    {"integration":"Cloud marketplace","status":"not_tested","external_participant_connected":false}
+  ],
+  "local_tested_count": 2,
+  "external_tested_count": 0,
+  "marketplace_listed": false,
+  "external_validation": false,
+  "production_ready": false
+}

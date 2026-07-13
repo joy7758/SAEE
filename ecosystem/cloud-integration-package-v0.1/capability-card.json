@@ -1,0 +1,22 @@
+{
+  "package_id": "saee.cloud-integration-package",
+  "package_version": "0.1",
+  "status": "PREPARATION_ONLY",
+  "capability_id": "saee.agent-reliability",
+  "position": "Agent Reliability Capability Layer",
+  "provides": ["AGENT_PREFLIGHT_ASSESSMENT", "AGENT_RELIABILITY_EVALUATION", "EVIDENCE_ADEQUACY_EVALUATION"],
+  "does_not_provide": ["IAM", "POLICY_ENFORCEMENT", "OBSERVABILITY", "EXECUTION_PLATFORM", "CERTIFICATION", "DEPLOYMENT_APPROVAL"],
+  "priority_matrix_ref": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json",
+  "capability_package_ref": "capability-package/manifest.json",
+  "alpha_release_ref": "release/saee-agent-reliability-framework-alpha-v0.1/capabilities.json",
+  "mcp_dry_integration_reference": "agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json",
+  "truth_boundary": {
+    "cloud_ecosystem_strategy": true,
+    "cloud_integration_executed": false,
+    "official_support": false,
+    "partner_contact": false,
+    "marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

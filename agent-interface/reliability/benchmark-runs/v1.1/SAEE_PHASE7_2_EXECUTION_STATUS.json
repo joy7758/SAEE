@@ -1,0 +1,18 @@
+{
+  "status_version": "1.0",
+  "phase": "7.2",
+  "benchmark_id": "saee-extended-internal-reliability-v1.1",
+  "implementation_ready": true,
+  "offline_preflight_passed": true,
+  "additional_real_model_runs_attempted": 30,
+  "additional_real_model_runs_required": 30,
+  "combined_runs_available": 75,
+  "combined_runs_required": 75,
+  "execution_complete": true,
+  "blocking_condition": null,
+  "qianfan_substitution_allowed": false,
+  "qianfan_substitution_reason": "The benchmark preserves the frozen Volcengine Ark Agent identities.",
+  "external_world_actions": false,
+  "ranking_generated": false,
+  "production_ready": false
+}

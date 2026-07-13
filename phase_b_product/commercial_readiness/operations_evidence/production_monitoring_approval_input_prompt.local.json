@@ -1,0 +1,142 @@
+{
+  "alert_provider_contacted_by_codex": false,
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_production_monitoring_approval_input_prompt": true,
+  "builder_ready": false,
+  "category": "operations",
+  "check_target": "make check-production-monitoring-approval-input-prompt",
+  "codex_contacted_customer": false,
+  "codex_contacted_vendor": false,
+  "completed_metadata_field_count": 0,
+  "completed_monitoring_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.template.json phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_validated": false,
+  "dashboard_configured_by_codex": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_alert_delivery_enabled": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:14.484581+00:00",
+  "generated_by": "scripts/saee_production_monitoring_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "local_static_production_monitoring_approval_input_prompt_html": true,
+  "log_retention_changed_by_codex": false,
+  "make_target": "make production-monitoring-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "monitoring_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "operations_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_summary",
+      "human_must_provide": true
+    }
+  ],
+  "metrics_export_enabled_by_codex": false,
+  "monitoring_evidence_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "log_retention_reviewed",
+      "human_source_note_required": true,
+      "monitoring_evidence_slot_required": true,
+      "owner_named_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "metrics_coverage_approved",
+      "human_source_note_required": true,
+      "monitoring_evidence_slot_required": true,
+      "owner_named_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "monitoring_dry_run_recorded",
+      "human_source_note_required": true,
+      "monitoring_evidence_slot_required": true,
+      "owner_named_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "production_monitoring_plan_approved",
+      "human_source_note_required": true,
+      "monitoring_evidence_slot_required": true,
+      "owner_named_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "slo_dashboard_defined",
+      "human_source_note_required": true,
+      "monitoring_evidence_slot_required": true,
+      "owner_named_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "monitoring_vendor_contacted_by_codex": false,
+  "next_human_action": "Copy the template, fill all metadata fields, set each monitoring evidence review key only after human approval, add source notes and monitoring evidence slot references, then run the validator. Stop before evidence builder execution or monitoring deployment.",
+  "plain_language_next_action": "\u8bf7\u4eba\u7c7b\u8d1f\u8d23\u4eba\u786e\u8ba4\u76d1\u63a7\u8d1f\u8d23\u4eba\u3001\u6307\u6807\u8986\u76d6\u3001SLO \u770b\u677f\u3001\u65e5\u5fd7\u4fdd\u7559\u548c\u6f14\u7ec3\u8bc1\u636e\uff1b\u786e\u8ba4\u524d\u4e0d\u8981\u90e8\u7f72\u76d1\u63a7\u3001\u6539\u65e5\u5fd7\u7b56\u7565\u6216\u58f0\u660e\u6b63\u5f0f\u5546\u7528\u3002",
+  "plain_language_production_monitoring_approval_input_prompt_v0_2": true,
+  "plain_language_status_label": "\u751f\u4ea7\u76d1\u63a7\u8fd8\u6ca1\u6709\u4eba\u5de5\u6279\u51c6\uff0c\u4e5f\u6ca1\u6709\u90e8\u7f72\uff0c\u4e0d\u80fd\u5bf9\u5916\u8bf4\u5df2\u7ecf\u6709\u4eba\u770b\u62a4\u7ebf\u4e0a\u72b6\u6001\u3002",
+  "plain_language_stop_point": "\u586b\u5b8c\u5e76\u9a8c\u8bc1\u8f93\u5165\u540e\u505c\u6b62\uff1b\u8fd0\u884c evidence builder\u3001\u90e8\u7f72\u76d1\u63a7\u3001\u914d\u7f6e\u770b\u677f\u3001\u542f\u7528\u6307\u6807\u5bfc\u51fa\u3001\u6539\u53d8\u65e5\u5fd7\u4fdd\u7559\u3001\u8054\u7cfb\u5ba2\u6237\u6216\u5173\u95ed blocker \u90fd\u9700\u8981\u5355\u72ec\u6279\u51c6\u3002",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_monitoring_approval_input_prompt_v0_1": true,
+  "production_monitoring_approved": false,
+  "production_monitoring_approved_by_codex": false,
+  "production_monitoring_available": false,
+  "production_monitoring_claim_published": false,
+  "production_monitoring_deployed": false,
+  "production_monitoring_deployed_by_codex": false,
+  "production_monitoring_human_review_step_count": 4,
+  "production_ready": false,
+  "prompt_scope": "local_human_production_monitoring_input_prompt_only",
+  "prompt_type": "saee_production_monitoring_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "required_metadata_field_count": 5,
+  "required_monitoring_evidence_item_count": 5,
+  "runtime_modified": false,
+  "separate_evidence_builder_request_required": true,
+  "separate_validator_required": true,
+  "source_production_monitoring_approval_input_prompt_html": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.template.json",
+  "source_validation": "phase_b_product/commercial_readiness/operations_evidence/production_monitoring_approval_input_validation.local.json",
+  "status": "hold_human_production_monitoring_input_required",
+  "target_blocker_id": "production_monitoring",
+  "task_candidates_executed": false,
+  "validation_status": "pass",
+  "validator_command": "python3 scripts/saee_production_monitoring_approval_input_validator.py --input phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json"
+}

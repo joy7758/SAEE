@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "transport": "stdio",
+  "protocol_version": "2025-11-25",
+  "command": "python3",
+  "args": ["scripts/saee_mcp_stdio.py"],
+  "cwd": "SAEE repository root",
+  "tools": ["describe_saee", "compare_observed_traces"],
+  "network_required": false,
+  "arbitrary_file_input": false,
+  "candidate_code_execution": false,
+  "trace_capture_by_saee": false,
+  "interface_languages": ["zh-CN", "en"]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/agent-support-case-request.schema.json",
+  "title": "SAEE Agent Support Case Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "contract_id", "request_version", "tenant_id", "case_id", "issue_type", "severity", "summary", "evidence_refs", "contact_mode", "boundaries", "receipt"],
+  "properties": {
+    "$schema": {"const": "../schemas/agent-support-case-request.schema.json"},
+    "contract_id": {"const": "saee-agent-support-case-request-v0.1"},
+    "request_version": {"const": "0.1.0"},
+    "tenant_id": {"type": "string", "pattern": "^tenant-[a-z0-9][a-z0-9_-]{1,30}$"},
+    "case_id": {"type": "string", "pattern": "^case-[a-z0-9][a-z0-9._-]{1,62}$"},
+    "issue_type": {"enum": ["integration_contract", "schema_validation", "evaluation_receipt", "tenant_preview_boundary", "provider_policy", "other_bounded"]},
+    "severity": {"enum": ["info", "low", "medium", "high"]},
+    "summary": {"type": "string", "minLength": 1, "maxLength": 240},
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{2,80}$"}
+    },
+    "contact_mode": {"const": "agent_receipt_only"},
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customer_data", "customer_contact", "external_dispatch", "production_claim", "payment"],
+      "properties": {
+        "customer_data": {"const": false},
+        "customer_contact": {"const": false},
+        "external_dispatch": {"const": false},
+        "production_claim": {"const": false},
+        "payment": {"const": false}
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "schema"],
+      "properties": {
+        "required": {"const": true},
+        "schema": {"const": "agent-interface/schemas/agent-support-case-response.schema.json"}
+      }
+    }
+  }
+}

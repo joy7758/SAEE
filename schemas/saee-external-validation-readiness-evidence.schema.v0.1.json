@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-readiness-evidence.schema.v0.1.json",
+  "title": "SAEE External Validation Readiness Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "evidence_type", "reference", "supports_dimension", "limitations", "external_claim"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^readiness-evidence:[a-z0-9._-]+$"},
+    "evidence_type": {"enum": ["existing_test_result", "architecture_document", "validation_simulation_result", "schema_validation", "compatibility_record"]},
+    "reference": {"type": "string", "minLength": 1, "maxLength": 240},
+    "supports_dimension": {"enum": ["TECHNICAL_CAPABILITY", "DOCUMENTATION", "VALIDATION_PROCESS", "SECURITY_BOUNDARY", "OPERATIONAL_READINESS"]},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "external_claim": {"const": false}
+  }
+}
+

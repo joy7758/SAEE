@@ -1,0 +1,53 @@
+{
+  "strategy_version": "1.0",
+  "strategy_id": "saee.ecosystem-first.v1",
+  "horizon_months": 12,
+  "current_stage_id": "TECHNICAL_SIGNAL_RELEASE",
+  "canonical_product_surface": "SAEE Agent Readiness Platform",
+  "capability_layer": "Agent Reliability Evaluation Capability Layer",
+  "ecosystem_entry_wedge": "Agent Readiness Evaluation",
+  "decision_flow": ["PROPOSED_ACTION", "SAEE_READINESS_EVALUATION", "CONTINUE_REVIEW_STOP_CONTEXT", "INDEPENDENT_AUTHORIZED_DECISION"],
+  "stages": [
+    {"order":0,"stage_id":"TECHNICAL_DIRECTION","window_months":[0,0],"status":"COMPLETED","objective":"Fix the missing-layer position and product identity.","exit_evidence":["UNIFIED_PRODUCT_CENTER","MACHINE_DISCOVERY_SURFACES","BOUNDARY_CONTRACT"]},
+    {"order":1,"stage_id":"TECHNICAL_SIGNAL_RELEASE","window_months":[0,1],"status":"ACTIVE","objective":"Make SAEE discoverable through code, writing and callable contracts.","exit_evidence":["GITHUB_SIGNAL","PROBLEM_ARTICLE","CALLABLE_CONTRACT"]},
+    {"order":2,"stage_id":"ECOSYSTEM_ATTENTION","window_months":[1,3],"status":"PLANNED","objective":"Obtain bounded technical attention from target ecosystem teams.","exit_evidence":["AUTHORIZED_TECHNICAL_CONVERSATION_RECORD"]},
+    {"order":3,"stage_id":"PARTNER_RELATIONSHIP","window_months":[2,5],"status":"PLANNED","objective":"Validate developer, ISV and research partner workflows.","exit_evidence":["PARTNER_WORKFLOW_EVIDENCE"]},
+    {"order":4,"stage_id":"JOINT_SOLUTION","window_months":[4,7],"status":"PLANNED","objective":"Create a complementary platform-neutral joint solution draft.","exit_evidence":["JOINT_SOLUTION_DRAFT","EXTERNAL_CONFIRMATION_STATUS"]},
+    {"order":5,"stage_id":"PLATFORM_INTEGRATION","window_months":[6,9],"status":"PLANNED","objective":"Validate a controlled platform capability integration.","exit_evidence":["ADAPTER_EVIDENCE","FAIL_CLOSED_TESTS","BOUNDARY_REVIEW"]},
+    {"order":6,"stage_id":"MARKETPLACE_PLUGIN_ENTRY","window_months":[8,11],"status":"PLANNED","objective":"Prepare or enter an approved marketplace or plugin surface.","exit_evidence":["SEPARATE_APPROVAL","OFFER_BOUNDARY","SUPPORT_OWNER"]},
+    {"order":7,"stage_id":"AGENT_ECOSYSTEM_DISTRIBUTION","window_months":[10,12],"status":"PLANNED","objective":"Establish repeatable external agent discovery and bounded invocation evidence.","exit_evidence":["EXTERNAL_AGENT_DISCOVERY","REAL_INVOCATION","BOUNDARY_PRESERVATION"]}
+  ],
+  "first_90_day_metrics": {
+    "technical": [
+      {"metric_id":"MCP_CAPABILITY_DISCOVERABLE","baseline":1,"target":1,"unit":"verified_surface","boundary":"DISCOVERY_NOT_ADOPTION"},
+      {"metric_id":"QIANFAN_CONTROLLED_DEMO","baseline":1,"target":1,"unit":"controlled_demo","boundary":"DEMO_NOT_NATIVE_INTEGRATION"},
+      {"metric_id":"OPENAPI_LOCAL_CONTRACT_STABLE","baseline":1,"target":1,"unit":"local_contract","boundary":"LOCAL_NOT_PUBLIC_SERVICE"},
+      {"metric_id":"GITHUB_CANONICAL_RELEASE","baseline":1,"target":1,"unit":"citable_release","boundary":"RELEASE_NOT_PRODUCTION"}
+    ],
+    "ecosystem": [
+      {"metric_id":"ECOSYSTEM_TECHNICAL_CONVERSATION","baseline":0,"target":1,"unit":"authorized_record","boundary":"CONVERSATION_NOT_PARTNERSHIP"},
+      {"metric_id":"DEVELOPER_ACTIVITY_PRESENTATION","baseline":0,"target":1,"unit":"authorized_presentation","boundary":"PRESENTATION_NOT_ADOPTION"},
+      {"metric_id":"EXTERNAL_DEVELOPER_TEST","baseline":0,"target":3,"unit":"controlled_test","boundary":"TEST_NOT_ADOPTION"}
+    ],
+    "commercial": [
+      {"metric_id":"DESIGN_PARTNER","baseline":0,"target":1,"unit":"consented_partner","boundary":"INTEREST_NOT_COMMITMENT"},
+      {"metric_id":"JOINT_SOLUTION_DRAFT","baseline":0,"target":1,"unit":"bounded_draft","boundary":"DRAFT_NOT_OFFICIAL_SOLUTION"}
+    ]
+  },
+  "target_ecosystems": ["MCP","BAIDU_QIANFAN","VOLCENGINE_ARK","ALIBABA_BAILIAN","TENCENT_AGENT_PLATFORM","HUAWEI_PANGU_ECOSYSTEM","GLOBAL_AGENT_FRAMEWORKS"],
+  "external_action_gate": ["PARTNER_CONTACT","EVENT_SUBMISSION","DESIGN_PARTNER_SESSION","JOINT_BRANDING","CONTRACT_OR_PRICING","MARKETPLACE_SUBMISSION","PRODUCTION_DEPLOYMENT","CONSEQUENTIAL_PUBLIC_CLAIM"],
+  "truth_boundary": {
+    "ecosystem_strategy_defined": true,
+    "technical_signal_package_ready": true,
+    "technical_article_published": false,
+    "developer_activity_presented": false,
+    "partner_contact_completed": true,
+    "partner_relationship_established": false,
+    "joint_solution_confirmed": false,
+    "official_cloud_integration": false,
+    "marketplace_listed": false,
+    "external_agent_adoption_validated": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

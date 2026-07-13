@@ -1,0 +1,23 @@
+{
+  "criteria_version": "0.1",
+  "criteria_id": "saee.first-ecosystem-validation-success-criteria",
+  "candidate_category": "mcp_agent_developer",
+  "technical_success": [
+    {"criterion": "capability_discovered", "required": true, "evidence_type": "structured_discovery_result"},
+    {"criterion": "tool_invocation_works", "required": true, "evidence_type": "bounded_local_invocation_result"},
+    {"criterion": "result_interpreted_correctly", "required": true, "evidence_type": "structured_boundary_response"}
+  ],
+  "documentation_success": [
+    {"criterion": "purpose_understood", "required": true, "evidence_type": "structured_documentation_feedback"},
+    {"criterion": "limitations_understood", "required": true, "evidence_type": "structured_boundary_feedback"}
+  ],
+  "excluded_outcomes": ["adoption", "revenue", "market_success", "partnership", "production_approval"],
+  "truth_boundary": {
+    "success_criteria_defined": true,
+    "success_observed": false,
+    "feedback_collected": false,
+    "external_validation": false,
+    "adoption_validated": false,
+    "production_ready": false
+  }
+}

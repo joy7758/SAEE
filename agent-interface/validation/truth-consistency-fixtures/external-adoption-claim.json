@@ -1,0 +1,1 @@
+{"fixture_id":"EXTERNAL_ADOPTION_CLAIM","mutation":{"operation":"set","target":"release","path":["truth_boundary","external_adoption"],"value":true},"expected_reason_code":"TRUTH_BOUNDARY_EXTERNAL_ADOPTION_CLAIM"}

@@ -1,0 +1,60 @@
+{
+  "saee_agent_invocation_scenario_v0_1": true,
+  "evaluation_version": "0.1",
+  "invocation_id": "invocation:synthetic:invalid-tool-agent",
+  "caller_type": "INVALID_TOOL_AGENT",
+  "synthetic_caller": true,
+  "discovery_input": {
+    "capability_manifest_ref": "agent-interface/capabilities/saee-capability-manifest.v0.1.json",
+    "request_schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+    "output_schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+    "usage_guide_ref": "docs/architecture/SAEE_AGENT_USAGE_GUIDE.md"
+  },
+  "tool_request": {
+    "evidence_object": {"synthetic": true},
+    "accountability_claim": "AUTHORIZED_AGENT_ACTION"
+  },
+  "additional_contract_probes": [
+    {
+      "probe_id": "wrong-claim",
+      "request": {
+        "evidence_object": {"synthetic": true},
+        "accountability_claim": "UNKNOWN_CLAIM",
+        "evaluation_profile": "authorized-agent-action"
+      },
+      "expected_reason_code": "TOOL_CLAIM_UNKNOWN"
+    },
+    {
+      "probe_id": "malformed-request",
+      "raw_request": "{\"evidence_object\":",
+      "expected_reason_code": "TOOL_INPUT_INVALID_JSON"
+    }
+  ],
+  "expected_tool_behavior": {
+    "tool_result": "REJECTED_INPUT",
+    "claim_assessment": "UNKNOWN",
+    "reason_codes": ["TOOL_PROFILE_UNKNOWN"]
+  },
+  "expected_interpretation": {
+    "caller_statement": "Input rejected; no evidence assessment was performed and human authority remains required.",
+    "declared_conclusions": ["INPUT_REJECTED", "NO_ASSESSMENT_MADE", "HUMAN_AUTHORITY_RETAINED"],
+    "expected_result": "PASS"
+  },
+  "boundary_rules": {
+    "tool_result_is_authorization": false,
+    "assessment_is_approval": false,
+    "human_authority_required": true,
+    "external_action_allowed": false,
+    "forbidden_conclusions": [
+      "SYSTEM_UNSAFE",
+      "ACTION_BLOCKED",
+      "DEPLOYMENT_APPROVED",
+      "DEPLOYMENT_AUTHORIZED",
+      "SYSTEM_SAFE",
+      "SYSTEM_CERTIFIED",
+      "COMPLIANCE_CERTIFIED",
+      "LEGAL_CONCLUSION"
+    ]
+  },
+  "expected_scenario_result": "FAIL"
+}

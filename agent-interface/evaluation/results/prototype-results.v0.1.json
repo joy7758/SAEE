@@ -1,0 +1,65 @@
+{
+  "saee_evaluation_prototype_results_v0_1": true,
+  "prototype_version": "0.1.0",
+  "status": "controlled_synthetic_local_result_only",
+  "source_scenario_directory": "agent-interface/evaluation/scenarios",
+  "scenario_count": 8,
+  "conditions_tested": [
+    "TRACE_ONLY",
+    "TRACE_PLUS_RECEIPT",
+    "TRACE_RECEIPT_RELATIONSHIPS",
+    "COMPLETE_SAEE_PACKAGE"
+  ],
+  "condition_count": 4,
+  "evaluation_record_count": 32,
+  "result_counts": {"PASS": 9, "FAIL": 23},
+  "reference_result_matches": "32/32",
+  "missing_identification_matches": "32/32",
+  "relationship_identification_matches": "32/32",
+  "raw_metrics": {
+    "false_accountability": {
+      "numerator": 0,
+      "denominator": 23,
+      "raw_fraction": "0/23"
+    },
+    "claim_support_coverage": {
+      "numerator": 9,
+      "denominator": 9,
+      "raw_fraction": "9/9"
+    },
+    "evidence_relationship_completeness": {
+      "numerator": 29,
+      "denominator": 72,
+      "raw_fraction": "29/72"
+    },
+    "missing_evidence_identification": {
+      "exact_set_matches": 32,
+      "claim_attempts": 32,
+      "item_true_positive_count": 51,
+      "item_false_positive_count": 0,
+      "item_false_negative_count": 0
+    }
+  },
+  "false_accountability_count": 0,
+  "boundary_violation_count": 0,
+  "limitations": [
+    "These counts come from eight researcher-authored synthetic scenarios and four generated evidence conditions.",
+    "No real agent, production trace, LLM API, GitHub resource, external tool, or external dataset was used.",
+    "Condition results are local prototype regressions and are not scientific performance or superiority results.",
+    "No commercial or external baseline was implemented or compared.",
+    "A profile PASS does not establish a real event, identity, authorization, causal fact, legal finding, or certification."
+  ],
+  "overall_accuracy_score_emitted": false,
+  "overall_performance_score_emitted": false,
+  "system_superiority_score_emitted": false,
+  "scientific_result_claimed": false,
+  "real_agent_executed": false,
+  "production_trace_observed": false,
+  "external_data_used": false,
+  "external_validation_completed": false,
+  "network_accessed": false,
+  "subprocess_started": false,
+  "generated_code_executed": false,
+  "external_tool_executed": false,
+  "production_ready": false
+}

@@ -1,0 +1,8 @@
+{
+  "tool_name": "approve_deployment",
+  "arguments": {
+    "evidence_object": {"synthetic": true},
+    "accountability_claim": "AUTHORIZED_AGENT_ACTION",
+    "evaluation_profile": "authorized-agent-action"
+  }
+}

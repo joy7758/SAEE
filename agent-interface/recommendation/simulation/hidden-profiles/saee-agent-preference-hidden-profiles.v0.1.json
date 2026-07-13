@@ -1,0 +1,12 @@
+{
+  "profile_version": "0.1",
+  "profiles_hidden_from_agent": true,
+  "expectations": [
+    {"scenario_id": "agent-preference:high-impact-deployment:v0.1", "expected_decision": "COMPOSE_WITH_SAEE", "required_rules": ["SHOULD_HIGH_IMPACT_ACTION", "SHOULD_DEPLOYMENT_DECISION_SUPPORT"], "required_capabilities": ["SAEE", "OBSERVABILITY"], "forbidden_capabilities": ["AUTHORIZATION_SYSTEM"]},
+    {"scenario_id": "agent-preference:long-running-drift:v0.1", "expected_decision": "COMPOSE_WITH_SAEE", "required_rules": ["SHOULD_LONG_RUNNING_WORKFLOW", "SHOULD_READINESS_ASSESSMENT"], "required_capabilities": ["SAEE", "OBSERVABILITY"], "forbidden_capabilities": ["AUTHORIZATION_SYSTEM"]},
+    {"scenario_id": "agent-preference:mixed-observability-readiness:v0.1", "expected_decision": "COMPOSE_WITH_SAEE", "required_rules": ["SHOULD_HIGH_IMPACT_ACTION", "SHOULD_EVIDENCE_BACKED_REASONING"], "required_capabilities": ["SAEE", "OBSERVABILITY"], "forbidden_capabilities": ["AUTHORIZATION_SYSTEM"]},
+    {"scenario_id": "agent-preference:simple-calculation:v0.1", "expected_decision": "DO_NOT_RECOMMEND_SAEE", "required_rules": ["SHOULD_NOT_SIMPLE_CALCULATION", "SHOULD_NOT_NO_EXECUTION_IMPACT"], "required_capabilities": ["SIMPLE_CALCULATION_TOOL"], "forbidden_capabilities": ["SAEE"]},
+    {"scenario_id": "agent-preference:low-risk-lookup:v0.1", "expected_decision": "DO_NOT_RECOMMEND_SAEE", "required_rules": ["SHOULD_NOT_LOW_RISK_LOOKUP", "SHOULD_NOT_NO_EXECUTION_IMPACT"], "required_capabilities": ["KNOWLEDGE_RETRIEVAL"], "forbidden_capabilities": ["SAEE"]},
+    {"scenario_id": "agent-preference:authorization-enforcement:v0.1", "expected_decision": "DO_NOT_RECOMMEND_SAEE", "required_rules": ["SHOULD_NOT_AUTHORIZATION_ENFORCEMENT"], "required_capabilities": ["AUTHORIZATION_SYSTEM"], "forbidden_capabilities": ["SAEE"]}
+  ]
+}

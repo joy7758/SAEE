@@ -1,0 +1,1 @@
+{"fixture_id":"MCP_AVAILABILITY_EXAGGERATION","mutation":{"operation":"set","target":"mcp","path":["truth_boundary","external_mcp_interoperability_validated"],"value":true},"expected_reason_code":"TRUTH_PROTOCOL_MCP_EXAGGERATION"}

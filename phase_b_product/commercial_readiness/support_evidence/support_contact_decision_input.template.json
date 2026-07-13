@@ -1,0 +1,74 @@
+{
+  "boundary_review": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "blockers_closed_by_packet": false,
+    "customer_contacted": false,
+    "customer_facing_support_contact_configured": false,
+    "customer_support_available": false,
+    "customer_validated": false,
+    "development_permission_granted": false,
+    "external_calls_made": false,
+    "external_model_api_called": false,
+    "kernel_modified": false,
+    "on_call_rotation_available": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false,
+    "production_support_available": false,
+    "public_sdk_released": false,
+    "runtime_modified": false,
+    "sla_available": false,
+    "support_contact_available": false,
+    "support_contact_configured": false,
+    "support_contact_published_by_codex": false,
+    "support_contact_test_performed_by_codex": false,
+    "support_process_available": false,
+    "support_vendor_contacted": false,
+    "task_candidates_executed": false
+  },
+  "candidate_contact_slots": [
+    {
+      "abuse_handling_reviewed": null,
+      "contact_channel": "",
+      "customer_notice_route_reviewed": null,
+      "display_value_redacted": "",
+      "human_source_note": "",
+      "owner_named": null,
+      "slot_id": "support_contact_candidate_a",
+      "test_plan_reviewed": null
+    },
+    {
+      "abuse_handling_reviewed": null,
+      "contact_channel": "",
+      "customer_notice_route_reviewed": null,
+      "display_value_redacted": "",
+      "human_source_note": "",
+      "owner_named": null,
+      "slot_id": "support_contact_candidate_b",
+      "test_plan_reviewed": null
+    }
+  ],
+  "decision_summary": "",
+  "evidence_review": {
+    "abuse_handling_path_defined": false,
+    "customer_facing_support_contact_configured": false,
+    "customer_notice_route_defined": false,
+    "support_contact_owner_named": false,
+    "support_contact_test_recorded": false
+  },
+  "human_reviewer_name": "",
+  "input_status": "template_not_filled",
+  "review_date": "",
+  "selected_support_contact_channel": "",
+  "source_notes_by_key": {
+    "abuse_handling_path_defined": "",
+    "customer_facing_support_contact_configured": "",
+    "customer_notice_route_defined": "",
+    "support_contact_owner_named": "",
+    "support_contact_test_recorded": ""
+  },
+  "template_note": "This input does not configure or publish a SAEE support contact. It is a human review aid for support_contact evidence only.",
+  "template_type": "saee_support_contact_decision_input",
+  "template_version": "v0.1"
+}

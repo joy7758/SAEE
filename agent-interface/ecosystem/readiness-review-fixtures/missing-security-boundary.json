@@ -1,0 +1,1 @@
+{"fixture_id":"MISSING_SECURITY_BOUNDARY","mutation":{"remove_review_dimension":"SECURITY_BOUNDARY"},"expected":"REJECT"}

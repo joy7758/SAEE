@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 客户验证人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f7f2;
+        --surface: #ffffff;
+        --surface-soft: #eef1eb;
+        --text: #1f211d;
+        --muted: #66706a;
+        --line: #dfe3dc;
+        --accent: #10a37f;
+        --accent-deep: #10221d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      main {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+      header {
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: 0 18px 44px rgba(17, 21, 18, 0.06);
+      }
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #0a7f64;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(32px, 5vw, 58px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 740px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+      section {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+      }
+      h2 {
+        margin: 0 0 14px;
+        font-size: 22px;
+      }
+      ol, ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      li + li { margin-top: 10px; }
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: var(--surface-soft);
+        color: var(--accent-deep);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      .command {
+        overflow-x: auto;
+        padding: 14px;
+        border-radius: 10px;
+        background: #111512;
+        color: #ffffff;
+        font-size: 13px;
+      }
+      .status {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        list-style: none;
+      }
+      .status li {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .status li:last-child { border-bottom: 0; }
+      .mini-list {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        list-style: none;
+      }
+      .mini-list li {
+        display: grid;
+        grid-template-columns: minmax(170px, 0.7fr) 1fr;
+        gap: 12px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fbfcf9;
+      }
+      .note {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 10px;
+        background: #e5f4ef;
+        color: var(--accent-deep);
+        font-weight: 700;
+      }
+      @media (max-width: 760px) {
+        main { width: min(100% - 24px, 1080px); padding-top: 24px; }
+        header, section { padding: 18px; }
+        .grid { grid-template-columns: 1fr; }
+        .mini-list li { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">SAEE 客户验证人工审批入口</p>
+        <h1>先拿到真实试用反馈，再谈客户验证。</h1>
+        <p class="lead">
+          这个页面只告诉人类该填哪些本地证据。它不会联系客户，不会执行试点，
+          也不会把 SAEE 标记为客户已验证。
+        </p>
+        <p class="note">客户验证还没有完成，也不能对外声称已验证。</p>
+      </header>
+
+      <div class="grid">
+        <section>
+          <h2>人类要做的 5 步</h2>
+          <ol>
+            <li>复制本地模板。</li>
+            <li>填写真实试用或访谈记录，不能让 Codex 猜。</li>
+            <li>给理解度、信任度、决策影响、再次使用意愿打 1 到 5 分。</li>
+            <li>确认没有收集生产数据、客户机密或私有核心信息。</li>
+            <li>运行本地验证后停下，等待单独批准。</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>当前状态</h2>
+          <ul class="status">
+            <li><span>客户验证完成</span><code>false</code></li>
+            <li><span>Codex 联系客户</span><code>false</code></li>
+            <li><span>试点已执行</span><code>false</code></li>
+            <li><span>客户数据已收集</span><code>false</code></li>
+            <li><span>生产可用</span><code>false</code></li>
+            <li><span>关闭 blocker</span><code>0</code></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="grid">
+        <section>
+          <h2>复制模板</h2>
+          <div class="command">cp phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.template.json phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json</div>
+          <h2 style="margin-top: 22px;">人工填写后验证</h2>
+          <div class="command">python3 scripts/saee_customer_validation_approval_input_validator.py --input phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json</div>
+        </section>
+
+        <section>
+          <h2>不能越过的边界</h2>
+          <ul>
+            <li>不联系客户，不自动发邮件，不安排试点。</li>
+            <li>不收集客户生产数据、密钥、隐私数据或私有核心信息。</li>
+            <li>不发布客户案例、评价、验证结论或生产可用声明。</li>
+            <li>不运行 evidence builder，除非之后有单独明确批准。</li>
+          </ul>
+        </section>
+      </div>
+
+      <section style="margin-top: 18px;">
+        <h2>必须填写的客户验证字段</h2>
+        <ul class="mini-list">
+          <li><code>session_id</code><span>由人类填写。</span></li>
+<li><code>session_date</code><span>由人类填写。</span></li>
+<li><code>participant_role</code><span>由人类填写。</span></li>
+<li><code>team_type</code><span>由人类填写。</span></li>
+<li><code>current_evaluation_method</code><span>由人类填写。</span></li>
+          <li><code>understanding_score</code><span>填写 1 到 5 分。</span></li>
+<li><code>trust_score</code><span>填写 1 到 5 分。</span></li>
+<li><code>decision_influence_score</code><span>填写 1 到 5 分。</span></li>
+<li><code>repeat_usage_intent_score</code><span>填写 1 到 5 分。</span></li>
+        </ul>
+      </section>
+
+      <section style="margin-top: 18px;">
+        <h2>证据审查键示例</h2>
+        <p class="lead" style="font-size: 15px; margin-bottom: 14px;">
+          下面只展示前 8 个键。完整 25 个键在 Markdown 和 JSON 文件里。
+        </p>
+        <ul class="mini-list"><li><code>at_least_one_human_approved_pilot_session_completed</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>boundary_flags_reviewed</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>claim_scope_approved</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>customer_problem_fit_reviewed</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>customer_role_and_segment_recorded</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>customer_validation_record_approved_by_human</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>decision_usefulness_observed</code><span>必须有人类确认的真实试用或访谈证据。</span></li>
+<li><code>deployment_decision_value_observed</code><span>必须有人类确认的真实试用或访谈证据。</span></li></ul>
+      </section>
+    </main>
+  </body>
+</html>

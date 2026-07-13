@@ -8,6 +8,18 @@ __pycache__/
 .saee_data/
 .saee_backups/
 .saee_restore_drills/
+
+# Local operator/runtime artifacts. Keep the durable contracts and receipts in
+# their explicit source directories; these paths are machine-local outputs.
+/.playwright-cli/
+/.saee_runtime/
+/tmp/
+/output/
+
+# Independent nested repository. Its source, dependencies, build products, and
+# commit history are managed from sites/saee-commercial itself.
+/sites/saee-commercial/
+
 out/
 dist/
 build/

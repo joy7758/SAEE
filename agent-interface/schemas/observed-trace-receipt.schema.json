@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Observed Trace Evaluation Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_observed_trace_receipt_v0_1", "schema_version", "receipt_id",
+    "evaluation_mode", "request_sha256", "content_sha256", "provenance",
+    "evaluation_summary", "stability_reports", "failure_mode_reports",
+    "survival_curves", "comparison_ranking", "observed_failure_code_counts",
+    "trace_quality", "truth_boundary"
+  ],
+  "properties": {
+    "saee_observed_trace_receipt_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "receipt_id": {"type": "string", "pattern": "^saee-observed-receipt-[0-9a-f]{16}$"},
+    "evaluation_mode": {"const": "observed_trace_bundle_evaluation"},
+    "request_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_kind", "trace_capture_by_saee", "source_sanitization_attested",
+        "source_authorized_attested", "raw_content_excluded_attested",
+        "allowlist_validation_passed", "trace_authenticity_verified",
+        "candidate_code_executed", "external_calls_made", "simulator_called",
+        "private_core_loaded", "scoring_formula", "stability_formula",
+        "survival_formula", "risk_formula", "tie_break", "censoring"
+      ],
+      "properties": {
+        "input_kind": {"const": "sanitized_observed_agent_trace_bundle"},
+        "trace_capture_by_saee": {"const": false},
+        "source_sanitization_attested": {"const": true},
+        "source_authorized_attested": {"const": true},
+        "raw_content_excluded_attested": {"const": true},
+        "allowlist_validation_passed": {"const": true},
+        "trace_authenticity_verified": {"const": false},
+        "candidate_code_executed": {"const": false},
+        "external_calls_made": {"const": false},
+        "simulator_called": {"const": false},
+        "private_core_loaded": {"const": false},
+        "scoring_formula": {"const": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score"},
+        "stability_formula": {"type": "string"},
+        "survival_formula": {"type": "string"},
+        "risk_formula": {"type": "string"},
+        "tie_break": {"type": "string"},
+        "censoring": {"type": "string"}
+      }
+    },
+    "evaluation_summary": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/EvaluationRunSummary"},
+    "stability_reports": {"type": "array", "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/StabilityReport"}},
+    "failure_mode_reports": {"type": "array", "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/FailureModeReport"}},
+    "survival_curves": {"type": "array", "items": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/SurvivalCurve"}},
+    "comparison_ranking": {"$ref": "../../schemas/saee_mvp_api.schema.json#/$defs/ComparisonRanking"},
+    "observed_failure_code_counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {"type": "integer", "minimum": 1}
+      }
+    },
+    "trace_quality": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["run_count", "observed_step_count", "censored_run_count"],
+        "properties": {
+          "run_count": {"type": "integer", "minimum": 1},
+          "observed_step_count": {"type": "integer", "minimum": 2},
+          "censored_run_count": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_agent_trace_evidence_evaluated", "trace_authenticity_verified",
+        "pii_absence_verified_by_saee", "real_world_generalization_validated",
+        "production_ready", "product_launched", "customer_validated",
+        "external_agent_execution", "private_core_exposed"
+      ],
+      "properties": {
+        "observed_agent_trace_evidence_evaluated": {"const": true},
+        "trace_authenticity_verified": {"const": false},
+        "pii_absence_verified_by_saee": {"const": false},
+        "real_world_generalization_validated": {"const": false},
+        "production_ready": {"const": false},
+        "product_launched": {"const": false},
+        "customer_validated": {"const": false},
+        "external_agent_execution": {"const": false},
+        "private_core_exposed": {"const": false}
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "controlled_trial_operator_packet_v0_1": true,
+  "session_id": "LOCAL-TRIAL-YYYYMMDD-001",
+  "session_scope": "local_mvp_demo_observation",
+  "trial_status": "local_demo_available",
+  "operator_name": "",
+  "reviewer_role": "",
+  "session_date": "",
+  "environment": {
+    "backend_command": "python3 -m uvicorn saee_backend.main:app --reload --port 8000",
+    "landing_command": "python3 -m http.server 8765",
+    "landing_url": "http://127.0.0.1:8765/",
+    "api_endpoint": "http://127.0.0.1:8000/experiment/run",
+    "local_only": true,
+    "external_calls_made": false
+  },
+  "execution_observations": {
+    "backend_started": null,
+    "landing_page_loaded": null,
+    "run_demo_battle_clicked": null,
+    "api_result_returned": null,
+    "decision_result_visible": null,
+    "recommended_agent_visible": null,
+    "ranking_visible": null,
+    "failure_modes_summary_visible": null,
+    "survival_curves_visible": null
+  },
+  "decision_usefulness": {
+    "understanding_score": null,
+    "trust_score": null,
+    "decision_influence_score": null,
+    "repeat_usage_intent_score": null,
+    "top_objection": "",
+    "evidence_missing": ""
+  },
+  "boundary_flags": {
+    "production_ready_claim_made": false,
+    "customer_validation_claim_made": false,
+    "customer_contacted": false,
+    "customer_data_collected": false,
+    "production_data_collected": false,
+    "paid_trial_enabled": false,
+    "payment_provider_configured": false,
+    "external_ai_assistant_tested": false,
+    "external_validation_claim_made": false,
+    "private_core_exposed": false
+  },
+  "commercial_readiness": {
+    "production_ready": false,
+    "customer_validated": false,
+    "product_launched": false,
+    "public_sdk_released": false,
+    "blockers_closed_by_session": 0,
+    "next_required_review": "human review of local trial observation only"
+  },
+  "notes": ""
+}

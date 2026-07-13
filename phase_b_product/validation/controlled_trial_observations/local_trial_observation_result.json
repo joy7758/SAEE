@@ -1,0 +1,105 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_observation": 0,
+  "controlled_trial_observation_runner_v0_1": true,
+  "customer_contacted": false,
+  "customer_data_collected": false,
+  "customer_validated": false,
+  "demo_output_summary": {
+    "agent_count": 3,
+    "confidence_score": 0.538071,
+    "expected_fields_present": {
+      "confidence_score": true,
+      "decision_result": true,
+      "failure_modes_summary": true,
+      "ranking": true,
+      "recommended_agent": true,
+      "survival_curves": true
+    },
+    "experiment_id": "controlled-trial-local-e2e",
+    "failure_report_count": 3,
+    "ranking": [
+      {
+        "agent_id": "agent-b",
+        "rank": 1,
+        "score": 0.538071
+      },
+      {
+        "agent_id": "agent-c",
+        "rank": 2,
+        "score": 0.47868
+      },
+      {
+        "agent_id": "agent-a",
+        "rank": 3,
+        "score": 0.359086
+      }
+    ],
+    "ranking_top": "agent-b",
+    "recommended_agent": "agent-b",
+    "status": "completed",
+    "stored_run_count": 15,
+    "survival_curve_count": 3
+  },
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_validation_claim": false,
+  "generated_at": "2026-07-04",
+  "generated_by": "scripts/saee_controlled_trial_observation_runner.py",
+  "human_review_required": true,
+  "input": {
+    "agent_count": 3,
+    "agent_ids": [
+      "agent-a",
+      "agent-b",
+      "agent-c"
+    ],
+    "competition_intensity": 0.55,
+    "controlled_trial_observation_runner_v0_1": true,
+    "customer_data_allowed": false,
+    "customer_data_collected": false,
+    "customer_validated": false,
+    "experiment_id": "controlled-trial-local-e2e",
+    "external_calls_made": false,
+    "input_scope": "local_mvp_demo_observation",
+    "local_only": true,
+    "metrics": [
+      "stability",
+      "survival",
+      "failure_mode",
+      "ranking"
+    ],
+    "noise_level": 0.25,
+    "operator_template_session_scope": "local_mvp_demo_observation",
+    "operator_template_trial_status": "local_demo_available",
+    "production_ready": false,
+    "public_service_layer_used": true,
+    "repeat_runs": 5,
+    "scenario_type": "landing_demo_competition",
+    "source_operator_template": "phase_b_product/validation/controlled_trial_operator_packet/local_trial_session_template.json",
+    "time_horizon": 60
+  },
+  "kernel_modified": false,
+  "local_execution": {
+    "browser_started": false,
+    "memory_experiment_store_used": true,
+    "public_experiment_service_used": true,
+    "public_request_models_used": true,
+    "request_limits_validated": true,
+    "server_started": false
+  },
+  "next_action": "Human review of local observation only; do not claim customer validation or production readiness.",
+  "observation_scope": "local_mvp_demo_observation",
+  "observation_status": "local_observation_recorded",
+  "observation_type": "saee_controlled_trial_observation_runner",
+  "observation_version": "v0.1",
+  "paid_trial_enabled": false,
+  "payment_provider_configured": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_data_collected": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "runtime_modified": false
+}

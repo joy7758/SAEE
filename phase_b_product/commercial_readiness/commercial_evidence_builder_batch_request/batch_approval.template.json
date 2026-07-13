@@ -1,0 +1,29 @@
+{
+  "approval_date": "",
+  "approval_reference": "",
+  "approve_four_local_builders_only": false,
+  "approved_target_blocker_ids": [
+    "production_monitoring",
+    "production_restore_policy",
+    "formal_security_review",
+    "pricing_page"
+  ],
+  "blocker_closure_authorized": false,
+  "blockers_closed": 0,
+  "builders_executed": 0,
+  "commercial_evidence_builder_batch_approval_input_v0_1": true,
+  "confirm_no_blocker_closure": false,
+  "confirm_no_external_contact": false,
+  "confirm_no_production_readiness_claim": false,
+  "confirm_no_publication": false,
+  "confirm_separate_execution_step_required": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "exact_approval_phrase": "",
+  "external_calls_made": false,
+  "human_reviewer_name": "",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "vendor_contacted": false
+}

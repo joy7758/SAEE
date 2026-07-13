@@ -1,0 +1,92 @@
+{
+  "simulation_id": "saee.first-external-validation-simulation.v1",
+  "candidate_type": "mcp_agent_developer",
+  "candidate": {
+    "candidate_id": "synthetic-candidate:mcp-agent-developer-001",
+    "candidate_type": "mcp_agent_developer",
+    "simulation_only": true
+  },
+  "scenario_results": [
+    {
+      "scenario_id": "SUCCESSFUL_MCP_DISCOVERY",
+      "outcome": "DISCOVERED",
+      "reason_code": "SAEE_MCP_CAPABILITY_FOUND",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:successful-mcp-discovery"
+    },
+    {
+      "scenario_id": "SUCCESSFUL_TOOL_INVOCATION",
+      "outcome": "INVOKED",
+      "reason_code": "LOCAL_RUNTIME_DELEGATION_COMPLETED",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:successful-tool-invocation"
+    },
+    {
+      "scenario_id": "RESULT_INTERPRETATION_SUCCESS",
+      "outcome": "INTERPRETED",
+      "reason_code": "SUPPORTED_MEANING_BOUNDED",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:result-interpretation-success"
+    },
+    {
+      "scenario_id": "AUTHORIZATION_CONFUSION",
+      "outcome": "REJECTED_BOUNDARY",
+      "reason_code": "SAEE_NOT_AUTHORIZATION",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:authorization-confusion"
+    },
+    {
+      "scenario_id": "PRODUCTION_EXECUTION_REQUEST",
+      "outcome": "REJECTED",
+      "reason_code": "PRODUCTION_EXECUTION_FORBIDDEN",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:production-execution-request"
+    },
+    {
+      "scenario_id": "FEEDBACK_GENERATION",
+      "outcome": "FEEDBACK_CREATED",
+      "reason_code": "SYNTHETIC_FEEDBACK_SCHEMA_VALID",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:feedback-generation"
+    },
+    {
+      "scenario_id": "ADOPTION_CLAIM_ATTEMPT",
+      "outcome": "REJECTED",
+      "reason_code": "FALSE_ADOPTION_CLAIM",
+      "matched_expected": true,
+      "evidence_ref": "simulation-evidence:adoption-claim-attempt"
+    }
+  ],
+  "feedback_records": [
+    {
+      "discovery_feedback": "CLEAR",
+      "integration_feedback": "WORKS_LOCALLY",
+      "documentation_feedback": "CLEAR",
+      "boundary_feedback": "PRESERVED",
+      "simulation_only": true
+    }
+  ],
+  "integration_observations": [
+    "The synthetic candidate discovered all three MCP tool descriptions.",
+    "evaluate_agent_run delegated through CapabilityMCPAdapter and Capability Runtime.",
+    "SUPPORTED was interpreted only as profile requirements satisfied.",
+    "Authorization, production execution, and adoption claims were rejected."
+  ],
+  "limitations": [
+    "Synthetic candidate and repository-local data only.",
+    "No external MCP client, developer, account, community, or platform was contacted.",
+    "Simulation success does not establish external validation, adoption, ecosystem support, or production readiness."
+  ],
+  "evidence_boundary": {
+    "external_validation_simulation": true,
+    "synthetic_candidate": true,
+    "external_validation": false,
+    "participant_contact": false,
+    "real_external_agent": false,
+    "customer_data": false,
+    "adoption_validated": false,
+    "production_ready": false,
+    "network_accessed": false,
+    "external_execution": false
+  }
+}

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
-  "status": "two_interest_submissions_one_human_contact_one_alibaba_partner_membership_active_one_captcha_handoff_two_routes_blocked",
-  "observed_at": "2026-07-13T17:04:06+08:00",
+  "status": "two_interest_submissions_one_human_contact_one_alibaba_partner_membership_active_marketplace_store_profile_submitted_publish_entry_unblocked_one_captcha_handoff_two_routes_blocked",
+  "observed_at": "2026-07-13",
   "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
   "providers": [
     {
@@ -54,20 +54,34 @@
       "contact_url": "https://smartservice.console.aliyun.com/pre-sale/chat?entrance=201",
       "recommendation": "conditional",
       "agent_readable_reason": "Product integration is the appropriate route; reseller and marketplace routes would overstate current commercial readiness.",
-      "current_state": "product_ecosystem_partner_membership_active_ai_partner_basic_lv1",
+      "current_state": "product_ecosystem_partner_membership_active_ai_partner_basic_lv1_marketplace_financial_setup_complete_store_profile_submitted_publish_entry_unblocked_product_type_review_pending",
       "contact_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-pre-sales-cooperation-inquiry-receipt.v1.json",
       "application_submission_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-product-partner-application-submission-receipt.v1.json",
       "partner_activation_receipt_ref": "agent-interface/ecosystem/saee-alibaba-product-ecosystem-partner-activation-receipt.v1.json",
+      "marketplace_entry_readiness_ref": "agent-interface/ecosystem/saee-alibaba-cloud-marketplace-entry-readiness.v1.json",
       "qoder_technical_consultation_ticket_receipt_ref": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
       "qoder_official_support_ticket_receipt_ref": "agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json",
       "qoder_support_state": "support_scope_closed_forwarded_to_business_contact_reference_provided_waiting_contact",
       "missing_inputs": [],
       "completed_consequential_human_gates": [
-        "agreement_signature_observed_as_human_completed"
+        "agreement_signature_observed_as_human_completed",
+        "guarantee_deposit_owner_confirmed_paid",
+        "enterprise_settlement_account_activation_owner_confirmed",
+        "alibaba_cloud_withholding_authorization_platform_verified",
+        "marketplace_store_profile_submission_owner_confirmed_platform_followup_observed"
       ],
       "later_consequential_human_gates": [
-        "guarantee_deposit_decision_and_payment_if_required"
+        "cooperation_product_submission",
+        "integration_certification_application_submission",
+        "marketplace_product_submission"
       ],
+      "marketplace_category_qualification_completed": true,
+      "enterprise_settlement_account_activation_completed": true,
+      "withholding_authorization_performed": true,
+      "marketplace_store_profile_submission": true,
+      "marketplace_publish_product_entry_unblocked": true,
+      "cooperation_product_submission": false,
+      "integration_certification_application_submission": false,
       "marketplace_submission": false,
       "marketplace_route_available": true,
       "provider_approval": true,
@@ -110,6 +124,10 @@
     "formal_partner_application_approved_count": 1,
     "partner_program_membership_active_count": 1,
     "approved_marketplace_route_available_count": 1,
+    "enterprise_settlement_account_activation_completed_count": 1,
+    "withholding_authorization_completed_count": 1,
+    "marketplace_store_profile_submission_completed_count": 1,
+    "marketplace_publish_product_entry_unblocked_count": 1,
     "blocked_count": 2,
     "provider_approved_count": 1,
     "marketplace_submission_count": 0,

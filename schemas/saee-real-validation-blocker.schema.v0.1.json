@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redcrag.cn/schemas/saee-real-validation-blocker.schema.v0.1.json",
+  "title": "SAEE Real Validation Blocker v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["blocker_id", "category", "severity", "description", "required_before_entry", "status"],
+  "properties": {
+    "blocker_id": {"type": "string", "pattern": "^RVE-[A-Z]+-[0-9]{3}$"},
+    "category": {"enum": ["participant", "legal", "security", "operations", "support", "technical"]},
+    "severity": {"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+    "description": {"type": "string", "minLength": 1},
+    "required_before_entry": {"type": "boolean"},
+    "status": {"enum": ["OPEN", "RESOLVED"]}
+  }
+}

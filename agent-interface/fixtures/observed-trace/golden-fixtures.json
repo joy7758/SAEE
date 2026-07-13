@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "base_request": "agent-interface/examples/observed-trace-bundle.json",
+  "expected_request_sha256": "0c431378e331506ea74534f889689a1a96b479078effb43449f87d4b074a99a3",
+  "expected_content_sha256": "cc30b1cda6e1b9d27af5d595d14b447f64204b9ec87824207e01837f392ea361",
+  "expected_recommended_agent": "candidate-alpha",
+  "fixtures": [
+    {"id": "g01", "candidate_order": "normal", "run_order": "normal", "key_order": "normal"},
+    {"id": "g02", "candidate_order": "normal", "run_order": "normal", "key_order": "reverse"},
+    {"id": "g03", "candidate_order": "normal", "run_order": "reverse_each", "key_order": "normal"},
+    {"id": "g04", "candidate_order": "normal", "run_order": "reverse_each", "key_order": "reverse"},
+    {"id": "g05", "candidate_order": "normal", "run_order": "reverse_first", "key_order": "normal"},
+    {"id": "g06", "candidate_order": "normal", "run_order": "reverse_first", "key_order": "reverse"},
+    {"id": "g07", "candidate_order": "reverse", "run_order": "normal", "key_order": "normal"},
+    {"id": "g08", "candidate_order": "reverse", "run_order": "normal", "key_order": "reverse"},
+    {"id": "g09", "candidate_order": "reverse", "run_order": "reverse_each", "key_order": "normal"},
+    {"id": "g10", "candidate_order": "reverse", "run_order": "reverse_each", "key_order": "reverse"},
+    {"id": "g11", "candidate_order": "reverse", "run_order": "reverse_first", "key_order": "normal"},
+    {"id": "g12", "candidate_order": "reverse", "run_order": "reverse_first", "key_order": "reverse"}
+  ]
+}

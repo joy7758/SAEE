@@ -1,0 +1,14 @@
+{
+  "saee_customer_controlled_agent_adapter_contract_v0_1": true,
+  "contract_version": "0.1.0",
+  "contract_id": "adapter-contract:customer-custom-agent-v0.1",
+  "requested_adapter_kind": "custom_agent",
+  "implementation_status": "declared_disabled_not_implemented",
+  "activation": {"enabled": false, "human_activation_approved": false, "customer_data_use_approved": false, "provider_cost_approved": false, "sandbox_execution_approved": false},
+  "control": {"customer_controlled": true, "saee_permission_expansion_allowed": false, "human_stop_authority_ref": "human:customer-rehearsal-owner"},
+  "credential_boundary": {"credential_value_embedded": false, "secret_reference_present": false, "credential_storage_authorized": false},
+  "data_boundary": {"synthetic_data_only": true, "customer_data_allowed": false, "production_trace_allowed": false, "personal_data_allowed": false},
+  "runtime_boundary": {"provider_network_allowed": false, "external_tool_execution_allowed": false, "filesystem_write_allowed": false, "subprocess_allowed": false, "external_world_actions_allowed": false},
+  "capability_claims": {"adapter_implemented": false, "adapter_validated": false, "customer_agent_compatible": false, "production_ready": false},
+  "truth_boundary": {"contract_only": true, "activation_authority_granted": false, "customer_contacted": false, "customer_agent_executed": false, "customer_data_received": false, "deployment_authorized": false}
+}

@@ -1,0 +1,45 @@
+{
+  "saee_external_agent_discovery_scenario_v0_1": true,
+  "evaluation_version": "0.1",
+  "scenario_id": "discovery:synthetic:failure-agent",
+  "caller_type": "DISCOVERY_FAILURE_AGENT",
+  "synthetic_external_caller": true,
+  "discovery_sources": [
+    {"source_role": "LLMS_ENTRY", "public_url": "https://redcrag.cn/llms.txt", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/llms.txt", "source_used": true},
+    {"source_role": "AGENT_INDEX", "public_url": "https://redcrag.cn/.well-known/agent-index.json", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/.well-known/agent-index.json", "source_used": true}
+  ],
+  "discovered_capability": {
+    "capability_found": true,
+    "capability_id": "saee-evidence-adequacy",
+    "purpose_class": "UNKNOWN",
+    "identified_inputs": ["evidence_object", "accountability_claim"],
+    "identified_outputs": ["claim_assessment"],
+    "limitations_identified": []
+  },
+  "understanding_result": {
+    "classification": "UNKNOWN",
+    "caller_statement": "The available entries do not provide enough information to determine how SAEE should be used.",
+    "identified_use_cases": [],
+    "identified_non_use_cases": [],
+    "expected_result": "FAIL"
+  },
+  "invocation_plan": {
+    "planned": false,
+    "request_fields": ["evidence_object", "accountability_claim"],
+    "accountability_claim": null,
+    "evaluation_profile": null,
+    "claim_profile_match": false,
+    "executable_input_requested": false,
+    "network_service_assumed": false,
+    "requested_output_interpretation": "UNKNOWN",
+    "expected_result": "FAIL"
+  },
+  "boundary_result": {
+    "declared_conclusions": ["DECISION_SUPPORT_ONLY", "HUMAN_AUTHORITY_RETAINED"],
+    "human_authority_retained": true,
+    "autonomous_authorization_claimed": false,
+    "adoption_claimed": false,
+    "expected_result": "PASS"
+  },
+  "expected_result": "FAIL"
+}

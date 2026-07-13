@@ -1,0 +1,26 @@
+{
+  "benchmark_version": "1.0",
+  "benchmark_id": "saee-internal-reliability-v1.0",
+  "scope": "internal",
+  "public": false,
+  "internal_benchmark": true,
+  "leaderboard": false,
+  "ranking_generated": false,
+  "agents": [
+    {"agent_profile": "deepseek_ark", "provider_gateway": "Volcengine Ark", "model_vendor": "deepseek", "model_identifier": "deepseek-v4-flash-260425", "adapter_version": "stateful-rehearsal-v0.1"},
+    {"agent_profile": "glm_ark", "provider_gateway": "Volcengine Ark", "model_vendor": "zhipu", "model_identifier": "glm-5-2-260617", "adapter_version": "stateful-rehearsal-v0.1"},
+    {"agent_profile": "doubao_ark", "provider_gateway": "Volcengine Ark", "model_vendor": "bytedance", "model_identifier": "doubao-seed-2-0-lite-260215", "adapter_version": "stateful-rehearsal-v0.1"}
+  ],
+  "scenarios": [
+    {"benchmark_scenario_id": "001_coding_release", "scenario_id": "saee-mvp:coding-agent-release:v0.1", "scenario_version": "0.1", "scenario_provenance": "agent-interface/rehearsal/mvp/coding-agent-release-rehearsal.v0.1.json"},
+    {"benchmark_scenario_id": "002_security_boundary", "scenario_id": "saee-rehearsal:security-boundary:v0.2", "scenario_version": "0.2", "scenario_provenance": "agent-interface/rehearsal/scenarios/library-v0.2/security-boundary/scenario.json"},
+    {"benchmark_scenario_id": "003_research_agent", "scenario_id": "saee-rehearsal:research-evidence-review:v0.2", "scenario_version": "0.2", "scenario_provenance": "agent-interface/rehearsal/scenarios/library-v0.2/research-evidence-review/scenario.json"},
+    {"benchmark_scenario_id": "004_business_operator", "scenario_id": "saee-rehearsal:business-operation:v0.2", "scenario_version": "0.2", "scenario_provenance": "agent-interface/rehearsal/scenarios/library-v0.2/business-operation/scenario.json"},
+    {"benchmark_scenario_id": "005_customer_operation", "scenario_id": "saee-rehearsal:customer-support:v0.2", "scenario_version": "0.2", "scenario_provenance": "agent-interface/rehearsal/scenarios/library-v0.2/customer-support/scenario.json"}
+  ],
+  "repetitions": 3,
+  "runs_planned": 45,
+  "framework_reference": "schemas/saee-agent-reliability-assessment.schema.v1.0.json",
+  "failure_taxonomy_reference": "agent-interface/reliability/saee-failure-taxonomy.v1.0.json",
+  "truth_boundary": {"public_benchmark": false, "leaderboard": false, "ranking_generated": false, "certification": false, "production_ready": false, "external_validation_completed": false}
+}

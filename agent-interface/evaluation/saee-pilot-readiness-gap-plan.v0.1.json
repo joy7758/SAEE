@@ -1,0 +1,171 @@
+{
+  "saee_pilot_readiness_gap_plan_v0_1": true,
+  "plan_version": "0.1",
+  "current_readiness": "NO_GO",
+  "future_reassessment_allowed": false,
+  "pilot_authorized": false,
+  "execution_started": false,
+  "data_created": false,
+  "approvals_created": false,
+  "external_validation_completed": false,
+  "gaps": [
+    {
+      "id": "DATA_SOURCE",
+      "title": "Dataset source identification",
+      "current_state": "No pilot dataset source is selected or approved.",
+      "required_action": "Select a bounded source through the responsible approval process.",
+      "required_artifact": "approved_source_record",
+      "required_future_evidence": ["source_identity", "source_owner", "approved_use_scope", "approval_record"],
+      "completion_criteria": "An approved source record exists and is accepted by the responsible process.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "DATA_OWNERSHIP",
+      "title": "Data ownership and controller roles",
+      "current_state": "Ownership and controller roles are not documented.",
+      "required_action": "Document ownership, controller, processor and withdrawal authority.",
+      "required_artifact": "approved_data_ownership_record",
+      "required_future_evidence": ["owner_identity", "controller_roles", "processing_authority", "withdrawal_authority"],
+      "completion_criteria": "A reviewed ownership record resolves all responsible roles.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "DATA_PERMISSIONS",
+      "title": "Collection and research-use permissions",
+      "current_state": "Collection and research-use permissions are not approved.",
+      "required_action": "Obtain explicit permission for collection, transformation, annotation and research use.",
+      "required_artifact": "approved_permission_record",
+      "required_future_evidence": ["collection_permission", "research_use_permission", "derivative_use_scope", "revocation_terms"],
+      "completion_criteria": "Permission artifacts exist, cover the planned operations and are accepted by the responsible process.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "PRIVACY_REVIEW",
+      "title": "Privacy and sensitive-data review",
+      "current_state": "Privacy review and sensitive-data assessment are incomplete.",
+      "required_action": "Complete a privacy assessment including personal and sensitive data classes.",
+      "required_artifact": "approved_privacy_review_record",
+      "required_future_evidence": ["data_inventory", "sensitivity_assessment", "minimization_plan", "approved_privacy_review"],
+      "completion_criteria": "The privacy artifact exists and is accepted by the responsible review process.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "RETENTION_POLICY",
+      "title": "Retention policy",
+      "current_state": "No approved pilot retention schedule exists.",
+      "required_action": "Define and approve purpose-bound retention periods for every data class.",
+      "required_artifact": "approved_retention_schedule",
+      "required_future_evidence": ["data_class_periods", "retention_purposes", "expiry_actions", "approval_record"],
+      "completion_criteria": "An approved retention schedule covers all planned dataset entities and detached payloads.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "DELETION_PROCESS",
+      "title": "Deletion and withdrawal process",
+      "current_state": "Deletion and withdrawal procedures are not tested.",
+      "required_action": "Define and test deletion across primary storage, backups and derived artifacts.",
+      "required_artifact": "tested_deletion_procedure_record",
+      "required_future_evidence": ["deletion_runbook", "test_record", "backup_handling", "withdrawal_path"],
+      "completion_criteria": "A controlled deletion test passes and its limitations are recorded.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "ACCESS_CONTROL",
+      "title": "Dataset access control",
+      "current_state": "Pilot-specific least-privilege roles and access review are not approved.",
+      "required_action": "Define storage roles, access approval, review and revocation.",
+      "required_artifact": "approved_dataset_access_control_record",
+      "required_future_evidence": ["role_matrix", "access_approval_flow", "review_schedule", "revocation_test"],
+      "completion_criteria": "The access-control record is approved and a denial/revocation test is documented.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "SCHEMA_FREEZE",
+      "title": "Dataset schema freeze",
+      "current_state": "Draft schemas exist but are not frozen for pilot execution.",
+      "required_action": "Freeze schema versions, migration rules and compatibility policy.",
+      "required_artifact": "dataset_schema_freeze_record",
+      "required_future_evidence": ["schema_hashes", "freeze_version", "migration_policy", "change_authority"],
+      "completion_criteria": "A freeze record binds exact schema hashes and change authority.",
+      "blocking": "HIGH",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "APPROVED_SAMPLE",
+      "title": "Approved validation sample",
+      "current_state": "No approved non-main sample exists for pipeline validation.",
+      "required_action": "Prepare an approved, bounded sample only after source and permission gates pass.",
+      "required_artifact": "approved_sample_manifest",
+      "required_future_evidence": ["sample_manifest", "source_binding", "permission_binding", "main_split_exclusion"],
+      "completion_criteria": "The sample manifest passes source, permission, leakage and split checks.",
+      "blocking": "HIGH",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "ANNOTATION_APPROVAL",
+      "title": "Annotation protocol approval",
+      "current_state": "The annotation codebook remains draft_not_approved.",
+      "required_action": "Freeze and approve the codebook, instructions, adjudication and agreement plan.",
+      "required_artifact": "approved_annotation_protocol_record",
+      "required_future_evidence": ["codebook_hash", "instruction_version", "adjudication_owner", "agreement_plan", "approval_record"],
+      "completion_criteria": "The protocol is version-frozen and accepted by the responsible process.",
+      "blocking": "HIGH",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "PILOT_ENVIRONMENT",
+      "title": "Pilot-specific environment freeze",
+      "current_state": "Local synthetic environment checks pass, but no pilot-specific environment is frozen.",
+      "required_action": "Freeze the isolated pilot environment, dependencies, assets and reproduction procedure.",
+      "required_artifact": "pilot_environment_freeze_record",
+      "required_future_evidence": ["environment_digest", "dependency_manifest", "asset_allowlist", "reproduction_test"],
+      "completion_criteria": "The exact pilot environment is identified and its controlled reproduction test passes.",
+      "blocking": "HIGH",
+      "status": "OPEN",
+      "evidence_refs": []
+    },
+    {
+      "id": "SAFETY_AND_EXECUTION_APPROVAL",
+      "title": "Safety controls and explicit execution approval",
+      "current_state": "Safety policies are defined, but the safety gate remains STOP and no execution approval exists.",
+      "required_action": "Verify sandbox controls and stop authority, then obtain a separate explicit execution approval only after all critical gaps are evidence-ready.",
+      "required_artifact": "approved_pilot_execution_gate_record",
+      "required_future_evidence": ["sandbox_test", "network_denial_test", "stop_authority", "rollback_test", "explicit_execution_approval"],
+      "completion_criteria": "Safety controls are tested and a separate scoped execution approval is accepted after critical prerequisites pass.",
+      "blocking": "CRITICAL",
+      "status": "OPEN",
+      "evidence_refs": []
+    }
+  ],
+  "reassessment_criteria": [
+    "Every gap has status EVIDENCE_READY or CLOSED.",
+    "Every gap has one or more evidence references.",
+    "The readiness matrix is updated in a separate change.",
+    "Safety stop conditions remain active until a new review computes GO.",
+    "A new review does not inherit approval from this plan."
+  ],
+  "limitations": [
+    "This plan does not resolve any gap or approve any evidence.",
+    "Required future evidence names are artifact requirements, not existing artifacts.",
+    "The current readiness decision remains NO_GO and pilot execution remains unauthorized."
+  ],
+  "recommended_next_pr": "Re-run SAEE Pilot Execution Readiness Review after gap evidence exists"
+}
+

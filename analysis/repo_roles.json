@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "saee_repo_roles",
+  "generated_at": "2026-07-02",
+  "classification_rule": "Each scanned repository receives exactly one primary SAEE role. Secondary layer memberships are recorded separately and do not override the primary role.",
+  "repositories": [
+    {
+      "repo": "fdo-kernel-mvk",
+      "primary_role": "Execution",
+      "role_label": "runtime integrity reference",
+      "belongs_to": [
+        "Archive Layer",
+        "Immune Layer",
+        "Selection Layer"
+      ],
+      "evolution_loop_contribution": "Replay-verifiable execution evidence for sandbox and selection checks.",
+      "static_or_evolutionary": "STATIC_REFERENCE_WITH_EVOLUTION_SUPPORT",
+      "why_not_architecture": "Its core artifacts are executable-object invariants, replay verification, and checkpoint integrity rather than system vocabulary."
+    },
+    {
+      "repo": "agent-evidence",
+      "primary_role": "Evidence",
+      "role_label": "trace and receipt packaging layer",
+      "belongs_to": [
+        "Archive Layer",
+        "Immune Layer",
+        "Selection Layer"
+      ],
+      "evolution_loop_contribution": "Validation receipts, evidence bundles, event chains, and retained provenance for lineage and fitness review.",
+      "static_or_evolutionary": "EVOLUTIONARY_SUPPORT_SUBSYSTEM",
+      "why_not_architecture": "It exposes CLI/OpenAPI/MCP/schema surfaces for evidence verification, not a top-level concept map."
+    },
+    {
+      "repo": "execution-integrity-core",
+      "primary_role": "Execution",
+      "role_label": "policy-gated execution runtime kernel",
+      "belongs_to": [
+        "Governance Layer",
+        "Selection Layer",
+        "Archive Layer",
+        "Immune Layer"
+      ],
+      "evolution_loop_contribution": "Runs bounded tool actions through identity, policy, proof gate, belief-state execution, verifier, and attestation.",
+      "static_or_evolutionary": "PARTIAL_EVOLUTIONARY_RUNTIME",
+      "why_not_architecture": "It has runnable VAES/ARO/VES layers and verifier paths; it is not only documentation."
+    },
+    {
+      "repo": "aro-audit",
+      "primary_role": "Immune",
+      "role_label": "post-execution audit and tamper-rejection layer",
+      "belongs_to": [
+        "Immune Layer",
+        "Archive Layer",
+        "Selection Layer",
+        "Governance Layer"
+      ],
+      "evolution_loop_contribution": "Rejects invalid receipts, preserves audit facts, and supports rollback or dormancy decisions.",
+      "static_or_evolutionary": "STATIC_REFERENCE_WITH_IMMUNE_FUNCTION",
+      "why_not_architecture": "Its center is receipt validation, lifecycle conformance, and tamper rejection."
+    },
+    {
+      "repo": "token-governor",
+      "primary_role": "Governance",
+      "role_label": "pre-execution policy and budget checkpoint",
+      "belongs_to": [
+        "Governance Layer",
+        "Selection Layer",
+        "Immune Layer"
+      ],
+      "evolution_loop_contribution": "Provides cost, budget, latency, success, fallback, and guardrail pressure before execution.",
+      "static_or_evolutionary": "STATIC_GOVERNANCE_SURFACE_WITH_SELECTION_SIGNALS",
+      "why_not_architecture": "It is a policy/budget interface surface with metrics, not the stack narrative hub."
+    },
+    {
+      "repo": "agent-object-protocol",
+      "primary_role": "Genome",
+      "role_label": "executable object contract definition layer",
+      "belongs_to": [
+        "Genome Layer",
+        "Governance Layer",
+        "Selection Layer",
+        "Archive Layer"
+      ],
+      "evolution_loop_contribution": "Defines reusable object-contract traits and conformance gates suitable for genome material.",
+      "static_or_evolutionary": "EVOLUTION_READY_SPECIFICATION",
+      "why_not_architecture": "It defines object schemas, policy schemas, evidence envelopes, fixtures, and conformance gates rather than cross-repo narrative."
+    },
+    {
+      "repo": "persona-object-protocol",
+      "primary_role": "Genome",
+      "role_label": "persona trait and projection definition layer",
+      "belongs_to": [
+        "Genome Layer",
+        "Mutation Layer",
+        "Archive Layer",
+        "Governance Layer"
+      ],
+      "evolution_loop_contribution": "Defines portable persona traits, boundaries, lifecycle state, and runtime projections that can vary across generations.",
+      "static_or_evolutionary": "PARTIAL_EVOLUTIONARY_OBJECT_LAYER",
+      "why_not_architecture": "It owns persona-object schemas, projections, and lifecycle operations, not the full architecture map."
+    },
+    {
+      "repo": "digital-biosphere-architecture",
+      "primary_role": "Architecture",
+      "role_label": "static architecture and meaning hub",
+      "belongs_to": [
+        "Governance Layer",
+        "Archive Layer"
+      ],
+      "evolution_loop_contribution": "Provides vocabulary and repository-role context but no runnable SAEE evolution loop.",
+      "static_or_evolutionary": "STATIC_ARCHITECTURE_HUB",
+      "why_not_everything": "It should remain a spec/context layer because its README explicitly says it is not an implementation entry, dependency graph, source map, or runnable end-to-end path."
+    }
+  ],
+  "primary_role_counts": {
+    "Genome": 2,
+    "Governance": 1,
+    "Execution": 2,
+    "Evidence": 1,
+    "Immune": 1,
+    "Architecture": 1,
+    "UNKNOWN / ORPHAN": 0
+  },
+  "orphans": []
+}

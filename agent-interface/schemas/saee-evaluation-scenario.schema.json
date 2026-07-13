@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Controlled Evaluation Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_evaluation_scenario_v0_1",
+    "schema_version",
+    "scenario_id",
+    "scenario_class",
+    "task_description",
+    "agent_identity",
+    "observed_actions",
+    "resources",
+    "authorization_context",
+    "human_oversight_context",
+    "execution_effects",
+    "expected_claims",
+    "claim_evidence",
+    "reference_condition_expectations",
+    "limitations",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_evaluation_scenario_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "scenario_id": {"type": "string", "pattern": "^code-agent-synthetic-[0-9]{3}$"},
+    "scenario_class": {
+      "enum": [
+        "complete_evidence",
+        "missing_evidence",
+        "incorrect_relationship",
+        "authorization_mismatch",
+        "human_approval_timing_mismatch",
+        "causal_mismatch"
+      ]
+    },
+    "task_description": {"type": "string", "minLength": 1, "maxLength": 320},
+    "agent_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent_id", "synthetic"],
+      "properties": {
+        "agent_id": {"$ref": "#/$defs/reference"},
+        "synthetic": {"const": true}
+      }
+    },
+    "observed_actions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_id", "type", "tool_name", "requested_scope", "timestamp", "synthetic"],
+        "properties": {
+          "action_id": {"$ref": "#/$defs/reference"},
+          "type": {"enum": ["resource_access", "tool_invocation", "effect_recording", "approval_gated_action"]},
+          "tool_name": {"$ref": "#/$defs/reference"},
+          "requested_scope": {"$ref": "#/$defs/reference"},
+          "timestamp": {"type": "string", "format": "date-time"},
+          "synthetic": {"const": true}
+        }
+      }
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["resource_id", "requested_resource", "resolved_uri", "receipt_id", "content_digest", "publisher_identity", "synthetic"],
+        "properties": {
+          "resource_id": {"$ref": "#/$defs/reference"},
+          "requested_resource": {"type": "string", "minLength": 1, "maxLength": 256},
+          "resolved_uri": {"type": "string", "format": "uri"},
+          "receipt_id": {"$ref": "#/$defs/reference"},
+          "content_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "publisher_identity": {"$ref": "#/$defs/reference"},
+          "synthetic": {"const": true}
+        }
+      }
+    },
+    "authorization_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "decision", "agent_id", "action_id", "authority_scope", "valid_from", "valid_until", "synthetic"],
+      "properties": {
+        "policy_id": {"$ref": "#/$defs/reference"},
+        "decision": {"enum": ["allow", "deny", "not_applicable"]},
+        "agent_id": {"$ref": "#/$defs/reference"},
+        "action_id": {"$ref": "#/$defs/reference"},
+        "authority_scope": {"$ref": "#/$defs/reference"},
+        "valid_from": {"type": "string", "format": "date-time"},
+        "valid_until": {"type": "string", "format": "date-time"},
+        "synthetic": {"const": true}
+      }
+    },
+    "human_oversight_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["human_id", "decision", "action_id", "approved_scope", "approval_timestamp", "synthetic"],
+      "properties": {
+        "human_id": {"$ref": "#/$defs/reference"},
+        "decision": {"enum": ["approved", "denied", "not_applicable"]},
+        "action_id": {"$ref": "#/$defs/reference"},
+        "approved_scope": {"$ref": "#/$defs/reference"},
+        "approval_timestamp": {"type": "string", "format": "date-time"},
+        "synthetic": {"const": true}
+      }
+    },
+    "execution_effects": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["effect_id", "status", "sandbox_ref", "resource_receipt_ref", "content_digest", "synthetic"],
+        "properties": {
+          "effect_id": {"$ref": "#/$defs/reference"},
+          "status": {"enum": ["recorded_synthetic_effect", "denied_no_effect", "not_applicable"]},
+          "sandbox_ref": {"$ref": "#/$defs/reference"},
+          "resource_receipt_ref": {"$ref": "#/$defs/reference"},
+          "content_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "synthetic": {"const": true}
+        }
+      }
+    },
+    "expected_claims": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/claim_type"}
+    },
+    "claim_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["saee_evidence_adequacy_input_v0_1", "schema_version", "claim_type", "evidence", "truth_boundary"],
+      "properties": {
+        "saee_evidence_adequacy_input_v0_1": {"const": true},
+        "schema_version": {"const": "0.1.0"},
+        "claim_type": {"$ref": "#/$defs/claim_type"},
+        "evidence": {"type": "object", "minProperties": 1},
+        "truth_boundary": {"$ref": "#/$defs/evidence_truth_boundary"}
+      }
+    },
+    "reference_condition_expectations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["TRACE_ONLY", "TRACE_PLUS_RECEIPT", "TRACE_RECEIPT_RELATIONSHIPS", "COMPLETE_SAEE_PACKAGE"],
+      "properties": {
+        "TRACE_ONLY": {"$ref": "#/$defs/expectation"},
+        "TRACE_PLUS_RECEIPT": {"$ref": "#/$defs/expectation"},
+        "TRACE_RECEIPT_RELATIONSHIPS": {"$ref": "#/$defs/expectation"},
+        "COMPLETE_SAEE_PACKAGE": {"$ref": "#/$defs/expectation"}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 256}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["real_agent_executed", "production_trace_observed", "external_data_used", "external_validation_completed", "production_ready"],
+      "properties": {
+        "real_agent_executed": {"const": false},
+        "production_trace_observed": {"const": false},
+        "external_data_used": {"const": false},
+        "external_validation_completed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 192,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,191}$"
+    },
+    "claim_type": {
+      "enum": ["RESOURCE_AUTHENTICITY", "AUTHORIZED_AGENT_ACTION", "HUMAN_OVERSIGHT", "EXECUTION_BOUNDARY"]
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_support_expected", "expected_missing_requirements", "expected_failed_relationships"],
+      "properties": {
+        "profile_support_expected": {"type": "boolean"},
+        "expected_missing_requirements": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^/[A-Za-z0-9._/-]+$"}
+        },
+        "expected_failed_relationships": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,95}$"}
+        }
+      }
+    },
+    "evidence_truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_occurrence_proven", "identity_independently_verified", "authorization_externally_verified", "legal_finding_established", "production_ready"],
+      "properties": {
+        "event_occurrence_proven": {"const": false},
+        "identity_independently_verified": {"const": false},
+        "authorization_externally_verified": {"const": false},
+        "legal_finding_established": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

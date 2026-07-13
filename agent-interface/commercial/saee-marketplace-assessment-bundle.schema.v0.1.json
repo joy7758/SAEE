@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-marketplace-assessment-bundle.schema.v0.1.json",
+  "title": "SAEE Marketplace Assessment Bundle v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_marketplace_assessment_bundle_v0_1",
+    "bundle_version",
+    "assessment_id",
+    "order_ref",
+    "scope",
+    "operation",
+    "assessment_result",
+    "customer_summary",
+    "input_bindings",
+    "limitations",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_marketplace_assessment_bundle_v0_1": {"const": true},
+    "bundle_version": {"const": "0.1.0"},
+    "assessment_id": {"type": "string"},
+    "order_ref": {"type": "string"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow_id", "scenario_id", "language"],
+      "properties": {
+        "workflow_id": {"type": "string"},
+        "scenario_id": {"type": "string"},
+        "language": {"const": "zh-CN"}
+      }
+    },
+    "operation": {"const": "saee.evaluate_agent_run"},
+    "assessment_result": {"$ref": "../qianfan/saee-evaluate-agent-run-response.schema.v0.1.json"},
+    "customer_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readiness_zh", "recommendation", "coverage_score", "score_semantics_zh", "missing_evidence", "risk_signals"],
+      "properties": {
+        "readiness_zh": {"type": "string", "minLength": 1},
+        "recommendation": {"enum": ["CONTINUE", "HUMAN_REVIEW_REQUIRED", "REPLAN", "STOP"]},
+        "coverage_score": {"type": "integer", "minimum": 0, "maximum": 100},
+        "score_semantics_zh": {"const": "必需证据覆盖百分比，不是可靠性或安全概率"},
+        "missing_evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "risk_signals": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "input_bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intake_sha256", "readiness_request_sha256"],
+      "properties": {
+        "intake_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "readiness_request_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string"}},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "normalized_customer_metadata_used",
+        "raw_customer_data_used",
+        "source_authorization_attested",
+        "sanitization_attested",
+        "content_screen_passed",
+        "pii_absence_verified_by_saee",
+        "trace_authenticity_verified",
+        "human_delivery_required",
+        "customer_accepted",
+        "commercial_service_delivered",
+        "customer_validated",
+        "deployment_authorized",
+        "production_ready"
+      ],
+      "properties": {
+        "normalized_customer_metadata_used": {"const": true},
+        "raw_customer_data_used": {"const": false},
+        "source_authorization_attested": {"const": true},
+        "sanitization_attested": {"const": true},
+        "content_screen_passed": {"const": true},
+        "pii_absence_verified_by_saee": {"const": false},
+        "trace_authenticity_verified": {"const": false},
+        "human_delivery_required": {"const": true},
+        "customer_accepted": {"const": false},
+        "commercial_service_delivered": {"const": false},
+        "customer_validated": {"const": false},
+        "deployment_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# SAEE Commercial Matrix Update Scope Refresh v0.1
+
+commercial_matrix_update_scope_refresh_v0_1: true
+status: ready_for_human_scope_refresh_review_no_execution
+previous_target_count: 5
+refreshed_target_count: 23
+retained_target_count: 5
+added_target_count: 18
+removed_target_count: 0
+not_cataloged_blocker_ids: customer_validated
+human_scope_review_required: true
+exact_human_execution_approval_still_required: true
+active_matrix_request_replaced=false
+approval_scope_changed=false
+matrix_update_executed=false
+blockers_closed_by_scope_refresh=0
+production_ready=false
+customer_validated=false

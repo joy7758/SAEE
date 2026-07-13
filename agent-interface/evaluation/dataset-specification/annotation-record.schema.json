@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Pilot Dataset Annotation Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_annotation_record_v0_1", "schema_version", "episode_id", "annotation_id", "evidence_bundle_ref", "claim_type", "label", "missing_evidence", "invalid_relationship", "annotator_id_hash", "confidence", "annotation_round", "uncertainty_reason"],
+  "properties": {
+    "saee_annotation_record_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "episode_id": {"$ref": "#/$defs/id"},
+    "annotation_id": {"$ref": "#/$defs/id"},
+    "evidence_bundle_ref": {"$ref": "#/$defs/id"},
+    "claim_type": {"enum": ["RESOURCE_AUTHENTICITY", "AUTHORIZED_AGENT_ACTION", "HUMAN_OVERSIGHT", "EXECUTION_BOUNDARY"]},
+    "label": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "INVALID_RELATIONSHIP", "UNKNOWN"]},
+    "missing_evidence": {"type": "array", "maxItems": 64, "uniqueItems": true, "items": {"type": "string", "pattern": "^/[A-Za-z0-9._/-]+$"}},
+    "invalid_relationship": {"type": "array", "maxItems": 64, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "annotator_id_hash": {"$ref": "#/$defs/digest"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "annotation_round": {"enum": ["primary", "adjudication"]},
+    "uncertainty_reason": {"type": "string", "maxLength": 500}
+  },
+  "allOf": [
+    {"if": {"properties": {"label": {"const": "SUPPORTED"}}}, "then": {"properties": {"missing_evidence": {"maxItems": 0}, "invalid_relationship": {"maxItems": 0}, "uncertainty_reason": {"maxLength": 0}}}},
+    {"if": {"properties": {"label": {"const": "INSUFFICIENT_EVIDENCE"}}}, "then": {"properties": {"missing_evidence": {"minItems": 1}}}},
+    {"if": {"properties": {"label": {"const": "INVALID_RELATIONSHIP"}}}, "then": {"properties": {"invalid_relationship": {"minItems": 1}}}},
+    {"if": {"properties": {"label": {"const": "UNKNOWN"}}}, "then": {"properties": {"uncertainty_reason": {"minLength": 1}}}}
+  ],
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
+

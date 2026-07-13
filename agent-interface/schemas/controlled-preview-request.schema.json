@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/controlled-preview-request.schema.json",
+  "title": "SAEE Controlled Preview Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "contract_id",
+    "request_version",
+    "tenant_id",
+    "experiment_id",
+    "evaluation_mode",
+    "input",
+    "requested_outputs",
+    "boundaries",
+    "receipt"
+  ],
+  "properties": {
+    "$schema": {"const": "../schemas/controlled-preview-request.schema.json"},
+    "contract_id": {"const": "saee-controlled-preview-request-v0.1"},
+    "request_version": {"const": "0.1.0"},
+    "tenant_id": {"type": "string", "pattern": "^tenant-[a-z0-9][a-z0-9_-]{1,30}$"},
+    "experiment_id": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{1,62}$"},
+    "evaluation_mode": {"enum": ["synthetic_descriptor_simulation", "observed_trace_bundle_evaluation"]},
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "sha256", "agent_count", "source_attestation"],
+      "properties": {
+        "kind": {"enum": ["non_executable_agent_descriptors", "sanitized_observed_agent_trace_bundle"]},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "agent_count": {"type": "integer", "minimum": 1, "maximum": 32},
+        "source_attestation": {"enum": ["self_attested_only", "owner_attested"]}
+      }
+    },
+    "requested_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"enum": ["stability", "failure", "survival", "ranking", "decision_material"]}
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customer_data", "candidate_code_execution", "external_system_execution", "trace_capture_by_saee", "production_claim", "payment", "human_validation_primary"],
+      "properties": {
+        "customer_data": {"const": false},
+        "candidate_code_execution": {"const": false},
+        "external_system_execution": {"const": false},
+        "trace_capture_by_saee": {"const": false},
+        "production_claim": {"const": false},
+        "payment": {"const": false},
+        "human_validation_primary": {"const": false}
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "schema"],
+      "properties": {
+        "required": {"const": true},
+        "schema": {"const": "agent-interface/schemas/observed-trace-receipt.schema.json"}
+      }
+    }
+  }
+}

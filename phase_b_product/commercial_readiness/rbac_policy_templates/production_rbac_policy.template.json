@@ -1,0 +1,312 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "customer_validated": false,
+  "external_calls_made": false,
+  "external_identity_provider_contacted": false,
+  "jwks_fetched": false,
+  "kernel_modified": false,
+  "notes": "Template for future human-approved production auth implementation review. It is not an enforced RBAC policy.",
+  "oauth_oidc_available": false,
+  "policy_status": "template_only_not_enforced",
+  "policy_type": "saee_production_rbac_policy_template",
+  "policy_version": "v0.1",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_auth_ready": false,
+  "production_identity_provider_available": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "rbac_available": false,
+  "rbac_enforced": false,
+  "rbac_policy_template_v0_1": true,
+  "required_permissions": [
+    "admin:manage",
+    "audit:read",
+    "experiment:create",
+    "experiment:read",
+    "experiment:run",
+    "operations:read",
+    "readiness:read",
+    "support:read",
+    "support:triage"
+  ],
+  "required_roles": [
+    "admin",
+    "evaluator_operator",
+    "owner",
+    "support_operator",
+    "viewer"
+  ],
+  "required_route_scopes": [
+    "GET /commercial/status",
+    "GET /experiment",
+    "GET /experiment/{experiment_id}/failures",
+    "GET /experiment/{experiment_id}/ranking",
+    "GET /experiment/{experiment_id}/stability",
+    "GET /experiment/{experiment_id}/survival",
+    "GET /health",
+    "GET /operations/alerts",
+    "GET /operations/telemetry",
+    "GET /readiness/billing-pricing",
+    "GET /readiness/data-operations",
+    "GET /readiness/legal",
+    "GET /readiness/operations",
+    "GET /readiness/privacy-security",
+    "GET /readiness/support",
+    "GET /readiness/vulnerability",
+    "GET /ready",
+    "POST /experiment/create",
+    "POST /experiment/run"
+  ],
+  "roles": [
+    {
+      "description": "Administrative role without ownership transfer authority.",
+      "permissions": [
+        "audit:read",
+        "experiment:create",
+        "experiment:read",
+        "experiment:run",
+        "operations:read",
+        "readiness:read",
+        "support:read",
+        "support:triage"
+      ],
+      "role": "admin"
+    },
+    {
+      "description": "Operator role for creating and running evaluation jobs.",
+      "permissions": [
+        "experiment:create",
+        "experiment:read",
+        "experiment:run",
+        "readiness:read"
+      ],
+      "role": "evaluator_operator"
+    },
+    {
+      "description": "Account owner role for future human-approved production auth.",
+      "permissions": [
+        "admin:manage",
+        "audit:read",
+        "experiment:create",
+        "experiment:read",
+        "experiment:run",
+        "operations:read",
+        "readiness:read",
+        "support:read",
+        "support:triage"
+      ],
+      "role": "owner"
+    },
+    {
+      "description": "Support role for future triage without private core access.",
+      "permissions": [
+        "audit:read",
+        "experiment:read",
+        "operations:read",
+        "readiness:read",
+        "support:read",
+        "support:triage"
+      ],
+      "role": "support_operator"
+    },
+    {
+      "description": "Read-only role for evaluation result inspection.",
+      "permissions": [
+        "experiment:read",
+        "readiness:read"
+      ],
+      "role": "viewer"
+    }
+  ],
+  "route_scopes": [
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /commercial/status"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "experiment:read",
+      "route": "GET /experiment"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "experiment:read",
+      "route": "GET /experiment/{experiment_id}/failures"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "experiment:read",
+      "route": "GET /experiment/{experiment_id}/ranking"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "experiment:read",
+      "route": "GET /experiment/{experiment_id}/stability"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "experiment:read",
+      "route": "GET /experiment/{experiment_id}/survival"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /health"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "operations:read",
+      "route": "GET /operations/alerts"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "operations:read",
+      "route": "GET /operations/telemetry"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/billing-pricing"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/data-operations"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/legal"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/operations"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/privacy-security"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/support"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /readiness/vulnerability"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator",
+        "viewer",
+        "support_operator"
+      ],
+      "required_permission": "readiness:read",
+      "route": "GET /ready"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator"
+      ],
+      "required_permission": "experiment:create",
+      "route": "POST /experiment/create"
+    },
+    {
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator"
+      ],
+      "required_permission": "experiment:run",
+      "route": "POST /experiment/run"
+    }
+  ],
+  "runtime_modified": false,
+  "tokens_validated": false
+}

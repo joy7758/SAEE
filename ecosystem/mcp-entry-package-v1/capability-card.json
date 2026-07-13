@@ -1,0 +1,28 @@
+{
+  "package_id": "saee.mcp-entry-package",
+  "package_version": "1.0",
+  "status": "ECOSYSTEM_REVIEW_PREPARATION",
+  "capability_id": "saee.agent-reliability",
+  "purpose": "Agent reliability assessment capability",
+  "tools_ref": "ecosystem/mcp-entry-package-v1/mcp-tools.json",
+  "canonical_mcp_descriptor_ref": "capability-package/mcp-tool.json",
+  "canonical_adapter_ref": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+  "runtime_ref": "saee_backend/services/capability_runtime/capability_invocation.py",
+  "mcp_dry_integration_reference": "agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json",
+  "ecosystem_demo_reference": "examples/ecosystem-demo-v1/README.md",
+  "first_validation_candidate_reference": "agent-interface/ecosystem/saee-first-validation-candidate-matrix.v0.1.json",
+  "first_external_validation_simulation_reference": "agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json",
+  "real_validation_entry_gate_reference": "agent-interface/ecosystem/saee-real-ecosystem-validation-entry-decision.v0.1.json",
+  "internal_agent_pilot_reference": "agent-interface/pilot/saee-internal-agent-pilot-plan.v0.1.json",
+  "internal_agent_pilot_execution_reference": "agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json",
+  "truth_boundary": {
+    "ecosystem_entry_package": true,
+    "mcp_entry_package": true,
+    "integration_executed": false,
+    "official_support": false,
+    "external_mcp_interoperability_validated": false,
+    "partner_contact": false,
+    "marketplace_submission": false,
+    "production_ready": false
+  }
+}

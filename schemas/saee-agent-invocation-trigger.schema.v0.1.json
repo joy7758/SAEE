@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"saee-agent-invocation-trigger.schema.v0.1.json",
+  "title":"SAEE Agent Invocation Trigger v0.1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["scenario_id","task_context","trigger_type","task_signals","expected_action","contextual_recommendation","mandatory_usage","reason_codes","truth_boundary"],
+  "properties":{
+    "scenario_id":{"type":"string","pattern":"^[A-Z][A-Z0-9_]{2,80}$"},
+    "task_context":{"type":"string","minLength":10,"maxLength":500},
+    "trigger_type":{"enum":["AUTONOMOUS_MULTI_STEP_WORKFLOW","EXTERNAL_SIDE_EFFECT_PREPARATION","DELEGATED_AGENT_EVALUATION","HIGH_IMPACT_TASK_PREPARATION","EVIDENCE_REQUIREMENT","SIMPLE_LOOKUP","TEXT_FORMATTING","LOW_IMPACT_TRANSFORMATION","AUTHORIZATION_TASK"]},
+    "task_signals":{"type":"array","minItems":1,"maxItems":10,"uniqueItems":true,"items":{"enum":["AUTONOMOUS_WORKFLOW","MULTI_STEP","EXTERNAL_IMPACT","DELEGATED_AGENT","HIGH_IMPACT","RELIABILITY_CONTEXT_NEEDED","EVIDENCE_CONTEXT_NEEDED","AUTHORIZATION_REQUIRED","SIMPLE_INFORMATION_PROCESSING","LOW_IMPACT"]}},
+    "expected_action":{"enum":["CONSIDER_SAEE","DO_NOT_USE_SAEE","COMPOSE_WITH_SEPARATE_AUTHORITY"]},
+    "contextual_recommendation":{"const":true},
+    "mandatory_usage":{"const":false},
+    "reason_codes":{"type":"array","minItems":1,"maxItems":8,"uniqueItems":true,"items":{"type":"string","pattern":"^[A-Z][A-Z0-9_]{2,100}$"}},
+    "truth_boundary":{"type":"object","additionalProperties":false,"required":["synthetic_scenario","agent_adoption_validated","external_agents_connected","market_validation","production_ready"],"properties":{"synthetic_scenario":{"const":true},"agent_adoption_validated":{"const":false},"external_agents_connected":{"const":false},"market_validation":{"const":false},"production_ready":{"const":false}}}
+  }
+}

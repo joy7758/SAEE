@@ -1,0 +1,318 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "baidu_cloud_handoff_preflight_v0_1": true,
+  "blockers_closed_by_preflight": 0,
+  "browser_opened_by_script": false,
+  "candidate_count": 38,
+  "cloud_clear_performed": false,
+  "cloud_clear_required_before_sync": true,
+  "cloud_delete_authorized": false,
+  "cloud_sync_performed": false,
+  "cloud_target_id": "i-8xOwPKN3",
+  "cloud_upload_authorized": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "destructive_cloud_operation_requires_separate_confirmation": true,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_validation_claim": false,
+  "forbidden_prefixes_excluded": [
+    "saee_v1_0/",
+    "saee_backend/",
+    "kernel/",
+    "kernel_v0_2/",
+    "schemas/",
+    "phase_b_product/landing/index.html",
+    "phase_b_product/landing/app.js",
+    "phase_b_product/landing/styles.css"
+  ],
+  "generated_at": "2026-07-06T22:04:47.573127+00:00",
+  "generated_by": "scripts/saee_baidu_cloud_handoff_preflight.py",
+  "handoff_scope": "docs_and_readiness_manifest_only_no_runtime_upload",
+  "human_cloud_clear_confirmation_required": true,
+  "human_cloud_upload_confirmation_required": true,
+  "human_review_required": true,
+  "kernel_modified": false,
+  "landing_page_interaction_modified": false,
+  "missing_candidate_count": 0,
+  "missing_candidates": [],
+  "next_human_action": "If Baidu Cloud sync is still desired, explicitly confirm cloud clear and upload scope before any destructive or external operation.",
+  "paid_trial_enabled": false,
+  "payment_provider_configured": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "runtime_modified": false,
+  "safe_upload_candidate_count": 38,
+  "safe_upload_manifest": [
+    {
+      "exists": true,
+      "path": "README.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 307780
+    },
+    {
+      "exists": true,
+      "path": "PROJECT_STATUS.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 234748
+    },
+    {
+      "exists": true,
+      "path": "ROADMAP.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 230127
+    },
+    {
+      "exists": true,
+      "path": "CHANGELOG.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 317013
+    },
+    {
+      "exists": true,
+      "path": "agent-readable.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 373963
+    },
+    {
+      "exists": true,
+      "path": "llms.txt",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 251231
+    },
+    {
+      "exists": true,
+      "path": "agent-index.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 973390
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/PRODUCT_FACTS.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3385
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/PRODUCT_FACTS.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2108
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/WHEN_TO_RECOMMEND_SAEE.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3746
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/WHEN_NOT_TO_RECOMMEND_SAEE.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3057
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/RECOMMENDATION_DECISION_TREE.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2641
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/BUYER_QUESTIONS_AND_ANSWERS.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3834
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/VALIDATION_RESULTS.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2849
+    },
+    {
+      "exists": true,
+      "path": "agent_recommendation/internal_self_play/SELF_PLAY_RESULTS.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1667
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/landing/for-ai-assistants.html",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 13012
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/commercial_readiness_status.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 5141
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/commercial_readiness_status.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 8900
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/commercial_readiness_status.csv",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 329
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 5066
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 11874
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/CONTROLLED_TRIAL_QUICKSTART_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3321
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/LOCAL_TRIAL_SESSION_MANAGER_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 4309
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/commercial_readiness/LOCAL_TRIAL_MAKE_TARGETS_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 3397
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/LOCAL_TRIAL_PREFLIGHT_SNAPSHOT_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1856
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_preflight_snapshot.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1876
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/LOCAL_TRIAL_COLD_START_PREFLIGHT_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1762
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_cold_start_preflight.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2090
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_cold_start_preflight.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2065
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/LOCAL_TRIAL_HTTP_E2E_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1169
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1803
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_http_e2e/local_trial_http_e2e.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1770
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/LOCAL_TRIAL_LIFECYCLE_PROOF_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1244
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 4124
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_lifecycle_proof/local_trial_lifecycle_proof.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2354
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/LOCAL_TRIAL_HANDOFF_PACKET_V0_1.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 1258
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_handoff_packet.local.json",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2703
+    },
+    {
+      "exists": true,
+      "path": "phase_b_product/validation/local_trial_handoff_packet.md",
+      "reason": "agent-readable documentation or local readiness evidence",
+      "safe_to_upload": true,
+      "size_bytes": 2331
+    }
+  ],
+  "status": "ready_for_human_cloud_clear_confirmation"
+}

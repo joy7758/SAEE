@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:17-static-unit-conversion:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只要求把固定长度单位换算为另一单位，任务完全确定且没有执行影响。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "SIMPLE_CALCULATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "CALCULATOR",
+  "reasoning_boundary": "确定性单位换算应使用计算器或固定程序。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

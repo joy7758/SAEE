@@ -1,0 +1,11 @@
+{
+  "pilot_id":"saee:internal-agent-pilot:automation-workflow",
+  "agent_type":"automation_agent",
+  "task_type":"execute_fixed_local_workflow_plan",
+  "workflow_scope":{"allowed":["read_local_fixture","invoke_allowlisted_local_tool","handle_simulated_failure","produce_recovery_record"],"forbidden":["customer_data","production_system","external_side_effect","permission_expansion","untrusted_code_execution"]},
+  "scenario":{"scenario_id":"AUTOMATION_WORKFLOW","objective":"Evaluate failure recovery and tool-use discipline in a fixed, local, multi-step automation workflow.","evaluation_dimensions":["execution","recovery","tool_usage","boundary"]},
+  "execution_environment":{"environment_type":"local_controlled","network_access":false,"external_world_actions":false,"customer_data":false},
+  "evidence_policy":{"observation_required":true,"reliability_evaluation_required":true,"evidence_evaluation_required":true,"recommendation_required":true,"raw_secret_storage":false},
+  "limitations":["The plan authorizes no production automation.","Simulated tool behavior cannot establish external tool reliability."],
+  "truth_boundary":{"internal_agent_pilot":true,"pilot_executed":false,"external_validation":false,"external_participants":false,"customer_data":false,"production_execution":false,"adoption_validated":false,"production_ready":false}
+}

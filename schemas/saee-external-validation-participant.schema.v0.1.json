@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-participant.schema.v0.1.json",
+  "title": "SAEE External Validation Participant v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "participant_type", "authorization_status", "validation_scope", "allowed_operations", "limitations"],
+  "properties": {
+    "participant_id": {"type": "string", "pattern": "^participant:[a-z0-9][a-z0-9._-]{2,119}$"},
+    "participant_type": {"enum": ["agent_framework", "developer", "research_group", "cloud_platform"]},
+    "authorization_status": {"enum": ["NOT_AUTHORIZED", "AUTHORIZED_FOR_VALIDATION"]},
+    "validation_scope": {"type": "string", "pattern": "^scope:[a-z0-9][a-z0-9._-]{2,119}$"},
+    "allowed_operations": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["capability_discovery_test", "integration_test", "interpretation_test", "compatibility_feedback"]}},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}}
+  }
+}
+

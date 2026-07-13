@@ -1,0 +1,38 @@
+{
+  "local_mvp_tryout_guide_v0_1": true,
+  "status": "local_tryout_guide_available",
+  "trial_scope": "local_mvp_demo_to_evidence_handoff",
+  "local_backend_required": true,
+  "local_static_page_required": true,
+  "demo_url": "http://127.0.0.1:8765/",
+  "api_endpoint": "http://127.0.0.1:8000/experiment/run",
+  "demo_button": "Run Demo Battle",
+  "expected_result_fields": [
+    "recommended_agent",
+    "confidence_score",
+    "ranking",
+    "failure_modes_summary"
+  ],
+  "evidence_handoff_targets": [
+    "phase_b_product/validation/controlled_trial_operator_packet/local_trial_session_template.json",
+    "phase_b_product/validation/controlled_trial_operator_packet/local_trial_observation_sheet.md",
+    "phase_b_product/validation/PILOT_RESULT_TEMPLATE.json"
+  ],
+  "production_ready": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "customer_data_allowed": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "external_calls_made": false,
+  "external_ai_assistant_tested": false,
+  "external_validation_claim": false,
+  "private_core_exposed": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "blockers_closed_by_guide": 0,
+  "next_human_action": "Run the local MVP demo and record observed results in the controlled trial packet."
+}
+

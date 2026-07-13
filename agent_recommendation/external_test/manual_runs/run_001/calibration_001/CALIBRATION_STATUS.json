@@ -1,0 +1,19 @@
+{
+  "calibration_run_id": "calibration_001",
+  "status": "completed_with_human_results_hold",
+  "manual_execution_required": false,
+  "manual_execution_deferred": false,
+  "external_ai_tested": true,
+  "external_calls_made_by_codex": false,
+  "browser_automation_used": false,
+  "planned_records": 6,
+  "records_entered": 6,
+  "results_imported": true,
+  "scoring_completed": true,
+  "external_validation_claim": false,
+  "product_launched": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "production_ready_claim": false,
+  "validation_status": "hold"
+}

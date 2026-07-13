@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Agent Error v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_agent_error_v0_1", "schema_version", "error_type", "message",
+    "evaluation_performed", "external_calls_made", "candidate_code_executed",
+    "private_core_exposed", "production_ready"
+  ],
+  "properties": {
+    "saee_agent_error_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "error_type": {"enum": ["input_not_found", "invalid_json", "schema_validation_error", "evaluation_error"]},
+    "message": {"type": "string", "minLength": 1},
+    "evaluation_performed": {"const": false},
+    "external_calls_made": {"const": false},
+    "candidate_code_executed": {"const": false},
+    "private_core_exposed": {"const": false},
+    "production_ready": {"const": false}
+  }
+}

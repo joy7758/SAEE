@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://redcrag.cn/schemas/saee-internal-agent-pilot-execution-result.schema.v1.0.json",
+  "title":"SAEE Internal Agent Pilot Execution Result v1.0",
+  "type":"object","additionalProperties":false,
+  "required":["result_version","runs_completed","scenarios","observations","reliability_summary","evidence_summary","recommendations","limitations","truth_boundary"],
+  "properties":{
+    "result_version":{"const":"1.0"},"runs_completed":{"const":3},
+    "scenarios":{"type":"array","minItems":3,"maxItems":3,"uniqueItems":true,"items":{"enum":["CODE_CHANGE_WORKFLOW","RESEARCH_WORKFLOW","AUTOMATION_WORKFLOW"]}},
+    "observations":{"type":"array","minItems":3,"maxItems":3,"uniqueItems":true,"items":{"type":"string","pattern":"^agent-interface/pilot/pilot-observations/.+\\.json$"}},
+    "reliability_summary":{"type":"object","additionalProperties":false,"required":["observed_pass","observed_partial","observed_fail","direct_codex_evaluation_supported","projection_evaluations_completed"],"properties":{"observed_pass":{"type":"integer","minimum":0},"observed_partial":{"type":"integer","minimum":0},"observed_fail":{"type":"integer","minimum":0},"direct_codex_evaluation_supported":{"const":false},"projection_evaluations_completed":{"const":3}}},
+    "evidence_summary":{"type":"object","additionalProperties":false,"required":["pass","fail","accountability_claims_established"],"properties":{"pass":{"type":"integer","minimum":0},"fail":{"type":"integer","minimum":0},"accountability_claims_established":{"const":0}}},
+    "recommendations":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["run_id","recommendation"],"properties":{"run_id":{"type":"string","minLength":1},"recommendation":{"enum":["CONTINUE","REPLAN","HUMAN_REVIEW_REQUIRED","STOP"]}}}},
+    "limitations":{"type":"array","minItems":4,"items":{"type":"string","minLength":1}},
+    "truth_boundary":{"type":"object","additionalProperties":false,"required":["internal_agent_pilot","pilot_executed","real_internal_execution","external_validation","customer_data","production_execution","external_world_actions","adoption_validated","production_ready"],"properties":{"internal_agent_pilot":{"const":true},"pilot_executed":{"const":true},"real_internal_execution":{"const":true},"external_validation":{"const":false},"customer_data":{"const":false},"production_execution":{"const":false},"external_world_actions":{"const":false},"adoption_validated":{"const":false},"production_ready":{"const":false}}}
+  }
+}

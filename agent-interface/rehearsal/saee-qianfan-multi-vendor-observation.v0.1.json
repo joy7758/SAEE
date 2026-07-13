@@ -1,0 +1,29 @@
+{
+  "observation_version": "0.1",
+  "observed_on": "2026-07-12",
+  "provider_gateway": "baidu_qianfan",
+  "credential_source": "environment_variable_not_recorded",
+  "catalog_endpoint": "https://qianfan.baidubce.com/v2/models",
+  "catalog_observation": {
+    "model_count": 35,
+    "deepseek_identifier_observed": true,
+    "zhipu_or_glm_identifier_observed": true,
+    "moonshot_or_kimi_identifier_observed": true,
+    "qwen_identifier_observed": true
+  },
+  "invocation_scope": {
+    "ernie_live_rehearsal_observed": true,
+    "non_ernie_models_invoked_in_this_check": false,
+    "cross_vendor_function_calling_validated": false
+  },
+  "truth_boundary": {
+    "catalog_visibility_is_invocation": false,
+    "provider_gateway_separated_from_model_vendor": true,
+    "multi_vendor_catalog_observed": true,
+    "multi_vendor_rehearsal_validated": false,
+    "secret_reflected": false,
+    "customer_data_used": false,
+    "external_world_actions": false,
+    "production_ready": false
+  }
+}

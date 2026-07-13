@@ -1,0 +1,87 @@
+{
+  "$schema": "../schemas/observed-trace-bundle.schema.json",
+  "schema_version": "0.1.0",
+  "bundle_id": "observed-stability-example-001",
+  "source": {
+    "producer_id": "sanitized-benchmark-export",
+    "capture_method": "benchmark_run",
+    "sanitization_attested": true,
+    "source_authorized": true,
+    "raw_content_excluded": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "candidate-alpha",
+      "context": {
+        "scenario_id": "support-workflow-v1",
+        "metric_name": "normalized-task-quality",
+        "metric_min": 0.0,
+        "metric_max": 1.0,
+        "higher_is_better": true,
+        "horizon_unit": "turn",
+        "expected_horizon": 5,
+        "failure_definition": "alive_false_or_normalized_failure_code"
+      },
+      "runs": [
+        {
+          "run_id": "alpha-run-01",
+          "censored": false,
+          "steps": [
+            {"step": 0, "quality_score": 0.84, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 1, "quality_score": 0.86, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 2, "quality_score": 0.83, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 3, "quality_score": 0.85, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 4, "quality_score": 0.84, "alive": true, "failure_code": "none", "failure_severity": 0.0}
+          ]
+        },
+        {
+          "run_id": "alpha-run-02",
+          "censored": false,
+          "steps": [
+            {"step": 0, "quality_score": 0.82, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 1, "quality_score": 0.84, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 2, "quality_score": 0.85, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 3, "quality_score": 0.83, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 4, "quality_score": 0.84, "alive": true, "failure_code": "none", "failure_severity": 0.0}
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "candidate-beta",
+      "context": {
+        "scenario_id": "support-workflow-v1",
+        "metric_name": "normalized-task-quality",
+        "metric_min": 0.0,
+        "metric_max": 1.0,
+        "higher_is_better": true,
+        "horizon_unit": "turn",
+        "expected_horizon": 5,
+        "failure_definition": "alive_false_or_normalized_failure_code"
+      },
+      "runs": [
+        {
+          "run_id": "beta-run-01",
+          "censored": false,
+          "steps": [
+            {"step": 0, "quality_score": 0.79, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 1, "quality_score": 0.72, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 2, "quality_score": 0.60, "alive": true, "failure_code": "tool_error", "failure_severity": 0.35},
+            {"step": 3, "quality_score": 0.41, "alive": true, "failure_code": "invalid_output", "failure_severity": 0.55},
+            {"step": 4, "quality_score": 0.18, "alive": false, "failure_code": "resource_exhaustion", "failure_severity": 0.9}
+          ]
+        },
+        {
+          "run_id": "beta-run-02",
+          "censored": true,
+          "steps": [
+            {"step": 0, "quality_score": 0.76, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 1, "quality_score": 0.70, "alive": true, "failure_code": "none", "failure_severity": 0.0},
+            {"step": 2, "quality_score": 0.62, "alive": true, "failure_code": "timeout", "failure_severity": 0.3},
+            {"step": 3, "quality_score": 0.57, "alive": true, "failure_code": "none", "failure_severity": 0.0}
+          ]
+        }
+      ]
+    }
+  ]
+}

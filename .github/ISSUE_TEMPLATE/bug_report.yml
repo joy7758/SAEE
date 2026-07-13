@@ -1,0 +1,32 @@
+name: Bug Report
+description: Report a defect without changing the SAEE mainline
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary（摘要）
+    validations:
+      required: true
+  - type: textarea
+    id: affected_surface
+    attributes:
+      label: Affected surface（受影响表面）
+      description: File, subsystem, schema, or guard affected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction（复现步骤）
+    validations:
+      required: true
+  - type: textarea
+    id: safety_boundary
+    attributes:
+      label: Safety boundary（安全边界）
+      description: Confirm the report does not require unsafe external execution.
+    validations:
+      required: true
+

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 填写后本地检查步骤</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --surface: #ffffff;
+        --soft: #eef3ff;
+        --text: #111827;
+        --muted: #667085;
+        --line: #d9e2ef;
+        --accent: #316bff;
+        --danger: #b42318;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0;
+      }
+      header, section {
+        margin-bottom: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: 0 18px 48px rgba(17, 24, 39, 0.06);
+      }
+      header {
+        padding: clamp(28px, 6vw, 52px);
+        background: linear-gradient(135deg, #ffffff 0%, #eef3ff 100%);
+      }
+      section { padding: 26px; }
+      h1, h2, p { margin-top: 0; }
+      h1 {
+        max-width: 760px;
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+      h2 { font-size: 24px; }
+      .kicker {
+        color: var(--accent);
+        font-weight: 800;
+      }
+      .lead {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .stat {
+        min-height: 92px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255,255,255,0.76);
+      }
+      .stat strong {
+        display: block;
+        font-size: 26px;
+      }
+      .stat span { color: var(--muted); font-size: 13px; }
+      code {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #101828;
+        color: #ffffff;
+        overflow-wrap: anywhere;
+        font-size: 13px;
+      }
+      ol, ul {
+        display: grid;
+        gap: 12px;
+        padding-left: 22px;
+      }
+      li p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+      .warning {
+        border-color: #ffd6d1;
+        background: #fff5f4;
+      }
+      .warning strong { color: var(--danger); }
+      .boundary-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 16px;
+        padding: 0;
+        list-style: none;
+      }
+      .boundary-list li {
+        padding: 10px 12px;
+        border-radius: 9px;
+        background: var(--soft);
+        color: var(--muted);
+      }
+      @media (max-width: 720px) {
+        .stats, .boundary-list { grid-template-columns: 1fr; }
+        main { padding-top: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+	    <main>
+	      <header>
+	        <p class="kicker">SAEE 商用准备 · 填写后本地检查</p>
+	        <h1>10 行填写流程已停用。</h1>
+	        <p class="lead">
+	          完整 quick-fill 值已经进入下一步：等待人工确认是否允许导入工作簿。这个页面只记录旧流程已停用。
+	        </p>
+        <div class="stats" aria-label="当前状态">
+          <div class="stat"><strong>0</strong><span>本批行数</span></div>
+          <div class="stat"><strong>0</strong><span>仍缺人工值</span></div>
+          <div class="stat"><strong>2</strong><span>dry-run 命令</span></div>
+          <div class="stat"><strong>0</strong><span>已关闭阻塞点</span></div>
+        </div>
+	      </header>
+
+	      <section>
+	        <h2>第一步：查看工作簿导入批准包</h2>
+	        <p>当前不需要填写 10 行模板。请审查批准包，并在单独明确批准前不要导入工作簿。</p>
+	        <code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.csv</code>
+	        <p>当前状态：superseded_by_full_quick_fill_values_pending_workbook_import_approval</p>
+	      </section>
+
+	      <section>
+	        <h2>第二步：只跑本地确认命令</h2>
+        <ol>
+          
+        <li>
+          <code>python3 scripts/saee_commercial_sprint_workbook_import_approval_request_packet.py</code>
+          <p>Refresh the human approval packet before any separate workbook import execution request.</p>
+        </li>
+        
+
+        <li>
+          <code>python3 scripts/mainline_guard.py</code>
+          <p>Confirm the repository still preserves commercial and private-core boundaries.</p>
+        </li>
+        
+        </ol>
+      </section>
+
+	      <section class="warning">
+	        <h2>需要单独批准的命令</h2>
+	        <p><strong>现在没有授权执行。</strong>当前没有旧模板写入命令获得授权。任何工作簿导入都必须另走单独批准。</p>
+        <ul>
+          
+        </ul>
+      </section>
+
+      <section>
+        <h2>边界</h2>
+        <ul class="boundary-list">
+          <li>production_ready: false</li>
+          <li>product_launched: false</li>
+          <li>customer_validated: false</li>
+          <li>workbook_import_authorized: false</li>
+          <li>evidence_collection_authorized: false</li>
+          <li>blockers_closed_by_runbook: 0</li>
+          <li>runtime_modified: false</li>
+          <li>backend_modified: false</li>
+          <li>kernel_modified: false</li>
+          <li>private_core_exposed: false</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

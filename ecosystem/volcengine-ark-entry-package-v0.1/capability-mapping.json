@@ -1,0 +1,12 @@
+{
+  "mapping_version": "0.1",
+  "platform": "VOLCENGINE_ARK",
+  "canonical_mapping_ref": "agent-interface/ecosystem/saee-volcengine-capability-mapping.v0.1.json",
+  "status": "DESIGN_ONLY",
+  "saee_capability": "saee.agent-reliability",
+  "candidate_surfaces": ["FUNCTION_CALLING", "MCP", "HTTP_CAPABILITY"],
+  "provider_observation_ref": "agent-interface/rehearsal/saee-volcengine-multi-vendor-observation.v0.1.json",
+  "official_integration": false,
+  "marketplace_support_verified": false,
+  "production_ready": false
+}

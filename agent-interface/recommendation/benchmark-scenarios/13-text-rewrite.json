@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:13-text-rewrite:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户要求把一段文字改得更简洁，只发生文本变换且没有外部执行影响。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "TEXT_TRANSFORMATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LANGUAGE_TOOL",
+  "reasoning_boundary": "纯文本改写应使用语言工具，不能无理由引入 SAEE。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

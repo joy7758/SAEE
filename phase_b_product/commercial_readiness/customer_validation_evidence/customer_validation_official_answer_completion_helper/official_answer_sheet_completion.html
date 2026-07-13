@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAEE 客户验证官方答案表完成页</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --panel: #fffefa;
+      --ink: #191816;
+      --muted: #6f6a61;
+      --line: #ddd6ca;
+      --accent: #2354d8;
+      --soft: #e9eefc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 20px 56px; }
+    header { display: grid; gap: 12px; margin-bottom: 22px; }
+    h1 { font-size: clamp(28px, 4vw, 48px); line-height: 1.08; margin: 0; letter-spacing: 0; }
+    h2 { font-size: 20px; margin: 0 0 12px; }
+    p { margin: 0; color: var(--muted); }
+    .status {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+    }
+    .pill {
+      border: 1px solid var(--line); background: var(--panel); border-radius: 999px;
+      padding: 8px 12px; font-size: 13px; color: var(--muted);
+    }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); gap: 18px; align-items: start; }
+    section, aside {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px;
+      box-shadow: 0 12px 30px rgba(35, 31, 24, 0.06);
+    }
+    .grid { display: grid; gap: 12px; }
+    label { display: grid; gap: 6px; }
+    label span { font-size: 13px; color: var(--muted); }
+    input, textarea, select {
+      width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #fff;
+      padding: 10px 11px; font: inherit; color: var(--ink);
+    }
+    textarea { resize: vertical; }
+    .group { margin-bottom: 20px; }
+    button {
+      width: 100%; border: 0; border-radius: 8px; background: var(--accent); color: white;
+      font: inherit; font-weight: 650; padding: 12px 14px; cursor: pointer;
+    }
+    pre {
+      white-space: pre-wrap; overflow-wrap: anywhere; min-height: 380px; margin: 14px 0 0;
+      background: #111318; color: #f5f3ed; border-radius: 8px; padding: 14px; font-size: 13px;
+    }
+    .note { background: var(--soft); border-color: #cbd6f8; }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p>SAEE 客户验证</p>
+    <h1>官方答案表完成页</h1>
+    <p>用于真实客户或目标用户访谈之后，把答案整理成可复制的 key: value 文本。此页面只在浏览器里生成文本，不写文件、不联网、不代表客户验证已完成。</p>
+    <div class="status">
+      <span class="pill">当前阻塞：customer_validated</span>
+      <span class="pill">客户验证：false</span>
+      <span class="pill">生产可用：false</span>
+      <span class="pill">不暴露私有核心</span>
+    </div>
+  </header>
+  <div class="layout">
+    <section>
+      <div class="group">
+        <h2>一、会话和客户答案</h2>
+        <div class="grid"><label><span>Use `key</span><input data-field="Use `key" type="text" /></label>
+<label><span>session id</span><input data-field="session_id" type="text" /></label>
+<label><span>session date</span><input data-field="session_date" type="text" /></label>
+<label><span>human reviewer name</span><input data-field="human_reviewer_name" type="text" /></label>
+<label><span>participant role</span><input data-field="participant_role" type="text" /></label>
+<label><span>team type</span><input data-field="team_type" type="text" /></label>
+<label><span>current evaluation method</span><input data-field="current_evaluation_method" type="text" /></label>
+<label><span>candidate count</span><input data-field="candidate_count" type="number" min="0" /></label>
+<label><span>understanding score</span><input data-field="understanding_score" type="number" min="0" /></label>
+<label><span>trust score</span><input data-field="trust_score" type="number" min="0" /></label>
+<label><span>decision influence score</span><input data-field="decision_influence_score" type="number" min="0" /></label>
+<label><span>repeat usage intent score</span><input data-field="repeat_usage_intent_score" type="number" min="0" /></label>
+<label><span>time to value minutes</span><input data-field="time_to_value_minutes" type="number" min="0" /></label>
+<label><span>willing to test own candidates</span><select data-field="willing_to_test_own_candidates"><option value="">请选择</option><option value="true">true - 是</option><option value="false">false - 否</option></select></label>
+<label><span>top objection</span><textarea data-field="top_objection" rows="3"></textarea></label>
+<label><span>evidence missing</span><textarea data-field="evidence_missing" rows="3"></textarea></label>
+<label><span>notes</span><textarea data-field="notes" rows="3"></textarea></label>
+<label><span>human source context</span><textarea data-field="human_source_context" rows="3"></textarea></label>
+<label><span>human entry confirmed</span><select data-field="human_entry_confirmed"><option value="">请选择</option><option value="true">true - 是</option><option value="false">false - 否</option></select></label></div>
+      </div>
+      <div class="group">
+        <h2>二、边界确认</h2>
+        <p>只有事实成立时才选 true。</p>
+        <div class="grid"><label><span>no secrets collected</span><select data-field="no_secrets_collected"><option value="">请选择</option><option value="true">true - 事实成立</option><option value="false">false - 不成立</option></select></label>
+<label><span>no production data collected</span><select data-field="no_production_data_collected"><option value="">请选择</option><option value="true">true - 事实成立</option><option value="false">false - 不成立</option></select></label>
+<label><span>no customer data uploaded</span><select data-field="no_customer_data_uploaded"><option value="">请选择</option><option value="true">true - 事实成立</option><option value="false">false - 不成立</option></select></label>
+<label><span>no private core disclosed</span><select data-field="no_private_core_disclosed"><option value="">请选择</option><option value="true">true - 事实成立</option><option value="false">false - 不成立</option></select></label>
+<label><span>no production ready claim made</span><select data-field="no_production_ready_claim_made"><option value="">请选择</option><option value="true">true - 事实成立</option><option value="false">false - 不成立</option></select></label></div>
+      </div>
+      <div class="group">
+        <h2>三、证据复核确认</h2>
+        <p>默认是 true，但仍需人工确认。</p>
+        <div class="grid"><label><span>at least one human approved pilot session completed</span><select data-field="at_least_one_human_approved_pilot_session_completed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>boundary flags reviewed</span><select data-field="boundary_flags_reviewed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>claim scope approved</span><select data-field="claim_scope_approved"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>customer problem fit reviewed</span><select data-field="customer_problem_fit_reviewed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>customer role and segment recorded</span><select data-field="customer_role_and_segment_recorded"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>customer validation record approved by human</span><select data-field="customer_validation_record_approved_by_human"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>decision usefulness observed</span><select data-field="decision_usefulness_observed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>deployment decision value observed</span><select data-field="deployment_decision_value_observed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>failure summary usefulness observed</span><select data-field="failure_summary_usefulness_observed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>feedback form completed</span><select data-field="feedback_form_completed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>go hold pivot decision recorded</span><select data-field="go_hold_pivot_decision_recorded"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>negative feedback recorded</span><select data-field="negative_feedback_recorded"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>no customer secrets collected</span><select data-field="no_customer_secrets_collected"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>no customer upload required</span><select data-field="no_customer_upload_required"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>no private core disclosed</span><select data-field="no_private_core_disclosed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>no production ready claim added</span><select data-field="no_production_ready_claim_added"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>no public launch claim added</span><select data-field="no_public_launch_claim_added"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>pain point fit observed</span><select data-field="pain_point_fit_observed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>permission to use feedback recorded</span><select data-field="permission_to_use_feedback_recorded"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>pilot result reviewed by human</span><select data-field="pilot_result_reviewed_by_human"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>pilot result template completed</span><select data-field="pilot_result_template_completed"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>real customer or target user feedback recorded</span><select data-field="real_customer_or_target_user_feedback_recorded"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>recommendation output understood</span><select data-field="recommendation_output_understood"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>reviewer approved validation claim</span><select data-field="reviewer_approved_validation_claim"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label>
+<label><span>success criteria applied</span><select data-field="success_criteria_applied"><option value="true">true - 已人工确认</option><option value="">未确认</option><option value="false">false - 不成立</option></select></label></div>
+      </div>
+    </section>
+    <aside>
+      <section class="note">
+        <h2>下一步</h2>
+        <p>1. 填完左侧字段。</p>
+        <p>2. 点击生成文本。</p>
+        <p>3. 人工复制到：</p>
+        <p><code>phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_answer_intake_helper/customer_validation_answers.human_filled.md</code></p>
+        <p>4. 再运行 answer intake 和 evidence pipeline。</p>
+      </section>
+      <button type="button" id="generate">生成可复制答案文本</button>
+      <pre id="output">点击按钮后，这里会生成 key: value 文本。</pre>
+    </aside>
+  </div>
+</main>
+<script>
+  const button = document.getElementById('generate');
+  const output = document.getElementById('output');
+  button.addEventListener('click', () => {
+    const rows = ['# SAEE Customer Validation Human Answer Sheet', '', 'Only fill this after a real external customer or target-user session.'];
+    document.querySelectorAll('[data-field]').forEach((el) => {
+      const key = el.getAttribute('data-field');
+      const value = (el.value || '').trim();
+      rows.push(`${key}: ${value}`);
+    });
+    rows.push('', '# Generated locally in browser. Review manually before using as official evidence.');
+    output.textContent = rows.join('\n');
+  });
+</script>
+</body>
+</html>

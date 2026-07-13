@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:30-incident-triage:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "团队需要对正在发生的安全事件进行轨迹定位和威胁告警关联，但不进行上线前演练。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "TRACE_DIAGNOSTICS_NEEDED",
+    "SECURITY_MONITORING_REQUIRED"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "OBSERVABILITY + SECURITY_MONITORING",
+  "reasoning_boundary": "事件排查需要观测与安全监控组合，没有上线前准备度需求时不应加入 SAEE。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

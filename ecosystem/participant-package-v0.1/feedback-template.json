@@ -1,0 +1,10 @@
+{
+  "participant_type": "developer",
+  "integration_mode": "documentation_only",
+  "discovery_result": "NOT_TESTED",
+  "invocation_result": "NOT_TESTED",
+  "interpretation_result": "NOT_TESTED",
+  "boundary_issue": ["NONE"],
+  "compatibility_issue": "",
+  "notes": ""
+}

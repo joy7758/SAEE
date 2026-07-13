@@ -1,0 +1,234 @@
+{
+  "saee_evidence_adequacy_benchmark_v0_1": true,
+  "benchmark_version": "0.1.0",
+  "benchmark_id": "SAEE-EAB-v0.1",
+  "scope": "synthetic_offline_evidence_adequacy",
+  "scenarios": [
+    {
+      "scenario_id": "eab-l0-resource-trace-only",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "scenario_description": "A synthetic trace-like observation carries only an agent and requested resource reference.",
+      "evidence_level": "LEVEL_0_TRACE_ONLY",
+      "available_evidence": ["agent_observation", "requested_resource_observation"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/resource_receipt", "value": {"agent_id": "agent:synthetic-trace-001", "requested_resource": "repository:synthetic/example@v0.1.0"}}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": [
+        "/resource_receipt/resolved_uri",
+        "/resource_receipt/publisher_identity",
+        "/resource_receipt/content_digest",
+        "/resource_receipt/policy_decision_ref"
+      ],
+      "expected_reason_codes": [
+        "EVIDENCE_RESOLVED_URI_MISSING",
+        "EVIDENCE_PUBLISHER_IDENTITY_MISSING",
+        "EVIDENCE_DIGEST_MISSING",
+        "EVIDENCE_POLICY_DECISION_MISSING"
+      ],
+      "limitations": ["Synthetic trace observation does not establish resource authenticity."]
+    },
+    {
+      "scenario_id": "eab-l0-authorized-action-trace-only",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "scenario_description": "A synthetic action observation exists without a policy decision object.",
+      "evidence_level": "LEVEL_0_TRACE_ONLY",
+      "available_evidence": ["agent_observation", "action_observation", "timestamp_observation"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/policy_decision", "value": {}}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": ["/policy_decision"],
+      "expected_reason_codes": ["EVIDENCE_POLICY_DECISION_MISSING"],
+      "limitations": ["An observed action is not an authorization decision."]
+    },
+    {
+      "scenario_id": "eab-l0-human-observation-only",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "scenario_description": "A synthetic trace claims a human identifier but provides no approval context, scope, or decision evidence.",
+      "evidence_level": "LEVEL_0_TRACE_ONLY",
+      "available_evidence": ["action_observation", "human_identity_observation"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/approval", "value": {"human_identity": "human:synthetic-observation-001"}}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": [
+        "/approval/approval_context",
+        "/approval/approved_scope",
+        "/approval/approval_timestamp",
+        "/approval/action_id",
+        "/approval/decision"
+      ],
+      "expected_reason_codes": [
+        "EVIDENCE_APPROVAL_CONTEXT_MISSING",
+        "EVIDENCE_APPROVED_SCOPE_MISSING",
+        "EVIDENCE_APPROVAL_TIMESTAMP_MISSING",
+        "EVIDENCE_REQUIRED_FIELD_MISSING"
+      ],
+      "limitations": ["A human identifier in a trace does not prove human approval."]
+    },
+    {
+      "scenario_id": "eab-l1-resource-receipt",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "scenario_description": "A complete local synthetic resource-resolution receipt satisfies the current resource profile.",
+      "evidence_level": "LEVEL_1_RECEIPT",
+      "available_evidence": ["resource_resolution_receipt", "content_digest", "policy_reference"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+        "mutations": []
+      },
+      "expected_result": "PASS",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": [],
+      "limitations": ["Profile PASS does not independently prove publisher identity or real resource authenticity."]
+    },
+    {
+      "scenario_id": "eab-l1-action-receipt-mismatched-reference",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "scenario_description": "Action and policy objects are present but refer to different action identifiers.",
+      "evidence_level": "LEVEL_1_RECEIPT",
+      "available_evidence": ["action_record", "policy_decision_record"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/policy_decision/action_id", "value": "action:synthetic-other-001"}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": ["EVIDENCE_ACTION_BINDING_MISMATCH"],
+      "limitations": ["Object presence does not repair a broken action relationship."]
+    },
+    {
+      "scenario_id": "eab-l1-execution-receipt-no-causal-link",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "scenario_description": "Resource and effect records exist without an explicit causal-link record.",
+      "evidence_level": "LEVEL_1_RECEIPT",
+      "available_evidence": ["resource_binding_record", "execution_effect_record"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/causal_link", "value": {}}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": ["/causal_link"],
+      "expected_reason_codes": ["EVIDENCE_CAUSAL_LINK_MISSING"],
+      "limitations": ["Two records do not establish a causal relationship by proximity alone."]
+    },
+    {
+      "scenario_id": "eab-l2-authorized-action-bound",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "scenario_description": "Action and allow decision share agent, action, scope, and a valid time window.",
+      "evidence_level": "LEVEL_2_RECEIPT_WITH_RELATIONSHIPS",
+      "available_evidence": ["action_record", "policy_decision_record", "reference_relationships", "authority_window"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+        "mutations": []
+      },
+      "expected_result": "PASS",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": [],
+      "limitations": ["Local relationship sufficiency does not verify the external policy authority."]
+    },
+    {
+      "scenario_id": "eab-l2-human-approval-after-action",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "scenario_description": "All approval fields exist, but the approval timestamp is later than the action timestamp.",
+      "evidence_level": "LEVEL_2_RECEIPT_WITH_RELATIONSHIPS",
+      "available_evidence": ["action_record", "approval_record", "approval_context", "scope_relationship"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/approval/approval_timestamp", "value": "2026-07-11T05:11:00Z"}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": ["EVIDENCE_APPROVAL_TIME_INVALID"],
+      "limitations": ["Field completeness cannot compensate for invalid temporal ordering."]
+    },
+    {
+      "scenario_id": "eab-l2-execution-digest-mismatch",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "scenario_description": "All relationship fields exist, but the causal link carries a different content digest.",
+      "evidence_level": "LEVEL_2_RECEIPT_WITH_RELATIONSHIPS",
+      "available_evidence": ["resource_binding_record", "execution_effect_record", "causal_link_record"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+        "mutations": [
+          {"operation": "replace", "path": "/evidence/causal_link/content_digest", "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}
+        ]
+      },
+      "expected_result": "FAIL",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": ["EVIDENCE_CAUSAL_BINDING_INVALID"],
+      "limitations": ["Field count is unchanged; only semantic digest binding is broken."]
+    },
+    {
+      "scenario_id": "eab-l3-resource-complete-package",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "scenario_description": "A complete synthetic resource receipt also carries an optional persona reference covered by its recomputed receipt digest.",
+      "evidence_level": "LEVEL_3_COMPLETE_EVIDENCE_PACKAGE",
+      "available_evidence": ["resource_resolution_receipt", "persona_reference", "content_digest", "policy_reference", "sandbox_boundary"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+        "mutations": [
+          {"operation": "add", "path": "/evidence/resource_receipt/persona_ref", "value": "persona:synthetic-benchmark-001"},
+          {"operation": "replace", "path": "/evidence/resource_receipt/integrity/receipt_digest", "value": "912b90b070349d1066358dd298aa707f327d54251275fb9f8836e4b5bfca6a42"}
+        ]
+      },
+      "expected_result": "PASS",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": [],
+      "limitations": ["Complete local package still does not establish real-world publisher authenticity."]
+    },
+    {
+      "scenario_id": "eab-l3-human-complete-package",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "scenario_description": "Synthetic approval context, scope, action reference, decision, and temporal ordering satisfy the local profile.",
+      "evidence_level": "LEVEL_3_COMPLETE_EVIDENCE_PACKAGE",
+      "available_evidence": ["action_record", "human_identity_claim", "approval_context", "approved_scope", "temporal_relationship"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+        "mutations": []
+      },
+      "expected_result": "PASS",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": [],
+      "limitations": ["Synthetic human identity and approval data are not externally authenticated."]
+    },
+    {
+      "scenario_id": "eab-l3-execution-complete-package",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "scenario_description": "Resource, effect, digest, URI, sandbox, and causal references consistently satisfy the local execution-boundary profile.",
+      "evidence_level": "LEVEL_3_COMPLETE_EVIDENCE_PACKAGE",
+      "available_evidence": ["resource_binding_record", "execution_effect_record", "causal_link_record", "digest_relationship", "sandbox_reference"],
+      "evidence_inputs": {
+        "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+        "mutations": []
+      },
+      "expected_result": "PASS",
+      "expected_missing_requirements": [],
+      "expected_reason_codes": [],
+      "limitations": ["Synthetic causal consistency does not prove a real execution occurred."]
+    }
+  ],
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "legal_accountability_established": false,
+    "external_validation_claimed": false,
+    "benchmark_superiority_claimed": false,
+    "certification_claimed": false,
+    "production_ready": false
+  }
+}

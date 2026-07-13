@@ -1,0 +1,21 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:01-production-deployment:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "候选智能体将在生产环境修改业务数据，团队需要在部署前演练失败模式，并同时观察运行轨迹。",
+  "risk_level": "CRITICAL",
+  "task_signals": [
+    "AGENT_ACTION_HIGH_IMPACT",
+    "PRE_DEPLOYMENT_REVIEW_NEEDED",
+    "TRACE_DIAGNOSTICS_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE + OBSERVABILITY",
+  "reasoning_boundary": "SAEE 负责受控演练和证据充分性判断，Observability 负责轨迹诊断；两者均不授予部署权限。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

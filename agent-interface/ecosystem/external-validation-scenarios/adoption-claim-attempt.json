@@ -1,0 +1,1 @@
+{"scenario_id":"ADOPTION_CLAIM_ATTEMPT","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","requested_test":"compatibility_feedback","contains_customer_data":false,"credential_exposure":false,"adoption_claim":true,"expected_result":"REJECTED","expected_reason_code":"FALSE_ADOPTION_CLAIM","external_execution":false}

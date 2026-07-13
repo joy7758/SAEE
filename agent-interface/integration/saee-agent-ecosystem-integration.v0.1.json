@@ -1,0 +1,27 @@
+{
+  "integration_version": "0.1.0",
+  "name": "SAEE Agent Ecosystem Integration Examples Alpha",
+  "stage": "local_examples_alpha",
+  "capability_id": "saee.agent-reliability",
+  "integration_examples_reference": "examples/agent-integrations/",
+  "interpretation_schema": "schemas/saee-agent-result-interpretation.schema.v0.1.json",
+  "evaluator": "saee_backend/services/agent_integration_evaluator.py",
+  "scenarios": "agent-interface/integration/examples/",
+  "smoke": "scripts/saee_agent_ecosystem_integration_smoke.py",
+  "patterns": ["MCP_STDIO", "HTTP_LOCALHOST", "GENERIC_FRAMEWORK"],
+  "results": {"scenario_cases": 5, "valid_cases": 2, "boundary_failures": 3, "interpretation_actions": 4},
+  "truth_boundary": {
+    "integration_examples": true,
+    "external_agents_connected": false,
+    "customer_data": false,
+    "production_execution": false,
+    "public_service": false,
+    "marketplace_listed": false,
+    "adoption_validated": false,
+    "ecosystem_support_claimed": false,
+    "frameworks_ranked": false,
+    "models_ranked": false,
+    "production_ready": false
+  }
+}
+

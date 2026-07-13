@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-public-capability-surface.schema.v0.1.json",
+  "title": "SAEE Public Capability Surface v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["capability_id", "version", "product_brand", "product_brand_zh", "description", "capabilities", "use_cases", "avoid_cases", "available_operations", "protocols", "references", "limitations", "truth_boundary"],
+  "properties": {
+    "capability_id": {"const": "saee.public-capability-surface"},
+    "version": {"const": "0.1"},
+    "product_brand": {"const": "SAEE Agent Readiness Platform"},
+    "product_brand_zh": {"const": "SAEE 智能体上线准备平台"},
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh-CN", "en"],
+      "properties": {
+        "zh-CN": {"type": "string", "minLength": 20},
+        "en": {"type": "string", "minLength": 20}
+      }
+    },
+    "capabilities": {
+      "type": "array", "minItems": 2, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "status", "description"],
+        "properties": {
+          "id": {"enum": ["saee.agent-reliability", "saee.evidence-evaluation"]},
+          "status": {"enum": ["local_alpha", "local_prototype"]},
+          "description": {"type": "string", "minLength": 20}
+        }
+      }
+    },
+    "use_cases": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 10}},
+    "avoid_cases": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string", "minLength": 10}},
+    "available_operations": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["operation_id", "status", "public_endpoint"],
+        "properties": {
+          "operation_id": {"enum": ["saee.evaluate_agent_run", "saee.evaluate_evidence"]},
+          "status": {"enum": ["implemented_local_offline_alpha", "implemented_local_offline_prototype"]},
+          "public_endpoint": {"type": "null"}
+        }
+      }
+    },
+    "protocols": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"enum": ["MCP", "HTTP Contract"]}},
+    "references": {
+      "type": "object", "additionalProperties": false,
+      "required": ["product_identity", "qianfan_product_mcp", "internal_capability_package", "integration_examples", "public_document", "quick_understanding", "discovery_validation_reference", "alpha_release_reference", "alpha_release_position_reference", "cloud_ecosystem_strategy_reference", "ecosystem_entry_package_reference", "ecosystem_demo_reference", "ecosystem_validation_preparation_reference", "ecosystem_dry_run_reference", "agent_native_adoption_strategy_reference", "marketplace_position_reference", "capability_composition_reference"],
+      "properties": {
+        "product_identity": {"const": "agent-interface/product/saee-agent-readiness-platform.v0.1.json"},
+        "qianfan_product_mcp": {"const": "agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json"},
+        "internal_capability_package": {"const": "capability-package/manifest.json"},
+        "integration_examples": {"const": "agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json"},
+        "public_document": {"const": "docs/public/SAEE_AGENT_NATIVE_CAPABILITY_SURFACE.md"},
+        "quick_understanding": {"const": "docs/public/SAEE_AGENT_QUICK_UNDERSTANDING.md"},
+        "discovery_validation_reference": {"const": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json"},
+        "alpha_release_reference": {"const": "agent-interface/release/saee-alpha-release-manifest.v0.1.json"},
+        "alpha_release_position_reference": {"const": "release/saee-agent-reliability-framework-alpha-v0.1/capabilities.json"},
+        "cloud_ecosystem_strategy_reference": {"const": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json"},
+        "ecosystem_entry_package_reference": {"const": "ecosystem/mcp-entry-package-v1/capability-card.json"},
+        "ecosystem_demo_reference": {"const": "examples/ecosystem-demo-v1/README.md"},
+        "ecosystem_validation_preparation_reference": {"const": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json"},
+        "ecosystem_dry_run_reference": {"const": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json"},
+        "agent_native_adoption_strategy_reference": {"const": "agent-interface/adoption/saee-agent-adoption-loop.v0.1.json"},
+        "marketplace_position_reference": {"const": "agent-interface/marketplace/saee-capability-category-position.v0.1.json"},
+        "capability_composition_reference": {"const": "agent-interface/composition/saee-capability-composition-model.v0.1.json"}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 8}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["public_capability_surface", "repository_public_surface_prepared", "publicly_deployed", "public_api", "public_service", "public_product_operation_count", "marketplace_listed", "external_agents_connected", "customer_data", "industry_standard_claimed", "certification_claimed", "production_ready"],
+      "properties": {
+        "public_capability_surface": {"const": true},
+        "repository_public_surface_prepared": {"const": true},
+        "publicly_deployed": {"const": false},
+        "public_api": {"const": false},
+        "public_service": {"const": false},
+        "public_product_operation_count": {"const": 2},
+        "marketplace_listed": {"const": false},
+        "external_agents_connected": {"const": false},
+        "customer_data": {"const": false},
+        "industry_standard_claimed": {"const": false},
+        "certification_claimed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

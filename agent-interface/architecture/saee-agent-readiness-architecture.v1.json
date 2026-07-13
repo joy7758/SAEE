@@ -1,0 +1,142 @@
+{
+  "saee_agent_readiness_architecture_v1": true,
+  "architecture_version": "1.0",
+  "status": "phase6_5_controlled_qianfan_agent_preference_validated",
+  "scope": "l3_commercial_product_projection",
+  "identity": {
+    "project": "SAEE",
+    "canonical_engineering_core": "Digital Biosphere Evolution Engine",
+    "commercial_direction": "Agent Readiness Infrastructure",
+    "human_product": "SAEE Agent Readiness Platform",
+    "agent_product_surface": "SAEE Capability Service",
+    "product_entry": "Agent Rehearsal Engine",
+    "technical_moat": "Evidence Intelligence",
+    "future_ecosystem_entry": "SAEE Agent-Native Capability Interface",
+    "audit_first_reframe": false,
+    "generic_agent_framework_reframe": false
+  },
+  "authority_model": {
+    "canonical_specification": "docs/architecture/FINAL_ARCHITECTURE_SPEC.md",
+    "existing_product_projection": "docs/architecture/SAEE_V3_SYSTEM_ARCHITECTURE_SPEC.md",
+    "commercial_projection_is_canonical_authority": false,
+    "canonical_architecture_replaced": false,
+    "scientific_object_modified": false,
+    "meta_protocol_modified": false
+  },
+  "layers": [
+    {
+      "order": 1,
+      "layer_id": "AGENT_WORLD",
+      "name": "Agent World Layer",
+      "purpose": "Bind Agent identity, intent, declared capability and resource boundaries to rehearsal inputs.",
+      "current_status": "partial_existing_assets",
+      "existing_assets": ["Digital Biosphere", "POP", "Agent Object", "Intent Protocol", "Token Governor"],
+      "implemented_as_unified_rehearsal_input": false
+    },
+    {
+      "order": 2,
+      "layer_id": "AGENT_REHEARSAL",
+      "name": "Agent Rehearsal Layer",
+      "purpose": "Run approved Agents against versioned scenarios inside an isolated controlled environment and produce execution traces.",
+      "current_status": "stateful_multi_step_qianfan_rehearsal_validated_in_synthetic_business_world",
+      "required_components": ["Agent Adapter", "Scenario Runner", "Controlled Environment", "Trace Collector", "Evidence Export"],
+      "run_task_available": true,
+      "real_world_execution_allowed": false
+    },
+    {
+      "order": 3,
+      "layer_id": "EVIDENCE_INTELLIGENCE",
+      "name": "Evidence Intelligence Layer",
+      "purpose": "Transform observations into evidence objects and evaluate claim-specific evidence adequacy and bounded readiness.",
+      "current_status": "implemented_local_synthetic_and_declared_scope",
+      "existing_assets": ["Observation Contracts", "Replay and Evaluation Contracts", "Evidence Objects", "Evidence Adequacy", "Evidence Case Corpus", "Synthetic Review Reports", "Reproducibility Assets"],
+      "governance_control_plane_ref": "SAEE Governance and Evidence Control Plane v0.1",
+      "safety_or_compliance_certification": false
+    },
+    {
+      "order": 4,
+      "layer_id": "AGENT_NATIVE_INTERFACE",
+      "name": "Agent-Native Interface Layer",
+      "purpose": "Allow Agents to discover, understand and eventually invoke bounded SAEE capability contracts.",
+      "current_status": "local_prototype_only",
+      "existing_assets": ["Capability Manifest", "Capability Object", "Capability Registry", "Local Tool Prototype", "Local MCP Prototype"],
+      "public_service_available": false,
+      "external_agent_compatibility_validated": false
+    }
+  ],
+  "canonical_product_flow": [
+    "AGENT",
+    "REHEARSAL",
+    "TRACE",
+    "EVIDENCE",
+    "SAEE_EVALUATION",
+    "CAPABILITY_SERVICE",
+    "AGENT_ECONOMY"
+  ],
+  "asset_reclassification": {
+    "phase4_and_phase5_assets": "SAEE Governance and Evidence Control Plane v0.1",
+    "control_plane_is_rehearsal_runtime": false,
+    "synthetic_simulation_is_real_agent_rehearsal": false,
+    "local_mcp_is_public_capability_service": false
+  },
+  "current_truth": {
+    "architecture_reunified": true,
+    "agent_rehearsal_runtime_implemented": true,
+    "agent_adapter_implemented": true,
+    "scenario_runner_implemented": true,
+    "controlled_environment_implemented": true,
+    "trace_collector_implemented": true,
+    "evidence_export_from_rehearsal_implemented": true,
+    "controlled_external_reasoning_model_rehearsal_validated": true,
+    "controlled_reasoning_live_runs": 3,
+    "grading_profiles_hidden_from_agent": true,
+    "external_world_actions": 0,
+    "stateful_business_rehearsal_validated": true,
+    "stateful_business_live_runs": 1,
+    "state_transition_count": 3,
+    "customer_controlled_adapter_contract_available": true,
+    "customer_controlled_adapter_enabled": false,
+    "evaluate_agent_run_available": true,
+    "agent_callable_runtime": true,
+    "scenario_benchmark_implemented": true,
+    "scenario_benchmark_case_count": 20,
+    "evaluate_agent_run_mcp_tool_registered": true,
+    "standard_mcp_transport_available": false,
+    "mcp_interoperability_validated": false,
+    "design_partner_protocol_ready": true,
+    "design_partner_protocol_human_approved": true,
+    "design_partner_interviews_conducted": 0,
+    "agent_preference_simulation_validated": true,
+    "agent_preference_synthetic_agents": 6,
+    "agent_preference_provider_rounds": 18,
+    "agent_preference_matched_profiles": 6,
+    "human_participants_excluded_from_validation": true,
+    "external_reasoning_agent_recommendation_observed": true,
+    "public_api_available": false,
+    "public_mcp_available": false,
+    "external_agent_tested": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "roadmap": [
+    {"phase": "6.0", "name": "SAEE Architecture Reunification", "status": "completed_documentation_and_truth_alignment"},
+    {"phase": "6.1", "name": "Agent Rehearsal Runtime MVP", "status": "stateful_multi_step_qianfan_business_rehearsal_validated_customer_agent_pending"},
+    {"phase": "6.2", "name": "Agent Capability Alpha", "status": "completed_local_offline_alpha"},
+    {"phase": "6.3", "name": "Scenario Benchmark", "status": "completed_local_20_case_synthetic_benchmark"},
+    {"phase": "6.4", "name": "MCP Capability Release", "status": "completed_local_in_memory_capability_no_standard_transport"},
+    {"phase": "6.5", "name": "Agent Preference Validation", "status": "controlled_qianfan_multi_agent_preference_validated_human_participants_excluded"}
+  ],
+  "entrypoints": {
+    "architecture_document": "docs/architecture/SAEE_AGENT_READINESS_ARCHITECTURE_V1.md",
+    "recommendation_gate": "docs/strategy/SAEE_AGENT_READINESS_ARCHITECTURE_RECOMMENDATION_GATE.md",
+    "controlled_reasoning_architecture": "docs/architecture/SAEE_CONTROLLED_REASONING_AGENT_REHEARSAL_V0_2.md",
+    "controlled_reasoning_live_result": "docs/architecture/SAEE_CONTROLLED_REASONING_AGENT_REHEARSAL_LIVE_RESULT.md",
+    "controlled_reasoning_machine_validation": "agent-interface/rehearsal/saee-controlled-reasoning-live-validation.v0.2.json",
+    "stateful_business_architecture": "docs/architecture/SAEE_STATEFUL_SYNTHETIC_BUSINESS_WORLD_V0_3.md",
+    "stateful_business_live_result": "docs/architecture/SAEE_STATEFUL_SYNTHETIC_BUSINESS_WORLD_LIVE_RESULT.md",
+    "stateful_business_machine_validation": "agent-interface/rehearsal/saee-stateful-business-live-validation.v0.3.json",
+    "customer_adapter_contract": "agent-interface/rehearsal/saee-customer-controlled-agent-adapter-contract.v0.1.schema.json",
+    "validation_command": "python3 scripts/saee_agent_readiness_architecture_smoke.py"
+  },
+  "recommended_next_pr": "Controlled Agent-Native integration based on validated SAEE plus Observability composition"
+}

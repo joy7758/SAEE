@@ -1,0 +1,10 @@
+{
+  "scenario_id": "SUCCESSFUL_DISCOVERY",
+  "participant_id": "SYNTHETIC_AGENT_FRAMEWORK",
+  "input_reference": "ecosystem/participant-package-v0.1/capability-reference.json",
+  "expected_result": "PASS",
+  "expected_reason_code": "CAPABILITY_DISCOVERED",
+  "should_accept": true,
+  "external_execution": false
+}
+

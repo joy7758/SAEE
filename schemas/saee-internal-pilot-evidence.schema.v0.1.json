@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redcrag.cn/schemas/saee-internal-pilot-evidence.schema.v0.1.json",
+  "title": "SAEE Internal Agent Pilot Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_version", "pilot_id", "execution_observation", "reliability_result", "evidence_result", "recommendation", "limitations", "truth_boundary"],
+  "properties": {
+    "evidence_version": {"const": "0.1"},
+    "pilot_id": {"type": "string", "pattern": "^saee:internal-agent-pilot:[a-z0-9_-]+$"},
+    "execution_observation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "observation_refs"],
+      "properties": {
+        "status": {"enum": ["OBSERVED", "PARTIAL", "FAILED", "NOT_EXECUTED"]},
+        "observation_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "reliability_result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "reason_codes"],
+      "properties": {
+        "status": {"enum": ["PASS", "PARTIAL", "FAIL", "NOT_ASSESSED"]},
+        "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "evidence_result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "missing_requirements"],
+      "properties": {
+        "status": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "UNKNOWN", "NOT_ASSESSED"]},
+        "missing_requirements": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "recommendation": {"enum": ["CONTINUE", "REPLAN", "HUMAN_REVIEW_REQUIRED", "STOP"]},
+    "limitations": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["internal_only", "external_validation_claim", "customer_claim", "adoption_claim", "production_claim", "deployment_authorized"],
+      "properties": {
+        "internal_only": {"const": true},
+        "external_validation_claim": {"const": false},
+        "customer_claim": {"const": false},
+        "adoption_claim": {"const": false},
+        "production_claim": {"const": false},
+        "deployment_authorized": {"const": false}
+      }
+    }
+  }
+}

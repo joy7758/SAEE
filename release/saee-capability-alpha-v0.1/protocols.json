@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "protocols": [
+    {"name":"MCP","contract_reference":"../../agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json","availability":"local_stdio_alpha","public_endpoint":null},
+    {"name":"HTTP Contract","contract_reference":"../../agent-interface/http/saee-capability-http-adapter.v0.1.json","availability":"localhost_alpha","public_endpoint":null}
+  ],
+  "public_protocol_service": false,
+  "external_interoperability_validated": false
+}

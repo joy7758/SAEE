@@ -1,0 +1,85 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blocker_closure_authorized": false,
+  "blockers_closed_by_packet": 0,
+  "builder_ready": true,
+  "canonical_closure_board_modified": false,
+  "canonical_gap_matrix_modified": false,
+  "checkout_enabled": false,
+  "customer_contacted": false,
+  "customer_payment_collected": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T14:01:40.383665+00:00",
+  "kernel_modified": false,
+  "next_human_action": "review whether pricing_page evidence should be promoted into a separate matrix update request; do not publish pricing or enable checkout from this packet",
+  "non_publication_boundary": {
+    "checkout_enabled": false,
+    "customer_facing_pricing_page_created": false,
+    "customer_payment_collected": false,
+    "pricing_page_available": false,
+    "pricing_page_published": false,
+    "revenue_validated": false
+  },
+  "payment_provider_configured": false,
+  "pricing_page_closure_review_packet_v0_1": true,
+  "pricing_page_complete_key_count": 5,
+  "pricing_page_evidence_complete_for_review": true,
+  "pricing_page_key_rows": [
+    {
+      "complete": true,
+      "evidence_key": "human_approved_pricing_page_copy",
+      "value": true
+    },
+    {
+      "complete": true,
+      "evidence_key": "approved_plan_and_usage_terms",
+      "value": true
+    },
+    {
+      "complete": true,
+      "evidence_key": "legal_review_completed",
+      "value": true
+    },
+    {
+      "complete": true,
+      "evidence_key": "production_readiness_non_claim_reviewed",
+      "value": true
+    },
+    {
+      "complete": true,
+      "evidence_key": "pricing_page_publication_approval_recorded",
+      "value": true
+    }
+  ],
+  "pricing_page_missing_key_count": 0,
+  "pricing_page_published": false,
+  "pricing_page_published_by_codex": false,
+  "pricing_page_required_key_count": 5,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "ready_for_human_matrix_update_review": true,
+  "recommended_human_decision": "approve_for_separate_matrix_update_request",
+  "revenue_validated": false,
+  "review_type": "local_pricing_page_closure_review_packet_no_publication_no_closure",
+  "runtime_modified": false,
+  "sales_offer_sent": false,
+  "separate_matrix_update_request_required": true,
+  "separate_payment_enablement_approval_required": true,
+  "separate_publication_approval_required": true,
+  "source_approval_validation": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_approval_input_validation.human_filled.local.json",
+  "source_builder_output": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_builder_output.human_filled.local.json",
+  "source_builder_status": "pass",
+  "source_production_evidence": "phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_pricing_page.human_filled.local.json",
+  "source_review_packet": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_review_packet.local.json",
+  "source_review_packet_status": "draft_ready_for_human_review",
+  "status": "ready_for_human_matrix_update_review_no_publication",
+  "target_blocker_id": "pricing_page"
+}

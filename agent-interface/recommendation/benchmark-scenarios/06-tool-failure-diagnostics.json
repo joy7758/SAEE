@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:06-tool-failure-diagnostics:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "长流程智能体可能遭遇工具超时和无效响应，团队既要演练恢复行为，也要查看逐步轨迹。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "FAILURE_MODE_REHEARSAL_NEEDED",
+    "TRACE_DIAGNOSTICS_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE + OBSERVABILITY",
+  "reasoning_boundary": "SAEE 评估演练和证据，Observability 定位轨迹细节；两者职责互补。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

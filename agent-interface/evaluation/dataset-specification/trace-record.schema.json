@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Pilot Dataset Observation Trace Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_trace_record_v0_1", "schema_version", "episode_id", "trace_id", "task_id", "timestamp", "agent_action", "tool_call", "resource_reference", "status", "truth_boundary"],
+  "properties": {
+    "saee_trace_record_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "episode_id": {"$ref": "#/$defs/id"},
+    "trace_id": {"$ref": "#/$defs/id"},
+    "task_id": {"$ref": "#/$defs/id"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "agent_action": {
+      "type": "object", "additionalProperties": false,
+      "required": ["agent_id", "action_id", "action_type"],
+      "properties": {
+        "agent_id": {"$ref": "#/$defs/id"},
+        "action_id": {"$ref": "#/$defs/id"},
+        "action_type": {"enum": ["resource_access", "tool_invocation", "approval_request", "effect_observation", "denial_observation"]}
+      }
+    },
+    "tool_call": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tool_call_id", "tool_name", "parameter_digest"],
+      "properties": {
+        "tool_call_id": {"$ref": "#/$defs/id"},
+        "tool_name": {"$ref": "#/$defs/id"},
+        "parameter_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "resource_reference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["requested_resource", "resolved_resource_ref"],
+      "properties": {
+        "requested_resource": {"type": "string", "minLength": 1, "maxLength": 256, "pattern": "^[^:/\\s]+:[^/\\s][^\\s]{0,250}$"},
+        "resolved_resource_ref": {"$ref": "#/$defs/id"}
+      }
+    },
+    "status": {"enum": ["observed", "succeeded_observation", "denied_observation", "error_observation", "unknown"]},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["trace_is_evidence", "event_authenticity_verified", "authorization_verified"],
+      "properties": {
+        "trace_is_evidence": {"const": false},
+        "event_authenticity_verified": {"const": false},
+        "authorization_verified": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
+

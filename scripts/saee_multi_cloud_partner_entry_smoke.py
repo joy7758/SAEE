@@ -56,6 +56,21 @@ def main() -> None:
     require(alibaba_activation["truth_boundary"]["product_ecosystem_partner_membership_active"] is True, "Alibaba partner membership")
     require(alibaba_activation["truth_boundary"]["approved_cloud_marketplace_route_available"] is True, "Alibaba marketplace route")
     require(alibaba_activation["truth_boundary"]["marketplace_product_submission"] is False, "Alibaba marketplace product boundary")
+    alibaba_marketplace = json.loads((ROOT / providers["Alibaba Cloud"]["marketplace_entry_readiness_ref"]).read_text(encoding="utf-8"))
+    require(alibaba_marketplace["marketplace_console_observations"]["marketplace_category_qualification_completed"] is True, "Alibaba Marketplace category qualification")
+    require(alibaba_marketplace["marketplace_console_observations"]["enterprise_settlement_account_activation_completed"] is True, "Alibaba Marketplace settlement account")
+    require(alibaba_marketplace["marketplace_console_observations"]["enterprise_settlement_account_activation_owner_confirmed"] is True, "Alibaba Marketplace settlement owner confirmation")
+    require(alibaba_marketplace["marketplace_console_observations"]["withholding_authorization_performed"] is True, "Alibaba Marketplace withholding authorization")
+    require(alibaba_marketplace["marketplace_console_observations"]["publish_product_action_blocked_by_startup_guide"] is False, "Alibaba Marketplace publish entry")
+    require(alibaba_marketplace["marketplace_console_observations"]["publish_product_unblocked_state_currently_verified"] is True, "Alibaba Marketplace publish verification")
+    require(alibaba_marketplace["marketplace_console_observations"]["store_profile_required_text_fields_prepared"] is True, "Alibaba Marketplace store-profile preparation")
+    require(alibaba_marketplace["marketplace_console_observations"]["store_profile_submission"] is True, "Alibaba Marketplace store-profile submission")
+    require(alibaba_marketplace["marketplace_console_observations"]["product_type_owner_selected"] is False, "Alibaba Marketplace product-type boundary")
+    require(alibaba_marketplace["deposit_evidence"]["guarantee_deposit_owner_confirmed_paid"] is True, "Alibaba deposit owner confirmation")
+    require(alibaba_marketplace["deposit_evidence"]["guarantee_deposit_platform_receipt_observed_in_this_inspection"] is False, "Alibaba deposit receipt boundary")
+    require(alibaba_marketplace["partner_workbench_observations"]["cooperation_product_record_count"] == 0, "Alibaba cooperation product count")
+    require(alibaba_marketplace["partner_workbench_observations"]["integration_certification_application_count"] == 0, "Alibaba certification application count")
+    require(alibaba_marketplace["truth_boundary"]["marketplace_product_submission"] is False, "Alibaba Marketplace submission boundary")
     require(alibaba_ticket["truth_boundary"]["technical_conversation_request_submitted"] is True, "Alibaba Qoder ticket")
     require(alibaba_ticket["truth_boundary"]["technical_conversation_completed"] is False, "Alibaba Qoder conversation boundary")
     tencent_handoff = json.loads((ROOT / providers["Tencent Cloud"]["contact_handoff_ref"]).read_text(encoding="utf-8"))
@@ -75,6 +90,10 @@ def main() -> None:
     require(aggregate["formal_partner_application_approved_count"] == 1, "formal application approved count")
     require(aggregate["partner_program_membership_active_count"] == 1, "partner membership active count")
     require(aggregate["approved_marketplace_route_available_count"] == 1, "marketplace route count")
+    require(aggregate["enterprise_settlement_account_activation_completed_count"] == 1, "settlement account count")
+    require(aggregate["withholding_authorization_completed_count"] == 1, "withholding authorization count")
+    require(aggregate["marketplace_store_profile_submission_completed_count"] == 1, "store-profile submission count")
+    require(aggregate["marketplace_publish_product_entry_unblocked_count"] == 1, "publish-entry count")
     require(aggregate["blocked_count"] == 2, "blocked count")
     require(aggregate["provider_approved_count"] == 1, "provider approved count")
     for key in ("marketplace_submission_count", "marketplace_listed_count"):
@@ -92,6 +111,7 @@ def main() -> None:
             ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"],
             ROOT / providers["Alibaba Cloud"]["application_submission_receipt_ref"],
             ROOT / providers["Alibaba Cloud"]["partner_activation_receipt_ref"],
+            ROOT / providers["Alibaba Cloud"]["marketplace_entry_readiness_ref"],
             ROOT / providers["Alibaba Cloud"]["qoder_technical_consultation_ticket_receipt_ref"],
             ROOT / providers["Tencent Cloud"]["contact_handoff_ref"],
         )
@@ -104,7 +124,8 @@ def main() -> None:
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
         "providers=5 interest_submitted=2 contact_inquiry=1 enterprise_verified=1 "
         "formal_application_started=1 formal_partner_application=1 approved=1 membership_active=1 "
-        "marketplace_route_available=1 captcha_handoff=1 blocked=2 provider_approved=1 "
+        "marketplace_route_available=1 category_qualification=1 settlement_account=1 withholding_authorization=1 store_profile_prepared=1 store_profile_submission=1 publish_entry_unblocked=1 product_type_owner_selected=0 "
+        "captcha_handoff=1 blocked=2 provider_approved=1 "
         "marketplace_submission=0 production_ready=false"
     )
 

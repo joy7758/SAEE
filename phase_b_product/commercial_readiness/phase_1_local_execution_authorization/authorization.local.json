@@ -1,0 +1,36 @@
+{
+  "authorization_type": "saee_phase_1_local_execution_authorization",
+  "authorization_version": "v0.1",
+  "authorized_on": "2026-07-10",
+  "authorization_source": "explicit_user_confirmation_in_current_codex_thread",
+  "target_phase": "phase_1_identity_and_tenant_boundary",
+  "target_blocker_ids": [
+    "production_identity_provider",
+    "oauth_oidc",
+    "rbac",
+    "tenant_storage_isolation"
+  ],
+  "authorized_local_actions": {
+    "local_code": true,
+    "local_contracts": true,
+    "local_tests": true,
+    "sanitized_local_evidence": true,
+    "zh_cn_site_updates": true
+  },
+  "development_permission_granted_for_local_scope": true,
+  "sanitized_local_evidence_collection_authorized": true,
+  "customer_contact_authorized": false,
+  "identity_provider_contact_authorized": false,
+  "vendor_contract_authorized": false,
+  "legal_signature_authorized": false,
+  "public_pricing_authorized": false,
+  "payment_enablement_authorized": false,
+  "production_deployment_authorized": false,
+  "production_data_migration_authorized": false,
+  "blocker_closure_authorized": false,
+  "external_calls_authorized": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "blockers_closed": 0
+}

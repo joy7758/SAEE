@@ -1,0 +1,67 @@
+{
+  "SAEE_PHASE_SPACE_V1": {
+    "schema_version": "1.0.0",
+    "artifact": "SAEE Phase Diagram v1.0",
+    "science_lock": true,
+    "derivation_mode": "existing_logs_only",
+    "source_policy": {
+      "new_data_generation_allowed": false,
+      "runtime_modification_allowed": false,
+      "kernel_modification_allowed": false,
+      "new_mechanisms_allowed": false,
+      "allowed_action": "phase-space compression of existing empirical logs"
+    },
+    "source_files": [
+      "saee_experiments/output/demo-run/evolution_trace.jsonl",
+      "saee_experiments/reports/stability_report.json",
+      "saee_experiments/reports/lineage_statistics.json",
+      "saee_experiments/output/demo-run/drift_report.json",
+      "saee_experiments/output/demo-run/emergence_report.json",
+      "saee_phase2/output/demo-run/regime_transition_log.json",
+      "saee_phase2/output/demo-run/attractor_map.json",
+      "saee_phase2/output/demo-run/invariants.json",
+      "saee_phase2/output/demo-run/evolution_laws.json",
+      "saee_v0_6/output/demo-run/observability_summary.json",
+      "saee_v0_7/output/demo-run/reflexive_summary.json",
+      "saee_v0_8/output/demo-run/stability_summary.json"
+    ],
+    "regime_graph": {
+      "ref": "docs/science/phase_diagram/REGIME_TRANSITION_GRAPH.json",
+      "observed_primary_regime": "stable_regime",
+      "observed_edges": 1,
+      "unobserved_cross_regime_edges": 4
+    },
+    "attractor_map": {
+      "ref": "docs/science/phase_diagram/ATTRACTOR_BASIN_MAP.json",
+      "observed_primary_basin": "stable_lineage_basin",
+      "observed_secondary_behavior": "exploration_basin",
+      "observed_collapse_sink": false
+    },
+    "invariant_space": {
+      "ref": "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json",
+      "invariant_count": 4,
+      "classification_counts": {
+        "local_observation": 2,
+        "candidate_pattern": 2,
+        "local_empirical_law": 0
+      }
+    },
+    "summary": {
+      "primary_regime": "stable_regime",
+      "primary_attractor_basin": "stable_lineage_basin",
+      "collapse_observed": false,
+      "chaotic_regime_observed": false,
+      "cross_regime_transition_observed": false,
+      "lineage_integrity_preserved": true,
+      "claim_status": "local_observation"
+    },
+    "non_claims": [
+      "not_system_design",
+      "not_runtime_extension",
+      "not_new_simulation",
+      "not_speculative_physics",
+      "not_external_validation",
+      "not_universal_law"
+    ]
+  }
+}

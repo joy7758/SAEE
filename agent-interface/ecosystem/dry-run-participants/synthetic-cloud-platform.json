@@ -1,0 +1,13 @@
+{
+  "participant_id": "SYNTHETIC_CLOUD_PLATFORM",
+  "participant_type": "cloud_platform",
+  "integration_mode": "generic_adapter_pattern",
+  "capability_scope": ["DISCOVERY", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"],
+  "synthetic_only": true,
+  "validation_goals": ["Review transport-neutral capability contracts", "Keep cloud compatibility unclaimed", "Reject marketplace and adoption overclaims"],
+  "identity": {"kind": "synthetic_fixture", "display_name": "合成云平台参与者"},
+  "scope": "local_synthetic_ecosystem_dry_run_only",
+  "available_tests": ["SUCCESSFUL_DISCOVERY", "INTERPRETATION_BOUNDARY", "WRONG_USAGE", "FAKE_ADOPTION_CLAIM"],
+  "expected_feedback_type": "structured_synthetic_feedback"
+}
+

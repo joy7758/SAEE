@@ -1,0 +1,8 @@
+step_id,human_action,required_evidence,codex_allowed,stop_condition
+CV-001,Open the facilitator page and result-entry workbench.,facilitator page plus external_customer_validation_session_entry_workbench.html,False,Do not let Codex run the external session or invent feedback.
+CV-002,Run at least one real external customer or target-user demo/interview.,"participant role, team type, current evaluation method, session date, and notes",False,"No automated contact, no scraping, no external assistant calls."
+CV-003,"Record scores for understanding, trust, decision influence, and repeat usage intent.",all required scores in range 1-5,False,Do not infer scores from vague feedback.
+CV-004,Confirm all boundary flags remain false.,"no secrets, no production data, no customer upload, no private core disclosure, no production-ready claim",False,Stop if any boundary flag becomes true.
+CV-005,Save the generated session-entry JSON at the required human output path.,external_customer_validation_session_entry.human_filled.local.json,False,Do not save internal self-review as external customer feedback.
+CV-006,Run the existing post-session processor after the human-filled session entry exists.,external_customer_validation_post_session_processor.local.json with processed status,True,Processor pass still does not publish a claim or close the blocker by itself.
+CV-007,Request a separate commercial go/no-go update only after processor outputs are reviewed.,separate explicit human go/no-go update request,False,No customer-validation or production-ready claim in this next-action packet.

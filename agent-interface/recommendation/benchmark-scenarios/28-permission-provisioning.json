@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:28-permission-provisioning:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "平台需要创建身份、分配权限并撤销访问令牌，以控制智能体可访问的资源。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "IDENTITY_PERMISSION_MANAGEMENT_REQUIRED"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "IAM",
+  "reasoning_boundary": "身份和权限配置属于 IAM，SAEE 不执行权限扩大或撤销。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

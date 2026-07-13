@@ -1,0 +1,73 @@
+{
+  "capability_version": "0.1",
+  "capability_id": "saee-evidence-adequacy",
+  "name": "SAEE Evidence Adequacy Layer",
+  "category": "agent accountability evidence evaluation",
+  "stage": "research_prototype",
+  "description": {
+    "chinese": "SAEE 评估现有证据关系是否足以满足针对智能体动作定义的责任声明剖面要求。",
+    "english": "SAEE evaluates whether available evidence relationships satisfy a fixed profile for a defined agent accountability claim."
+  },
+  "should_use": [
+    "EVALUATE_EXECUTION_EVIDENCE_SUFFICIENCY",
+    "IDENTIFY_MISSING_EVIDENCE_RELATIONSHIPS",
+    "REVIEW_AGENT_ACCOUNTABILITY_CLAIM",
+    "PREPARE_HUMAN_EVIDENCE_REVIEW"
+  ],
+  "should_not_use": [
+    "REAL_TIME_AUTHORIZATION_ENFORCEMENT",
+    "MALWARE_DETECTION",
+    "LEGAL_OR_REGULATORY_DETERMINATION",
+    "DEPLOYMENT_AUTHORIZATION",
+    "RUNTIME_SAFETY_BLOCKING"
+  ],
+  "input_contract": {
+    "required": [
+      "observation_references",
+      "evidence_object",
+      "accountability_claim",
+      "evaluation_profile"
+    ],
+    "accepted_claims": [
+      "RESOURCE_AUTHENTICITY",
+      "AUTHORIZED_AGENT_ACTION",
+      "HUMAN_OVERSIGHT",
+      "EXECUTION_BOUNDARY"
+    ],
+    "executable_input": false,
+    "credential_input": false
+  },
+  "output_contract": {
+    "outputs": [
+      "claim_assessment",
+      "evidence_sufficiency_status",
+      "missing_requirements",
+      "reason_codes",
+      "limitations",
+      "boundary_statement"
+    ],
+    "deployment_decision": false,
+    "authorization_decision": false
+  },
+  "composition": {
+    "flow": ["OBSERVATION_LAYER", "EVIDENCE_LAYER", "GOVERNANCE_LAYER"],
+    "does_not_replace": ["OBSERVABILITY", "AUTHORIZATION_SYSTEM", "POLICY_ENGINE", "SECURITY_MONITORING"]
+  },
+  "discovery": {
+    "agent_index": "https://redcrag.cn/.well-known/agent-index.json",
+    "usage_overview": "https://redcrag.cn/docs/overview.md",
+    "limitations": "https://redcrag.cn/docs/limitations.md",
+    "synthetic_example": "https://redcrag.cn/examples/synthetic-review-example.json"
+  },
+  "truth_boundary": {
+    "research_prototype": true,
+    "capability_description_is_capability_proof": false,
+    "security_certification_provided": false,
+    "legal_determination_provided": false,
+    "regulatory_compliance_provided": false,
+    "deployment_approval_provided": false,
+    "production_governance_guarantee_provided": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  }
+}

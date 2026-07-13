@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:10-readiness-plus-authorization:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "高影响工具智能体既需要上线前准备度演练，也需要上线后的实时允许、拒绝和撤销控制。",
+  "risk_level": "CRITICAL",
+  "task_signals": [
+    "PRE_DEPLOYMENT_REVIEW_NEEDED",
+    "REAL_TIME_AUTHORIZATION_REQUIRED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE + AUTHORIZATION_SYSTEM",
+  "reasoning_boundary": "SAEE 只处理准备度和证据充分性，授权系统单独执行实时控制，不能混淆两种职责。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

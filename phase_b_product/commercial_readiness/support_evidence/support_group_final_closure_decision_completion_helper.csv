@@ -1,0 +1,10 @@
+field,recommended_value,required,notes
+human_final_decision,approve_for_separate_matrix_update_request,True,copy into template
+authorize_separate_matrix_update_request,true,True,copy into template
+authorize_blocker_closure_now,false,True,copy into template
+authorize_product_launch,false,True,copy into template
+confirm_no_customer_validation_claim,true,True,copy into template
+confirm_no_production_ready_claim,true,True,copy into template
+human_reviewer,,True,must be filled by human
+decision_date,,True,must be filled by human
+reason,,True,must be filled by human

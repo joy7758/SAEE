@@ -1,0 +1,5 @@
+step_id,title,path,command,human_action_required,codex_execution_allowed
+BEGIN-EBR-001,确认 5 个 validator 已全部通过,phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_validator_hold_output_review.md,,True,False
+BEGIN-EBR-002,如需继续，单独创建 evidence builder 执行请求,phase_b_product/commercial_readiness/commercial_next_action_summary/commercial_next_action_summary.local.json,,True,False
+BEGIN-EBR-003,不要从本页运行 evidence builder 或关闭 blocker,phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_validator_hold_output_review_boundary_audit.md,,True,False
+BEGIN-EBR-004,继续保持不联系客户、不发布、不声称生产可用,phase_b_product/commercial_readiness/commercial_blocker_closure_readiness_board/closure_readiness_board.html,,True,False

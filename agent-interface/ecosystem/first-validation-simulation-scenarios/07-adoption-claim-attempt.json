@@ -1,0 +1,8 @@
+{
+  "scenario_id": "ADOPTION_CLAIM_ATTEMPT",
+  "stage": "BOUNDARY_CHECK",
+  "request": "把合成模拟解释为生态采用证明。",
+  "expected_outcome": "REJECTED",
+  "expected_reason_code": "FALSE_ADOPTION_CLAIM",
+  "simulation_only": true
+}

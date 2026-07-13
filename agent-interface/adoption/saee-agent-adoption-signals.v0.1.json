@@ -1,0 +1,11 @@
+{
+  "signal_version":"0.1",
+  "signals":[
+    {"signal_type":"capability_discovered","meaning":"An agent resolved a machine-readable SAEE capability description.","evidence_source":"local discovery record","limitations":["Discovery does not prove invocation, trust or adoption."]},
+    {"signal_type":"capability_invoked","meaning":"A declared SAEE operation received one contract-valid local invocation.","evidence_source":"local invocation receipt","limitations":["Invocation does not prove satisfaction, authorization or adoption."]},
+    {"signal_type":"result_interpreted","meaning":"An agent mapped a bounded result and its limitations into task context.","evidence_source":"synthetic interpretation record","limitations":["Interpretation does not prove correctness or market acceptance."]},
+    {"signal_type":"repeat_invocation_pattern","meaning":"Multiple similar task contexts produced repeated SAEE invocation records.","evidence_source":"local synthetic invocation sequence","limitations":["Repeated usage is a behavioral signal, not customer success or market adoption."]}
+  ],
+  "forbidden_interpretations":["market_adoption","customer_success","industry_acceptance"],
+  "truth_boundary":{"signals_are_behavioral_observations":true,"agent_adoption_validated":false,"customer_validation":false,"market_validation":false,"production_ready":false}
+}

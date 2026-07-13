@@ -1,0 +1,51 @@
+{
+  "agent_validation_type": "independent_agent_privacy_boundary_review",
+  "independent_agent_profile": "recommendation_agent_validation",
+  "recommendation_scope": "whole_tenant_api_synthetic_only_controlled_preview_privacy_boundary",
+  "verdict": "recommend",
+  "round_1": {
+    "verdict": "conditional",
+    "blocker_count": 3,
+    "summary": "Free-text metadata, unlisted config keys, and incomplete tenant API data-flow coverage."
+  },
+  "round_2": {
+    "verdict": "conditional",
+    "blocker_count": 1,
+    "summary": "Config values still accepted arbitrary and non-NFKC free text."
+  },
+  "round_3": {
+    "verdict": "recommend",
+    "blocker_count": 0,
+    "summary": "Runtime boundary passed 29/29 personal-data cases, synthetic-mode fail-closed, closed JWT/path/audit/storage/provider inventory, and exact non-production boundaries."
+  },
+  "round_4": {
+    "verdict": "recommend",
+    "blocker_count": 0,
+    "summary": "Evidence promotion evaluator passed 14/14 tamper negatives and 22/22 independent false-escalation mutations."
+  },
+  "blockers": [],
+  "runtime_privacy_boundary": "pass",
+  "evidence_promotion_boundary": "pass_after_evaluator_remediation",
+  "agent_privacy_boundary_review_completed": true,
+  "agent_privacy_boundary_review_scope": "whole_tenant_api_synthetic_only_controlled_preview",
+  "personal_data_boundary_cases_passed": 29,
+  "personal_data_boundary_cases_total": 29,
+  "privacy_smokes_passed": 10,
+  "privacy_smokes_total": 10,
+  "false_escalation_mutations_passed": 22,
+  "false_escalation_mutations_total": 22,
+  "human_validation_used": false,
+  "agent_validation_primary": true,
+  "general_dlp_available": false,
+  "deidentification_proven": false,
+  "real_customer_data_allowed": false,
+  "privacy_legal_review_completed": false,
+  "data_processing_agreement_completed": false,
+  "qianfan_provider_legal_approval_completed": false,
+  "qianfan_retention_terms_verified": false,
+  "customer_data_processing_ready": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "blockers_closed_by_validation": 0
+}

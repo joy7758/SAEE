@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE formal_security_review 最小人工输入工作台</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f6f2;
+        --card: #ffffff;
+        --ink: #101513;
+        --text: #343832;
+        --muted: #626861;
+        --line: #deddd5;
+        --accent: #147a64;
+        --soft: #e8f3ef;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      main { width: min(1160px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+      h1 { margin: 0; color: var(--ink); font-size: clamp(34px, 5vw, 58px); line-height: 1.08; letter-spacing: 0; }
+      h2 { margin: 0 0 14px; color: var(--ink); }
+      p { margin: 16px 0 0; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+      .card, table { border: 1px solid var(--line); border-radius: 10px; background: var(--card); box-shadow: 0 18px 48px rgba(16, 21, 19, 0.06); }
+      .card { padding: 22px; }
+      .status { display: inline-flex; margin-top: 22px; padding: 8px 12px; border-radius: 999px; color: #0f5f50; background: var(--soft); font-weight: 800; }
+      code { padding: 2px 6px; border-radius: 6px; background: #eef1ed; color: var(--ink); word-break: break-word; }
+      table { width: 100%; margin-top: 28px; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+      th, td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { color: var(--ink); background: #eef1ed; }
+      tr:last-child td { border-bottom: 0; }
+      .commands { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+      .boundary { margin-top: 24px; background: #101513; color: #f7f6f2; }
+      .boundary h2 { color: #ffffff; }
+      .boundary code { background: rgba(255,255,255,0.1); color: #ffffff; }
+      @media (max-width: 840px) { .hero, .commands { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>只看正式安全审查最少要人填什么。</h1>
+          <p>这个页面不保存输入，也不提交表单。它只是把安全审查 blocker 的最小人工字段列清楚。</p>
+          <span class="status">状态：hold_minimum_human_input_required</span>
+        </div>
+        <aside class="card">
+          <h2>当前边界</h2>
+          <p><code>formal_security_review_completed: false</code></p>
+          <p><code>formal_security_review_approved: false</code></p>
+          <p><code>private_core_exposed: false</code></p>
+          <p><code>production_ready: false</code></p>
+        </aside>
+      </section>
+
+      <table>
+        <thead><tr><th>字段</th><th>分组</th><th>填到哪里</th><th>说明</th></tr></thead>
+        <tbody><tr><td><code>formal_security_review_evidence_input.human_reviewer_name</code></td><td>metadata</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>由人填写真实安全审查信息；Codex 不能代填。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_date</code></td><td>metadata</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>由人填写真实安全审查信息；Codex 不能代填。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.security_review_owner</code></td><td>metadata</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>由人填写真实安全审查信息；Codex 不能代填。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.report_reference</code></td><td>metadata</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>由人填写真实安全审查信息；Codex 不能代填。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.decision_summary</code></td><td>metadata</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>由人填写真实安全审查信息；Codex 不能代填。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.auth_and_tenant_boundary_reviewed</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.auth_and_tenant_boundary_reviewed</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[auth_and_tenant_boundary_reviewed].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.dependency_review_completed</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.dependency_review_completed</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[dependency_review_completed].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[dependency_review_completed].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[dependency_review_completed].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.formal_security_review_report</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.formal_security_review_report</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[formal_security_review_report].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[formal_security_review_report].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[formal_security_review_report].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.private_core_non_exposure_review_completed</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.private_core_non_exposure_review_completed</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[private_core_non_exposure_review_completed].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.public_shell_threat_model_reviewed</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.public_shell_threat_model_reviewed</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[public_shell_threat_model_reviewed].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.review_findings_triaged</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.review_findings_triaged</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[review_findings_triaged].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[review_findings_triaged].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[review_findings_triaged].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.evidence_review.storage_backup_and_restore_reviewed</code></td><td>evidence_review</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>只有人工确认真实安全审查证据存在时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.source_notes_by_key.storage_backup_and_restore_reviewed</code></td><td>source_note</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写可追溯来源说明；不要写密钥、账号、客户数据或私人凭据。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].artifact_reference</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>填写人工审查报告、范围记录或审批材料引用。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].owner_named</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应负责人已明确时才设为 true。</td></tr>
+<tr><td><code>formal_security_review_evidence_input.review_artifacts[storage_backup_and_restore_reviewed].reviewed_by_human</code></td><td>review_artifact</td><td>formal_security_review_evidence_input.human_filled.local.json</td><td>对应材料已由人审过时才设为 true。</td></tr></tbody>
+      </table>
+
+      <section class="commands">
+        <article class="card">
+          <h2>先复制模板</h2>
+          <p><code>cp phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.template.json phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json</code></p>
+        </article>
+        <article class="card">
+          <h2>人工填完后再跑</h2>
+          <p><code>python3 scripts/saee_formal_security_review_approval_input_validator.py --input phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json</code></p>
+        </article>
+      </section>
+
+      <section class="card boundary">
+        <h2>禁止越界</h2>
+        <p>本工作台不执行安全审查、不批准报告、不联系审查方、不跑渗透测试、不查看私有核心、不运行 evidence builder、不导入工作簿、不关闭 blocker、不声明生产可用。</p>
+      </section>
+    </main>
+  </body>
+</html>

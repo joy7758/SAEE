@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-ecosystem-validation-feedback.schema.v0.1.json",
+  "title": "SAEE Ecosystem Validation Feedback v0.1",
+  "description": "Backward-compatible offline feedback contract with mutually exclusive legacy, category-preparation, and synthetic-simulation shapes.",
+  "oneOf": [
+    {
+      "title": "Legacy controlled participant preparation feedback",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["participant_type", "integration_mode", "discovery_result", "invocation_result", "interpretation_result", "boundary_issue", "compatibility_issue", "notes"],
+      "properties": {
+        "participant_type": {"enum": ["agent_framework", "cloud_platform", "developer", "research_group"]},
+        "integration_mode": {"enum": ["mcp_stdio_local", "http_localhost", "generic_adapter_pattern", "documentation_only"]},
+        "discovery_result": {"enum": ["NOT_TESTED", "PASS", "FAIL", "BLOCKED"]},
+        "invocation_result": {"enum": ["NOT_TESTED", "PASS", "FAIL", "BLOCKED"]},
+        "interpretation_result": {"enum": ["NOT_TESTED", "PASS", "FAIL", "BLOCKED"]},
+        "boundary_issue": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 120}
+        },
+        "compatibility_issue": {"type": "string", "maxLength": 500},
+        "notes": {"type": "string", "maxLength": 1000}
+      }
+    },
+    {
+      "title": "First candidate category preparation feedback",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discovery_feedback", "integration_feedback", "documentation_feedback", "boundary_feedback"],
+      "properties": {
+        "discovery_feedback": {"enum": ["NOT_COLLECTED", "CLEAR", "PARTIAL", "BLOCKED"]},
+        "integration_feedback": {"enum": ["NOT_COLLECTED", "WORKS_LOCALLY", "PARTIAL", "BLOCKED"]},
+        "documentation_feedback": {"enum": ["NOT_COLLECTED", "CLEAR", "PARTIAL", "UNCLEAR"]},
+        "boundary_feedback": {"enum": ["NOT_COLLECTED", "PRESERVED", "PARTIAL", "VIOLATED"]}
+      }
+    },
+    {
+      "title": "Synthetic first-candidate validation feedback",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discovery_feedback", "integration_feedback", "documentation_feedback", "boundary_feedback", "simulation_only"],
+      "properties": {
+        "discovery_feedback": {"enum": ["CLEAR", "PARTIAL", "BLOCKED"]},
+        "integration_feedback": {"enum": ["WORKS_LOCALLY", "PARTIAL", "BLOCKED"]},
+        "documentation_feedback": {"enum": ["CLEAR", "PARTIAL", "UNCLEAR"]},
+        "boundary_feedback": {"enum": ["PRESERVED", "PARTIAL", "VIOLATED"]},
+        "simulation_only": {"const": true}
+      }
+    }
+  ]
+}

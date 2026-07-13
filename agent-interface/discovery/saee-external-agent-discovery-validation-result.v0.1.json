@@ -1,0 +1,36 @@
+{
+  "validation_version": "0.1",
+  "validation_scope": "clean_context_synthetic_agent_like_callers_using_public_materials_only",
+  "scenario_count": 6,
+  "discovery_success": {"passed": 6, "total": 6, "rate": 1.0},
+  "understanding_success": {"passed": 6, "total": 6, "rate": 1.0},
+  "selection_accuracy": {"passed": 6, "total": 6, "rate": 1.0},
+  "boundary_preservation": {"passed": 6, "total": 6, "rate": 1.0},
+  "scenario_results": [
+    {"scenario_id":"AUTHORIZATION_REQUEST","discovered":true,"understanding":"SAEE_NOT_APPLICABLE","understanding_correct":true,"selected_action":"DO_NOT_RECOMMEND_SAEE","expected_action":"DO_NOT_RECOMMEND_SAEE","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]},
+    {"scenario_id":"CONTENT_GENERATION_TASK","discovered":true,"understanding":"SAEE_NOT_APPLICABLE","understanding_correct":true,"selected_action":"DO_NOT_RECOMMEND_SAEE","expected_action":"DO_NOT_RECOMMEND_SAEE","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]},
+    {"scenario_id":"DISCOVER_SAEE_RELIABILITY","discovered":true,"understanding":"AGENT_RELIABILITY_EVALUATION","understanding_correct":true,"selected_action":"CONSIDER_SAEE","expected_action":"CONSIDER_SAEE","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]},
+    {"scenario_id":"EVIDENCE_REQUIRED_AGENT_TASK","discovered":true,"understanding":"EVIDENCE_ADEQUACY_EVALUATION","understanding_correct":true,"selected_action":"CONSIDER_EVIDENCE_EVALUATION","expected_action":"CONSIDER_EVIDENCE_EVALUATION","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]},
+    {"scenario_id":"PRODUCTION_DEPLOYMENT_DECISION","discovered":true,"understanding":"AGENT_RELIABILITY_EVALUATION","understanding_correct":true,"selected_action":"CONSIDER_SAEE_WITH_COMPLEMENTS","expected_action":"CONSIDER_SAEE_WITH_COMPLEMENTS","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]},
+    {"scenario_id":"SIMPLE_INFORMATION_TASK","discovered":true,"understanding":"SAEE_NOT_APPLICABLE","understanding_correct":true,"selected_action":"DO_NOT_RECOMMEND_SAEE","expected_action":"DO_NOT_RECOMMEND_SAEE","selection_correct":true,"boundary_preserved":true,"result":"PASS","reason_codes":[]}
+  ],
+  "limitations": [
+    "Only deterministic synthetic agent-like callers are evaluated.",
+    "No OpenAI, Claude, Gemini, customer agent, or other external model is connected.",
+    "The validation reads checked-in public materials rather than a deployed public service.",
+    "Successful selection does not establish external recommendation or agent preference.",
+    "No adoption, market fit, marketplace acceptance, or ecosystem support is measured.",
+    "No customer data, capability execution, authorization, or external-world action occurs."
+  ],
+  "truth_boundary": {
+    "external_agent_discovery_validation": true,
+    "synthetic_agent_like_callers": true,
+    "external_agents_connected": false,
+    "real_external_agent": false,
+    "customer_data": false,
+    "market_validation": false,
+    "adoption_validated": false,
+    "external_agent_preference_validated": false,
+    "production_ready": false
+  }
+}

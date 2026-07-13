@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redcrag.cn/schemas/saee-real-ecosystem-validation-entry-gate.schema.v0.1.json",
+  "title": "SAEE First Real Ecosystem Validation Entry Gate v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gate_version", "technical_readiness", "candidate_readiness", "scope_readiness",
+    "risk_readiness", "operational_readiness", "decision", "blocking_conditions",
+    "limitations", "truth_boundary"
+  ],
+  "properties": {
+    "gate_version": {"const": "0.1"},
+    "technical_readiness": {"$ref": "#/$defs/readiness"},
+    "candidate_readiness": {"$ref": "#/$defs/readiness"},
+    "scope_readiness": {"$ref": "#/$defs/readiness"},
+    "risk_readiness": {"$ref": "#/$defs/readiness"},
+    "operational_readiness": {"$ref": "#/$defs/readiness"},
+    "decision": {"enum": ["HOLD", "CONDITIONAL_READY", "ENTRY_READY"]},
+    "blocking_conditions": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^RVE-[A-Z]+-[0-9]{3}$"},
+      "uniqueItems": true
+    },
+    "limitations": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "real_ecosystem_validation_gate", "external_validation", "participant_contact",
+        "real_candidate", "customer_data", "adoption_validated", "production_ready",
+        "execution_authorized", "validation_started"
+      ],
+      "properties": {
+        "real_ecosystem_validation_gate": {"const": true},
+        "external_validation": {"const": false},
+        "participant_contact": {"const": false},
+        "real_candidate": {"const": false},
+        "customer_data": {"const": false},
+        "adoption_validated": {"const": false},
+        "production_ready": {"const": false},
+        "execution_authorized": {"const": false},
+        "validation_started": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "verified_checks", "required_checks"],
+      "properties": {
+        "status": {"enum": ["READY", "GAP", "UNVERIFIED"]},
+        "verified_checks": {"type": "integer", "minimum": 0},
+        "required_checks": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/lineage.schema.json",
+  "title": "SAEE Lineage Record",
+  "type": "object",
+  "required": ["id", "child_id", "parent_ids", "event_type", "timestamp"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "child_id": {"type": "string", "minLength": 1},
+    "parent_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    },
+    "event_type": {"type": "string", "enum": ["branch", "mutation", "recombination", "rollback", "dormancy", "revival"]},
+    "timestamp": {"type": "string"},
+    "evidence": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": []
+    }
+  }
+}
+

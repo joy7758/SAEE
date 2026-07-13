@@ -1,0 +1,17 @@
+{
+  "gate_model_version": "0.1",
+  "simulation_only": true,
+  "allowed_statuses": ["NOT_READY", "READY", "APPROVED"],
+  "gates": [
+    {"gate_id": "TECHNICAL_READINESS", "status": "NOT_READY", "evidence_reference": null, "approval_reference": null},
+    {"gate_id": "SECURITY_REVIEW", "status": "NOT_READY", "evidence_reference": null, "approval_reference": null},
+    {"gate_id": "DATA_APPROVAL", "status": "NOT_READY", "evidence_reference": null, "approval_reference": null},
+    {"gate_id": "HUMAN_RESPONSIBILITY_ASSIGNMENT", "status": "NOT_READY", "evidence_reference": null, "approval_reference": null},
+    {"gate_id": "EXECUTION_AUTHORIZATION", "status": "NOT_READY", "evidence_reference": null, "approval_reference": null}
+  ],
+  "all_gates_approved": false,
+  "approval_granted": false,
+  "pilot_start_authorized": false,
+  "external_pilot_executed": false,
+  "truth_boundary": "Synthetic gate states model dependencies only; they do not grant real approval or authorization."
+}

@@ -1,0 +1,482 @@
+{
+  "boundary_review": {
+    "customer_contacted": false,
+    "customer_data_processed": false,
+    "dpa_approved": false,
+    "formal_security_review_completed": false,
+    "legal_counsel_contacted": false,
+    "privacy_legal_review_completed": false,
+    "production_ready_claim": false,
+    "security_reviewer_contacted": false,
+    "sla_published": false,
+    "support_contact_published": false,
+    "support_vendor_contacted": false,
+    "vulnerability_operations_activated": false
+  },
+  "evidence_review": {
+    "abuse_handling_path_defined": false,
+    "advisory_publication_policy_approved": false,
+    "auth_and_tenant_boundary_reviewed": false,
+    "breach_notice_terms_approved": false,
+    "case_triage_workflow_defined": false,
+    "controller_processor_roles_defined": false,
+    "coordinated_disclosure_policy_approved": false,
+    "customer_communication_template_approved": false,
+    "customer_data_processing_approved": false,
+    "customer_dpa_template_available": false,
+    "customer_facing_support_contact_configured": false,
+    "customer_notice_route_defined": false,
+    "data_inventory_reviewed": false,
+    "deletion_or_return_terms_approved": false,
+    "dependency_review_completed": false,
+    "dpa_sent_to_customer": false,
+    "dpa_terms_approved": false,
+    "exclusions_approved": false,
+    "formal_security_review_report": false,
+    "handoff_to_engineering_defined": false,
+    "human_approved_sla_terms": false,
+    "legal_review_completed": false,
+    "privacy_notice_approved": false,
+    "privacy_notice_published": false,
+    "public_shell_threat_model_reviewed": false,
+    "remediation_targets_approved": false,
+    "response_targets_approved": false,
+    "retention_policy_approved": false,
+    "review_findings_triaged": false,
+    "security_contact_configured": false,
+    "severity_definitions_approved": false,
+    "severity_model_approved": false,
+    "staffed_support_process_defined": false,
+    "storage_backup_and_restore_reviewed": false,
+    "subprocessor_inventory_reviewed": false,
+    "subprocessor_terms_approved": false,
+    "support_case_audit_trail_available": false,
+    "support_contact_owner_named": false,
+    "support_contact_test_recorded": false,
+    "support_hours_approved": false,
+    "terms_of_service_approved": false,
+    "terms_published": false,
+    "triage_owner_named": false,
+    "vulnerability_case_dry_run_recorded": false,
+    "vulnerability_management_operational": false
+  },
+  "evidence_source_notes": "",
+  "human_reviewer_name": "",
+  "input_status": "priority_template_not_filled",
+  "phase_3_support_security_legal_priority_evidence_collection_v0_1": true,
+  "priority_collection_map_by_key": {
+    "abuse_handling_path_defined": {
+      "blocker_id": "support_contact",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-007",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-063"
+    },
+    "advisory_publication_policy_approved": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-038",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-103"
+    },
+    "auth_and_tenant_boundary_reviewed": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-020",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-079"
+    },
+    "breach_notice_terms_approved": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-023",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-090"
+    },
+    "case_triage_workflow_defined": {
+      "blocker_id": "customer_support",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-014",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-066"
+    },
+    "controller_processor_roles_defined": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-029",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-085"
+    },
+    "coordinated_disclosure_policy_approved": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-039",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-098"
+    },
+    "customer_communication_template_approved": {
+      "blocker_id": "customer_support",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-012",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-067"
+    },
+    "customer_data_processing_approved": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-032",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-095"
+    },
+    "customer_dpa_template_available": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-033",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-091"
+    },
+    "customer_facing_support_contact_configured": {
+      "blocker_id": "support_contact",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-008",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-060"
+    },
+    "customer_notice_route_defined": {
+      "blocker_id": "support_contact",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-009",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-064"
+    },
+    "data_inventory_reviewed": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-030",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-084"
+    },
+    "deletion_or_return_terms_approved": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-034",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-094"
+    },
+    "dependency_review_completed": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-017",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-078"
+    },
+    "dpa_sent_to_customer": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-035",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-096"
+    },
+    "dpa_terms_approved": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-036",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-092"
+    },
+    "exclusions_approved": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-001",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-074"
+    },
+    "formal_security_review_report": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-018",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-076"
+    },
+    "handoff_to_engineering_defined": {
+      "blocker_id": "customer_support",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-015",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-069"
+    },
+    "human_approved_sla_terms": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-002",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-070"
+    },
+    "legal_review_completed": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-003",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-075"
+    },
+    "privacy_notice_approved": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-024",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-082"
+    },
+    "privacy_notice_published": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-025",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-083"
+    },
+    "public_shell_threat_model_reviewed": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-021",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-077"
+    },
+    "remediation_targets_approved": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-040",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-102"
+    },
+    "response_targets_approved": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-004",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-072"
+    },
+    "retention_policy_approved": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-026",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-087"
+    },
+    "review_findings_triaged": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-019",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-081"
+    },
+    "security_contact_configured": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-041",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-097"
+    },
+    "severity_definitions_approved": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-005",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-073"
+    },
+    "severity_model_approved": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-042",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-101"
+    },
+    "staffed_support_process_defined": {
+      "blocker_id": "customer_support",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-013",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-065"
+    },
+    "storage_backup_and_restore_reviewed": {
+      "blocker_id": "formal_security_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-022",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-080"
+    },
+    "subprocessor_inventory_reviewed": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-031",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-086"
+    },
+    "subprocessor_terms_approved": {
+      "blocker_id": "data_processing_agreement",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-037",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-093"
+    },
+    "support_case_audit_trail_available": {
+      "blocker_id": "customer_support",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-016",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-068"
+    },
+    "support_contact_owner_named": {
+      "blocker_id": "support_contact",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-010",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-061"
+    },
+    "support_contact_test_recorded": {
+      "blocker_id": "support_contact",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-011",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-062"
+    },
+    "support_hours_approved": {
+      "blocker_id": "sla",
+      "evidence_file_type": "production_support_sla_evidence",
+      "phase_3_record_id": "P3-ECP-006",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-071"
+    },
+    "terms_of_service_approved": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-027",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-088"
+    },
+    "terms_published": {
+      "blocker_id": "privacy_legal_review",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-028",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-089"
+    },
+    "triage_owner_named": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-043",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-100"
+    },
+    "vulnerability_case_dry_run_recorded": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-045",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-099"
+    },
+    "vulnerability_management_operational": {
+      "blocker_id": "vulnerability_management",
+      "evidence_file_type": "production_privacy_security_legal_evidence",
+      "phase_3_record_id": "P3-ECP-044",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-104"
+    }
+  },
+  "priority_collection_source": "phase_b_product/commercial_readiness/phase_3_support_security_legal_priority_evidence_collection/phase_3_support_security_legal_priority_evidence_collection.local.json",
+  "priority_evidence_key_order": [
+    "exclusions_approved",
+    "human_approved_sla_terms",
+    "legal_review_completed",
+    "response_targets_approved",
+    "severity_definitions_approved",
+    "support_hours_approved",
+    "abuse_handling_path_defined",
+    "customer_facing_support_contact_configured",
+    "customer_notice_route_defined",
+    "support_contact_owner_named",
+    "support_contact_test_recorded",
+    "customer_communication_template_approved",
+    "staffed_support_process_defined",
+    "case_triage_workflow_defined",
+    "handoff_to_engineering_defined",
+    "support_case_audit_trail_available",
+    "dependency_review_completed",
+    "formal_security_review_report",
+    "review_findings_triaged",
+    "auth_and_tenant_boundary_reviewed",
+    "public_shell_threat_model_reviewed",
+    "storage_backup_and_restore_reviewed",
+    "breach_notice_terms_approved",
+    "privacy_notice_approved",
+    "privacy_notice_published",
+    "retention_policy_approved",
+    "terms_of_service_approved",
+    "terms_published",
+    "controller_processor_roles_defined",
+    "data_inventory_reviewed",
+    "subprocessor_inventory_reviewed",
+    "customer_data_processing_approved",
+    "customer_dpa_template_available",
+    "deletion_or_return_terms_approved",
+    "dpa_sent_to_customer",
+    "dpa_terms_approved",
+    "subprocessor_terms_approved",
+    "advisory_publication_policy_approved",
+    "coordinated_disclosure_policy_approved",
+    "remediation_targets_approved",
+    "security_contact_configured",
+    "severity_model_approved",
+    "triage_owner_named",
+    "vulnerability_management_operational",
+    "vulnerability_case_dry_run_recorded"
+  ],
+  "review_date": "",
+  "source_collection_packet": "phase_b_product/commercial_readiness/commercial_production_evidence_collection_packet/commercial_production_evidence_collection_packet.local.json",
+  "source_notes_by_key": {
+    "abuse_handling_path_defined": "",
+    "advisory_publication_policy_approved": "",
+    "auth_and_tenant_boundary_reviewed": "",
+    "breach_notice_terms_approved": "",
+    "case_triage_workflow_defined": "",
+    "controller_processor_roles_defined": "",
+    "coordinated_disclosure_policy_approved": "",
+    "customer_communication_template_approved": "",
+    "customer_data_processing_approved": "",
+    "customer_dpa_template_available": "",
+    "customer_facing_support_contact_configured": "",
+    "customer_notice_route_defined": "",
+    "data_inventory_reviewed": "",
+    "deletion_or_return_terms_approved": "",
+    "dependency_review_completed": "",
+    "dpa_sent_to_customer": "",
+    "dpa_terms_approved": "",
+    "exclusions_approved": "",
+    "formal_security_review_report": "",
+    "handoff_to_engineering_defined": "",
+    "human_approved_sla_terms": "",
+    "legal_review_completed": "",
+    "privacy_notice_approved": "",
+    "privacy_notice_published": "",
+    "public_shell_threat_model_reviewed": "",
+    "remediation_targets_approved": "",
+    "response_targets_approved": "",
+    "retention_policy_approved": "",
+    "review_findings_triaged": "",
+    "security_contact_configured": "",
+    "severity_definitions_approved": "",
+    "severity_model_approved": "",
+    "staffed_support_process_defined": "",
+    "storage_backup_and_restore_reviewed": "",
+    "subprocessor_inventory_reviewed": "",
+    "subprocessor_terms_approved": "",
+    "support_case_audit_trail_available": "",
+    "support_contact_owner_named": "",
+    "support_contact_test_recorded": "",
+    "support_hours_approved": "",
+    "terms_of_service_approved": "",
+    "terms_published": "",
+    "triage_owner_named": "",
+    "vulnerability_case_dry_run_recorded": "",
+    "vulnerability_management_operational": ""
+  },
+  "template_note": "Human owners fill evidence_review and source_notes_by_key. Codex must not infer missing evidence, contact support vendors, contact security reviewers, contact legal counsel, approve DPA, activate vulnerability operations, or process customer data."
+}

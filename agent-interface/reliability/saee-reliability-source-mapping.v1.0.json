@@ -1,0 +1,14 @@
+{
+  "mapping_version": "1.0",
+  "mapping_id": "saee:reliability-source-mapping:v1.0",
+  "all_existing_studies_mapped": true,
+  "sources": [
+    {"source_id": "coding-agent-release-reliability-v0.1", "source_ref": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json", "dimensions": ["task_execution_reliability", "recovery_reliability", "evidence_reliability", "assessment_availability"]},
+    {"source_id": "research-agent-evidence-reliability-v0.2", "source_ref": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json", "dimensions": ["task_execution_reliability", "evidence_reliability", "assessment_availability"]},
+    {"source_id": "security-boundary-reliability-v0.3", "source_ref": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json", "dimensions": ["task_execution_reliability", "boundary_reliability", "evidence_reliability", "assessment_availability"]},
+    {"source_id": "stateful-business-rehearsal-v0.3", "source_ref": "agent-interface/rehearsal/saee-stateful-business-live-validation.v0.3.json", "dimensions": ["task_execution_reliability", "recovery_reliability", "assessment_availability"]},
+    {"source_id": "agent-recommendation-benchmark-v0.1", "source_ref": "agent-interface/recommendation/saee-agent-recommendation-benchmark-result.v0.1.json", "dimensions": ["assessment_availability"]},
+    {"source_id": "evidence-adequacy-evaluator-v0.1", "source_ref": "saee_backend/services/evidence_adequacy.py", "dimensions": ["evidence_reliability"]}
+  ],
+  "truth_boundary": {"sources_rerun": false, "scores_aggregated": false, "ranking_generated": false, "production_ready": false, "external_validation_completed": false}
+}

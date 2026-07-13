@@ -1,0 +1,1 @@
+{"fixture_id":"PRODUCTION_STATUS_ESCALATION","mutation":{"operation":"set","target":"release","path":["truth_boundary","production_ready"],"value":true},"expected_reason_code":"TRUTH_BOUNDARY_PRODUCTION_ESCALATION"}

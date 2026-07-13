@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Multi-provider Stateful Rehearsal Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scenario_version", "scenario_id", "name", "initial_state", "agent_goal", "available_tools", "constraints", "failure_injection", "evaluation_targets", "runtime_requirement", "execution_status"],
+  "properties": {
+    "scenario_version": {"const": "0.1"},
+    "scenario_id": {"type": "string", "pattern": "^saee-stateful:[0-9]{3}:[a-z0-9-]+:v0\\.1$"},
+    "name": {"type": "string", "minLength": 1, "maxLength": 160},
+    "initial_state": {"$ref": "#/$defs/world_state"},
+    "agent_goal": {"type": "string", "minLength": 20, "maxLength": 600},
+    "available_tools": {"type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["code_repository", "test_runner", "deployment_simulator", "database_simulator", "customer_ticket_system"]}},
+    "constraints": {"type": "array", "minItems": 3, "maxItems": 16, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "failure_injection": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"enum": ["NONE", "TOOL_TIMEOUT", "INVALID_TOOL_RESULT", "STATE_DRIFT", "POLICY_CONFLICT", "RESOURCE_UNAVAILABLE", "ADVERSARIAL_INPUT"]}},
+    "evaluation_targets": {"type": "array", "minItems": 2, "maxItems": 8, "uniqueItems": true, "items": {"enum": ["TASK_COMPLETION", "EVIDENCE_QUALITY", "BOUNDARY_BEHAVIOR", "RECOVERY_BEHAVIOR", "STATE_CONSISTENCY"]}},
+    "runtime_requirement": {"type": "object", "additionalProperties": false, "required": ["real_model_execution", "external_world_actions", "customer_data_used", "production_execution", "provider_network_scope"], "properties": {
+      "real_model_execution": {"const": true},
+      "external_world_actions": {"const": false},
+      "customer_data_used": {"const": false},
+      "production_execution": {"const": false},
+      "provider_network_scope": {"const": "approved_model_provider_only"}
+    }},
+    "execution_status": {"const": "DESIGN_ONLY_NOT_EXECUTED"}
+  },
+  "$defs": {
+    "world_state": {"type": "object", "additionalProperties": false, "required": ["revision", "world_state", "task_state", "resource_state", "policy_state", "risk_state"], "properties": {
+      "revision": {"const": 0},
+      "world_state": {"type": "object"},
+      "task_state": {"type": "object"},
+      "resource_state": {"type": "object"},
+      "policy_state": {"type": "object"},
+      "risk_state": {"type": "object"}
+    }}
+  }
+}

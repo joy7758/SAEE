@@ -1,0 +1,14 @@
+{
+  "run_id": "run_001",
+  "manual_test_prepared": true,
+  "manual_test_started": true,
+  "manual_test_completed": false,
+  "external_ai_tested": false,
+  "total_planned_records": 120,
+  "records_entered": 0,
+  "scoring_completed": false,
+  "product_launched": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "production_ready_claim": false
+}

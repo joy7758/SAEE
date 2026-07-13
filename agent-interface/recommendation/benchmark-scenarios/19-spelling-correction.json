@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:19-spelling-correction:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只要求修正一段文本中的拼写错误，不涉及责任声明或部署风险。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "TEXT_TRANSFORMATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LANGUAGE_TOOL",
+  "reasoning_boundary": "拼写修正是低影响文本处理任务。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

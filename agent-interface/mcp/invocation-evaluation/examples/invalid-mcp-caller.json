@@ -1,0 +1,49 @@
+{
+  "saee_mcp_invocation_evaluation_scenario_v0_1": true,
+  "evaluation_version": "0.1",
+  "scenario_id": "mcp-invocation:synthetic:invalid-caller",
+  "caller_type": "INVALID_MCP_CALLER",
+  "synthetic_caller": true,
+  "mcp_tool_discovery": {
+    "capability_object_ref": "agent-interface/registry/objects/saee-evidence-adequacy-capability-object.v0.1.json",
+    "mapping_ref": "agent-interface/mcp/examples/saee-evaluate-evidence-mcp-tool-design.v0.1.json",
+    "request_schema_ref": "agent-interface/mcp/saee-mcp-local-request.schema.v0.1.json",
+    "response_schema_ref": "agent-interface/mcp/saee-mcp-local-response.schema.v0.1.json",
+    "discovered_tools": ["evaluate_evidence_adequacy", "evaluate_agent_run"],
+    "selected_tool": "evaluate_evidence_adequacy"
+  },
+  "mcp_request": {"tool_name": "unknown_tool", "arguments": {}},
+  "additional_mcp_requests": [
+    {
+      "request_id": "missing-arguments",
+      "request": {"tool_name": "evaluate_evidence_adequacy"},
+      "expected_response": {"tool_result": "REJECTED_INPUT", "claim_assessment": "UNKNOWN", "reason_codes": ["MCP_ARGUMENTS_INVALID"]}
+    },
+    {
+      "request_id": "invalid-profile",
+      "request": {
+        "tool_name": "evaluate_evidence_adequacy",
+        "arguments": {
+          "evidence_object": {"synthetic": true},
+          "accountability_claim": "AUTHORIZED_AGENT_ACTION",
+          "evaluation_profile": "unknown-profile"
+        }
+      },
+      "expected_response": {"tool_result": "REJECTED_INPUT", "claim_assessment": "UNKNOWN", "reason_codes": ["TOOL_PROFILE_UNKNOWN"]}
+    }
+  ],
+  "expected_response": {"tool_result": "REJECTED_INPUT", "claim_assessment": "UNKNOWN", "reason_codes": ["MCP_TOOL_NAME_INVALID"]},
+  "interpretation_result": {
+    "conclusion": "REQUEST_REJECTED",
+    "statement": "The malformed calls were rejected and establish no capability result.",
+    "treats_result_as_authority": false
+  },
+  "boundary_result": {
+    "preserves_evaluation_approval_separation": true,
+    "authorization_claimed": false,
+    "deployment_claimed": false,
+    "certification_claimed": false,
+    "human_authority_retained": true
+  },
+  "expected_outcome": "REJECTED_INPUT"
+}

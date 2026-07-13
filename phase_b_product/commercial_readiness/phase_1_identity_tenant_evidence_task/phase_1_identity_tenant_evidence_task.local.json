@@ -1,0 +1,433 @@
+{
+  "api_schema_modified": false,
+  "auth_blockers_ready_to_close": false,
+  "backend_modified": false,
+  "blockers": [
+    {
+      "blocker_id": "production_identity_provider",
+      "can_start_without_external_dependency": false,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Production identity-provider configuration, security review, and operator runbook.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "oauth_oidc",
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "can_start_without_external_dependency": false,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_identity_provider"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": true,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "OIDC issuer, client, callback, token validation, and logout behavior evidence.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "rbac"
+      ]
+    },
+    {
+      "blocker_id": "rbac",
+      "can_start_without_external_dependency": true,
+      "category": "auth",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "production_identity_provider",
+        "oauth_oidc"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/auth_evidence/auth_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Role model, permission matrix, enforcement tests, and admin recovery process.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_storage_isolation"
+      ]
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "can_start_without_external_dependency": true,
+      "category": "tenant",
+      "closure_allowed_by_plan": false,
+      "default_decision": "hold",
+      "depends_on_blockers": [
+        "rbac"
+      ],
+      "engineering_implementation_required": true,
+      "execution_allowed_by_plan": false,
+      "external_dependency_required": false,
+      "local_evidence_path": "phase_b_product/commercial_readiness/tenant_storage_isolation_evidence/tenant_storage_isolation_evidence.local.json",
+      "next_human_action": "Open a separate evidence task only after dependencies are satisfied and human approval is explicit.",
+      "owner_review_lane": "engineering_data_security",
+      "phase_id": "phase_1_identity_and_tenant_boundary",
+      "required_evidence": "Tenant-isolated storage design, migration proof, and cross-tenant isolation tests.",
+      "requires_human_approval": true,
+      "requires_separate_execution_request": true,
+      "status": "open",
+      "unblocks_blockers": [
+        "tenant_billing_isolation"
+      ]
+    }
+  ],
+  "blockers_closed_by_task": 0,
+  "customer_contacted": false,
+  "customer_data_processed": false,
+  "customer_validated": false,
+  "default_decision": "hold",
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "evidence_item_count": 33,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "forbidden_actions": [
+    "do_not_contact_identity_provider_from_codex",
+    "do_not_fetch_jwks_from_codex",
+    "do_not_validate_production_tokens_from_codex",
+    "do_not_run_storage_migrations_from_codex",
+    "do_not_process_customer_data",
+    "do_not_contact_customers",
+    "do_not_close_blockers_from_this_task_packet",
+    "do_not_mark_production_ready",
+    "do_not_launch_product",
+    "do_not_expose_private_core"
+  ],
+  "generated_at": "2026-07-04",
+  "generated_by": "scripts/saee_phase1_identity_tenant_evidence_task.py",
+  "human_approval_required": true,
+  "human_execution_authorized": false,
+  "identity_provider_contacted_by_codex": false,
+  "jwks_fetched_by_codex": false,
+  "kernel_modified": false,
+  "landing_page_modified": false,
+  "next_action": "Human reviewer must decide whether to authorize a separate Phase 1 evidence collection task; this packet itself authorizes no execution.",
+  "phase_1_blockers_ready_to_close": false,
+  "phase_title": "Identity, authorization, and tenant boundary",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_launch_status": "hold",
+  "production_ready": false,
+  "production_tokens_validated_by_codex": false,
+  "public_sdk_released": false,
+  "ready_for_human_review": true,
+  "required_evidence_items": [
+    {
+      "blocker_id": "production_identity_provider",
+      "description": "Human-approved production identity-provider selection and ownership evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "production_identity_provider_selected",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "production_identity_provider",
+      "description": "Human-approved production identity-provider selection and ownership evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "identity_provider_admin_owner_named",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "production_identity_provider",
+      "description": "Human-approved production identity-provider selection and ownership evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "oidc_issuer_verified",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "production_identity_provider",
+      "description": "Human-approved production identity-provider selection and ownership evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "oidc_audience_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "production_identity_provider",
+      "description": "Human-approved production identity-provider selection and ownership evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "jwks_rotation_policy_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "description": "Human-approved OAuth/OIDC flow, token-validation, claims, expiry, and failure-handling evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "oauth_oidc_flow_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "description": "Human-approved OAuth/OIDC flow, token-validation, claims, expiry, and failure-handling evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "token_validation_test_recorded",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "description": "Human-approved OAuth/OIDC flow, token-validation, claims, expiry, and failure-handling evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "claims_mapping_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "description": "Human-approved OAuth/OIDC flow, token-validation, claims, expiry, and failure-handling evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "session_expiry_policy_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "oauth_oidc",
+      "description": "Human-approved OAuth/OIDC flow, token-validation, claims, expiry, and failure-handling evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "auth_failure_handling_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "rbac",
+      "description": "Human-approved RBAC policy, role matrix, tenant role boundary, least-privilege, and admin recovery evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "rbac_policy_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "rbac",
+      "description": "Human-approved RBAC policy, role matrix, tenant role boundary, least-privilege, and admin recovery evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "role_matrix_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "rbac",
+      "description": "Human-approved RBAC policy, role matrix, tenant role boundary, least-privilege, and admin recovery evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "tenant_role_boundary_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "rbac",
+      "description": "Human-approved RBAC policy, role matrix, tenant role boundary, least-privilege, and admin recovery evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "least_privilege_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "rbac",
+      "description": "Human-approved RBAC policy, role matrix, tenant role boundary, least-privilege, and admin recovery evidence.",
+      "evidence_file_type": "production_auth_evidence",
+      "evidence_key": "admin_recovery_policy_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Human-approved tenant data-model and migration-plan evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "production_tenant_data_model_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Human-approved tenant data-model and migration-plan evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_scoped_primary_keys_or_partitions_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Human-approved tenant data-model and migration-plan evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_query_enforcement_design_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Human-approved tenant data-model and migration-plan evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_storage_migration_plan_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant isolation denial-test evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "same_experiment_id_cross_tenant_partition_tests_passed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant isolation denial-test evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "cross_tenant_read_denial_tests_passed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant isolation denial-test evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "cross_tenant_write_denial_tests_passed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant isolation denial-test evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_scoped_listing_tests_passed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant isolation denial-test evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_scoped_report_endpoint_tests_passed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant audit, backup/restore, retention/deletion, and observability boundary evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_scoped_audit_metadata_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant audit, backup/restore, retention/deletion, and observability boundary evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_backup_restore_boundary_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant audit, backup/restore, retention/deletion, and observability boundary evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_deletion_retention_boundary_approved",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant audit, backup/restore, retention/deletion, and observability boundary evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_storage_observability_plan_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant authorization, secret boundary, security, privacy, and customer-data non-claim review evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_authorization_policy_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant authorization, secret boundary, security, privacy, and customer-data non-claim review evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "tenant_secret_boundary_reviewed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant authorization, secret boundary, security, privacy, and customer-data non-claim review evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "security_review_completed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant authorization, secret boundary, security, privacy, and customer-data non-claim review evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "privacy_legal_review_completed",
+      "provided": false,
+      "required_value": true
+    },
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "description": "Tenant authorization, secret boundary, security, privacy, and customer-data non-claim review evidence.",
+      "evidence_file_type": "production_tenant_storage_evidence",
+      "evidence_key": "customer_data_processing_non_claim_reviewed",
+      "provided": false,
+      "required_value": true
+    }
+  ],
+  "runtime_modified": false,
+  "source_dependency_plan": "phase_b_product/commercial_readiness/commercial_blocker_dependency_plan/dependency_plan.local.json",
+  "source_phase_id": "phase_1_identity_and_tenant_boundary",
+  "storage_migration_executed": false,
+  "target_blocker_count": 4,
+  "target_blocker_ids": [
+    "production_identity_provider",
+    "oauth_oidc",
+    "rbac",
+    "tenant_storage_isolation"
+  ],
+  "task_candidates_executed": false,
+  "task_scope": "human_reviewed_phase_1_evidence_collection_plan",
+  "task_status": "ready_for_human_review_not_execution",
+  "task_type": "saee_phase_1_identity_tenant_evidence_task",
+  "task_version": "v0.1",
+  "tenant_storage_blocker_ready_to_close": false,
+  "validation_commands_after_human_evidence": [
+    "SAEE_PRODUCTION_AUTH_EVIDENCE_PATH=/path/to/production_auth_evidence.json python3 scripts/saee_production_auth_evidence_readiness.py",
+    "SAEE_PRODUCTION_TENANT_STORAGE_EVIDENCE_PATH=/path/to/production_tenant_storage_evidence.json python3 scripts/saee_production_tenant_storage_evidence_readiness.py",
+    "SAEE_PRODUCTION_AUTH_EVIDENCE_PATH=/path/to/production_auth_evidence.json SAEE_PRODUCTION_TENANT_STORAGE_EVIDENCE_PATH=/path/to/production_tenant_storage_evidence.json python3 scripts/saee_commercial_go_no_go.py",
+    "python3 scripts/mainline_guard.py"
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "records_version": "1.0",
+  "validation_id": "saee-agent-native-design-partner-validation-v1",
+  "raw_provider_content_stored": false,
+  "hidden_reasoning_stored": false,
+  "records": [
+    {
+      "session_id": "design-partner:ai_agent_platform_team:deepseek-v4-flash",
+      "partner_profile": "AI_AGENT_PLATFORM_TEAM",
+      "model": "deepseek-v4-flash",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "d95774d0fccaf44321de024beb07ff0be6d0bc204786bdbff41c6d7f9b5b6594",
+        "eb6efb58a6865566258da488c42cce79d34f84e292daead65d3068aaa12f82eb",
+        "806ee3edff93715ef41a5aca6abf7bbbd323e47595b6c0a3ee96c886fd9fdb35"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:ai_agent_platform_team:glm-5-2",
+      "partner_profile": "AI_AGENT_PLATFORM_TEAM",
+      "model": "glm-5.2",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "8fcc7d96b483a5d6f7b1bee812c77958ba85da6acdeccfc0db2b6b0f0742c01c",
+        "320b1e277e18982cb48d8f4b35dd4718fcb2675b7edeade419de4bc881fc817e",
+        "eee22f4a0d0801e2ef428b35669d7b29fdb8b84f69cbbae1b14b3691df110e4e"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:ai_agent_platform_team:kimi-k2-6",
+      "partner_profile": "AI_AGENT_PLATFORM_TEAM",
+      "model": "kimi-k2.6",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "8a9cbc22bdeeb13d06df9ad2a5d6f8d1e154bd9b39ec0c791140a054dd521f9d",
+        "4fd1d7fb63f2543fa019cd021f5b611a849ece93ef9c6cb12d18f5c07ee6c07f",
+        "d9ddc3baa46aa6ff70e57584e4d95f4ce444f9d6a81616e55648ec7d7f3defcf"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:governance_agent:deepseek-v4-flash",
+      "partner_profile": "GOVERNANCE_AGENT",
+      "model": "deepseek-v4-flash",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "cc0d6c40de7277dee694ea130d8df519293a137ccbc860715f03624cfaeb3bde",
+        "388c1e3ad10bfe60f42141c58375eb50c442684009fcb4d28ee74e00b6d5cb63",
+        "efd7f116baca9c2a951542b56b9249882b056f2472b62c0dda4a7cbe002b56a6"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:governance_agent:glm-5-2",
+      "partner_profile": "GOVERNANCE_AGENT",
+      "model": "glm-5.2",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "4433fbf8c4aa6d530f71fabfe2f9d9120fa689e18aefc97f6f7efb1346b3b1e3",
+        "47703083d30dd086fa820c62ca7ab695a14eac980ffdace7d7f74b3d799e2463",
+        "891de76a6581d71313fad2d1ccc19ca82ad5f4e985637003bfac7893bffcef3b"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:governance_agent:kimi-k2-6",
+      "partner_profile": "GOVERNANCE_AGENT",
+      "model": "kimi-k2.6",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "bc54bc6f717282a2cbe27c253b9811afb081f479c5bd4f4c43b19764dedd2b46",
+        "fefa072c0e430bb080b0dfae03e1530c2eb9506734007e43506ecfb4fac215b9",
+        "8953084312d9837f2fba10019280ba693b1002a1a3a027f43aa5ca3fc24a9079"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": false,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": false,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:evaluation_agent:deepseek-v4-flash",
+      "partner_profile": "EVALUATION_AGENT",
+      "model": "deepseek-v4-flash",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "31da7ec0e7494c0092312e898e30efdb0f91ea47f0465f20478696899de97b3e",
+        "5d46d47634e2d2aab7df9e289229a2b60d557a2049aca3fcf0ba7379c8ea85fb",
+        "dad5f52065aa3135807b06922a400f69a102627c730916443dd34f509ae46b34"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": false,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": false,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    },
+    {
+      "session_id": "design-partner:evaluation_agent:glm-5-2",
+      "partner_profile": "EVALUATION_AGENT",
+      "model": "glm-5.2",
+      "provider": "baidu_qianfan",
+      "status": "contract_failed",
+      "provider_rounds": 1,
+      "response_digests": [
+        "1b9be48bf0b1621300092bafb9ffc11ee4b3059532021387c55a93acb424a166"
+      ],
+      "discovery_correct": false,
+      "non_use_boundary_correct": false,
+      "composition_correct": false,
+      "claim_boundary_correct": false,
+      "full_contract_pass": false,
+      "recommendation": null,
+      "failure_code": "provider_timeout_or_network_error"
+    },
+    {
+      "session_id": "design-partner:evaluation_agent:kimi-k2-6",
+      "partner_profile": "EVALUATION_AGENT",
+      "model": "kimi-k2.6",
+      "provider": "baidu_qianfan",
+      "status": "completed",
+      "provider_rounds": 3,
+      "response_digests": [
+        "b08f13ed50d55a7982975a88299ce7ba1f16156b20b95735232715410c8268f2",
+        "0bd5cebb2985a39ed9837dd4751a0c259c9fb8ec28e905325b0a28d63902a936",
+        "bc22b94dfe2bbe46e5140f5646ed5fbc8ab03f0624970523d94dbd252d0a05f6"
+      ],
+      "discovery_correct": true,
+      "non_use_boundary_correct": true,
+      "composition_correct": true,
+      "claim_boundary_correct": true,
+      "full_contract_pass": true,
+      "recommendation": "RECOMMEND_FOR_CONTROLLED_INTEGRATION",
+      "failure_code": null
+    }
+  ]
+}

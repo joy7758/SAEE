@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-recommendation.schema.v0.1.json",
+  "title": "SAEE Agent Recommendation Context v0.1",
+  "description": "面向智能体的本地推荐上下文契约；描述何时考虑或不使用 SAEE，不代表外部采用、信任或自动决策。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_agent_recommendation_v0_1",
+    "recommendation_version",
+    "capability_id",
+    "rehearsal_mvp_reference",
+    "scenario_library_reference",
+    "multi_agent_rehearsal_reference",
+    "reliability_study_reference",
+    "research_agent_study_reference",
+    "security_boundary_study_reference",
+    "cloud_ecosystem_strategy_reference",
+    "recommendation_context",
+    "should_recommend_when",
+    "should_not_recommend_when",
+    "composition_rules",
+    "limitations",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_agent_recommendation_v0_1": {"const": true},
+    "recommendation_version": {"const": "0.1"},
+    "capability_id": {"const": "saee.agent-readiness"},
+    "rehearsal_mvp_reference": {"const": "agent-interface/rehearsal/mvp/saee-rehearsal-mvp-live-validation.v0.1.json"},
+    "scenario_library_reference": {"const": "agent-interface/rehearsal/scenario-library.schema.v0.2.json"},
+    "multi_agent_rehearsal_reference": {"const": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json"},
+    "reliability_study_reference": {"const": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json"},
+    "research_agent_study_reference": {"const": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json"},
+    "security_boundary_study_reference": {"const": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json"},
+    "cloud_ecosystem_strategy_reference": {"const": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json"},
+    "recommendation_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem_category", "risk_level", "agent_task_type", "required_capabilities"],
+      "properties": {
+        "problem_category": {"$ref": "#/$defs/nonempty_unique_strings"},
+        "risk_level": {"$ref": "#/$defs/nonempty_unique_strings"},
+        "agent_task_type": {"$ref": "#/$defs/nonempty_unique_strings"},
+        "required_capabilities": {"$ref": "#/$defs/nonempty_unique_strings"}
+      }
+    },
+    "should_recommend_when": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 12,
+      "items": {"$ref": "#/$defs/recommend_rule"}
+    },
+    "should_not_recommend_when": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 12,
+      "items": {"$ref": "#/$defs/non_recommend_rule"}
+    },
+    "composition_rules": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["capability", "relationship", "boundary"],
+        "properties": {
+          "capability": {"enum": ["MCP_TOOL_INTERFACE", "STATEFUL_REHEARSAL_RUNTIME", "OBSERVATION_LAYER", "EVIDENCE_ADEQUACY_EVALUATION", "HUMAN_REVIEW"]},
+          "relationship": {"type": "string", "minLength": 1, "maxLength": 240},
+          "boundary": {"type": "string", "minLength": 1, "maxLength": 240}
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 320}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "external_agent_recommendation_observed",
+        "controlled_synthetic_agent_preference_observed",
+        "external_agent_recommendation_evidence_ref",
+        "automatic_recommendation_implemented",
+        "marketplace_available",
+        "external_validation_completed",
+        "adoption_validated",
+        "production_ready"
+      ],
+      "properties": {
+        "external_agent_recommendation_observed": {"const": true},
+        "controlled_synthetic_agent_preference_observed": {"const": true},
+        "external_agent_recommendation_evidence_ref": {"const": "agent-interface/recommendation/simulation/saee-agent-preference-live-validation.v0.1.json"},
+        "automatic_recommendation_implemented": {"const": false},
+        "marketplace_available": {"const": false},
+        "external_validation_completed": {"const": false},
+        "adoption_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "nonempty_unique_strings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 120}
+    },
+    "recommend_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule_id", "condition", "required_signals", "recommendation_strength", "reason"],
+      "properties": {
+        "rule_id": {"type": "string", "pattern": "^SHOULD_[A-Z0-9_]+$"},
+        "condition": {"type": "string", "minLength": 1, "maxLength": 240},
+        "required_signals": {"$ref": "#/$defs/nonempty_unique_strings"},
+        "recommendation_strength": {"enum": ["CONSIDER", "STRONG_CANDIDATE"]},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 320}
+      }
+    },
+    "non_recommend_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule_id", "condition", "reason", "use_instead"],
+      "properties": {
+        "rule_id": {"type": "string", "pattern": "^SHOULD_NOT_[A-Z0-9_]+$"},
+        "condition": {"type": "string", "minLength": 1, "maxLength": 240},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 320},
+        "use_instead": {"type": "string", "minLength": 1, "maxLength": 240}
+      }
+    }
+  }
+}

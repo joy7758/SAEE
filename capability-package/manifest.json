@@ -1,0 +1,102 @@
+{
+  "manifest_version": "1.0.0",
+  "package_id": "saee.agent-reliability",
+  "package_name": "SAEE Capability Service Package",
+  "package_stage": "local_contract_alpha",
+  "default_language": "zh-CN",
+  "files": {
+    "capability_card": "capability-card.json",
+    "openapi_contract": "openapi.yaml",
+    "mcp_tool_contract": "mcp-tool.json",
+    "discovery_document": ".well-known/saee-capability.json",
+    "limitations": "limitations.md",
+    "agent_readme": "README.md",
+    "examples_directory": "examples/"
+  },
+  "canonical_local_sources": {
+    "capability_manifest": "../agent-interface/capabilities/saee-capability-manifest.v0.1.json",
+    "capability_registry_card": "../agent-interface/registry/saee-capability-card.v0.1.json",
+    "evaluate_agent_run_capability": "../agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json",
+    "phase9_service_status": "../agent-interface/commercial/saee-commercial-assessment-service-status.v1.0.json"
+  },
+  "operations": [
+    {
+      "operation_id": "evaluate_agent_run",
+      "status": "implemented_local_offline_alpha",
+      "contract_ref": "openapi.yaml#/paths/~1capabilities~1evaluate-agent-run/post",
+      "mcp_ref": "mcp-tool.json#/tools/0"
+    },
+    {
+      "operation_id": "evaluate_evidence",
+      "status": "implemented_local_offline_prototype",
+      "contract_ref": "openapi.yaml#/paths/~1capabilities~1evaluate-evidence/post",
+      "mcp_ref": "mcp-tool.json#/tools/1"
+    },
+    {
+      "operation_id": "rehearse_agent",
+      "status": "contract_only",
+      "contract_ref": "openapi.yaml#/paths/~1capabilities~1rehearse-agent/post",
+      "mcp_ref": "mcp-tool.json#/tools/2"
+    }
+  ],
+  "local_runtime": {
+    "status": "local_alpha",
+    "service_ref": "../saee_backend/services/capability_runtime/capability_invocation.py",
+    "router_ref": "../saee_backend/services/capability_runtime/capability_router.py",
+    "request_schema_ref": "../schemas/saee-capability-invocation-request.schema.v0.1.json",
+    "response_schema_ref": "../schemas/saee-capability-invocation-response.schema.v0.1.json",
+    "receipt_schema_ref": "../schemas/saee-capability-invocation-receipt.schema.v0.1.json",
+    "mcp_adapter_ref": "../agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+    "mcp_stdio_config_ref": "../agent-interface/mcp/saee-capability-mcp-stdio-config.v0.1.json",
+    "http_adapter_ref": "../agent-interface/http/saee-capability-http-adapter.v0.1.json",
+    "package_operations_verified": true,
+    "local_stdio_mcp_adapter_available": true,
+    "local_http_adapter_available": true,
+    "network_api_available": false,
+    "public_service": false,
+    "standard_mcp_transport": false
+  },
+  "validation": {
+    "command": "python3 scripts/saee_capability_service_package_smoke.py",
+    "offline": true,
+    "deterministic": true,
+    "external_dependencies_required": false
+  },
+  "integration_examples": {
+    "status": "local_examples_alpha",
+    "reference": "../agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+    "examples_root": "../examples/agent-integrations/",
+    "external_agents_connected": false,
+    "marketplace_listed": false,
+    "production_ready": false
+  },
+  "public_capability_surface": {
+    "status": "repository_public_surface_prepared_not_deployed",
+    "reference": "../agent-interface/public/saee-public-capability-surface.v0.1.json",
+    "well_known_reference": "../.well-known/saee-capability-index.json",
+    "public_document_reference": "../docs/public/SAEE_AGENT_NATIVE_CAPABILITY_SURFACE.md",
+    "quick_understanding_reference": "../docs/public/SAEE_AGENT_QUICK_UNDERSTANDING.md",
+    "publicly_deployed": false,
+    "public_api": false,
+    "public_service": false,
+    "production_ready": false
+  },
+  "public_capability_surface_reference": "../agent-interface/public/saee-public-capability-surface.v0.1.json",
+  "alpha_release_reference": "../agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+  "truth_consistency_validation_reference": "../agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
+  "truth_boundary": {
+    "published": false,
+    "local_runtime_available": true,
+    "local_stdio_mcp_adapter_available": true,
+    "local_http_adapter_available": true,
+    "network_api_available": false,
+    "public_mcp_available": false,
+    "repository_public_surface_prepared": true,
+    "alpha_preparation": true,
+    "public_release": false,
+    "publicly_deployed": false,
+    "marketplace_listed": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  }
+}

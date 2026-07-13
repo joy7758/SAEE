@@ -1,0 +1,9 @@
+{
+  "fixture_version": "0.1",
+  "fixture_id": "invalid-boundary-overclaim",
+  "base_entry_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+  "synthetic": true,
+  "mutations": [{"operation": "SET", "field": "description.english", "value": "SAEE is certified and compliant."}],
+  "expected_status": "FAIL",
+  "expected_errors": ["REGISTRY_BOUNDARY_OVERCLAIM"]
+}

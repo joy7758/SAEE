@@ -1,0 +1,12 @@
+{
+  "scenario_id": "WRONG_CAPABILITY_AGENT",
+  "caller_type": "LOCAL_SYNTHETIC_AGENT",
+  "transport": "HTTP_LOCALHOST",
+  "discovered_capability_id": "calculator.basic",
+  "selected_operation": "evaluate_evidence",
+  "invocation_status": "SUCCESS",
+  "interpretation": {"interpretation_version": "0.1.0", "assessment": "SUPPORTED", "assessment_performed": true, "profile_requirements_satisfied": true, "missing_evidence_acknowledged": false, "recommended_action": "CONTINUE", "approved": false, "certified": false, "safe": false, "deployed": false, "authorization_granted": false},
+  "expected_outcome": "FAIL",
+  "truth_boundary": {"external_agent_connected": false, "customer_data_used": false, "adoption_validated": false, "marketplace_listed": false, "production_ready": false}
+}
+

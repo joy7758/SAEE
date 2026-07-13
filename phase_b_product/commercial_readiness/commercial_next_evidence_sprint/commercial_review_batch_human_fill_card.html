@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 商业化首批 10 行人工填写说明</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --palette-name: commercial-warm-graphite-sage-v1;
+        --bg: #f6f5f0;
+        --surface: #fffdf8;
+        --surface-soft: #ece8de;
+        --text: #20231f;
+        --muted: #646b61;
+        --line: #ddd8ce;
+        --accent: #0e7c66;
+        --accent-strong: #0b604f;
+        --accent-soft: #e4f1eb;
+        --ink: #111311;
+        --danger: #b42318;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 8% 4%, rgba(14, 124, 102, 0.12), transparent 28rem),
+          linear-gradient(135deg, #fffdf8 0%, var(--bg) 62%, #edf4ef 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      main {
+        width: min(1040px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0 72px;
+      }
+      .hero {
+        display: grid;
+        gap: 18px;
+        padding-bottom: 34px;
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+      h1 {
+        max-width: 860px;
+        margin: 0;
+        font-size: clamp(34px, 6vw, 70px);
+        line-height: 1.03;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .status-card {
+        min-width: 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .status-card strong,
+      .status-card span {
+        display: block;
+      }
+      .status-card strong {
+        font-size: 20px;
+      }
+      .status-card span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .step {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .step b {
+        display: inline-grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--accent);
+      }
+      .step strong,
+      .step span {
+        display: block;
+      }
+      .step span {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .notice {
+        display: grid;
+        gap: 8px;
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid rgba(14, 124, 102, 0.25);
+        border-radius: 8px;
+        background: var(--accent-soft);
+      }
+      code {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: rgba(14, 124, 102, 0.10);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      .rows {
+        display: grid;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .fill-row {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 18px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .row-number {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--accent);
+        font-weight: 800;
+      }
+      h2 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        line-height: 1.2;
+      }
+      .instruction,
+      .blank-rule {
+        margin: 0 0 8px;
+        color: var(--text);
+      }
+      .blank-rule { color: var(--muted); }
+      dl {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin: 14px 0 0;
+      }
+      dl div {
+        min-width: 0;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: var(--surface-soft);
+      }
+      dt {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      dd {
+        margin: 4px 0 0;
+        overflow-wrap: anywhere;
+        font-size: 14px;
+      }
+      .command-panel {
+        display: grid;
+        gap: 12px;
+        margin-top: 34px;
+        padding: 18px;
+        border: 1px solid rgba(14, 124, 102, 0.25);
+        border-radius: 8px;
+        background: var(--accent-soft);
+      }
+      .command-panel h2 {
+        margin-bottom: 0;
+      }
+      .command-panel p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .command-row {
+        display: grid;
+        grid-template-columns: minmax(160px, 0.55fr) minmax(0, 1.45fr);
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .command-row span {
+        color: var(--text);
+        font-weight: 800;
+      }
+      .command-row code {
+        overflow-wrap: anywhere;
+      }
+      .boundary {
+        margin-top: 34px;
+        padding: 18px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+      .boundary ul {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+      .manual-entry-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .manual-entry-grid label {
+        display: grid;
+        gap: 8px;
+        min-width: 0;
+      }
+      .manual-entry-grid span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      textarea {
+        width: 100%;
+        min-height: 88px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        resize: vertical;
+      }
+      textarea:focus {
+        outline: 2px solid rgba(14, 124, 102, 0.22);
+        border-color: var(--accent);
+      }
+      .csv-builder {
+        display: grid;
+        gap: 14px;
+        margin-top: 34px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .builder-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      button {
+        min-height: 44px;
+        padding: 0 16px;
+        border: 0;
+        border-radius: 8px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--ink), var(--accent));
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .secondary-button {
+        color: var(--ink);
+        background: var(--surface-soft);
+      }
+      #csv-output {
+        min-height: 220px;
+        white-space: pre;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+      }
+      .builder-note {
+        margin: 0;
+        color: var(--muted);
+      }
+      @media (max-width: 700px) {
+        main { width: min(100% - 24px, 1040px); padding-top: 34px; }
+        .status-grid,
+        .steps,
+        .manual-entry-grid,
+        .command-row {
+          grid-template-columns: 1fr;
+        }
+        .fill-row { grid-template-columns: 1fr; }
+        dl { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SAEE 商业化准备 · 首批人工填写</p>
+        <h1>先把这 10 行填清楚，再继续商用推进。</h1>
+        <p class="lead">这个页面只帮助人看懂要填什么。Codex 没有生成任何值，也不会导入工作簿、收集证据或关闭 blocker。</p>
+        <div class="status-grid" aria-label="当前状态">
+          <div class="status-card"><strong>10</strong><span>需要人工填写的行</span></div>
+          <div class="status-card"><strong>10</strong><span>当前仍为空</span></div>
+          <div class="status-card"><strong>0</strong><span>已关闭 blocker</span></div>
+          <div class="status-card"><strong>否</strong><span>生产可用状态</span></div>
+        </div>
+        <div class="steps" aria-label="人工填写三步">
+          <div class="step"><b>1</b><strong>打开 CSV</strong><span>只打开下面这个源文件，不在本页面填写。</span></div>
+          <div class="step"><b>2</b><strong>只填两列</strong><span><code>human_value_to_enter</code>，可选 <code>notes_for_human</code>。</span></div>
+          <div class="step"><b>3</b><strong>保存后 dry-run</strong><span>先跑本地 dry-run，看格式和边界是否通过。</span></div>
+        </div>
+        <div class="notice">
+          <strong>真正填写位置</strong>
+          <span>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.csv</span>
+          <span>只填写 <code>human_value_to_enter</code> 和可选 <code>notes_for_human</code>。</span>
+        </div>
+      </section>
+
+      <section class="rows" aria-label="首批 10 行人工填写说明">
+<article class="fill-row">
+  <div class="row-number">1</div>
+  <div class="row-main">
+    <h2>谁负责确认这个支持入口</h2>
+    <p class="instruction">填写已由人确认的负责人姓名、角色或内部负责人标识。</p>
+    <p class="blank-rule">留空条件：如果还没有明确负责人，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-001</dd></div>
+      <div><dt>字段名</dt><dd>assigned_human_owner</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-001" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-001" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">2</div>
+  <div class="row-main">
+    <h2>负责人或内部记录在哪里</h2>
+    <p class="instruction">填写内部可追溯记录，例如工单、会议纪要、文档路径或审批编号；不要填未批准的私人联系方式。</p>
+    <p class="blank-rule">留空条件：如果没有内部记录或审批来源，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-002</dd></div>
+      <div><dt>字段名</dt><dd>owner_contact_reference</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-002" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-002" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">3</div>
+  <div class="row-main">
+    <h2>计划哪一天完成确认</h2>
+    <p class="instruction">填写计划完成确认的日期，建议使用 YYYY-MM-DD。</p>
+    <p class="blank-rule">留空条件：如果还没有目标日期，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-003</dd></div>
+      <div><dt>字段名</dt><dd>target_review_date</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-003" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-003" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">4</div>
+  <div class="row-main">
+    <h2>负责人是否知道只是在确认支持入口</h2>
+    <p class="instruction">填写负责人已确认范围的简短说明，例如只确认支持入口，不代表正式上线。</p>
+    <p class="blank-rule">留空条件：如果负责人还没有确认范围，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-004</dd></div>
+      <div><dt>字段名</dt><dd>owner_acknowledged_scope</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-004" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-004" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">5</div>
+  <div class="row-main">
+    <h2>人工批准记录或会议记录编号</h2>
+    <p class="instruction">填写人工批准或审查记录的编号、链接名称或文件路径。</p>
+    <p class="blank-rule">留空条件：如果没有人工批准记录，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-005</dd></div>
+      <div><dt>字段名</dt><dd>human_approval_reference</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-005" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-005" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">6</div>
+  <div class="row-main">
+    <h2>谁做了这次人工审查</h2>
+    <p class="instruction">填写本次审查人的姓名、角色或内部标识。</p>
+    <p class="blank-rule">留空条件：如果没有实际审查人，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-006</dd></div>
+      <div><dt>字段名</dt><dd>human_reviewer_name</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-006" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-006" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">7</div>
+  <div class="row-main">
+    <h2>审查日期</h2>
+    <p class="instruction">填写实际审查日期，建议使用 YYYY-MM-DD。</p>
+    <p class="blank-rule">留空条件：如果还没有实际审查日期，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-007</dd></div>
+      <div><dt>字段名</dt><dd>review_date</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-007" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-007" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">8</div>
+  <div class="row-main">
+    <h2>以后客户从哪里联系支持</h2>
+    <p class="instruction">填写已经人工选择的支持入口类型，例如邮箱、表单、工单系统或暂不开放。</p>
+    <p class="blank-rule">留空条件：如果支持入口尚未人工决定，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-008</dd></div>
+      <div><dt>字段名</dt><dd>selected_support_contact_channel</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-008" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-008" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">9</div>
+  <div class="row-main">
+    <h2>一句话说明为什么选这个支持方式</h2>
+    <p class="instruction">用一句话说明当前支持入口选择；不要写成已经正式对客户开放。</p>
+    <p class="blank-rule">留空条件：如果还没有形成决策，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-009</dd></div>
+      <div><dt>字段名</dt><dd>decision_summary</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-009" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-009" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+<article class="fill-row">
+  <div class="row-number">10</div>
+  <div class="row-main">
+    <h2>滥用或异常请求由谁处理</h2>
+    <p class="instruction">填写是否已有滥用处理路径及负责人；没有人工确认就留空。</p>
+    <p class="blank-rule">留空条件：如果滥用处理路径还没有人工确认，留空。</p>
+    <dl>
+      <div><dt>CSV 行</dt><dd>QFRB-010</dd></div>
+      <div><dt>字段名</dt><dd>abuse_handling_path_defined</dd></div>
+      <div><dt>所属 blocker</dt><dd>support_contact</dd></div>
+      <div><dt>只填这两列</dt><dd><code>human_value_to_enter</code>，可选 <code>notes_for_human</code></dd></div>
+    </dl>
+    <div class="manual-entry-grid">
+      <label>
+        <span>人工确认值 human_value_to_enter</span>
+        <textarea data-value-for="QFRB-010" rows="3" placeholder="只填已经由人确认的内容；没有确认就留空"></textarea>
+      </label>
+      <label>
+        <span>备注 notes_for_human（可选）</span>
+        <textarea data-note-for="QFRB-010" rows="2" placeholder="可写内部来源、待确认原因或留空说明"></textarea>
+      </label>
+    </div>
+  </div>
+</article>
+      </section>
+
+      <section class="csv-builder" aria-label="本地 CSV 文本生成器">
+        <h2>本地生成 CSV 文本</h2>
+        <p class="builder-note">这个按钮只在浏览器里把你填的内容拼成 CSV 文本。它不联网、不保存文件、不写入仓库、不导入工作簿。</p>
+        <div class="builder-actions">
+          <button type="button" id="build-csv">生成 CSV 文本</button>
+          <button type="button" class="secondary-button" id="clear-inputs">清空页面输入</button>
+        </div>
+        <textarea id="csv-output" aria-label="生成的 CSV 文本" readonly placeholder="点击“生成 CSV 文本”后，把这里的内容复制到 10 行 CSV 模板中，或另存为人工填写副本。"></textarea>
+        <p class="builder-note">复制后仍需由人保存文件，并运行本地检查；本页不会自动保存或导入。</p>
+      </section>
+
+      <section class="command-panel" aria-label="填完后的本地检查命令">
+        <h2>填完后先跑这些本地检查</h2>
+        <p>这些命令只做本地检查，不导入工作簿，不联系客户，不发布产品，不关闭 blocker。</p>
+<div class="command-row">
+  <span>填完先跑 dry-run</span>
+  <code>python3 scripts/saee_commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.py</code>
+</div>
+<div class="command-row">
+  <span>查看 dry-run JSON 是否合法</span>
+  <code>python3 -m json.tool phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_template_e2e_dry_run.local.json</code>
+</div>
+<div class="command-row">
+  <span>再跑主线守卫</span>
+  <code>python3 scripts/mainline_guard.py</code>
+</div>
+      </section>
+
+      <section class="boundary">
+        <strong>边界</strong>
+        <ul>
+          <li>不生成填写值。</li>
+          <li>不导入工作簿。</li>
+          <li>不运行真实输入验证器。</li>
+          <li>不收集证据。</li>
+          <li>不关闭 blocker。</li>
+          <li>不联系客户，不发布产品，不声明生产可用。</li>
+        </ul>
+      </section>
+    </main>
+    <script type="application/json" id="review-batch-rows-json">[{"card_row_number": 1, "review_batch_row_id": "QFRB-001", "quick_fill_row_id": "QF-001", "queue_item_id": "HIQ-001", "workbook_row_id": "WB-001", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "first_owner_input", "input_key": "assigned_human_owner", "input_kind": "support_contact_bridge_field", "human_plain_label": "谁负责确认这个支持入口", "expected_value_shape": "first-owner coordination field", "fill_instruction": "Use human-approved owner, contact-reference, target-date, scope-acknowledgement, or approval-reference text.", "human_plain_instruction": "填写已由人确认的负责人姓名、角色或内部负责人标识。", "leave_blank_condition": "Do not assign an owner or contact anyone from this guidance layer.", "human_plain_leave_blank_condition": "如果还没有明确负责人，留空。", "target_json_pointer": "/first_owner_input/assigned_human_owner", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 2, "review_batch_row_id": "QFRB-002", "quick_fill_row_id": "QF-002", "queue_item_id": "HIQ-002", "workbook_row_id": "WB-002", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "first_owner_input", "input_key": "owner_contact_reference", "input_kind": "support_contact_bridge_field", "human_plain_label": "负责人或内部记录在哪里", "expected_value_shape": "first-owner coordination field", "fill_instruction": "Use human-approved owner, contact-reference, target-date, scope-acknowledgement, or approval-reference text.", "human_plain_instruction": "填写内部可追溯记录，例如工单、会议纪要、文档路径或审批编号；不要填未批准的私人联系方式。", "leave_blank_condition": "Do not assign an owner or contact anyone from this guidance layer.", "human_plain_leave_blank_condition": "如果没有内部记录或审批来源，留空。", "target_json_pointer": "/first_owner_input/owner_contact_reference", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 3, "review_batch_row_id": "QFRB-003", "quick_fill_row_id": "QF-003", "queue_item_id": "HIQ-003", "workbook_row_id": "WB-003", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "first_owner_input", "input_key": "target_review_date", "input_kind": "support_contact_bridge_field", "human_plain_label": "计划哪一天完成确认", "expected_value_shape": "first-owner coordination field", "fill_instruction": "Use human-approved owner, contact-reference, target-date, scope-acknowledgement, or approval-reference text.", "human_plain_instruction": "填写计划完成确认的日期，建议使用 YYYY-MM-DD。", "leave_blank_condition": "Do not assign an owner or contact anyone from this guidance layer.", "human_plain_leave_blank_condition": "如果还没有目标日期，留空。", "target_json_pointer": "/first_owner_input/target_review_date", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 4, "review_batch_row_id": "QFRB-004", "quick_fill_row_id": "QF-004", "queue_item_id": "HIQ-004", "workbook_row_id": "WB-004", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "first_owner_input", "input_key": "owner_acknowledged_scope", "input_kind": "support_contact_bridge_field", "human_plain_label": "负责人是否知道只是在确认支持入口", "expected_value_shape": "first-owner coordination field", "fill_instruction": "Use human-approved owner, contact-reference, target-date, scope-acknowledgement, or approval-reference text.", "human_plain_instruction": "填写负责人已确认范围的简短说明，例如只确认支持入口，不代表正式上线。", "leave_blank_condition": "Do not assign an owner or contact anyone from this guidance layer.", "human_plain_leave_blank_condition": "如果负责人还没有确认范围，留空。", "target_json_pointer": "/first_owner_input/owner_acknowledged_scope", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 5, "review_batch_row_id": "QFRB-005", "quick_fill_row_id": "QF-005", "queue_item_id": "HIQ-005", "workbook_row_id": "WB-005", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "first_owner_input", "input_key": "human_approval_reference", "input_kind": "support_contact_bridge_field", "human_plain_label": "人工批准记录或会议记录编号", "expected_value_shape": "first-owner coordination field", "fill_instruction": "Use human-approved owner, contact-reference, target-date, scope-acknowledgement, or approval-reference text.", "human_plain_instruction": "填写人工批准或审查记录的编号、链接名称或文件路径。", "leave_blank_condition": "Do not assign an owner or contact anyone from this guidance layer.", "human_plain_leave_blank_condition": "如果没有人工批准记录，留空。", "target_json_pointer": "/first_owner_input/human_approval_reference", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 6, "review_batch_row_id": "QFRB-006", "quick_fill_row_id": "QF-006", "queue_item_id": "HIQ-006", "workbook_row_id": "WB-006", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "support_contact_decision_metadata", "input_key": "human_reviewer_name", "input_kind": "support_contact_bridge_field", "human_plain_label": "谁做了这次人工审查", "expected_value_shape": "support-contact decision metadata", "fill_instruction": "Use human-reviewed support-contact decision metadata.", "human_plain_instruction": "填写本次审查人的姓名、角色或内部标识。", "leave_blank_condition": "Do not publish support contact details from this guidance layer.", "human_plain_leave_blank_condition": "如果没有实际审查人，留空。", "target_json_pointer": "/support_contact_decision_input/human_reviewer_name", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 7, "review_batch_row_id": "QFRB-007", "quick_fill_row_id": "QF-007", "queue_item_id": "HIQ-007", "workbook_row_id": "WB-007", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "support_contact_decision_metadata", "input_key": "review_date", "input_kind": "support_contact_bridge_field", "human_plain_label": "审查日期", "expected_value_shape": "support-contact decision metadata", "fill_instruction": "Use human-reviewed support-contact decision metadata.", "human_plain_instruction": "填写实际审查日期，建议使用 YYYY-MM-DD。", "leave_blank_condition": "Do not publish support contact details from this guidance layer.", "human_plain_leave_blank_condition": "如果还没有实际审查日期，留空。", "target_json_pointer": "/support_contact_decision_input/review_date", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 8, "review_batch_row_id": "QFRB-008", "quick_fill_row_id": "QF-008", "queue_item_id": "HIQ-008", "workbook_row_id": "WB-008", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "support_contact_decision_metadata", "input_key": "selected_support_contact_channel", "input_kind": "support_contact_bridge_field", "human_plain_label": "以后客户从哪里联系支持", "expected_value_shape": "support-contact decision metadata", "fill_instruction": "Use human-reviewed support-contact decision metadata.", "human_plain_instruction": "填写已经人工选择的支持入口类型，例如邮箱、表单、工单系统或暂不开放。", "leave_blank_condition": "Do not publish support contact details from this guidance layer.", "human_plain_leave_blank_condition": "如果支持入口尚未人工决定，留空。", "target_json_pointer": "/support_contact_decision_input/selected_support_contact_channel", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 9, "review_batch_row_id": "QFRB-009", "quick_fill_row_id": "QF-009", "queue_item_id": "HIQ-009", "workbook_row_id": "WB-009", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "support_contact_decision_metadata", "input_key": "decision_summary", "input_kind": "support_contact_bridge_field", "human_plain_label": "一句话说明为什么选这个支持方式", "expected_value_shape": "support-contact decision metadata", "fill_instruction": "Use human-reviewed support-contact decision metadata.", "human_plain_instruction": "用一句话说明当前支持入口选择；不要写成已经正式对客户开放。", "leave_blank_condition": "Do not publish support contact details from this guidance layer.", "human_plain_leave_blank_condition": "如果还没有形成决策，留空。", "target_json_pointer": "/support_contact_decision_input/decision_summary", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}, {"card_row_number": 10, "review_batch_row_id": "QFRB-010", "quick_fill_row_id": "QF-010", "queue_item_id": "HIQ-010", "workbook_row_id": "WB-010", "blocker_id": "support_contact", "owner_review_lane": "support_operations", "input_group": "support_contact_evidence_review", "input_key": "abuse_handling_path_defined", "input_kind": "support_contact_bridge_field", "human_plain_label": "滥用或异常请求由谁处理", "expected_value_shape": "support-contact bridge value", "fill_instruction": "Use human-reviewed support-contact bridge input.", "human_plain_instruction": "填写是否已有滥用处理路径及负责人；没有人工确认就留空。", "leave_blank_condition": "Leave blank if the support owner has not approved it.", "human_plain_leave_blank_condition": "如果滥用处理路径还没有人工确认，留空。", "target_json_pointer": "/support_contact_decision_input/evidence_review/abuse_handling_path_defined", "human_value_to_enter": "", "notes_for_human": "", "codex_may_fill": false, "human_input_required": true}]</script>
+    <script>
+      const rows = JSON.parse(document.getElementById("review-batch-rows-json").textContent);
+      const headers = [
+        "review_batch_row_id",
+        "quick_fill_row_id",
+        "queue_item_id",
+        "workbook_row_id",
+        "blocker_id",
+        "owner_review_lane",
+        "input_group",
+        "input_key",
+        "input_kind",
+        "expected_value_shape",
+        "fill_instruction",
+        "leave_blank_condition",
+        "target_json_pointer",
+        "human_value_to_enter",
+        "notes_for_human"
+      ];
+      function csvEscape(value) {
+        const text = String(value ?? "");
+        return /[",\n\r]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+      }
+      function inputValue(selector) {
+        const element = document.querySelector(selector);
+        return element ? element.value.trim() : "";
+      }
+      function buildCsvText() {
+        const outputRows = [headers.join(",")];
+        rows.forEach((row) => {
+          const humanValue = inputValue(`[data-value-for="${row.review_batch_row_id}"]`);
+          const notes = inputValue(`[data-note-for="${row.review_batch_row_id}"]`);
+          const csvRow = headers.map((header) => {
+            if (header === "human_value_to_enter") return csvEscape(humanValue);
+            if (header === "notes_for_human") return csvEscape(notes);
+            return csvEscape(row[header] || "");
+          });
+          outputRows.push(csvRow.join(","));
+        });
+        document.getElementById("csv-output").value = outputRows.join("\n");
+      }
+      document.getElementById("build-csv").addEventListener("click", buildCsvText);
+      document.getElementById("clear-inputs").addEventListener("click", () => {
+        document.querySelectorAll("textarea:not(#csv-output)").forEach((item) => {
+          item.value = "";
+        });
+        document.getElementById("csv-output").value = "";
+      });
+    </script>
+  </body>
+</html>

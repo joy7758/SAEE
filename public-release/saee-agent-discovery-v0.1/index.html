@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SAEE 面向智能体责任工作流的机器可验证证据充分性评估能力公开发现层。">
+  <link rel="canonical" href="https://redcrag.cn/">
+  <title>SAEE｜智能体证据充分性能力</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07100d; --panel:#0e1b16; --line:#244137; --text:#f0f7f3; --muted:#a9bbb3; --mint:#72e0ae; --amber:#ffd48a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(circle at 82% 2%,#17392c 0,transparent 32%),var(--bg); color:var(--text); font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+    a { color:var(--mint); }
+    .wrap { width:min(1100px,calc(100% - 32px)); margin:auto; }
+    header { padding:22px 0; border-bottom:1px solid var(--line); }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { color:var(--text); text-decoration:none; font-weight:800; letter-spacing:.12em; }
+    .status { color:var(--mint); font-size:13px; }
+    main { padding:72px 0; }
+    .eyebrow { color:var(--mint); font:700 13px/1.4 ui-monospace,SFMono-Regular,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { max-width:900px; margin:16px 0 22px; font-size:clamp(38px,7vw,76px); line-height:1.05; letter-spacing:-.045em; }
+    .lead { max-width:780px; color:var(--muted); font-size:clamp(18px,2.2vw,24px); }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin:32px 0 58px; }
+    .button { display:inline-block; padding:12px 18px; border:1px solid var(--mint); border-radius:8px; text-decoration:none; font-weight:700; }
+    .button.primary { background:var(--mint); color:#07100d; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:12px; background:color-mix(in srgb,var(--panel) 90%,transparent); }
+    .card h2 { margin:0 0 12px; font-size:19px; }
+    .card p,.card li { color:var(--muted); }
+    .card ul { padding-left:20px; }
+    .boundary { margin-top:18px; border-color:#665332; }
+    .boundary strong { color:var(--amber); }
+    footer { padding:28px 0 44px; color:var(--muted); border-top:1px solid var(--line); font-size:14px; }
+    footer p { margin:6px 0; }
+    code { color:#c7f6df; }
+    @media (max-width:760px) { main{padding:48px 0}.grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><nav><a class="brand" href="/">SAEE</a><span class="status">研究原型 · 静态发现层</span></nav></div></header>
+  <main class="wrap">
+    <p class="eyebrow">Agent-Native Discovery Layer v0.1</p>
+    <h1>让智能体判断：现有证据，是否足以支持一项责任声明。</h1>
+    <p class="lead">SAEE 是证据充分性评估能力。它读取观察引用、证据对象、责任声明和固定评估剖面，输出声明评估、缺失证据、原因码与边界说明。</p>
+    <div class="actions">
+      <a class="button primary" href="capabilities/saee-capability-manifest.v0.1.json">读取能力清单</a>
+      <a class="button" href=".well-known/agent-index.json">读取智能体索引</a>
+      <a class="button" href="docs/evidence-adequacy.md">理解证据充分性</a>
+    </div>
+    <section class="grid" aria-label="能力摘要">
+      <article class="card"><h2>何时使用</h2><ul><li>评估执行证据是否满足指定声明</li><li>识别缺失字段与关系</li><li>为人工治理审查准备可追溯结果</li></ul></article>
+      <article class="card"><h2>输出什么</h2><ul><li><code>claim_assessment</code></li><li><code>missing_requirements</code></li><li><code>reason_codes</code></li><li><code>boundary_statement</code></li></ul></article>
+      <article class="card"><h2>如何组合</h2><p>观察层提供候选引用，证据层执行充分性评估，治理层保留解释、授权和部署决定权。</p></article>
+    </section>
+    <section class="card boundary">
+      <h2>能力边界</h2>
+      <p><strong>SAEE 是研究原型和证据充分性评估能力。</strong>SAEE 不提供安全认证、法律判断、监管合规结论、部署批准或生产治理保证。公开文档不等于能力认证，发现能力不等于采用能力。</p>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>SAEE 是研究原型和智能体证据充分性评估能力。静态、只读、无运行时服务。</p>
+      <p>法律声明：公开材料仅用于能力发现与研究说明，不构成认证、法律意见、合规结论或部署授权。</p>
+      <p>ICP备案号：<a href="https://beian.miit.gov.cn/" rel="nofollow noopener" target="_blank">晋ICP备2026006409号-1</a></p>
+    </div>
+  </footer>
+</body>
+</html>

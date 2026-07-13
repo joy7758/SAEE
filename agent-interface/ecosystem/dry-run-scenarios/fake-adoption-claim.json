@@ -1,0 +1,10 @@
+{
+  "scenario_id": "FAKE_ADOPTION_CLAIM",
+  "participant_id": "SYNTHETIC_CLOUD_PLATFORM",
+  "input_reference": "synthetic://claim/external-ecosystem-adopted-saee",
+  "expected_result": "REJECTED",
+  "expected_reason_code": "ADOPTION_OVERCLAIM_REJECTED",
+  "should_accept": false,
+  "external_execution": false
+}
+

@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-registry.schema.v0.1.json",
+  "title": "SAEE Capability Registry Entry v0.1",
+  "description": "Strict machine-readable registry entry for identifying and reasoning about one SAEE capability without granting availability or authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_capability_registry_entry_v0_1",
+    "registry_specification_version",
+    "capability_id",
+    "capability_aliases",
+    "version",
+    "name",
+    "category",
+    "description",
+    "lifecycle_state",
+    "use_cases",
+    "non_use_cases",
+    "discovery_endpoint",
+    "invocation",
+    "input_contract",
+    "output_contract",
+    "limitations",
+    "boundary_contract",
+    "validation_state",
+    "migration_state"
+  ],
+  "properties": {
+    "saee_capability_registry_entry_v0_1": {"const": true},
+    "registry_specification_version": {"const": "0.1"},
+    "capability_id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$", "maxLength": 128},
+    "capability_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*$", "maxLength": 128}
+    },
+    "version": {"type": "string", "pattern": "^0\\.[1-9][0-9]*$", "maxLength": 16},
+    "name": {"type": "string", "minLength": 1, "maxLength": 160},
+    "category": {"type": "string", "pattern": "^[a-z][a-z0-9 ]+$", "minLength": 3, "maxLength": 96},
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["english", "chinese"],
+      "properties": {
+        "english": {"type": "string", "minLength": 1, "maxLength": 512},
+        "chinese": {"type": "string", "minLength": 1, "maxLength": 512}
+      }
+    },
+    "lifecycle_state": {"enum": ["RESEARCH_PROTOTYPE", "LOCAL_PROTOTYPE", "EXTERNAL_VALIDATION", "PRODUCTION_CAPABILITY"]},
+    "use_cases": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {"enum": ["EVIDENCE_ADEQUACY_EVALUATION", "ACCOUNTABILITY_CLAIM_ANALYSIS", "MISSING_EVIDENCE_IDENTIFICATION", "HUMAN_REVIEW_PREPARATION"]}
+    },
+    "non_use_cases": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {"enum": ["AUTHORIZATION_ENFORCEMENT", "SECURITY_ENFORCEMENT", "SECURITY_CERTIFICATION", "LEGAL_DETERMINATION", "DEPLOYMENT_APPROVAL", "RUNTIME_BLOCKING", "MALWARE_DETECTION"]}
+    },
+    "discovery_endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_url", "manifest_url", "local_manifest_ref", "registry_entry_local_only", "public_registry_available", "public_tool_available"],
+      "properties": {
+        "canonical_url": {"const": "https://redcrag.cn/"},
+        "manifest_url": {"const": "https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json"},
+        "local_manifest_ref": {"$ref": "#/$defs/local_ref"},
+        "registry_entry_local_only": {"const": true},
+        "public_registry_available": {"type": "boolean"},
+        "public_tool_available": {"type": "boolean"}
+      }
+    },
+    "invocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "function_ref", "transport", "network_required", "external_authentication_required", "side_effects_allowed"],
+      "properties": {
+        "mode": {"enum": ["NONE", "LOCAL_PYTHON_FUNCTION", "MCP", "HTTP_API"]},
+        "function_ref": {"$ref": "#/$defs/local_ref"},
+        "transport": {"enum": ["NONE", "IN_PROCESS", "STDIO", "HTTP"]},
+        "network_required": {"type": "boolean"},
+        "external_authentication_required": {"type": "boolean"},
+        "side_effects_allowed": {"const": false}
+      }
+    },
+    "input_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_ref", "schema_version", "required_fields", "optional_fields", "executable_input_allowed"],
+      "properties": {
+        "schema_ref": {"$ref": "#/$defs/local_ref"},
+        "schema_version": {"type": "string", "pattern": "^0\\.[1-9][0-9]*$", "maxLength": 16},
+        "required_fields": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {"enum": ["evidence_object", "accountability_claim", "evaluation_profile"]}
+        },
+        "optional_fields": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {"const": "observation_references"}
+        },
+        "executable_input_allowed": {"const": false}
+      }
+    },
+    "output_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_ref", "schema_version", "output_fields", "authorization_output", "deployment_output"],
+      "properties": {
+        "schema_ref": {"$ref": "#/$defs/local_ref"},
+        "schema_version": {"type": "string", "pattern": "^0\\.[1-9][0-9]*$", "maxLength": 16},
+        "output_fields": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {"enum": ["tool_result", "claim_assessment", "evidence_sufficiency_status", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement"]}
+        },
+        "authorization_output": {"const": false},
+        "deployment_output": {"const": false}
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 512}
+    },
+    "boundary_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_ref", "registry_entry_authorizes_use", "capability_description_is_trust", "availability_implies_production", "human_authority_required"],
+      "properties": {
+        "contract_ref": {"$ref": "#/$defs/local_ref"},
+        "registry_entry_authorizes_use": {"const": false},
+        "capability_description_is_trust": {"const": false},
+        "availability_implies_production": {"const": false},
+        "human_authority_required": {"const": true}
+      }
+    },
+    "validation_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local_contract_validated", "synthetic_invocation_evaluated", "synthetic_discovery_tested", "external_validation_completed", "production_validation_completed", "adoption_validated", "benchmark_reference", "stateful_rehearsal_runtime_reference", "rehearsal_mvp_reference", "scenario_library_reference", "multi_agent_rehearsal_reference", "reliability_study_reference", "research_agent_study_reference", "security_boundary_study_reference", "reliability_framework_reference", "internal_reliability_benchmark_reference", "methodology_review_reference", "extended_internal_reliability_benchmark_reference", "reliability_research_manifest_reference", "agent_native_design_partner_validation_reference", "commercial_assessment_service_status_reference", "local_runtime_reference", "local_mcp_adapter_reference", "local_http_adapter_reference", "integration_examples_reference", "public_capability_surface_reference", "discovery_validation_reference", "alpha_release_reference", "alpha_release_position_reference", "cloud_ecosystem_strategy_reference", "ecosystem_entry_package_reference", "mcp_dry_integration_reference", "ecosystem_demo_reference", "first_validation_candidate_reference", "first_external_validation_simulation_reference", "real_validation_entry_gate_reference", "internal_agent_pilot_reference", "internal_agent_pilot_execution_reference", "truth_consistency_validation_reference", "ecosystem_validation_preparation_reference", "ecosystem_dry_run_reference", "external_validation_design_reference", "external_validation_simulation_reference", "external_validation_readiness_review_reference", "execution_simulation_reference", "entry_decision_reference", "entry_decision_simulation_reference", "agent_native_adoption_strategy_reference", "marketplace_position_reference", "capability_composition_reference", "validation_evidence_refs"],
+      "properties": {
+        "local_contract_validated": {"type": "boolean"},
+        "synthetic_invocation_evaluated": {"type": "boolean"},
+        "synthetic_discovery_tested": {"type": "boolean"},
+        "external_validation_completed": {"type": "boolean"},
+        "production_validation_completed": {"type": "boolean"},
+        "adoption_validated": {"const": false},
+        "benchmark_reference": {"const": "agent-interface/recommendation/saee-agent-recommendation-benchmark-result.v0.1.json"},
+        "stateful_rehearsal_runtime_reference": {"const": "agent-interface/rehearsal/saee-stateful-rehearsal-runtime-architecture.v0.1.json"},
+        "rehearsal_mvp_reference": {"const": "agent-interface/rehearsal/mvp/saee-rehearsal-mvp-live-validation.v0.1.json"},
+        "scenario_library_reference": {"const": "agent-interface/rehearsal/scenario-library.schema.v0.2.json"},
+        "multi_agent_rehearsal_reference": {"const": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json"},
+        "reliability_study_reference": {"const": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json"},
+        "research_agent_study_reference": {"const": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json"},
+        "security_boundary_study_reference": {"const": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json"},
+        "reliability_framework_reference": {"const": "schemas/saee-agent-reliability-assessment.schema.v1.0.json"},
+        "internal_reliability_benchmark_reference": {"const": "agent-interface/reliability/saee-internal-reliability-benchmark-result.v1.0.json"},
+        "methodology_review_reference": {"const": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json"},
+        "extended_internal_reliability_benchmark_reference": {"const": "agent-interface/reliability/saee-extended-internal-reliability-benchmark-result.v1.1.json"},
+        "reliability_research_manifest_reference": {"const": "agent-interface/research/reliability-framework-v1.1/manifest.v1.0.json"},
+        "agent_native_design_partner_validation_reference": {"const": "agent-interface/commercial/saee-agent-native-design-partner-validation-result.v1.0.json"},
+        "commercial_assessment_service_status_reference": {"const": "agent-interface/commercial/saee-commercial-assessment-service-status.v1.0.json"},
+        "local_runtime_reference": {"const": "saee_backend/services/capability_runtime/capability_invocation.py"},
+        "local_mcp_adapter_reference": {"const": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json"},
+        "local_http_adapter_reference": {"const": "agent-interface/http/saee-capability-http-adapter.v0.1.json"},
+        "integration_examples_reference": {"const": "agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json"},
+        "public_capability_surface_reference": {"const": "agent-interface/public/saee-public-capability-surface.v0.1.json"},
+        "discovery_validation_reference": {"const": "agent-interface/discovery/saee-external-agent-discovery-validation-result.v0.1.json"},
+        "alpha_release_reference": {"const": "agent-interface/release/saee-alpha-release-manifest.v0.1.json"},
+        "alpha_release_position_reference": {"const": "release/saee-agent-reliability-framework-alpha-v0.1/capabilities.json"},
+        "cloud_ecosystem_strategy_reference": {"const": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json"},
+        "ecosystem_entry_package_reference": {"const": "ecosystem/mcp-entry-package-v1/capability-card.json"},
+        "mcp_dry_integration_reference": {"const": "agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json"},
+        "ecosystem_demo_reference": {"const": "examples/ecosystem-demo-v1/README.md"},
+        "first_validation_candidate_reference": {"const": "agent-interface/ecosystem/saee-first-validation-candidate-matrix.v0.1.json"},
+        "first_external_validation_simulation_reference": {"const": "agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json"},
+        "real_validation_entry_gate_reference": {"const": "agent-interface/ecosystem/saee-real-ecosystem-validation-entry-decision.v0.1.json"},
+        "internal_agent_pilot_reference": {"const": "agent-interface/pilot/saee-internal-agent-pilot-plan.v0.1.json"},
+        "internal_agent_pilot_execution_reference": {"const": "agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json"},
+        "truth_consistency_validation_reference": {"const": "agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json"},
+        "ecosystem_validation_preparation_reference": {"const": "agent-interface/ecosystem/saee-ecosystem-validation-preparation.v0.1.json"},
+        "ecosystem_dry_run_reference": {"const": "agent-interface/ecosystem/saee-ecosystem-dry-run-result.v0.1.json"},
+        "external_validation_design_reference": {"const": "agent-interface/ecosystem/saee-controlled-external-validation-design.v0.1.json"},
+        "external_validation_simulation_reference": {"const": "agent-interface/ecosystem/saee-external-validation-simulation-result.v0.1.json"},
+        "external_validation_readiness_review_reference": {"const": "agent-interface/ecosystem/saee-external-validation-readiness-review.v0.1.json"},
+        "execution_simulation_reference": {"const": "agent-interface/ecosystem/saee-external-validation-execution-simulation-result.v0.1.json"},
+        "entry_decision_reference": {"const": "agent-interface/ecosystem/saee-external-validation-entry-decision.v0.1.json"},
+        "entry_decision_simulation_reference": {"const": "agent-interface/ecosystem/saee-entry-decision-simulation-result.v0.1.json"},
+        "agent_native_adoption_strategy_reference": {"const": "agent-interface/adoption/saee-agent-adoption-loop.v0.1.json"},
+        "marketplace_position_reference": {"const": "agent-interface/marketplace/saee-capability-category-position.v0.1.json"},
+        "capability_composition_reference": {"const": "agent-interface/composition/saee-capability-composition-model.v0.1.json"},
+        "validation_evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/local_ref"}
+        }
+      }
+    },
+    "migration_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["migration_notes_ref", "known_public_surface_gap_count", "historical_records_rewritten", "public_metadata_migrated"],
+      "properties": {
+        "migration_notes_ref": {"$ref": "#/$defs/local_ref"},
+        "known_public_surface_gap_count": {"type": "integer", "minimum": 0, "maximum": 32},
+        "historical_records_rewritten": {"const": false},
+        "public_metadata_migrated": {"type": "boolean"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"lifecycle_state": {"const": "EXTERNAL_VALIDATION"}}},
+      "then": {"properties": {"validation_state": {"properties": {"external_validation_completed": {"const": true}}}}}
+    },
+    {
+      "if": {"properties": {"lifecycle_state": {"const": "PRODUCTION_CAPABILITY"}}},
+      "then": {
+        "properties": {
+          "validation_state": {
+            "properties": {
+              "external_validation_completed": {"const": true},
+              "production_validation_completed": {"const": true}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "local_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 320,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"
+    }
+  }
+}

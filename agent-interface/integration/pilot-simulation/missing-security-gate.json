@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1",
+  "simulation_id": "simulation:pilot:missing-security-gate",
+  "scenario_type": "MISSING_SECURITY_GATE",
+  "synthetic": true,
+  "initial_state": "DESIGN_ONLY",
+  "gate_states": {
+    "TECHNICAL_READINESS": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:technical", "approval_reference": "synthetic:approval:technical"},
+    "SECURITY_REVIEW": {"status": "NOT_READY", "evidence_reference": null, "approval_reference": null},
+    "DATA_APPROVAL": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:data", "approval_reference": "synthetic:approval:data"},
+    "HUMAN_RESPONSIBILITY_ASSIGNMENT": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:human", "approval_reference": "synthetic:approval:human"},
+    "EXECUTION_AUTHORIZATION": {"status": "APPROVED", "evidence_reference": "synthetic:evidence:execution", "approval_reference": "synthetic:approval:execution"}
+  },
+  "requested_transitions": ["TECHNICAL_READY", "SECURITY_READY", "DATA_READY", "HUMAN_OWNER_ASSIGNED", "EXECUTION_AUTHORIZED", "PILOT_ACTIVE"],
+  "boundary_events": {"customer_data_without_approval": false, "secret_exposure": false, "unauthorized_action": false},
+  "termination_request": false,
+  "closure_actions": {"revoke_access": false, "delete_simulated_data": false, "retain_artifacts": false},
+  "expected_result": {"simulation_result": "BLOCK", "current_state": "TECHNICAL_READY", "stop_reason": "MISSING_SECURITY_GATE", "cleanup_result": "NOT_REQUIRED"}
+}

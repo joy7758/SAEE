@@ -1,0 +1,63 @@
+# SAEE Tenant Billing Isolation Approval Input Prompt Recommendation Gate
+
+answer: recommend_for_human_tenant_billing_isolation_input_prompt
+
+reason: The prompt makes tenant-billing-isolation approval evidence
+requirements agent-readable and human-fillable without approving a tenant
+billing account model, running cross-tenant billing tests, configuring
+payment-provider tenant mapping, collecting payment, validating revenue, or
+executing tenant billing work.
+
+recommend_for_tenant_billing_account_model_approval: false
+recommend_for_cross_tenant_billing_test_execution: false
+recommend_for_payment_provider_tenant_mapping_configuration: false
+recommend_for_payment_collection: false
+recommend_for_revenue_validation: false
+recommend_for_evidence_builder_execution: false
+recommend_for_blocker_closure: false
+recommend_for_production: false
+
+status: hold_human_tenant_billing_isolation_input_required
+required_metadata_field_count: 11
+required_tenant_billing_isolation_evidence_item_count: 6
+plain_language_tenant_billing_isolation_entry_v0_2: true
+browser_readable_tenant_billing_isolation_approval_input_prompt: true
+source_tenant_billing_isolation_approval_input_prompt_html: phase_b_product/commercial_readiness/billing_revenue_evidence/tenant_billing_isolation_approval_input_prompt.html
+plain_language_status_label: 租户账单隔离还没有批准，也没有启用
+builder_ready: false
+ready_for_evidence_builder: false
+tenant_billing_isolation_available: false
+tenant_billing_isolation_approved: false
+tenant_billing_isolation_published: false
+tenant_billing_isolated: false
+tenant_billing_isolation_enabled: false
+tenant_billing_account_model_available: false
+billing_audit_metadata_policy_available: false
+tenant_billing_retention_policy_available: false
+tenant_invoice_numbering_available: false
+tenant_privacy_security_review_completed: false
+payment_provider_tenant_mapping_approved: false
+payment_provider_tenant_mapping_configured: false
+customer_payment_collected: false
+revenue_validated: false
+blockers_closed_by_prompt: 0
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false
+
+boundary:
+- runtime_modified: false
+- backend_modified: false
+- kernel_modified: false
+- api_schema_modified: false
+- private_core_exposed: false
+- tenant_billing_isolation_published: false
+- tenant_billing_isolated: false
+- payment_provider_tenant_mapping_configured: false
+- customer_payment_collected: false
+- revenue_validated: false
+
+next_action: Human owners may copy the tenant-billing-isolation evidence
+template and fill the required fields. Evidence-builder execution remains a
+separate step.

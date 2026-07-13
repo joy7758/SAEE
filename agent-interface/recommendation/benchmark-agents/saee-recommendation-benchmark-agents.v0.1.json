@@ -1,0 +1,40 @@
+{
+  "benchmark_agent_profiles_version": "0.1",
+  "profiles": [
+    {
+      "agent_id": "GENERAL_ASSISTANT",
+      "capability_context": ["SAEE", "OBSERVABILITY", "AUTHORIZATION_SYSTEM", "CALCULATOR", "SEARCH", "LANGUAGE_TOOL", "POLICY_ENGINE", "SECURITY_MONITORING", "SECURITY_COMPLIANCE_SYSTEM", "LEGAL_REVIEW", "GOVERNANCE_AUTHORITY", "IAM"],
+      "saee_understanding": {"provides": ["PRE_DEPLOYMENT_REHEARSAL", "EVIDENCE_ADEQUACY_EVALUATION"], "does_not_provide": ["AUTHORIZATION", "CERTIFICATION", "DEPLOYMENT_APPROVAL"]},
+      "task_interpretation_style": "Select the smallest capability set that satisfies the explicit task and abstain from SAEE for ordinary low-impact work.",
+      "recommendation_behavior": "BALANCED_MINIMUM_CAPABILITY"
+    },
+    {
+      "agent_id": "CODING_AGENT",
+      "capability_context": ["SAEE", "OBSERVABILITY", "AUTHORIZATION_SYSTEM", "CALCULATOR", "SEARCH", "LANGUAGE_TOOL", "POLICY_ENGINE", "SECURITY_MONITORING", "SECURITY_COMPLIANCE_SYSTEM", "LEGAL_REVIEW", "GOVERNANCE_AUTHORITY", "IAM"],
+      "saee_understanding": {"provides": ["PRE_DEPLOYMENT_REHEARSAL", "EVIDENCE_ADEQUACY_EVALUATION"], "does_not_provide": ["AUTHORIZATION", "CERTIFICATION", "DEPLOYMENT_APPROVAL"]},
+      "task_interpretation_style": "Prioritize tool effects, state mutation, trace diagnostics, rehearsal needs, and runtime enforcement boundaries.",
+      "recommendation_behavior": "EXECUTION_BOUNDARY_AWARE"
+    },
+    {
+      "agent_id": "AUTONOMOUS_OPERATOR",
+      "capability_context": ["SAEE", "OBSERVABILITY", "AUTHORIZATION_SYSTEM", "CALCULATOR", "SEARCH", "LANGUAGE_TOOL", "POLICY_ENGINE", "SECURITY_MONITORING", "SECURITY_COMPLIANCE_SYSTEM", "LEGAL_REVIEW", "GOVERNANCE_AUTHORITY", "IAM"],
+      "saee_understanding": {"provides": ["PRE_DEPLOYMENT_REHEARSAL", "EVIDENCE_ADEQUACY_EVALUATION"], "does_not_provide": ["AUTHORIZATION", "CERTIFICATION", "DEPLOYMENT_APPROVAL"]},
+      "task_interpretation_style": "Prioritize long-horizon state, deployment impact, drift, controlled rehearsal, and enforceable runtime controls.",
+      "recommendation_behavior": "LONG_HORIZON_RISK_AWARE"
+    },
+    {
+      "agent_id": "GOVERNANCE_AGENT",
+      "capability_context": ["SAEE", "OBSERVABILITY", "AUTHORIZATION_SYSTEM", "CALCULATOR", "SEARCH", "LANGUAGE_TOOL", "POLICY_ENGINE", "SECURITY_MONITORING", "SECURITY_COMPLIANCE_SYSTEM", "LEGAL_REVIEW", "GOVERNANCE_AUTHORITY", "IAM"],
+      "saee_understanding": {"provides": ["PRE_DEPLOYMENT_REHEARSAL", "EVIDENCE_ADEQUACY_EVALUATION"], "does_not_provide": ["AUTHORIZATION", "CERTIFICATION", "DEPLOYMENT_APPROVAL"]},
+      "task_interpretation_style": "Separate evidence adequacy, authorization, certification, legal judgment, governance authority, and deployment approval.",
+      "recommendation_behavior": "AUTHORITY_AND_CLAIM_BOUNDARY_AWARE"
+    }
+  ],
+  "truth_boundary": {
+    "synthetic_agent_profiles": true,
+    "agent_intelligence_measured": false,
+    "external_agents_tested": false,
+    "market_validation": false,
+    "production_ready": false
+  }
+}

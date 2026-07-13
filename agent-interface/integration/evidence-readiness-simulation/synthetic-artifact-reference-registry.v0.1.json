@@ -1,0 +1,22 @@
+{
+  "registry_version": "0.1",
+  "synthetic_reference_only": true,
+  "real_evidence": false,
+  "entries": [
+    {"artifact_id": "synthetic:artifact:authentication-design", "artifact_type": "APPROVED_AUTHENTICATION_DESIGN_RECORD", "artifact_version": "0.1", "verification_method": "INDEPENDENT_AUTHENTICATION_ARCHITECTURE_REVIEW"},
+    {"artifact_id": "synthetic:artifact:external-identity-verification", "artifact_type": "EXTERNAL_IDENTITY_VERIFICATION_RECORD", "artifact_version": "0.1", "verification_method": "IDENTITY_PROOF_AND_AUTHORITY_CHAIN_REVIEW"},
+    {"artifact_id": "synthetic:artifact:formal-security-review", "artifact_type": "FORMAL_SECURITY_REVIEW_RECORD", "artifact_version": "0.1", "verification_method": "INDEPENDENT_THREAT_MODEL_AND_CONTROL_REVIEW"},
+    {"artifact_id": "synthetic:artifact:credential-policy", "artifact_type": "APPROVED_CREDENTIAL_POLICY", "artifact_version": "0.1", "verification_method": "LEAST_PRIVILEGE_ROTATION_REVOCATION_REVIEW"},
+    {"artifact_id": "synthetic:artifact:incident-handling", "artifact_type": "INCIDENT_RESPONSE_EXERCISE_RECORD", "artifact_version": "0.1", "verification_method": "CONTROLLED_INCIDENT_RESPONSE_TABLETOP_REVIEW"},
+    {"artifact_id": "synthetic:artifact:data-ownership", "artifact_type": "DATA_OWNERSHIP_DECLARATION", "artifact_version": "0.1", "verification_method": "SOURCE_AND_OWNERSHIP_AUTHORITY_REVIEW"},
+    {"artifact_id": "synthetic:artifact:data-usage-permission", "artifact_type": "DATA_USAGE_AUTHORIZATION_RECORD", "artifact_version": "0.1", "verification_method": "PURPOSE_SCOPE_AND_CONSENT_REVIEW"},
+    {"artifact_id": "synthetic:artifact:data-retention-approval", "artifact_type": "APPROVED_RETENTION_POLICY", "artifact_version": "0.1", "verification_method": "RETENTION_SCOPE_DURATION_AND_ACCESS_REVIEW"},
+    {"artifact_id": "synthetic:artifact:data-deletion-process", "artifact_type": "DELETION_PROCESS_TEST_RECORD", "artifact_version": "0.1", "verification_method": "CONTROLLED_DELETION_AND_RESIDUAL_SCAN_REVIEW"},
+    {"artifact_id": "synthetic:artifact:runtime-isolation", "artifact_type": "ENVIRONMENT_ISOLATION_TEST_RECORD", "artifact_version": "0.1", "verification_method": "FAIL_CLOSED_ISOLATION_NEGATIVE_TEST_REVIEW"},
+    {"artifact_id": "synthetic:artifact:runtime-monitoring", "artifact_type": "MONITORING_VALIDATION_RECORD", "artifact_version": "0.1", "verification_method": "BOUNDED_OBSERVATION_AND_ALERT_COVERAGE_REVIEW"},
+    {"artifact_id": "synthetic:artifact:runtime-recovery", "artifact_type": "RECOVERY_TEST_RECORD", "artifact_version": "0.1", "verification_method": "CONTROLLED_FAILURE_RECOVERY_REPLAY_REVIEW"},
+    {"artifact_id": "synthetic:artifact:runtime-rollback", "artifact_type": "ROLLBACK_TEST_RECORD", "artifact_version": "0.1", "verification_method": "STATE_RESTORE_AND_ARTIFACT_INTEGRITY_REVIEW"},
+    {"artifact_id": "synthetic:artifact:human-responsible-owner", "artifact_type": "RESPONSIBILITY_AND_EXECUTION_AUTHORITY_ASSIGNMENT_RECORD", "artifact_version": "0.1", "verification_method": "ROLE_SCOPE_STOP_AUTHORITY_AND_VALIDITY_REVIEW"},
+    {"artifact_id": "synthetic:artifact:human-escalation-owner", "artifact_type": "ESCALATION_AUTHORITY_ASSIGNMENT_RECORD", "artifact_version": "0.1", "verification_method": "ESCALATION_PATH_AVAILABILITY_AND_REVOCATION_REVIEW"}
+  ]
+}

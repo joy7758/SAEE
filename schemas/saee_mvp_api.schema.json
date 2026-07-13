@@ -1,0 +1,506 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/saee_mvp_api.schema.json",
+  "title": "SAEE MVP API Contract v1.0",
+  "description": "Public report-layer contract for black-box long-term competition evaluation. This schema does not expose kernel, evolution mechanism, private scoring, mutation, selection, or lineage internals.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ScenarioBatchRequest": {
+      "$ref": "#/$defs/ScenarioBatchRequest"
+    },
+    "ExperimentCreateRequest": {
+      "$ref": "#/$defs/ExperimentCreateRequest"
+    },
+    "ExperimentCreateResponse": {
+      "$ref": "#/$defs/ExperimentCreateResponse"
+    },
+    "EvaluationRunSummary": {
+      "$ref": "#/$defs/EvaluationRunSummary"
+    },
+    "DecisionResult": {
+      "$ref": "#/$defs/DecisionResult"
+    },
+    "StabilityReport": {
+      "$ref": "#/$defs/StabilityReport"
+    },
+    "FailureModeReport": {
+      "$ref": "#/$defs/FailureModeReport"
+    },
+    "SurvivalCurve": {
+      "$ref": "#/$defs/SurvivalCurve"
+    },
+    "ComparisonRanking": {
+      "$ref": "#/$defs/ComparisonRanking"
+    },
+    "ExperimentListResponse": {
+      "$ref": "#/$defs/ExperimentListResponse"
+    }
+  },
+  "$defs": {
+    "AgentDescriptor": {
+      "type": "object",
+      "required": ["agent_id", "config", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "description": "Public label only. Must not contain credentials and must be unique within the request."
+        },
+        "config": {
+          "description": "仅允许无秘密字符串，或仅含 policy/workflow 键的闭合 JSON 对象；拒绝高置信凭证、个人数据形态、数组、未知键与未知对象。该字段是描述符，不是可执行代码。",
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+            },
+            {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": false,
+              "properties": {
+                "policy": {
+                  "oneOf": [
+                    {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+                    {"type": ["number", "integer", "boolean", "null"]}
+                  ]
+                },
+                "workflow": {
+                  "oneOf": [
+                    {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+                    {"type": ["number", "integer", "boolean", "null"]}
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["llm", "rule", "workflow", "agent"]
+        }
+      }
+    },
+    "EnvironmentConfig": {
+      "type": "object",
+      "required": ["scenario_type", "noise_level", "competition_intensity", "time_horizon"],
+      "additionalProperties": false,
+      "properties": {
+        "scenario_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+        },
+        "noise_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "competition_intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "time_horizon": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        }
+      }
+    },
+    "EvaluationConfig": {
+      "type": "object",
+      "required": ["metrics", "repeat_runs"],
+      "additionalProperties": false,
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["stability", "survival", "failure_mode", "ranking"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "repeat_runs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        }
+      }
+    },
+    "ScenarioBatchRequest": {
+      "type": "object",
+      "required": ["agents", "environment", "evaluation_config"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "oneOf": [
+            {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+            {"type": "null"}
+          ]
+        },
+        "agents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AgentDescriptor"
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "environment": {
+          "$ref": "#/$defs/EnvironmentConfig"
+        },
+        "evaluation_config": {
+          "$ref": "#/$defs/EvaluationConfig"
+        }
+      }
+    },
+    "ExperimentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "oneOf": [
+            {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+            {"type": "null"}
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+            {"type": "null"}
+          ],
+          "description": "仅限公开安全标识；禁止姓名、联系方式、地址等自由文本。"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "description": "仅限公开安全标识；禁止姓名、联系方式、地址等自由文本。"
+        },
+        "owner_label": {
+          "type": ["string", "null"],
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "description": "仅限公开安全标识；不得填写真实姓名、联系方式、地址或身份号码。"
+        },
+        "created_by": {
+          "type": ["string", "null"],
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$",
+          "description": "仅限非个人化智能体标识；不得填写真实姓名、联系方式或身份号码。"
+        }
+      }
+    },
+    "AgentScore": {
+      "type": "object",
+      "required": ["agent_id", "final_score"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "final_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "OverallStats": {
+      "type": "object",
+      "required": ["mean_stability", "mean_survival", "divergence_index"],
+      "additionalProperties": false,
+      "properties": {
+        "mean_stability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "mean_survival": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "divergence_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "EvaluationRunSummary": {
+      "type": "object",
+      "required": ["experiment_id", "run_id", "status", "agents", "overall_stats", "decision_result", "recommended_agent", "confidence_score"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": ["completed", "running", "failed"]
+        },
+        "agents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AgentScore"
+          },
+          "minItems": 1
+        },
+        "overall_stats": {
+          "$ref": "#/$defs/OverallStats"
+        },
+        "decision_result": {
+          "oneOf": [
+            {"$ref": "#/$defs/DecisionResult"},
+            {"type": "null"}
+          ]
+        },
+        "recommended_agent": {
+          "type": ["string", "null"]
+        },
+        "confidence_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "StabilityReport": {
+      "type": "object",
+      "required": ["agent_id", "stability_score", "drift_rate", "variance", "convergence_status", "time_series"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stability_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "drift_rate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "variance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "convergence_status": {
+          "type": "string",
+          "enum": ["stable", "unstable", "collapsing"]
+        },
+        "time_series": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "FailureMode": {
+      "type": "object",
+      "required": ["type", "step", "severity", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["drift", "collapse", "oscillation", "degeneration"]
+        },
+        "step": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "severity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "FailureModeReport": {
+      "type": "object",
+      "required": ["agent_id", "failure_modes"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_modes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FailureMode"
+          }
+        }
+      }
+    },
+    "SurvivalPoint": {
+      "type": "object",
+      "required": ["t", "alive", "score"],
+      "additionalProperties": false,
+      "properties": {
+        "t": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "alive": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "SurvivalCurve": {
+      "type": "object",
+      "required": ["agent_id", "curve"],
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "curve": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SurvivalPoint"
+          }
+        }
+      }
+    },
+    "RankingItem": {
+      "type": "object",
+      "required": ["rank", "agent_id", "score"],
+      "additionalProperties": false,
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "DecisionResult": {
+      "type": "object",
+      "required": ["recommended_agent", "confidence_score", "ranking", "failure_modes_summary"],
+      "additionalProperties": false,
+      "properties": {
+        "recommended_agent": {"type": ["string", "null"]},
+        "confidence_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ranking": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/RankingItem"}
+        },
+        "failure_modes_summary": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "ComparisonRanking": {
+      "type": "object",
+      "required": ["experiment_id", "ranking"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ranking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RankingItem"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "ExperimentListItem": {
+      "type": "object",
+      "required": ["experiment_id", "status", "recommended_agent", "confidence_score"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": ["created", "completed", "running", "failed"]
+        },
+        "recommended_agent": {
+          "type": ["string", "null"]
+        },
+        "confidence_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "ExperimentListResponse": {
+      "type": "object",
+      "required": ["experiments", "count"],
+      "additionalProperties": false,
+      "properties": {
+        "experiments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExperimentListItem"
+          }
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "ExperimentCreateResponse": {
+      "type": "object",
+      "required": ["experiment_id", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "experiment_id": {"type": "string", "minLength": 1},
+        "status": {"const": "created"}
+      }
+    }
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_privacy_legal_dpa_approval_input_prompt": true,
+  "builder_command_after_separate_approval": "python3 scripts/saee_privacy_legal_dpa_evidence_builder.py --input phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_input.human_filled.local.json",
+  "builder_ready": false,
+  "builder_status": "hold",
+  "category": "privacy_security_legal",
+  "check_target": "make check-privacy-legal-dpa-approval-input-prompt",
+  "codex_approved_dpa": false,
+  "codex_contacted_legal_counsel": false,
+  "codex_created_dpa": false,
+  "codex_inferred_missing_evidence": false,
+  "codex_performed_legal_review": false,
+  "codex_processed_customer_data": false,
+  "completed_dpa_evidence_item_count": 0,
+  "completed_metadata_field_count": 0,
+  "completed_privacy_legal_evidence_item_count": 0,
+  "completed_total_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_input.template.json phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_data_processed": false,
+  "customer_data_processing_claim_published": false,
+  "customer_data_processing_started": false,
+  "customer_validated": false,
+  "data_processing_agreement_available": false,
+  "data_processing_agreement_completed_by_codex": false,
+  "development_permission_granted": false,
+  "dpa_availability_claim_published": false,
+  "dpa_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "dpa_terms_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "controller_processor_roles_defined",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "subprocessor_terms_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "breach_notice_terms_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "deletion_or_return_terms_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_dpa_template_available",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "dpa_sent_to_customer": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-07T20:42:13.574950+00:00",
+  "generated_by": "scripts/saee_privacy_legal_dpa_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_input.human_filled.local.json",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "legal_counsel_contacted": false,
+  "legal_review_claim_published": false,
+  "legal_review_execution_authorized": false,
+  "local_static_privacy_legal_dpa_approval_input_prompt_html": true,
+  "make_target": "make privacy-legal-dpa-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "legal_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "privacy_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "dpa_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_record_reference",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_summary",
+      "human_must_provide": true
+    }
+  ],
+  "next_human_action": "Copy the template, fill all metadata fields, approve each privacy/legal and DPA evidence key only with source-backed human review, add source notes and artifact references, then request separate evidence-builder execution. Stop before legal/DPA completion or production claims.",
+  "plain_language_next_action": "\u5148\u7531\u4eba\u7c7b\u586b\u5199\u6cd5\u5f8b\u3001\u9690\u79c1\u3001DPA \u8d1f\u8d23\u4eba\u3001\u5ba1\u67e5\u8bb0\u5f55\u548c 13 \u9879\u8bc1\u636e\uff0c\u518d\u53e6\u884c\u8bf7\u6c42\u8bc1\u636e\u6784\u5efa\u3002",
+  "plain_language_privacy_legal_dpa_approval_input_prompt_v0_2": true,
+  "plain_language_status_label": "\u9690\u79c1\u6cd5\u5f8b\u5ba1\u67e5\u548c DPA \u8fd8\u6ca1\u6709\u5b8c\u6210\uff0c\u4e5f\u4e0d\u80fd\u58f0\u79f0\u53ef\u4ee5\u6b63\u5f0f\u5904\u7406\u5ba2\u6237\u6570\u636e\u3002",
+  "plain_language_stop_point": "\u53ea\u5230\u672c\u5730\u8bc1\u636e\u51c6\u5907\u4e3a\u6b62\uff1b\u6ca1\u6709\u5355\u72ec\u6279\u51c6\uff0c\u4e0d\u505a\u6cd5\u5f8b\u5ba1\u67e5\u3001\u4e0d\u521b\u5efa\u6216\u53d1\u9001 DPA\u3001\u4e0d\u8054\u7cfb\u6cd5\u5f8b\u987e\u95ee\u3001\u4e0d\u5904\u7406\u5ba2\u6237\u6570\u636e\u3001\u4e0d\u5173\u95ed blocker\u3002",
+  "privacy_legal_dpa_approval_input_prompt_v0_1": true,
+  "privacy_legal_dpa_human_review_step_count": 5,
+  "privacy_legal_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "privacy_notice_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "terms_of_service_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "data_inventory_reviewed",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "retention_policy_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "subprocessor_inventory_reviewed",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_data_processing_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "legal_reviewer_recorded",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "privacy_legal_review_completed": false,
+  "privacy_legal_review_completed_by_codex": false,
+  "privacy_notice_published": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "production_security_enabled": false,
+  "prompt_scope": "local_human_privacy_legal_dpa_input_prompt_only",
+  "prompt_type": "saee_privacy_legal_dpa_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "required_dpa_evidence_item_count": 6,
+  "required_metadata_field_count": 7,
+  "required_privacy_legal_evidence_item_count": 7,
+  "required_total_evidence_item_count": 13,
+  "runtime_modified": false,
+  "security_vendor_contacted": false,
+  "separate_evidence_builder_request_required": true,
+  "source_builder_output": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_builder_output.local.json",
+  "source_privacy_legal_dpa_approval_input_prompt_html": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/privacy_security_legal_evidence/privacy_legal_dpa_evidence_input.template.json",
+  "status": "hold_human_privacy_legal_dpa_input_required",
+  "target_blocker_ids": [
+    "privacy_legal_review",
+    "data_processing_agreement"
+  ],
+  "task_candidates_executed": false,
+  "terms_published": false,
+  "vulnerability_management_operational": false
+}

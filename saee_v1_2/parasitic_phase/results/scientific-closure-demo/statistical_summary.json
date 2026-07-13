@@ -1,0 +1,1340 @@
+{
+  "experiments": {
+    "A_no_governance": {
+      "experiment_id": "A_no_governance",
+      "final_phi_variance": 0.010047,
+      "governance": "none",
+      "mean_final_phi": 0.555396,
+      "mean_phase_transition_step": 34.555556,
+      "non_transition_count": 3,
+      "non_transition_mean_policy": "mean_phase_transition_step_uses_observed_transitions_only",
+      "phase_transition_step_ci_95": {
+        "high": 42.677595,
+        "low": 26.433516
+      },
+      "phase_transition_step_variance": 463.641026,
+      "sample_size": 30,
+      "seed_runs": [
+        {
+          "final_agent_dominance": 0.666667,
+          "final_entropy": 0.985167,
+          "final_phi": 0.265175,
+          "phase_transition_step": null,
+          "seed": 4100,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.989429,
+          "final_phi": 0.614065,
+          "phase_transition_step": 22,
+          "seed": 4101,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.622542,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999735,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.174128,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.506488,
+          "final_entropy": 0.838512,
+          "final_phi": 0.599285,
+          "phase_transition_step": 108,
+          "seed": 4102,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.601858,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.939244,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 108,
+            "transition_slope": 0.015596,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.669564,
+          "final_entropy": 0.783735,
+          "final_phi": 0.648503,
+          "phase_transition_step": 31,
+          "seed": 4103,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.610071,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.987167,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 31,
+            "transition_slope": 0.015124,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.965366,
+          "final_phi": 0.554438,
+          "phase_transition_step": 31,
+          "seed": 4104,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.602224,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999569,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 31,
+            "transition_slope": 0.003716,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.965833,
+          "final_phi": 0.57808,
+          "phase_transition_step": 22,
+          "seed": 4105,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.623425,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.99995,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.179299,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.714286,
+          "final_entropy": 0.759787,
+          "final_phi": 0.636224,
+          "phase_transition_step": 22,
+          "seed": 4106,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.621368,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.99964,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.171457,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.966767,
+          "final_phi": 0.57469,
+          "phase_transition_step": 97,
+          "seed": 4107,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.600325,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.961394,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 97,
+            "transition_slope": 0.003416,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.419575,
+          "final_entropy": 0.969667,
+          "final_phi": 0.491284,
+          "phase_transition_step": null,
+          "seed": 4108,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.547251,
+          "final_entropy": 0.865452,
+          "final_phi": 0.616872,
+          "phase_transition_step": 27,
+          "seed": 4109,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.60128,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.995374,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.032476,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.622511,
+          "final_entropy": 0.824356,
+          "final_phi": 0.622663,
+          "phase_transition_step": 66,
+          "seed": 4110,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.601683,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.945393,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 66,
+            "transition_slope": 0.002266,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.407857,
+          "final_entropy": 0.956373,
+          "final_phi": 0.526966,
+          "phase_transition_step": 22,
+          "seed": 4111,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.624161,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999864,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.17872,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.424041,
+          "final_entropy": 0.926568,
+          "final_phi": 0.489789,
+          "phase_transition_step": 22,
+          "seed": 4112,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.623064,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999926,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.178109,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.666667,
+          "final_entropy": 0.970657,
+          "final_phi": 0.65867,
+          "phase_transition_step": 38,
+          "seed": 4113,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.61477,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.992551,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 38,
+            "transition_slope": 0.018662,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.753266,
+          "phase_transition_step": 27,
+          "seed": 4114,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.606716,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.453972,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.028057,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.970758,
+          "final_phi": 0.565593,
+          "phase_transition_step": 27,
+          "seed": 4115,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.604981,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.9946,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.010894,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.418489,
+          "final_entropy": 0.970947,
+          "final_phi": 0.490079,
+          "phase_transition_step": 38,
+          "seed": 4116,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.617534,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.991702,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 38,
+            "transition_slope": 0.018324,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.516852,
+          "final_entropy": 0.861025,
+          "final_phi": 0.610709,
+          "phase_transition_step": 39,
+          "seed": 4117,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.600781,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.994664,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 39,
+            "transition_slope": 0.020721,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.676559,
+          "phase_transition_step": 27,
+          "seed": 4118,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.615906,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.441186,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.03099,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.42412,
+          "final_entropy": 0.979798,
+          "final_phi": 0.507075,
+          "phase_transition_step": 27,
+          "seed": 4119,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.610876,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.992998,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.011849,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.385414,
+          "final_entropy": 0.992585,
+          "final_phi": 0.519465,
+          "phase_transition_step": 31,
+          "seed": 4120,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.600995,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.975128,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 31,
+            "transition_slope": 0.007259,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.469289,
+          "final_entropy": 0.962401,
+          "final_phi": 0.537595,
+          "phase_transition_step": 27,
+          "seed": 4121,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.622559,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.819892,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.049037,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.666667,
+          "final_entropy": 0.98834,
+          "final_phi": 0.263838,
+          "phase_transition_step": null,
+          "seed": 4122,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.460669,
+          "final_entropy": 0.967461,
+          "final_phi": 0.536123,
+          "phase_transition_step": 22,
+          "seed": 4123,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.623923,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999846,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.177291,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.460539,
+          "final_entropy": 0.850104,
+          "final_phi": 0.528672,
+          "phase_transition_step": 27,
+          "seed": 4124,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.605661,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.994833,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.010986,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.483101,
+          "final_entropy": 0.846122,
+          "final_phi": 0.537261,
+          "phase_transition_step": 27,
+          "seed": 4125,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.605968,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.994891,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.011014,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.907132,
+          "final_phi": 0.563388,
+          "phase_transition_step": 27,
+          "seed": 4126,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.622013,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.834226,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 27,
+            "transition_slope": 0.050895,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.4,
+          "final_entropy": 0.994126,
+          "final_phi": 0.550051,
+          "phase_transition_step": 28,
+          "seed": 4127,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.610157,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.988116,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 28,
+            "transition_slope": 0.031258,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.571429,
+          "final_entropy": 0.945294,
+          "final_phi": 0.623521,
+          "phase_transition_step": 22,
+          "seed": 4128,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.621524,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999747,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.173114,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.440748,
+          "final_entropy": 0.974446,
+          "final_phi": 0.521974,
+          "phase_transition_step": 29,
+          "seed": 4129,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.602173,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999354,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 29,
+            "transition_slope": 0.002617,
+            "type": "transition_event"
+          }
+        }
+      ],
+      "transition_count": 27,
+      "transition_rate": 0.9
+    },
+    "B_weak_governance": {
+      "experiment_id": "B_weak_governance",
+      "final_phi_variance": 0.029289,
+      "governance": "weak",
+      "mean_final_phi": 0.511567,
+      "mean_phase_transition_step": 46.26087,
+      "non_transition_count": 7,
+      "non_transition_mean_policy": "mean_phase_transition_step_uses_observed_transitions_only",
+      "phase_transition_step_ci_95": {
+        "high": 55.511891,
+        "low": 37.009848
+      },
+      "phase_transition_step_variance": 512.383399,
+      "sample_size": 30,
+      "seed_runs": [
+        {
+          "final_agent_dominance": 0.371177,
+          "final_entropy": 0.962789,
+          "final_phi": 0.207652,
+          "phase_transition_step": null,
+          "seed": 4100,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.714286,
+          "final_entropy": 0.997131,
+          "final_phi": 0.665434,
+          "phase_transition_step": 47,
+          "seed": 4101,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.60249,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.998233,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 47,
+            "transition_slope": 0.013691,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.880826,
+          "final_phi": 0.572457,
+          "phase_transition_step": 34,
+          "seed": 4102,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.62147,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.799742,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 34,
+            "transition_slope": 0.043631,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.621302,
+          "final_entropy": 0.837917,
+          "final_phi": 0.633503,
+          "phase_transition_step": 36,
+          "seed": 4103,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.632129,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.936107,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 36,
+            "transition_slope": 0.039953,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.631167,
+          "final_entropy": 0.827828,
+          "final_phi": 0.554898,
+          "phase_transition_step": 22,
+          "seed": 4104,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.621467,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999761,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.173622,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.645449,
+          "final_entropy": 0.815034,
+          "final_phi": 0.607313,
+          "phase_transition_step": 47,
+          "seed": 4105,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.626964,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.983906,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 47,
+            "transition_slope": 0.103001,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.571429,
+          "final_entropy": 0.925191,
+          "final_phi": 0.614282,
+          "phase_transition_step": 40,
+          "seed": 4106,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.602075,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.997759,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 40,
+            "transition_slope": 0.00839,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.570562,
+          "final_entropy": 0.874165,
+          "final_phi": 0.584695,
+          "phase_transition_step": 112,
+          "seed": 4107,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.602609,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.960784,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 112,
+            "transition_slope": 0.003607,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.98682,
+          "final_phi": 0.537021,
+          "phase_transition_step": 46,
+          "seed": 4108,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.632962,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.935176,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 46,
+            "transition_slope": 0.064564,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.653342,
+          "final_entropy": 0.8061,
+          "final_phi": 0.647095,
+          "phase_transition_step": 22,
+          "seed": 4109,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.620261,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.999541,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 22,
+            "transition_slope": 0.169744,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.873449,
+          "final_phi": 0.544827,
+          "phase_transition_step": 36,
+          "seed": 4110,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.603736,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.836632,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 36,
+            "transition_slope": 0.045796,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.596771,
+          "final_entropy": 0.860757,
+          "final_phi": 0.663634,
+          "phase_transition_step": 45,
+          "seed": 4111,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.623517,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.987278,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 45,
+            "transition_slope": 0.048433,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.495756,
+          "final_entropy": 0.948977,
+          "final_phi": 0.581759,
+          "phase_transition_step": 36,
+          "seed": 4112,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.626397,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.946492,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 36,
+            "transition_slope": 0.046242,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.461462,
+          "final_entropy": 0.964795,
+          "final_phi": 0.521687,
+          "phase_transition_step": 65,
+          "seed": 4113,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.601007,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.985876,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 65,
+            "transition_slope": 0.003855,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.743254,
+          "phase_transition_step": 32,
+          "seed": 4114,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.607376,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.507173,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 32,
+            "transition_slope": 0.025394,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.903358,
+          "final_phi": 0.542195,
+          "phase_transition_step": 44,
+          "seed": 4115,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.65007,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.959532,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 44,
+            "transition_slope": 0.09869,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.428432,
+          "final_entropy": 0.96835,
+          "final_phi": 0.495863,
+          "phase_transition_step": null,
+          "seed": 4116,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.456283,
+          "final_entropy": 0.954182,
+          "final_phi": 0.58306,
+          "phase_transition_step": 110,
+          "seed": 4117,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.60256,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.960094,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 110,
+            "transition_slope": 0.003583,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.4,
+          "final_entropy": 0.965197,
+          "final_phi": 0.13283,
+          "phase_transition_step": null,
+          "seed": 4118,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.916681,
+          "final_phi": 0.552,
+          "phase_transition_step": 32,
+          "seed": 4119,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.632853,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.944976,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 32,
+            "transition_slope": 0.137395,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.448975,
+          "final_entropy": 0.959612,
+          "final_phi": 0.511258,
+          "phase_transition_step": null,
+          "seed": 4120,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.5,
+          "final_entropy": 0.931247,
+          "final_phi": 0.589907,
+          "phase_transition_step": 34,
+          "seed": 4121,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.615729,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.860945,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 34,
+            "transition_slope": 0.059131,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.4,
+          "final_entropy": 0.96178,
+          "final_phi": 0.142498,
+          "phase_transition_step": null,
+          "seed": 4122,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.0,
+          "phase_transition_step": null,
+          "seed": 4123,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.444199,
+          "final_entropy": 0.972976,
+          "final_phi": 0.526125,
+          "phase_transition_step": 55,
+          "seed": 4124,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.657993,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.996842,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 55,
+            "transition_slope": 0.092994,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.679052,
+          "final_entropy": 0.73592,
+          "final_phi": 0.593474,
+          "phase_transition_step": 32,
+          "seed": 4125,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.653783,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.942214,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 32,
+            "transition_slope": 0.158122,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.403157,
+          "phase_transition_step": null,
+          "seed": 4126,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.437697,
+          "final_entropy": 0.963564,
+          "final_phi": 0.496223,
+          "phase_transition_step": 45,
+          "seed": 4127,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.61769,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.93927,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 45,
+            "transition_slope": 0.063276,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.419106,
+          "final_entropy": 0.968905,
+          "final_phi": 0.483634,
+          "phase_transition_step": 44,
+          "seed": 4128,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.638431,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.991818,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 44,
+            "transition_slope": 0.087758,
+            "type": "transition_event"
+          }
+        },
+        {
+          "final_agent_dominance": 0.571429,
+          "final_entropy": 0.854347,
+          "final_phi": 0.615267,
+          "phase_transition_step": 48,
+          "seed": 4129,
+          "transition_event": {
+            "detector": "phi_above_phi_c_and_positive_slope",
+            "phase": "parasitic_phase",
+            "phi": 0.609743,
+            "phi_threshold": 0.6,
+            "pre_transition_entropy": 0.997253,
+            "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+            "slope_threshold": 0.0,
+            "timestep": 48,
+            "transition_slope": 0.057054,
+            "type": "transition_event"
+          }
+        }
+      ],
+      "transition_count": 23,
+      "transition_rate": 0.766667
+    },
+    "C_strong_governance": {
+      "experiment_id": "C_strong_governance",
+      "final_phi_variance": 0.018551,
+      "governance": "strong",
+      "mean_final_phi": 0.320821,
+      "mean_phase_transition_step": null,
+      "non_transition_count": 30,
+      "non_transition_mean_policy": "mean_phase_transition_step_uses_observed_transitions_only",
+      "phase_transition_step_ci_95": null,
+      "phase_transition_step_variance": null,
+      "sample_size": 30,
+      "seed_runs": [
+        {
+          "final_agent_dominance": 0.422103,
+          "final_entropy": 0.949069,
+          "final_phi": 0.13589,
+          "phase_transition_step": null,
+          "seed": 4100,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.825421,
+          "final_entropy": 0.668073,
+          "final_phi": 0.404645,
+          "phase_transition_step": null,
+          "seed": 4101,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.494878,
+          "phase_transition_step": null,
+          "seed": 4102,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.336545,
+          "final_entropy": 0.969763,
+          "final_phi": 0.121383,
+          "phase_transition_step": null,
+          "seed": 4103,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.600544,
+          "final_entropy": 0.970631,
+          "final_phi": 0.369117,
+          "phase_transition_step": null,
+          "seed": 4104,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.638784,
+          "final_entropy": 0.822114,
+          "final_phi": 0.355539,
+          "phase_transition_step": null,
+          "seed": 4105,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.892947,
+          "final_phi": 0.299214,
+          "phase_transition_step": null,
+          "seed": 4106,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 1.0,
+          "final_entropy": 0.0,
+          "final_phi": 0.505175,
+          "phase_transition_step": null,
+          "seed": 4107,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.894172,
+          "final_entropy": 0.487201,
+          "final_phi": 0.547168,
+          "phase_transition_step": null,
+          "seed": 4108,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.971351,
+          "final_phi": 0.366031,
+          "phase_transition_step": null,
+          "seed": 4109,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.816182,
+          "final_entropy": 0.688359,
+          "final_phi": 0.444928,
+          "phase_transition_step": null,
+          "seed": 4110,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.829562,
+          "final_entropy": 0.658705,
+          "final_phi": 0.417952,
+          "phase_transition_step": null,
+          "seed": 4111,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.435734,
+          "final_entropy": 0.941035,
+          "final_phi": 0.217193,
+          "phase_transition_step": null,
+          "seed": 4112,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.6,
+          "final_entropy": 0.977068,
+          "final_phi": 0.367614,
+          "phase_transition_step": null,
+          "seed": 4113,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.98465,
+          "final_entropy": 0.114467,
+          "final_phi": 0.500802,
+          "phase_transition_step": null,
+          "seed": 4114,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.824924,
+          "final_entropy": 0.669187,
+          "final_phi": 0.403374,
+          "phase_transition_step": null,
+          "seed": 4115,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.501539,
+          "final_entropy": 0.999993,
+          "final_phi": 0.334939,
+          "phase_transition_step": null,
+          "seed": 4116,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.828495,
+          "final_entropy": 0.661135,
+          "final_phi": 0.408834,
+          "phase_transition_step": null,
+          "seed": 4117,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.445565,
+          "final_entropy": 0.935092,
+          "final_phi": 0.221528,
+          "phase_transition_step": null,
+          "seed": 4118,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.506234,
+          "final_entropy": 0.999888,
+          "final_phi": 0.400941,
+          "phase_transition_step": null,
+          "seed": 4119,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.420158,
+          "final_entropy": 0.943807,
+          "final_phi": 0.255755,
+          "phase_transition_step": null,
+          "seed": 4120,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.38453,
+          "final_entropy": 0.967673,
+          "final_phi": 0.162367,
+          "phase_transition_step": null,
+          "seed": 4121,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.442717,
+          "final_entropy": 0.884494,
+          "final_phi": 0.291658,
+          "phase_transition_step": null,
+          "seed": 4122,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.389196,
+          "final_entropy": 0.960794,
+          "final_phi": 0.157372,
+          "phase_transition_step": null,
+          "seed": 4123,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.414092,
+          "final_entropy": 0.953474,
+          "final_phi": 0.203976,
+          "phase_transition_step": null,
+          "seed": 4124,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.373021,
+          "final_entropy": 0.96893,
+          "final_phi": 0.15172,
+          "phase_transition_step": null,
+          "seed": 4125,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.349721,
+          "final_entropy": 0.950382,
+          "final_phi": 0.132285,
+          "phase_transition_step": null,
+          "seed": 4126,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.390186,
+          "final_entropy": 0.975269,
+          "final_phi": 0.162263,
+          "phase_transition_step": null,
+          "seed": 4127,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.666667,
+          "final_entropy": 0.918449,
+          "final_phi": 0.217058,
+          "phase_transition_step": null,
+          "seed": 4128,
+          "transition_event": null
+        },
+        {
+          "final_agent_dominance": 0.8,
+          "final_entropy": 0.941633,
+          "final_phi": 0.573035,
+          "phase_transition_step": null,
+          "seed": 4129,
+          "transition_event": null
+        }
+      ],
+      "transition_count": 0,
+      "transition_rate": 0.0
+    }
+  },
+  "external_validation_claim": false,
+  "local_only": true,
+  "phi_bounds": [
+    0.0,
+    1.0
+  ],
+  "production_claim": false,
+  "schema": "saee.parasitic_phase.statistical_summary.v1",
+  "seed_count_per_experiment": 30,
+  "seed_start": 4100,
+  "steps": 160,
+  "synthetic_experiment": true
+}

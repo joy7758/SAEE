@@ -1,0 +1,16 @@
+{
+  "plan_version":"0.1",
+  "plan_id":"saee.internal-agent-pilot-plan.v1",
+  "scenario_refs":[
+    "agent-interface/pilot/internal-agent-pilot-scenarios/CODE_CHANGE_WORKFLOW.json",
+    "agent-interface/pilot/internal-agent-pilot-scenarios/RESEARCH_WORKFLOW.json",
+    "agent-interface/pilot/internal-agent-pilot-scenarios/AUTOMATION_WORKFLOW.json",
+    "agent-interface/pilot/internal-agent-pilot-scenarios/AGENT_DELEGATION_WORKFLOW.json"
+  ],
+  "execution_flow":["AGENT_TASK","SCENARIO_DEFINITION","SAEE_REHEARSAL","OBSERVATION","RELIABILITY_EVALUATION","EVIDENCE_EVALUATION","RECOMMENDATION"],
+  "recommendations":["CONTINUE","REPLAN","HUMAN_REVIEW_REQUIRED","STOP"],
+  "existing_internal_founder_record_reference":"phase_b_product/commercial_readiness/customer_validation_evidence/internal_founder_pilot_evidence_run_summary.local.json",
+  "internal_agent_pilot_execution_reference":"agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json",
+  "limitations":["This plan does not execute an internal agent pilot.","The historical founder record is not external validation and is not a substitute for the four planned workflow runs."],
+  "truth_boundary":{"internal_agent_pilot":true,"pilot_executed":true,"real_internal_execution":true,"external_validation":false,"external_participants":false,"customer_data":false,"production_execution":false,"adoption_validated":false,"production_ready":false}
+}

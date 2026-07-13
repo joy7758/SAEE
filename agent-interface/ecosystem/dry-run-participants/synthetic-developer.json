@@ -1,0 +1,13 @@
+{
+  "participant_id": "SYNTHETIC_DEVELOPER",
+  "participant_type": "developer",
+  "integration_mode": "http_localhost",
+  "capability_scope": ["DISCOVERY", "LOCAL_INVOCATION", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"],
+  "synthetic_only": true,
+  "validation_goals": ["Follow participant package instructions", "Invoke evidence evaluation through the local HTTP contract", "Interpret SUPPORTED without approval language"],
+  "identity": {"kind": "synthetic_fixture", "display_name": "合成开发者参与者"},
+  "scope": "local_synthetic_ecosystem_dry_run_only",
+  "available_tests": ["SUCCESSFUL_DISCOVERY", "INVOCATION_COMPATIBILITY", "INTERPRETATION_BOUNDARY", "WRONG_USAGE", "FAKE_ADOPTION_CLAIM"],
+  "expected_feedback_type": "structured_synthetic_feedback"
+}
+

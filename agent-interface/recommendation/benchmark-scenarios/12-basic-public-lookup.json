@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:12-basic-public-lookup:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只查询一个公开术语的定义，不涉及状态变化、工具执行或部署选择。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "LOW_RISK_LOOKUP_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "SEARCH",
+  "reasoning_boundary": "低风险知识检索应使用搜索或知识查询能力，不需要演练基础设施。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

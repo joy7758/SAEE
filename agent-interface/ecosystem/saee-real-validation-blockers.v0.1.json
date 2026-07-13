@@ -1,0 +1,10 @@
+{
+  "blocker_set_version": "0.1",
+  "blockers": [
+    {"blocker_id":"RVE-SECURITY-001","category":"security","severity":"CRITICAL","description":"Real-session data and credential handling boundaries are not independently verified.","required_before_entry":true,"status":"OPEN"},
+    {"blocker_id":"RVE-OPERATIONS-001","category":"operations","severity":"CRITICAL","description":"No accountable owner role is assigned for a real validation session.","required_before_entry":true,"status":"OPEN"},
+    {"blocker_id":"RVE-PARTICIPANT-001","category":"participant","severity":"HIGH","description":"No real participant has been selected or consented, by design.","required_before_entry":true,"status":"OPEN"},
+    {"blocker_id":"RVE-SUPPORT-001","category":"support","severity":"HIGH","description":"Issue escalation and support response ownership are not assigned.","required_before_entry":true,"status":"OPEN"},
+    {"blocker_id":"RVE-LEGAL-001","category":"legal","severity":"HIGH","description":"The bounded external validation terms have not received a separate legal and authority review.","required_before_entry":true,"status":"OPEN"}
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Controlled Reasoning Agent Rehearsal Scenario v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_controlled_reasoning_scenario_v0_2", "schema_version", "scenario_id", "scenario_category", "task", "agent_adapter", "sandbox", "policy", "environment", "grading_profile_ref", "truth_boundary"],
+  "properties": {
+    "saee_controlled_reasoning_scenario_v0_2": {"const": true},
+    "schema_version": {"const": "0.2.0"},
+    "scenario_id": {"$ref": "#/$defs/id"},
+    "scenario_category": {"enum": ["baseline", "tool_failure", "instruction_conflict"]},
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_id", "objective", "requested_scope", "created_at"],
+      "properties": {
+        "task_id": {"$ref": "#/$defs/id"},
+        "objective": {"type": "string", "minLength": 1, "maxLength": 500},
+        "requested_scope": {"$ref": "#/$defs/id"},
+        "created_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "agent_adapter": {
+      "type": "object", "additionalProperties": false,
+      "required": ["adapter_id", "adapter_version", "adapter_type", "provider", "model", "api_key_env"],
+      "properties": {
+        "adapter_id": {"const": "adapter:qianfan-controlled-reasoning-v0.2"},
+        "adapter_version": {"const": "0.2.0"},
+        "adapter_type": {"const": "external_reasoning_model_controlled_synthetic_world"},
+        "provider": {"const": "baidu_qianfan"},
+        "model": {"const": "ernie-4.5-turbo-128k"},
+        "api_key_env": {"const": "QIANFAN_API_KEY"}
+      }
+    },
+    "sandbox": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sandbox_id", "synthetic", "available_tools", "max_provider_rounds", "network_scope", "subprocess_allowed", "filesystem_write_allowed", "external_effect_allowed"],
+      "properties": {
+        "sandbox_id": {"$ref": "#/$defs/id"},
+        "synthetic": {"const": true},
+        "available_tools": {"type": "array", "minItems": 2, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation", "submit_rehearsal_result"]}, "contains": {"const": "submit_rehearsal_result"}},
+        "max_provider_rounds": {"type": "integer", "minimum": 1, "maximum": 6},
+        "network_scope": {"const": "qianfan_provider_only"},
+        "subprocess_allowed": {"const": false},
+        "filesystem_write_allowed": {"const": false},
+        "external_effect_allowed": {"const": false}
+      }
+    },
+    "policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["policy_id", "allowed_scope", "denied_tools", "human_stop_authority_ref"],
+      "properties": {
+        "policy_id": {"$ref": "#/$defs/id"},
+        "allowed_scope": {"$ref": "#/$defs/id"},
+        "denied_tools": {"type": "array", "maxItems": 3, "uniqueItems": true, "items": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation"]}},
+        "human_stop_authority_ref": {"$ref": "#/$defs/id"}
+      }
+    },
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["environment_id", "fixture_label", "fixture_digest", "service_behavior", "repository_state"],
+      "properties": {
+        "environment_id": {"$ref": "#/$defs/id"},
+        "fixture_label": {"type": "string", "minLength": 1, "maxLength": 120},
+        "fixture_digest": {"$ref": "#/$defs/digest"},
+        "service_behavior": {"enum": ["success", "timeout", "invalid_response"]},
+        "repository_state": {"enum": ["read_only_clean"]}
+      }
+    },
+    "grading_profile_ref": {"type": "string", "pattern": "^agent-interface/rehearsal/grading-profiles/[A-Za-z0-9._-]+\\.json$"},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["synthetic_world", "external_reasoning_model_allowed", "customer_data", "external_world_execution", "deployment_authorized", "production_ready"],
+      "properties": {
+        "synthetic_world": {"const": true},
+        "external_reasoning_model_allowed": {"const": true},
+        "customer_data": {"const": false},
+        "external_world_execution": {"const": false},
+        "deployment_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 180, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,179}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

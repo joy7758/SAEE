@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE MCP evaluate_agent_run Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tool_result", "run_ref", "trace_ref", "claim_type", "assessment", "profile_result", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement"],
+  "properties": {
+    "tool_result": {"enum": ["SUCCESS", "REJECTED_INPUT"]},
+    "run_ref": {"type": ["string", "null"]},
+    "trace_ref": {"type": ["string", "null"]},
+    "claim_type": {"enum": ["AUTHORIZED_AGENT_ACTION", "UNKNOWN"]},
+    "assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "UNKNOWN"]},
+    "profile_result": {"enum": ["PASS", "FAIL", "UNKNOWN"]},
+    "missing_requirements": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "failed_relationships": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^(?:MCP|AGENT_RUN|EVIDENCE)_[A-Z0-9_]+$"}},
+    "limitations": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "boundary_statement": {"const": "Evidence adequacy assessment is not task success, safety certification, compliance determination, or deployment authority."}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"tool_result": {"const": "SUCCESS"}}},
+      "then": {"properties": {"run_ref": {"type": "string"}, "trace_ref": {"type": "string"}, "claim_type": {"const": "AUTHORIZED_AGENT_ACTION"}, "assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE"]}, "profile_result": {"enum": ["PASS", "FAIL"]}}}
+    },
+    {
+      "if": {"properties": {"tool_result": {"const": "REJECTED_INPUT"}}},
+      "then": {"properties": {"run_ref": {"const": null}, "trace_ref": {"const": null}, "claim_type": {"const": "UNKNOWN"}, "assessment": {"const": "UNKNOWN"}, "profile_result": {"const": "UNKNOWN"}, "reason_codes": {"minItems": 1}}}
+    }
+  ]
+}

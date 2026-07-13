@@ -1,0 +1,79 @@
+{
+  "saee_replay_evaluation_contract_v0_1": true,
+  "schema_version": "0.1.0",
+  "replay_evaluation_id": "replay-evaluation:transformed-001",
+  "created_at": "2026-07-11T16:10:00Z",
+  "contract_status": "local_synthetic_mapping_contract_only",
+  "replay_contract_ref": "agent-interface/architecture/examples/replay/transformed-replay-case.json",
+  "replay_contract_digest": "34e1803ad95bfa5168e288e933bad384811820685f0e218239a0e19633c89a16",
+  "source_observation_refs": [
+    {
+      "observation_id": "observation:tool-trace-envelope-001",
+      "envelope_ref": "agent-interface/architecture/examples/observation/tool-trace-observation.json",
+      "digest_algorithm": "sha256",
+      "envelope_digest": "65a02cbdcb507c5ef113154715ff11d298cb546d5bc44726d9dcbd99cecbd1af"
+    }
+  ],
+  "task_contract_ref": "task-contract-corpus-003",
+  "environment_contract_ref": "environment-contract-corpus-003",
+  "mapping_profile_ref": "mapping-profile:tool-observation-to-failure-evaluation",
+  "mapping_profile_version": "0.1.0",
+  "observation_mapping_rules": [
+    {
+      "rule_id": "mapping-rule:tool-failure-classification",
+      "source_observation_id": "observation:tool-trace-envelope-001",
+      "source_selector": "events[*].event_type",
+      "target_selector": "observations[*].failure_class",
+      "mapping_method": "synthetic_classification_projection",
+      "deterministic": true,
+      "executable": false
+    },
+    {
+      "rule_id": "mapping-rule:tool-transformation-provenance",
+      "source_observation_id": "observation:tool-trace-envelope-001",
+      "source_selector": "transformation_log.provenance_ref",
+      "target_selector": "transformation_provenance_ref",
+      "mapping_method": "declared_identity_binding",
+      "deterministic": true,
+      "executable": false
+    }
+  ],
+  "failure_estimate_source": {
+    "source_type": "synthetic_rule_reference",
+    "source_ref": "task-contract-corpus-003",
+    "generated_from_trace": false,
+    "generated_by_replay": false,
+    "risk_probability_measured": false
+  },
+  "transformation_provenance_ref": "provenance:synthetic-tool-envelope-001",
+  "consent_ref": "consent:synthetic-transformed-replay-001",
+  "data_use_permission_ref": "permission:synthetic-transformed-replay-001",
+  "evaluation_input_ref": "agent-interface/architecture/examples/phase1_5_cases/case-003-tool-failure.json",
+  "evaluation_input_digest": "9ba5678c2b222b5c1cb32543545af9b511e4461ce83a09f05f90d44e9bb5a6b1",
+  "lineage_edges": [
+    {"edge_id": "lineage:transformed-001-observation-replay", "from_type": "observation_envelope", "from_ref": "observation:tool-trace-envelope-001", "to_type": "replay_contract", "to_ref": "replay:transformed-contract-001", "relationship": "governed_by"},
+    {"edge_id": "lineage:transformed-001-replay-mapping", "from_type": "replay_contract", "from_ref": "replay:transformed-contract-001", "to_type": "replay_evaluation_contract", "to_ref": "replay-evaluation:transformed-001", "relationship": "mapped_by"},
+    {"edge_id": "lineage:transformed-001-mapping-input", "from_type": "replay_evaluation_contract", "from_ref": "replay-evaluation:transformed-001", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-003-tool-failure", "relationship": "binds_to"},
+    {"edge_id": "lineage:transformed-001-input-derived", "from_type": "evaluation_input", "from_ref": "saee-case-corpus-003-tool-failure", "to_type": "derived_evidence_case", "to_ref": "saee-case-corpus-003-tool-failure", "relationship": "derives_to"},
+    {"edge_id": "lineage:transformed-001-derived-input", "from_type": "derived_evidence_case", "from_ref": "saee-case-corpus-003-tool-failure", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-003-tool-failure", "relationship": "reverse_lookup_anchor"}
+  ],
+  "operator_ref": "operator:synthetic-human-controlled",
+  "stop_authority_ref": "stop-authority:synthetic-human-controlled",
+  "truth_boundary": {
+    "contract_only": true,
+    "mapping_executed": false,
+    "evaluation_input_generated": false,
+    "replay_executed": false,
+    "replay_generated_risk": false,
+    "risk_probability_measured": false,
+    "automatic_decision": false,
+    "deployment_authorized": false,
+    "architecture_implemented": false,
+    "risk_model_implemented": false,
+    "real_agent_executed": false,
+    "customer_data_processed": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

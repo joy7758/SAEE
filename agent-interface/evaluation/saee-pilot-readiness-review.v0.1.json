@@ -1,0 +1,79 @@
+{
+  "saee_pilot_readiness_review_v0_1": true,
+  "review_version": "0.1",
+  "pilot_status": "not_ready",
+  "decision": "NO_GO",
+  "execution_started": false,
+  "execution_approval_recorded": false,
+  "external_validation_completed": false,
+  "dimensions": {
+    "dataset": {
+      "status": "NOT_READY",
+      "requirements": [
+        {"requirement_id": "dataset_source_identified", "description": "Dataset source is selected and identified.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "dataset_ownership_clear", "description": "Ownership and controller roles are documented.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "dataset_permissions_approved", "description": "Collection and research-use permissions are approved.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "dataset_schema_frozen", "description": "Dataset schema and migration policy are frozen.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": ["docs/evaluation/SAEE_PILOT_DATASET_SPECIFICATION.md"]},
+        {"requirement_id": "dataset_sample_available", "description": "An approved non-main sample is available for pipeline checks.", "mandatory": true, "critical": false, "conditional_go_allowed": true, "satisfied": false, "evidence_refs": []}
+      ]
+    },
+    "privacy": {
+      "status": "NOT_READY",
+      "requirements": [
+        {"requirement_id": "privacy_review_completed", "description": "Privacy review is completed and recorded.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "sensitive_data_assessed", "description": "Sensitive and personal data classes are assessed.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "retention_policy_approved", "description": "Retention periods and purposes are approved.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "deletion_procedure_tested", "description": "Deletion and withdrawal procedures are tested.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []},
+        {"requirement_id": "dataset_access_control_approved", "description": "Least-privilege access roles and review are approved.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": []}
+      ]
+    },
+    "technical": {
+      "status": "READY",
+      "requirements": [
+        {"requirement_id": "environment_declared", "description": "Local offline environment requirements are declared.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/REPRODUCIBILITY_ENVIRONMENT_REQUIREMENTS.md"]},
+        {"requirement_id": "local_reproducibility_verified", "description": "Current local reproducibility checks pass.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/REPRODUCE_SAEE_EXPERIMENT.md", "scripts/saee_reproducibility_smoke.py"]},
+        {"requirement_id": "evaluation_pipeline_tested", "description": "Controlled synthetic evaluation pipeline is tested.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_EVALUATION_PROTOTYPE.md", "scripts/saee_evaluation_prototype_smoke.py"]},
+        {"requirement_id": "artifact_version_fixed", "description": "Research artifact manifest fixes the current local version surface.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["agent-interface/research-artifact/saee-artifact-manifest.v0.1.json"]}
+      ]
+    },
+    "annotation": {
+      "status": "NOT_READY",
+      "requirements": [
+        {"requirement_id": "annotation_codebook_frozen", "description": "Annotation codebook is approved and frozen.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": false, "evidence_refs": ["docs/evaluation/SAEE_ANNOTATION_CODEBOOK.md"]},
+        {"requirement_id": "annotation_instructions_prepared", "description": "Claim-level instructions and label rules are prepared.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_ANNOTATION_CODEBOOK.md"]},
+        {"requirement_id": "annotation_review_process_defined", "description": "Independent review and adjudication are defined.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_EXTERNAL_EVALUATION_PILOT_PREPARATION.md"]},
+        {"requirement_id": "annotation_agreement_measurement_planned", "description": "Agreement target and measures are planned.", "mandatory": true, "critical": false, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_ANNOTATION_CODEBOOK.md"]}
+      ]
+    },
+    "safety": {
+      "status": "READY",
+      "requirements": [
+        {"requirement_id": "sandbox_policy_defined", "description": "Isolated sandbox requirements are defined.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_PILOT_EXECUTION_SAFETY_GATE.md"]},
+        {"requirement_id": "network_policy_defined", "description": "Default no-network policy and stop behavior are defined.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_PILOT_EXECUTION_SAFETY_GATE.md"]},
+        {"requirement_id": "external_execution_policy_defined", "description": "Unknown external code and permission expansion are prohibited.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_PILOT_EXECUTION_SAFETY_GATE.md"]},
+        {"requirement_id": "stop_conditions_defined", "description": "Automatic stop conditions are explicit.", "mandatory": true, "critical": true, "conditional_go_allowed": false, "satisfied": true, "evidence_refs": ["docs/evaluation/SAEE_PILOT_EXECUTION_SAFETY_GATE.md"]}
+      ]
+    }
+  },
+  "decision_reason": "NO_GO because no dataset source, ownership, permission, or completed privacy review exists; annotation codebook and dataset schema are not frozen.",
+  "missing_requirements": [
+    "dataset_source_identified",
+    "dataset_ownership_clear",
+    "dataset_permissions_approved",
+    "dataset_schema_frozen",
+    "dataset_sample_available",
+    "privacy_review_completed",
+    "sensitive_data_assessed",
+    "retention_policy_approved",
+    "deletion_procedure_tested",
+    "dataset_access_control_approved",
+    "annotation_codebook_frozen"
+  ],
+  "limitations": [
+    "READY dimension status means the local review artifacts for that dimension are defined; it is not pilot execution approval.",
+    "No dataset, personal data, annotator, real agent run, experiment, or external validation exists.",
+    "The current review cannot change until missing requirements are supported by separately approved evidence."
+  ],
+  "recommended_next_pr": "Implement SAEE Controlled Pilot Execution v0.1 only after readiness changes to GO"
+}
+

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-invocation-response.schema.v0.1.json",
+  "title": "SAEE Capability Invocation Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_capability_invocation_response_v0_1", "response_version", "request_id", "capability_id", "operation", "status", "result", "reason_codes", "limitations", "invocation_receipt", "truth_boundary"],
+  "properties": {
+    "saee_capability_invocation_response_v0_1": {"const": true},
+    "response_version": {"const": "0.1.0"},
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "capability_id": {"const": "saee.agent-reliability"},
+    "operation": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "UNKNOWN"]},
+    "status": {"enum": ["SUCCESS", "FAILED", "REJECTED", "CONTRACT_ONLY"]},
+    "result": {"type": "object"},
+    "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^CAPABILITY_[A-Z0-9_]+$"}},
+    "limitations": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "invocation_receipt": {"$ref": "saee-capability-invocation-receipt.schema.v0.1.json"},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_stage", "network_api_available", "public_service", "standard_mcp_transport", "customer_data_used", "external_world_actions", "authorization_performed", "deployment_authorized", "production_ready"],
+      "properties": {
+        "runtime_stage": {"const": "local_alpha"},
+        "network_api_available": {"const": false},
+        "public_service": {"const": false},
+        "standard_mcp_transport": {"const": false},
+        "customer_data_used": {"const": false},
+        "external_world_actions": {"const": false},
+        "authorization_performed": {"const": false},
+        "deployment_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "CONTRACT_ONLY"}}},
+      "then": {"properties": {"operation": {"const": "rehearse_agent"}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "SUCCESS"}}},
+      "then": {"properties": {"operation": {"enum": ["evaluate_agent_run", "evaluate_evidence"]}}}
+    }
+  ]
+}
+

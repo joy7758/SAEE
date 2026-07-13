@@ -1,0 +1,9 @@
+{
+  "synthetic_fixture": "oversized_request_recipe",
+  "base_request_ref": "agent-interface/capabilities/examples/valid_supported_request.json",
+  "oversized_field": "observation_references[0]",
+  "repeat_character": "x",
+  "repeat_count": 1048577,
+  "expected_reason_code": "TOOL_INPUT_TOO_LARGE",
+  "note": "The smoke test materializes this recipe in memory so the repository does not store a misleading one-megabyte fixture."
+}

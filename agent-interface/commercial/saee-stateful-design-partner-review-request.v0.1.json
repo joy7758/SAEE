@@ -1,0 +1,43 @@
+{
+  "saee_stateful_design_partner_review_request_v0_1": true,
+  "request_version": "0.1.0",
+  "status": "protocol_human_approved_external_session_selection_pending",
+  "language": "zh-CN",
+  "review_scope": "protocol_and_stateful_synthetic_demo_only",
+  "evidence": {
+    "controlled_reasoning_live_runs": 3,
+    "stateful_business_live_runs": 1,
+    "state_transition_count": 3,
+    "external_world_actions": 0,
+    "controlled_validation_ref": "agent-interface/rehearsal/saee-controlled-reasoning-live-validation.v0.2.json",
+    "stateful_validation_ref": "agent-interface/rehearsal/saee-stateful-business-live-validation.v0.3.json",
+    "customer_adapter_contract_ref": "agent-interface/rehearsal/saee-customer-controlled-agent-adapter-contract.v0.1.schema.json"
+  },
+  "review_documents": [
+    "docs/commercial/SAEE_AGENT_REHEARSAL_DESIGN_PARTNER_PROTOCOL.md",
+    "docs/commercial/SAEE_AGENT_REHEARSAL_DESIGN_PARTNER_DEMO.md",
+    "docs/commercial/SAEE_AGENT_REHEARSAL_FEEDBACK_TEMPLATE.md",
+    "docs/commercial/SAEE_STATEFUL_DESIGN_PARTNER_HUMAN_REVIEW_PACKET.md"
+  ],
+  "exact_approval_phrase": "确认批准 SAEE 有状态智能体演练 Design Partner Protocol v0.1 进入受控外部问题访谈准备；本批准不授权自动外联、客户数据、真实客户 Agent、Pilot、销售、生产部署或外部世界执行。",
+  "approval_record": {
+    "recorded": true,
+    "recorded_at": "2026-07-11T19:36:09Z",
+    "source": "explicit_user_confirmation_in_current_codex_thread",
+    "exact_phrase_sha256": "de2dfb462ec32613ce6a3b52b8fb86cb5f042e3b1bfc2bf629d78f4c9fbb9402",
+    "scope": "protocol_approval_and_controlled_external_problem_interview_preparation_only"
+  },
+  "truth_boundary": {
+    "protocol_human_approved": true,
+    "outreach_authorized": false,
+    "customer_contacted": false,
+    "interviews_conducted": 0,
+    "customer_data_allowed": false,
+    "real_customer_agent_allowed": false,
+    "pilot_authorized": false,
+    "sales_authorized": false,
+    "external_world_execution_authorized": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

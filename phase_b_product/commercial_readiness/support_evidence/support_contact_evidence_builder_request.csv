@@ -1,0 +1,17 @@
+item_id,field_path,item_type,required_value,current_value,complete,human_instruction
+SC-EBR-001,human_requester_name,text,nonempty,,false,Name of the human owner requesting builder approval.
+SC-EBR-002,request_date,text,nonempty,,false,Request date in YYYY-MM-DD format.
+SC-EBR-003,approval_reference,text,nonempty,,false,Reference to the passing support-contact approval-input validation record.
+SC-EBR-004,validated_input_path,text,nonempty,,false,Path to the human-filled support-contact input that passed validation.
+SC-EBR-005,support_contact_review_reference,text,nonempty,,false,Reference to the reviewed support contact decision or readiness-board record.
+SC-EBR-006,human_acknowledgements.approval_input_validator_passed,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-007,human_acknowledgements.support_contact_readiness_board_reviewed,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-008,human_acknowledgements.human_filled_input_available,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-009,human_acknowledgements.validated_input_path_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-010,human_acknowledgements.builder_input_path_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-011,human_acknowledgements.target_builder_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-012,human_acknowledgements.no_support_contact_publication_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-013,human_acknowledgements.no_support_message_sent_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-014,human_acknowledgements.no_customer_contact_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-015,human_acknowledgements.no_vendor_contact_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.
+SC-EBR-016,human_acknowledgements.no_blocker_closure_by_request,boolean,true,false,false,Human must set this acknowledgement to true before support-contact builder execution can be separately requested.

@@ -1,0 +1,84 @@
+{
+  "name": "SAEE Production Operations Requirements v0.1",
+  "purpose": "Define production monitoring, external alert delivery, and on-call rotation requirements and evidence without implementing production operations or closing launch blockers.",
+  "production_operations_requirements_v0_1": true,
+  "requirements_status": "requirements_defined_implementation_hold",
+  "operations_blockers_covered_as_requirements": [
+    "production_monitoring",
+    "external_alert_delivery",
+    "on_call_rotation"
+  ],
+  "required_slis": [
+    "availability",
+    "request_success_rate",
+    "p95_latency",
+    "p99_latency",
+    "error_rate",
+    "request_volume",
+    "storage_error_rate",
+    "auth_failure_rate",
+    "tenant_boundary_denial_rate",
+    "backup_restore_drill_age_days"
+  ],
+  "required_alert_routes": [
+    "primary_on_call",
+    "secondary_on_call",
+    "security_contact",
+    "support_contact",
+    "status_page_or_customer_notice",
+    "post_incident_review_owner"
+  ],
+  "evidence_required_before_closing_blockers": [
+    {
+      "blocker_id": "production_monitoring",
+      "required_evidence": [
+        "metrics_source_defined",
+        "production_dashboard_available",
+        "metric_retention_policy_approved",
+        "error_budget_defined",
+        "incident_linkage_defined",
+        "redaction_review_completed"
+      ]
+    },
+    {
+      "blocker_id": "external_alert_delivery",
+      "required_evidence": [
+        "alert_provider_configured",
+        "test_alert_delivery_recorded",
+        "escalation_routing_defined",
+        "false_positive_tuning_recorded",
+        "maintenance_window_policy_defined"
+      ]
+    },
+    {
+      "blocker_id": "on_call_rotation",
+      "required_evidence": [
+        "named_rotation_available",
+        "escalation_ladder_defined",
+        "handoff_rules_defined",
+        "incident_commander_role_defined",
+        "escalation_test_recorded"
+      ]
+    }
+  ],
+  "production_operations_implemented": false,
+  "production_monitoring_available": false,
+  "external_alert_delivery_available": false,
+  "on_call_rotation_available": false,
+  "alerting_available": false,
+  "sla_available": false,
+  "production_operations_ready": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "task_candidates_executed": false,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "external_alert_provider_contacted": false
+}

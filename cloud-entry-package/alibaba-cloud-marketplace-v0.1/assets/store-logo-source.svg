@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="120" viewBox="0 0 180 120" role="img" aria-labelledby="title desc">
+  <title id="title">SAEE store logo</title>
+  <desc id="desc">SAEE geometric evolution mark and wordmark on a light background.</desc>
+  <rect width="180" height="120" rx="12" fill="#f8fafc"/>
+  <rect x="18" y="25" width="70" height="70" rx="16" fill="#111827"/>
+  <path d="M53 36 74 48v24L53 84 32 72V48L53 36Z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M53 49 64 55.5v9L53 71 42 64.5v-9L53 49Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M53 52.5v15M47 56l12 7M59 56l-12 7" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="101" y="58" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">SAEE</text>
+  <text x="101" y="78" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="10">Agent readiness</text>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "simulation_version": "0.1",
+  "status": "PASS",
+  "participants": ["SIM_AGENT_FRAMEWORK_VALIDATOR", "SIM_CLOUD_PLATFORM_VALIDATOR", "SIM_DEVELOPER_VALIDATOR"],
+  "scenario_results": [
+    {"scenario_id":"ADOPTION_CLAIM_ATTEMPT","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","result":"REJECTED","reason_code":"FALSE_ADOPTION_CLAIM","matched_expected":true},
+    {"scenario_id":"AUTHORIZED_SUCCESS_FLOW","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","result":"PASS","reason_code":"AUTHORIZED_SCOPE_COMPLETED","matched_expected":true},
+    {"scenario_id":"CREDENTIAL_EXPOSURE_ATTEMPT","participant_id":"SIM_DEVELOPER_VALIDATOR","result":"TERMINATED","reason_code":"CREDENTIAL_EXPOSURE","matched_expected":true},
+    {"scenario_id":"CUSTOMER_DATA_ATTEMPT","participant_id":"SIM_DEVELOPER_VALIDATOR","result":"TERMINATED","reason_code":"CUSTOMER_DATA_RECEIVED","matched_expected":true},
+    {"scenario_id":"SCOPE_VIOLATION_REQUEST","participant_id":"SIM_DEVELOPER_VALIDATOR","result":"REJECTED","reason_code":"VALIDATION_SCOPE_VIOLATION","matched_expected":true},
+    {"scenario_id":"UNAUTHORIZED_PARTICIPANT","participant_id":"SIM_CLOUD_PLATFORM_VALIDATOR","result":"BLOCKED","reason_code":"PARTICIPANT_NOT_AUTHORIZED","matched_expected":true}
+  ],
+  "evidence_records": [
+    {"evidence_id":"simulation-evidence:adoption-claim-attempt","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","scenario_id":"ADOPTION_CLAIM_ATTEMPT","evidence_type":"simulation_result","result":"REJECTED","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false},
+    {"evidence_id":"simulation-evidence:authorized-success-flow","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","scenario_id":"AUTHORIZED_SUCCESS_FLOW","evidence_type":"simulation_result","result":"PASS","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false},
+    {"evidence_id":"simulation-evidence:credential-exposure-attempt","participant_id":"SIM_DEVELOPER_VALIDATOR","scenario_id":"CREDENTIAL_EXPOSURE_ATTEMPT","evidence_type":"simulation_result","result":"TERMINATED","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false},
+    {"evidence_id":"simulation-evidence:customer-data-attempt","participant_id":"SIM_DEVELOPER_VALIDATOR","scenario_id":"CUSTOMER_DATA_ATTEMPT","evidence_type":"simulation_result","result":"TERMINATED","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false},
+    {"evidence_id":"simulation-evidence:scope-violation-request","participant_id":"SIM_DEVELOPER_VALIDATOR","scenario_id":"SCOPE_VIOLATION_REQUEST","evidence_type":"simulation_result","result":"REJECTED","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false},
+    {"evidence_id":"simulation-evidence:unauthorized-participant","participant_id":"SIM_CLOUD_PLATFORM_VALIDATOR","scenario_id":"UNAUTHORIZED_PARTICIPANT","evidence_type":"simulation_result","result":"BLOCKED","limitations":["Synthetic workflow observation only; no input payload or external identity retained."],"simulation_only":true,"contains_private_data":false}
+  ],
+  "feedback_records": [
+    {"participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","test_area":"MCP_LOCAL","result":"PASS","compatibility_issue":"","boundary_issue":"NONE","notes":["In-memory local MCP Adapter path only; no external Agent connected."]},
+    {"participant_id":"SIM_DEVELOPER_VALIDATOR","test_area":"HTTP_LOCAL","result":"PASS","compatibility_issue":"","boundary_issue":"NONE","notes":["HTTP contract processed as a local function with a fixed timestamp; no listener or network call."]},
+    {"participant_id":"SIM_CLOUD_PLATFORM_VALIDATOR","test_area":"METADATA_REVIEW","result":"BLOCKED","compatibility_issue":"Authorization intentionally absent.","boundary_issue":"UNAUTHORIZED_PARTICIPANT","notes":["No cloud platform or external identity exists; metadata review did not execute."]}
+  ],
+  "exit_review": {"authorized_success_flow_completed":true,"terminated_scenarios":2,"blocked_or_rejected_scenarios":3,"real_validation_exit_criteria_met":false},
+  "limitations": ["Synthetic participants and repository-local paths only.","No external compatibility, ecosystem support, adoption, customer validation or production reliability is established."],
+  "truth_boundary": {
+    "external_validation_simulation":true,"synthetic_participants_only":true,"external_validation":false,"real_participants":false,"participants_invited":0,"external_agents_connected":false,"customer_data":false,"customer_validated":false,"adoption_validated":false,"marketplace_listed":false,"market_validation":false,"production_ready":false,"network_accessed":false,"subprocess_started":false,"external_execution":false
+  }
+}
+

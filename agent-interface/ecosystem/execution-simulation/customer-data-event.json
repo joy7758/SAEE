@@ -1,0 +1,2 @@
+{"scenario_id":"CUSTOMER_DATA_EVENT","readiness_decision":"HOLD","execution_request":{"request_id":"execution-request:customer-data-event","requested_scope":"scope:simulation-customer-data-event","participant_reference":"participant:synthetic-customer-data-event","authorization_reference":"missing-authorization:customer-data-event","execution_type":"SIMULATION_ONLY"},"authorization_state":"MISSING","boundary_event":"CUSTOMER_DATA_RECEIVED","expected_result":"TERMINATED","expected_reason_code":"CUSTOMER_DATA_RECEIVED"}
+

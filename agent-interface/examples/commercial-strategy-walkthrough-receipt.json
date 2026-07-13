@@ -1,0 +1,1625 @@
+{
+  "comparison_ranking": {
+    "experiment_id": "commercial-strategy-walkthrough-001",
+    "ranking": [
+      {
+        "agent_id": "strategy-c-conservative-maintenance",
+        "rank": 1,
+        "score": 0.473071
+      },
+      {
+        "agent_id": "strategy-b-staged-investment",
+        "rank": 2,
+        "score": 0.425459
+      },
+      {
+        "agent_id": "strategy-a-aggressive-expansion",
+        "rank": 3,
+        "score": 0.329645
+      }
+    ]
+  },
+  "content_sha256": "bf75cd5ebd4ab542efde961f04d30302c46d4db0d2883d574e4291ad568f1d7f",
+  "evaluation_mode": "synthetic_descriptor_simulation",
+  "evaluation_summary": {
+    "agents": [
+      {
+        "agent_id": "strategy-a-aggressive-expansion",
+        "final_score": 0.329645
+      },
+      {
+        "agent_id": "strategy-b-staged-investment",
+        "final_score": 0.425459
+      },
+      {
+        "agent_id": "strategy-c-conservative-maintenance",
+        "final_score": 0.473071
+      }
+    ],
+    "confidence_score": 0.473071,
+    "decision_result": {
+      "confidence_score": 0.473071,
+      "failure_modes_summary": {
+        "strategy-a-aggressive-expansion": [
+          "collapse"
+        ],
+        "strategy-b-staged-investment": [
+          "collapse"
+        ],
+        "strategy-c-conservative-maintenance": [
+          "collapse"
+        ]
+      },
+      "ranking": [
+        {
+          "agent_id": "strategy-c-conservative-maintenance",
+          "rank": 1,
+          "score": 0.473071
+        },
+        {
+          "agent_id": "strategy-b-staged-investment",
+          "rank": 2,
+          "score": 0.425459
+        },
+        {
+          "agent_id": "strategy-a-aggressive-expansion",
+          "rank": 3,
+          "score": 0.329645
+        }
+      ],
+      "recommended_agent": "strategy-c-conservative-maintenance"
+    },
+    "experiment_id": "commercial-strategy-walkthrough-001",
+    "overall_stats": {
+      "divergence_index": 0.143426,
+      "mean_stability": 0.43145,
+      "mean_survival": 0.651667
+    },
+    "recommended_agent": "strategy-c-conservative-maintenance",
+    "run_id": "run-f8e278a56ea3559a",
+    "status": "completed"
+  },
+  "failure_mode_reports": [
+    {
+      "agent_id": "strategy-a-aggressive-expansion",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 1.0,
+          "step": 8,
+          "type": "collapse"
+        }
+      ]
+    },
+    {
+      "agent_id": "strategy-b-staged-investment",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 0.6,
+          "step": 27,
+          "type": "collapse"
+        }
+      ]
+    },
+    {
+      "agent_id": "strategy-c-conservative-maintenance",
+      "failure_modes": [
+        {
+          "description": "One or more deterministic runs crossed the public collapse threshold.",
+          "severity": 0.6,
+          "step": 10,
+          "type": "collapse"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "candidate_code_executed": false,
+    "descriptor_text_affects_simulation": true,
+    "engine": "saee_public_mvp_descriptor_simulator_v0.1",
+    "external_calls_made": false,
+    "input_kind": "non_executable_agent_descriptors",
+    "observed_agent_trace_evaluation": false,
+    "private_core_loaded": false,
+    "scoring_formula": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score"
+  },
+  "receipt_id": "saee-receipt-02b4f857a4951148",
+  "request_sha256": "02b4f857a495114866d5b388e4e5199596782999ae6ceda0f451d33f309b45e7",
+  "saee_agent_evaluation_receipt_v0_1": true,
+  "schema_version": "0.1.0",
+  "stability_reports": [
+    {
+      "agent_id": "strategy-a-aggressive-expansion",
+      "convergence_status": "collapsing",
+      "drift_rate": 0.210828,
+      "stability_score": 0.343291,
+      "time_series": [
+        0.474398,
+        0.471927,
+        0.469012,
+        0.465425,
+        0.461015,
+        0.45573,
+        0.449624,
+        0.442842,
+        0.435617,
+        0.431361,
+        0.427063,
+        0.422437,
+        0.417973,
+        0.413746,
+        0.40979,
+        0.406091,
+        0.402595,
+        0.400259,
+        0.398346,
+        0.396802,
+        0.395512,
+        0.394329,
+        0.393073,
+        0.391576,
+        0.389703,
+        0.387364,
+        0.384529,
+        0.381229,
+        0.377553,
+        0.373635,
+        0.369636,
+        0.36572,
+        0.362038,
+        0.358709,
+        0.35579,
+        0.353264,
+        0.351066,
+        0.34908,
+        0.347153,
+        0.345117,
+        0.342812,
+        0.340108,
+        0.336652,
+        0.332678,
+        0.328218,
+        0.323363,
+        0.318248,
+        0.313033,
+        0.307884,
+        0.302949,
+        0.298336,
+        0.294102,
+        0.290243,
+        0.286692,
+        0.283335,
+        0.280016,
+        0.276569,
+        0.273843,
+        0.273384,
+        0.272464,
+        0.271155,
+        0.269582,
+        0.267906,
+        0.266298,
+        0.264922,
+        0.263908,
+        0.263336,
+        0.263226,
+        0.263534,
+        0.26416,
+        0.264958,
+        0.265759,
+        0.266394,
+        0.266712,
+        0.266608,
+        0.266031,
+        0.264994,
+        0.26357,
+        0.26357,
+        0.26357
+      ],
+      "variance": 0.004481
+    },
+    {
+      "agent_id": "strategy-b-staged-investment",
+      "convergence_status": "collapsing",
+      "drift_rate": 0.163295,
+      "stability_score": 0.414418,
+      "time_series": [
+        0.509605,
+        0.507924,
+        0.506116,
+        0.504184,
+        0.502143,
+        0.500021,
+        0.497854,
+        0.495681,
+        0.493539,
+        0.490554,
+        0.487608,
+        0.484178,
+        0.48077,
+        0.477369,
+        0.473947,
+        0.470478,
+        0.46693,
+        0.46259,
+        0.458117,
+        0.453497,
+        0.448723,
+        0.443805,
+        0.438757,
+        0.433603,
+        0.428372,
+        0.423092,
+        0.417787,
+        0.412475,
+        0.40972,
+        0.406984,
+        0.40425,
+        0.401504,
+        0.398726,
+        0.395892,
+        0.395627,
+        0.395319,
+        0.394962,
+        0.394554,
+        0.394102,
+        0.39362,
+        0.393125,
+        0.392639,
+        0.391991,
+        0.391386,
+        0.390838,
+        0.390353,
+        0.389928,
+        0.389556,
+        0.38922,
+        0.3889,
+        0.388575,
+        0.388226,
+        0.387837,
+        0.387401,
+        0.386915,
+        0.386386,
+        0.385829,
+        0.385055,
+        0.383991,
+        0.382946,
+        0.381939,
+        0.380984,
+        0.380086,
+        0.379242,
+        0.378441,
+        0.377283,
+        0.376112,
+        0.374903,
+        0.373635,
+        0.37229,
+        0.37086,
+        0.369344,
+        0.367748,
+        0.366089,
+        0.365243,
+        0.364377,
+        0.363509,
+        0.362653,
+        0.361752,
+        0.360873
+      ],
+      "variance": 0.002085
+    },
+    {
+      "agent_id": "strategy-c-conservative-maintenance",
+      "convergence_status": "collapsing",
+      "drift_rate": 0.213643,
+      "stability_score": 0.536641,
+      "time_series": [
+        0.61109,
+        0.608912,
+        0.606669,
+        0.604405,
+        0.602158,
+        0.599959,
+        0.597827,
+        0.595765,
+        0.59376,
+        0.591344,
+        0.588908,
+        0.588921,
+        0.588817,
+        0.588557,
+        0.58812,
+        0.587509,
+        0.586748,
+        0.585547,
+        0.584299,
+        0.583063,
+        0.581898,
+        0.580848,
+        0.579944,
+        0.579193,
+        0.578581,
+        0.578075,
+        0.577624,
+        0.577171,
+        0.575819,
+        0.574338,
+        0.572691,
+        0.57086,
+        0.568847,
+        0.565962,
+        0.562526,
+        0.559005,
+        0.555459,
+        0.551942,
+        0.548499,
+        0.545157,
+        0.541922,
+        0.538778,
+        0.536734,
+        0.53465,
+        0.532479,
+        0.530128,
+        0.527711,
+        0.525148,
+        0.522446,
+        0.519629,
+        0.516733,
+        0.513797,
+        0.510867,
+        0.507981,
+        0.505156,
+        0.502405,
+        0.499729,
+        0.496686,
+        0.493667,
+        0.490629,
+        0.487527,
+        0.484316,
+        0.480959,
+        0.477432,
+        0.473723,
+        0.471962,
+        0.470168,
+        0.468384,
+        0.466646,
+        0.464985,
+        0.463417,
+        0.461945,
+        0.460556,
+        0.459224,
+        0.457915,
+        0.456588,
+        0.455201,
+        0.453723,
+        0.452128,
+        0.450407
+      ],
+      "variance": 0.002575
+    }
+  ],
+  "survival_curves": [
+    {
+      "agent_id": "strategy-a-aggressive-expansion",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.474398,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.471927,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.469012,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.465425,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.461015,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.45573,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.449624,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.442842,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.435617,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.431361,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.427063,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.422437,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.417973,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.413746,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.40979,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.406091,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.402595,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.400259,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.398346,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.396802,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.395512,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.394329,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.393073,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.391576,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.389703,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.387364,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.384529,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.381229,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.377553,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.373635,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.369636,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.36572,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.362038,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.358709,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.35579,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.353264,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.351066,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.34908,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.347153,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.345117,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.342812,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.340108,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.336652,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.332678,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.328218,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.323363,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.318248,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.313033,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.307884,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.302949,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.298336,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.294102,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.290243,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.286692,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.283335,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.280016,
+          "t": 55
+        },
+        {
+          "alive": false,
+          "score": 0.276569,
+          "t": 56
+        },
+        {
+          "alive": false,
+          "score": 0.273843,
+          "t": 57
+        },
+        {
+          "alive": false,
+          "score": 0.273384,
+          "t": 58
+        },
+        {
+          "alive": false,
+          "score": 0.272464,
+          "t": 59
+        },
+        {
+          "alive": false,
+          "score": 0.271155,
+          "t": 60
+        },
+        {
+          "alive": false,
+          "score": 0.269582,
+          "t": 61
+        },
+        {
+          "alive": false,
+          "score": 0.267906,
+          "t": 62
+        },
+        {
+          "alive": false,
+          "score": 0.266298,
+          "t": 63
+        },
+        {
+          "alive": false,
+          "score": 0.264922,
+          "t": 64
+        },
+        {
+          "alive": false,
+          "score": 0.263908,
+          "t": 65
+        },
+        {
+          "alive": false,
+          "score": 0.263336,
+          "t": 66
+        },
+        {
+          "alive": false,
+          "score": 0.263226,
+          "t": 67
+        },
+        {
+          "alive": false,
+          "score": 0.263534,
+          "t": 68
+        },
+        {
+          "alive": false,
+          "score": 0.26416,
+          "t": 69
+        },
+        {
+          "alive": false,
+          "score": 0.264958,
+          "t": 70
+        },
+        {
+          "alive": false,
+          "score": 0.265759,
+          "t": 71
+        },
+        {
+          "alive": false,
+          "score": 0.266394,
+          "t": 72
+        },
+        {
+          "alive": false,
+          "score": 0.266712,
+          "t": 73
+        },
+        {
+          "alive": false,
+          "score": 0.266608,
+          "t": 74
+        },
+        {
+          "alive": false,
+          "score": 0.266031,
+          "t": 75
+        },
+        {
+          "alive": false,
+          "score": 0.264994,
+          "t": 76
+        },
+        {
+          "alive": false,
+          "score": 0.26357,
+          "t": 77
+        },
+        {
+          "alive": false,
+          "score": 0.26357,
+          "t": 78
+        },
+        {
+          "alive": false,
+          "score": 0.26357,
+          "t": 79
+        }
+      ]
+    },
+    {
+      "agent_id": "strategy-b-staged-investment",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.509605,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.507924,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.506116,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.504184,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.502143,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.500021,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.497854,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.495681,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.493539,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.490554,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.487608,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.484178,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.48077,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.477369,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.473947,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.470478,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.46693,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.46259,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.458117,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.453497,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.448723,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.443805,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.438757,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.433603,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.428372,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.423092,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.417787,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.412475,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.40972,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.406984,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.40425,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.401504,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.398726,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.395892,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.395627,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.395319,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.394962,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.394554,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.394102,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.39362,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.393125,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.392639,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.391991,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.391386,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.390838,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.390353,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.389928,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.389556,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.38922,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.3889,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.388575,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.388226,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.387837,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.387401,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.386915,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.386386,
+          "t": 55
+        },
+        {
+          "alive": true,
+          "score": 0.385829,
+          "t": 56
+        },
+        {
+          "alive": true,
+          "score": 0.385055,
+          "t": 57
+        },
+        {
+          "alive": true,
+          "score": 0.383991,
+          "t": 58
+        },
+        {
+          "alive": true,
+          "score": 0.382946,
+          "t": 59
+        },
+        {
+          "alive": true,
+          "score": 0.381939,
+          "t": 60
+        },
+        {
+          "alive": true,
+          "score": 0.380984,
+          "t": 61
+        },
+        {
+          "alive": true,
+          "score": 0.380086,
+          "t": 62
+        },
+        {
+          "alive": true,
+          "score": 0.379242,
+          "t": 63
+        },
+        {
+          "alive": true,
+          "score": 0.378441,
+          "t": 64
+        },
+        {
+          "alive": true,
+          "score": 0.377283,
+          "t": 65
+        },
+        {
+          "alive": true,
+          "score": 0.376112,
+          "t": 66
+        },
+        {
+          "alive": true,
+          "score": 0.374903,
+          "t": 67
+        },
+        {
+          "alive": true,
+          "score": 0.373635,
+          "t": 68
+        },
+        {
+          "alive": true,
+          "score": 0.37229,
+          "t": 69
+        },
+        {
+          "alive": true,
+          "score": 0.37086,
+          "t": 70
+        },
+        {
+          "alive": true,
+          "score": 0.369344,
+          "t": 71
+        },
+        {
+          "alive": true,
+          "score": 0.367748,
+          "t": 72
+        },
+        {
+          "alive": false,
+          "score": 0.366089,
+          "t": 73
+        },
+        {
+          "alive": false,
+          "score": 0.365243,
+          "t": 74
+        },
+        {
+          "alive": false,
+          "score": 0.364377,
+          "t": 75
+        },
+        {
+          "alive": false,
+          "score": 0.363509,
+          "t": 76
+        },
+        {
+          "alive": false,
+          "score": 0.362653,
+          "t": 77
+        },
+        {
+          "alive": false,
+          "score": 0.361752,
+          "t": 78
+        },
+        {
+          "alive": false,
+          "score": 0.360873,
+          "t": 79
+        }
+      ]
+    },
+    {
+      "agent_id": "strategy-c-conservative-maintenance",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.61109,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.608912,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.606669,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.604405,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.602158,
+          "t": 4
+        },
+        {
+          "alive": true,
+          "score": 0.599959,
+          "t": 5
+        },
+        {
+          "alive": true,
+          "score": 0.597827,
+          "t": 6
+        },
+        {
+          "alive": true,
+          "score": 0.595765,
+          "t": 7
+        },
+        {
+          "alive": true,
+          "score": 0.59376,
+          "t": 8
+        },
+        {
+          "alive": true,
+          "score": 0.591344,
+          "t": 9
+        },
+        {
+          "alive": true,
+          "score": 0.588908,
+          "t": 10
+        },
+        {
+          "alive": true,
+          "score": 0.588921,
+          "t": 11
+        },
+        {
+          "alive": true,
+          "score": 0.588817,
+          "t": 12
+        },
+        {
+          "alive": true,
+          "score": 0.588557,
+          "t": 13
+        },
+        {
+          "alive": true,
+          "score": 0.58812,
+          "t": 14
+        },
+        {
+          "alive": true,
+          "score": 0.587509,
+          "t": 15
+        },
+        {
+          "alive": true,
+          "score": 0.586748,
+          "t": 16
+        },
+        {
+          "alive": true,
+          "score": 0.585547,
+          "t": 17
+        },
+        {
+          "alive": true,
+          "score": 0.584299,
+          "t": 18
+        },
+        {
+          "alive": true,
+          "score": 0.583063,
+          "t": 19
+        },
+        {
+          "alive": true,
+          "score": 0.581898,
+          "t": 20
+        },
+        {
+          "alive": true,
+          "score": 0.580848,
+          "t": 21
+        },
+        {
+          "alive": true,
+          "score": 0.579944,
+          "t": 22
+        },
+        {
+          "alive": true,
+          "score": 0.579193,
+          "t": 23
+        },
+        {
+          "alive": true,
+          "score": 0.578581,
+          "t": 24
+        },
+        {
+          "alive": true,
+          "score": 0.578075,
+          "t": 25
+        },
+        {
+          "alive": true,
+          "score": 0.577624,
+          "t": 26
+        },
+        {
+          "alive": true,
+          "score": 0.577171,
+          "t": 27
+        },
+        {
+          "alive": true,
+          "score": 0.575819,
+          "t": 28
+        },
+        {
+          "alive": true,
+          "score": 0.574338,
+          "t": 29
+        },
+        {
+          "alive": true,
+          "score": 0.572691,
+          "t": 30
+        },
+        {
+          "alive": true,
+          "score": 0.57086,
+          "t": 31
+        },
+        {
+          "alive": true,
+          "score": 0.568847,
+          "t": 32
+        },
+        {
+          "alive": true,
+          "score": 0.565962,
+          "t": 33
+        },
+        {
+          "alive": true,
+          "score": 0.562526,
+          "t": 34
+        },
+        {
+          "alive": true,
+          "score": 0.559005,
+          "t": 35
+        },
+        {
+          "alive": true,
+          "score": 0.555459,
+          "t": 36
+        },
+        {
+          "alive": true,
+          "score": 0.551942,
+          "t": 37
+        },
+        {
+          "alive": true,
+          "score": 0.548499,
+          "t": 38
+        },
+        {
+          "alive": true,
+          "score": 0.545157,
+          "t": 39
+        },
+        {
+          "alive": true,
+          "score": 0.541922,
+          "t": 40
+        },
+        {
+          "alive": true,
+          "score": 0.538778,
+          "t": 41
+        },
+        {
+          "alive": true,
+          "score": 0.536734,
+          "t": 42
+        },
+        {
+          "alive": true,
+          "score": 0.53465,
+          "t": 43
+        },
+        {
+          "alive": true,
+          "score": 0.532479,
+          "t": 44
+        },
+        {
+          "alive": true,
+          "score": 0.530128,
+          "t": 45
+        },
+        {
+          "alive": true,
+          "score": 0.527711,
+          "t": 46
+        },
+        {
+          "alive": true,
+          "score": 0.525148,
+          "t": 47
+        },
+        {
+          "alive": true,
+          "score": 0.522446,
+          "t": 48
+        },
+        {
+          "alive": true,
+          "score": 0.519629,
+          "t": 49
+        },
+        {
+          "alive": true,
+          "score": 0.516733,
+          "t": 50
+        },
+        {
+          "alive": true,
+          "score": 0.513797,
+          "t": 51
+        },
+        {
+          "alive": true,
+          "score": 0.510867,
+          "t": 52
+        },
+        {
+          "alive": true,
+          "score": 0.507981,
+          "t": 53
+        },
+        {
+          "alive": true,
+          "score": 0.505156,
+          "t": 54
+        },
+        {
+          "alive": true,
+          "score": 0.502405,
+          "t": 55
+        },
+        {
+          "alive": true,
+          "score": 0.499729,
+          "t": 56
+        },
+        {
+          "alive": true,
+          "score": 0.496686,
+          "t": 57
+        },
+        {
+          "alive": true,
+          "score": 0.493667,
+          "t": 58
+        },
+        {
+          "alive": true,
+          "score": 0.490629,
+          "t": 59
+        },
+        {
+          "alive": true,
+          "score": 0.487527,
+          "t": 60
+        },
+        {
+          "alive": true,
+          "score": 0.484316,
+          "t": 61
+        },
+        {
+          "alive": true,
+          "score": 0.480959,
+          "t": 62
+        },
+        {
+          "alive": true,
+          "score": 0.477432,
+          "t": 63
+        },
+        {
+          "alive": false,
+          "score": 0.473723,
+          "t": 64
+        },
+        {
+          "alive": false,
+          "score": 0.471962,
+          "t": 65
+        },
+        {
+          "alive": false,
+          "score": 0.470168,
+          "t": 66
+        },
+        {
+          "alive": false,
+          "score": 0.468384,
+          "t": 67
+        },
+        {
+          "alive": false,
+          "score": 0.466646,
+          "t": 68
+        },
+        {
+          "alive": false,
+          "score": 0.464985,
+          "t": 69
+        },
+        {
+          "alive": false,
+          "score": 0.463417,
+          "t": 70
+        },
+        {
+          "alive": false,
+          "score": 0.461945,
+          "t": 71
+        },
+        {
+          "alive": false,
+          "score": 0.460556,
+          "t": 72
+        },
+        {
+          "alive": false,
+          "score": 0.459224,
+          "t": 73
+        },
+        {
+          "alive": false,
+          "score": 0.457915,
+          "t": 74
+        },
+        {
+          "alive": false,
+          "score": 0.456588,
+          "t": 75
+        },
+        {
+          "alive": false,
+          "score": 0.455201,
+          "t": 76
+        },
+        {
+          "alive": false,
+          "score": 0.453723,
+          "t": 77
+        },
+        {
+          "alive": false,
+          "score": 0.452128,
+          "t": 78
+        },
+        {
+          "alive": false,
+          "score": 0.450407,
+          "t": 79
+        }
+      ]
+    }
+  ],
+  "truth_boundary": {
+    "customer_validated": false,
+    "empirical_agent_behavior_validated": false,
+    "external_agent_execution": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false
+  }
+}

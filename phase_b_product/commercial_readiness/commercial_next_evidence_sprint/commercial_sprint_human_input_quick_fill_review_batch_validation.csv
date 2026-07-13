@@ -1,0 +1,1 @@
+review_batch_row_id,quick_fill_row_id,queue_item_id,workbook_row_id,blocker_id,owner_review_lane,input_group,input_key,input_kind,value_present,note_present,value_length,note_length,batch_validation_status,issue_codes,target_workbook_csv,target_workbook_column,target_json_pointer

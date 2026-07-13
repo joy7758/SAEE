@@ -1,0 +1,4 @@
+gate_id,condition,current_value,required_before_continue,decision,allowed_next_actor,allowed_action,forbidden_action
+HISTOP-001,missing_quick_fill_human_values,0,0,allow_next_local_review,separate_human_approved_local_validator,Run the separate local safety preflight and validator commands.,"Codex must not import workbooks, transfer templates, run validators on real input, collect evidence, execute builders, close blockers, launch product, or claim readiness."
+HISTOP-002,quick_fill_context_complete,64,64,context_ready_for_human_fill,human_reviewer,Use the complete context to review the workbook import approval request.,"Codex must not infer, suggest, or prefill human evidence values."
+HISTOP-003,workbook_import_authorization,False,separate_human_approval_after_values_exist,stop_import_not_authorized,human_approver,Review approval request only; no workbook import action is allowed at this gate.,Do not run apply/import/transfer paths from this gate.

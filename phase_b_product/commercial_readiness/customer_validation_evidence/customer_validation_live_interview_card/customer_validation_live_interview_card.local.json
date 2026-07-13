@@ -1,0 +1,116 @@
+{
+  "answer_input": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_answer_intake_helper/customer_validation_answers.human_filled.md",
+  "answer_input_exists": false,
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_card": 0,
+  "current_goal_blocker": "customer_validated",
+  "customer_contacted_by_codex": false,
+  "customer_question_count": 13,
+  "customer_validated": false,
+  "customer_validation_live_interview_card_v0_1": true,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:04.903678+00:00",
+  "interview_questions": [
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "participant_role",
+      "question_or_action": "你现在负责什么？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "team_type",
+      "question_or_action": "你所在团队大概是什么类型？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "current_evaluation_method",
+      "question_or_action": "你现在怎么判断哪个 agent、工作流或策略版本更靠谱？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "candidate_count",
+      "question_or_action": "你通常要比较几个候选方案？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "understanding_score",
+      "question_or_action": "听完介绍后，你能否用自己的话说清 SAEE 是做什么的？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "trust_score",
+      "question_or_action": "你现在对这个结果的可信度是多少？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "decision_influence_score",
+      "question_or_action": "这个结果会不会影响你部署、暂缓或重测的决定？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "repeat_usage_intent_score",
+      "question_or_action": "你是否愿意后续重复使用这类评测？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "time_to_value_minutes",
+      "question_or_action": "你大概花了几分钟理解它是否有用？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "willing_to_test_own_candidates",
+      "question_or_action": "你愿不愿意用自己的候选方案再测一次？true/false。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "top_objection",
+      "question_or_action": "你最大的疑问或反对点是什么？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "evidence_missing",
+      "question_or_action": "还缺什么证据，你才更愿意继续试？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "notes",
+      "question_or_action": "请记录对方最关键的一句话反馈。",
+      "source_required": "real_customer_or_target_user"
+    }
+  ],
+  "kernel_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "runtime_modified": false,
+  "source_queue_item_count": 47,
+  "source_queue_status": "ready_for_real_customer_live_fill",
+  "status": "ready_for_real_customer_interview"
+}

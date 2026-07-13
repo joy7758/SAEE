@@ -1,0 +1,154 @@
+{
+  "boundary_review": {
+    "case_study_published": false,
+    "customer_contacted": false,
+    "customer_data_collected": false,
+    "customer_validated": false,
+    "feedback_form_completed": false,
+    "launch_approved": false,
+    "permission_to_use_feedback_recorded": false,
+    "pilot_executed": false,
+    "pilot_results_recorded": false,
+    "product_launched": false,
+    "product_market_fit_claimed": false,
+    "production_ready_claim": false,
+    "testimonial_published": false,
+    "validation_claim_published": false
+  },
+  "evidence_review": {
+    "at_least_one_human_approved_pilot_session_completed": false,
+    "boundary_flags_reviewed": false,
+    "claim_scope_approved": false,
+    "customer_problem_fit_reviewed": false,
+    "customer_validation_record_approved_by_human": false,
+    "decision_usefulness_observed": false,
+    "feedback_form_completed": false,
+    "permission_to_use_feedback_recorded": false,
+    "pilot_result_reviewed_by_human": false,
+    "pilot_result_template_completed": false,
+    "real_customer_or_target_user_feedback_recorded": false,
+    "success_criteria_applied": false
+  },
+  "evidence_source_notes": "",
+  "human_reviewer_name": "",
+  "input_status": "priority_template_not_filled",
+  "phase_5_customer_validation_launch_priority_evidence_collection_v0_1": true,
+  "priority_collection_map_by_key": {
+    "at_least_one_human_approved_pilot_session_completed": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-001",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-138"
+    },
+    "boundary_flags_reviewed": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-006",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-142"
+    },
+    "claim_scope_approved": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-007",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-148"
+    },
+    "customer_problem_fit_reviewed": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-008",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-146"
+    },
+    "customer_validation_record_approved_by_human": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-009",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-149"
+    },
+    "decision_usefulness_observed": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-010",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-147"
+    },
+    "feedback_form_completed": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-002",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-140"
+    },
+    "permission_to_use_feedback_recorded": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-011",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-145"
+    },
+    "pilot_result_reviewed_by_human": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-003",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-143"
+    },
+    "pilot_result_template_completed": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-004",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-139"
+    },
+    "real_customer_or_target_user_feedback_recorded": {
+      "blocker_id": "customer_validated",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-012",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-144"
+    },
+    "success_criteria_applied": {
+      "blocker_id": "pilot_results",
+      "evidence_file_type": "production_customer_validation_evidence",
+      "phase_5_record_id": "P5-ECP-005",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-141"
+    }
+  },
+  "priority_collection_source": "phase_b_product/commercial_readiness/phase_5_customer_validation_launch_priority_evidence_collection/phase_5_customer_validation_launch_priority_evidence_collection.local.json",
+  "priority_evidence_key_order": [
+    "at_least_one_human_approved_pilot_session_completed",
+    "feedback_form_completed",
+    "pilot_result_reviewed_by_human",
+    "pilot_result_template_completed",
+    "success_criteria_applied",
+    "boundary_flags_reviewed",
+    "claim_scope_approved",
+    "customer_problem_fit_reviewed",
+    "customer_validation_record_approved_by_human",
+    "decision_usefulness_observed",
+    "permission_to_use_feedback_recorded",
+    "real_customer_or_target_user_feedback_recorded"
+  ],
+  "review_date": "",
+  "source_collection_packet": "phase_b_product/commercial_readiness/commercial_production_evidence_collection_packet/commercial_production_evidence_collection_packet.local.json",
+  "source_notes_by_key": {
+    "at_least_one_human_approved_pilot_session_completed": "",
+    "boundary_flags_reviewed": "",
+    "claim_scope_approved": "",
+    "customer_problem_fit_reviewed": "",
+    "customer_validation_record_approved_by_human": "",
+    "decision_usefulness_observed": "",
+    "feedback_form_completed": "",
+    "permission_to_use_feedback_recorded": "",
+    "pilot_result_reviewed_by_human": "",
+    "pilot_result_template_completed": "",
+    "real_customer_or_target_user_feedback_recorded": "",
+    "success_criteria_applied": ""
+  },
+  "template_note": "Human owners fill evidence_review and source_notes_by_key. Codex must not infer customer evidence, contact customers, execute pilots, collect customer data, publish validation claims, publish testimonials, approve launch, or claim production readiness."
+}

@@ -1,0 +1,113 @@
+% SAEE ALIFE 2026 Late-Breaking Abstract package.
+% Current route: Late-Breaking Abstract, not Full Paper.
+% This source is a local submission-prep surface only. Replace the class and
+% front matter with the official ALIFE template before portal upload if needed.
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.78in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\textfloatsep}{0.4em}
+\setlength{\floatsep}{0.4em}
+\setlength{\intextsep}{0.4em}
+
+\title{\vspace{-1.5em}SAEE as a Frozen Reflexive Evolutionary Dynamical Object}
+\author{Zhang Bin}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.6em}
+
+\begin{abstract}
+This late-breaking abstract presents SAEE as a frozen Local Canonical
+Reflexive Evolutionary Dynamical System Object (LCR-REDS). The contribution is
+not a new evolutionary algorithm or a universal theory of evolution. It is a
+local scientific-object characterization of an artificial-life-style system in
+which population state, lineage structure, mutable operators, and observer
+state are represented together under identity constraints. Existing local
+simulation surfaces show a single dominant stable regime, a stable lineage
+basin, bounded semantic drift, and preserved lineage integrity in the frozen
+configuration. These observations are reported as local candidate regularities
+only; they are not externally validated laws, benchmark superiority claims, or
+evidence of open-ended evolution.
+\end{abstract}
+
+\textbf{Motivation.}
+Artificial life systems often study emergence, population dynamics, and
+lineage behavior through executable simulations. SAEE focuses on a narrower
+question: how to describe a completed local evolutionary object when its
+selection and transformation operators are part of the observed dynamical
+surface rather than fixed background machinery. This framing is intended for
+ALife-style interpretation of reflexive evolutionary dynamics, not for
+production deployment or general optimization.
+
+\textbf{Model.}
+The frozen object is summarized as
+\[
+  SAEE = (\Omega, G, T, S, L, R, \mu),
+  \qquad
+  P_{t+1}=S_{\theta_t}(T_{\phi_t}(P_t)).
+\]
+Here $\Omega$ is evolution space, $G$ is genome space, $T$ is a transformation
+operator, $S$ is a selection operator or field, $L$ is lineage structure, $R$
+is reflexive observer state, and $\mu$ is the population measure. The
+operator parameters are treated as state-coupled:
+\[
+  \theta_t=g(P_t,R_t,L_t),\qquad
+  \phi_t=h(P_t,R_t,L_t),\qquad
+  R_{t+1}=\Psi(R_t,P_t,L_t).
+\]
+Admissible transitions remain bounded by an identity constraint
+$I(X_t,X_{t+1})\geq\theta_I$. The paper-facing theory is compressed into three
+local laws: reflexive coupled evolution, dynamic selection topology, and
+bounded identity drift. In this late-breaking version, those laws are treated
+as descriptive constraints over the frozen object, not as universal claims.
+
+\textbf{Observed local behavior.}
+The current evidence surface is derived from existing repository logs and
+reports only. It does not add new experiments. The reported long-horizon
+surface records 100 generations, a dominant \texttt{stable\_regime}, a
+dominant \texttt{stable\_lineage\_basin}, no observed collapse, no observed
+cross-regime transition, and a lineage graph surface with 808 nodes and 1590
+edges. A separate Phase II drift surface reports bounded semantic drift with
+observed maximum 0.2 under the frozen constraints.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{ll}
+\toprule
+Surface & Local observation \\
+\midrule
+Regime & \texttt{stable\_regime -> stable\_regime} \\
+Attractor & \texttt{stable\_lineage\_basin} \\
+Lineage & 808 nodes, 1590 edges \\
+Drift & bounded semantic drift; max 0.2 \\
+Collapse & not observed in the reported surface \\
+\bottomrule
+\end{tabular}
+\caption{Claim-safe summary of the frozen SAEE evidence surface.}
+\end{table}
+
+\textbf{Interpretation and boundary.}
+SAEE is positioned as a local canonical scientific object for studying
+reflexive evolutionary dynamical systems with mutable operators,
+lineage-coupled feedback, and identity constraints. The current result is
+best read as an attractor-dominated local case study: the system stabilizes
+into a strongly convergent phase-space region instead of demonstrating
+unbounded open-endedness. The five extracted regularities remain candidate
+regularities of this object only. This abstract makes no claim of universal
+evolutionary law, external validation, physical-law status, benchmark
+superiority, manuscript acceptance, publication, release, DOI assignment, or
+portal submission.
+
+\textbf{Acknowledgments.}
+AI assistance was used for drafting, claim-safety review, and LaTeX formatting.
+No external funding was received for this work.
+
+\end{document}

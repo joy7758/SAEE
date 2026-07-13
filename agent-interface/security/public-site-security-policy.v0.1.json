@@ -1,0 +1,39 @@
+{
+  "schema": "saee-public-security-policy-v0.1",
+  "status": "published_public_reporting_policy",
+  "owner": {
+    "organization": "山西游骑兵电子商务有限公司",
+    "contact_name": "张斌",
+    "public_phone": "18518485118"
+  },
+  "reporting": {
+    "preferred_first_step": "通过公开联系电话联系负责人，并明确说明是安全问题；不要在公开 Issue 粘贴漏洞细节、密钥、个人信息或客户数据。",
+    "public_issue_for_sensitive_details": false,
+    "secrets_in_report_allowed": false,
+    "customer_data_in_report_allowed": false
+  },
+  "response_targets": {
+    "initial_acknowledgement_business_days": 2,
+    "initial_triage_business_days": 5,
+    "resolution_timing": "按影响范围、可利用性和修复风险分级确认"
+  },
+  "scope": {
+    "included": [
+      "redcrag.cn 公开站点",
+      "SAEE 公开仓库中的公开接口、结构化契约和本地演示代码"
+    ],
+    "excluded_without_explicit_authorization": [
+      "社会工程",
+      "拒绝服务或资源耗尽测试",
+      "真实客户或个人数据测试",
+      "扩大权限、接触第三方系统或执行生产动作"
+    ]
+  },
+  "truth_boundary": {
+    "formal_penetration_test_completed": false,
+    "formal_production_security_review_completed": false,
+    "production_ready": false,
+    "customer_validated": false,
+    "product_launched": false
+  }
+}

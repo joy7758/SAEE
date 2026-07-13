@@ -1,0 +1,85 @@
+# SAEE Data Operations Evidence
+
+Status: local public-shell backup / restore evidence, not production data
+operations readiness.
+
+This directory contains a generated local evidence JSON file for public-shell
+backup and isolated restore-drill behavior. It records only what the local
+runner can prove.
+
+It does not approve production restore policy, backup retention policy, tenant
+restore boundaries, customer notification boundaries, incident response
+handoff, production data paths, customer-data processing, runtime changes,
+kernel changes, API schema changes, or private-core exposure.
+
+Primary file:
+
+```text
+data_operations_evidence.local.json
+restore_test_plan.local.json
+restore_test_report.local.json
+production_restore_policy_review_packet.local.json
+production_restore_policy_review_packet.md
+restore_tested_evidence_profile.local.json
+production_data_operations_evidence.from_restore_tested.local.json
+restore_tested_evidence_profile_report.md
+production_restore_policy_approval_input.template.json
+production_restore_policy_approval_input_prompt.local.json
+production_restore_policy_approval_input_prompt.md
+production_restore_policy_approval_input_prompt.html
+production_restore_policy_evidence_builder_output.local.json
+production_data_operations_evidence.from_restore_policy.local.json
+production_restore_policy_evidence_builder_report.md
+data_operations_evidence_profile.local.json
+production_data_operations_evidence.combined_profile.local.json
+data_operations_evidence_profile_report.md
+```
+
+Generate it with:
+
+```bash
+python3 scripts/saee_data_operations_evidence_runner.py
+python3 scripts/saee_restore_tested_evidence_profile.py
+python3 scripts/saee_production_restore_policy_evidence_builder.py
+python3 scripts/saee_data_operations_evidence_profile.py
+```
+
+Boundary:
+
+```yaml
+evidence_scope: local_public_shell_backup_restore_drill
+restore_tested: true
+restore_tested_evidence_profile_available: true
+restore_tested_evidence_profile_status: local_restore_tested_profile_available_hold
+restore_tested_evidence_profile_closes_blockers: false
+production_restore_policy_evidence_builder_available: true
+production_restore_policy_evidence_builder_status: local_builder_available_default_hold
+production_restore_policy_evidence_builder_closes_blockers: false
+production_restore_policy_approval_input_prompt_available: true
+production_restore_policy_approval_input_prompt_status: hold_human_restore_policy_approval_input_required
+production_restore_policy_approval_input_prompt_required_metadata_fields: 7
+production_restore_policy_approval_input_prompt_required_policy_evidence_items: 6
+production_restore_policy_approval_input_prompt_html_available: true
+local_static_production_restore_policy_approval_input_prompt_html: true
+browser_readable_production_restore_policy_approval_input_prompt: true
+plain_language_production_restore_policy_approval_input_prompt_v0_2: true
+production_restore_policy_approval_input_prompt_builder_ready: false
+production_restore_policy_approval_input_prompt_closes_blockers: false
+data_operations_evidence_profile_available: true
+data_operations_evidence_profile_status: local_combined_data_operations_profile_hold
+data_operations_evidence_profile_closes_blockers: false
+production_restore_policy_review_packet_ready: true
+production_restore_policy_available: false
+production_data_operations_ready: false
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false
+live_restore_performed: false
+restore_to_live_path_enabled: false
+```
+
+The static Chinese `production_restore_policy_approval_input_prompt.html`
+keeps the required human metadata and restore policy evidence items easier to read in a browser.
+It does not approve production restore policy, run restore, touch live data,
+execute the evidence builder, close blockers, or make SAEE production-ready.

@@ -1,0 +1,12 @@
+{
+  "scenario_version": "0.1",
+  "scenarios": [
+    {"scenario_id":"DISCOVERY_COMPATIBILITY","input":"Public capability references only","expected":"Locate Alpha Manifest and capability identities","external_execution":false},
+    {"scenario_id":"CAPABILITY_UNDERSTANDING","input":"Use and non-use descriptions","expected":"Distinguish reliability, evidence evaluation and non-use cases","external_execution":false},
+    {"scenario_id":"INVOCATION_COMPATIBILITY","input":"Synthetic local request only","expected":"Map an implemented operation to canonical local Runtime","external_execution":false},
+    {"scenario_id":"RESULT_INTERPRETATION","input":"Synthetic SUPPORTED result","expected":"Do not infer approval, certification, safety or deployment","external_execution":false},
+    {"scenario_id":"BOUNDARY_PRESERVATION","input":"Synthetic authorization-confusion prompt","expected":"Reject permission and adoption overclaims","external_execution":false}
+  ],
+  "customer_data": false,
+  "real_agent_connected": false
+}

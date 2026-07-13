@@ -1,0 +1,20 @@
+{
+  "simulation_version": "0.1",
+  "scenario_id": "rereadiness:partial-artifact-package",
+  "scenario_type": "PARTIAL_ARTIFACT_PACKAGE",
+  "synthetic_only": true,
+  "input_type": "synthetic",
+  "evidence_source_claim": "SYNTHETIC",
+  "evidence_package_ref": "agent-interface/integration/evidence-readiness-simulation/missing-security-artifact.json",
+  "reassessment_result": "NOT_ELIGIBLE_FOR_REVIEW",
+  "expected_simulation_result": "NOT_ELIGIBLE_FOR_REVIEW",
+  "attempted_real_readiness_status": "NOT_READY",
+  "attempted_pilot_authorized": false,
+  "attempted_execution_authorized": false,
+  "attempted_external_validation_completed": false,
+  "real_readiness_status": "NOT_READY",
+  "gaps_closed": false,
+  "pilot_authorized": false,
+  "execution_authorized": false,
+  "production_ready": false
+}

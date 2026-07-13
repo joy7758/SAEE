@@ -1,0 +1,150 @@
+{
+  "saee_reproducibility_manifest_v0_1": true,
+  "manifest_version": "0.1.0",
+  "artifact_name": "SAEE Evidence Adequacy Architecture",
+  "status": "local_reproducibility_specification_not_published",
+  "artifact_scope": [
+    "resource_resolution_receipt",
+    "evidence_adequacy_profile",
+    "otel_candidate_mapping",
+    "agent_receipt_crosswalk",
+    "evidence_adequacy_benchmark"
+  ],
+  "claims_evaluated": [
+    "RESOURCE_AUTHENTICITY",
+    "AUTHORIZED_AGENT_ACTION",
+    "HUMAN_OVERSIGHT",
+    "EXECUTION_BOUNDARY"
+  ],
+  "benchmark_cases": 12,
+  "execution_mode": "offline_synthetic",
+  "environment_constraints": {
+    "python_command": "python3",
+    "python_version_observed": "3.14.5",
+    "python_syntax_minimum": "3.10",
+    "minimum_python_version_declared_by_repository": false,
+    "python_minimum_supported_version": "not_formally_declared",
+    "python_support_status": "syntax_floor_identified_version_matrix_not_tested",
+    "python_support_basis": [
+      "repository_uses_python_3_10_runtime_features",
+      "ci_uses_rolling_python_3_x_without_version_matrix",
+      "only_python_3_14_5_observed_for_this_package"
+    ],
+    "dependency_manifest": "saee_backend/requirements.txt",
+    "required_modules": ["jsonschema", "pydantic"],
+    "required_packages": [
+      {
+        "name": "jsonschema",
+        "constraint": ">=4.18,<5.0",
+        "purpose": "Validate Draft 2020-12 evidence, benchmark, and reproducibility schemas offline."
+      },
+      {
+        "name": "pydantic",
+        "constraint": ">=2.0,<3.0",
+        "purpose": "Support existing SAEE backend data contracts used by the local artifact surface."
+      }
+    ],
+    "jsonschema_declared_in_dependency_manifest": true,
+    "network_required": false
+  },
+  "artifacts": [
+    {
+      "artifact_id": "resource_resolution_receipt",
+      "purpose": "Validate a closed synthetic resource-resolution receipt and stable rejection reasons.",
+      "required_files": [
+        "agent-interface/schemas/resource-resolution-receipt.schema.json",
+        "agent-interface/examples/verified-resource-resolution.json",
+        "saee_backend/services/resource_resolution_receipt.py",
+        "scripts/saee_resource_resolution_receipt_smoke.py"
+      ],
+      "validation_command": "make check-resource-resolution-receipt",
+      "expected_output": "SAEE_RESOURCE_RESOLUTION_RECEIPT_SMOKE: PASS"
+    },
+    {
+      "artifact_id": "evidence_adequacy_profile",
+      "purpose": "Evaluate whether synthetic evidence fields and relationships satisfy four local accountability-claim profiles.",
+      "required_files": [
+        "agent-interface/schemas/evidence-adequacy-profile.schema.json",
+        "agent-interface/profiles/evidence-adequacy/resource-authenticity.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/execution-boundary.v0.1.json",
+        "saee_backend/services/evidence_adequacy.py",
+        "scripts/saee_evidence_adequacy_smoke.py"
+      ],
+      "validation_command": "make check-evidence-adequacy",
+      "expected_output": "SAEE_EVIDENCE_ADEQUACY_SMOKE: PASS"
+    },
+    {
+      "artifact_id": "otel_candidate_mapping",
+      "purpose": "Map closed synthetic OpenTelemetry-style observations into non-authoritative candidate evidence.",
+      "required_files": [
+        "agent-interface/schemas/otel-candidate-evidence-mapping.schema.json",
+        "agent-interface/examples/otel-mapping/trace_candidate_resource_retrieval.json",
+        "saee_backend/services/otel_candidate_mapping.py",
+        "scripts/saee_otel_candidate_mapping_smoke.py"
+      ],
+      "validation_command": "make check-otel-candidate-mapping",
+      "expected_output": "SAEE_OTEL_CANDIDATE_MAPPING_SMOKE: PASS"
+    },
+    {
+      "artifact_id": "agent_receipt_crosswalk",
+      "purpose": "Validate the research-only semantic crosswalk and its standards-claim boundaries.",
+      "required_files": [
+        "agent-interface/mappings/agent-receipt-crosswalk.v0.1.json",
+        "docs/standards/SAEE_AGENT_RECEIPT_CROSSWALK.md",
+        "docs/standards/SAEE_STANDARD_BOUNDARIES.md",
+        "scripts/saee_agent_receipt_crosswalk_smoke.py"
+      ],
+      "validation_command": "make check-agent-receipt-crosswalk",
+      "expected_output": "SAEE_AGENT_RECEIPT_CROSSWALK_SMOKE: PASS"
+    },
+    {
+      "artifact_id": "evidence_adequacy_benchmark",
+      "purpose": "Run twelve synthetic evidence-level scenarios and compare profile results, missing requirements, reasons, and boundaries.",
+      "required_files": [
+        "agent-interface/schemas/evidence-adequacy-benchmark.schema.json",
+        "agent-interface/benchmarks/evidence-adequacy/benchmark.v0.1.json",
+        "saee_backend/services/evidence_adequacy_benchmark.py",
+        "scripts/saee_evidence_adequacy_benchmark_smoke.py"
+      ],
+      "validation_command": "make check-evidence-adequacy-benchmark",
+      "expected_output": "SAEE_EVIDENCE_ADEQUACY_BENCHMARK_SMOKE: PASS"
+    }
+  ],
+  "required_commands": [
+    "make check-resource-resolution-receipt",
+    "make check-evidence-adequacy",
+    "make check-otel-candidate-mapping",
+    "make check-agent-receipt-crosswalk",
+    "make check-evidence-adequacy-benchmark",
+    "make check-saee-reproducibility"
+  ],
+  "expected_results_ref": "agent-interface/reproducibility/expected-results.v0.1.json",
+  "expected_outputs": [
+    "SAEE_RESOURCE_RESOLUTION_RECEIPT_SMOKE: PASS",
+    "SAEE_EVIDENCE_ADEQUACY_SMOKE: PASS",
+    "SAEE_OTEL_CANDIDATE_MAPPING_SMOKE: PASS",
+    "SAEE_AGENT_RECEIPT_CROSSWALK_SMOKE: PASS",
+    "SAEE_EVIDENCE_ADEQUACY_BENCHMARK_SMOKE: PASS",
+    "SAEE_REPRODUCIBILITY_SMOKE: PASS"
+  ],
+  "limitations": [
+    "This is a local specification and has not been published or independently reproduced.",
+    "Python 3.10 is a repository syntax and runtime-feature floor, not a formally tested support claim; only Python 3.14.5 was observed for this package.",
+    "jsonschema and pydantic are declared in saee_backend/requirements.txt, but dependency declaration alone does not prove a clean environment can resolve approved package artifacts.",
+    "All evidence, identities, resources, approvals, effects, and benchmark scenarios are synthetic.",
+    "Passing local commands does not establish event occurrence, legal accountability, certification, or scientific acceptance."
+  ],
+  "truth_boundary": {
+    "public_release_performed": false,
+    "doi_created": false,
+    "release_tag_created": false,
+    "external_reproduction_completed": false,
+    "third_party_validation_completed": false,
+    "scientific_acceptance_claimed": false,
+    "certification_claimed": false,
+    "underlying_events_proven": false,
+    "production_ready": false
+  }
+}

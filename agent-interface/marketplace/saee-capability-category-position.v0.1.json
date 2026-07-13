@@ -1,0 +1,14 @@
+{
+  "category_id":"saee.agent-reliability-capability",
+  "capability_type":"agent_reliability_layer",
+  "position":"between_observation_evidence_inputs_and_agent_decision",
+  "composition_role":"decision_context_provider",
+  "capability_composition_reference":"agent-interface/composition/saee-capability-composition-model.v0.1.json",
+  "subcategories":["reliability_assessment","evidence_evaluation","rehearsal_support"],
+  "inputs":["agent_execution_information","observation_references","evidence_objects","accountability_claims"],
+  "outputs":["reliability_context","evidence_adequacy_context","missing_requirements","reason_codes","limitations"],
+  "composition_partners":["OBSERVABILITY","AUTHORIZATION_SYSTEM","POLICY_ENGINE","SECURITY_MONITORING"],
+  "not_replacements":["IAM","ACCESS_CONTROL","AUTHORIZATION","EXECUTION","DEPLOYMENT_SYSTEM","OBSERVABILITY","SECURITY_SYSTEM","POLICY_ENGINE"],
+  "limitations":["Category metadata does not establish trust, listing, ranking or adoption.","SAEE provides decision context and does not provide authority or external execution."],
+  "truth_boundary":{"marketplace_position_review":true,"marketplace_listed":false,"agent_adoption_validated":false,"external_agents_connected":false,"market_validation":false,"industry_standard_claimed":false,"production_ready":false}
+}

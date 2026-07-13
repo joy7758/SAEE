@@ -1,0 +1,50 @@
+{
+  "saee_pilot_dataset_manifest_v0_1": true,
+  "specification_version": "0.1",
+  "dataset_status": "specification_only",
+  "dataset_exists": false,
+  "data_collected": false,
+  "data_source_selected": false,
+  "annotations_started": false,
+  "annotations_completed": false,
+  "external_data_used": false,
+  "production_data_used": false,
+  "personal_data_processed": false,
+  "real_agent_executed": false,
+  "experiment_executed": false,
+  "external_validation_completed": false,
+  "scientific_result_claimed": false,
+  "production_ready": false,
+  "primary_unit": "evidence_evaluation_episode",
+  "entities": [
+    {"entity_id": "task_record", "role": "define task context and constraints", "schema_ref": "agent-interface/evaluation/dataset-specification/task-record.schema.json"},
+    {"entity_id": "observation_trace_record", "role": "record observations without treating them as evidence", "schema_ref": "agent-interface/evaluation/dataset-specification/trace-record.schema.json"},
+    {"entity_id": "evidence_bundle_record", "role": "bind receipts, authorization, oversight, effects and causal relationships", "schema_ref": "agent-interface/evaluation/dataset-specification/evidence-bundle.schema.json"},
+    {"entity_id": "annotation_record", "role": "record claim-level adequacy labels without direct annotator identity", "schema_ref": "agent-interface/evaluation/dataset-specification/annotation-record.schema.json"}
+  ],
+  "quality_requirements": {
+    "structural": ["schema_validation", "required_fields", "identifier_uniqueness", "cross_entity_reference_integrity"],
+    "evidence_consistency": ["receipt_reference_resolution", "authorization_relationship_check", "human_oversight_relationship_check", "causal_link_check", "trace_not_auto_evidence"],
+    "annotation": ["double_annotation", "disagreement_review", "independent_adjudication", "agreement_reporting"],
+    "leakage_prevention": ["hide_expected_labels", "hide_evaluator_decisions", "separate_annotator_and_evaluator_views"]
+  },
+  "readiness": {
+    "current_status": "NOT_READY",
+    "ready_requires": ["source_approved", "permissions_clear", "privacy_review_complete", "schema_frozen", "annotation_protocol_approved", "validation_pipeline_tested"],
+    "unmet_requirements": ["source_approved", "permissions_clear", "privacy_review_complete", "schema_frozen", "annotation_protocol_approved", "validation_pipeline_tested"]
+  },
+  "documents": {
+    "dataset_specification": "docs/evaluation/SAEE_PILOT_DATASET_SPECIFICATION.md",
+    "quality_control": "docs/evaluation/SAEE_DATASET_QUALITY_CONTROL.md",
+    "readiness_checklist": "docs/evaluation/SAEE_DATASET_READINESS_CHECKLIST.md",
+    "annotation_codebook": "docs/evaluation/SAEE_ANNOTATION_CODEBOOK.md",
+    "pilot_preparation": "docs/evaluation/SAEE_EXTERNAL_EVALUATION_PILOT_PREPARATION.md"
+  },
+  "limitations": [
+    "No dataset or episode record exists in v0.1.",
+    "Schemas validate object structure but do not prove cross-file references or real-world event authenticity.",
+    "No data source, permission, privacy review, annotator, experiment, external validation, or production readiness is established."
+  ],
+  "recommended_next_pr": "Add SAEE Pilot Execution Readiness Review v0.1"
+}
+

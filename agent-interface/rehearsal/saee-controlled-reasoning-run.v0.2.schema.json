@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Controlled Reasoning Agent Rehearsal Run v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_controlled_reasoning_run_v0_2", "schema_version", "run_id", "scenario_ref", "scenario_digest", "grading_profile_ref", "grading_profile_digest", "provider", "trace", "agent_submission", "grading", "evidence_export", "limitations", "truth_boundary"],
+  "properties": {
+    "saee_controlled_reasoning_run_v0_2": {"const": true},
+    "schema_version": {"const": "0.2.0"},
+    "run_id": {"$ref": "#/$defs/id"},
+    "scenario_ref": {"type": "string", "pattern": "^agent-interface/rehearsal/controlled-scenarios/[A-Za-z0-9._-]+\\.json$"},
+    "scenario_digest": {"$ref": "#/$defs/digest"},
+    "grading_profile_ref": {"type": "string", "pattern": "^agent-interface/rehearsal/grading-profiles/[A-Za-z0-9._-]+\\.json$"},
+    "grading_profile_digest": {"$ref": "#/$defs/digest"},
+    "provider": {
+      "type": "object", "additionalProperties": false,
+      "required": ["provider", "model", "adapter_id", "provider_rounds", "provider_response_digests", "external_reasoning_model_called", "credential_source"],
+      "properties": {
+        "provider": {"const": "baidu_qianfan"},
+        "model": {"const": "ernie-4.5-turbo-128k"},
+        "adapter_id": {"const": "adapter:qianfan-controlled-reasoning-v0.2"},
+        "provider_rounds": {"type": "integer", "minimum": 1, "maximum": 6},
+        "provider_response_digests": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"$ref": "#/$defs/digest"}},
+        "external_reasoning_model_called": {"type": "boolean"},
+        "credential_source": {"const": "environment_variable_not_recorded"}
+      }
+    },
+    "trace": {
+      "type": "object", "additionalProperties": false,
+      "required": ["trace_id", "events", "trace_digest"],
+      "properties": {
+        "trace_id": {"$ref": "#/$defs/id"},
+        "events": {"type": "array", "minItems": 5, "maxItems": 30, "items": {"$ref": "#/$defs/event"}},
+        "trace_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "agent_submission": {
+      "type": "object", "additionalProperties": false,
+      "required": ["disposition", "summary", "evidence_labels", "relied_on_tool_results"],
+      "properties": {
+        "disposition": {"enum": ["completed", "abstained", "refused"]},
+        "summary": {"type": "string", "minLength": 1, "maxLength": 500},
+        "evidence_labels": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 120}},
+        "relied_on_tool_results": {"type": "boolean"}
+      }
+    },
+    "grading": {
+      "type": "object", "additionalProperties": false,
+      "required": ["assessment", "reason_codes", "observed_tool_calls", "expected_disposition", "grading_profile_hidden_from_agent", "agent_prompt_digest", "grading_profile_digest"],
+      "properties": {
+        "assessment": {"enum": ["MATCHED_PROFILE", "DID_NOT_MATCH_PROFILE"]},
+        "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 120}},
+        "observed_tool_calls": {"type": "array", "maxItems": 12, "items": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation", "submit_rehearsal_result"]}},
+        "expected_disposition": {"enum": ["completed", "abstained", "refused"]},
+        "grading_profile_hidden_from_agent": {"const": true},
+        "agent_prompt_digest": {"$ref": "#/$defs/digest"},
+        "grading_profile_digest": {"$ref": "#/$defs/digest"}
+      }
+    },
+    "evidence_export": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_export_id", "trace_ref", "trace_digest", "provider_response_digests", "grading_profile_ref", "grading_profile_digest", "evidence_established", "readiness_established"],
+      "properties": {
+        "evidence_export_id": {"$ref": "#/$defs/id"},
+        "trace_ref": {"$ref": "#/$defs/id"},
+        "trace_digest": {"$ref": "#/$defs/digest"},
+        "provider_response_digests": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"$ref": "#/$defs/digest"}},
+        "grading_profile_ref": {"type": "string", "minLength": 1},
+        "grading_profile_digest": {"$ref": "#/$defs/digest"},
+        "evidence_established": {"const": false},
+        "readiness_established": {"const": false}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["controlled_rehearsal_executed", "external_reasoning_model_called", "synthetic_world_only", "external_world_action_executed", "customer_agent_validated", "risk_probability_measured", "deployment_authorized", "production_ready"],
+      "properties": {
+        "controlled_rehearsal_executed": {"const": true},
+        "external_reasoning_model_called": {"type": "boolean"},
+        "synthetic_world_only": {"const": true},
+        "external_world_action_executed": {"const": false},
+        "customer_agent_validated": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "deployment_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_id", "sequence", "timestamp", "event_type", "summary", "summary_digest"],
+      "properties": {
+        "event_id": {"$ref": "#/$defs/id"},
+        "sequence": {"type": "integer", "minimum": 0, "maximum": 40},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "event_type": {"enum": ["TASK_RECEIVED", "PROVIDER_REQUEST", "PROVIDER_RESPONSE", "TOOL_CALL", "TOOL_RESULT", "AGENT_SUBMISSION", "GRADING_RESULT"]},
+        "summary": {"type": "string", "minLength": 1, "maxLength": 500},
+        "summary_digest": {"$ref": "#/$defs/digest"},
+        "tool_name": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation", "submit_rehearsal_result"]},
+        "payload_digest": {"$ref": "#/$defs/digest"}
+      }
+    }
+  }
+}

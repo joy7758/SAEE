@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saee:integration:pilot-execution-decision-gate:0.1",
+  "title": "SAEE Controlled Pilot Execution Decision Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_version",
+    "scenario_id",
+    "scenario_type",
+    "synthetic_only",
+    "readiness_status",
+    "readiness_result_ref",
+    "decision",
+    "execution_authorized",
+    "human_approval_required",
+    "blocking_gaps",
+    "approval_evidence",
+    "human_responsibility",
+    "safety_event",
+    "synthetic_approval",
+    "design_documents_as_approval",
+    "real_approval_exists",
+    "customer_validated",
+    "production_ready",
+    "external_execution"
+  ],
+  "properties": {
+    "decision_version": {"const": "0.1"},
+    "scenario_id": {"type": "string", "minLength": 1, "pattern": "^decision:pilot:[a-z0-9-]+$"},
+    "scenario_type": {
+      "enum": [
+        "CURRENT_NOT_READY",
+        "MISSING_DATA_APPROVAL",
+        "MISSING_HUMAN_OWNER",
+        "ALL_REQUIREMENTS_SYNTHETICALLY_MET",
+        "SAFETY_VIOLATION"
+      ]
+    },
+    "synthetic_only": {"const": true},
+    "readiness_status": {"enum": ["NOT_READY", "PARTIAL", "READY"]},
+    "readiness_result_ref": {"type": ["string", "null"], "minLength": 1},
+    "decision": {"enum": ["HOLD", "CONDITIONAL_HOLD", "APPROVED_FOR_EXECUTION", "TERMINATED"]},
+    "execution_authorized": {"const": false},
+    "human_approval_required": {"const": true},
+    "blocking_gaps": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "approval_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["security_approval", "data_approval", "execution_authorization"],
+      "properties": {
+        "security_approval": {"$ref": "#/$defs/approval"},
+        "data_approval": {"$ref": "#/$defs/approval"},
+        "execution_authorization": {"$ref": "#/$defs/approval"}
+      }
+    },
+    "human_responsibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_assigned", "owner_reference"],
+      "properties": {
+        "owner_assigned": {"type": "boolean"},
+        "owner_reference": {"type": ["string", "null"], "minLength": 1}
+      }
+    },
+    "safety_event": {"enum": ["NONE", "SECRET_EXPOSURE", "BOUNDARY_BREACH"]},
+    "synthetic_approval": {"type": "boolean"},
+    "design_documents_as_approval": {"const": false},
+    "real_approval_exists": {"const": false},
+    "customer_validated": {"const": false},
+    "production_ready": {"const": false},
+    "external_execution": {"const": false}
+  },
+  "$defs": {
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "evidence_reference"],
+      "properties": {
+        "present": {"type": "boolean"},
+        "evidence_reference": {"type": ["string", "null"], "minLength": 1}
+      }
+    }
+  }
+}

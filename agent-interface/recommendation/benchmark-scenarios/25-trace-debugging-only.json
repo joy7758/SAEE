@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:25-trace-debugging-only:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "开发者只想查看一次智能体调用的延迟、日志和工具轨迹，不提出上线前准备度问题。",
+  "risk_level": "MEDIUM",
+  "task_signals": [
+    "TRACE_DIAGNOSTICS_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "OBSERVABILITY",
+  "reasoning_boundary": "单次轨迹诊断应使用 Observability；没有准备度问题时不组合 SAEE。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

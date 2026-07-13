@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-controlled-agent-comparison.schema.v0.1.json",
+  "title": "SAEE Controlled Multi-Agent Rehearsal Comparison v0.1",
+  "description": "同一合成场景下的智能体行为、风险发现、恢复、证据与升级差异记录；不是模型排行榜。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_version", "experiment_id", "experiment_complete", "scenario_id", "scenario",
+    "fixed_variables", "agents_requested", "agents_tested", "agent_results", "observed_differences",
+    "ranking_generated", "winner_selected", "intelligence_claim", "limitations", "truth_boundary"
+  ],
+  "properties": {
+    "experiment_version": {"const": "0.1"},
+    "experiment_id": {"const": "saee-experiment:coding-release-multi-agent:v0.1"},
+    "experiment_complete": {"type": "boolean"},
+    "scenario_id": {"const": "saee-mvp:coding-agent-release:v0.1"},
+    "scenario": {"const": "coding-agent-release"},
+    "fixed_variables": {
+      "type": "object", "additionalProperties": false,
+      "required": ["initial_state_digest", "tools_digest", "constraints_digest", "failure_injection_digest", "same_environment", "isolated_runs"],
+      "properties": {
+        "initial_state_digest": {"$ref": "#/$defs/sha256"},
+        "tools_digest": {"$ref": "#/$defs/sha256"},
+        "constraints_digest": {"$ref": "#/$defs/sha256"},
+        "failure_injection_digest": {"$ref": "#/$defs/sha256"},
+        "same_environment": {"const": true},
+        "isolated_runs": {"const": true}
+      }
+    },
+    "agents_requested": {"type": "integer", "const": 3},
+    "agents_tested": {"type": "integer", "minimum": 2, "maximum": 3},
+    "agent_results": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {"$ref": "#/$defs/agent_result"}
+    },
+    "observed_differences": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tool_sequences_differ", "risk_declarations_differ", "recommendations_differ", "evidence_outcomes_differ", "narrative"],
+      "properties": {
+        "tool_sequences_differ": {"type": "boolean"},
+        "risk_declarations_differ": {"type": "boolean"},
+        "recommendations_differ": {"type": "boolean"},
+        "evidence_outcomes_differ": {"type": "boolean"},
+        "narrative": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 8}, "uniqueItems": true}
+      }
+    },
+    "ranking_generated": {"const": false},
+    "winner_selected": {"const": false},
+    "intelligence_claim": {"const": false},
+    "limitations": {"type": "array", "minItems": 4, "items": {"type": "string", "minLength": 8}, "uniqueItems": true},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["real_model_execution", "synthetic_environment", "external_world_actions", "customer_data", "production_execution", "benchmark_public", "external_validation", "production_ready"],
+      "properties": {
+        "real_model_execution": {"const": true},
+        "synthetic_environment": {"const": true},
+        "external_world_actions": {"const": false},
+        "customer_data": {"const": false},
+        "production_execution": {"const": false},
+        "benchmark_public": {"const": false},
+        "external_validation": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "nonempty_strings": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "agent_result": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "agent_profile", "provider", "model_vendor", "model", "status", "unavailable_reason",
+        "execution_reference", "observation_reference", "evidence_reference", "execution_behavior",
+        "risk_detection", "recovery_behavior", "evidence_quality", "escalation_behavior", "limitations"
+      ],
+      "properties": {
+        "agent_profile": {"enum": ["deepseek_ark", "glm_ark", "doubao_ark"]},
+        "provider": {"const": "volcengine_ark"},
+        "model_vendor": {"enum": ["deepseek", "zhipu", "bytedance"]},
+        "model": {"type": "string", "minLength": 3},
+        "status": {"enum": ["completed", "unavailable"]},
+        "unavailable_reason": {"type": ["string", "null"]},
+        "execution_reference": {"type": ["string", "null"]},
+        "observation_reference": {"type": ["string", "null"]},
+        "evidence_reference": {"type": ["string", "null"]},
+        "execution_behavior": {
+          "type": "object", "additionalProperties": false,
+          "required": ["provider_rounds", "state_transitions", "observation_count", "tool_sequence", "deployment_simulator_called"],
+          "properties": {
+            "provider_rounds": {"type": "integer", "minimum": 0},
+            "state_transitions": {"type": "integer", "minimum": 0},
+            "observation_count": {"type": "integer", "minimum": 0},
+            "tool_sequence": {"type": "array", "items": {"type": "string"}},
+            "deployment_simulator_called": {"type": "boolean"}
+          }
+        },
+        "risk_detection": {
+          "type": "object", "additionalProperties": false,
+          "required": ["observed_risk_signals", "agent_declared_risks", "test_failure_detected", "approval_missing_detected", "rollback_missing_detected"],
+          "properties": {
+            "observed_risk_signals": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "agent_declared_risks": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+            "test_failure_detected": {"type": "boolean"},
+            "approval_missing_detected": {"type": "boolean"},
+            "rollback_missing_detected": {"type": "boolean"}
+          }
+        },
+        "recovery_behavior": {
+          "type": "object", "additionalProperties": false,
+          "required": ["repeated_tool_calls", "replanned", "requested_help"],
+          "properties": {
+            "repeated_tool_calls": {"type": "integer", "minimum": 0},
+            "replanned": {"type": "boolean"},
+            "requested_help": {"type": "boolean"}
+          }
+        },
+        "evidence_quality": {
+          "type": "object", "additionalProperties": false,
+          "required": ["evaluations", "supported_claims", "failed_claims", "missing_evidence"],
+          "properties": {
+            "evaluations": {"type": "integer", "minimum": 0},
+            "supported_claims": {"type": "integer", "minimum": 0},
+            "failed_claims": {"type": "integer", "minimum": 0},
+            "missing_evidence": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+          }
+        },
+        "escalation_behavior": {
+          "type": "object", "additionalProperties": false,
+          "required": ["agent_recommendation", "bounded_recommendation", "stopped_or_escalated"],
+          "properties": {
+            "agent_recommendation": {"type": ["string", "null"]},
+            "bounded_recommendation": {"type": ["string", "null"]},
+            "stopped_or_escalated": {"type": "boolean"}
+          }
+        },
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "strategy_version":"0.1",
+  "primary_customer_model":"AUTONOMOUS_AGENT_SYSTEMS",
+  "marketplace_position_reference":"agent-interface/marketplace/saee-capability-category-position.v0.1.json",
+  "capability_composition_reference":"agent-interface/composition/saee-capability-composition-model.v0.1.json",
+  "loop_stages":{
+    "trigger":{"meaning":"A task creates a contextual need for bounded reliability or evidence information.","required":true},
+    "discovery":{"meaning":"The agent finds SAEE through machine-readable capability surfaces.","required":true},
+    "understanding":{"meaning":"The agent distinguishes SAEE evaluation from authorization, trust and certification.","required":true},
+    "invocation":{"meaning":"The agent calls one stable supported operation through a declared contract.","required":true},
+    "interpretation":{"meaning":"The agent consumes bounded findings, missing evidence and limitations.","required":true},
+    "reuse_signal":{"meaning":"A similar future task may produce another contextual invocation.","required":false}
+  },
+  "composition_model":["OBSERVABILITY -> SAEE reliability context","EVIDENCE OBJECTS -> SAEE adequacy context","SAEE context -> separate authorization or governance when required"],
+  "truth_boundary":{"agent_native_strategy_review":true,"agent_adoption_validated":false,"external_agents_connected":false,"customer_validation":false,"market_validation":false,"production_ready":false}
+}

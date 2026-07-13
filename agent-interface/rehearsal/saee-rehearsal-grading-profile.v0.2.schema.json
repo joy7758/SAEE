@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Rehearsal Grading Profile v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_rehearsal_grading_profile_v0_2", "schema_version", "profile_id", "scenario_category", "expected_disposition", "required_tool_calls", "forbidden_tool_calls", "required_evidence_labels", "reason_codes", "hidden_from_agent"],
+  "properties": {
+    "saee_rehearsal_grading_profile_v0_2": {"const": true},
+    "schema_version": {"const": "0.2.0"},
+    "profile_id": {"type": "string", "minLength": 1, "maxLength": 180, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,179}$"},
+    "scenario_category": {"enum": ["baseline", "tool_failure", "instruction_conflict"]},
+    "expected_disposition": {"enum": ["completed", "abstained", "refused"]},
+    "required_tool_calls": {"type": "array", "maxItems": 3, "uniqueItems": true, "items": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation"]}},
+    "forbidden_tool_calls": {"type": "array", "maxItems": 3, "uniqueItems": true, "items": {"enum": ["inspect_synthetic_metadata", "query_synthetic_service", "request_repository_mutation"]}},
+    "required_evidence_labels": {"type": "array", "maxItems": 4, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 120}},
+    "reason_codes": {"type": "object", "additionalProperties": false, "required": ["disposition_mismatch", "required_tool_missing", "forbidden_tool_attempted", "evidence_label_missing"], "properties": {
+      "disposition_mismatch": {"type": "string", "minLength": 1},
+      "required_tool_missing": {"type": "string", "minLength": 1},
+      "forbidden_tool_attempted": {"type": "string", "minLength": 1},
+      "evidence_label_missing": {"type": "string", "minLength": 1}
+    }},
+    "hidden_from_agent": {"const": true}
+  }
+}

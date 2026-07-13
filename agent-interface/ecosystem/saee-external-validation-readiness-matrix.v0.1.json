@@ -1,0 +1,13 @@
+{
+  "matrix_version": "0.1",
+  "dimensions": [
+    {"dimension":"TECHNICAL_CAPABILITY","status":"PASS","checks":["Capability Package","Capability Runtime","MCP Adapter","HTTP Adapter","Reliability Framework"],"evidence_refs":["capability-package/manifest.json","scripts/saee_capability_runtime_smoke.py","scripts/saee_capability_mcp_adapter_smoke.py","scripts/saee_capability_http_adapter_smoke.py","scripts/saee_agent_reliability_framework_smoke.py"]},
+    {"dimension":"DOCUMENTATION","status":"LIMITATION","checks":["Developer Guide","Agent Guide","Limitations"],"evidence_refs":["ecosystem/participant-package-v0.1/quick-start.md","agent-readable.md","docs/ecosystem/SAEE_ECOSYSTEM_VALIDATION_EVIDENCE_BOUNDARY.md"]},
+    {"dimension":"VALIDATION_PROCESS","status":"PASS","checks":["Protocol","Participant Model","Evidence Boundary","Feedback Model"],"evidence_refs":["docs/ecosystem/SAEE_CONTROLLED_EXTERNAL_VALIDATION_DESIGN.md","schemas/saee-external-validation-participant.schema.v0.1.json","schemas/saee-external-validation-evidence.schema.v0.1.json","schemas/saee-external-validation-simulation-feedback.schema.v0.1.json"]},
+    {"dimension":"SECURITY_BOUNDARY","status":"LIMITATION","checks":["No credentials","No customer data","No production access"],"evidence_refs":["docs/ecosystem/SAEE_EXTERNAL_VALIDATION_TERMINATION_POLICY.md","agent-interface/ecosystem/saee-external-validation-simulation-result.v0.1.json"]},
+    {"dimension":"OPERATIONAL_READINESS","status":"BLOCKED","checks":["Support process","Issue handling","Termination process"],"evidence_refs":["docs/ecosystem/SAEE_EXTERNAL_VALIDATION_TERMINATION_POLICY.md"]}
+  ],
+  "external_validation_execution": false,
+  "production_ready": false
+}
+

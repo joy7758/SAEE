@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-preference-simulation.schema.v0.1.json",
+  "title": "SAEE Agent Preference Simulation Corpus v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_agent_preference_simulation_v0_1", "simulation_version", "language", "scenarios", "truth_boundary"],
+  "properties": {
+    "saee_agent_preference_simulation_v0_1": {"const": true},
+    "simulation_version": {"const": "0.1"},
+    "language": {"const": "zh-CN"},
+    "scenarios": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["scenario_id", "persona", "task", "signals", "adjacent_capability", "created_at", "truth_boundary"],
+        "properties": {
+          "scenario_id": {"type": "string", "pattern": "^agent-preference:[a-z0-9-]+:v0\\.1$"},
+          "persona": {"enum": ["PLATFORM_ARCHITECT_AGENT", "EVALUATION_AGENT", "GOVERNANCE_AGENT", "TOOL_SELECTION_AGENT"]},
+          "task": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["objective", "context", "requested_output"],
+            "properties": {
+              "objective": {"type": "string", "minLength": 1, "maxLength": 400},
+              "context": {"type": "string", "minLength": 1, "maxLength": 800},
+              "requested_output": {"const": "select the appropriate capability set and explain bounded use"}
+            }
+          },
+          "signals": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"}},
+          "adjacent_capability": {"enum": ["OBSERVABILITY", "AUTHORIZATION_SYSTEM", "SIMPLE_CALCULATION_TOOL", "KNOWLEDGE_RETRIEVAL", "TEXT_TRANSFORMATION"]},
+          "created_at": {"type": "string", "format": "date-time"},
+          "truth_boundary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["synthetic_task", "customer_data", "external_world_execution", "production_ready"],
+            "properties": {
+              "synthetic_task": {"const": true},
+              "customer_data": {"const": false},
+              "external_world_execution": {"const": false},
+              "production_ready": {"const": false}
+            }
+          }
+        }
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["synthetic_agents_only", "human_participants", "customer_validation", "market_validation", "production_ready"],
+      "properties": {
+        "synthetic_agents_only": {"const": true},
+        "human_participants": {"const": false},
+        "customer_validation": {"const": false},
+        "market_validation": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

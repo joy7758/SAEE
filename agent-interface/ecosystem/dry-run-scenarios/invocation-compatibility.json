@@ -1,0 +1,10 @@
+{
+  "scenario_id": "INVOCATION_COMPATIBILITY",
+  "participant_id": "SYNTHETIC_DEVELOPER",
+  "input_reference": "agent-interface/capabilities/examples/valid_supported_request.json",
+  "expected_result": "PASS",
+  "expected_reason_code": "LOCAL_INVOCATION_COMPATIBLE",
+  "should_accept": true,
+  "external_execution": false
+}
+

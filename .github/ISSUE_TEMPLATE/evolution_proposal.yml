@@ -1,0 +1,44 @@
+name: Evolution Proposal
+description: Propose a change to the evolution engine
+title: "[Evolution Proposal]: "
+labels: ["evolution-proposal"]
+body:
+  - type: textarea
+    id: subsystem
+    attributes:
+      label: Target subsystem（目标子系统）
+      description: Which evolution subsystem does this affect?
+    validations:
+      required: true
+  - type: textarea
+    id: trait
+    attributes:
+      label: Trait to add or change（要新增或改变的性状）
+    validations:
+      required: true
+  - type: textarea
+    id: selection_reason
+    attributes:
+      label: Selection reason（选择理由）
+    validations:
+      required: true
+  - type: textarea
+    id: agent_recommendation_gate
+    attributes:
+      label: Agent recommendation gate（智能体推荐门）
+      description: Would an agent recommend this program to a potential customer with this need? If not, list reasons and fix tasks.
+    validations:
+      required: true
+  - type: textarea
+    id: safety_boundary
+    attributes:
+      label: Safety boundary（安全边界）
+    validations:
+      required: true
+  - type: textarea
+    id: lineage_impact
+    attributes:
+      label: Lineage impact（谱系影响）
+    validations:
+      required: true
+

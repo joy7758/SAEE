@@ -1,0 +1,63 @@
+\section{Model}
+
+SAEE is represented as a frozen local scientific object:
+\[
+  SAEE = (\Omega, G, T, S, L, R, \mu).
+\]
+Here $\Omega$ is the evolution space, $G$ is genome space, $T$ is the
+transformation operator, $S$ is the selection operator or field, $L$ is lineage
+structure, $R$ is reflexive observer state, and $\mu$ is the population
+measure.
+
+The paper uses one compressed evolution equation:
+\[
+  P_{t+1} = S_{\theta_t}(T_{\phi_t}(P_t)).
+\]
+The parameters $\theta_t$ and $\phi_t$ are interpreted as state-dependent
+selection and transformation parameters coupled to population, lineage, and
+observer state:
+\[
+  \theta_t = g(P_t, R_t, L_t), \quad
+  \phi_t = h(P_t, R_t, L_t).
+\]
+The observer state is updated as:
+\[
+  R_{t+1} = \Psi(R_t, P_t, L_t).
+\]
+Admissible transitions are bounded by the identity constraint:
+\[
+  I(X_t, X_{t+1}) \geq \theta_I.
+\]
+
+The formal surface is interpreted through three compressed laws only:
+\begin{enumerate}
+  \item Reflexive Coupled Evolution Law.
+  \item Dynamic Selection Topology Law.
+  \item Bounded Identity Drift Law.
+\end{enumerate}
+These are part of the frozen theory compression. This ALife-format package
+does not add laws or modify the formal theory.
+
+\paragraph{Scope of analysis.}
+All quantitative statements in this manuscript refer to the fixed SAEE kernel
+and the reported local run configuration only. We do not claim cross-kernel
+robustness, external validation, benchmark superiority, or universal
+evolutionary laws.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{ll}
+\toprule
+Item & Operational meaning in this manuscript \\
+\midrule
+\texttt{stable\_regime} & no observed regime transition in the reported horizon \\
+\texttt{stable\_lineage\_basin} & dominant attractor-like region in the lineage/fitness traces \\
+semantic drift & repository-defined identity-deviation metric; observed max 0.2 \\
+lineage nodes & recorded lineage states in the long-horizon lineage surface \\
+lineage edges & recorded inherited transitions in the long-horizon DAG \\
+candidate regularities & local candidate invariants of this frozen object only \\
+\bottomrule
+\end{tabular}
+\caption{Claim-safe symbol-to-observable map for the frozen SAEE object.}
+\label{tab:claim-safe-map}
+\end{table}

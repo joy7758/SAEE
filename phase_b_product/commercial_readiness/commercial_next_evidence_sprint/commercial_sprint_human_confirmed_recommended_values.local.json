@@ -1,0 +1,294 @@
+{
+  "commercial_sprint_human_confirmed_recommended_values_v0_1": true,
+  "status": "hold_confirmed_values_recorded_no_import",
+  "record_type": "local_human_confirmed_recommended_values_ledger",
+  "created_at": "2026-07-09",
+  "source_quick_fill_packet": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",
+  "source_quick_fill_packet_modified": false,
+  "human_confirmation_source": "current Codex conversation; user confirmed recommended answers including QF-010 through QF-028",
+  "confirmed_value_row_count": 28,
+  "support_contact_confirmed_rows": 15,
+  "pricing_page_confirmed_rows": 13,
+  "quick_fill_imported_to_workbook": false,
+  "workbook_import_performed": false,
+  "workbook_written": false,
+  "values_transferred": false,
+  "human_filled_templates_written": false,
+  "validators_run_on_real_input": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "blocker_closure_authorized": false,
+  "blockers_closed_by_confirmed_values": 0,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "vendor_contacted": false,
+  "public_sdk_released": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_ai_assistant_tested": false,
+  "payment_collected": false,
+  "revenue_validated": false,
+  "next_allowed_action": "human review may choose whether to import confirmed values through the existing controlled importer; this ledger itself does not import or close blockers",
+  "confirmed_values": [
+    {
+      "quick_fill_row_id": "QF-001",
+      "blocker_id": "support_contact",
+      "input_group": "first_owner_input",
+      "input_key": "assigned_human_owner",
+      "confirmed_value": "张斌",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-002",
+      "blocker_id": "support_contact",
+      "input_group": "first_owner_input",
+      "input_key": "owner_contact_reference",
+      "confirmed_value": "contact reference：负责人邮箱已由本地人工记录保管；发布前单独确认。",
+      "confirmation_status": "confirmed_without_public_contact_disclosure",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-003",
+      "blocker_id": "support_contact",
+      "input_group": "first_owner_input",
+      "input_key": "target_review_date",
+      "confirmed_value": "2026-07-10",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-004",
+      "blocker_id": "support_contact",
+      "input_group": "first_owner_input",
+      "input_key": "owner_acknowledged_scope",
+      "confirmed_value": "是：scope review 本人确认只进行支持入口审查；不代表产品正式上线。",
+      "confirmation_status": "confirmed_boundary_safe",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-005",
+      "blocker_id": "support_contact",
+      "input_group": "first_owner_input",
+      "input_key": "human_approval_reference",
+      "confirmed_value": "approval reference：本轮 Codex 对话中用户确认全部按推荐确认；仅授权本地证据输入记录。",
+      "confirmation_status": "confirmed_local_record_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-006",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_decision_metadata",
+      "input_key": "human_reviewer_name",
+      "confirmed_value": "张斌",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-007",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_decision_metadata",
+      "input_key": "review_date",
+      "confirmed_value": "2026-07-09",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-008",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_decision_metadata",
+      "input_key": "selected_support_contact_channel",
+      "confirmed_value": "channel decision：暂定邮箱支持入口；发布前仍需单独人工确认公开地址。",
+      "confirmation_status": "confirmed_candidate_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-009",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_decision_metadata",
+      "input_key": "decision_summary",
+      "confirmed_value": "decision summary：暂定使用邮箱作为后续支持入口候选；当前只记录审查决策；不代表已对客户开放。",
+      "confirmation_status": "confirmed_boundary_safe",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-010",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_evidence_review",
+      "input_key": "abuse_handling_path_defined",
+      "confirmed_value": "否：滥用或异常请求处理路径尚未人工确认。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-011",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_evidence_review",
+      "input_key": "customer_facing_support_contact_configured",
+      "confirmed_value": "否：尚未配置客户可见支持入口；当前只记录候选支持入口。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-012",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_evidence_review",
+      "input_key": "customer_notice_route_defined",
+      "confirmed_value": "否：客户通知路径尚未定义；发布前需要单独确认。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-013",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_evidence_review",
+      "input_key": "support_contact_owner_named",
+      "confirmed_value": "是：支持入口负责人暂定为张斌；发布前仍需最终确认。",
+      "confirmation_status": "confirmed_candidate_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-014",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_evidence_review",
+      "input_key": "support_contact_test_recorded",
+      "confirmed_value": "否：支持入口测试尚未记录；不得关闭 blocker。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-015",
+      "blocker_id": "support_contact",
+      "input_group": "support_contact_candidate_slot",
+      "input_key": "support_contact_candidate_a",
+      "confirmed_value": "邮箱支持入口候选：由负责人在发布前单独确认公开地址；当前不公开具体邮箱。",
+      "confirmation_status": "confirmed_candidate_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-016",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "human_reviewer_name",
+      "confirmed_value": "张斌",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-017",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "review_date",
+      "confirmed_value": "2026-07-09",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-018",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "commercial_owner",
+      "confirmed_value": "张斌",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-019",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "product_owner",
+      "confirmed_value": "张斌",
+      "confirmation_status": "confirmed",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-020",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "accounting_owner",
+      "confirmed_value": "暂缺：会计负责人待指定；不得视为已完成。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-021",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "legal_owner",
+      "confirmed_value": "暂缺：法律负责人待指定；不得视为已完成。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-022",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "billing_owner",
+      "confirmed_value": "暂缺：计费负责人待指定；不得视为已完成。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-023",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "review_record_reference",
+      "confirmed_value": "review reference：本轮 Codex 对话中用户确认 10-28 全部按推荐；仅记录本地审查值。",
+      "confirmation_status": "confirmed_local_record_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-024",
+      "blocker_id": "pricing_page",
+      "input_group": "metadata_fields_to_fill",
+      "input_key": "decision_summary",
+      "confirmed_value": "decision summary：定价页保持非公开草案状态；不发布、不收款、不声称生产可用。",
+      "confirmation_status": "confirmed_boundary_safe",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-025",
+      "blocker_id": "pricing_page",
+      "input_group": "pricing_page_keys_to_review",
+      "input_key": "human_approved_pricing_page_copy",
+      "confirmed_value": "是：仅批准本地文档草案可继续审查；不批准公开发布页面。",
+      "confirmation_status": "confirmed_document_draft_only",
+      "closure_effect": "none"
+    },
+    {
+      "quick_fill_row_id": "QF-026",
+      "blocker_id": "pricing_page",
+      "input_group": "pricing_page_keys_to_review",
+      "input_key": "approved_plan_and_usage_terms",
+      "confirmed_value": "暂缓：套餐、用量和计费条款待客户、法律和会计确认。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-027",
+      "blocker_id": "pricing_page",
+      "input_group": "pricing_page_keys_to_review",
+      "input_key": "legal_review_completed",
+      "confirmed_value": "否：法律审查尚未完成。",
+      "confirmation_status": "confirmed_hold",
+      "closure_effect": "keeps_blocker_open"
+    },
+    {
+      "quick_fill_row_id": "QF-028",
+      "blocker_id": "pricing_page",
+      "input_group": "pricing_page_keys_to_review",
+      "input_key": "production_readiness_non_claim_reviewed",
+      "confirmed_value": "是：已确认定价材料不得声称生产可用、客户验证完成或正式上线。",
+      "confirmation_status": "confirmed_boundary_safe",
+      "closure_effect": "none"
+    }
+  ]
+}

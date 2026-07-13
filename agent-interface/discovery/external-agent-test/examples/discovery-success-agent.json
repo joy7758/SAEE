@@ -1,0 +1,48 @@
+{
+  "saee_external_agent_discovery_scenario_v0_1": true,
+  "evaluation_version": "0.1",
+  "scenario_id": "discovery:synthetic:success-agent",
+  "caller_type": "DISCOVERY_SUCCESS_AGENT",
+  "synthetic_external_caller": true,
+  "discovery_sources": [
+    {"source_role": "LLMS_ENTRY", "public_url": "https://redcrag.cn/llms.txt", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/llms.txt", "source_used": true},
+    {"source_role": "AGENT_INDEX", "public_url": "https://redcrag.cn/.well-known/agent-index.json", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/.well-known/agent-index.json", "source_used": true},
+    {"source_role": "CAPABILITY_MANIFEST", "public_url": "https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/capabilities/saee-capability-manifest.v0.1.json", "source_used": true},
+    {"source_role": "USAGE_OVERVIEW", "public_url": "https://redcrag.cn/docs/overview.md", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/docs/overview.md", "source_used": true},
+    {"source_role": "LIMITATIONS", "public_url": "https://redcrag.cn/docs/limitations.md", "snapshot_ref": "public-release/saee-agent-discovery-v0.1/docs/limitations.md", "source_used": true}
+  ],
+  "discovered_capability": {
+    "capability_found": true,
+    "capability_id": "saee-evidence-adequacy",
+    "purpose_class": "EVIDENCE_ADEQUACY_EVALUATION",
+    "identified_inputs": ["observation_references", "evidence_object", "accountability_claim", "evaluation_profile"],
+    "identified_outputs": ["claim_assessment", "evidence_sufficiency_status", "missing_requirements", "reason_codes", "limitations", "boundary_statement"],
+    "limitations_identified": ["STATIC_READ_ONLY", "NO_SECURITY_CERTIFICATION", "NO_LEGAL_DETERMINATION", "NO_DEPLOYMENT_APPROVAL", "NOT_PRODUCTION_READY", "NO_PUBLIC_TOOL_RUNTIME"]
+  },
+  "understanding_result": {
+    "classification": "EVIDENCE_ADEQUACY_EVALUATION",
+    "caller_statement": "SAEE evaluates whether evidence relationships satisfy a fixed accountability profile and does not certify security or approve deployment.",
+    "identified_use_cases": ["ASSESS_CLAIM_EVIDENCE", "IDENTIFY_MISSING_EVIDENCE", "PREPARE_HUMAN_REVIEW"],
+    "identified_non_use_cases": ["NO_SECURITY_CERTIFICATION", "NO_DEPLOYMENT_AUTHORIZATION", "NO_LEGAL_DETERMINATION", "NO_RUNTIME_BLOCKING", "NO_MALWARE_DETECTION"],
+    "expected_result": "PASS"
+  },
+  "invocation_plan": {
+    "planned": true,
+    "request_fields": ["observation_references", "evidence_object", "accountability_claim", "evaluation_profile"],
+    "accountability_claim": "AUTHORIZED_AGENT_ACTION",
+    "evaluation_profile": "authorized-agent-action",
+    "claim_profile_match": true,
+    "executable_input_requested": false,
+    "network_service_assumed": false,
+    "requested_output_interpretation": "EVIDENCE_ASSESSMENT",
+    "expected_result": "PASS"
+  },
+  "boundary_result": {
+    "declared_conclusions": ["EVIDENCE_REVIEW_ONLY", "DECISION_SUPPORT_ONLY", "HUMAN_AUTHORITY_RETAINED"],
+    "human_authority_retained": true,
+    "autonomous_authorization_claimed": false,
+    "adoption_claimed": false,
+    "expected_result": "PASS"
+  },
+  "expected_result": "PASS"
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE AgentExecutionResult v0.1",
+  "description": "Provider-neutral summary of observable Agent execution. Hidden reasoning and private model state are intentionally outside this contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["result_version", "execution_id", "agent_id", "provider", "model_vendor", "model", "started_at", "completed_at", "execution_status", "messages_summary", "tool_calls", "outputs", "state_change_refs", "truth_boundary"],
+  "properties": {
+    "result_version": {"const": "0.1"},
+    "execution_id": {"$ref": "#/$defs/id"},
+    "agent_id": {"$ref": "#/$defs/id"},
+    "provider": {"enum": ["openai_compatible", "anthropic_compatible", "baidu_qianfan", "volcengine_ark", "future_provider"]},
+    "model_vendor": {"enum": ["openai", "anthropic", "baidu", "bytedance", "deepseek", "zhipu", "moonshot", "other"]},
+    "model": {"type": "string", "minLength": 1, "maxLength": 160},
+    "started_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": "string", "format": "date-time"},
+    "execution_status": {"enum": ["COMPLETED", "ABSTAINED", "REFUSED", "TERMINATED", "PROVIDER_ERROR"]},
+    "messages_summary": {"type": "array", "minItems": 1, "maxItems": 64, "items": {"$ref": "#/$defs/summary"}},
+    "tool_calls": {"type": "array", "maxItems": 32, "items": {"$ref": "#/$defs/tool_call"}},
+    "outputs": {"type": "array", "minItems": 1, "maxItems": 32, "items": {"$ref": "#/$defs/summary"}},
+    "state_change_refs": {"type": "array", "maxItems": 32, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["real_model_execution", "synthetic_world", "external_world_actions", "customer_data_used", "production_execution", "private_model_state_stored"],
+      "properties": {
+        "real_model_execution": {"const": true},
+        "synthetic_world": {"const": true},
+        "external_world_actions": {"const": false},
+        "customer_data_used": {"const": false},
+        "production_execution": {"const": false},
+        "private_model_state_stored": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "summary": {"type": "object", "additionalProperties": false, "required": ["sequence", "role", "summary", "summary_digest", "raw_content_stored"], "properties": {
+      "sequence": {"type": "integer", "minimum": 0, "maximum": 128},
+      "role": {"enum": ["system", "user", "assistant", "tool"]},
+      "summary": {"type": "string", "minLength": 1, "maxLength": 600},
+      "summary_digest": {"$ref": "#/$defs/digest"},
+      "raw_content_stored": {"const": false}
+    }},
+    "tool_call": {"type": "object", "additionalProperties": false, "required": ["tool_call_id", "tool_name", "arguments_digest", "result_digest", "simulated", "external_effect"], "properties": {
+      "tool_call_id": {"$ref": "#/$defs/id"},
+      "tool_name": {"enum": ["code_repository", "test_runner", "deployment_simulator", "database_simulator", "customer_ticket_system"]},
+      "arguments_digest": {"$ref": "#/$defs/digest"},
+      "result_digest": {"$ref": "#/$defs/digest"},
+      "simulated": {"const": true},
+      "external_effect": {"const": false}
+    }}
+  }
+}

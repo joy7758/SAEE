@@ -1,0 +1,110 @@
+{
+  "agent_validation_primary": true,
+  "blockers_closed": 0,
+  "customer_data_processing_ready": false,
+  "customer_validated": false,
+  "data_processing_agreement_completed": false,
+  "deidentification_proven": false,
+  "experiment_create_metadata_personal_data_rejected": true,
+  "general_dlp_available": false,
+  "generated_at": "2026-07-10",
+  "generated_by": "scripts/saee_tenant_privacy_agent_review_profile.py",
+  "human_validation_used": false,
+  "negative_cases_passed": 16,
+  "negative_cases_total": 16,
+  "personal_data_boundary_cases_passed": 29,
+  "personal_data_boundary_cases_total": 29,
+  "personal_data_detection_scope": "high_confidence_patterns_and_closed_keys",
+  "privacy_legal_review_completed": false,
+  "privacy_smokes_passed": 10,
+  "privacy_smokes_total": 10,
+  "product_launched": false,
+  "production_ready": false,
+  "qianfan_provider_legal_approval_completed": false,
+  "qianfan_retention_terms_verified": false,
+  "real_customer_data_allowed": false,
+  "review_actor_type": "independent_agent",
+  "review_scope": "whole_tenant_api_synthetic_only_controlled_preview",
+  "runner_revalidation_available": true,
+  "scenario_config_personal_data_rejected": true,
+  "smoke_results": [
+    {
+      "script": "scripts/saee_synthetic_data_only_mode_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "a000dfaae08c755e9d2b961800e9c3df286edd5a1ea2093fb022e06c84907c37"
+    },
+    {
+      "script": "scripts/saee_personal_data_boundary_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "a96b5adddd1d1003fa424e0e147e711f0a97e5d3e1ffa58a9c08f7803580ba26"
+    },
+    {
+      "script": "scripts/saee_tenant_privacy_data_flow_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "9caed9410d43458ab3dc9bfd0f16c30dba2342a700d9511506a9eeac5e487d35"
+    },
+    {
+      "script": "scripts/saee_controlled_preview_request_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "05e6fa751c38f8d464fc57e95244826353ab881043ebd59a3895315b033023f8"
+    },
+    {
+      "script": "scripts/saee_tenant_secret_boundary_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "a4e3c844a0fef8730c52f303ddd706b58a6d53ccb549c5f5d181cbae8c82787c"
+    },
+    {
+      "script": "scripts/saee_request_audit_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "08f7344840522799599c258fde2f60e71e51cea641cce79178ea276d6f765ef2"
+    },
+    {
+      "script": "scripts/saee_data_backup_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "66439427c3d90bd49f0dbaab4ddc8b9bfb835ddaa9001e64575e5800f3cc6159"
+    },
+    {
+      "script": "scripts/saee_data_retention_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "e41a2eba9106f60f74cc42829becd3ed59b80818a529041b533391ff425d924f"
+    },
+    {
+      "script": "scripts/saee_data_restore_drill_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "d75b94e5764b0df9bcb2884fb8157bb2f90a0db3d6acd4933359b87874f4d28d"
+    },
+    {
+      "script": "scripts/saee_qianfan_provider_policy_snapshot_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "4cc2ca2c2142d3d7167900b7507a05d145e554eb790acf027fdb9830a4392eb9"
+    }
+  ],
+  "source_sha256": {
+    "phase_b_product/commercial_readiness/provider_data_processing/qianfan_provider_data_processing_profile.local.json": "fe691fab55d0bbcf003538a501f1e7380832c2edf4fd3a610a38779179c9176b",
+    "phase_b_product/commercial_readiness/tenant_privacy_agent_review/tenant_privacy_data_flow.local.json": "a3aee979190515fb7255aeac5c361dc144826533acb09d23e9e282f8fb79ceb2",
+    "saee_backend/api/audit.py": "9226fd343195e21cfc908d802acba1d6e88af9bf21db89b4163a06d07559dd40",
+    "saee_backend/api/experiment.py": "e030944be180c9a98ab98044268dd50d5161d9b15695dbc12f67b4c0c0bdd286",
+    "saee_backend/api/security.py": "a83c8c9e168b748358671457b840dc81ed3abf3d25b83a577d42227566b83a30",
+    "saee_backend/config.py": "4c448907d3690f4f9ac53510509e2235183821a957b69f96ad4066bf45a6cb95",
+    "saee_backend/core/runner.py": "9f4c4319d405ccf1c8154d0d011158ea1d4ee4fc4d47cdacf813ebd487c35a33",
+    "saee_backend/models/request.py": "6ea332548ac86cc7474aa98ad0bf677aa9a03c6085ecc0803ce623d23ce6ee5f",
+    "saee_backend/schemas/saee_mvp_api.schema.json": "fd0116b91692138dd239a245c9778e6e48327f5d3918a1ef77da9941ed704b7e",
+    "saee_backend/services/experiment_service.py": "51f385c6229e04973f23a4899cb2ed0950c9b86e615a4477ef930690e99a540c",
+    "saee_backend/services/jwt_preview_auth.py": "f8c0da924db52501c7b403f70639448559cb8868cf590df4b816424bdca42601",
+    "saee_backend/services/public_input_contract.py": "d2fcbb0103d3e1f601d47ef20cc8abcabcdceb7e2ed602c2cab7d1f667920137",
+    "schemas/saee_mvp_api.schema.json": "fd0116b91692138dd239a245c9778e6e48327f5d3918a1ef77da9941ed704b7e",
+    "scripts/saee_controlled_preview_request_smoke.py": "bc80be1eb8386d6979cb9ac1a6a882d097a734519af933d92811065f61cbc11b",
+    "scripts/saee_data_backup_smoke.py": "659bfa44d9c8bb3437c2f795ee22f5cab67f80966245846bcf7de0c4cbf17d4c",
+    "scripts/saee_data_restore_drill_smoke.py": "f5760076ff2ba6ef4fa437cc17777dd2d7c632e1fce231606e452f25a8692c39",
+    "scripts/saee_data_retention_smoke.py": "6bb3b333b7dcd01043d9bd8c97bc9b560539bacea43641a261b0a4fe1adad041",
+    "scripts/saee_personal_data_boundary_smoke.py": "35be4a2af64aaf0ebc16843f2c3496068905bd50d787a43e74a224b90c5ce7e5",
+    "scripts/saee_qianfan_provider_policy_snapshot_smoke.py": "8a810da7b70732b70d555ba66b8a421632bf761d146a2284553d04cc4233793d",
+    "scripts/saee_request_audit_smoke.py": "c4478791e9ab62440a2e5bb3d046f6df439c081a6f190130671bbabe063bfab8",
+    "scripts/saee_synthetic_data_only_mode_smoke.py": "4f3f17eb85779a60b5f05f96ea47ac2566a1741e083e616ff1637849021c251b",
+    "scripts/saee_tenant_privacy_data_flow_profile.py": "8a3f8d648569793a275dceecd40d1db7e7418170ffb42272956cdf52262dc9fd",
+    "scripts/saee_tenant_privacy_data_flow_smoke.py": "1f3c6223a6a15d359c386a212b4113670199f80dab6a6da3afb5052d9fee0526",
+    "scripts/saee_tenant_secret_boundary_smoke.py": "ffd96eed4f4675830d27f9ddfd4e1e36750d5232624c492fee0ebeae23ba6ca8"
+  },
+  "status": "pass_whole_tenant_api_synthetic_only_controlled_preview_privacy_boundary",
+  "tenant_privacy_agent_review_profile_v0_1": true
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-agent-discovery-validation.schema.v0.1.json",
+  "title": "SAEE External Agent Discovery Validation Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["validation_version", "scenario_id", "agent_context", "available_public_materials", "task", "expected_discovery", "expected_understanding", "expected_action", "boundary_expectation"],
+  "properties": {
+    "validation_version": {"const": "0.1"},
+    "scenario_id": {"enum": ["DISCOVER_SAEE_RELIABILITY", "SIMPLE_INFORMATION_TASK", "PRODUCTION_DEPLOYMENT_DECISION", "AUTHORIZATION_REQUEST", "CONTENT_GENERATION_TASK", "EVIDENCE_REQUIRED_AGENT_TASK"]},
+    "agent_context": {
+      "type": "object", "additionalProperties": false,
+      "required": ["saee_memory", "previous_conversation", "internal_knowledge", "real_external_agent"],
+      "properties": {
+        "saee_memory": {"const": false},
+        "previous_conversation": {"const": false},
+        "internal_knowledge": {"const": false},
+        "real_external_agent": {"const": false}
+      }
+    },
+    "available_public_materials": {
+      "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true,
+      "items": {"enum": [".well-known/saee-capability-index.json", "agent-interface/public/saee-public-capability-surface.v0.1.json", "docs/public/SAEE_AGENT_QUICK_UNDERSTANDING.md", "docs/public/SAEE_AGENT_NATIVE_CAPABILITY_SURFACE.md"]}
+    },
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_type", "description", "multi_step", "external_impact", "evidence_required", "authorization_required", "simple_task"],
+      "properties": {
+        "task_type": {"enum": ["RELIABILITY_ASSESSMENT", "SIMPLE_INFORMATION", "PRODUCTION_DEPLOYMENT", "AUTHORIZATION", "CONTENT_GENERATION", "EVIDENCE_JUSTIFICATION"]},
+        "description": {"type": "string", "minLength": 20},
+        "multi_step": {"type": "boolean"},
+        "external_impact": {"type": "boolean"},
+        "evidence_required": {"type": "boolean"},
+        "authorization_required": {"type": "boolean"},
+        "simple_task": {"type": "boolean"}
+      }
+    },
+    "expected_discovery": {
+      "type": "object", "additionalProperties": false,
+      "required": ["surface_found", "applicable_capability_id"],
+      "properties": {
+        "surface_found": {"const": true},
+        "applicable_capability_id": {"enum": ["saee.agent-reliability", "saee.evidence-evaluation", null]}
+      }
+    },
+    "expected_understanding": {"enum": ["AGENT_RELIABILITY_EVALUATION", "EVIDENCE_ADEQUACY_EVALUATION", "SAEE_NOT_APPLICABLE"]},
+    "expected_action": {"enum": ["CONSIDER_SAEE", "CONSIDER_SAEE_WITH_COMPLEMENTS", "CONSIDER_EVIDENCE_EVALUATION", "DO_NOT_RECOMMEND_SAEE"]},
+    "boundary_expectation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["authorization_claim", "certification_claim", "safety_claim", "deployment_approval_claim", "separate_authority_required"],
+      "properties": {
+        "authorization_claim": {"const": false},
+        "certification_claim": {"const": false},
+        "safety_claim": {"const": false},
+        "deployment_approval_claim": {"const": false},
+        "separate_authority_required": {"type": "boolean"}
+      }
+    }
+  }
+}

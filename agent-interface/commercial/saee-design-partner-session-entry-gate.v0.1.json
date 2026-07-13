@@ -1,0 +1,48 @@
+{
+  "saee_design_partner_session_entry_gate_v0_1": true,
+  "gate_version": "0.1.0",
+  "status": "inactive_human_participants_excluded",
+  "protocol_human_approved": true,
+  "active_validation_route": false,
+  "human_participants_excluded": true,
+  "selection_guidance": {
+    "recommended_profile": "AI_AGENT_PLATFORM_TEAM",
+    "priority_order": [
+      "AI_AGENT_PLATFORM_TEAM",
+      "AI_EVALUATION_RED_TEAM_TEAM",
+      "AI_GOVERNANCE_RISK_TEAM"
+    ],
+    "recommendation_reason": "This profile most directly tests whether pre-deployment rehearsal and evidence review fit an existing Agent release gate, which is the Phase 1 commercial entry in strategy v4.0.",
+    "required_human_fields": [
+      "participant_alias",
+      "participant_profile",
+      "organization_type",
+      "consent_confirmed",
+      "session_date",
+      "human_facilitator_alias"
+    ],
+    "selection_is_customer_contact": false,
+    "selection_authorizes_outreach": false,
+    "selection_establishes_customer_validation": false
+  },
+  "participant_alias": null,
+  "participant_profile": null,
+  "organization_type": null,
+  "consent_confirmed": false,
+  "session_date": null,
+  "human_facilitator_alias": null,
+  "session_authorized": false,
+  "outreach_authorized": false,
+  "customer_contacted": false,
+  "interviews_conducted": 0,
+  "personal_data_allowed": false,
+  "customer_data_allowed": false,
+  "real_customer_agent_allowed": false,
+  "pilot_authorized": false,
+  "sales_authorized": false,
+  "external_world_execution_authorized": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "protocol_ref": "agent-interface/commercial/saee-agent-rehearsal-design-partner-plan.v0.1.json",
+  "human_guide_ref": "docs/commercial/SAEE_DESIGN_PARTNER_SESSION_ENTRY_GATE.md"
+}

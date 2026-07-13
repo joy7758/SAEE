@@ -1,0 +1,28 @@
+{
+  "provider": "baidu_qianfan",
+  "model": "ernie-4.5-turbo-128k",
+  "roundtrip_runs": 3,
+  "successful_runs": 3,
+  "final_answer_sha256": [
+    "c75dfc2827987c185db7920a282ef5e30574fcd3fcb1f3e64e148eb56d8e6e52",
+    "73d0b388bd3eebc04dd1cad0d7a79fff72156ff57728195aa20ebd427bd8ccbc",
+    "0104ee9160d263e6a7c6f3ad643ab4edf3b5b82df1f0b65e7a18158f793337f5"
+  ],
+  "winner": "candidate-alpha",
+  "winner_score": 0.719476,
+  "evaluation_mode": "observed_trace_bundle_evaluation",
+  "provider_function_call_observed": true,
+  "mcp_tool_call_observed": true,
+  "receipt_schema_valid": true,
+  "request_hash_verified": true,
+  "content_hash_verified": true,
+  "secrets_redacted": true,
+  "qianfan_native_mcp_support_proven": false,
+  "external_provider_network_used": true,
+  "saee_mcp_network_used": false,
+  "candidate_code_executed": false,
+  "external_system_executed": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "product_launched": false
+}

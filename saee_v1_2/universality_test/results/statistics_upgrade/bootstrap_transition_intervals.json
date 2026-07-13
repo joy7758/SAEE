@@ -1,0 +1,174 @@
+{
+  "bootstrap_resamples": 5000,
+  "claim_boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "grouped_transition_statistics": {
+    "DBI-1:none": {
+      "num_runs": 120,
+      "transition_count": 112,
+      "transition_phi_mean": 0.610705,
+      "transition_phi_variance": 6.1e-05,
+      "transition_probability": 0.933333,
+      "transition_probability_bootstrap_95_ci": [
+        0.883333,
+        0.975
+      ],
+      "transition_step_bootstrap_95_ci": [
+        28.0,
+        33.0
+      ],
+      "transition_step_mean": 37.714286,
+      "transition_step_median": 31.0,
+      "transition_step_variance": 579.773488
+    },
+    "DBI-1:strong": {
+      "num_runs": 120,
+      "transition_count": 4,
+      "transition_phi_mean": 0.625455,
+      "transition_phi_variance": 2.3e-05,
+      "transition_probability": 0.033333,
+      "transition_probability_bootstrap_95_ci": [
+        0.008333,
+        0.066667
+      ],
+      "transition_step_bootstrap_95_ci": [
+        117.0,
+        145.0
+      ],
+      "transition_step_mean": 131.5,
+      "transition_step_median": 132.0,
+      "transition_step_variance": 137.0
+    },
+    "DBI-1:weak": {
+      "num_runs": 120,
+      "transition_count": 106,
+      "transition_phi_mean": 0.618671,
+      "transition_phi_variance": 0.000458,
+      "transition_probability": 0.883333,
+      "transition_probability_bootstrap_95_ci": [
+        0.825,
+        0.933333
+      ],
+      "transition_step_bootstrap_95_ci": [
+        38.5,
+        45.0
+      ],
+      "transition_step_mean": 52.877358,
+      "transition_step_median": 43.0,
+      "transition_step_variance": 1041.061006
+    },
+    "DBI-2:none": {
+      "num_runs": 120,
+      "transition_count": 120,
+      "transition_phi_mean": 0.610965,
+      "transition_phi_variance": 0.000106,
+      "transition_probability": 1.0,
+      "transition_probability_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "transition_step_bootstrap_95_ci": [
+        15.0,
+        16.0
+      ],
+      "transition_step_mean": 19.15,
+      "transition_step_median": 15.0,
+      "transition_step_variance": 127.523529
+    },
+    "DBI-2:strong": {
+      "num_runs": 120,
+      "transition_count": 120,
+      "transition_phi_mean": 0.605777,
+      "transition_phi_variance": 2.5e-05,
+      "transition_probability": 1.0,
+      "transition_probability_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "transition_step_bootstrap_95_ci": [
+        36.0,
+        40.0
+      ],
+      "transition_step_mean": 39.15,
+      "transition_step_median": 38.0,
+      "transition_step_variance": 105.103361
+    },
+    "DBI-2:weak": {
+      "num_runs": 120,
+      "transition_count": 120,
+      "transition_phi_mean": 0.610229,
+      "transition_phi_variance": 8.2e-05,
+      "transition_probability": 1.0,
+      "transition_probability_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "transition_step_bootstrap_95_ci": [
+        16.0,
+        17.0
+      ],
+      "transition_step_mean": 19.9,
+      "transition_step_median": 16.5,
+      "transition_step_variance": 82.07395
+    },
+    "DBI-3:none": {
+      "num_runs": 360,
+      "transition_count": 319,
+      "transition_phi_mean": 0.602757,
+      "transition_phi_variance": 1.7e-05,
+      "transition_probability": 0.886111,
+      "transition_probability_bootstrap_95_ci": [
+        0.852778,
+        0.916667
+      ],
+      "transition_step_bootstrap_95_ci": [
+        109.0,
+        122.0
+      ],
+      "transition_step_mean": 117.793103,
+      "transition_step_median": 115.0,
+      "transition_step_variance": 1416.114292
+    },
+    "DBI-3:strong": {
+      "num_runs": 360,
+      "transition_count": 0,
+      "transition_phi_mean": null,
+      "transition_phi_variance": null,
+      "transition_probability": 0.0,
+      "transition_probability_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "transition_step_bootstrap_95_ci": [
+        null,
+        null
+      ],
+      "transition_step_mean": null,
+      "transition_step_median": null,
+      "transition_step_variance": null
+    },
+    "DBI-3:weak": {
+      "num_runs": 360,
+      "transition_count": 192,
+      "transition_phi_mean": 0.605721,
+      "transition_phi_variance": 3.7e-05,
+      "transition_probability": 0.533333,
+      "transition_probability_bootstrap_95_ci": [
+        0.483333,
+        0.583333
+      ],
+      "transition_step_bootstrap_95_ci": [
+        150.0,
+        163.0
+      ],
+      "transition_step_mean": 155.28125,
+      "transition_step_median": 156.5,
+      "transition_step_variance": 809.051374
+    }
+  },
+  "schema": "saee.universality_test.bootstrap_transition_intervals.v1"
+}

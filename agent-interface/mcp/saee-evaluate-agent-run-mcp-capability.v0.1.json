@@ -1,0 +1,35 @@
+{
+  "saee_evaluate_agent_run_mcp_capability_v0_1": true,
+  "capability_version": "0.1.0",
+  "capability_id": "saee.mcp.evaluate_agent_run",
+  "tool_name": "evaluate_agent_run",
+  "stage": "local_in_memory_mcp_capability",
+  "description": "Expose the local evaluate_agent_run Alpha through the repository's fixed in-memory MCP-compatible Tool registry.",
+  "input_schema_ref": "agent-interface/mcp/saee-mcp-evaluate-agent-run-request.v0.1.schema.json",
+  "output_schema_ref": "agent-interface/mcp/saee-mcp-evaluate-agent-run-response.v0.1.schema.json",
+  "handler_ref": "saee_backend/services/mcp_agent_run_tool_handler.py",
+  "server_ref": "saee_backend/services/local_mcp_server.py",
+  "discovery": {
+    "agent_index_ref": "agent-index.json",
+    "llms_ref": "llms.txt",
+    "agent_readable_ref": "agent-readable.md"
+  },
+  "non_use": [
+    "Do not use as a production MCP endpoint.",
+    "Do not infer standardized MCP interoperability.",
+    "Do not use the result as task success, safety, compliance, certification, or deployment approval."
+  ],
+  "truth_boundary": {
+    "local_tool_registered": true,
+    "in_memory_invocation_available": true,
+    "standard_mcp_transport_available": false,
+    "public_endpoint_available": false,
+    "authentication_available": false,
+    "external_agent_connected": false,
+    "interoperability_validated": false,
+    "deployment_authorized": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "recommended_next_action": "Review Phase 6.5 Design Partner protocol against the runnable Rehearsal and MCP capability surfaces."
+}

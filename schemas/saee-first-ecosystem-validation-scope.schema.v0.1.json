@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-first-ecosystem-validation-scope.schema.v0.1.json",
+  "title": "SAEE First Ecosystem Validation Scope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scope_version", "scope_id", "allowed", "forbidden", "external_side_effects", "customer_data_allowed", "private_system_access_allowed", "production_execution_allowed"],
+  "properties": {
+    "scope_version": {"const": "0.1"},
+    "scope_id": {"const": "saee.first-ecosystem-validation.local-preparation"},
+    "allowed": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"enum": ["capability_discovery", "mcp_tool_discovery", "local_invocation", "result_interpretation", "documentation_feedback"]}
+    },
+    "forbidden": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {"enum": ["production_execution", "customer_data", "private_system_access", "external_side_effects"]}
+    },
+    "external_side_effects": {"const": false},
+    "customer_data_allowed": {"const": false},
+    "private_system_access_allowed": {"const": false},
+    "production_execution_allowed": {"const": false}
+  }
+}

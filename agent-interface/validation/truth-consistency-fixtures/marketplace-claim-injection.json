@@ -1,0 +1,1 @@
+{"fixture_id":"MARKETPLACE_CLAIM_INJECTION","mutation":{"operation":"set","target":"release","path":["truth_boundary","marketplace_listed"],"value":true},"expected_reason_code":"TRUTH_BOUNDARY_MARKETPLACE_CLAIM"}

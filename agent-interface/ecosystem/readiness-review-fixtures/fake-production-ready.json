@@ -1,0 +1,1 @@
+{"fixture_id":"FAKE_PRODUCTION_READY","mutation":{"truth_boundary.production_ready":true},"expected":"REJECT"}

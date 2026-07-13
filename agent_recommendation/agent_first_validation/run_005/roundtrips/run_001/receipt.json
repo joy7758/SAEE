@@ -1,0 +1,228 @@
+{
+  "comparison_ranking": {
+    "experiment_id": "observed-stability-example-001",
+    "ranking": [
+      {
+        "agent_id": "candidate-alpha",
+        "rank": 1,
+        "score": 0.719476
+      },
+      {
+        "agent_id": "candidate-beta",
+        "rank": 2,
+        "score": 0.467201
+      }
+    ]
+  },
+  "content_sha256": "cc30b1cda6e1b9d27af5d595d14b447f64204b9ec87824207e01837f392ea361",
+  "evaluation_mode": "observed_trace_bundle_evaluation",
+  "evaluation_summary": {
+    "agents": [
+      {
+        "agent_id": "candidate-alpha",
+        "final_score": 0.719476
+      },
+      {
+        "agent_id": "candidate-beta",
+        "final_score": 0.467201
+      }
+    ],
+    "confidence_score": 0.719476,
+    "decision_result": {
+      "confidence_score": 0.719476,
+      "failure_modes_summary": {
+        "candidate-alpha": [],
+        "candidate-beta": [
+          "collapse",
+          "drift"
+        ]
+      },
+      "ranking": [
+        {
+          "agent_id": "candidate-alpha",
+          "rank": 1,
+          "score": 0.719476
+        },
+        {
+          "agent_id": "candidate-beta",
+          "rank": 2,
+          "score": 0.467201
+        }
+      ],
+      "recommended_agent": "candidate-alpha"
+    },
+    "experiment_id": "observed-stability-example-001",
+    "overall_stats": {
+      "divergence_index": 0.252275,
+      "mean_stability": 0.660177,
+      "mean_survival": 0.95
+    },
+    "recommended_agent": "candidate-alpha",
+    "run_id": "observed-run-0c431378e331506e",
+    "status": "completed"
+  },
+  "failure_mode_reports": [
+    {
+      "agent_id": "candidate-alpha",
+      "failure_modes": []
+    },
+    {
+      "agent_id": "candidate-beta",
+      "failure_modes": [
+        {
+          "description": "One or more supplied observed runs recorded alive=false.",
+          "severity": 1.0,
+          "step": 4,
+          "type": "collapse"
+        },
+        {
+          "description": "Observed quality changed materially across the supplied horizon.",
+          "severity": 0.4,
+          "step": 3,
+          "type": "drift"
+        }
+      ]
+    }
+  ],
+  "observed_failure_code_counts": {
+    "candidate-alpha": {},
+    "candidate-beta": {
+      "invalid_output": 1,
+      "resource_exhaustion": 1,
+      "timeout": 1,
+      "tool_error": 1
+    }
+  },
+  "provenance": {
+    "allowlist_validation_passed": true,
+    "candidate_code_executed": false,
+    "censoring": "censored runs use observed steps only and are not imputed",
+    "external_calls_made": false,
+    "input_kind": "sanitized_observed_agent_trace_bundle",
+    "private_core_loaded": false,
+    "raw_content_excluded_attested": true,
+    "risk_formula": "mean_over_runs(mean_normalized_failure_severity)",
+    "scoring_formula": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score",
+    "simulator_called": false,
+    "source_authorized_attested": true,
+    "source_sanitization_attested": true,
+    "stability_formula": "mean_over_runs(mean_quality / (1 + 12 * population_variance_quality))",
+    "survival_formula": "mean_over_runs(alive_step_count / observed_step_count)",
+    "tie_break": "descending ranking score, then ascending candidate_id",
+    "trace_authenticity_verified": false,
+    "trace_capture_by_saee": false
+  },
+  "receipt_id": "saee-observed-receipt-0c431378e331506e",
+  "request_sha256": "0c431378e331506ea74534f889689a1a96b479078effb43449f87d4b074a99a3",
+  "saee_observed_trace_receipt_v0_1": true,
+  "schema_version": "0.1.0",
+  "stability_reports": [
+    {
+      "agent_id": "candidate-alpha",
+      "convergence_status": "stable",
+      "drift_rate": 0.01,
+      "stability_score": 0.838953,
+      "time_series": [
+        0.83,
+        0.85,
+        0.84,
+        0.84,
+        0.84
+      ],
+      "variance": 4e-05
+    },
+    {
+      "agent_id": "candidate-beta",
+      "convergence_status": "collapsing",
+      "drift_rate": 0.4,
+      "stability_score": 0.481402,
+      "time_series": [
+        0.775,
+        0.71,
+        0.61,
+        0.49
+      ],
+      "variance": 0.011592
+    }
+  ],
+  "survival_curves": [
+    {
+      "agent_id": "candidate-alpha",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.83,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.85,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.84,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.84,
+          "t": 3
+        },
+        {
+          "alive": true,
+          "score": 0.84,
+          "t": 4
+        }
+      ]
+    },
+    {
+      "agent_id": "candidate-beta",
+      "curve": [
+        {
+          "alive": true,
+          "score": 0.775,
+          "t": 0
+        },
+        {
+          "alive": true,
+          "score": 0.71,
+          "t": 1
+        },
+        {
+          "alive": true,
+          "score": 0.61,
+          "t": 2
+        },
+        {
+          "alive": true,
+          "score": 0.49,
+          "t": 3
+        }
+      ]
+    }
+  ],
+  "trace_quality": {
+    "candidate-alpha": {
+      "censored_run_count": 0,
+      "observed_step_count": 10,
+      "run_count": 2
+    },
+    "candidate-beta": {
+      "censored_run_count": 1,
+      "observed_step_count": 9,
+      "run_count": 2
+    }
+  },
+  "truth_boundary": {
+    "customer_validated": false,
+    "external_agent_execution": false,
+    "observed_agent_trace_evidence_evaluated": true,
+    "pii_absence_verified_by_saee": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false,
+    "real_world_generalization_validated": false,
+    "trace_authenticity_verified": false
+  }
+}

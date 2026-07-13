@@ -1,0 +1,49 @@
+{
+  "saee_evaluate_agent_run_capability_v0_1": true,
+  "capability_version": "0.1.0",
+  "capability_id": "saee.evaluate_agent_run",
+  "name": "SAEE Evaluate Agent Run",
+  "stage": "local_offline_alpha",
+  "description": "Validate a SAEE rehearsal run and evaluate whether its exported candidate evidence satisfies the fixed AUTHORIZED_AGENT_ACTION adequacy profile.",
+  "when_to_use": [
+    "A validated SAEE rehearsal run is available.",
+    "The caller needs claim-specific evidence adequacy and missing-requirement output.",
+    "The caller accepts that profile support is not task success or deployment approval."
+  ],
+  "when_not_to_use": [
+    "To decide whether an Agent is safe.",
+    "To certify compliance or legality.",
+    "To authorize deployment or an external action.",
+    "To evaluate arbitrary external traces that are not SAEE rehearsal runs."
+  ],
+  "input_contract": {
+    "name": "rehearsal_run",
+    "schema_ref": "agent-interface/rehearsal/saee-agent-rehearsal-run.v0.1.schema.json",
+    "trace_digest_required": true,
+    "evidence_export_binding_required": true
+  },
+  "output_contract": {
+    "schema_ref": "agent-interface/capabilities/saee-evaluate-agent-run-output.v0.1.schema.json",
+    "assessments": ["SUPPORTED", "INSUFFICIENT_EVIDENCE"],
+    "includes": ["missing_requirements", "failed_relationships", "reason_codes", "limitations"]
+  },
+  "local_invocation": {
+    "service": "saee_backend/services/agent_run_capability.py",
+    "cli": "scripts/saee_evaluate_agent_run.py",
+    "command": "python3 scripts/saee_evaluate_agent_run.py --scenario agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
+    "network_required": false
+  },
+  "truth_boundary": {
+    "local_alpha_available": true,
+    "public_api_available": false,
+    "public_mcp_available": false,
+    "real_external_agent_validated": false,
+    "task_success_established": false,
+    "agent_safety_established": false,
+    "compliance_established": false,
+    "deployment_authorized": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "recommended_next_pr": "No code PR - human review of the Design Partner protocol is required before external action"
+}

@@ -1,0 +1,1 @@
+{"fixture_id":"FAKE_CUSTOMER_VALIDATION","mutation":{"truth_boundary.customer_validated":true},"expected":"REJECT"}

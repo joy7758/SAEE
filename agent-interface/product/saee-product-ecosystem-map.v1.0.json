@@ -1,0 +1,25 @@
+{
+  "map_version":"1.0",
+  "canonical_identity":{
+    "project":"SAEE",
+    "theory_name":"Silicon-Amplified Evolutionary Ecology",
+    "engineering_core":"Digital Biosphere Evolution Engine",
+    "product_surface":"Agent Reliability Evaluation Capability Layer",
+    "primary_language":"zh-CN",
+    "secondary_language":"en"
+  },
+  "modules":[
+    {"module_id":"architecture_foundation","name_zh":"架构基础层","name_en":"Architecture Foundation","source":"github:joy7758/digital-biosphere-architecture","repository":"https://github.com/joy7758/digital-biosphere-architecture","role":"public_meaning_and_citation_layer","core":true,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE_AND_REPOSITORY_POLICY"},
+    {"module_id":"agent_identity","name_zh":"智能体身份模块","name_en":"Agent Identity Module","source":"github:joy7758/persona-object-protocol","repository":"https://github.com/joy7758/persona-object-protocol","role":"persona_and_agent_identity_reference","core":false,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE"},
+    {"module_id":"audit_evidence","name_zh":"审计证据模块","name_en":"Audit Evidence Module","source":"github:joy7758/aro-audit","repository":"https://github.com/joy7758/aro-audit","role":"decoupled_receipt_and_audit_format_reference","core":false,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE"},
+    {"module_id":"evidence_engine_reference","name_zh":"证据引擎参考实现","name_en":"Evidence Engine Reference","source":"github:joy7758/agent-evidence","repository":"https://github.com/joy7758/agent-evidence","role":"decoupled_evidence_schema_and_validator_reference","core":false,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE_AND_REPOSITORY_POLICY"},
+    {"module_id":"agent_evidence_receipt_product","name_zh":"智能体运行证据层","name_en":"Agent Evidence Receipt Product","source":"workspace:agent-evidence-layer","repository":null,"role":"adjacent_local_commercial_receipt_surface","core":false,"public":false,"notice_status":"HOLD_NO_ORIGIN_AND_HEAVY_DIRTY_WORKTREE"},
+    {"module_id":"resource_governance","name_zh":"资源治理模块","name_en":"Resource Governance Module","source":"github:joy7758/token-governor","repository":"https://github.com/joy7758/token-governor","role":"budget_window_policy_reference","core":false,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE"},
+    {"module_id":"demo","name_zh":"演示模块","name_en":"Demo Module","source":"github:joy7758/verifiable-agent-demo","repository":"https://github.com/joy7758/verifiable-agent-demo","role":"minimal_toy_validation_demo","core":false,"public":true,"notice_status":"DEFERRED_DIRTY_WORKTREE"},
+    {"module_id":"vertical_case_study","name_zh":"垂直案例研究","name_en":"Vertical Case Study","source":"github:joy7758-research/paper-udi-dicom-profile","repository":"https://github.com/joy7758-research/paper-udi-dicom-profile","role":"paper_only_medical_evidence_profile_case","core":false,"public":true,"notice_status":"RELATED_CASE_NOT_RELABELED_AS_MODULE"},
+    {"module_id":"rehearsal_engine","name_zh":"演练引擎","name_en":"Rehearsal Engine","source":"saee_backend/services/rehearsal_runtime/","repository":null,"role":"internal_saee_counterfactual_and_sandbox_runtime","core":true,"public":false,"notice_status":"INTERNAL_COMPONENT"},
+    {"module_id":"capability_runtime","name_zh":"能力运行时","name_en":"Capability Runtime","source":"saee_backend/services/capability_runtime/","repository":null,"role":"local_agent_callable_capability_router","core":false,"public":false,"notice_status":"INTERNAL_COMPONENT"},
+    {"module_id":"mcp_interface","name_zh":"MCP接口","name_en":"MCP Interface","source":"saee_backend/services/capability_mcp_adapter.py","repository":null,"role":"local_transport_adapter","core":false,"public":false,"notice_status":"INTERNAL_COMPONENT"}
+  ],
+  "truth_boundary":{"branding_consolidation_local":true,"canonical_identity_changed":false,"historical_repository_deleted":false,"historical_repository_notice_written":false,"repository_renamed":false,"history_rewritten":false,"public_release":false,"external_announcement":false,"production_ready":false}
+}

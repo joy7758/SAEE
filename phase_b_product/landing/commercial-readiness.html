@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 商用准备度</title>
+    <meta
+      name="description"
+      content="SAEE 当前商用准备度说明：本地可以试用，但正式商用仍需真实人工证据。"
+    >
+    <link rel="stylesheet" href="styles.css?v=service-simple-cn-v20-20260709">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="返回 SAEE 首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M12 2 21 7.2v9.6L12 22 3 16.8V7.2L12 2Z" />
+            <path d="M12 6.5 17 9.4v5.2l-5 2.9-5-2.9V9.4l5-2.9Z" />
+            <path d="M12 9.2v5.6M9.6 10.6l4.8 2.8M14.4 10.6l-4.8 2.8" />
+          </svg>
+        </span>
+        <span>
+          <strong>SAEE</strong>
+          <small>商用准备度</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="商用准备度导航">
+        <a href="index.html">首页</a>
+        <a href="#current">当前状态</a>
+        <a href="#next">下一步</a>
+        <a href="#boundary">边界</a>
+      </nav>
+      <a class="nav-cta" href="index.html#trial-access-status">本地试用</a>
+    </header>
+
+    <main>
+      <section class="hero-section compact-hero">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="product-line">商用准备度</p>
+          <h1>现在可以本地试，但还不能正式商用。</h1>
+          <p class="hero-copy">
+            SAEE 的本地演示和推荐材料已经可看。正式商用还需要真实人工证据：
+            谁负责、证据在哪里、是否通过检查、是否允许进入下一步。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#next">
+              <span aria-hidden="true">→</span>
+              看下一步
+            </a>
+            <a class="button secondary" href="index.html">回到首页</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="current" class="section band">
+        <div class="section-heading compact">
+          <p class="section-kicker">当前状态</p>
+          <h2>暂不允许上线。</h2>
+        </div>
+        <div class="value-grid">
+          <article>
+            <span class="metric-number">24</span>
+            <h3>上线前事项仍未补齐</h3>
+            <p>身份、监控、支持、安全、计费、客户验证和数据恢复仍需真实证据。</p>
+          </article>
+          <article>
+            <span class="metric-number">64</span>
+            <h3>本地预览已补齐</h3>
+            <p>64 个推荐值已按人工确认写入本地预览，但还没有导入正式表格，也没有把任何事项标记完成。</p>
+          </article>
+          <article>
+            <span class="metric-number">0</span>
+            <h3>可直接通过的事项</h3>
+            <p>现在没有任何事项可以直接通过，也不能声称客户已验证。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="next" class="section">
+        <div class="section-heading compact">
+          <p class="section-kicker">下一步</p>
+          <h2>先做安全预检。</h2>
+          <p>
+            现在 64 条本地预览已经补齐。下一步只能先做安全预检和导入审批，
+            不导入、不发布、不把任何事项标记为已完成。
+          </p>
+        </div>
+        <section class="demo-result-panel" aria-labelledby="commercial-next-title">
+          <div class="demo-panel-header">
+            <div>
+              <p class="demo-label">人工行动入口</p>
+              <h2 id="commercial-next-title">先看开始页，再看行动板。</h2>
+            </div>
+            <span class="demo-status">只读</span>
+          </div>
+          <p class="demo-hint">
+            如果只是想知道“现在人要做什么”，先打开：
+            <code>phase_b_product/commercial_readiness/commercial_readiness_begin_here/commercial_readiness_begin_here.html</code>
+          </p>
+          <p class="demo-hint">
+            如果你是在 <code>127.0.0.1:8765</code> 看到这个页面，完整开始页可能不会直接打开。
+            请在仓库根目录启动一个只读本机服务：
+            <code>python3 -m http.server 8876 --bind 127.0.0.1</code>
+          </p>
+          <p class="demo-hint">
+            然后打开：
+            <code>http://127.0.0.1:8876/phase_b_product/commercial_readiness/commercial_readiness_begin_here/commercial_readiness_begin_here.html</code>
+            。这个地址只在你启动本机服务后可用；它不会联网，也不会导入或写入任何商用证据。
+          </p>
+          <p class="demo-hint">
+            如果想先看完整商用准备总览，再打开：
+            <code>http://127.0.0.1:8876/phase_b_product/commercial_readiness/commercial_readiness_dashboard/commercial_readiness_dashboard.html</code>
+            。总览页只读显示 24 个上线前事项、149 个所需证据项和 112 个仍缺生产证据，不授权上线。
+          </p>
+          <div class="hero-actions compact-actions">
+            <a
+              class="button secondary"
+              href="http://127.0.0.1:8876/phase_b_product/commercial_readiness/commercial_readiness_begin_here/commercial_readiness_begin_here.html"
+            >
+              打开完整开始页
+            </a>
+            <a
+              class="button tertiary"
+              href="http://127.0.0.1:8876/phase_b_product/commercial_readiness/commercial_readiness_dashboard/commercial_readiness_dashboard.html"
+            >
+              打开商用准备总览
+            </a>
+          </div>
+          <p class="demo-hint">
+            如果想看 24 个上线前事项怎么分组，再打开：
+            <code>phase_b_product/commercial_readiness/commercial_human_action_board/commercial_human_action_board.html</code>
+          </p>
+          <p class="demo-hint">
+            当前行动板显示：9 个事项可进入人工审查，15 个事项仍受外部依赖阻塞。当前本地预览只用于安全预检，不等于正式商用通过。
+          </p>
+        </section>
+        <ol class="workflow-list">
+          <li>
+            <span>1</span>
+            <div>
+              <h3>打开 64 行本地预览</h3>
+              <p><code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_all_confirmed_values_import_preview.local.csv</code></p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>检查本地预览</h3>
+              <p>确认 64 行值是否仍然符合人工授权。不要让系统直接导入正式表格。</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>先跑本地预览检查</h3>
+              <p><code>python3 scripts/saee_commercial_sprint_remaining_human_confirmed_values_smoke.py</code></p>
+            </div>
+          </li>
+          <li>
+            <span>4</span>
+            <div>
+              <h3>再跑主线守卫</h3>
+              <p><code>python3 scripts/mainline_guard.py</code></p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="boundary" class="section boundary-section">
+        <div>
+          <p class="section-kicker">必须保持的边界</p>
+          <h2>这页只说明状态，不批准上线。</h2>
+        </div>
+        <ul class="boundary-list">
+          <li>不收集客户资料。</li>
+          <li>不联系客户或供应商。</li>
+          <li>不导入工作簿，不把事项标记为已完成。</li>
+          <li>不声称生产可用、客户已验证或产品已发布。</li>
+          <li>不暴露私有核心，不修改运行时、后端、内核或接口结构。</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

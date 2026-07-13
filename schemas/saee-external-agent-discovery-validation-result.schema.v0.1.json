@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-agent-discovery-validation-result.schema.v0.1.json",
+  "title": "SAEE External Agent Discovery Validation Result v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["validation_version", "validation_scope", "scenario_count", "discovery_success", "understanding_success", "selection_accuracy", "boundary_preservation", "scenario_results", "limitations", "truth_boundary"],
+  "properties": {
+    "validation_version": {"const": "0.1"},
+    "validation_scope": {"const": "clean_context_synthetic_agent_like_callers_using_public_materials_only"},
+    "scenario_count": {"const": 6},
+    "discovery_success": {"$ref": "#/$defs/metric"},
+    "understanding_success": {"$ref": "#/$defs/metric"},
+    "selection_accuracy": {"$ref": "#/$defs/metric"},
+    "boundary_preservation": {"$ref": "#/$defs/metric"},
+    "scenario_results": {
+      "type": "array", "minItems": 6, "maxItems": 6,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["scenario_id", "discovered", "understanding", "understanding_correct", "selected_action", "expected_action", "selection_correct", "boundary_preserved", "result", "reason_codes"],
+        "properties": {
+          "scenario_id": {"type": "string", "minLength": 5},
+          "discovered": {"type": "boolean"},
+          "understanding": {"type": "string", "minLength": 5},
+          "understanding_correct": {"type": "boolean"},
+          "selected_action": {"type": "string", "minLength": 5},
+          "expected_action": {"type": "string", "minLength": 5},
+          "selection_correct": {"type": "boolean"},
+          "boundary_preserved": {"type": "boolean"},
+          "result": {"enum": ["PASS", "FAIL"]},
+          "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 4}}
+        }
+      }
+    },
+    "limitations": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string", "minLength": 10}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["external_agent_discovery_validation", "synthetic_agent_like_callers", "external_agents_connected", "real_external_agent", "customer_data", "market_validation", "adoption_validated", "external_agent_preference_validated", "production_ready"],
+      "properties": {
+        "external_agent_discovery_validation": {"const": true},
+        "synthetic_agent_like_callers": {"const": true},
+        "external_agents_connected": {"const": false},
+        "real_external_agent": {"const": false},
+        "customer_data": {"const": false},
+        "market_validation": {"const": false},
+        "adoption_validated": {"const": false},
+        "external_agent_preference_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object", "additionalProperties": false,
+      "required": ["passed", "total", "rate"],
+      "properties": {
+        "passed": {"type": "integer", "minimum": 0, "maximum": 6},
+        "total": {"const": 6},
+        "rate": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

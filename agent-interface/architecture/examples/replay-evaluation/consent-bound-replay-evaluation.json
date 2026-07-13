@@ -1,0 +1,70 @@
+{
+  "saee_replay_evaluation_contract_v0_1": true,
+  "schema_version": "0.1.0",
+  "replay_evaluation_id": "replay-evaluation:consent-bound-001",
+  "created_at": "2026-07-11T16:20:00Z",
+  "contract_status": "local_synthetic_mapping_contract_only",
+  "replay_contract_ref": "agent-interface/architecture/examples/replay/consent-replay-case.json",
+  "replay_contract_digest": "633cea633c8e8b3271a8538c5ac5c82db746abc3daba4f150ca9cd79404f13e5",
+  "source_observation_refs": [
+    {
+      "observation_id": "observation:runtime-envelope-001",
+      "envelope_ref": "agent-interface/architecture/examples/observation/runtime-observation.json",
+      "digest_algorithm": "sha256",
+      "envelope_digest": "f9a1540c8a9b2e33de1f61debe9fc05c3de6df138e1a75fe8ea499351b9462eb"
+    }
+  ],
+  "task_contract_ref": "task-contract-corpus-004",
+  "environment_contract_ref": "environment-contract-corpus-004",
+  "mapping_profile_ref": "mapping-profile:consent-bound-observation-to-conflict-evaluation",
+  "mapping_profile_version": "0.1.0",
+  "observation_mapping_rules": [
+    {
+      "rule_id": "mapping-rule:consent-bound-identity",
+      "source_observation_id": "observation:runtime-envelope-001",
+      "source_selector": "observation_id",
+      "target_selector": "observations[*].observation_ref",
+      "mapping_method": "declared_identity_binding",
+      "deterministic": true,
+      "executable": false
+    }
+  ],
+  "failure_estimate_source": {
+    "source_type": "synthetic_rule_reference",
+    "source_ref": "task-contract-corpus-004",
+    "generated_from_trace": false,
+    "generated_by_replay": false,
+    "risk_probability_measured": false
+  },
+  "transformation_provenance_ref": "provenance:synthetic-runtime-envelope-001",
+  "consent_ref": "consent:synthetic-runtime-replay-001",
+  "data_use_permission_ref": "permission:synthetic-runtime-replay-001",
+  "evaluation_input_ref": "agent-interface/architecture/examples/phase1_5_cases/case-004-instruction-conflict.json",
+  "evaluation_input_digest": "5887355f647c7ec95abb34dcdc21327d4264a055a3dd66494d286adc3a49814c",
+  "lineage_edges": [
+    {"edge_id": "lineage:consent-001-observation-replay", "from_type": "observation_envelope", "from_ref": "observation:runtime-envelope-001", "to_type": "replay_contract", "to_ref": "replay:consent-boundary-001", "relationship": "governed_by"},
+    {"edge_id": "lineage:consent-001-replay-mapping", "from_type": "replay_contract", "from_ref": "replay:consent-boundary-001", "to_type": "replay_evaluation_contract", "to_ref": "replay-evaluation:consent-bound-001", "relationship": "mapped_by"},
+    {"edge_id": "lineage:consent-001-mapping-input", "from_type": "replay_evaluation_contract", "from_ref": "replay-evaluation:consent-bound-001", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-004-instruction-conflict", "relationship": "binds_to"},
+    {"edge_id": "lineage:consent-001-input-derived", "from_type": "evaluation_input", "from_ref": "saee-case-corpus-004-instruction-conflict", "to_type": "derived_evidence_case", "to_ref": "saee-case-corpus-004-instruction-conflict", "relationship": "derives_to"},
+    {"edge_id": "lineage:consent-001-derived-input", "from_type": "derived_evidence_case", "from_ref": "saee-case-corpus-004-instruction-conflict", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-004-instruction-conflict", "relationship": "reverse_lookup_anchor"}
+  ],
+  "operator_ref": "operator:synthetic-human-controlled",
+  "stop_authority_ref": "stop-authority:synthetic-human-controlled",
+  "truth_boundary": {
+    "contract_only": true,
+    "mapping_executed": false,
+    "evaluation_input_generated": false,
+    "replay_executed": false,
+    "replay_generated_risk": false,
+    "risk_probability_measured": false,
+    "automatic_decision": false,
+    "deployment_authorized": false,
+    "architecture_implemented": false,
+    "risk_model_implemented": false,
+    "real_agent_executed": false,
+    "customer_data_processed": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "SAEE Attractor Basin Map v1.0",
+  "science_lock": true,
+  "derivation_mode": "existing_logs_only",
+  "basins": {
+    "stable_lineage_basin": {
+      "observed": true,
+      "population_distribution_tendency": {
+        "configured_population": 8,
+        "observed_generation_count": 100,
+        "population_stable_generation_count": 100,
+        "population_support_ratio": 1.0
+      },
+      "stability_score": 1.0,
+      "score_basis": "population_support_ratio=100/100, collapse_event_count=0, lineage_integrity_preserved=true",
+      "evidence": [
+        "saee_experiments/reports/stability_report.json: generation_count=100, collapse_event_count=0, convergence_tendency=converging",
+        "saee_experiments/reports/lineage_statistics.json: lineage_integrity_preserved=true, node_count=808, edge_count=1590",
+        "saee_phase2/output/demo-run/attractor_map.json: attractor_type=identity_stable_reflexive_attractor, support_count=6"
+      ]
+    },
+    "exploration_basin": {
+      "observed": true,
+      "population_distribution_tendency": {
+        "mean_population_turnover": 0.545531,
+        "lineage_branching_density": 1.967822,
+        "collapse_event_count": 0
+      },
+      "stability_score": 0.545531,
+      "score_basis": "mean_population_turnover from existing drift report; treated as exploratory support, not as a transition probability",
+      "evidence": [
+        "saee_experiments/output/demo-run/drift_report.json: mean_population_turnover=0.545531",
+        "saee_experiments/reports/lineage_statistics.json: branching_density=1.967822"
+      ],
+      "note": "Observed as exploratory behavior inside stable_lineage_basin, not as an independent regime transition in existing logs."
+    },
+    "collapse_sink": {
+      "observed": false,
+      "population_distribution_tendency": {
+        "collapse_event_count": 0,
+        "collapse_support_ratio": 0.0
+      },
+      "stability_score": 0.0,
+      "score_basis": "no collapse events in existing v1.0 experiment or Phase II regime logs",
+      "evidence": [
+        "saee_experiments/reports/stability_report.json: collapse_event_count=0",
+        "saee_experiments/reports/collapse_events.log: empty"
+      ]
+    }
+  },
+  "transitions": [
+    {
+      "from": "stable_lineage_basin",
+      "to": "stable_lineage_basin",
+      "likelihood": 1.0,
+      "evidence": [
+        "saee_phase2/output/demo-run/attractor_map.json: one attractor with support_generations=[1,2,3,4,5,6]",
+        "saee_experiments/reports/stability_report.json: population_count remains 8 across 100 generations"
+      ],
+      "confidence": "local_observation"
+    }
+  ],
+  "unobserved_basin_transitions": [
+    "stable_lineage_basin->collapse_sink",
+    "exploration_basin->collapse_sink",
+    "collapse_sink->stable_lineage_basin"
+  ],
+  "non_claims": [
+    "no_phase_boundary_estimation",
+    "no_new_attractor_mechanic",
+    "no_external_attractor_validation"
+  ]
+}

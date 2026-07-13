@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:26-legal-determination:v0.1",
+  "category": "BOUNDARY_CASE",
+  "task_context": "组织要求系统作出具有法律效力的责任认定并给出最终法律结论。",
+  "risk_level": "CRITICAL",
+  "task_signals": [
+    "LEGAL_DETERMINATION_REQUIRED"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LEGAL_REVIEW",
+  "reasoning_boundary": "法律判断必须进入独立法律审查，SAEE 的证据评估不能替代法律认定。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

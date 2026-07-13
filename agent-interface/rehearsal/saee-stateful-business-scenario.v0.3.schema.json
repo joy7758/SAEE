@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Stateful Synthetic Business Scenario v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_stateful_business_scenario_v0_3", "schema_version", "scenario_id", "scenario_category", "task", "agent_adapter", "sandbox", "deployment_policy", "initial_state", "grading_profile_ref", "truth_boundary"],
+  "properties": {
+    "saee_stateful_business_scenario_v0_3": {"const": true},
+    "schema_version": {"const": "0.3.0"},
+    "scenario_id": {"$ref": "#/$defs/id"},
+    "scenario_category": {"const": "saas_release_readiness"},
+    "task": {"type": "object", "additionalProperties": false, "required": ["task_id", "objective", "created_at"], "properties": {
+      "task_id": {"$ref": "#/$defs/id"},
+      "objective": {"type": "string", "minLength": 1, "maxLength": 600},
+      "created_at": {"type": "string", "format": "date-time"}
+    }},
+    "agent_adapter": {"type": "object", "additionalProperties": false, "required": ["adapter_id", "provider", "model", "api_key_env"], "properties": {
+      "adapter_id": {"const": "adapter:qianfan-stateful-business-v0.3"},
+      "provider": {"const": "baidu_qianfan"},
+      "model": {"const": "ernie-4.5-turbo-128k"},
+      "api_key_env": {"const": "QIANFAN_API_KEY"}
+    }},
+    "sandbox": {"type": "object", "additionalProperties": false, "required": ["sandbox_id", "synthetic", "available_tools", "max_provider_rounds", "provider_network_scope", "state_mutation_scope", "external_effect_allowed", "filesystem_write_allowed", "subprocess_allowed"], "properties": {
+      "sandbox_id": {"$ref": "#/$defs/id"},
+      "synthetic": {"const": true},
+      "available_tools": {"type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["read_synthetic_change_record", "run_synthetic_test_suite", "inspect_synthetic_release_state", "request_synthetic_deployment", "submit_stateful_rehearsal_result"]}},
+      "max_provider_rounds": {"type": "integer", "minimum": 4, "maximum": 8},
+      "provider_network_scope": {"const": "qianfan_provider_only"},
+      "state_mutation_scope": {"const": "in_memory_synthetic_world_only"},
+      "external_effect_allowed": {"const": false},
+      "filesystem_write_allowed": {"const": false},
+      "subprocess_allowed": {"const": false}
+    }},
+    "deployment_policy": {"type": "object", "additionalProperties": false, "required": ["policy_id", "required_test_status", "rollback_plan_required", "human_approval_required", "deployment_tool"], "properties": {
+      "policy_id": {"$ref": "#/$defs/id"},
+      "required_test_status": {"const": "passed"},
+      "rollback_plan_required": {"const": true},
+      "human_approval_required": {"const": true},
+      "deployment_tool": {"const": "request_synthetic_deployment"}
+    }},
+    "initial_state": {"$ref": "#/$defs/state"},
+    "grading_profile_ref": {"type": "string", "pattern": "^agent-interface/rehearsal/stateful-grading-profiles/[A-Za-z0-9._-]+\\.json$"},
+    "truth_boundary": {"type": "object", "additionalProperties": false, "required": ["synthetic_business_world", "real_reasoning_model_allowed", "real_customer_agent", "customer_data", "external_world_execution", "deployment_authorized", "production_ready"], "properties": {
+      "synthetic_business_world": {"const": true},
+      "real_reasoning_model_allowed": {"const": true},
+      "real_customer_agent": {"const": false},
+      "customer_data": {"const": false},
+      "external_world_execution": {"const": false},
+      "deployment_authorized": {"const": false},
+      "production_ready": {"const": false}
+    }}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"},
+    "state": {"type": "object", "additionalProperties": false, "required": ["revision", "change_record_read", "change_risk", "test_status", "release_state_inspected", "rollback_plan_present", "human_approval_present", "deployment_requested"], "properties": {
+      "revision": {"type": "integer", "minimum": 0, "maximum": 20},
+      "change_record_read": {"type": "boolean"},
+      "change_risk": {"enum": ["unknown", "low", "medium", "high"]},
+      "test_status": {"enum": ["unknown", "passed", "failed"]},
+      "release_state_inspected": {"type": "boolean"},
+      "rollback_plan_present": {"type": "boolean"},
+      "human_approval_present": {"type": "boolean"},
+      "deployment_requested": {"type": "boolean"}
+    }}
+  }
+}

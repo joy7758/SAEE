@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Evaluation Run Termination Contract v0.1",
+  "description": "A strict local synthetic record for an Evaluation Run that was manually aborted, stopped by policy, rejected before start, or interrupted by a runtime failure. It never fabricates a completed Result or Evidence Case and grants no execution or deployment authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_evaluation_run_termination_contract_v0_1",
+    "schema_version",
+    "termination_id",
+    "evaluation_run_id",
+    "evaluation_input_ref",
+    "evaluation_input_digest",
+    "replay_evaluation_contract_ref",
+    "replay_evaluation_contract_digest",
+    "termination_status",
+    "run_started",
+    "run_completed",
+    "terminated_at",
+    "termination_reason_code",
+    "termination_reason",
+    "operator_ref",
+    "stop_authority_ref",
+    "partial_result_present",
+    "partial_result_ref",
+    "partial_result_digest",
+    "evidence_case_produced",
+    "evidence_case_ref",
+    "evidence_case_digest",
+    "lineage_edges",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_evaluation_run_termination_contract_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "termination_id": {"$ref": "#/$defs/id"},
+    "evaluation_run_id": {"$ref": "#/$defs/id"},
+    "evaluation_input_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/phase1_5_cases/[A-Za-z0-9._-]+\\.json$"
+    },
+    "evaluation_input_digest": {"$ref": "#/$defs/digest"},
+    "replay_evaluation_contract_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/replay-evaluation/[A-Za-z0-9._-]+\\.json$"
+    },
+    "replay_evaluation_contract_digest": {"$ref": "#/$defs/digest"},
+    "termination_status": {"enum": ["manual_abort", "runtime_failed", "input_rejected", "policy_stopped"]},
+    "run_started": {"type": "boolean"},
+    "run_completed": {"const": false},
+    "terminated_at": {"type": "string", "format": "date-time"},
+    "termination_reason_code": {
+      "enum": ["MANUAL_ABORT", "RUNTIME_ERROR", "INPUT_POLICY_REJECTED", "BOUNDARY_VIOLATION", "RESOURCE_LIMIT"]
+    },
+    "termination_reason": {"type": "string", "minLength": 1, "maxLength": 600},
+    "operator_ref": {"$ref": "#/$defs/id"},
+    "stop_authority_ref": {"$ref": "#/$defs/id"},
+    "partial_result_present": {"type": "boolean"},
+    "partial_result_ref": {"oneOf": [{"$ref": "#/$defs/id"}, {"type": "null"}]},
+    "partial_result_digest": {"oneOf": [{"$ref": "#/$defs/digest"}, {"type": "null"}]},
+    "evidence_case_produced": {"const": false},
+    "evidence_case_ref": {"type": "null"},
+    "evidence_case_digest": {"type": "null"},
+    "lineage_edges": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 12,
+      "items": {"$ref": "#/$defs/lineage_edge"}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_only",
+        "synthetic_termination_record",
+        "real_evaluator_runtime_executed",
+        "real_agent_executed",
+        "external_tool_executed",
+        "network_accessed",
+        "customer_data_processed",
+        "partial_result_is_evidence",
+        "partial_result_authenticity_independently_verified",
+        "evidence_case_produced",
+        "risk_probability_measured",
+        "automatic_decision",
+        "deployment_authorized",
+        "architecture_implemented",
+        "risk_model_implemented",
+        "external_validation_completed",
+        "customer_validated",
+        "production_ready"
+      ],
+      "properties": {
+        "contract_only": {"const": true},
+        "synthetic_termination_record": {"const": true},
+        "real_evaluator_runtime_executed": {"const": false},
+        "real_agent_executed": {"const": false},
+        "external_tool_executed": {"const": false},
+        "network_accessed": {"const": false},
+        "customer_data_processed": {"const": false},
+        "partial_result_is_evidence": {"const": false},
+        "partial_result_authenticity_independently_verified": {"const": false},
+        "evidence_case_produced": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "automatic_decision": {"const": false},
+        "deployment_authorized": {"const": false},
+        "architecture_implemented": {"const": false},
+        "risk_model_implemented": {"const": false},
+        "external_validation_completed": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"partial_result_present": {"const": true}}, "required": ["partial_result_present"]},
+      "then": {
+        "properties": {
+          "partial_result_ref": {"$ref": "#/$defs/id"},
+          "partial_result_digest": {"$ref": "#/$defs/digest"}
+        }
+      },
+      "else": {
+        "properties": {
+          "partial_result_ref": {"type": "null"},
+          "partial_result_digest": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"termination_status": {"const": "input_rejected"}}, "required": ["termination_status"]},
+      "then": {
+        "properties": {
+          "run_started": {"const": false},
+          "termination_reason_code": {"enum": ["INPUT_POLICY_REJECTED", "BOUNDARY_VIOLATION"]},
+          "partial_result_present": {"const": false}
+        }
+      },
+      "else": {"properties": {"run_started": {"const": true}}}
+    },
+    {
+      "if": {"properties": {"termination_status": {"const": "manual_abort"}}, "required": ["termination_status"]},
+      "then": {"properties": {"termination_reason_code": {"const": "MANUAL_ABORT"}}}
+    },
+    {
+      "if": {"properties": {"termination_status": {"const": "runtime_failed"}}, "required": ["termination_status"]},
+      "then": {"properties": {"termination_reason_code": {"enum": ["RUNTIME_ERROR", "RESOURCE_LIMIT"]}}}
+    },
+    {
+      "if": {"properties": {"termination_status": {"const": "policy_stopped"}}, "required": ["termination_status"]},
+      "then": {"properties": {"termination_reason_code": {"const": "BOUNDARY_VIOLATION"}}}
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"
+    },
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "lineage_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge_id", "from_type", "from_ref", "to_type", "to_ref", "relationship"],
+      "properties": {
+        "edge_id": {"$ref": "#/$defs/id"},
+        "from_type": {
+          "enum": ["replay_evaluation_contract", "evaluation_input", "evaluation_run", "run_termination", "partial_result"]
+        },
+        "from_ref": {"$ref": "#/$defs/id"},
+        "to_type": {
+          "enum": ["replay_evaluation_contract", "evaluation_input", "evaluation_run", "run_termination", "partial_result"]
+        },
+        "to_ref": {"$ref": "#/$defs/id"},
+        "relationship": {
+          "enum": ["governs", "consumed_or_rejected_by", "terminated_by", "reverse_lookup_anchor", "produced_partial", "captured_by"]
+        }
+      }
+    }
+  }
+}

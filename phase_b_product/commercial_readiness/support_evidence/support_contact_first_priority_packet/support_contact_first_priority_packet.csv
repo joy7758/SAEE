@@ -1,0 +1,7 @@
+step_id,title,entrypoint,human_action,codex_execution_allowed
+SCFP-001,先打开 10 行填写卡,phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch_input_template.csv,只填写 human_value_to_enter 和 notes_for_human 两列；没有人工确认就留空。,False
+SCFP-002,复制支持入口合并模板,phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json,复制为 support_contact_human_input_bridge_input.human_filled.local.json 后由人填写。,False
+SCFP-003,填写负责人信息,first_owner_input,填写负责人、内部记录、目标日期、审批引用和范围确认。,False
+SCFP-004,填写支持入口判断,support_contact_decision_input,由人确认支持渠道、负责人、滥用处理、客户通知路径、测试记录和来源说明。,False
+SCFP-005,人工填完后导出本地检查输入,phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_completion_guide.md,运行 completion helper，但只在人工填写完成后运行；不要发布支持入口。,False
+SCFP-006,运行本地验证并刷新看板,scripts/saee_support_contact_approval_input_validator.py,分别运行负责人检查、支持入口输入检查和 readiness board 刷新。,False

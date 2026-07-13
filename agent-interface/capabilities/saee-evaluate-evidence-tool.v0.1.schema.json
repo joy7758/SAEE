@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-evaluate-evidence-tool.v0.1.schema.json",
+  "title": "SAEE Local Evidence Adequacy Tool Request v0.1",
+  "description": "Closed local request contract for the offline SAEE evidence adequacy tool prototype.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_object",
+    "accountability_claim",
+    "evaluation_profile"
+  ],
+  "properties": {
+    "evidence_object": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "accountability_claim": {
+      "enum": [
+        "RESOURCE_AUTHENTICITY",
+        "AUTHORIZED_AGENT_ACTION",
+        "HUMAN_OVERSIGHT",
+        "EXECUTION_BOUNDARY"
+      ]
+    },
+    "evaluation_profile": {
+      "enum": [
+        "resource-authenticity",
+        "authorized-agent-action",
+        "human-oversight",
+        "execution-boundary"
+      ]
+    },
+    "observation_references": {
+      "description": "Optional inert provenance references. They are never fetched or treated as evidence.",
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512,
+        "pattern": "^[A-Za-z][A-Za-z0-9+.-]*://[^\\s]+$"
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "accountability_claim": {"const": "RESOURCE_AUTHENTICITY"},
+        "evaluation_profile": {"const": "resource-authenticity"}
+      }
+    },
+    {
+      "properties": {
+        "accountability_claim": {"const": "AUTHORIZED_AGENT_ACTION"},
+        "evaluation_profile": {"const": "authorized-agent-action"}
+      }
+    },
+    {
+      "properties": {
+        "accountability_claim": {"const": "HUMAN_OVERSIGHT"},
+        "evaluation_profile": {"const": "human-oversight"}
+      }
+    },
+    {
+      "properties": {
+        "accountability_claim": {"const": "EXECUTION_BOUNDARY"},
+        "evaluation_profile": {"const": "execution-boundary"}
+      }
+    }
+  ]
+}

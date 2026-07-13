@@ -1,0 +1,70 @@
+{
+  "name": "SAEE Production Tenant Storage Isolation Requirements v0.1",
+  "purpose": "Define production tenant storage isolation requirements and evidence without implementing production multi-tenancy, changing storage behavior, closing blockers, or claiming production readiness.",
+  "production_tenant_storage_isolation_requirements_v0_1": true,
+  "requirements_status": "requirements_defined_implementation_hold",
+  "tenant_blockers_covered_as_requirements": [
+    "tenant_storage_isolation"
+  ],
+  "required_tenant_storage_controls": [
+    "production_tenant_data_model_defined",
+    "tenant_scoped_primary_keys_or_partitions",
+    "tenant_scoped_query_enforcement",
+    "cross_tenant_access_denial_tests",
+    "tenant_scoped_audit_metadata",
+    "tenant_backup_restore_boundary",
+    "tenant_deletion_retention_boundary",
+    "tenant_storage_migration_plan",
+    "tenant_storage_observability_plan"
+  ],
+  "required_tenant_isolation_evidence": [
+    "same_experiment_id_cross_tenant_partition_tests",
+    "cross_tenant_read_denial_tests",
+    "cross_tenant_write_denial_tests",
+    "tenant_scoped_listing_tests",
+    "tenant_scoped_report_endpoint_tests",
+    "tenant_audit_ownership_tests",
+    "tenant_backup_restore_scope_tests",
+    "security_review_completed",
+    "privacy_legal_review_completed"
+  ],
+  "evidence_required_before_closing_blockers": [
+    {
+      "blocker_id": "tenant_storage_isolation",
+      "required_evidence": [
+        "production_tenant_data_model_approved",
+        "tenant_query_enforcement_tested",
+        "cross_tenant_access_denial_tests_passed",
+        "tenant_scoped_audit_metadata_reviewed",
+        "tenant_backup_restore_boundary_approved",
+        "security_and_privacy_review_completed"
+      ]
+    }
+  ],
+  "production_tenant_storage_isolation_implemented": false,
+  "tenant_storage_isolated": false,
+  "production_tenant_storage_isolated": false,
+  "tenant_authorization_policy_available": false,
+  "tenant_billing_isolated": false,
+  "multi_tenant_production_ready": false,
+  "customer_data_processing_ready": false,
+  "production_database_ready": false,
+  "tenant_backup_restore_available": false,
+  "tenant_deletion_retention_available": false,
+  "cross_tenant_access_tests_passed": false,
+  "production_tenant_storage_isolation_ready": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "task_candidates_executed": false,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "customer_contacted": false,
+  "storage_behavior_modified": false
+}

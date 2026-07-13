@@ -1,0 +1,1 @@
+{"scenario_id":"UNAUTHORIZED_PARTICIPANT","participant_id":"SIM_CLOUD_PLATFORM_VALIDATOR","requested_test":"capability_discovery_test","contains_customer_data":false,"credential_exposure":false,"adoption_claim":false,"expected_result":"BLOCKED","expected_reason_code":"PARTICIPANT_NOT_AUTHORIZED","external_execution":false}

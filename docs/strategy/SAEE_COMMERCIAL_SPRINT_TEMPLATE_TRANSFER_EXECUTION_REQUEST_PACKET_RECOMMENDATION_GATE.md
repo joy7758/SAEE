@@ -1,0 +1,62 @@
+# SAEE Commercial Sprint Template Transfer Execution Request Packet Recommendation Gate
+
+commercial_sprint_template_transfer_execution_request_packet_v0_1: true
+answer: conditional
+recommend_for_template_transfer_execution_request_packet: true
+recommend_for_human_execution_request_collection: true
+recommend_for_template_transfer_execution: true
+recommend_for_auto_execution: false
+recommend_for_validator_execution: false
+recommend_for_evidence_collection: false
+recommend_for_evidence_builder_execution: false
+recommend_for_blocker_closure: false
+recommend_for_product_launch: false
+recommend_for_production_readiness_claim: false
+
+## Reason
+
+The request packet is conditionally recommendable because the imported workbook has enough required values for template transfer review. It is approval to run only the controlled local template-transfer applier.
+
+## Status
+
+commercial_sprint_template_transfer_execution_request_packet_v0_1: true
+status: ready_for_template_transfer_execution
+packet_scope: template_transfer_execution_request_only_no_transfer_no_validator_no_evidence
+source_import_applied_status: workbook_import_applied_pending_template_transfer_request
+execution_request_count: 1
+ready_execution_request_count: 1
+approved_execution_count: 1
+template_transfer_authorized_count: 1
+missing_condition_count: 0
+workbook_row_count: 65
+mapping_row_count: 65
+required_transfer_row_count: 64
+required_value_present_count: 64
+required_transfer_ready_count: 64
+optional_row_count: 1
+optional_value_present_count: 0
+target_template_count: 5
+pointer_issue_count: 0
+ready_for_template_transfer_request: true
+ready_for_separate_human_template_transfer_execution_request: true
+ready_for_template_transfer_execution: true
+human_execution_request_required: true
+separate_template_transfer_execution_request_required: false
+separate_validator_execution_request_required: true
+human_execution_request_recorded: true
+human_execution_authorized: true
+template_transfer_authorized: true
+template_transfer_performed: false
+values_transferred: false
+human_filled_templates_written: false
+validators_run_on_real_input: false
+evidence_collection_authorized: false
+execution_authorized: false
+evidence_builder_executed: false
+blocker_closure_authorized: false
+boundary_violation_count: 0
+raw_human_values_recorded: false
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false

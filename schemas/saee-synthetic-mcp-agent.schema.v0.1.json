@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-synthetic-mcp-agent.schema.v0.1.json",
+  "title": "SAEE Synthetic MCP Agent v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["agent_id", "agent_goal", "available_capabilities", "selected_tool", "interpretation_policy", "simulation_only"],
+  "properties": {
+    "agent_id": {"type": "string", "pattern": "^agent:synthetic-mcp:[a-z0-9-]+$"},
+    "agent_goal": {"type": "string", "minLength": 1, "maxLength": 240},
+    "available_capabilities": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]}
+    },
+    "selected_tool": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
+    "interpretation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supported_means", "result_is_authorization", "overinterpretation_rejected"],
+      "properties": {
+        "supported_means": {"const": "PROFILE_REQUIREMENT_SATISFIED"},
+        "result_is_authorization": {"const": false},
+        "overinterpretation_rejected": {"const": true}
+      }
+    },
+    "simulation_only": {"const": true}
+  }
+}

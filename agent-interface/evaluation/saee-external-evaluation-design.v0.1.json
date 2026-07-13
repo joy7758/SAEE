@@ -1,0 +1,223 @@
+{
+  "saee_external_evaluation_design_v0_1": true,
+  "evaluation_version": "0.1",
+  "status": "design_only",
+  "research_objective": "Evaluate whether SAEE can assess evidence sufficiency for defined accountability claims under controlled scenarios that more closely resemble agent tool execution, without treating the protocol as an evaluation result.",
+  "research_questions": [
+    {
+      "rq_id": "RQ1",
+      "question": "How much accountability information can be supported by trace-only observations?",
+      "planned_analysis": "Measure claim-level support and unsupported-claim acceptance under the trace-only condition, stratified by claim type."
+    },
+    {
+      "rq_id": "RQ2",
+      "question": "How does adding structured evidence objects affect evidence adequacy evaluation?",
+      "planned_analysis": "Compare pre-registered claim and missing-evidence outcomes across trace-only, receipt, relationship, and complete-package conditions."
+    },
+    {
+      "rq_id": "RQ3",
+      "question": "Can SAEE identify missing evidence relationships and avoid false accountability claims?",
+      "planned_analysis": "Compare predicted missing and invalid relationships with independently annotated reference labels and report false accountability outcomes."
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "code_agent_tool_execution",
+      "status": "planned_not_executed",
+      "unit_of_analysis": "one agent task attempt paired with one accountability claim and one evidence condition",
+      "stages": [
+        "task_received",
+        "tool_selected",
+        "resource_access_declared",
+        "effect_produced_or_denied",
+        "evidence_bundle_assembled",
+        "claim_evaluated"
+      ],
+      "recommended_controls": [
+        "isolated_non_networked_sandbox",
+        "allowlisted_local_tools",
+        "version_pinned_task_assets",
+        "predefined_policy_decisions",
+        "known_expected_effects",
+        "no_unknown_repository_execution"
+      ],
+      "sample_size_status": "requires_pilot_variance_and_power_analysis"
+    }
+  ],
+  "evidence_conditions": [
+    {
+      "condition_id": "A_TRACE_ONLY",
+      "label": "Trace Only",
+      "included_evidence": ["agent_action_trace", "tool_call_observation", "resource_reference_observation"]
+    },
+    {
+      "condition_id": "B_TRACE_RECEIPT",
+      "label": "Trace + Receipt",
+      "included_evidence": ["condition_a", "structured_resource_or_action_receipt"]
+    },
+    {
+      "condition_id": "C_TRACE_RECEIPT_RELATIONSHIPS",
+      "label": "Trace + Receipt + Evidence Relationships",
+      "included_evidence": ["condition_b", "authorization_binding", "temporal_binding", "causal_binding"]
+    },
+    {
+      "condition_id": "D_COMPLETE_SAEE_PACKAGE",
+      "label": "Complete SAEE Evidence Package",
+      "included_evidence": ["condition_c", "claim_specific_required_fields", "claim_specific_required_relationships", "declared_verification_material"]
+    }
+  ],
+  "baselines": [
+    {
+      "baseline_id": "A_OBSERVABILITY_ONLY",
+      "label": "Observability-only approach",
+      "status": "conceptual_not_implemented",
+      "decision_surface": "trace field presence and trace consistency"
+    },
+    {
+      "baseline_id": "B_RECEIPT_LOG_BASED",
+      "label": "Receipt/log based approach",
+      "status": "conceptual_not_implemented",
+      "decision_surface": "structured record presence and local record validity"
+    },
+    {
+      "baseline_id": "C_SAEE_ADEQUACY",
+      "label": "SAEE evidence adequacy approach",
+      "status": "planned_evaluation_not_executed",
+      "decision_surface": "claim-specific fields, evidence objects, and semantic relationships"
+    }
+  ],
+  "metrics": [
+    {
+      "metric_id": "FALSE_ACCOUNTABILITY_RATE",
+      "role": "primary",
+      "formula": "unsupported_claims_incorrectly_accepted / all_reference_unsupported_claims",
+      "unit": "claim_attempt",
+      "interpretation_boundary": "A lower planned value would indicate fewer false profile-support decisions in the evaluated dataset, not legal correctness or universal safety."
+    },
+    {
+      "metric_id": "MISSING_EVIDENCE_IDENTIFICATION_ACCURACY",
+      "role": "primary",
+      "formula": "exact_missing_set_matches / all_annotated_claim_attempts; also report set precision, recall, and F1",
+      "unit": "claim_attempt_and_missing_item",
+      "interpretation_boundary": "Agreement is measured against protocol annotations, whose quality and ambiguity must be reported."
+    },
+    {
+      "metric_id": "CLAIM_SUPPORT_COVERAGE",
+      "role": "primary",
+      "formula": "reference_supportable_claims_marked_profile_satisfied / all_reference_supportable_claims",
+      "unit": "claim_attempt",
+      "interpretation_boundary": "Coverage must be reported beside false accountability outcomes and cannot be treated as a standalone quality score."
+    },
+    {
+      "metric_id": "EVIDENCE_RELATIONSHIP_COMPLETENESS",
+      "role": "primary",
+      "formula": "present_and_reference_valid_required_relationships / all_required_relationships_for_claim",
+      "unit": "required_relationship",
+      "interpretation_boundary": "Completeness describes recorded relationships and does not prove external authenticity, causality, or legal adequacy."
+    }
+  ],
+  "dataset_requirements": {
+    "acquisition_status": "not_started",
+    "required_modalities": [
+      "agent_action_traces",
+      "tool_calls",
+      "resource_references",
+      "authorization_events",
+      "human_approval_events",
+      "execution_outcomes"
+    ],
+    "options": [
+      {
+        "option_id": "SYNTHETIC",
+        "purpose": "Controlled fault injection and known reference relationships.",
+        "external_data_required": false
+      },
+      {
+        "option_id": "REAL_WORLD",
+        "purpose": "Independently sourced or consenting-participant traces with documented provenance, privacy, and license review.",
+        "external_data_required": true
+      },
+      {
+        "option_id": "HYBRID",
+        "purpose": "Realistic trace structure combined with controlled evidence omissions and relationship mutations.",
+        "external_data_required": "conditional"
+      }
+    ],
+    "required_gates": [
+      "data_source_approval",
+      "license_and_terms_review",
+      "privacy_and_redaction_plan",
+      "consent_or_lawful_basis_record",
+      "retention_and_deletion_plan",
+      "provenance_manifest",
+      "train_test_or_pilot_holdout_separation"
+    ]
+  },
+  "annotation_protocol": {
+    "status": "designed_not_executed",
+    "unit": "claim_attempt",
+    "labels": [
+      "claim_support_status",
+      "missing_evidence_set",
+      "invalid_relationship_set",
+      "authorization_boundary",
+      "causal_relationship_status"
+    ],
+    "annotators_per_item": 2,
+    "independent_first_pass": true,
+    "condition_blinding_required": true,
+    "adjudicator_required_for_disagreement": true,
+    "agreement_measures": [
+      "cohen_kappa_or_krippendorff_alpha_for_categorical_labels",
+      "set_jaccard_and_item_level_f1_for_evidence_sets"
+    ],
+    "provisional_agreement_target": ">=0.80_before_main_evaluation_or_protocol_revision_required"
+  },
+  "execution_phases": [
+    {"phase_id": "PHASE_1_DATASET_PREPARATION", "status": "planned_not_started"},
+    {"phase_id": "PHASE_2_BASELINE_IMPLEMENTATION", "status": "planned_not_started"},
+    {"phase_id": "PHASE_3_SAEE_EVALUATION", "status": "planned_not_started"},
+    {"phase_id": "PHASE_4_INDEPENDENT_VALIDATION", "status": "planned_not_started"}
+  ],
+  "references": [
+    "docs/paper-draft/SAEE_ACADEMIC_PAPER_DRAFT_v0.1.md",
+    "docs/paper-draft/PAPER_CLAIMS_BOUNDARY.md",
+    "agent-interface/research-artifact/saee-artifact-manifest.v0.1.json",
+    "agent-interface/benchmarks/evidence-adequacy/benchmark.v0.1.json",
+    "agent-interface/reproducibility/expected-results.v0.1.json",
+    "docs/EVIDENCE_ADEQUACY_BENCHMARK.md",
+    "docs/REPRODUCIBILITY_ENVIRONMENT_REQUIREMENTS.md",
+    "docs/evaluation/SAEE_EXTERNAL_EVALUATION_DESIGN.md",
+    "docs/evaluation/EVALUATION_CLAIMS_BOUNDARY.md"
+  ],
+  "limitations": [
+    "No external dataset has been selected, downloaded, licensed, or evaluated.",
+    "No real agent, external tool, OpenTelemetry collector, external API, or unknown code has been run.",
+    "Baseline labels describe planned comparison logic and do not indicate completed implementations.",
+    "Metric definitions do not imply measured values or expected superiority.",
+    "The first scenario covers code-agent tool execution and may not generalize to other agent domains.",
+    "Annotation agreement targets and sample size must be confirmed through an approved pilot and preregistration.",
+    "External validation remains incomplete until independently executed and reviewed evidence exists."
+  ],
+  "claims_supported": ["evaluation_protocol_defined"],
+  "executed": false,
+  "external_data_used": false,
+  "real_agents_run": false,
+  "opentelemetry_collectors_run": false,
+  "external_code_executed": false,
+  "external_validation_completed": false,
+  "truth_boundary": {
+    "dataset_collected": false,
+    "baseline_implemented": false,
+    "experiment_executed": false,
+    "results_available": false,
+    "external_validation_completed": false,
+    "independent_validation_completed": false,
+    "benchmark_superiority_claimed": false,
+    "production_effectiveness_claimed": false,
+    "regulatory_evidence_claimed": false,
+    "paper_submitted": false,
+    "production_ready": false
+  },
+  "recommended_next_pr": "Implement SAEE Evaluation Prototype v0.1"
+}

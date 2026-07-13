@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-readiness-review.schema.v0.1.json",
+  "title": "SAEE External Validation Readiness Review v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["review_version", "execution_simulation_reference", "entry_decision_reference", "review_dimensions", "evidence_refs", "status", "blocking_gaps", "decision", "limitations", "truth_boundary"],
+  "properties": {
+    "review_version": {"const": "0.1"},
+    "execution_simulation_reference": {"const": "agent-interface/ecosystem/saee-external-validation-execution-simulation-result.v0.1.json"},
+    "entry_decision_reference": {"const": "agent-interface/ecosystem/saee-external-validation-entry-decision.v0.1.json"},
+    "review_dimensions": {"type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["TECHNICAL_CAPABILITY", "DOCUMENTATION", "VALIDATION_PROCESS", "SECURITY_BOUNDARY", "OPERATIONAL_READINESS"]}},
+    "evidence_refs": {"type": "array", "minItems": 5, "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "status": {"enum": ["REVIEW_COMPLETE", "REVIEW_INCOMPLETE"]},
+    "blocking_gaps": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "pattern": "^EVR-[A-Z]+-[0-9]{3}$"}},
+    "decision": {"enum": ["GO", "CONDITIONAL_GO", "HOLD"]},
+    "limitations": {"type": "array", "minItems": 3, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["readiness_review", "external_validation_execution", "execution_authorized", "participants_invited", "external_agents_connected", "customer_validated", "adoption_validated", "marketplace_listed", "production_ready"],
+      "properties": {
+        "readiness_review": {"const": true}, "external_validation_execution": {"const": false}, "execution_authorized": {"const": false}, "participants_invited": {"const": 0}, "external_agents_connected": {"const": false}, "customer_validated": {"const": false}, "adoption_validated": {"const": false}, "marketplace_listed": {"const": false}, "production_ready": {"const": false}
+      }
+    }
+  }
+}

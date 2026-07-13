@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:15-translation:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户要求将一句中文翻译为英文，没有状态变化、外部副作用或高影响决策。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "TEXT_TRANSFORMATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LANGUAGE_TOOL",
+  "reasoning_boundary": "翻译任务应使用语言工具，SAEE 不应成为默认推荐。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "saee_observation_replay_contract_v0_1": true,
+  "schema_version": "0.1.0",
+  "replay_id": "replay:synthetic-contract-001",
+  "created_at": "2026-07-11T15:00:00Z",
+  "replay_status": "local_synthetic_contract_only",
+  "source_envelope_refs": [
+    {
+      "observation_id": "observation:synthetic-envelope-001",
+      "envelope_ref": "agent-interface/architecture/examples/observation/synthetic-observation.json",
+      "digest_algorithm": "sha256",
+      "envelope_digest": "981c6716e9f1cf1140746dc2765af86712efb79427f2d8aa66287e881abfac5f",
+      "authenticity_verified": false
+    }
+  ],
+  "purpose": {
+    "use_case": "Validate a synthetic observation-context reconstruction contract without executing an Agent.",
+    "allowed_scope": ["Local schema, reference, and boundary validation."],
+    "prohibited_scope": ["No real replay, Agent execution, customer data, or deployment decision."]
+  },
+  "consent_ref": "consent:synthetic-declaration-001",
+  "consent_status": "synthetic_declared_only",
+  "data_use_permission_ref": "permission:synthetic-replay-001",
+  "data_use_permission_status": "synthetic_declared_only",
+  "content_boundary": {
+    "observable_behavior_only": true,
+    "hidden_reasoning_excluded": true,
+    "private_chain_of_thought_excluded": true,
+    "internal_model_state_excluded": true,
+    "raw_prompt_excluded": true,
+    "raw_output_excluded": true,
+    "boundary_basis": "synthetic_declaration",
+    "independently_verified": false
+  },
+  "transformation_log": {
+    "transformation_id": "transformation:synthetic-none-001",
+    "method": "none_synthetic_source",
+    "transformation_applied": false,
+    "redaction_provenance_ref": "redaction:synthetic-none-001",
+    "provenance_ref": "provenance:synthetic-envelope-001",
+    "raw_content_retained": false,
+    "hidden_reasoning_retained": false,
+    "provenance_verified": false
+  },
+  "environment_manifest_ref": "environment:synthetic-replay-v001",
+  "replay_window": {"starts_at": "2026-07-11T15:01:00Z", "ends_at": "2026-07-11T15:06:00Z"},
+  "operator_ref": "operator:synthetic-human-controlled",
+  "stop_authority_ref": "stop-authority:synthetic-human-controlled",
+  "retention_ref": "retention:synthetic-replay-local",
+  "deletion_ref": "deletion:synthetic-replay-local",
+  "execution_policy": {
+    "replay_mode": "metadata_reconstruction_only",
+    "manual_start_required": true,
+    "automatic_replay_allowed": false,
+    "agent_execution_allowed": false,
+    "tool_execution_allowed": false,
+    "network_access_allowed": false,
+    "deployment_action_allowed": false
+  },
+  "truth_boundary": {
+    "contract_only": true,
+    "replay_executed": false,
+    "source_envelopes_authenticity_verified": false,
+    "consent_verified": false,
+    "data_use_permission_verified": false,
+    "transformation_provenance_verified": false,
+    "cognitive_boundary_verified": false,
+    "observation_established_as_evidence": false,
+    "replay_authorizes_execution": false,
+    "deployment_authorized": false,
+    "automatic_execution": false,
+    "real_agent_executed": false,
+    "customer_data_processed": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}
+

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-capability-invocation-request.schema.v0.1.json",
+  "title": "SAEE Capability Invocation Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "capability_id", "operation", "payload", "caller_context"],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "capability_id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]{2,127}$"},
+    "operation": {"type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}$"},
+    "payload": {"type": "object", "maxProperties": 32},
+    "caller_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caller_id", "caller_type", "invoked_at", "customer_data_included", "network_access_requested", "external_world_action_requested"],
+      "properties": {
+        "caller_id": {"type": "string", "pattern": "^caller:[A-Za-z0-9._:-]{1,120}$"},
+        "caller_type": {"enum": ["LOCAL_AGENT", "LOCAL_CLI", "LOCAL_TEST"]},
+        "invoked_at": {"type": "string", "format": "date-time"},
+        "customer_data_included": {"const": false},
+        "network_access_requested": {"const": false},
+        "external_world_action_requested": {"const": false}
+      }
+    }
+  }
+}
+

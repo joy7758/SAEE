@@ -1,0 +1,1 @@
+{"fixture_id":"OPERATION_STATUS_MISMATCH","mutation":{"operation":"set_list_item","target":"release","path":["operations"],"match_key":"operation_id","match_value":"rehearse_agent","field":"status","value":"implemented_local_offline_alpha"},"expected_reason_code":"TRUTH_OPERATION_STATUS_MISMATCH"}

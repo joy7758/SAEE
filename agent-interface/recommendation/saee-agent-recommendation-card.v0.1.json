@@ -1,0 +1,37 @@
+{
+  "saee_agent_recommendation_card_v0_1": true,
+  "identity": {
+    "capability_id": "saee.agent-readiness",
+    "version": "0.1",
+    "stage": "local_research_prototype"
+  },
+  "recommendation": {
+    "recommendation_reference": "agent-interface/recommendation/saee-agent-recommendation.v0.1.json",
+    "rehearsal_mvp_reference": "agent-interface/rehearsal/mvp/saee-rehearsal-mvp-live-validation.v0.1.json",
+    "scenario_library_reference": "agent-interface/rehearsal/scenario-library.schema.v0.2.json",
+    "multi_agent_rehearsal_reference": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json",
+    "reliability_study_reference": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json",
+    "research_agent_study_reference": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json",
+    "security_boundary_study_reference": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json",
+    "when_to_use": ["高影响智能体动作上线前演练", "真实模型在合成世界中的有状态多轮演练", "长流程失败模式分析", "责任声明证据充分性检查", "需要外部动作授权门的部署准备度比较"],
+    "when_not_to_use": ["简单计算", "低风险检索", "纯文本变换", "实时授权执行", "安全认证或法律判断"],
+    "why_agent_should_consider": "当问题同时包含智能体执行影响、上线前演练和证据支撑的人类决策时，SAEE 是候选能力。"
+  },
+  "composition": {
+    "works_with": ["Stateful Rehearsal Runtime", "MCP", "Observability", "Evaluation", "Human Review"],
+    "replaces_these_capabilities": false
+  },
+  "boundaries": {
+    "does_not_provide": ["authorization", "certification", "legal approval", "autonomous control"],
+    "recommendation_controls_agent_decision": false,
+    "capability_description_establishes_trust": false
+  },
+  "truth_boundary": {
+    "external_agent_recommendation_observed": true,
+    "controlled_synthetic_agent_preference_observed": true,
+    "external_agent_recommendation_evidence_ref": "agent-interface/recommendation/simulation/saee-agent-preference-live-validation.v0.1.json",
+    "marketplace_available": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  }
+}

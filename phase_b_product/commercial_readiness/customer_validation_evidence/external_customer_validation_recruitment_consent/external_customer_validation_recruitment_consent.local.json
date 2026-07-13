@@ -1,0 +1,32 @@
+{
+  "external_customer_validation_recruitment_consent_v0_1": true,
+  "status": "prepared_for_human_outreach_no_contact_by_codex",
+  "packet_type": "manual_external_customer_validation_recruitment_consent",
+  "current_goal_blocker": "customer_validated",
+  "planned_external_sessions": 1,
+  "human_outreach_required": true,
+  "human_session_required": true,
+  "codex_may_contact_customer": false,
+  "codex_contacted_customer": false,
+  "customer_contacted_by_codex": false,
+  "human_session_performed": false,
+  "human_result_entered": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "external_model_api_called": false,
+  "blockers_closed_by_packet": 0,
+  "next_human_action": "Human selects one real external customer or target user, sends the invitation manually, records consent, runs the interview, then fills the existing session entry template.",
+  "entrypoints": {
+    "readme": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/README.md",
+    "invitation": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/INVITATION_MESSAGE_DRAFT.md",
+    "screening": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/PARTICIPANT_SCREENING_CHECKLIST.md",
+    "consent": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/CONSENT_AND_BOUNDARY_SCRIPT.md",
+    "boundary_audit": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/BOUNDARY_AUDIT.md",
+    "gate": "docs/strategy/SAEE_EXTERNAL_CUSTOMER_VALIDATION_RECRUITMENT_CONSENT_GATE.md",
+    "runner": "scripts/saee_external_customer_validation_recruitment_consent.py",
+    "smoke": "scripts/saee_external_customer_validation_recruitment_consent_smoke.py"
+  }
+}

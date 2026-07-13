@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-simulation-evidence.schema.v0.1.json",
+  "title": "SAEE External Validation Simulation Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "participant_id", "scenario_id", "evidence_type", "result", "limitations", "simulation_only", "contains_private_data"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^simulation-evidence:[a-z0-9._-]+$"},
+    "participant_id": {"type": "string", "pattern": "^SIM_[A-Z_]+$"},
+    "scenario_id": {"type": "string", "pattern": "^[A-Z_]+$"},
+    "evidence_type": {"enum": ["simulation_result", "test_execution_record", "compatibility_observation", "feedback_record", "limitation_record"]},
+    "result": {"enum": ["PASS", "BLOCKED", "REJECTED", "TERMINATED"]},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "simulation_only": {"const": true},
+    "contains_private_data": {"const": false}
+  }
+}
+

@@ -1,0 +1,210 @@
+{
+  "support_contact_minimum_human_input_workspace_v0_1": true,
+  "workspace_type": "minimum_support_contact_human_input_workspace",
+  "workspace_scope": "human_field_inventory_only_no_values_no_submit_no_execution",
+  "status": "hold_minimum_human_input_required",
+  "commercial_status": "hold",
+  "production_launch_status": "hold",
+  "target_blocker_id": "support_contact",
+  "source_entrypoint_json": "phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_entrypoint.local.json",
+  "source_decision_template": "phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.template.json",
+  "source_bridge_template": "phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json",
+  "source_first_priority_packet": "phase_b_product/commercial_readiness/support_evidence/support_contact_first_priority_packet/support_contact_first_priority_packet.local.json",
+  "generated_at": "2026-07-13T13:59:08.329721+00:00",
+  "minimum_required_field_count": 20,
+  "minimum_required_human_value_count": 20,
+  "filled_value_count": 0,
+  "blank_value_count": 20,
+  "field_rows": [
+    {
+      "field_id": "first_owner_input.assigned_human_owner",
+      "group": "first_owner",
+      "required": true,
+      "where_to_fill": "support_contact_human_input_bridge_input.human_filled.local.json",
+      "human_instruction": "填写负责推进 support_contact 的人名或内部角色。"
+    },
+    {
+      "field_id": "first_owner_input.owner_contact_reference",
+      "group": "first_owner",
+      "required": true,
+      "where_to_fill": "support_contact_human_input_bridge_input.human_filled.local.json",
+      "human_instruction": "填写内部可追溯的负责人联系方式或工单引用，不要写敏感凭据。"
+    },
+    {
+      "field_id": "first_owner_input.target_review_date",
+      "group": "first_owner",
+      "required": true,
+      "where_to_fill": "support_contact_human_input_bridge_input.human_filled.local.json",
+      "human_instruction": "填写目标审查日期。"
+    },
+    {
+      "field_id": "first_owner_input.human_approval_reference",
+      "group": "first_owner",
+      "required": true,
+      "where_to_fill": "support_contact_human_input_bridge_input.human_filled.local.json",
+      "human_instruction": "填写人工批准来源，例如本地会议纪要或内部审批编号。"
+    },
+    {
+      "field_id": "first_owner_input.owner_acknowledged_scope",
+      "group": "first_owner",
+      "required": true,
+      "where_to_fill": "support_contact_human_input_bridge_input.human_filled.local.json",
+      "human_instruction": "负责人确认只推进支持入口证据，不发布产品、不联系客户。"
+    },
+    {
+      "field_id": "support_contact_decision_input.human_reviewer_name",
+      "group": "decision_metadata",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写实际审查人。"
+    },
+    {
+      "field_id": "support_contact_decision_input.review_date",
+      "group": "decision_metadata",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写审查日期。"
+    },
+    {
+      "field_id": "support_contact_decision_input.selected_support_contact_channel",
+      "group": "decision_metadata",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写被人工选定的支持渠道类型或内部引用。"
+    },
+    {
+      "field_id": "support_contact_decision_input.decision_summary",
+      "group": "decision_metadata",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "用一句话说明为什么该支持入口可进入下一步本地验证。"
+    },
+    {
+      "field_id": "support_contact_decision_input.evidence_review.customer_facing_support_contact_configured",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "support_contact_decision_input.source_notes_by_key.customer_facing_support_contact_configured",
+      "group": "source_notes",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写人工可追溯来源说明；不要写密钥、密码或私人凭据。"
+    },
+    {
+      "field_id": "support_contact_decision_input.evidence_review.support_contact_owner_named",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "support_contact_decision_input.source_notes_by_key.support_contact_owner_named",
+      "group": "source_notes",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写人工可追溯来源说明；不要写密钥、密码或私人凭据。"
+    },
+    {
+      "field_id": "support_contact_decision_input.evidence_review.abuse_handling_path_defined",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "support_contact_decision_input.source_notes_by_key.abuse_handling_path_defined",
+      "group": "source_notes",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写人工可追溯来源说明；不要写密钥、密码或私人凭据。"
+    },
+    {
+      "field_id": "support_contact_decision_input.evidence_review.customer_notice_route_defined",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "support_contact_decision_input.source_notes_by_key.customer_notice_route_defined",
+      "group": "source_notes",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写人工可追溯来源说明；不要写密钥、密码或私人凭据。"
+    },
+    {
+      "field_id": "support_contact_decision_input.evidence_review.support_contact_test_recorded",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "support_contact_decision_input.source_notes_by_key.support_contact_test_recorded",
+      "group": "source_notes",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "填写人工可追溯来源说明；不要写密钥、密码或私人凭据。"
+    },
+    {
+      "field_id": "support_contact_decision_input.candidate_contact_slots[minimum_one_complete]",
+      "group": "candidate_contact_slot",
+      "required": true,
+      "where_to_fill": "support_contact_decision_input.human_filled.local.json",
+      "human_instruction": "至少补全一个候选支持入口槽位；只记录人工批准的公开/可公开信息。"
+    }
+  ],
+  "first_owner_field_count": 5,
+  "support_decision_field_count": 15,
+  "candidate_contact_slot_count": 2,
+  "minimum_completed_contact_slot_count": 1,
+  "combined_bridge_input_row_count": 16,
+  "first_priority_status": "hold_human_support_contact_input_required",
+  "human_review_required": true,
+  "human_input_required": true,
+  "next_human_action": "Copy the bridge template and decision template to human_filled.local.json files, fill only human-approved values, then run local validators. Do not publish a support contact or close blockers from this workspace.",
+  "copy_commands": [
+    "cp phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.human_filled.local.json",
+    "cp phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.template.json phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.human_filled.local.json"
+  ],
+  "post_fill_validation_commands": [
+    "python3 scripts/saee_support_contact_human_input_bridge_completion_helper.py --combined-input phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.human_filled.local.json",
+    "python3 scripts/saee_commercial_evidence_sprint_first_owner_input_validator.py --input phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input.human_filled.local.json",
+    "python3 scripts/saee_support_contact_approval_input_validator.py --input phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.human_filled.local.json",
+    "python3 scripts/saee_support_contact_readiness_board.py"
+  ],
+  "boundary_violations": [],
+  "boundary_violation_count": 0,
+  "production_ready": false,
+  "product_launched": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_ai_assistant_tested": false,
+  "workbook_import_authorized": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "blocker_closure_authorized": false,
+  "development_permission_granted": false,
+  "production_ready_claim": false,
+  "customer_validation_claim": false,
+  "support_contact_configured": false,
+  "support_contact_published": false,
+  "support_contact_test_performed": false,
+  "support_contact_claim_published": false,
+  "human_values_generated_by_codex": false,
+  "human_input_filled_by_codex": false,
+  "validator_inputs_exported": false,
+  "validators_run": false,
+  "values_saved_by_workspace": false,
+  "form_submission_enabled": false
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "synthetic-agent.schema.v0.1.json",
+  "title": "SAEE Synthetic External Agent Identity v0.1",
+  "description": "Declaration-only synthetic Agent identity for local boundary simulation; not authentication or trust.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_synthetic_agent_v0_1",
+    "simulation_version",
+    "agent_id",
+    "agent_type",
+    "declared_purpose",
+    "organization_context",
+    "capability_context",
+    "identity_as_trust",
+    "identity_as_authentication",
+    "synthetic_agent"
+  ],
+  "properties": {
+    "saee_synthetic_agent_v0_1": {"const": true},
+    "simulation_version": {"const": "0.1"},
+    "agent_id": {"type": "string", "pattern": "^agent:synthetic-external:[a-z0-9-]+$", "maxLength": 128},
+    "agent_type": {"enum": ["EVALUATION_AGENT", "GOVERNANCE_AGENT", "PLATFORM_AGENT", "UNTRUSTED_AGENT"]},
+    "declared_purpose": {"type": "string", "minLength": 1, "maxLength": 256},
+    "organization_context": {"type": "string", "minLength": 1, "maxLength": 160},
+    "capability_context": {"const": "saee.evidence-adequacy"},
+    "identity_as_trust": {"const": false},
+    "identity_as_authentication": {"const": false},
+    "synthetic_agent": {"const": true}
+  }
+}

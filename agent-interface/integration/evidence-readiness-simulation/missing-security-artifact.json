@@ -1,0 +1,15 @@
+{
+  "simulation_version": "0.1",
+  "scenario_id": "evidence-readiness:missing-security-artifact",
+  "scenario_type": "MISSING_SECURITY_ARTIFACT",
+  "synthetic_only": true,
+  "base_package_ref": "agent-interface/integration/evidence-readiness-simulation/complete-synthetic-artifact-package.json",
+  "mutation": {"operation": "REMOVE_ARTIFACT", "source_gap_id": "GAP_SECURITY_FORMAL_REVIEW", "value": null},
+  "expected_reassessment_eligible": false,
+  "real_evidence_acquired": false,
+  "gaps_closed": false,
+  "readiness_status": "NOT_READY",
+  "pilot_authorized": false,
+  "execution_authorized": false,
+  "production_ready": false
+}

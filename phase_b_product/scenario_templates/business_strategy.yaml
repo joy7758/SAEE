@@ -1,0 +1,26 @@
+scenario_id: business_strategy
+display_name: Business Strategy Stress Test
+description: Compare business strategies under market change, competition pressure, resource limits, and policy change.
+target_customer: Founders, operators, and strategy teams comparing business options
+decision_question: Which strategy is more likely to survive changing conditions?
+candidate_input:
+  - strategy_description
+  - resources
+  - assumptions
+  - goals
+simulation_environment: business_strategy_counterfactual_stress_test
+stress_factors:
+  - market_change
+  - competition_pressure
+  - resource_limit
+  - policy_change
+evaluation_focus:
+  - survival_score
+  - risk_analysis
+  - recommendation
+output_report:
+  - ranking
+  - survival_score
+  - risk_analysis
+  - recommendation
+business_value: Helps teams compare strategic options before investing time, people, and capital.

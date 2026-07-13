@@ -1,0 +1,118 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "evidence_templates": [
+    {
+      "covered_blocker_ids": [
+        "production_identity_provider",
+        "oauth_oidc",
+        "rbac"
+      ],
+      "env_var": "SAEE_PRODUCTION_AUTH_EVIDENCE_PATH",
+      "filename": "production_auth_evidence.template.json",
+      "name": "Production Auth Evidence",
+      "type_key": "auth_evidence_type",
+      "type_value": "production_auth_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "support_contact",
+        "customer_support",
+        "sla",
+        "on_call_rotation"
+      ],
+      "env_var": "SAEE_PRODUCTION_SUPPORT_EVIDENCE_PATH",
+      "filename": "production_support_sla_evidence.template.json",
+      "name": "Production Support/SLA Evidence",
+      "type_key": "support_evidence_type",
+      "type_value": "production_support_sla_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "restore_tested",
+        "production_restore_policy"
+      ],
+      "env_var": "SAEE_PRODUCTION_DATA_OPERATIONS_EVIDENCE_PATH",
+      "filename": "production_data_operations_evidence.template.json",
+      "name": "Production Data Operations Evidence",
+      "type_key": "data_operations_evidence_type",
+      "type_value": "production_data_operations_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "production_monitoring",
+        "external_alert_delivery",
+        "on_call_rotation"
+      ],
+      "env_var": "SAEE_PRODUCTION_OPERATIONS_EVIDENCE_PATH",
+      "filename": "production_operations_evidence.template.json",
+      "name": "Production Operations Evidence",
+      "type_key": "operations_evidence_type",
+      "type_value": "production_operations_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "formal_security_review",
+        "privacy_legal_review",
+        "data_processing_agreement",
+        "vulnerability_management"
+      ],
+      "env_var": "SAEE_PRODUCTION_PRIVACY_SECURITY_LEGAL_EVIDENCE_PATH",
+      "filename": "production_privacy_security_legal_evidence.template.json",
+      "name": "Production Privacy/Security/Legal Evidence",
+      "type_key": "privacy_security_legal_evidence_type",
+      "type_value": "production_privacy_security_legal_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "pricing_page",
+        "payment_provider",
+        "invoice_process",
+        "tax_review",
+        "refund_policy",
+        "tenant_billing_isolation"
+      ],
+      "env_var": "SAEE_PRODUCTION_BILLING_REVENUE_EVIDENCE_PATH",
+      "filename": "production_billing_revenue_evidence.template.json",
+      "name": "Production Billing/Revenue Evidence",
+      "type_key": "billing_revenue_evidence_type",
+      "type_value": "production_billing_revenue_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "tenant_storage_isolation"
+      ],
+      "env_var": "SAEE_PRODUCTION_TENANT_STORAGE_EVIDENCE_PATH",
+      "filename": "production_tenant_storage_evidence.template.json",
+      "name": "Production Tenant Storage Evidence",
+      "type_key": "tenant_storage_evidence_type",
+      "type_value": "production_tenant_storage_evidence"
+    },
+    {
+      "covered_blocker_ids": [
+        "pilot_results",
+        "customer_validated"
+      ],
+      "env_var": "SAEE_PRODUCTION_CUSTOMER_VALIDATION_EVIDENCE_PATH",
+      "filename": "production_customer_validation_evidence.template.json",
+      "name": "Production Customer Validation Evidence",
+      "type_key": "customer_validation_evidence_type",
+      "type_value": "production_customer_validation_evidence"
+    }
+  ],
+  "external_calls_made": false,
+  "kernel_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_blockers_closed_by_templates": 0,
+  "production_evidence_template_pack_v0_1": true,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "runtime_modified": false,
+  "template_count": 8,
+  "template_pack_type": "saee_production_evidence_template_pack",
+  "template_pack_version": "v0.1",
+  "template_status": "placeholder_only"
+}

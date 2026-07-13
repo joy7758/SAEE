@@ -1,0 +1,25 @@
+{
+  "decision_version": "0.1",
+  "scenario_id": "decision:pilot:safety-violation",
+  "scenario_type": "SAFETY_VIOLATION",
+  "synthetic_only": true,
+  "readiness_status": "READY",
+  "readiness_result_ref": null,
+  "decision": "TERMINATED",
+  "execution_authorized": false,
+  "human_approval_required": true,
+  "blocking_gaps": [],
+  "approval_evidence": {
+    "security_approval": {"present": true, "evidence_reference": "synthetic:approval:security"},
+    "data_approval": {"present": true, "evidence_reference": "synthetic:approval:data"},
+    "execution_authorization": {"present": true, "evidence_reference": "synthetic:approval:execution"}
+  },
+  "human_responsibility": {"owner_assigned": true, "owner_reference": "synthetic:owner:authorized-reviewer"},
+  "safety_event": "SECRET_EXPOSURE",
+  "synthetic_approval": true,
+  "design_documents_as_approval": false,
+  "real_approval_exists": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "external_execution": false
+}

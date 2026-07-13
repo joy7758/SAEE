@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.title{font-size:17px;font-weight:700}.axis{font-size:11px;fill:#374151}.label{font-size:10px}</style>
+<text class="title" x="70" y="30">Transition-step bootstrap summary</text>
+<line x1="132.77777777777777" y1="265.07" x2="132.77777777777777" y2="273.69" stroke="#6b7280" stroke-width="2"/>
+<circle cx="132.77777777777777" cy="268.52" r="5" fill="#1d4ed8"/>
+<text class="label" x="98.77777777777777" y="346" transform="rotate(35 98.77777777777777,346)">DBI-1:none</text>
+<line x1="218.33333333333334" y1="71.84" x2="218.33333333333334" y2="120.15" stroke="#6b7280" stroke-width="2"/>
+<circle cx="218.33333333333334" cy="94.27" r="5" fill="#1d4ed8"/>
+<text class="label" x="184.33333333333334" y="346" transform="rotate(35 184.33333333333334,346)">DBI-1:strong</text>
+<line x1="303.8888888888889" y1="244.36" x2="303.8888888888889" y2="255.58" stroke="#6b7280" stroke-width="2"/>
+<circle cx="303.8888888888889" cy="247.81" r="5" fill="#1d4ed8"/>
+<text class="label" x="269.8888888888889" y="346" transform="rotate(35 269.8888888888889,346)">DBI-1:weak</text>
+<line x1="389.44444444444446" y1="294.40" x2="389.44444444444446" y2="296.12" stroke="#6b7280" stroke-width="2"/>
+<circle cx="389.44444444444446" cy="296.12" r="5" fill="#1d4ed8"/>
+<text class="label" x="355.44444444444446" y="346" transform="rotate(35 355.44444444444446,346)">DBI-2:none</text>
+<line x1="475.0" y1="252.99" x2="475.0" y2="259.89" stroke="#6b7280" stroke-width="2"/>
+<circle cx="475.0" cy="256.44" r="5" fill="#1d4ed8"/>
+<text class="label" x="441.0" y="346" transform="rotate(35 441.0,346)">DBI-2:strong</text>
+<line x1="560.5555555555555" y1="292.67" x2="560.5555555555555" y2="294.40" stroke="#6b7280" stroke-width="2"/>
+<circle cx="560.5555555555555" cy="293.53" r="5" fill="#1d4ed8"/>
+<text class="label" x="526.5555555555555" y="346" transform="rotate(35 526.5555555555555,346)">DBI-2:weak</text>
+<line x1="646.1111111111111" y1="111.52" x2="646.1111111111111" y2="133.95" stroke="#6b7280" stroke-width="2"/>
+<circle cx="646.1111111111111" cy="123.60" r="5" fill="#1d4ed8"/>
+<text class="label" x="612.1111111111111" y="346" transform="rotate(35 612.1111111111111,346)">DBI-3:none</text>
+<line x1="731.6666666666666" y1="322.00" x2="731.6666666666666" y2="322.00" stroke="#6b7280" stroke-width="2"/>
+<circle cx="731.6666666666666" cy="322.00" r="5" fill="#1d4ed8"/>
+<text class="label" x="697.6666666666666" y="346" transform="rotate(35 697.6666666666666,346)">DBI-3:strong</text>
+<line x1="817.2222222222222" y1="40.79" x2="817.2222222222222" y2="63.21" stroke="#6b7280" stroke-width="2"/>
+<circle cx="817.2222222222222" cy="52.00" r="5" fill="#1d4ed8"/>
+<text class="label" x="783.2222222222222" y="346" transform="rotate(35 783.2222222222222,346)">DBI-3:weak</text>
+<text class="axis" x="30" y="56">max 156</text>
+<text class="axis" x="46" y="326">0</text>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "canonical_operation_source": "../../capability-package/manifest.json",
+  "operations": [
+    {"operation_id":"evaluate_agent_run","status":"implemented_local_offline_alpha"},
+    {"operation_id":"evaluate_evidence","status":"implemented_local_offline_prototype"},
+    {"operation_id":"rehearse_agent","status":"contract_only"}
+  ],
+  "operation_logic_included": false,
+  "public_endpoint": null
+}

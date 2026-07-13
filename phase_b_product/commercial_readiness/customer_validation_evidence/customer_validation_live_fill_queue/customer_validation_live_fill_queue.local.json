@@ -1,0 +1,359 @@
+{
+  "answer_input": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_answer_intake_helper/customer_validation_answers.human_filled.md",
+  "answer_input_exists": false,
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_queue": 0,
+  "current_goal_blocker": "customer_validated",
+  "customer_answer_required_count": 13,
+  "customer_contacted_by_codex": false,
+  "customer_validated": false,
+  "customer_validation_live_fill_queue_v0_1": true,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:04.862652+00:00",
+  "human_operator_confirmation_required_count": 34,
+  "invalid_field_count": 0,
+  "kernel_modified": false,
+  "missing_field_count": 47,
+  "preflight_status": "hold_human_answer_sheet_missing",
+  "preflight_stdout": "SAEE_CUSTOMER_VALIDATION_ANSWER_SHEET_PREFLIGHT: PASS status=hold_human_answer_sheet_missing ready_for_apply=false customer_validated=false production_ready=false",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "queue": [
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "at_least_one_human_approved_pilot_session_completed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "boundary_flags_reviewed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "candidate_count",
+      "question_or_action": "你通常要比较几个候选方案？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "claim_scope_approved",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "current_evaluation_method",
+      "question_or_action": "你现在怎么判断哪个 agent、工作流或策略版本更靠谱？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "customer_problem_fit_reviewed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "customer_role_and_segment_recorded",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "customer_validation_record_approved_by_human",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "decision_influence_score",
+      "question_or_action": "这个结果会不会影响你部署、暂缓或重测的决定？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "decision_usefulness_observed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "deployment_decision_value_observed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "evidence_missing",
+      "question_or_action": "还缺什么证据，你才更愿意继续试？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "failure_summary_usefulness_observed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "feedback_form_completed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "go_hold_pivot_decision_recorded",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "session_metadata_required",
+      "codex_may_prefill": false,
+      "field": "human_entry_confirmed",
+      "question_or_action": "录入人确认这是真实访谈记录后填 true。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "session_metadata_required",
+      "codex_may_prefill": false,
+      "field": "human_reviewer_name",
+      "question_or_action": "记录由谁完成访谈和录入。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "session_metadata_required",
+      "codex_may_prefill": false,
+      "field": "human_source_context",
+      "question_or_action": "说明来源：真实外部客户或目标用户访谈，不能写内部自测。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "negative_feedback_recorded",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "boundary_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_customer_data_uploaded",
+      "question_or_action": "确认没有要求客户上传真实业务数据。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_customer_secrets_collected",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_customer_upload_required",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "boundary_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_private_core_disclosed",
+      "question_or_action": "确认没有披露 SAEE 私有核心。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "boundary_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_production_data_collected",
+      "question_or_action": "确认没有收集生产数据。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_production_ready_claim_added",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "boundary_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_production_ready_claim_made",
+      "question_or_action": "确认没有声称 SAEE 已生产可用。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_public_launch_claim_added",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "boundary_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "no_secrets_collected",
+      "question_or_action": "确认没有收集客户秘密。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "notes",
+      "question_or_action": "请记录对方最关键的一句话反馈。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "pain_point_fit_observed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "participant_role",
+      "question_or_action": "你现在负责什么？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "permission_to_use_feedback_recorded",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "pilot_result_reviewed_by_human",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "pilot_result_template_completed",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "real_customer_or_target_user_feedback_recorded",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "recommendation_output_understood",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "repeat_usage_intent_score",
+      "question_or_action": "你是否愿意后续重复使用这类评测？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "reviewer_approved_validation_claim",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "session_metadata_required",
+      "codex_may_prefill": false,
+      "field": "session_date",
+      "question_or_action": "记录访谈日期，例如 2026-07-09。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "session_metadata_required",
+      "codex_may_prefill": false,
+      "field": "session_id",
+      "question_or_action": "给这次真实访谈设置一个唯一编号。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "human_review_confirmation_required",
+      "codex_may_prefill": false,
+      "field": "success_criteria_applied",
+      "question_or_action": "如果已经人工核对且真实成立，填 true；否则先留空。",
+      "source_required": "human_operator_confirmation"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "team_type",
+      "question_or_action": "你所在团队大概是什么类型？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "time_to_value_minutes",
+      "question_or_action": "你大概花了几分钟理解它是否有用？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "top_objection",
+      "question_or_action": "你最大的疑问或反对点是什么？",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "trust_score",
+      "question_or_action": "你现在对这个结果的可信度是多少？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "understanding_score",
+      "question_or_action": "听完介绍后，你能否用自己的话说清 SAEE 是做什么的？1-5 分。",
+      "source_required": "real_customer_or_target_user"
+    },
+    {
+      "category": "customer_answer_required",
+      "codex_may_prefill": false,
+      "field": "willing_to_test_own_candidates",
+      "question_or_action": "你愿不愿意用自己的候选方案再测一次？true/false。",
+      "source_required": "real_customer_or_target_user"
+    }
+  ],
+  "queue_item_count": 47,
+  "ready_for_apply": false,
+  "runtime_modified": false,
+  "status": "ready_for_real_customer_live_fill"
+}

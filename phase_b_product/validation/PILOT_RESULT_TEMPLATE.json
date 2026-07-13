@@ -1,0 +1,43 @@
+{
+  "pilot_result_template_v0_1": true,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "product_launched": false,
+  "production_ready": false,
+  "private_core_exposed": false,
+  "sessions": [
+    {
+      "session_id": "PILOT-YYYYMMDD-001",
+      "session_date": "",
+      "participant_role": "",
+      "team_type": "",
+      "current_evaluation_method": "",
+      "candidate_count": 0,
+      "saee_demo_surface_used": "local_mvp_demo",
+      "understanding_score": null,
+      "trust_score": null,
+      "decision_influence_score": null,
+      "repeat_usage_intent_score": null,
+      "time_to_value_minutes": null,
+      "top_objection": "",
+      "evidence_missing": "",
+      "willing_to_test_own_candidates": null,
+      "boundary_flags": {
+        "secrets_collected": false,
+        "production_data_collected": false,
+        "customer_data_uploaded": false,
+        "private_core_disclosed": false,
+        "production_ready_claim_made": false
+      },
+      "notes": ""
+    }
+  ],
+  "aggregate_metrics": {
+    "session_count": 0,
+    "understanding_rate": null,
+    "trust_rate": null,
+    "decision_influence_rate": null,
+    "repeat_usage_intent": null,
+    "go_hold_pivot": "not_evaluated"
+  }
+}

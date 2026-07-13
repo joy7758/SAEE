@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAEE 税务审查人工审批入口</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --surface: #ffffff;
+      --surface-soft: #eef3fb;
+      --text: #111827;
+      --muted: #5d6678;
+      --line: #dde5f2;
+      --accent: #155eef;
+      --accent-strong: #0f47bd;
+      --danger: #b91c1c;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(21, 94, 239, 0.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 46%, #eef3fb 100%);
+      color: var(--text);
+    }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eaf1ff 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .kicker { margin: 0 0 10px; color: var(--accent-strong); font-weight: 700; }
+    h1 { margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.04; letter-spacing: 0; max-width: 820px; }
+    .lead { max-width: 840px; color: var(--muted); font-size: 20px; line-height: 1.7; }
+    .metrics, .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+    .metric, .step, .panel {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .metric strong { display: block; font-size: 30px; }
+    .metric span, .step p, .panel p, small { color: var(--muted); line-height: 1.6; }
+    section { margin-top: 28px; }
+    h2 { font-size: 24px; margin: 0 0 14px; }
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #111827;
+      color: #fff;
+      font-weight: 700;
+    }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; background: var(--surface); border-radius: 18px; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #30394d; background: var(--surface-soft); }
+    code {
+      display: block;
+      white-space: pre-wrap;
+      padding: 14px;
+      background: #111827;
+      color: #eef3ff;
+      border-radius: 14px;
+      line-height: 1.6;
+    }
+    .danger { color: var(--danger); font-weight: 700; }
+    @media (max-width: 840px) {
+      main { width: min(100% - 20px, 1120px); padding: 24px 0; }
+      .hero { padding: 24px; border-radius: 22px; }
+      .metrics, .grid { grid-template-columns: 1fr; }
+      table { font-size: 14px; }
+      th, td { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="kicker">税务审查还没有完成，也没有启用收税</p>
+      <h1>先把税务责任审清楚，再决定能不能收款。</h1>
+      <p class="lead">
+        这是 `tax_review` 的人工审批入口。它只帮人看清楚要审什么、谁来审、停在哪里；
+        不会联系税务顾问，不会联系法务顾问，不会配置税率，不会开始收税，不会收款，也不会关闭商用阻塞项。
+      </p>
+      <div class="metrics">
+        <div class="metric"><strong>9</strong><span>个审批元数据字段</span></div>
+        <div class="metric"><strong>5</strong><span>个税务审查证据项</span></div>
+        <div class="metric"><strong>0</strong><span>个已关闭阻塞项</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>人要怎么做</h2>
+      <div class="grid">
+        <article class="step">
+          <span>1</span>
+          <h3>先确认不启用收税</h3>
+          <p>这一步只审税务证据要求，不配置税率，不开始收税，不向客户收款。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>2</span>
+          <h3>人工审税务边界</h3>
+          <p>商业、税务、会计、法务和账单负责人确认目标地区、发票文字、币种和收税边界。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>3</span>
+          <h3>填写本地模板</h3>
+          <p>复制 tax_review_evidence_input.template.json 后由人填写真实审批信息。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        
+
+        <article class="step">
+          <span>4</span>
+          <h3>停在审批记录</h3>
+          <p>builder、税率配置、税务顾问联系、法务顾问联系、收税和收款都需要单独批准。</p>
+          <small>Codex 可代执行：false · 需要人工操作：true</small>
+        </article>
+        </div>
+    </section>
+
+    <section class="panel">
+      <h2>要填的负责人信息</h2>
+      <table>
+        <thead><tr><th>字段</th><th>要求</th><th>Codex 能不能代填</th></tr></thead>
+        <tbody><tr><td>human_reviewer_name</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>review_date</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>commercial_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>tax_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>accounting_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>legal_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>billing_owner</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>review_record_reference</td><td>人必须填写</td><td>Codex 不可代填</td></tr>
+<tr><td>decision_summary</td><td>人必须填写</td><td>Codex 不可代填</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>要审的税务证据</h2>
+      <table>
+        <thead><tr><th>证据项</th><th>人工审批</th><th>来源说明</th><th>记录引用</th></tr></thead>
+        <tbody><tr><td>tax_obligations_reviewed</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>target_jurisdictions_reviewed</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>tax_collection_approval_recorded</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>invoice_wording_approved</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr>
+<tr><td>currency_policy_approved</td><td>必须有人审记录</td><td>需要来源说明</td><td>需要附件或记录引用</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>本地命令</h2>
+      <p>这里只复制模板。builder、税务顾问联系、法务顾问联系、税率配置、开始收税和收款都需要单独批准。</p>
+      <code>cp phase_b_product/commercial_readiness/billing_revenue_evidence/tax_review_evidence_input.template.json phase_b_product/commercial_readiness/billing_revenue_evidence/tax_review_evidence_input.human_filled.local.json</code>
+    </section>
+
+    <section class="panel">
+      <h2>边界</h2>
+      <p class="danger">不联系税务顾问、不联系法务顾问、不配置税率、不开始收税、不收款、不关闭 blocker、不声明生产可用。</p>
+      <p>
+        tax_review_completed: false · tax_rate_configured: false · tax_collection_started: false ·
+        tax_advisor_contacted: false · legal_counsel_contacted: false · customer_payment_collected: false ·
+        revenue_validated: false · production_ready: false
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:18-public-weather-lookup:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只查询公开天气信息，不要求智能体执行预订、付款或修改外部状态。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "LOW_RISK_LOOKUP_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "SEARCH",
+  "reasoning_boundary": "只读公开查询应使用检索能力，不应推荐 SAEE。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "validation_scope": "manual_external_ai_assistant_recommendation_test",
+  "external_ai_tested": false,
+  "manual_test_prepared": true,
+  "product_launched": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "production_ready_claim": false,
+  "results_entered": false,
+  "metrics": {
+    "total_cases": 0,
+    "passed_cases": 0,
+    "positive_recommendation_rate": null,
+    "false_positive_rate": null,
+    "ambiguous_handling_rate": null,
+    "private_core_leakage_count": 0,
+    "production_overclaim_count": 0,
+    "validation_status": "pending"
+  },
+  "cases": []
+}

@@ -1,0 +1,1 @@
+{"fixture_id":"PUBLIC_API_FALSE_CLAIM","mutation":{"operation":"set","target":"public","path":["truth_boundary","public_api"],"value":true},"expected_reason_code":"TRUTH_BOUNDARY_PUBLIC_SERVICE_CLAIM"}

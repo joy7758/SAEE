@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-reliability-report.schema.v1.0.json",
+  "title": "SAEE Agent Reliability Report v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_version", "report_id", "agent", "scenario", "scope", "run_summary", "reliability_dimensions", "failure_analysis", "evidence_assessment", "limitations", "recommendation", "truth_boundary"],
+  "properties": {
+    "report_version": {"const": "1.0"}, "report_id": {"type": "string", "pattern": "^saee:reliability-report:[a-z0-9_.:-]+$"},
+    "agent": {"type": "string", "minLength": 1}, "scenario": {"type": "string", "minLength": 1}, "scope": {"type": "string", "minLength": 1},
+    "run_summary": {"type": "object", "additionalProperties": false, "required": ["attempted_assessments", "successful_assessments", "unavailable_assessments", "assessment_availability_rate"], "properties": {"attempted_assessments": {"type": "integer", "minimum": 1}, "successful_assessments": {"type": "integer", "minimum": 0}, "unavailable_assessments": {"type": "integer", "minimum": 0}, "assessment_availability_rate": {"type": "number", "minimum": 0, "maximum": 1}}},
+    "reliability_dimensions": {"type": "object", "additionalProperties": false, "required": ["task_execution_reliability", "recovery_reliability", "boundary_reliability", "evidence_reliability", "assessment_availability"], "properties": {"task_execution_reliability": {"$ref": "#/$defs/status"}, "recovery_reliability": {"$ref": "#/$defs/status"}, "boundary_reliability": {"$ref": "#/$defs/status"}, "evidence_reliability": {"$ref": "#/$defs/status"}, "assessment_availability": {"$ref": "#/$defs/status"}}},
+    "failure_analysis": {"type": "array", "uniqueItems": true, "items": {"enum": ["CONTRACT_FAILURE", "MODEL_RESPONSE_FAILURE", "TOOL_FAILURE", "ENVIRONMENT_FAILURE", "BOUNDARY_FAILURE", "EVIDENCE_FAILURE"]}},
+    "evidence_assessment": {"enum": ["PASS", "FAIL", "NOT_ASSESSED"]},
+    "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "recommendation": {"enum": ["CONTINUE", "REPLAN", "HUMAN_REVIEW_REQUIRED", "STOP"]},
+    "truth_boundary": {"type": "object", "additionalProperties": false, "required": ["approved", "certified", "safe", "best_agent", "production_ready", "ranking_generated", "intelligence_score_generated", "external_validation_completed"], "properties": {"approved": {"const": false}, "certified": {"const": false}, "safe": {"const": false}, "best_agent": {"const": false}, "production_ready": {"const": false}, "ranking_generated": {"const": false}, "intelligence_score_generated": {"const": false}, "external_validation_completed": {"const": false}}}
+  },
+  "$defs": {"status": {"enum": ["OBSERVED_PASS", "OBSERVED_PARTIAL", "OBSERVED_FAIL", "NOT_ASSESSED"]}}
+}

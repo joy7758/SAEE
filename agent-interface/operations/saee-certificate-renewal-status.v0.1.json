@@ -1,0 +1,66 @@
+{
+  "saee_certificate_renewal_status_v0_1": true,
+  "status_version": "0.1",
+  "observed_at": "2026-07-11T13:28:58Z",
+  "domain": "redcrag.cn",
+  "canonical_url": "https://redcrag.cn/",
+  "current_certificate": {
+    "valid": true,
+    "subject": "CN=redcrag.cn",
+    "issuer": "Let's Encrypt YE2",
+    "not_after": "2026-10-09T11:55:43Z",
+    "replaced_by_this_task": false
+  },
+  "renewal_configuration": {
+    "challenge_type": "webroot_http_01",
+    "renewal_config_declared_path": "/etc/letsencrypt/renewal/redcrag.cn.conf",
+    "webroot_declared_path": "/var/www/letsencrypt",
+    "timer_enabled": true,
+    "timer_active": true,
+    "nginx_reload_hook_configured": true,
+    "nginx_config_changed_by_this_task": false,
+    "certbot_config_changed_by_this_task": false,
+    "renewal_mode_switched": false
+  },
+  "dry_run": {
+    "command": "certbot renew --dry-run --no-random-sleep-on-renew",
+    "passed": true,
+    "current_failure": null,
+    "previous_failure_type": "unauthorized",
+    "previous_failure_reason": "secondary_validation_received_baidu_domainwall_http_403",
+    "success_evidence": "all_simulated_renewals_succeeded",
+    "server_route_locally_validated": true,
+    "baidu_cloud_icp_access_confirmed_by_task": false
+  },
+  "chosen_solution": {
+    "solution_id": "RETAIN_HTTP_01_AFTER_SUCCESSFUL_STAGING_RETRY",
+    "solution_implemented": true,
+    "configuration_change_required": false,
+    "requires_dns_credential": false,
+    "acceptance_criteria_met": true
+  },
+  "dns_01_fallback": {
+    "evaluated": true,
+    "configured": false,
+    "credential_available": false,
+    "dedicated_minimum_permission_credential_required": true,
+    "unrelated_api_key_reuse_allowed": false,
+    "credential_stored": false,
+    "record_scope": "_acme-challenge.redcrag.cn TXT only if provider permission model supports it"
+  },
+  "configuration_hashes": {
+    "nginx_conf_sha256": "77eb94ae0484e1b35c953e380f2c571f51e7d2d04e93fcfaa3124a3068f0b1e7",
+    "renewal_conf_sha256": "250d2687c5e974c0f553ec9bca9069de999241621d8579e58951b1519eb7a35e",
+    "reload_hook_sha256": "c5b67a43550d9e1e3cf1ba8db013cf40a95c962e3d1df85a74594132ebfba0a0"
+  },
+  "truth_boundary": {
+    "renewal_reliability_fixed": true,
+    "certificate_renewal_dry_run_passed": true,
+    "security_certification_provided": false,
+    "production_ready": false,
+    "commercial_service": false,
+    "agent_callable_runtime": false,
+    "tool_capability_gate_released": false,
+    "ready_for_tool_capability_gate_review": true
+  }
+}

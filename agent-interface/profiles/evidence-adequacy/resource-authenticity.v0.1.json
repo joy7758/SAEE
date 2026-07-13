@@ -1,0 +1,39 @@
+{
+  "saee_evidence_adequacy_profile_v0_1": true,
+  "profile_version": "0.1.0",
+  "profile_id": "saee-adequacy-resource-authenticity-v0.1",
+  "claim_type": "RESOURCE_AUTHENTICITY",
+  "claim_description": "The package contains a valid SAEE resource-resolution receipt with declared publisher and content binding; this does not independently establish real-world authenticity.",
+  "required_evidence_fields": [
+    "/resource_receipt/requested_resource",
+    "/resource_receipt/resolved_uri",
+    "/resource_receipt/publisher_identity",
+    "/resource_receipt/content_digest",
+    "/resource_receipt/policy_decision_ref"
+  ],
+  "required_relationships": [
+    {
+      "relationship_id": "resource_receipt_semantically_valid",
+      "relationship_type": "resource_receipt_valid",
+      "source_path": "/resource_receipt",
+      "reason_code": "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+    }
+  ],
+  "optional_evidence_fields": ["/resource_receipt/persona_ref"],
+  "failure_reason_codes": [
+    "EVIDENCE_REQUESTED_RESOURCE_MISSING",
+    "EVIDENCE_RESOLVED_URI_MISSING",
+    "EVIDENCE_PUBLISHER_IDENTITY_MISSING",
+    "EVIDENCE_DIGEST_MISSING",
+    "EVIDENCE_POLICY_DECISION_MISSING",
+    "EVIDENCE_REQUIRED_FIELD_MISSING",
+    "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+  ],
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-simulation-feedback.schema.v0.1.json",
+  "title": "SAEE External Validation Simulation Feedback v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "test_area", "result", "compatibility_issue", "boundary_issue", "notes"],
+  "properties": {
+    "participant_id": {"type": "string", "pattern": "^SIM_[A-Z_]+$"},
+    "test_area": {"enum": ["MCP_LOCAL", "HTTP_LOCAL", "METADATA_REVIEW", "BOUNDARY_CONTROL"]},
+    "result": {"enum": ["PASS", "BLOCKED", "REJECTED", "TERMINATED", "NOT_TESTED"]},
+    "compatibility_issue": {"type": "string", "maxLength": 500},
+    "boundary_issue": {"enum": ["NONE", "UNAUTHORIZED_PARTICIPANT", "SCOPE_VIOLATION", "CUSTOMER_DATA", "ADOPTION_OVERCLAIM", "CREDENTIAL_EXPOSURE"]},
+    "notes": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}}
+  }
+}
+

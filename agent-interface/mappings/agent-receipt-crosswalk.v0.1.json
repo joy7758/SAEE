@@ -1,0 +1,174 @@
+{
+  "saee_agent_receipt_crosswalk_v0_1": true,
+  "mapping_version": "0.1.0",
+  "scope": "semantic_analysis_only",
+  "source_basis": {
+    "external_network_accessed": false,
+    "normative_text_verified": false,
+    "concept_labels_supplied_by_task": true,
+    "external_concept_families": [
+      "agent_audit_trail_concepts",
+      "signed_action_receipt_concepts",
+      "human_authorization_evidence_concepts",
+      "agent_accountability_composition_concepts"
+    ],
+    "notes": "Research crosswalk based on supplied concept labels and local SAEE artifacts; not a mapping to a verified revision of an external specification."
+  },
+  "claims": [
+    {
+      "mapping_id": "crosswalk-agent-identity",
+      "external_concept": "agent_identity",
+      "purpose": "Associate an observed or declared action with an agent identifier.",
+      "saee_concept": "agent_id_and_persona_ref",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/resource-resolution-receipt.schema.json",
+        "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json"
+      ],
+      "relationship": "partially_aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "SAEE records identifiers but does not independently verify agent identity authenticity.",
+        "No external identifier syntax or protocol is implemented."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-action-identity",
+      "external_concept": "action_identity",
+      "purpose": "Distinguish one action instance and link related evidence records.",
+      "saee_concept": "action_id_and_reference_equality",
+      "saee_artifact_refs": [
+        "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json"
+      ],
+      "relationship": "aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "Alignment is conceptual and local to SAEE profile semantics.",
+        "No shared external action identifier format is implemented."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-action-digest",
+      "external_concept": "action_digest",
+      "purpose": "Bind a stable digest to an action representation or action instance.",
+      "saee_concept": "receipt_digest_and_content_digest",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/resource-resolution-receipt.schema.json"
+      ],
+      "relationship": "different_scope",
+      "implementation_status": "not_implemented",
+      "limitations": [
+        "Existing SAEE digests cover receipt fields or retrieved content, not a canonical external action object.",
+        "No external canonicalization or action-digest protocol is implemented."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-authorization-reference",
+      "external_concept": "authorization_reference",
+      "purpose": "Link an action or resource operation to an authorization decision.",
+      "saee_concept": "policy_decision_ref_and_authority_relationships",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/resource-resolution-receipt.schema.json",
+        "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json"
+      ],
+      "relationship": "partially_aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "A reference does not independently prove that the authorization existed or was valid.",
+        "No external authorization receipt format is implemented."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-human-approval-evidence",
+      "external_concept": "human_approval_evidence",
+      "purpose": "Represent a human approval identity, context, scope, and time relationship.",
+      "saee_concept": "human_oversight_evidence_adequacy_profile",
+      "saee_artifact_refs": [
+        "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json",
+        "docs/EVIDENCE_ADEQUACY_PROFILE.md"
+      ],
+      "relationship": "partially_aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "The local profile evaluates synthetic relationship sufficiency and does not authenticate a real human.",
+        "Revocation, credential verification, and external approval protocols are not implemented."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-audit-trail",
+      "external_concept": "audit_trail",
+      "purpose": "Order or associate action observations across a trace or receipt sequence.",
+      "saee_concept": "observed_trace_receipt_and_previous_receipt_digest",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/observed-trace-receipt.schema.json",
+        "agent-interface/schemas/resource-resolution-receipt.schema.json"
+      ],
+      "relationship": "different_scope",
+      "implementation_status": "existing",
+      "limitations": [
+        "SAEE has local trace and receipt objects but no external audit-trail wire protocol.",
+        "Observed sequence data is not automatically evidence authenticity."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-evidence-composition",
+      "external_concept": "evidence_composition",
+      "purpose": "Combine independently described evidence relationships for one accountability question.",
+      "saee_concept": "evidence_adequacy_relationship_evaluation",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/evidence-adequacy-profile.schema.json",
+        "agent-interface/profiles/evidence-adequacy/execution-boundary.v0.1.json"
+      ],
+      "relationship": "partially_aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "SAEE evaluates fixed local relationship profiles rather than a general external composition protocol.",
+        "Cross-organization trust roots and signature composition are unresolved."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-verification-result",
+      "external_concept": "verification_result",
+      "purpose": "Report whether a receipt or evidence requirement passed a defined verifier.",
+      "saee_concept": "validation_result_and_profile_requirements_satisfied",
+      "saee_artifact_refs": [
+        "saee_backend/services/resource_resolution_receipt.py",
+        "saee_backend/services/evidence_adequacy.py"
+      ],
+      "relationship": "partially_aligned",
+      "implementation_status": "existing",
+      "limitations": [
+        "SAEE result semantics are defined by local validators and are not external conformance results.",
+        "A profile PASS does not establish a real-world accountability claim."
+      ]
+    },
+    {
+      "mapping_id": "crosswalk-accountability-claim",
+      "external_concept": "accountability_claim",
+      "purpose": "State the proposition that a collection of evidence is intended to support.",
+      "saee_concept": "claim_type_and_evidence_adequacy_result",
+      "saee_artifact_refs": [
+        "agent-interface/schemas/evidence-adequacy-profile.schema.json",
+        "docs/EVIDENCE_ADEQUACY_PROFILE.md"
+      ],
+      "relationship": "different_scope",
+      "implementation_status": "existing",
+      "limitations": [
+        "SAEE v0.1 reports profile requirement satisfaction while keeping accountability_claim_established false.",
+        "No legal finding, liability allocation, or external adjudication model is implemented."
+      ]
+    }
+  ],
+  "truth_boundary": {
+    "ietf_compliance_claimed": false,
+    "ietf_approval_claimed": false,
+    "rfc_status_claimed": false,
+    "rfc_compatibility_claimed": false,
+    "external_standard_adopted": false,
+    "regulatory_approval_claimed": false,
+    "security_certification_claimed": false,
+    "legal_evidence_status_claimed": false,
+    "cryptographic_identity_verification_claimed": false,
+    "production_ready": false
+  }
+}

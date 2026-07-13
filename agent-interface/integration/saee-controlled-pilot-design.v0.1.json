@@ -1,0 +1,149 @@
+{
+  "saee_controlled_external_agent_pilot_design_v0_1": true,
+  "design_version": "0.1",
+  "pilot_stage": "design_only",
+  "documentation_ref": "docs/commercial/SAEE_CONTROLLED_EXTERNAL_AGENT_PILOT_DESIGN.md",
+  "scope": {
+    "allowed": [
+      "SYNTHETIC_OR_EXPLICITLY_APPROVED_EVIDENCE",
+      "BOUNDED_AGENT_WORKFLOW",
+      "ONE_FIXED_SAEE_CAPABILITY",
+      "HUMAN_SUPERVISED_EVALUATION"
+    ],
+    "forbidden": [
+      "UNRESTRICTED_PRODUCTION_AGENT",
+      "AUTONOMOUS_DEPLOYMENT",
+      "UNCONTROLLED_CUSTOMER_DATA",
+      "EXTERNAL_SIDE_EFFECT",
+      "DYNAMIC_TOOL_OR_PROFILE_REGISTRATION"
+    ],
+    "fixed_capability_id": "saee.evidence-adequacy",
+    "human_supervision_required": true
+  },
+  "agent_eligibility": {
+    "required_declarations": [
+      "agent_identity_declaration",
+      "purpose_declaration",
+      "capability_description",
+      "invocation_context"
+    ],
+    "declarations_establish_authentication": false,
+    "declarations_establish_trust": false,
+    "external_agent_trusted": false
+  },
+  "data_boundary": {
+    "allowed_data_classes": [
+      "approved_evidence_objects",
+      "approved_inert_references",
+      "synthetic_datasets",
+      "controlled_samples"
+    ],
+    "forbidden_data_classes": [
+      "secrets",
+      "private_keys",
+      "hidden_reasoning",
+      "unrestricted_customer_data",
+      "unapproved_personal_data",
+      "executable_content"
+    ],
+    "approved_reference_required": true,
+    "customer_data_allowed": false,
+    "secrets_allowed": false,
+    "data_collected": false
+  },
+  "environment_requirements": [
+    "ISOLATED_ENVIRONMENT",
+    "REPRODUCIBLE_CONFIGURATION",
+    "BOUNDED_LOGGING",
+    "LEAST_PRIVILEGE_PERMISSIONS",
+    "FAIL_CLOSED_HANDLING",
+    "RECOVERY_AND_ROLLBACK"
+  ],
+  "approval_gates": [
+    {
+      "gate_id": "TECHNICAL_READINESS",
+      "required": true,
+      "status": "NOT_GRANTED"
+    },
+    {
+      "gate_id": "SECURITY_REVIEW",
+      "required": true,
+      "status": "NOT_GRANTED"
+    },
+    {
+      "gate_id": "DATA_APPROVAL",
+      "required": true,
+      "status": "NOT_GRANTED"
+    },
+    {
+      "gate_id": "HUMAN_RESPONSIBILITY_ASSIGNMENT",
+      "required": true,
+      "status": "NOT_GRANTED"
+    },
+    {
+      "gate_id": "EXECUTION_AUTHORIZATION",
+      "required": true,
+      "status": "NOT_GRANTED"
+    }
+  ],
+  "human_boundary": {
+    "responsible_human_assignment_required": true,
+    "responsible_human_assigned": false,
+    "human_review_required": true,
+    "human_review_bypass_allowed": false,
+    "decision_authority": "AUTHORIZED_HUMAN_ONLY"
+  },
+  "evaluation_metrics": {
+    "technical": [
+      "TOOL_INVOCATION_CORRECTNESS",
+      "CONTRACT_COMPLIANCE",
+      "BOUNDARY_PRESERVATION"
+    ],
+    "evidence": [
+      "MISSING_EVIDENCE_IDENTIFICATION",
+      "REASON_CODE_CONSISTENCY"
+    ],
+    "human": [
+      "REVIEW_USEFULNESS"
+    ],
+    "business_metrics_excluded": [
+      "REVENUE",
+      "MARKET_FIT",
+      "BUSINESS_SUCCESS"
+    ]
+  },
+  "exit_criteria": {
+    "success_requires": [
+      "REPRODUCIBLE_EXECUTION",
+      "BOUNDARY_VIOLATIONS_DETECTED",
+      "EVIDENCE_RESULTS_GENERATED",
+      "LIMITATIONS_DOCUMENTED"
+    ],
+    "failure_conditions": [
+      "UNAUTHORIZED_ACTION",
+      "DATA_BOUNDARY_VIOLATION",
+      "SECRET_EXPOSURE",
+      "UNSUPPORTED_CLAIM"
+    ]
+  },
+  "rollback_model": {
+    "stop_condition_required": true,
+    "data_deletion_plan_required": true,
+    "access_revocation_required": true,
+    "artifact_retention_policy_required": true,
+    "plans_approved": false,
+    "termination_authority_assigned": false
+  },
+  "readiness_gate": "HOLD",
+  "pilot_start_authorized": false,
+  "external_agent_connected": false,
+  "pilot_executed": false,
+  "data_collected": false,
+  "approval_granted": false,
+  "customer_validated": false,
+  "external_validation_completed": false,
+  "production_enabled": false,
+  "production_ready": false,
+  "network_accessed": false,
+  "external_execution": false
+}

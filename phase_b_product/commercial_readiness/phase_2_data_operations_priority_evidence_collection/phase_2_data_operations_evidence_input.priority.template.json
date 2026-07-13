@@ -1,0 +1,289 @@
+{
+  "boundary_review": {
+    "alert_provider_contacted": false,
+    "customer_data_processed": false,
+    "external_alert_sent": false,
+    "live_restore_performed": false,
+    "monitoring_vendor_contacted": false,
+    "on_call_rotation_activated": false,
+    "production_data_path_modified": false,
+    "production_ready_claim": false,
+    "restore_test_executed": false
+  },
+  "evidence_review": {
+    "alert_acknowledgement_process_defined": false,
+    "alert_delivery_test_recorded": false,
+    "alert_failure_handling_defined": false,
+    "alert_routing_policy_approved": false,
+    "backup_retention_policy_approved": false,
+    "credential_secret_exclusion_reviewed": false,
+    "customer_notification_boundary_approved": false,
+    "escalation_schedule_defined": false,
+    "external_alert_channel_configured": false,
+    "incident_commander_named": false,
+    "incident_escalation_path_defined": false,
+    "incident_response_handoff_approved": false,
+    "isolated_restore_environment_used": false,
+    "log_retention_reviewed": false,
+    "metrics_coverage_approved": false,
+    "monitoring_dry_run_recorded": false,
+    "on_call_rotation_defined": false,
+    "production_like_restore_test_plan_approved": false,
+    "production_monitoring_plan_approved": false,
+    "production_restore_policy_approved": false,
+    "restore_integrity_checks_passed": false,
+    "restore_test_report_reviewed": false,
+    "rto_rpo_observed_and_recorded": false,
+    "slo_dashboard_defined": false,
+    "tenant_restore_boundary_approved": false,
+    "tenant_scope_validated_if_customer_data_exists": false
+  },
+  "evidence_source_notes": "",
+  "human_reviewer_name": "",
+  "input_status": "priority_template_not_filled",
+  "phase_2_data_operations_priority_evidence_collection_v0_1": true,
+  "priority_collection_map_by_key": {
+    "alert_acknowledgement_process_defined": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-006",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-044"
+    },
+    "alert_delivery_test_recorded": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-007",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-041"
+    },
+    "alert_failure_handling_defined": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-008",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-042"
+    },
+    "alert_routing_policy_approved": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-009",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-040"
+    },
+    "backup_retention_policy_approved": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-021",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-055"
+    },
+    "credential_secret_exclusion_reviewed": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-026",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-057"
+    },
+    "customer_notification_boundary_approved": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-022",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-058"
+    },
+    "escalation_schedule_defined": {
+      "blocker_id": "on_call_rotation",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-012",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-046"
+    },
+    "external_alert_channel_configured": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-010",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-039"
+    },
+    "incident_commander_named": {
+      "blocker_id": "on_call_rotation",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-013",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-047"
+    },
+    "incident_escalation_path_defined": {
+      "blocker_id": "external_alert_delivery",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-011",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-043"
+    },
+    "incident_response_handoff_approved": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-023",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-059"
+    },
+    "isolated_restore_environment_used": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-015",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-049"
+    },
+    "log_retention_reviewed": {
+      "blocker_id": "production_monitoring",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-001",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-037"
+    },
+    "metrics_coverage_approved": {
+      "blocker_id": "production_monitoring",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-002",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-035"
+    },
+    "monitoring_dry_run_recorded": {
+      "blocker_id": "production_monitoring",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-005",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-038"
+    },
+    "on_call_rotation_defined": {
+      "blocker_id": "on_call_rotation",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-014",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-045"
+    },
+    "production_like_restore_test_plan_approved": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-016",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-048"
+    },
+    "production_monitoring_plan_approved": {
+      "blocker_id": "production_monitoring",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-003",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-034"
+    },
+    "production_restore_policy_approved": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-024",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-054"
+    },
+    "restore_integrity_checks_passed": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-017",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-050"
+    },
+    "restore_test_report_reviewed": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-018",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-053"
+    },
+    "rto_rpo_observed_and_recorded": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-019",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-051"
+    },
+    "slo_dashboard_defined": {
+      "blocker_id": "production_monitoring",
+      "evidence_file_type": "production_operations_evidence",
+      "phase_2_record_id": "P2-ECP-004",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-036"
+    },
+    "tenant_restore_boundary_approved": {
+      "blocker_id": "production_restore_policy",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-025",
+      "priority_tier": "missing_production_evidence",
+      "source_collection_record_id": "ECP-056"
+    },
+    "tenant_scope_validated_if_customer_data_exists": {
+      "blocker_id": "restore_tested",
+      "evidence_file_type": "production_data_operations_evidence",
+      "phase_2_record_id": "P2-ECP-020",
+      "priority_tier": "local_public_shell_requires_human_approval",
+      "source_collection_record_id": "ECP-052"
+    }
+  },
+  "priority_collection_source": "phase_b_product/commercial_readiness/phase_2_data_operations_priority_evidence_collection/phase_2_data_operations_priority_evidence_collection.local.json",
+  "priority_evidence_key_order": [
+    "log_retention_reviewed",
+    "metrics_coverage_approved",
+    "production_monitoring_plan_approved",
+    "slo_dashboard_defined",
+    "monitoring_dry_run_recorded",
+    "alert_acknowledgement_process_defined",
+    "alert_delivery_test_recorded",
+    "alert_failure_handling_defined",
+    "alert_routing_policy_approved",
+    "external_alert_channel_configured",
+    "incident_escalation_path_defined",
+    "escalation_schedule_defined",
+    "incident_commander_named",
+    "on_call_rotation_defined",
+    "isolated_restore_environment_used",
+    "production_like_restore_test_plan_approved",
+    "restore_integrity_checks_passed",
+    "restore_test_report_reviewed",
+    "rto_rpo_observed_and_recorded",
+    "tenant_scope_validated_if_customer_data_exists",
+    "backup_retention_policy_approved",
+    "customer_notification_boundary_approved",
+    "incident_response_handoff_approved",
+    "production_restore_policy_approved",
+    "tenant_restore_boundary_approved",
+    "credential_secret_exclusion_reviewed"
+  ],
+  "review_date": "",
+  "source_collection_packet": "phase_b_product/commercial_readiness/commercial_production_evidence_collection_packet/commercial_production_evidence_collection_packet.local.json",
+  "source_notes_by_key": {
+    "alert_acknowledgement_process_defined": "",
+    "alert_delivery_test_recorded": "",
+    "alert_failure_handling_defined": "",
+    "alert_routing_policy_approved": "",
+    "backup_retention_policy_approved": "",
+    "credential_secret_exclusion_reviewed": "",
+    "customer_notification_boundary_approved": "",
+    "escalation_schedule_defined": "",
+    "external_alert_channel_configured": "",
+    "incident_commander_named": "",
+    "incident_escalation_path_defined": "",
+    "incident_response_handoff_approved": "",
+    "isolated_restore_environment_used": "",
+    "log_retention_reviewed": "",
+    "metrics_coverage_approved": "",
+    "monitoring_dry_run_recorded": "",
+    "on_call_rotation_defined": "",
+    "production_like_restore_test_plan_approved": "",
+    "production_monitoring_plan_approved": "",
+    "production_restore_policy_approved": "",
+    "restore_integrity_checks_passed": "",
+    "restore_test_report_reviewed": "",
+    "rto_rpo_observed_and_recorded": "",
+    "slo_dashboard_defined": "",
+    "tenant_restore_boundary_approved": "",
+    "tenant_scope_validated_if_customer_data_exists": ""
+  },
+  "template_note": "Human owners fill evidence_review and source_notes_by_key. Codex must not infer missing evidence, contact vendors, send alerts, activate on-call, run restore tests, or touch live data paths."
+}

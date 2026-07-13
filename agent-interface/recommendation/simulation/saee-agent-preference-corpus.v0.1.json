@@ -1,0 +1,62 @@
+{
+  "saee_agent_preference_simulation_v0_1": true,
+  "simulation_version": "0.1",
+  "language": "zh-CN",
+  "scenarios": [
+    {
+      "scenario_id": "agent-preference:high-impact-deployment:v0.1",
+      "persona": "PLATFORM_ARCHITECT_AGENT",
+      "task": {"objective": "为可能修改生产数据的企业 Agent 选择上线前验证能力。", "context": "候选 Agent 将执行多步骤业务流程，团队需要在部署决定前观察失败、状态漂移和证据缺口。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["AGENT_ACTION_HIGH_IMPACT", "PRE_DEPLOYMENT_REVIEW_NEEDED", "DEPLOYMENT_CANDIDATE_EXISTS", "HUMAN_DECISION_RETAINS_AUTHORITY"],
+      "adjacent_capability": "OBSERVABILITY",
+      "created_at": "2026-07-12T02:00:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    },
+    {
+      "scenario_id": "agent-preference:long-running-drift:v0.1",
+      "persona": "EVALUATION_AGENT",
+      "task": {"objective": "选择能够评估长流程 Agent 漂移和失败模式的能力。", "context": "团队已有单次测试，但需要比较候选 Agent 在多步骤、工具失败和指令冲突下的准备度。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["MULTI_STEP_WORKFLOW", "FAILURE_MODE_REHEARSAL_NEEDED", "AGENT_CANDIDATES_COMPARABLE", "READINESS_QUESTION_DEFINED"],
+      "adjacent_capability": "OBSERVABILITY",
+      "created_at": "2026-07-12T02:01:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    },
+    {
+      "scenario_id": "agent-preference:mixed-observability-readiness:v0.1",
+      "persona": "TOOL_SELECTION_AGENT",
+      "task": {"objective": "同时满足单次轨迹诊断与上线前证据充分性判断。", "context": "团队需要 Observability 查看运行细节，也需要在高影响部署前演练并识别缺失证据。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["AGENT_ACTION_HIGH_IMPACT", "PRE_DEPLOYMENT_REVIEW_NEEDED", "ACCOUNTABILITY_CLAIM_DEFINED", "EVIDENCE_RELATIONSHIPS_AVAILABLE"],
+      "adjacent_capability": "OBSERVABILITY",
+      "created_at": "2026-07-12T02:02:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    },
+    {
+      "scenario_id": "agent-preference:simple-calculation:v0.1",
+      "persona": "TOOL_SELECTION_AGENT",
+      "task": {"objective": "计算两个整数之和。", "context": "任务是确定性计算，不调用外部工具，不改变状态，也没有部署影响。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["SIMPLE_CALCULATION_ONLY", "NO_EXECUTION_IMPACT"],
+      "adjacent_capability": "SIMPLE_CALCULATION_TOOL",
+      "created_at": "2026-07-12T02:03:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    },
+    {
+      "scenario_id": "agent-preference:low-risk-lookup:v0.1",
+      "persona": "TOOL_SELECTION_AGENT",
+      "task": {"objective": "查询一个公开且低风险的定义。", "context": "任务只需要知识检索，不产生状态变化、工具执行影响或部署选择。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["LOW_RISK_LOOKUP_ONLY", "NO_EXECUTION_IMPACT"],
+      "adjacent_capability": "KNOWLEDGE_RETRIEVAL",
+      "created_at": "2026-07-12T02:04:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    },
+    {
+      "scenario_id": "agent-preference:authorization-enforcement:v0.1",
+      "persona": "GOVERNANCE_AGENT",
+      "task": {"objective": "选择可以实时允许、拒绝和撤销 Agent 动作的执行系统。", "context": "需求是运行时授权和阻断，不是上线前演练或证据充分性分析。", "requested_output": "select the appropriate capability set and explain bounded use"},
+      "signals": ["REAL_TIME_AUTHORIZATION_REQUIRED", "RUNTIME_BLOCKING_REQUIRED"],
+      "adjacent_capability": "AUTHORIZATION_SYSTEM",
+      "created_at": "2026-07-12T02:05:00Z",
+      "truth_boundary": {"synthetic_task": true, "customer_data": false, "external_world_execution": false, "production_ready": false}
+    }
+  ],
+  "truth_boundary": {"synthetic_agents_only": true, "human_participants": false, "customer_validation": false, "market_validation": false, "production_ready": false}
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-execution-request.schema.v0.1.json",
+  "title": "SAEE External Validation Execution Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "requested_scope", "participant_reference", "authorization_reference", "execution_type"],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^execution-request:[a-z0-9._-]+$"},
+    "requested_scope": {"type": "string", "pattern": "^scope:[a-z0-9._-]+$"},
+    "participant_reference": {"type": "string", "pattern": "^participant:[a-z0-9._-]+$"},
+    "authorization_reference": {"type": "string", "pattern": "^(simulation-authorization|missing-authorization):[a-z0-9._-]+$"},
+    "execution_type": {"enum": ["SIMULATION_ONLY", "EXTERNAL_VALIDATION"]}
+  }
+}
+

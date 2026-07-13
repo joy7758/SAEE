@@ -1,0 +1,1 @@
+{"scenario_id":"SCOPE_VIOLATION_REQUEST","participant_id":"SIM_DEVELOPER_VALIDATOR","requested_test":"production_execution","contains_customer_data":false,"credential_exposure":false,"adoption_claim":false,"expected_result":"REJECTED","expected_reason_code":"VALIDATION_SCOPE_VIOLATION","external_execution":false}

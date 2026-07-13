@@ -1,0 +1,123 @@
+{
+  "ledger_id": "saee.public-patent-ledger.v1",
+  "source": {
+    "file_name": "专利情况(2).xlsx",
+    "source_modified_at": "2026-06-29",
+    "normalized_at": "2026-07-13",
+    "authority": "user-provided patent status ledger"
+  },
+  "summary": {
+    "record_count": 15,
+    "utility_model_count": 3,
+    "invention_patent_count": 12,
+    "under_review_count": 4,
+    "awaiting_acceptance_document_count": 1,
+    "revision_count": 5,
+    "drafting_count": 3,
+    "pending_confirmation_count": 1,
+    "replacement_count": 1,
+    "confirmed_formal_filing_count": 0,
+    "granted_patent_count": 0
+  },
+  "records": [
+    {
+      "id": "PAT-001",
+      "type": "实用新型",
+      "title": "AI智能陪护设备",
+      "status": "审核中"
+    },
+    {
+      "id": "PAT-002",
+      "type": "实用新型",
+      "title": "一种侧插式双模兼容通用药仓及具备防重力自锁流道的给药装置",
+      "status": "审核中"
+    },
+    {
+      "id": "PAT-003",
+      "type": "实用新型",
+      "title": "一种基于深腔结构的漫反射光效交互终端及隐形理线系统",
+      "status": "审核中"
+    },
+    {
+      "id": "PAT-004",
+      "type": "发明专利",
+      "title": "一种面向 API、RPA 或工具调用多步执行链的智能体运行时控制方法及系统",
+      "status": "已更换题名",
+      "previous_title": "一种基于多模态机械阻抗控制与动态刚度指纹识别的药片自适应无损分离系统"
+    },
+    {
+      "id": "PAT-005",
+      "type": "发明专利",
+      "title": "一种具有三区物理隔离与混合动力分发机制的分布式模块化医疗总线系统",
+      "status": "等待受理书"
+    },
+    {
+      "id": "PAT-006",
+      "type": "发明专利",
+      "title": "一种基于视觉熵形态学分析与多源数据融合的餐饮损耗归因方法及系统",
+      "status": "审核中"
+    },
+    {
+      "id": "PAT-007",
+      "type": "发明专利",
+      "title": "一种媒体证据时间轨迹的离线验证方法及系统",
+      "status": "修改中"
+    },
+    {
+      "id": "PAT-008",
+      "type": "发明专利",
+      "title": "一种智能体生命周期收据图验证与非法复活检测方法",
+      "status": "修改中"
+    },
+    {
+      "id": "PAT-009",
+      "type": "发明专利",
+      "title": "一种高风险智能体操作Profile驱动校验及执行阻断方法",
+      "status": "修改中"
+    },
+    {
+      "id": "PAT-010",
+      "type": "发明专利",
+      "title": "一种面向数据空间智能体执行证据包生成与离线验证方法",
+      "status": "修改中"
+    },
+    {
+      "id": "PAT-011",
+      "type": "发明专利",
+      "title": "文字创作中人工智能使用验证包生成方法、系统、设备及存储介质",
+      "status": "待确认",
+      "note": "已理赔"
+    },
+    {
+      "id": "PAT-012",
+      "type": "发明专利",
+      "title": "一种面向物理对象的双标签可验证执行闭环方法、系统及标签制品",
+      "status": "撰写中"
+    },
+    {
+      "id": "PAT-013",
+      "type": "发明专利",
+      "title": "一种面向智能体与机器人执行过程的证据包生成、策略约束、离线验证与问责方法及系统",
+      "status": "撰写中"
+    },
+    {
+      "id": "PAT-014",
+      "type": "发明专利",
+      "title": "一种声明级证据准入控制与生命周期增量复验方法、系统、设备及存储介质",
+      "status": "修改"
+    },
+    {
+      "id": "PAT-015",
+      "type": "发明专利",
+      "title": "一种基于逐陈述支持映射的智能体可信上下文构建、递归展开与审计方法、系统、设备及存储介质",
+      "status": "撰写中"
+    }
+  ],
+  "truth_boundary": {
+    "waiting_for_acceptance_document_means_granted": false,
+    "review_or_drafting_means_formally_filed": false,
+    "confirmed_formal_filing_count_is_lower_bound": true,
+    "official_application_numbers_present": false,
+    "patents_granted": false
+  }
+}

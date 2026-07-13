@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "provider": "baidu_qianfan",
+  "model": "ernie-4.5-turbo-128k",
+  "qianfan_api_reached": true,
+  "qianfan_tool_call_received": true,
+  "mcp_tool_called": true,
+  "provider_roundtrip_completed": true,
+  "mcp_protocol_version": "2025-11-25",
+  "mcp_tools": [
+    "describe_saee",
+    "compare_observed_traces"
+  ],
+  "receipt_schema_valid": true,
+  "request_hash_verified": true,
+  "content_hash_verified": true,
+  "winner": "candidate-alpha",
+  "winner_score": 0.719476,
+  "evaluation_mode": "observed_trace_bundle_evaluation",
+  "final_answer": "在评估中，涉及以下关键结果：\ncandidate-alpha  \n0.719476  \nevaluation_mode=observed_trace_bundle_evaluation  \nproduction_ready=false  \ncustomer_validated=false  \n\n以上结果表明，当前评估未通过真实客户验证，且未达到生产就绪标准。",
+  "final_answer_sha256": "c75dfc2827987c185db7920a282ef5e30574fcd3fcb1f3e64e148eb56d8e6e52",
+  "fixture_sha256": "5fd7e532e3d239e1d7073dda046bcd81fd0d161542979281d8dc616488b85782",
+  "mcp_process": {
+    "returncode": 0,
+    "stderr_bytes": 0
+  },
+  "secrets_redacted": true,
+  "external_provider_network_used": true,
+  "saee_mcp_network_used": false,
+  "candidate_code_executed": false,
+  "external_system_executed": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "product_launched": false
+}

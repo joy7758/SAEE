@@ -1,0 +1,1 @@
+review_batch_row_id,quick_fill_row_id,blocker_id,input_group,input_key,input_kind,expected_value_shape,target_json_pointer,value_present,notes_present,row_status,next_action

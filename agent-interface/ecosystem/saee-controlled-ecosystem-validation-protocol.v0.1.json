@@ -1,0 +1,24 @@
+{
+  "validation_version": "0.1",
+  "participant_type": "developer",
+  "integration_mode": "documentation_only",
+  "capability_reference": "agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+  "test_scope": ["DISCOVERY_COMPATIBILITY", "CAPABILITY_UNDERSTANDING", "INVOCATION_COMPATIBILITY", "RESULT_INTERPRETATION", "BOUNDARY_PRESERVATION"],
+  "expected_observations": [
+    "Capability entry points can be located from public-safe metadata.",
+    "Capability purpose and non-use boundaries are classified correctly.",
+    "A selected local integration mode maps to the canonical Capability Runtime.",
+    "SUPPORTED and INSUFFICIENT_EVIDENCE are interpreted without approval language.",
+    "Authorization, certification, deployment and adoption boundaries remain intact."
+  ],
+  "limitations": [
+    "This template represents a future participant category only.",
+    "No participant is contacted, invited, connected or validated.",
+    "No customer data, private prompt, credential or chain of thought is accepted.",
+    "No public API, public MCP endpoint or production service is available.",
+    "Compatibility observation does not establish adoption or ecosystem support.",
+    "A separate explicit authorization gate is required before any external session."
+  ],
+  "protocol_status": "PREPARATION_ONLY",
+  "participant_connected": false
+}

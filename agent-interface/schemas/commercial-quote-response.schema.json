@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/commercial-quote-response.schema.json",
+  "title": "SAEE Commercial Quote Response v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_id", "request_valid", "quote_status", "public_price_points_approved", "payment_enabled", "customer_contacted", "production_ready", "blockers_closed"],
+  "properties": {
+    "contract_id": {"const": "saee-commercial-quote-response-v0.1"},
+    "request_valid": {"type": "boolean"},
+    "quote_status": {"const": "owner_pricing_review_required"},
+    "public_price_points_approved": {"const": false},
+    "payment_enabled": {"const": false},
+    "customer_contacted": {"const": false},
+    "production_ready": {"const": false},
+    "blockers_closed": {"const": 0}
+  }
+}

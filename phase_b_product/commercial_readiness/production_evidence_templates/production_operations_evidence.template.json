@@ -1,0 +1,83 @@
+{
+  "alert_acknowledgement_process_defined": false,
+  "alert_delivery_test_recorded": false,
+  "alert_failure_handling_defined": false,
+  "alert_provider_contacted": false,
+  "alert_routing_policy_approved": false,
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "covered_blocker_ids": [
+    "production_monitoring",
+    "external_alert_delivery",
+    "on_call_rotation"
+  ],
+  "customer_contacted": false,
+  "customer_validated": false,
+  "env_var": "SAEE_PRODUCTION_OPERATIONS_EVIDENCE_PATH",
+  "escalation_schedule_defined": false,
+  "evidence_scope": "Production Operations Evidence",
+  "external_alert_channel_configured": false,
+  "external_alert_delivery_enabled": false,
+  "external_calls_made": false,
+  "forbidden_true_fields": [
+    "production_ready",
+    "customer_validated",
+    "product_launched",
+    "public_sdk_released",
+    "private_core_exposed",
+    "runtime_modified",
+    "backend_modified",
+    "kernel_modified",
+    "api_schema_modified",
+    "external_calls_made",
+    "customer_contacted",
+    "alert_provider_contacted",
+    "monitoring_vendor_contacted",
+    "production_monitoring_deployed",
+    "external_alert_delivery_enabled"
+  ],
+  "human_review_required": "yes",
+  "incident_commander_named": false,
+  "incident_escalation_path_defined": false,
+  "instructions": "Set required evidence fields to true only after separate human review confirms the evidence. Keep all forbidden true fields false.",
+  "kernel_modified": false,
+  "log_retention_reviewed": false,
+  "metrics_coverage_approved": false,
+  "monitoring_dry_run_recorded": false,
+  "monitoring_vendor_contacted": false,
+  "on_call_rotation_defined": false,
+  "operations_evidence_type": "production_operations_evidence",
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_monitoring_deployed": false,
+  "production_monitoring_plan_approved": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "required_evidence_groups": {
+    "external_alert_delivery": [
+      "external_alert_channel_configured",
+      "alert_routing_policy_approved",
+      "alert_delivery_test_recorded",
+      "alert_failure_handling_defined",
+      "incident_escalation_path_defined",
+      "alert_acknowledgement_process_defined"
+    ],
+    "on_call_rotation": [
+      "on_call_rotation_defined",
+      "escalation_schedule_defined",
+      "incident_commander_named"
+    ],
+    "production_monitoring": [
+      "production_monitoring_plan_approved",
+      "metrics_coverage_approved",
+      "slo_dashboard_defined",
+      "log_retention_reviewed",
+      "monitoring_dry_run_recorded"
+    ]
+  },
+  "runtime_modified": false,
+  "slo_dashboard_defined": false,
+  "template_status": "placeholder_only",
+  "template_type": "saee_production_evidence_template",
+  "template_version": "v0.1"
+}

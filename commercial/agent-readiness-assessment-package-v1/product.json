@@ -1,0 +1,28 @@
+{
+  "product_id": "saee.agent-readiness-assessment",
+  "product_version": "1.0-packaging",
+  "name": "SAEE Agent Readiness Assessment",
+  "language": "zh-CN",
+  "core_question": "Can this agent perform this workflow reliably before real deployment?",
+  "target_customer_hypothesis": ["AI_STARTUP_AGENT_TEAM", "AGENT_SAAS_TEAM", "ENTERPRISE_INTERNAL_AGENT_TEAM"],
+  "required_inputs": ["agent_workflow", "scenario", "approved_execution_record", "evidence_references"],
+  "outputs": ["reliability_findings", "evidence_findings", "missing_evidence", "improvement_recommendations", "limitations"],
+  "allowed_recommendations": ["CONTINUE", "REPLAN", "HUMAN_REVIEW_REQUIRED", "STOP"],
+  "canonical_service_ref": "saee_backend/services/commercial_assessment_service.py",
+  "request_schema_ref": "agent-interface/commercial/saee-commercial-assessment-service-request.schema.v1.0.json",
+  "response_schema_ref": "agent-interface/commercial/saee-commercial-assessment-service-response.schema.v1.0.json",
+  "product_definition_ref": "docs/commercial/SAEE_AGENT_READINESS_ASSESSMENT_PRODUCT.md",
+  "report_template_ref": "docs/commercial/SAEE_AGENT_READINESS_REPORT_TEMPLATE.md",
+  "demo_ref": "examples/commercial-demo/README.md",
+  "truth_boundary": {
+    "commercial_product_design": true,
+    "assessment_package": true,
+    "production_service": false,
+    "public_service": false,
+    "commercial_delivery_completed": false,
+    "customer_validated": false,
+    "market_validation": false,
+    "revenue_confirmed": false,
+    "deployment_authorized": false
+  }
+}

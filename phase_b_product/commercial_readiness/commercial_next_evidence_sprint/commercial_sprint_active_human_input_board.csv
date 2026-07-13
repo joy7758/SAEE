@@ -1,0 +1,6 @@
+blocker_id,owner_review_lanes,quick_fill_row_count,completed_value_row_count,missing_value_row_count,status,next_human_action,workbook_import_authorized,evidence_collection_authorized,blocker_closure_authorized
+formal_security_review,security_legal_privacy,12,12,0,filled_pending_safety_preflight,"Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",False,False,False
+pricing_page,commercial_finance_legal,14,14,0,filled_pending_safety_preflight,"Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",False,False,False
+production_monitoring,operations_engineering,10,10,0,filled_pending_safety_preflight,"Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",False,False,False
+production_restore_policy,data_operations,13,13,0,filled_pending_safety_preflight,"Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",False,False,False
+support_contact,support_operations,15,15,0,filled_pending_safety_preflight,"Review the workbook import approval request; do not import, collect evidence, or close blockers without separate approval.",False,False,False

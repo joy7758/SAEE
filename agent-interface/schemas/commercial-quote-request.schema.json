@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/commercial-quote-request.schema.json",
+  "title": "SAEE Commercial Quote Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "contract_id", "request_version", "tenant_id", "request_id", "package_id", "evaluation_scope", "requested_usage", "contact_mode", "boundaries", "receipt"],
+  "properties": {
+    "$schema": {"const": "../schemas/commercial-quote-request.schema.json"},
+    "contract_id": {"const": "saee-commercial-quote-request-v0.1"},
+    "request_version": {"const": "0.1.0"},
+    "tenant_id": {"type": "string", "pattern": "^tenant-[a-z0-9][a-z0-9_-]{1,30}$"},
+    "request_id": {"type": "string", "pattern": "^quote-[a-z0-9][a-z0-9._-]{1,62}$"},
+    "package_id": {"enum": ["controlled_preview", "pro_team_review", "enterprise_private_review"]},
+    "evaluation_scope": {"enum": ["controlled_preview", "team_review", "enterprise_private_review"]},
+    "requested_usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent_count", "scenario_runs_per_month"],
+      "properties": {
+        "agent_count": {"type": "integer", "minimum": 1, "maximum": 1000},
+        "scenario_runs_per_month": {"type": "integer", "minimum": 1, "maximum": 100000}
+      }
+    },
+    "contact_mode": {"const": "agent_receipt_only"},
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customer_data", "customer_contact", "payment", "checkout", "production_claim", "external_execution"],
+      "properties": {
+        "customer_data": {"const": false},
+        "customer_contact": {"const": false},
+        "payment": {"const": false},
+        "checkout": {"const": false},
+        "production_claim": {"const": false},
+        "external_execution": {"const": false}
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "schema"],
+      "properties": {
+        "required": {"const": true},
+        "schema": {"const": "agent-interface/schemas/commercial-quote-response.schema.json"}
+      }
+    }
+  }
+}

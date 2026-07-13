@@ -1,0 +1,81 @@
+{
+  "run_id": "run_001",
+  "dry_run_only": true,
+  "external_calls_made": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "customer_contacted": false,
+  "task_candidates_executed": false,
+  "human_approval_required": true,
+  "missing_signal_source": true,
+  "missing_optional_signal_sources": [
+    "strategy_intake/USER_QUESTION_SIGNAL_LOG.md",
+    "strategy_intake/GITHUB_ECOSYSTEM_SIGNAL_LOG.md"
+  ],
+  "scores": {
+    "signal_quality": 2,
+    "task_candidate_quality": 4,
+    "duplicate_rate_score": 4,
+    "boundary_safety": 5,
+    "commercial_relevance": 4
+  },
+  "counts": {
+    "signals_reviewed": 5,
+    "candidates_reviewed": 4,
+    "keep_for_review": 1,
+    "merge_duplicate": 1,
+    "reject_boundary_risk": 0,
+    "reject_low_relevance": 0,
+    "needs_more_signal": 2
+  },
+  "dry_run_status": "pass",
+  "candidate_reviews": [
+    {
+      "candidate_id": "SI-001",
+      "title": "Add external AI recommendation manual-test status to scheduled information collection",
+      "source": "Recommendation signal log",
+      "category": "recommendation",
+      "classification": "merge_duplicate",
+      "commercial_relevance": 4,
+      "boundary_safety": true,
+      "requires_human_approval": true,
+      "notes": "This candidate overlaps with work already represented in the scheduled strategy intake layer."
+    },
+    {
+      "candidate_id": "SI-002",
+      "title": "Review manually entered external assistant results after human testing",
+      "source": "External AI test kit",
+      "category": "recommendation",
+      "classification": "needs_more_signal",
+      "commercial_relevance": 4,
+      "boundary_safety": true,
+      "requires_human_approval": true,
+      "notes": "Needs manually entered external assistant results before it can be reviewed for action."
+    },
+    {
+      "candidate_id": "SI-003",
+      "title": "Refresh recommendation materials only if results show confusion",
+      "source": "Recommendation validation",
+      "category": "recommendation",
+      "classification": "needs_more_signal",
+      "commercial_relevance": 4,
+      "boundary_safety": true,
+      "requires_human_approval": true,
+      "notes": "Needs manually entered external assistant results before it can be reviewed for action."
+    },
+    {
+      "candidate_id": "SI-004",
+      "title": "Collect public news and peer movement relevant to AI agent stability evaluation",
+      "source": "Market / competitor logs",
+      "category": "market",
+      "classification": "keep_for_review",
+      "commercial_relevance": 4,
+      "boundary_safety": true,
+      "requires_human_approval": true,
+      "notes": "Relevant to scheduled external signal collection, but default review decision remains hold."
+    }
+  ]
+}

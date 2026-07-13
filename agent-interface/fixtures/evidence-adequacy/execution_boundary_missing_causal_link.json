@@ -1,0 +1,27 @@
+{
+  "saee_evidence_adequacy_input_v0_1": true,
+  "schema_version": "0.1.0",
+  "claim_type": "EXECUTION_BOUNDARY",
+  "evidence": {
+    "resource_binding": {
+      "receipt_id": "receipt:synthetic-resource-001",
+      "content_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "resolved_uri": "https://code.example.invalid/synthetic/resource.git"
+    },
+    "execution_effect": {
+      "effect_id": "effect:synthetic-001",
+      "resource_receipt_ref": "receipt:synthetic-resource-001",
+      "content_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "resolved_uri": "https://code.example.invalid/synthetic/resource.git",
+      "sandbox_ref": "sandbox:synthetic-001"
+    },
+    "causal_link": {}
+  },
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  }
+}

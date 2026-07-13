@@ -1,0 +1,10 @@
+{
+  "transport": "stdio",
+  "command": "python3",
+  "args": ["scripts/saee_capability_mcp_stdio.py"],
+  "protocol_version": "2025-11-25",
+  "expected_tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+  "external_server": false,
+  "production_ready": false
+}
+

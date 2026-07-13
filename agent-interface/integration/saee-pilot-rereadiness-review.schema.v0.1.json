@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saee:integration:pilot-rereadiness-review:0.1",
+  "title": "SAEE Pilot Re-readiness Review Simulation Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "simulation_version",
+    "scenario_id",
+    "scenario_type",
+    "synthetic_only",
+    "input_type",
+    "evidence_source_claim",
+    "evidence_package_ref",
+    "reassessment_result",
+    "expected_simulation_result",
+    "attempted_real_readiness_status",
+    "attempted_pilot_authorized",
+    "attempted_execution_authorized",
+    "attempted_external_validation_completed",
+    "real_readiness_status",
+    "gaps_closed",
+    "pilot_authorized",
+    "execution_authorized",
+    "production_ready"
+  ],
+  "properties": {
+    "simulation_version": {"const": "0.1"},
+    "scenario_id": {"type": "string", "minLength": 1, "pattern": "^rereadiness:[a-z0-9-]+$"},
+    "scenario_type": {
+      "enum": [
+        "COMPLETE_SYNTHETIC_EVIDENCE_PACKAGE",
+        "SYNTHETIC_AS_REAL_CLAIM",
+        "READINESS_STATUS_ESCALATION",
+        "DECISION_GATE_CONFUSION",
+        "PARTIAL_ARTIFACT_PACKAGE"
+      ]
+    },
+    "synthetic_only": {"const": true},
+    "input_type": {"enum": ["synthetic", "real", "unknown"]},
+    "evidence_source_claim": {"enum": ["SYNTHETIC", "REAL", "UNKNOWN"]},
+    "evidence_package_ref": {"type": "string", "minLength": 1},
+    "reassessment_result": {"enum": ["ELIGIBLE_FOR_REVIEW", "NOT_ELIGIBLE_FOR_REVIEW"]},
+    "expected_simulation_result": {"enum": ["ELIGIBLE_FOR_REVIEW", "NOT_ELIGIBLE_FOR_REVIEW", "REJECT"]},
+    "attempted_real_readiness_status": {"enum": ["NOT_READY", "READY"]},
+    "attempted_pilot_authorized": {"type": "boolean"},
+    "attempted_execution_authorized": {"type": "boolean"},
+    "attempted_external_validation_completed": {"type": "boolean"},
+    "real_readiness_status": {"const": "NOT_READY"},
+    "gaps_closed": {"const": false},
+    "pilot_authorized": {"const": false},
+    "execution_authorized": {"const": false},
+    "production_ready": {"const": false}
+  }
+}

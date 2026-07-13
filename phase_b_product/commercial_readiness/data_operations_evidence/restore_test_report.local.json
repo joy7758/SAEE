@@ -1,0 +1,42 @@
+{
+  "boundary_flags": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "credentials_restored": false,
+    "customer_contacted": false,
+    "customer_validated": false,
+    "external_calls_made": false,
+    "kernel_modified": false,
+    "live_restore_performed": false,
+    "private_core_exposed": false,
+    "private_core_restored": false,
+    "product_launched": false,
+    "production_data_path_modified": false,
+    "production_ready": false,
+    "restore_to_live_path_enabled": false,
+    "runtime_modified": false
+  },
+  "checks": {
+    "credentials_restored": false,
+    "isolated_restore_environment_used": true,
+    "private_core_restored": false,
+    "restore_integrity_checks_passed": true,
+    "restore_to_live_path": false,
+    "rto_rpo_observed_and_recorded": true,
+    "tenant_scope_validated_if_customer_data_exists": true
+  },
+  "generated_by": "scripts/saee_data_operations_evidence_runner.py",
+  "observations": {
+    "backup_copied_file_count": 2,
+    "backup_type": "public_shell_local_backup",
+    "observed_restore_drill_seconds": 0.002294,
+    "restore_copied_file_count": 2,
+    "restore_drill_status": "pass",
+    "restore_drill_type": "public_shell_local_restore_drill",
+    "restore_readable_file_count": 2
+  },
+  "report_scope": "local_public_shell_isolated_restore_only",
+  "restore_test_report_reviewed": true,
+  "restore_test_report_type": "local_public_shell_restore_test_report",
+  "review_scope": "local_machine_check_review_only_not_external_audit"
+}

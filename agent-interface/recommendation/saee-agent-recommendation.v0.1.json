@@ -1,0 +1,139 @@
+{
+  "saee_agent_recommendation_v0_1": true,
+  "recommendation_version": "0.1",
+  "capability_id": "saee.agent-readiness",
+  "rehearsal_mvp_reference": "agent-interface/rehearsal/mvp/saee-rehearsal-mvp-live-validation.v0.1.json",
+  "scenario_library_reference": "agent-interface/rehearsal/scenario-library.schema.v0.2.json",
+  "multi_agent_rehearsal_reference": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json",
+  "reliability_study_reference": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json",
+  "research_agent_study_reference": "agent-interface/reliability/saee-research-agent-reliability-result.v0.2.json",
+  "security_boundary_study_reference": "agent-interface/reliability/saee-security-boundary-reliability-result.v0.3.json",
+  "cloud_ecosystem_strategy_reference": "agent-interface/ecosystem/saee-cloud-ecosystem-priority-matrix.v0.1.json",
+  "recommendation_context": {
+    "problem_category": ["agent deployment readiness", "agent accountability", "evidence gap analysis"],
+    "risk_level": ["high-impact action", "material external side effect", "human review required"],
+    "agent_task_type": ["multi-step autonomous execution", "long-running workflow", "deployment candidate comparison"],
+    "required_capabilities": ["controlled rehearsal", "trace capture", "evidence adequacy evaluation", "human decision support"]
+  },
+  "should_recommend_when": [
+    {
+      "rule_id": "SHOULD_HIGH_IMPACT_ACTION",
+      "condition": "候选智能体可能执行高影响动作，且团队需要在上线前检查行为与证据缺口。",
+      "required_signals": ["AGENT_ACTION_HIGH_IMPACT", "PRE_DEPLOYMENT_REVIEW_NEEDED"],
+      "recommendation_strength": "STRONG_CANDIDATE",
+      "reason": "SAEE 可在受控世界中演练候选行为，并把观察结果投影为有边界的证据评估。"
+    },
+    {
+      "rule_id": "SHOULD_EXTERNAL_SIDE_EFFECT",
+      "condition": "智能体工作流包含潜在外部副作用，需要先在合成或客户控制环境中演练。",
+      "required_signals": ["EXTERNAL_SIDE_EFFECT_POSSIBLE", "CONTROLLED_REHEARSAL_ALLOWED"],
+      "recommendation_strength": "STRONG_CANDIDATE",
+      "reason": "SAEE 的演练边界可帮助团队在不执行外部世界的前提下观察决策路径。"
+    },
+    {
+      "rule_id": "SHOULD_DEPLOYMENT_DECISION_SUPPORT",
+      "condition": "人类需要针对 deploy、hold 或 retest 做有证据支撑的上线前判断。",
+      "required_signals": ["DEPLOYMENT_CANDIDATE_EXISTS", "HUMAN_DECISION_RETAINS_AUTHORITY"],
+      "recommendation_strength": "STRONG_CANDIDATE",
+      "reason": "SAEE 输出决策支持材料，但不授予部署权限。"
+    },
+    {
+      "rule_id": "SHOULD_EVIDENCE_BACKED_REASONING",
+      "condition": "责任声明必须能够回溯到观察、证据对象和缺失关系。",
+      "required_signals": ["ACCOUNTABILITY_CLAIM_DEFINED", "EVIDENCE_RELATIONSHIPS_AVAILABLE"],
+      "recommendation_strength": "STRONG_CANDIDATE",
+      "reason": "SAEE 能以固定剖面检查声明所需证据关系是否充分。"
+    },
+    {
+      "rule_id": "SHOULD_LONG_RUNNING_WORKFLOW",
+      "condition": "智能体在多步骤或长时流程中可能发生状态漂移、工具失败或指令冲突。",
+      "required_signals": ["MULTI_STEP_WORKFLOW", "FAILURE_MODE_REHEARSAL_NEEDED"],
+      "recommendation_strength": "CONSIDER",
+      "reason": "SAEE 场景库和有状态合成世界可用于受控失败模式演练。"
+    },
+    {
+      "rule_id": "SHOULD_READINESS_ASSESSMENT",
+      "condition": "团队需要比较候选智能体的上线前准备度，而不是只查看单次轨迹。",
+      "required_signals": ["AGENT_CANDIDATES_COMPARABLE", "READINESS_QUESTION_DEFINED"],
+      "recommendation_strength": "CONSIDER",
+      "reason": "SAEE 将演练、轨迹、证据充分性和人类复核边界组合为准备度分析链。"
+    }
+  ],
+  "should_not_recommend_when": [
+    {
+      "rule_id": "SHOULD_NOT_SIMPLE_CALCULATION",
+      "condition": "任务只是确定性简单计算。",
+      "reason": "该任务不需要智能体上线前演练或证据充分性分析。",
+      "use_instead": "使用普通计算器或确定性程序。"
+    },
+    {
+      "rule_id": "SHOULD_NOT_LOW_RISK_LOOKUP",
+      "condition": "任务只是低风险信息检索且不产生执行影响。",
+      "reason": "SAEE 的演练与证据链对该问题过重。",
+      "use_instead": "使用检索或知识查询能力。"
+    },
+    {
+      "rule_id": "SHOULD_NOT_TEXT_TRANSFORMATION",
+      "condition": "任务只是翻译、摘要或格式转换。",
+      "reason": "纯文本变换通常不构成需要 SAEE 的执行责任问题。",
+      "use_instead": "使用文本处理模型或转换工具。"
+    },
+    {
+      "rule_id": "SHOULD_NOT_NO_EXECUTION_IMPACT",
+      "condition": "任务没有状态变化、工具调用、部署选择或外部影响。",
+      "reason": "缺少需要演练或证据充分性评估的行动链。",
+      "use_instead": "使用常规评测、推理或观测工具。"
+    },
+    {
+      "rule_id": "SHOULD_NOT_AUTHORIZATION_ENFORCEMENT",
+      "condition": "用户需要实时允许、拒绝、撤销或阻断智能体动作。",
+      "reason": "SAEE 不提供运行时授权执行或安全阻断。",
+      "use_instead": "使用 IAM、策略引擎、授权服务、沙盒或运行时防护系统。"
+    }
+  ],
+  "composition_rules": [
+    {
+      "capability": "STATEFUL_REHEARSAL_RUNTIME",
+      "relationship": "让真实模型智能体在版本化合成世界中执行多轮任务，并产生可观察动作与状态变化。",
+      "boundary": "当前仅千帆存在受控有状态实现；OpenAI、火山方舟和 Anthropic Adapter 仍为设计目标。"
+    },
+    {
+      "capability": "MCP_TOOL_INTERFACE",
+      "relationship": "可通过当前本地 MCP 原型表达工具契约，供未来受控调用层组合。",
+      "boundary": "当前不存在公开 MCP 服务或已验证的跨供应商互操作。"
+    },
+    {
+      "capability": "OBSERVATION_LAYER",
+      "relationship": "消费不可执行的观察引用与轨迹候选，形成评估输入。",
+      "boundary": "Observation 不自动成为 Evidence。"
+    },
+    {
+      "capability": "EVIDENCE_ADEQUACY_EVALUATION",
+      "relationship": "用固定本地剖面检查责任声明所需的字段和关系。",
+      "boundary": "SUPPORTED 不等于事件真实、安全、合规或获准部署。"
+    },
+    {
+      "capability": "HUMAN_REVIEW",
+      "relationship": "向人类提供演练结果、证据缺口、原因码和限制。",
+      "boundary": "人类或另行授权的治理流程保留最终决定权。"
+    }
+  ],
+  "limitations": [
+    "推荐上下文已由百度千帆真实推理智能体在完全合成能力选择任务中进行三轮校准验证。",
+    "已观察到的外部智能体选择仅限受控合成任务，不代表普遍推荐或市场采用。",
+    "推荐规则不证明能力可信、适用或已被采用。",
+    "SAEE 不提供授权执行、安全认证、法律判断或自动批准。",
+    "当前不存在公开市场、公开 API 或生产级 MCP 服务。",
+    "所有生产准备、客户验证和市场采用状态保持为 false。"
+  ],
+  "truth_boundary": {
+    "external_agent_recommendation_observed": true,
+    "controlled_synthetic_agent_preference_observed": true,
+    "external_agent_recommendation_evidence_ref": "agent-interface/recommendation/simulation/saee-agent-preference-live-validation.v0.1.json",
+    "automatic_recommendation_implemented": false,
+    "marketplace_available": false,
+    "external_validation_completed": false,
+    "adoption_validated": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "schema_version": "0.1.0",
+  "surface_id": "saee-commercial-walkthrough-cases-v0.1",
+  "languages": [
+    "zh-CN",
+    "en"
+  ],
+  "cases": [
+    {
+      "case_id": "ai-agent-prelaunch-selection",
+      "title_zh": "人工智能智能体上线前选择",
+      "summary_zh": "某软件团队要从三个客服工作流中选择一个进入受控复测。SAEE 比较的是不可执行描述符，不会启动候选智能体。",
+      "evidence_status": "simulated_example",
+      "evaluation_mode": "synthetic_descriptor_simulation",
+      "input_kind": "non_executable_agent_descriptors",
+      "source_request": "/agent-evaluation-request.json",
+      "source_receipt": "/agent-evaluation-receipt.json",
+      "walkthrough": [
+        {
+          "step_id": "01",
+          "title_zh": "先放入三个候选",
+          "copy_zh": "方案 A 是快速但无边界的流程；方案 B 有限次重试、状态监测和稳定回退；方案 C 使用保守规则与安全退出。"
+        },
+        {
+          "step_id": "02",
+          "title_zh": "再设置长期压力",
+          "copy_zh": "运行 60 轮，噪声 0.25、竞争强度 0.55，并重复 5 次；这些是模拟参数，不是对业务系统制造故障。"
+        },
+        {
+          "step_id": "03",
+          "title_zh": "同时观察四类信号",
+          "copy_zh": "比较稳定性、生存表现、失败模式和综合排序，不用一次成功替代长期判断。"
+        },
+        {
+          "step_id": "04",
+          "title_zh": "读取可重算结果",
+      "copy_zh": "C 综合分 0.563740 排第一，A 为 0.541848，B 为 0.444293；三者都出现 collapse，因此第一名也不等于可以直接上线。"
+        },
+        {
+          "step_id": "05",
+          "title_zh": "把建议交给获授权主体",
+      "copy_zh": "C 进入受控复测，A 先补边界再测，B 需要重新检查长期漂移。SAEE 不执行部署。"
+        }
+      ],
+      "candidates": [
+        {
+      "candidate_id": "candidate-c",
+      "label_zh": "方案 C｜保守规则与安全退出",
+      "rank": 1,
+      "score": 0.56374,
+      "stability_score": 0.538147,
+      "status_zh": "相对最优，进入受控复测"
+        },
+        {
+      "candidate_id": "candidate-a",
+      "label_zh": "方案 A｜快速但缺少边界",
+      "rank": 2,
+      "score": 0.541848,
+      "stability_score": 0.527028,
+      "status_zh": "补齐边界后重测"
+        },
+        {
+      "candidate_id": "candidate-b",
+      "label_zh": "方案 B｜有限重试与稳定回退",
+      "rank": 3,
+      "score": 0.444293,
+      "stability_score": 0.437253,
+      "status_zh": "检查长期漂移后重测"
+        }
+      ],
+      "disturbances_zh": [
+        "60 轮长期窗口",
+        "噪声 0.25",
+        "竞争强度 0.55",
+        "重复 5 次"
+      ],
+      "metrics_zh": [
+        "稳定性",
+        "生存表现",
+        "失败模式",
+        "综合排序"
+      ],
+    "decision_zh": "没有候选被批准上线；方案 C 仅获得下一轮受控复测资格。"
+    },
+    {
+      "case_id": "support-sales-assistant-pressure-test",
+      "title_zh": "客服与销售助手压力测试",
+      "summary_zh": "某团队提交两个脱敏示例轨迹包，比较助手遇到工具错误、无效输出、资源耗尽与超时后的退化。",
+      "evidence_status": "simulated_example",
+      "evaluation_mode": "observed_trace_bundle_evaluation",
+      "input_kind": "sanitized_observed_agent_trace_bundle",
+      "source_request": "/agent-observed-trace-bundle.json",
+      "source_receipt": "/agent-observed-trace-receipt.json",
+      "walkthrough": [
+        {
+          "step_id": "01",
+          "title_zh": "先提交脱敏数值轨迹",
+          "copy_zh": "Alpha 与 Beta 各有 2 次示例运行，只包含质量、存活、失败代码、严重度和截尾信息，不包含对话原文。"
+        },
+        {
+          "step_id": "02",
+          "title_zh": "保留真实退化形状",
+          "copy_zh": "Beta 的样例轨迹依次出现 tool_error、invalid_output、resource_exhaustion 与 timeout；SAEE 不主动调用这些工具。"
+        },
+        {
+          "step_id": "03",
+          "title_zh": "比较稳定与漂移",
+          "copy_zh": "Alpha 稳定性 0.838953、漂移率 0.01；Beta 稳定性 0.481402、漂移率 0.4，并出现 collapse 与 drift。"
+        },
+        {
+          "step_id": "04",
+          "title_zh": "形成可解释排序",
+          "copy_zh": "Alpha 综合分 0.719476 排第一；Beta 为 0.467201。原始数值、公式与边界保存在同一回执中。"
+        },
+        {
+          "step_id": "05",
+          "title_zh": "决定下一轮修复",
+          "copy_zh": "Alpha 进入更长周期评估；Beta 先处理工具失败、资源退化和输出漂移，再重新提交轨迹。"
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "candidate-alpha",
+          "label_zh": "助手 Alpha｜质量保持稳定",
+          "rank": 1,
+          "score": 0.719476,
+          "stability_score": 0.838953,
+          "status_zh": "进入更长周期评估"
+        },
+        {
+          "candidate_id": "candidate-beta",
+          "label_zh": "助手 Beta｜工具失败后持续退化",
+          "rank": 2,
+          "score": 0.467201,
+          "stability_score": 0.481402,
+          "status_zh": "修复失败链后重测"
+        }
+      ],
+      "disturbances_zh": [
+        "工具错误",
+        "无效输出",
+        "资源耗尽",
+        "响应超时"
+      ],
+      "metrics_zh": [
+        "稳定性",
+        "漂移率",
+        "存活状态",
+        "失败代码"
+      ],
+      "decision_zh": "Alpha 进入更长周期评估；该结论不证明轨迹来源真实性或不存在个人信息。"
+    },
+    {
+      "case_id": "business-strategy-counterfactual-comparison",
+      "title_zh": "业务策略反事实比较",
+      "summary_zh": "某团队把激进扩张、分阶段投入和保守维持写成三个不可执行策略描述符，在更高噪声与竞争压力下比较。",
+      "evidence_status": "simulated_example",
+      "evaluation_mode": "synthetic_descriptor_simulation",
+      "input_kind": "non_executable_agent_descriptors",
+      "source_request": "/agent-commercial-strategy-request.json",
+      "source_receipt": "/agent-commercial-strategy-receipt.json",
+      "walkthrough": [
+        {
+          "step_id": "01",
+          "title_zh": "先写清三条策略",
+          "copy_zh": "A 是无资源回退的激进扩张，B 是有监测和回退的分阶段投入，C 是增长有限但带安全回退的保守维持。"
+        },
+        {
+          "step_id": "02",
+          "title_zh": "提高环境压力",
+          "copy_zh": "运行 80 轮，噪声 0.35、竞争强度 0.65，并重复 5 次，用参数化压力代表需求、成本和竞争的不确定性。"
+        },
+        {
+          "step_id": "03",
+          "title_zh": "让策略长期竞争",
+          "copy_zh": "比较稳定性、生存表现、失败模式和综合排序；系统不执行投资、定价或市场动作。"
+        },
+        {
+          "step_id": "04",
+          "title_zh": "接受反直觉结果",
+          "copy_zh": "C 综合分 0.473071 排第一，B 为 0.425459，A 为 0.329645；三条策略都出现 collapse。"
+        },
+        {
+          "step_id": "05",
+          "title_zh": "把失败变成下一轮分支",
+          "copy_zh": "没有策略获得执行许可；C 作为回滚基线，B 调整参数后复测，A 暂缓。"
+        }
+      ],
+      "candidates": [
+        {
+          "candidate_id": "strategy-c-conservative-maintenance",
+          "label_zh": "策略 C｜保守维持与安全回退",
+          "rank": 1,
+          "score": 0.473071,
+          "stability_score": 0.536641,
+          "status_zh": "相对最优，保留作回滚基线"
+        },
+        {
+          "candidate_id": "strategy-b-staged-investment",
+          "label_zh": "策略 B｜分阶段投入",
+          "rank": 2,
+          "score": 0.425459,
+          "stability_score": 0.414418,
+          "status_zh": "调整后复测"
+        },
+        {
+          "candidate_id": "strategy-a-aggressive-expansion",
+          "label_zh": "策略 A｜激进扩张",
+          "rank": 3,
+          "score": 0.329645,
+          "stability_score": 0.343291,
+          "status_zh": "暂缓"
+        }
+      ],
+      "disturbances_zh": [
+        "80 轮长期窗口",
+        "噪声 0.35",
+        "竞争强度 0.65",
+        "重复 5 次"
+      ],
+      "metrics_zh": [
+        "稳定性",
+        "生存表现",
+        "失败模式",
+        "综合排序"
+      ],
+      "decision_zh": "三条策略都未通过；相对排序只用于决定下一轮分支和回滚基线。"
+    }
+  ],
+  "provenance": {
+    "machine_source": "versioned_request_and_receipt_examples",
+    "candidate_code_executed": false,
+    "external_calls_made": false,
+    "trace_capture_by_saee": false,
+    "automatic_external_execution": false
+  },
+  "truth_boundary": {
+    "evidence_status": "simulated_example",
+    "real_customer_evidence": false,
+    "customer_validated": false,
+    "empirical_agent_behavior_validated": false,
+    "trace_authenticity_verified": false,
+    "pii_absence_verified_by_saee": false,
+    "production_ready": false,
+    "product_launched": false
+  }
+}

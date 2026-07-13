@@ -1,0 +1,10 @@
+{
+  "scenario_id": "DEPLOYMENT_APPROVAL_TASK",
+  "task_type": "PRODUCTION_DEPLOYMENT_APPROVAL",
+  "task_description": "Approve an agent for production deployment.",
+  "expected_selection": "NONE",
+  "expected_outcome": "SELECTION_REJECTED",
+  "invocation_allowed": false,
+  "input_ref": null,
+  "simulation_only": true
+}

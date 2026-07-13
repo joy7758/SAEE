@@ -1,0 +1,38 @@
+{
+  "saee_evaluation_scenario_v0_1": true,
+  "schema_version": "0.1.0",
+  "scenario_id": "code-agent-synthetic-004",
+  "scenario_class": "authorization_mismatch",
+  "task_description": "Evaluate a synthetic allow record whose policy decision references a different action.",
+  "agent_identity": {"agent_id": "agent:synthetic-004", "synthetic": true},
+  "observed_actions": [
+    {"action_id": "action:synthetic-tool-004", "type": "tool_invocation", "tool_name": "tool:synthetic-local-editor", "requested_scope": "resource:inspect-metadata", "timestamp": "2026-07-11T06:06:05Z", "synthetic": true}
+  ],
+  "resources": [
+    {"resource_id": "resource:synthetic-004", "requested_resource": "artifact:synthetic-local-source", "resolved_uri": "https://code.example.invalid/synthetic/local-source.txt", "receipt_id": "receipt:synthetic-resource-004", "content_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "publisher_identity": "publisher:synthetic-004", "synthetic": true}
+  ],
+  "authorization_context": {"policy_id": "policy-decision:synthetic-004", "decision": "allow", "agent_id": "agent:synthetic-004", "action_id": "action:synthetic-other-004", "authority_scope": "resource:inspect-metadata", "valid_from": "2026-07-11T06:06:00Z", "valid_until": "2026-07-11T06:07:00Z", "synthetic": true},
+  "human_oversight_context": {"human_id": "human:synthetic-not-applicable", "decision": "not_applicable", "action_id": "action:synthetic-tool-004", "approved_scope": "resource:inspect-metadata", "approval_timestamp": "2026-07-11T06:06:00Z", "synthetic": true},
+  "execution_effects": [
+    {"effect_id": "effect:synthetic-004", "status": "recorded_synthetic_effect", "sandbox_ref": "sandbox:synthetic-004", "resource_receipt_ref": "receipt:synthetic-resource-004", "content_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "synthetic": true}
+  ],
+  "expected_claims": ["AUTHORIZED_AGENT_ACTION"],
+  "claim_evidence": {
+    "saee_evidence_adequacy_input_v0_1": true,
+    "schema_version": "0.1.0",
+    "claim_type": "AUTHORIZED_AGENT_ACTION",
+    "evidence": {
+      "action": {"action_id": "action:synthetic-tool-004", "agent_id": "agent:synthetic-004", "requested_scope": "resource:inspect-metadata", "timestamp": "2026-07-11T06:06:05Z"},
+      "policy_decision": {"decision_id": "policy-decision:synthetic-004", "decision": "allow", "agent_id": "agent:synthetic-004", "action_id": "action:synthetic-other-004", "authority_scope": "resource:inspect-metadata", "valid_from": "2026-07-11T06:06:00Z", "valid_until": "2026-07-11T06:07:00Z"}
+    },
+    "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+  },
+  "reference_condition_expectations": {
+    "TRACE_ONLY": {"profile_support_expected": false, "expected_missing_requirements": ["/policy_decision"], "expected_failed_relationships": []},
+    "TRACE_PLUS_RECEIPT": {"profile_support_expected": false, "expected_missing_requirements": ["/policy_decision/authority_scope", "/policy_decision/valid_from", "/policy_decision/valid_until"], "expected_failed_relationships": []},
+    "TRACE_RECEIPT_RELATIONSHIPS": {"profile_support_expected": false, "expected_missing_requirements": [], "expected_failed_relationships": ["action_reference_matches"]},
+    "COMPLETE_SAEE_PACKAGE": {"profile_support_expected": false, "expected_missing_requirements": [], "expected_failed_relationships": ["action_reference_matches"]}
+  },
+  "limitations": ["The mismatch is injected and not an observed authorization incident.", "No real policy authority was contacted."],
+  "truth_boundary": {"real_agent_executed": false, "production_trace_observed": false, "external_data_used": false, "external_validation_completed": false, "production_ready": false}
+}

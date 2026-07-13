@@ -1,0 +1,17 @@
+{
+  "model_version":"0.1",
+  "capability_id":"saee.agent-reliability",
+  "role":"decision_context_provider",
+  "input_context":["observability_context","agent_execution_information","evidence_objects","accountability_claims"],
+  "output_context":["reliability_context","evidence_context","rehearsal_context","limitations"],
+  "composition_partners":["OBSERVABILITY_PROVIDER","AUTHORIZATION_PROVIDER","POLICY_ENGINE","EXECUTION_PROVIDER"],
+  "replacement_boundary":["SAEE_NOT_AUTHORIZATION","SAEE_NOT_POLICY_ENFORCEMENT","SAEE_NOT_OBSERVABILITY","SAEE_NOT_EXECUTION"],
+  "capability_layers":[
+    {"layer_id":"SAEE_RELIABILITY","purpose":"Provide bounded reliability, evidence and rehearsal context.","responsibility":"context assessment","non_responsibility":["authority","permission","execution","policy enforcement"]},
+    {"layer_id":"OBSERVABILITY","purpose":"Provide runtime observations.","responsibility":"traces metrics and logs","non_responsibility":["reliability authority","permission"]},
+    {"layer_id":"AUTHORIZATION","purpose":"Provide binding permission decisions.","responsibility":"allow or deny","non_responsibility":["reliability assessment"]},
+    {"layer_id":"POLICY_ENGINE","purpose":"Evaluate or enforce policy.","responsibility":"policy decision","non_responsibility":["reliability evidence adequacy"]},
+    {"layer_id":"EXECUTION_ENGINE","purpose":"Execute separately authorized actions.","responsibility":"action execution","non_responsibility":["authorization source","reliability assessment"]}
+  ],
+  "truth_boundary":{"capability_composition_strategy":true,"external_agents_connected":false,"agent_adoption_validated":false,"marketplace_listed":false,"interoperability_claimed":false,"standards_claimed":false,"production_ready":false}
+}

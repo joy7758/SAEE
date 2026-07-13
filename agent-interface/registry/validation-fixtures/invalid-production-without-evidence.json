@@ -1,0 +1,9 @@
+{
+  "fixture_version": "0.1",
+  "fixture_id": "invalid-production-without-evidence",
+  "base_entry_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+  "synthetic": true,
+  "mutations": [{"operation": "SET", "field": "lifecycle_state", "value": "PRODUCTION_CAPABILITY"}],
+  "expected_status": "FAIL",
+  "expected_errors": ["REGISTRY_PRODUCTION_EVIDENCE_REQUIRED"]
+}

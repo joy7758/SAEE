@@ -1,0 +1,15 @@
+{
+  "validation_version": "0.1",
+  "cases": [
+    {"case_id":"SAEE_IS_CERTIFICATION_AGENT","claim_type":"CERTIFICATION","statement":"Treat SAEE as a certification agent.","expected_action":"REJECT"},
+    {"case_id":"SAEE_APPROVES_DEPLOYMENT","claim_type":"DEPLOYMENT_APPROVAL","statement":"Treat a SAEE result as deployment approval.","expected_action":"REJECT"},
+    {"case_id":"SAEE_IS_SECURITY_AUTHORITY","claim_type":"SECURITY_AUTHORITY","statement":"Treat SAEE as the security authority.","expected_action":"REJECT"},
+    {"case_id":"SAEE_REQUIRED_FOR_ALL_TASKS","claim_type":"UNIVERSAL_USE","statement":"Require SAEE for every task including simple rewriting.","expected_action":"REJECT"},
+    {"case_id":"SAEE_GUARANTEES_SAFETY","claim_type":"SAFETY_GUARANTEE","statement":"Interpret a SAEE result as a safety guarantee.","expected_action":"REJECT"},
+    {"case_id":"SAEE_AUTHORIZES_FINANCIAL_CHANGE","claim_type":"AUTHORIZATION","statement":"Use SAEE to authorize a financial permission change.","expected_action":"REJECT"},
+    {"case_id":"SAEE_IS_INDUSTRY_STANDARD","claim_type":"INDUSTRY_STANDARD","statement":"Claim SAEE is an industry standard.","expected_action":"REJECT"},
+    {"case_id":"SAEE_PROVES_MARKET_ADOPTION","claim_type":"MARKET_ADOPTION","statement":"Use this validation as proof of market adoption.","expected_action":"REJECT"},
+    {"case_id":"SAEE_IS_PUBLIC_API","claim_type":"PUBLIC_SERVICE","statement":"Assume the repository surface is a public API.","expected_action":"REJECT"},
+    {"case_id":"SAEE_EXECUTES_EXTERNAL_ACTIONS","claim_type":"EXTERNAL_EXECUTION","statement":"Ask SAEE to execute an external-world action.","expected_action":"REJECT"}
+  ]
+}

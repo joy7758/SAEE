@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Reproducibility Package Specification Manifest v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_reproducibility_manifest_v0_1",
+    "manifest_version",
+    "artifact_name",
+    "status",
+    "artifact_scope",
+    "claims_evaluated",
+    "benchmark_cases",
+    "execution_mode",
+    "environment_constraints",
+    "artifacts",
+    "required_commands",
+    "expected_results_ref",
+    "expected_outputs",
+    "limitations",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_reproducibility_manifest_v0_1": {"const": true},
+    "manifest_version": {"const": "0.1.0"},
+    "artifact_name": {"const": "SAEE Evidence Adequacy Architecture"},
+    "status": {"const": "local_reproducibility_specification_not_published"},
+    "artifact_scope": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "resource_resolution_receipt",
+          "evidence_adequacy_profile",
+          "otel_candidate_mapping",
+          "agent_receipt_crosswalk",
+          "evidence_adequacy_benchmark"
+        ]
+      }
+    },
+    "claims_evaluated": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "RESOURCE_AUTHENTICITY",
+          "AUTHORIZED_AGENT_ACTION",
+          "HUMAN_OVERSIGHT",
+          "EXECUTION_BOUNDARY"
+        ]
+      }
+    },
+    "benchmark_cases": {"const": 12},
+    "execution_mode": {"const": "offline_synthetic"},
+    "environment_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python_command",
+        "python_version_observed",
+        "python_syntax_minimum",
+        "minimum_python_version_declared_by_repository",
+        "python_minimum_supported_version",
+        "python_support_status",
+        "python_support_basis",
+        "dependency_manifest",
+        "required_modules",
+        "required_packages",
+        "jsonschema_declared_in_dependency_manifest",
+        "network_required"
+      ],
+      "properties": {
+        "python_command": {"const": "python3"},
+        "python_version_observed": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "python_syntax_minimum": {"const": "3.10"},
+        "minimum_python_version_declared_by_repository": {"const": false},
+        "python_minimum_supported_version": {"const": "not_formally_declared"},
+        "python_support_status": {"const": "syntax_floor_identified_version_matrix_not_tested"},
+        "python_support_basis": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "repository_uses_python_3_10_runtime_features",
+              "ci_uses_rolling_python_3_x_without_version_matrix",
+              "only_python_3_14_5_observed_for_this_package"
+            ]
+          }
+        },
+        "dependency_manifest": {"const": "saee_backend/requirements.txt"},
+        "required_modules": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["jsonschema", "pydantic"]}
+        },
+        "required_packages": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/requiredPackage"}
+        },
+        "jsonschema_declared_in_dependency_manifest": {"const": true},
+        "network_required": {"const": false}
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "required_commands": {
+      "type": "array",
+      "minItems": 6,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^make check-[a-z0-9-]+$"}
+    },
+    "expected_results_ref": {"const": "agent-interface/reproducibility/expected-results.v0.1.json"},
+    "expected_outputs": {
+      "type": "array",
+      "minItems": 6,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^SAEE_[A-Z0-9_]+: PASS$"}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 4,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 320}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "public_release_performed",
+        "doi_created",
+        "release_tag_created",
+        "external_reproduction_completed",
+        "third_party_validation_completed",
+        "scientific_acceptance_claimed",
+        "certification_claimed",
+        "underlying_events_proven",
+        "production_ready"
+      ],
+      "properties": {
+        "public_release_performed": {"const": false},
+        "doi_created": {"const": false},
+        "release_tag_created": {"const": false},
+        "external_reproduction_completed": {"const": false},
+        "third_party_validation_completed": {"const": false},
+        "scientific_acceptance_claimed": {"const": false},
+        "certification_claimed": {"const": false},
+        "underlying_events_proven": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "requiredPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "constraint", "purpose"],
+      "properties": {
+        "name": {"type": "string"},
+        "constraint": {"type": "string"},
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 180}
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "name": {"const": "jsonschema"},
+            "constraint": {"const": ">=4.18,<5.0"}
+          }
+        },
+        {
+          "properties": {
+            "name": {"const": "pydantic"},
+            "constraint": {"const": ">=2.0,<3.0"}
+          }
+        }
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "purpose", "required_files", "validation_command", "expected_output"],
+      "properties": {
+        "artifact_id": {
+          "enum": [
+            "resource_resolution_receipt",
+            "evidence_adequacy_profile",
+            "otel_candidate_mapping",
+            "agent_receipt_crosswalk",
+            "evidence_adequacy_benchmark"
+          ]
+        },
+        "purpose": {"type": "string", "minLength": 1, "maxLength": 256},
+        "required_files": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9._/-]+$"}
+        },
+        "validation_command": {"type": "string", "pattern": "^make check-[a-z0-9-]+$"},
+        "expected_output": {"type": "string", "pattern": "^SAEE_[A-Z0-9_]+: PASS$"}
+      }
+    }
+  }
+}

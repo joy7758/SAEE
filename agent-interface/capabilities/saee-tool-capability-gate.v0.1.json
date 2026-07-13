@@ -1,0 +1,136 @@
+{
+  "saee_tool_capability_gate_v0_1": true,
+  "record_scope": "phase_4_0_pre_implementation_gate_snapshot",
+  "current_status_source": "agent-interface/capabilities/saee-capability-manifest.v0.1.json",
+  "current_status_not_defined_by_this_gate": true,
+  "gate_version": "0.1",
+  "gate_status": "recommend_local_prototype_pending_explicit_approval",
+  "tool_capability_recommended": true,
+  "implementation_authorized": false,
+  "recommended_stage": "local_prototype",
+  "mcp_authorized": false,
+  "api_authorized": false,
+  "production_ready": false,
+  "candidate_capability": {
+    "capability_id": "evaluate_evidence_adequacy",
+    "description": "Evaluate whether a closed local evidence object satisfies a repository-fixed profile for one defined accountability claim.",
+    "existing_evaluator_ref": "saee_backend/services/evidence_adequacy.py",
+    "inputs": [
+      "evidence_object",
+      "accountability_claim",
+      "evaluation_profile"
+    ],
+    "outputs": [
+      "claim_assessment",
+      "evidence_sufficiency_status",
+      "missing_requirements",
+      "reason_codes",
+      "limitations",
+      "boundary_statement"
+    ],
+    "fixed_claim_types": [
+      "RESOURCE_AUTHENTICITY",
+      "AUTHORIZED_AGENT_ACTION",
+      "HUMAN_OVERSIGHT",
+      "EXECUTION_BOUNDARY"
+    ],
+    "dynamic_profile_allowed": false,
+    "network_required": false,
+    "side_effects_allowed": false
+  },
+  "invocation_options": {
+    "local_function": {
+      "recommended": true,
+      "authorized_for_implementation": false,
+      "recommended_order": 1
+    },
+    "cli_tool": {
+      "recommended": false,
+      "authorized_for_implementation": false,
+      "recommended_order": 2
+    },
+    "mcp_tool": {
+      "recommended": false,
+      "authorized_for_implementation": false,
+      "recommended_order": 3
+    },
+    "http_api": {
+      "recommended": false,
+      "authorized_for_implementation": false,
+      "recommended_order": 4
+    }
+  },
+  "minimum_contract": {
+    "max_input_bytes": 1048576,
+    "profile_selector_type": "repository_fixed_profile_id",
+    "claim_profile_match_required": true,
+    "closed_json_required": true,
+    "duplicate_keys_rejected": true,
+    "prompt_strings_treated_as_inert_data": true,
+    "evidence_values_reflected": false,
+    "mandatory_boundary_statement": true,
+    "observation_reference_alignment_required_before_implementation": true
+  },
+  "agent_usage": {
+    "should_call": [
+      "EVIDENCE_ADEQUACY_EVALUATION_REQUIRED",
+      "ACCOUNTABILITY_CLAIM_PROFILE_ASSESSMENT_REQUIRED",
+      "MISSING_EVIDENCE_IDENTIFICATION_REQUIRED"
+    ],
+    "should_not_call": [
+      "RUNTIME_BLOCKING_REQUIRED",
+      "AUTHORIZATION_DECISION_REQUIRED",
+      "SECURITY_MONITORING_REQUIRED",
+      "LEGAL_CONCLUSION_REQUIRED",
+      "DEPLOYMENT_APPROVAL_REQUIRED"
+    ]
+  },
+  "human_control_boundary": {
+    "supports_human_review": true,
+    "approves": false,
+    "rejects": false,
+    "authorizes": false,
+    "deploys": false,
+    "certifies": false,
+    "triggers_external_action": false
+  },
+  "security_boundary": {
+    "schema_validation_required": true,
+    "input_size_limit_required": true,
+    "nested_structure_limits_required": true,
+    "prompt_injection_treated_as_data": true,
+    "deterministic_evaluation_required": true,
+    "fail_closed_required": true,
+    "network_allowed": false,
+    "subprocess_allowed": false,
+    "dynamic_import_allowed": false,
+    "external_execution_allowed": false,
+    "persistence_default": false
+  },
+  "compatibility_review": {
+    "capability_manifest_observation_references_required": true,
+    "existing_evaluator_consumes_observation_references": false,
+    "mapping_resolved": false,
+    "resolution_required_before_implementation": true
+  },
+  "authorization": {
+    "local_tool_prototype_authorized": false,
+    "cli_authorized": false,
+    "mcp_authorized": false,
+    "api_authorized": false,
+    "network_service_authorized": false,
+    "production_integration_authorized": false
+  },
+  "truth_boundary": {
+    "tool_available": false,
+    "tool_implemented": false,
+    "agent_runtime_added": false,
+    "autonomous_decision_enabled": false,
+    "authorization_enforcement_enabled": false,
+    "deployment_approval_enabled": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  },
+  "review_document": "docs/architecture/SAEE_AGENT_NATIVE_TOOL_CAPABILITY_GATE_REVIEW.md",
+  "recommended_next_pr": "Implement SAEE Local Tool Capability Prototype v0.1"
+}

@@ -1,0 +1,194 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_refund_policy_approval_input_prompt": true,
+  "builder_command_after_separate_approval": "python3 scripts/saee_refund_policy_evidence_builder.py --input phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_input.human_filled.local.json",
+  "builder_ready": false,
+  "builder_status": "hold",
+  "cancellation_process_available": false,
+  "category": "billing_revenue",
+  "check_target": "make check-refund-policy-approval-input-prompt",
+  "checkout_enabled": false,
+  "codex_configured_refund_handling": false,
+  "codex_inferred_missing_evidence": false,
+  "codex_processed_refund": false,
+  "codex_published_refund_policy": false,
+  "completed_metadata_field_count": 0,
+  "completed_refund_policy_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_input.template.json phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_payment_collected": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "enterprise_contract_signed": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-07T19:15:35.017392+00:00",
+  "generated_by": "scripts/saee_refund_policy_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_input.human_filled.local.json",
+  "human_review_required": true,
+  "invoice_sent_to_customer": false,
+  "kernel_modified": false,
+  "legal_counsel_contacted": false,
+  "local_static_refund_policy_approval_input_prompt_html": true,
+  "make_target": "make refund-policy-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "commercial_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "accounting_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "legal_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "support_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "billing_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "payment_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "tenant_boundary_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_record_reference",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_summary",
+      "human_must_provide": true
+    }
+  ],
+  "next_human_action": "Copy the refund-policy evidence template, fill all metadata fields, approve each refund-policy evidence key only with source-backed human review, add source notes and artifact references, then stop. Evidence-builder execution, refund-policy publication, refund processing, payment-provider refund configuration, payment collection, revenue validation, blocker closure, and production claims remain separate.",
+  "paid_pilot_completed": false,
+  "paid_product_launched": false,
+  "payment_link_created": false,
+  "payment_provider_configured": false,
+  "payment_provider_contacted": false,
+  "payment_provider_live_mode_enabled": false,
+  "payment_provider_refund_configured": false,
+  "plain_language_next_action": "\u5148\u7531\u4eba\u5ba1\u9000\u6b3e\u89c4\u5219\u3001\u53d6\u6d88\u6d41\u7a0b\u3001\u8bd5\u7528\u8f6c\u4ed8\u8d39\u548c\u670d\u52a1\u6545\u969c\u8865\u507f\u8fb9\u754c\uff0c\u518d\u586b\u5199\u672c\u5730\u8bc1\u636e\u6a21\u677f\u3002",
+  "plain_language_refund_policy_entry_v0_2": true,
+  "plain_language_status_label": "\u9000\u6b3e\u653f\u7b56\u8fd8\u6ca1\u6709\u6279\u51c6\uff0c\u4e5f\u6ca1\u6709\u53d1\u5e03",
+  "plain_language_stop_point": "\u53ea\u5230\u672c\u5730\u8bc1\u636e\u51c6\u5907\u4e3a\u6b62\uff1b\u6ca1\u6709\u5355\u72ec\u6279\u51c6\uff0c\u4e0d\u53d1\u5e03\u9000\u6b3e\u653f\u7b56\u3001\u4e0d\u5904\u7406\u9000\u6b3e\u3001\u4e0d\u914d\u7f6e\u652f\u4ed8\u5e73\u53f0\u9000\u6b3e\u3001\u4e0d\u6536\u6b3e\u3001\u4e0d\u5173\u95ed\u963b\u585e\u9879\u3002",
+  "pricing_page_published": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_billing_enabled": false,
+  "production_ready": false,
+  "prompt_scope": "local_human_refund_policy_input_prompt_only",
+  "prompt_type": "saee_refund_policy_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "refund_issued_to_customer": false,
+  "refund_policy_approval_input_prompt_v0_1": true,
+  "refund_policy_approved": false,
+  "refund_policy_available": false,
+  "refund_policy_claim_published": false,
+  "refund_policy_completed_by_codex": false,
+  "refund_policy_evidence_complete_for_review": false,
+  "refund_policy_execution_authorized": false,
+  "refund_policy_human_review_step_count": 4,
+  "refund_policy_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "refund_policy_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "cancellation_process_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "trial_conversion_policy_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "service_failure_remedy_boundary_approved",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "support_escalation_route_defined",
+      "human_source_note_required": true,
+      "owner_named_required": true,
+      "review_artifact_required": true,
+      "reviewed_by_human_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "refund_policy_published": false,
+  "refund_processed": false,
+  "refund_request_workflow_available": false,
+  "required_metadata_field_count": 11,
+  "required_refund_policy_evidence_item_count": 5,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "sales_offer_sent": false,
+  "separate_evidence_builder_request_required": true,
+  "service_failure_remedy_available": false,
+  "source_builder_output": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_builder_output.local.json",
+  "source_refund_policy_approval_input_prompt_html": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/billing_revenue_evidence/refund_policy_evidence_input.template.json",
+  "status": "hold_human_refund_policy_input_required",
+  "target_blocker_ids": [
+    "refund_policy"
+  ],
+  "task_candidates_executed": false,
+  "tax_advisor_contacted": false,
+  "tax_collection_started": false,
+  "trial_conversion_policy_available": false
+}

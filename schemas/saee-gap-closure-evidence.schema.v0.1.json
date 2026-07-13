@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-gap-closure-evidence.schema.v0.1.json",
+  "title": "SAEE Gap Closure Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["gap_id", "previous_status", "closure_evidence", "verification_method", "independent_review", "review_status"],
+  "properties": {
+    "gap_id": {"type": "string", "pattern": "^EVR-[A-Z]+-[0-9]{3}$"},
+    "previous_status": {"const": "OPEN"},
+    "closure_evidence": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "verification_method": {"enum": ["NOT_VERIFIED", "DOCUMENT_REVIEW", "CONTROL_TEST", "INDEPENDENT_REVIEW"]},
+    "independent_review": {"type": "boolean"},
+    "review_status": {"enum": ["OPEN", "PROPOSED", "VERIFIED_CLOSED"]}
+  },
+  "allOf": [
+    {"if": {"properties": {"review_status": {"const": "VERIFIED_CLOSED"}}}, "then": {"properties": {"closure_evidence": {"minItems": 1}, "verification_method": {"not": {"const": "NOT_VERIFIED"}}, "independent_review": {"const": true}}}}
+  ]
+}
+

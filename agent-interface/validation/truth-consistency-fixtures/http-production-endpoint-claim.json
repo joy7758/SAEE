@@ -1,0 +1,1 @@
+{"fixture_id":"HTTP_PRODUCTION_ENDPOINT_CLAIM","mutation":{"operation":"set","target":"http","path":["bind_address"],"value":"0.0.0.0"},"expected_reason_code":"TRUTH_PROTOCOL_HTTP_PUBLIC_BINDING"}

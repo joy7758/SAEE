@@ -1,0 +1,81 @@
+{
+  "api_schema_modified": false,
+  "assigned_owner_count": 0,
+  "backend_modified": false,
+  "blockers_closed_by_validator": 0,
+  "blockers_ready_to_close": [],
+  "boundary_violation_count": 0,
+  "boundary_violations": [],
+  "customer_contacted": false,
+  "customer_data_collected": false,
+  "customer_data_processed": false,
+  "customer_validated": false,
+  "customer_validation_claim_added": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:29.519523+00:00",
+  "generated_by": "scripts/saee_commercial_evidence_sprint_owner_assignment_input_validator.py",
+  "human_review_required": true,
+  "input_path": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_input.template.json",
+  "kernel_modified": false,
+  "launch_claim_added": false,
+  "missing_assignment_fields": {
+    "formal_security_review": [
+      "assigned_human_owner",
+      "target_review_date",
+      "human_approval_reference",
+      "owner_acknowledged_scope"
+    ],
+    "pricing_page": [
+      "assigned_human_owner",
+      "target_review_date",
+      "human_approval_reference",
+      "owner_acknowledged_scope"
+    ],
+    "production_monitoring": [
+      "assigned_human_owner",
+      "target_review_date",
+      "human_approval_reference",
+      "owner_acknowledged_scope"
+    ],
+    "production_restore_policy": [
+      "assigned_human_owner",
+      "target_review_date",
+      "human_approval_reference",
+      "owner_acknowledged_scope"
+    ],
+    "support_contact": [
+      "assigned_human_owner",
+      "target_review_date",
+      "human_approval_reference",
+      "owner_acknowledged_scope"
+    ]
+  },
+  "next_action": "If validation_status is pass, create a separate human-approved evidence collection request. Do not collect evidence or close blockers from this validator.",
+  "owner_assignment_complete": false,
+  "owner_contacted_by_codex": false,
+  "payment_collected": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_claim_added": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "ready_for_separate_evidence_collection_request": false,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "selected_blocker_count": 5,
+  "selected_blocker_ids_match": true,
+  "separate_evidence_collection_request_required": true,
+  "source_packet": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_packet.local.json",
+  "task_candidates_executed": false,
+  "template_type_valid": true,
+  "unassigned_owner_count": 5,
+  "validation_scope": "local_human_filled_owner_assignment_pre_evidence_collection_check",
+  "validation_status": "hold",
+  "validator_type": "saee_commercial_evidence_sprint_owner_assignment_input_validator",
+  "validator_version": "v0.1"
+}

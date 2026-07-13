@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/evolution_proposal.schema.json",
+  "title": "SAEE Evolution Proposal",
+  "type": "object",
+  "required": ["id", "title", "target_subsystem", "trait_change", "selection_reason", "safety_boundary", "lineage_impact", "recommendation_gate"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "target_subsystem": {"type": "string", "minLength": 1},
+    "trait_change": {"type": "string", "minLength": 1},
+    "selection_reason": {"type": "string", "minLength": 1},
+    "safety_boundary": {"type": "string", "minLength": 1},
+    "lineage_impact": {"type": "string", "minLength": 1},
+    "recommendation_gate": {
+      "type": "object",
+      "required": ["answer", "reasons_not_to_recommend"],
+      "additionalProperties": true,
+      "properties": {
+        "answer": {"type": "string", "enum": ["recommend", "conditional", "do_not_recommend"]},
+        "reasons_not_to_recommend": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}
+

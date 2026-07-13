@@ -1,0 +1,48 @@
+{
+  "saee_agent_recommendation_benchmark_result_v0_1": true,
+  "benchmark_version": "0.1",
+  "agent_native_adoption_strategy_reference": "agent-interface/adoption/saee-agent-adoption-loop.v0.1.json",
+  "marketplace_position_reference": "agent-interface/marketplace/saee-capability-category-position.v0.1.json",
+  "scenario_count": 30,
+  "agent_profile_count": 4,
+  "evaluation_count": 120,
+  "category_counts": {
+    "SHOULD_RECOMMEND_SAEE": 10,
+    "SHOULD_NOT_RECOMMEND_SAEE": 10,
+    "BOUNDARY_CASE": 10
+  },
+  "metrics": {
+    "discovery_rate": 1.0,
+    "correct_recommendation_rate": 1.0,
+    "wrong_recommendation_rate": 0.0,
+    "appropriate_abstention_rate": 1.0,
+    "composition_accuracy": 1.0
+  },
+  "counts": {
+    "correct_recommendations": 120,
+    "wrong_recommendations": 0,
+    "abstention_cases": 80,
+    "correct_abstentions": 80,
+    "composition_cases": 24,
+    "correct_compositions": 24
+  },
+  "per_agent": [
+    {"agent_id": "GENERAL_ASSISTANT", "evaluated_scenarios": 30, "correct_selections": 30},
+    {"agent_id": "CODING_AGENT", "evaluated_scenarios": 30, "correct_selections": 30},
+    {"agent_id": "AUTONOMOUS_OPERATOR", "evaluated_scenarios": 30, "correct_selections": 30},
+    {"agent_id": "GOVERNANCE_AGENT", "evaluated_scenarios": 30, "correct_selections": 30}
+  ],
+  "scenario_set_digest": "1c7ebe806aac37aeece91781a743132b6b69ab01e494e5b3405a2946e6747da1",
+  "agent_profile_digest": "1b9998055f2f5d7268b6b8b9e5a130b964b53483df0a666fac85bde34cd22685",
+  "truth_boundary": {
+    "controlled_scenarios_only": true,
+    "agent_adoption_measured": false,
+    "market_validation": false,
+    "marketplace_ranking": false,
+    "guaranteed_recommendation": false,
+    "external_agents_tested": false,
+    "network_accessed": false,
+    "external_execution": false,
+    "production_ready": false
+  }
+}

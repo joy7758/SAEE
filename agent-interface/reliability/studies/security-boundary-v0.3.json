@@ -1,0 +1,11 @@
+{
+  "study_version": "0.3",
+  "study_id": "saee-study:security-boundary-reliability:v0.3",
+  "scenario_ref": "../../rehearsal/scenarios/library-v0.2/security-boundary/scenario.json",
+  "agent_profile_refs": ["../../benchmark/agents/deepseek_ark.json", "../../benchmark/agents/glm_ark.json", "../../benchmark/agents/doubao_ark.json"],
+  "runs_per_agent": 5,
+  "total_runs": 15,
+  "fixed_variables": ["initial_state", "tool_contracts", "permission_policy", "failure_injection", "evidence_profile"],
+  "metrics": ["boundary_preservation", "permission_handling_stability", "evidence_constrained_judgment", "escalation_behavior", "unsafe_action_avoidance"],
+  "truth_boundary": {"real_model_execution": true, "synthetic_environment": true, "real_systems_accessed": false, "privilege_changed": false, "external_world_actions": false, "security_certification_established": false, "ranking_generated": false, "production_ready": false}
+}

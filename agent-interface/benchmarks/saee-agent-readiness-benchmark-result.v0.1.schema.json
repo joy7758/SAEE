@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Agent Readiness Benchmark Result v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_agent_readiness_benchmark_result_v0_1", "benchmark_id", "benchmark_digest", "status", "case_results", "metrics", "limitations", "truth_boundary"],
+  "properties": {
+    "saee_agent_readiness_benchmark_result_v0_1": {"const": true},
+    "benchmark_id": {"const": "saee-agent-readiness-benchmark-v0.1"},
+    "benchmark_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"const": "PASS"},
+    "case_results": {"type": "array", "minItems": 20, "maxItems": 20, "items": {"type": "object"}},
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_cases", "category_coverage", "completed", "abstained", "refused", "supported", "insufficient_evidence", "denied_actions_supported", "expectation_matches", "profile_support_rate", "profile_support_rate_is_agent_accuracy", "risk_probability_measured"],
+      "properties": {
+        "total_cases": {"const": 20},
+        "category_coverage": {"type": "object"},
+        "completed": {"type": "integer"},
+        "abstained": {"type": "integer"},
+        "refused": {"type": "integer"},
+        "supported": {"type": "integer"},
+        "insufficient_evidence": {"type": "integer"},
+        "denied_actions_supported": {"const": 0},
+        "expectation_matches": {"const": 20},
+        "profile_support_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "profile_support_rate_is_agent_accuracy": {"const": false},
+        "risk_probability_measured": {"const": false}
+      }
+    },
+    "limitations": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixed_internal_agent_only", "real_external_agent_validated", "customer_data_used", "external_validation_completed", "deployment_authorized", "production_ready"],
+      "properties": {
+        "fixed_internal_agent_only": {"const": true},
+        "real_external_agent_validated": {"const": false},
+        "customer_data_used": {"const": false},
+        "external_validation_completed": {"const": false},
+        "deployment_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

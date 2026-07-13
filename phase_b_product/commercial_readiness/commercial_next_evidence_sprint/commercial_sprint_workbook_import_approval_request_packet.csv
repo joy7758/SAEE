@@ -1,0 +1,2 @@
+request_id,request_type,expected_import_row_count,ready_for_human_approval,human_import_approval_recorded,workbook_import_authorized,import_execution_allowed,recommended_human_decision,missing_conditions
+WIA-001,workbook_import_approval_request,64,True,False,False,False,approve,

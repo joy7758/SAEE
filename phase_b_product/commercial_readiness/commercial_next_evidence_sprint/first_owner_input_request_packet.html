@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 支持联系人负责人填写页</title>
+  <style>
+    :root {
+      --bg: #f8f7f2;
+      --text: #171717;
+      --muted: #5f675f;
+      --line: #dedbd2;
+      --card: #fffdf8;
+      --accent: #10a37f;
+      --accent-soft: #e5f3ed;
+      --warn: #8a5a10;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #fffdf8 0%, var(--bg) 62%, #edf4ef 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    main {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 58px;
+    }
+    header {
+      padding: 34px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow { color: var(--accent); font-weight: 700; }
+    h1 {
+      max-width: 780px;
+      margin: 12px 0 14px;
+      font-size: clamp(32px, 6vw, 66px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .stat, section {
+      background: rgba(255, 253, 248, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(23, 23, 23, 0.06);
+    }
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 34px;
+      line-height: 1;
+    }
+    .stat span, p { color: var(--muted); }
+    section { margin: 24px 0; overflow-x: auto; }
+    h2 { margin: 0 0 12px; font-size: 24px; letter-spacing: 0; }
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      background: rgba(229, 243, 237, 0.62);
+    }
+    code, pre {
+      background: rgba(23, 23, 23, 0.06);
+      border-radius: 8px;
+    }
+    code { padding: 2px 6px; }
+    pre {
+      padding: 14px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    .template-box {
+      max-height: 520px;
+      border: 1px solid var(--line);
+    }
+    .notice {
+      background: var(--accent-soft);
+      border-color: rgba(16, 163, 127, 0.28);
+    }
+    .warning {
+      background: #fff6df;
+      border-color: #ead59a;
+      color: var(--warn);
+    }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">SAEE 商用第一步</div>
+      <h1>先指定“支持联系人”的真人负责人。</h1>
+      <p class="lead">这是 support_contact 阻塞项的负责人填写页。它只告诉人该填哪 5 个字段，不会自动分配负责人、不会联系任何人、不会收集证据。</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><strong>5</strong><span>需要人工填写的字段</span></div>
+      <div class="stat"><strong>0</strong><span>当前已填写字段</span></div>
+      <div class="stat"><strong>5</strong><span>仍缺字段</span></div>
+      <div class="stat"><strong>0</strong><span>已关闭 blocker</span></div>
+    </div>
+
+    <section class="notice">
+      <h2>人现在该做什么</h2>
+      <p>把下面 5 个字段填进本地输入文件，然后再运行本地 validator。不要在这一步收集证据、联系客户或关闭 blocker。</p>
+    </section>
+
+    <section>
+      <h2>需要填写的 5 个字段</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>字段</th>
+            <th>怎么填</th>
+            <th>当前状态</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><strong>负责人姓名或内部代号</strong><br><code>assigned_human_owner</code></td>
+              <td>填写真人负责人，不要让 Codex 自动指定。</td>
+              <td>未填写</td>
+            </tr>
+            
+            <tr>
+              <td><strong>内部联系方式或协作入口</strong><br><code>owner_contact_reference</code></td>
+              <td>填写内部可追踪的联系引用，不要写外部客户隐私。</td>
+              <td>未填写</td>
+            </tr>
+            
+            <tr>
+              <td><strong>目标审查日期</strong><br><code>target_review_date</code></td>
+              <td>使用 YYYY-MM-DD 格式。</td>
+              <td>未填写</td>
+            </tr>
+            
+            <tr>
+              <td><strong>负责人是否确认范围</strong><br><code>owner_acknowledged_scope</code></td>
+              <td>填 true/false；只有负责人已确认边界时才填 true。</td>
+              <td>未填写</td>
+            </tr>
+            
+            <tr>
+              <td><strong>人工批准记录编号或链接说明</strong><br><code>human_approval_reference</code></td>
+              <td>填写人审记录、会议纪要或内部批准编号。</td>
+              <td>未填写</td>
+            </tr>
+            </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>本地生成命令模板</h2>
+      <p>人把占位符替换成真实的人审信息后，再运行该命令。</p>
+      <pre>python3 scripts/saee_commercial_evidence_sprint_owner_assignment_completion_helper.py \
+  --single-blocker-id support_contact \
+  --assigned-human-owner &quot;&lt;human owner&gt;&quot; \
+  --owner-contact-reference &quot;&lt;internal owner reference&gt;&quot; \
+  --target-review-date &quot;YYYY-MM-DD&quot; \
+  --owner-acknowledged-scope true \
+  --human-approval-reference &quot;&lt;human approval record&gt;&quot; \
+  --output-input-json phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_input.human_filled.local.json</pre>
+    </section>
+
+    <section>
+      <h2>空白 JSON 模板</h2>
+      <p>如果不想用命令行参数，也可以按这个结构填写本地文件：<code>phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input.human_filled.local.json</code>。只填真人负责人和内部人审信息，不要写客户隐私、密钥、外部账号密码或私有核心内容。</p>
+      <pre class="template-box">{
+  &quot;boundary_review&quot;: {
+    &quot;api_schema_modified&quot;: false,
+    &quot;backend_modified&quot;: false,
+    &quot;customer_contacted&quot;: false,
+    &quot;customer_data_collected&quot;: false,
+    &quot;customer_data_processed&quot;: false,
+    &quot;customer_validated&quot;: false,
+    &quot;customer_validation_claim_added&quot;: false,
+    &quot;development_permission_granted&quot;: false,
+    &quot;evidence_collection_authorized&quot;: false,
+    &quot;execution_authorized&quot;: false,
+    &quot;external_ai_assistant_tested&quot;: false,
+    &quot;external_calls_made&quot;: false,
+    &quot;external_model_api_called&quot;: false,
+    &quot;kernel_modified&quot;: false,
+    &quot;launch_claim_added&quot;: false,
+    &quot;owner_assigned_by_codex&quot;: false,
+    &quot;owner_contacted_by_codex&quot;: false,
+    &quot;payment_collected&quot;: false,
+    &quot;private_core_exposed&quot;: false,
+    &quot;product_launched&quot;: false,
+    &quot;production_claim_added&quot;: false,
+    &quot;production_ready&quot;: false,
+    &quot;public_sdk_released&quot;: false,
+    &quot;revenue_validated&quot;: false,
+    &quot;runtime_modified&quot;: false,
+    &quot;task_candidates_executed&quot;: false
+  },
+  &quot;first_blocker_id&quot;: &quot;support_contact&quot;,
+  &quot;first_owner_input&quot;: {
+    &quot;assigned_human_owner&quot;: &quot;&quot;,
+    &quot;blocker_id&quot;: &quot;support_contact&quot;,
+    &quot;category&quot;: &quot;support&quot;,
+    &quot;human_approval_reference&quot;: &quot;&quot;,
+    &quot;notes&quot;: &quot;&quot;,
+    &quot;owner_acknowledged_scope&quot;: false,
+    &quot;owner_contact_reference&quot;: &quot;&quot;,
+    &quot;owner_review_lane&quot;: &quot;support_operations&quot;,
+    &quot;phase_id&quot;: &quot;phase_3_support_security_legal&quot;,
+    &quot;required_evidence&quot;: &quot;Customer-facing support intake contact, ownership, response procedure, and abuse handling.&quot;,
+    &quot;target_review_date&quot;: &quot;&quot;
+  },
+  &quot;human_reviewer_name&quot;: &quot;&quot;,
+  &quot;input_status&quot;: &quot;template_not_filled&quot;,
+  &quot;required_human_fields&quot;: [
+    &quot;assigned_human_owner&quot;,
+    &quot;owner_contact_reference&quot;,
+    &quot;target_review_date&quot;,
+    &quot;owner_acknowledged_scope&quot;,
+    &quot;human_approval_reference&quot;
+  ],
+  &quot;review_date&quot;: &quot;&quot;,
+  &quot;review_notes&quot;: &quot;&quot;,
+  &quot;selected_blocker_count&quot;: 1,
+  &quot;sequence_step_id&quot;: &quot;SEQ-001&quot;,
+  &quot;source_first_owner_action_packet&quot;: &quot;phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_action_packet.local.json&quot;,
+  &quot;source_human_sequence_packet&quot;: &quot;phase_b_product/commercial_readiness/commercial_next_evidence_sprint/human_sequence_packet.local.json&quot;,
+  &quot;template_type&quot;: &quot;saee_commercial_evidence_sprint_first_owner_input&quot;,
+  &quot;template_version&quot;: &quot;v0.1&quot;
+}</pre>
+    </section>
+
+    <section>
+      <h2>下一条本地验证命令</h2>
+      <pre>python3 scripts/saee_commercial_evidence_sprint_first_owner_input_validator.py --input phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input.human_filled.local.json</pre>
+    </section>
+
+    <section class="warning">
+      <h2>边界</h2>
+      <p>这个页面不是执行批准，也不是生产就绪证明。</p>
+      <ul><li><strong>owner_assigned_by_codex:</strong> false</li>
+<li><strong>owner_contacted_by_codex:</strong> false</li>
+<li><strong>evidence_collection_authorized:</strong> false</li>
+<li><strong>execution_authorized:</strong> false</li>
+<li><strong>blockers_closed_by_request_packet:</strong> 0</li>
+<li><strong>production_ready:</strong> false</li>
+<li><strong>customer_validated:</strong> false</li>
+<li><strong>product_launched:</strong> false</li>
+<li><strong>private_core_exposed:</strong> false</li></ul>
+    </section>
+  </main>
+</body>
+</html>

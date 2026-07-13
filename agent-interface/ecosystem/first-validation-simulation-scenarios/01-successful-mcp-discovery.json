@@ -1,0 +1,8 @@
+{
+  "scenario_id": "SUCCESSFUL_MCP_DISCOVERY",
+  "stage": "CAPABILITY_DISCOVERY",
+  "request": "从 MCP Entry Package 发现 SAEE 工具。",
+  "expected_outcome": "DISCOVERED",
+  "expected_reason_code": "SAEE_MCP_CAPABILITY_FOUND",
+  "simulation_only": true
+}

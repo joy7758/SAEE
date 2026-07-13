@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Run a local rehearsal scenario and evaluate its evidence candidate."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from saee_backend.services.agent_rehearsal_runtime import RehearsalRuntimeError, run_task
+from saee_backend.services.agent_run_capability import AgentRunCapabilityError, evaluate_agent_run
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Execute one local SAEE rehearsal and evaluate its evidence adequacy.")
+    parser.add_argument("--scenario", required=True, type=Path)
+    args = parser.parse_args()
+    try:
+        run = run_task(args.scenario)
+        result = evaluate_agent_run(run)
+    except (RehearsalRuntimeError, AgentRunCapabilityError, json.JSONDecodeError, OSError, ValueError, KeyError) as exc:
+        code = getattr(exc, "code", "EVALUATE_AGENT_RUN_FAILED")
+        print(json.dumps({"status": "FAIL", "reason_code": code, "reason": str(exc)}, ensure_ascii=False, sort_keys=True))
+        return 2
+    print(json.dumps({"status": "PASS", "result_type": "SAEE_EVALUATE_AGENT_RUN_RESULT", "run": run, "evaluation": result}, ensure_ascii=False, sort_keys=True, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

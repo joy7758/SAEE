@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-agent-discovery-test.schema.json",
+  "title": "SAEE Synthetic External Agent Discovery Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_external_agent_discovery_scenario_v0_1",
+    "evaluation_version",
+    "scenario_id",
+    "caller_type",
+    "synthetic_external_caller",
+    "discovery_sources",
+    "discovered_capability",
+    "understanding_result",
+    "invocation_plan",
+    "boundary_result",
+    "expected_result"
+  ],
+  "properties": {
+    "saee_external_agent_discovery_scenario_v0_1": {"const": true},
+    "evaluation_version": {"const": "0.1"},
+    "scenario_id": {"type": "string", "pattern": "^discovery:synthetic:[a-z0-9-]+$", "maxLength": 96},
+    "caller_type": {
+      "enum": [
+        "DISCOVERY_SUCCESS_AGENT",
+        "CAPABILITY_CONFUSION_AGENT",
+        "BOUNDARY_VIOLATION_AGENT",
+        "DISCOVERY_FAILURE_AGENT"
+      ]
+    },
+    "synthetic_external_caller": {"const": true},
+    "discovery_sources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_role", "public_url", "snapshot_ref", "source_used"],
+        "properties": {
+          "source_role": {"enum": ["LLMS_ENTRY", "AGENT_INDEX", "CAPABILITY_MANIFEST", "USAGE_OVERVIEW", "LIMITATIONS"]},
+          "public_url": {"type": "string", "pattern": "^https://redcrag\\.cn/[A-Za-z0-9._~/-]*$", "maxLength": 256},
+          "snapshot_ref": {"$ref": "#/$defs/local_ref"},
+          "source_used": {"const": true}
+        }
+      }
+    },
+    "discovered_capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_found", "capability_id", "purpose_class", "identified_inputs", "identified_outputs", "limitations_identified"],
+      "properties": {
+        "capability_found": {"type": "boolean"},
+        "capability_id": {"type": "string", "maxLength": 128},
+        "purpose_class": {"enum": ["EVIDENCE_ADEQUACY_EVALUATION", "SECURITY_CERTIFICATION", "DEPLOYMENT_APPROVAL", "UNKNOWN"]},
+        "identified_inputs": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"enum": ["observation_references", "evidence_object", "accountability_claim", "evaluation_profile"]}
+        },
+        "identified_outputs": {
+          "type": "array",
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {"enum": ["claim_assessment", "evidence_sufficiency_status", "missing_requirements", "reason_codes", "limitations", "boundary_statement"]}
+        },
+        "limitations_identified": {
+          "type": "array",
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {"enum": ["STATIC_READ_ONLY", "NO_SECURITY_CERTIFICATION", "NO_LEGAL_DETERMINATION", "NO_DEPLOYMENT_APPROVAL", "NOT_PRODUCTION_READY", "NO_PUBLIC_TOOL_RUNTIME"]}
+        }
+      }
+    },
+    "understanding_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "caller_statement", "identified_use_cases", "identified_non_use_cases", "expected_result"],
+      "properties": {
+        "classification": {"enum": ["EVIDENCE_ADEQUACY_EVALUATION", "SECURITY_CERTIFICATION", "DEPLOYMENT_APPROVAL", "UNKNOWN"]},
+        "caller_statement": {"type": "string", "minLength": 1, "maxLength": 512},
+        "identified_use_cases": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"enum": ["ASSESS_CLAIM_EVIDENCE", "IDENTIFY_MISSING_EVIDENCE", "PREPARE_HUMAN_REVIEW", "CERTIFY_SYSTEM_SECURITY", "AUTHORIZE_DEPLOYMENT"]}
+        },
+        "identified_non_use_cases": {
+          "type": "array",
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {"enum": ["NO_SECURITY_CERTIFICATION", "NO_DEPLOYMENT_AUTHORIZATION", "NO_LEGAL_DETERMINATION", "NO_RUNTIME_BLOCKING", "NO_MALWARE_DETECTION"]}
+        },
+        "expected_result": {"enum": ["PASS", "FAIL"]}
+      }
+    },
+    "invocation_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planned", "request_fields", "accountability_claim", "evaluation_profile", "claim_profile_match", "executable_input_requested", "network_service_assumed", "requested_output_interpretation", "expected_result"],
+      "properties": {
+        "planned": {"type": "boolean"},
+        "request_fields": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"enum": ["observation_references", "evidence_object", "accountability_claim", "evaluation_profile"]}
+        },
+        "accountability_claim": {"enum": ["RESOURCE_AUTHENTICITY", "AUTHORIZED_AGENT_ACTION", "HUMAN_OVERSIGHT", "EXECUTION_BOUNDARY", null]},
+        "evaluation_profile": {"enum": ["resource-authenticity", "authorized-agent-action", "human-oversight", "execution-boundary", null]},
+        "claim_profile_match": {"type": "boolean"},
+        "executable_input_requested": {"type": "boolean"},
+        "network_service_assumed": {"type": "boolean"},
+        "requested_output_interpretation": {"enum": ["EVIDENCE_ASSESSMENT", "SECURITY_CERTIFICATION", "DEPLOYMENT_AUTHORIZATION", "UNKNOWN"]},
+        "expected_result": {"enum": ["PASS", "FAIL"]}
+      }
+    },
+    "boundary_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declared_conclusions", "human_authority_retained", "autonomous_authorization_claimed", "adoption_claimed", "expected_result"],
+      "properties": {
+        "declared_conclusions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {"enum": ["EVIDENCE_REVIEW_ONLY", "DECISION_SUPPORT_ONLY", "HUMAN_AUTHORITY_RETAINED", "SYSTEM_CERTIFIED", "DEPLOYMENT_AUTHORIZED", "AUTONOMOUS_AUTHORIZATION", "ADOPTION_VALIDATED"]}
+        },
+        "human_authority_retained": {"type": "boolean"},
+        "autonomous_authorization_claimed": {"type": "boolean"},
+        "adoption_claimed": {"type": "boolean"},
+        "expected_result": {"enum": ["PASS", "FAIL"]}
+      }
+    },
+    "expected_result": {"enum": ["PASS", "FAIL"]}
+  },
+  "$defs": {
+    "local_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 320,
+      "pattern": "^public-release/saee-agent-discovery-v0\\.1/(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"
+    }
+  }
+}

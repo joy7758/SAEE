@@ -1,0 +1,49 @@
+{
+  "dry_run_version": "0.1",
+  "status": "PASS",
+  "synthetic_only": true,
+  "participants": ["SYNTHETIC_AGENT_FRAMEWORK", "SYNTHETIC_CLOUD_PLATFORM", "SYNTHETIC_DEVELOPER"],
+  "scenario_results": [
+    {"scenario_id": "FAKE_ADOPTION_CLAIM", "participant_id": "SYNTHETIC_CLOUD_PLATFORM", "result": "REJECTED", "reason_code": "ADOPTION_OVERCLAIM_REJECTED", "matched_expected": true},
+    {"scenario_id": "INTERPRETATION_BOUNDARY", "participant_id": "SYNTHETIC_AGENT_FRAMEWORK", "result": "PASS", "reason_code": "SUPPORTED_NOT_APPROVED", "matched_expected": true},
+    {"scenario_id": "INVOCATION_COMPATIBILITY", "participant_id": "SYNTHETIC_DEVELOPER", "result": "PASS", "reason_code": "LOCAL_INVOCATION_COMPATIBLE", "matched_expected": true},
+    {"scenario_id": "SUCCESSFUL_DISCOVERY", "participant_id": "SYNTHETIC_AGENT_FRAMEWORK", "result": "PASS", "reason_code": "CAPABILITY_DISCOVERED", "matched_expected": true},
+    {"scenario_id": "WRONG_USAGE", "participant_id": "SYNTHETIC_DEVELOPER", "result": "REJECTED", "reason_code": "AUTHORIZATION_OVERCLAIM_REJECTED", "matched_expected": true}
+  ],
+  "feedback_records": [
+    {
+      "participant_id": "SYNTHETIC_AGENT_FRAMEWORK", "discovery_result": "PASS", "invocation_result": "PASS", "interpretation_result": "PASS", "boundary_result": "REJECTED_OVERCLAIM",
+      "compatibility_notes": ["integration_mode=mcp_stdio_local", "Only repository-local synthetic paths were evaluated."],
+      "limitations": ["No external participant or real agent was connected.", "This record does not establish adoption, customer value, marketplace support, or production readiness."]
+    },
+    {
+      "participant_id": "SYNTHETIC_CLOUD_PLATFORM", "discovery_result": "PASS", "invocation_result": "NOT_TESTED", "interpretation_result": "PASS", "boundary_result": "REJECTED_OVERCLAIM",
+      "compatibility_notes": ["integration_mode=generic_adapter_pattern", "Only repository-local synthetic paths were evaluated."],
+      "limitations": ["No external participant or real agent was connected.", "This record does not establish adoption, customer value, marketplace support, or production readiness."]
+    },
+    {
+      "participant_id": "SYNTHETIC_DEVELOPER", "discovery_result": "PASS", "invocation_result": "PASS", "interpretation_result": "PASS", "boundary_result": "REJECTED_OVERCLAIM",
+      "compatibility_notes": ["integration_mode=http_localhost", "Only repository-local synthetic paths were evaluated."],
+      "limitations": ["No external participant or real agent was connected.", "This record does not establish adoption, customer value, marketplace support, or production readiness."]
+    }
+  ],
+  "limitations": ["Internal synthetic process validation only.", "Generic cloud adapter compatibility was reviewed but not invoked.", "No external ecosystem support, adoption, customer validation, or production reliability is established."],
+  "evidence_boundary": {"supported_is_approved": false, "local_tested_is_external_compatible": false, "dry_run_is_adoption": false},
+  "truth_boundary": {
+    "ecosystem_dry_run": true,
+    "synthetic_participants_only": true,
+    "external_validation": false,
+    "external_agents_connected": false,
+    "customer_validated": false,
+    "market_validation": false,
+    "marketplace_listed": false,
+    "adoption_validated": false,
+    "production_ready": false,
+    "external_parties_contacted": false,
+    "participants_invited": 0,
+    "network_accessed": false,
+    "subprocess_started": false,
+    "external_execution": false
+  }
+}
+

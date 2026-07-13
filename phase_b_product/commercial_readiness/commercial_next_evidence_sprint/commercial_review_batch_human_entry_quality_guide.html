@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 人工录入质量指南</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f7f4;
+        --surface: #ffffff;
+        --text: #10110f;
+        --muted: #5f655f;
+        --line: #deded8;
+        --accent: #10a37f;
+        --ink: #10110f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      main {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0 72px;
+      }
+      .hero {
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-weight: 800;
+      }
+      h1 {
+        max-width: 820px;
+        margin: 0;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .status-card,
+      .rule-card,
+      .boundary {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+      .status-card {
+        padding: 14px;
+      }
+      .status-card strong,
+      .status-card span {
+        display: block;
+      }
+      .status-card strong {
+        font-size: 22px;
+      }
+      .status-card span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .sequence {
+        margin-top: 24px;
+        padding: 18px;
+        border-radius: 8px;
+        background: #e8f5f0;
+      }
+      .sequence h2,
+      .boundary h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+      .sequence ol,
+      .boundary ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+      .rules {
+        display: grid;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .rule-card {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 18px;
+        padding: 20px;
+      }
+      .row-id {
+        display: inline-grid;
+        place-items: center;
+        width: 84px;
+        height: 42px;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--ink);
+        font-weight: 900;
+      }
+      .rule-card h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+      .rule-card p {
+        margin: 7px 0 0;
+        color: var(--muted);
+      }
+      .rule-card strong {
+        color: var(--text);
+      }
+      code {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: #f1f3f0;
+        color: var(--text);
+        overflow-wrap: anywhere;
+      }
+      .boundary {
+        margin-top: 28px;
+        padding: 18px;
+        background: #10110f;
+        color: #fff;
+      }
+      .boundary li {
+        margin-top: 6px;
+      }
+      @media (max-width: 760px) {
+        main { width: min(100% - 24px, 1080px); padding-top: 34px; }
+        .status-grid,
+        .rule-card {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SAEE 商用准备 · 人工录入质量指南</p>
+        <h1>这 10 行，不求快，先填对。</h1>
+        <p class="lead">本页只告诉人工填写时什么算合格、什么要拒绝。Codex 没有代填值，也没有导入工作簿、关闭 blocker 或声明生产可用。</p>
+        <div class="status-grid" aria-label="当前状态">
+          <div class="status-card"><strong>10</strong><span>质量规则行</span></div>
+          <div class="status-card"><strong>0</strong><span>Codex 生成值</span></div>
+          <div class="status-card"><strong>0</strong><span>关闭 blocker</span></div>
+          <div class="status-card"><strong>否</strong><span>生产可用</span></div>
+        </div>
+        <div class="sequence">
+          <h2>人工顺序</h2>
+          <ol>
+            <li>先看本页质量规则。</li>
+            <li>只在源 CSV 里填写 <code>human_value_to_enter</code> 和可选 <code>notes_for_human</code>。</li>
+            <li>填完后先跑 template preflight 和 e2e dry run。</li>
+            <li>检查通过后，再单独申请导入批准。</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="rules" aria-label="字段质量规则">
+        <article class="rule-card">
+  <div class="row-id">QFRB-001</div>
+  <div>
+    <h2>assigned_human_owner</h2>
+    <p><strong>合格写法：</strong>role, team, or person reference explicitly approved by a human</p>
+    <p><strong>质量规则：</strong>Must name who owns the support-contact decision or the approved internal owner reference.</p>
+    <p><strong>拒绝写法：</strong>Reject blank-looking placeholders, guessed owners, or direct personal phone/email not meant for public config.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: support owner role reviewed by human</code></p>
+    <p><strong>隐私提醒：</strong>Prefer internal role or approved owner reference; avoid raw personal contact details.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-002</div>
+  <div>
+    <h2>owner_contact_reference</h2>
+    <p><strong>合格写法：</strong>internal ticket, meeting note, document path, or approval reference</p>
+    <p><strong>质量规则：</strong>Must point to a human-reviewable internal source for the owner/contact decision.</p>
+    <p><strong>拒绝写法：</strong>Reject unsupported personal contact data, vague memory, or unapproved public contact claims.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: internal approval record reference</code></p>
+    <p><strong>隐私提醒：</strong>Use a reference ID or internal document name instead of private phone/email.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-003</div>
+  <div>
+    <h2>target_review_date</h2>
+    <p><strong>合格写法：</strong>YYYY-MM-DD or explicit reviewed date reference</p>
+    <p><strong>质量规则：</strong>Must be a concrete date or an explicit reviewed date source.</p>
+    <p><strong>拒绝写法：</strong>Reject vague dates such as soon, later, next week, or guessed current date.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: YYYY-MM-DD</code></p>
+    <p><strong>隐私提醒：</strong>Date only; no personal details required.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-004</div>
+  <div>
+    <h2>owner_acknowledged_scope</h2>
+    <p><strong>合格写法：</strong>true/false/hold plus reviewer reference</p>
+    <p><strong>质量规则：</strong>Must say whether the owner acknowledged scope, and point to the human review source.</p>
+    <p><strong>拒绝写法：</strong>Reject unsupported approved claims, production-ready claims, or customer-facing launch claims.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: hold - scope not yet approved by owner</code></p>
+    <p><strong>隐私提醒：</strong>Reference the review record; do not expose private discussion details.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-005</div>
+  <div>
+    <h2>human_approval_reference</h2>
+    <p><strong>合格写法：</strong>approval record, meeting note, ticket, or signed-off internal reference</p>
+    <p><strong>质量规则：</strong>Must identify the human approval evidence source without claiming execution.</p>
+    <p><strong>拒绝写法：</strong>Reject verbal-only claims with no reference, or claims that approval equals launch.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: approval record ID</code></p>
+    <p><strong>隐私提醒：</strong>Use record identifiers; avoid copying private messages.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-006</div>
+  <div>
+    <h2>human_reviewer_name</h2>
+    <p><strong>合格写法：</strong>reviewer role, team, person name, or internal reviewer reference</p>
+    <p><strong>质量规则：</strong>Must identify who reviewed the entry at a human-readable level.</p>
+    <p><strong>拒绝写法：</strong>Reject anonymous approval, guessed names, or unapproved personal contact details.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: reviewer role or internal reviewer reference</code></p>
+    <p><strong>隐私提醒：</strong>Use role/reference if public names are not approved for config.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-007</div>
+  <div>
+    <h2>review_date</h2>
+    <p><strong>合格写法：</strong>YYYY-MM-DD or explicit reviewed date reference</p>
+    <p><strong>质量规则：</strong>Must be the actual human review date or a traceable date reference.</p>
+    <p><strong>拒绝写法：</strong>Reject vague dates such as today, soon, later, or guessed current date.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: YYYY-MM-DD</code></p>
+    <p><strong>隐私提醒：</strong>Date only; no personal details required.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-008</div>
+  <div>
+    <h2>selected_support_contact_channel</h2>
+    <p><strong>合格写法：</strong>approved channel type or internal reference, such as support_email_candidate, ticketing_system_candidate, or hold_no_channel_approved</p>
+    <p><strong>质量规则：</strong>Must describe the selected support-contact channel type without pretending it is live.</p>
+    <p><strong>拒绝写法：</strong>Reject live public contact claims, production support claims, or customer-ready language if not separately approved.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: hold_no_channel_approved</code></p>
+    <p><strong>隐私提醒：</strong>Do not expose real addresses or forms until the channel is approved.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-009</div>
+  <div>
+    <h2>decision_summary</h2>
+    <p><strong>合格写法：</strong>concise human decision summary with boundary-safe wording</p>
+    <p><strong>质量规则：</strong>Must summarize the human decision while preserving hold/not-production-ready boundaries.</p>
+    <p><strong>拒绝写法：</strong>Reject production-ready, customer-validated, launched, or universal support claims.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: support channel decision remains on hold pending owner approval</code></p>
+    <p><strong>隐私提醒：</strong>Summarize the decision, not private deliberation.</p>
+  </div>
+</article>
+<article class="rule-card">
+  <div class="row-id">QFRB-010</div>
+  <div>
+    <h2>abuse_handling_path_defined</h2>
+    <p><strong>合格写法：</strong>true/false/hold plus evidence reference</p>
+    <p><strong>质量规则：</strong>Must state whether abuse handling is defined and cite the human-review source.</p>
+    <p><strong>拒绝写法：</strong>Reject unsupported live support, incident response, production-ready, or customer-support claims.</p>
+    <p><strong>占位示例：</strong><code>EXAMPLE_ONLY: hold - abuse handling path not yet approved</code></p>
+    <p><strong>隐私提醒：</strong>Reference the process record; do not expose private escalation contacts.</p>
+  </div>
+</article>
+      </section>
+
+      <section class="boundary">
+        <h2>边界</h2>
+        <ul>
+          <li>不代填证据值。</li>
+          <li>不修改源 quick-fill packet。</li>
+          <li>不导入工作簿。</li>
+          <li>不运行真实输入验证器。</li>
+          <li>不关闭 blocker。</li>
+          <li>不联系客户，不发布产品，不声明生产可用。</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

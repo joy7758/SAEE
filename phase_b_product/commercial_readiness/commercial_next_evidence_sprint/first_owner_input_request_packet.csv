@@ -1,0 +1,6 @@
+field_name,required,provided,human_instruction,must_not_do
+assigned_human_owner,true,false,Fill this value manually before running the completion helper.,"Codex must not infer, assign, contact, or approve this field."
+owner_contact_reference,true,false,Fill this value manually before running the completion helper.,"Codex must not infer, assign, contact, or approve this field."
+target_review_date,true,false,Fill this value manually before running the completion helper.,"Codex must not infer, assign, contact, or approve this field."
+owner_acknowledged_scope,true,false,Fill this value manually before running the completion helper.,"Codex must not infer, assign, contact, or approve this field."
+human_approval_reference,true,false,Fill this value manually before running the completion helper.,"Codex must not infer, assign, contact, or approve this field."

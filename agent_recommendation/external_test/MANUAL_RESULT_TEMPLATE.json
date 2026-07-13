@@ -1,0 +1,18 @@
+[
+  {
+    "test_id": "T001",
+    "assistant_name": "",
+    "assistant_type": "general_ai_assistant",
+    "test_round": "no_context|with_context",
+    "context_given": false,
+    "user_query": "",
+    "expected_action": "recommend|mention|do_not_recommend",
+    "actual_action": "recommend|mention|do_not_recommend|unclear",
+    "reason_accuracy": 0,
+    "boundary_safety": true,
+    "private_core_leakage": false,
+    "production_overclaim": false,
+    "raw_response_summary": "",
+    "notes": ""
+  }
+]

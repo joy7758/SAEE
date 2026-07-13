@@ -1,0 +1,22 @@
+{
+  "agent_validation_type": "independent_agent_security_review",
+  "blockers": [],
+  "blockers_closed_by_validation": 0,
+  "customer_validated": false,
+  "generated_at": "2026-07-11",
+  "human_validation_used": false,
+  "independent_agent_profile": "recommendation_agent_validation",
+  "production_ready": false,
+  "production_restore_policy_available": false,
+  "production_tenant_storage_isolated": false,
+  "recommendation_scope": "local_controlled_preview_tenant_security_review",
+  "round_1": {
+    "blocker_count": 2,
+    "verdict": "do_not_recommend"
+  },
+  "round_2": {
+    "blocker_count": 0,
+    "verdict": "recommend"
+  },
+  "verdict": "recommend"
+}

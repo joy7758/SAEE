@@ -1,0 +1,18 @@
+{
+  "candidate_id": "synthetic-candidate:mcp-agent-developer-001",
+  "candidate_type": "mcp_agent_developer",
+  "simulation_only": true,
+  "validation_goal": "验证未来 MCP Agent Developer 类别能否发现 SAEE、完成本地调用、正确解释结果并生成有边界反馈。",
+  "integration_scope": [
+    "capability_discovery",
+    "mcp_tool_discovery",
+    "local_invocation",
+    "result_interpretation",
+    "documentation_feedback"
+  ],
+  "limitations": [
+    "合成候选不对应真实个人或公司",
+    "只使用本地仓库和合成输入",
+    "模拟结果不建立外部验证或采用"
+  ]
+}

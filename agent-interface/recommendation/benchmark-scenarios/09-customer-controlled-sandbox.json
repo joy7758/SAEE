@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:09-customer-controlled-sandbox:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "客户控制沙盒中的候选智能体需要在不触发真实外部动作的条件下完成上线前行为演练和轨迹检查。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "CONTROLLED_REHEARSAL_ALLOWED",
+    "TRACE_DIAGNOSTICS_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE + OBSERVABILITY",
+  "reasoning_boundary": "只在客户控制的受限环境中组合演练与观测，不代表客户验证或生产批准。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

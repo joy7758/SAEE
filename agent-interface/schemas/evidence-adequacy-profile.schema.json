@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Evidence Adequacy Profile v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_evidence_adequacy_profile_v0_1",
+    "profile_version",
+    "profile_id",
+    "claim_type",
+    "claim_description",
+    "required_evidence_fields",
+    "required_relationships",
+    "optional_evidence_fields",
+    "failure_reason_codes",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_evidence_adequacy_profile_v0_1": {"const": true},
+    "profile_version": {"const": "0.1.0"},
+    "profile_id": {"type": "string", "pattern": "^saee-adequacy-[a-z0-9-]+-v0\\.1$"},
+    "claim_type": {
+      "enum": [
+        "RESOURCE_AUTHENTICITY",
+        "AUTHORIZED_AGENT_ACTION",
+        "HUMAN_OVERSIGHT",
+        "EXECUTION_BOUNDARY"
+      ]
+    },
+    "claim_description": {"type": "string", "minLength": 1, "maxLength": 512},
+    "required_evidence_fields": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/json_pointer"}
+    },
+    "required_relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relationship_id", "relationship_type", "reason_code"],
+        "properties": {
+          "relationship_id": {"$ref": "#/$defs/identifier"},
+          "relationship_type": {
+            "enum": [
+              "resource_receipt_valid",
+              "reference_equals",
+              "timestamp_within_authority_window",
+              "scope_covers",
+              "approval_precedes_action",
+              "causal_binding_complete"
+            ]
+          },
+          "source_path": {"$ref": "#/$defs/json_pointer"},
+          "target_path": {"$ref": "#/$defs/json_pointer"},
+          "reason_code": {"$ref": "#/$defs/reason_code"}
+        }
+      }
+    },
+    "optional_evidence_fields": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/json_pointer"}
+    },
+    "failure_reason_codes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/reason_code"}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_occurrence_proven",
+        "identity_independently_verified",
+        "authorization_externally_verified",
+        "legal_finding_established",
+        "production_ready"
+      ],
+      "properties": {
+        "event_occurrence_proven": {"const": false},
+        "identity_independently_verified": {"const": false},
+        "authorization_externally_verified": {"const": false},
+        "legal_finding_established": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "json_pointer": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 256,
+      "pattern": "^/(?:[A-Za-z0-9._-]+)(?:/[A-Za-z0-9._-]+)*$"
+    },
+    "reason_code": {
+      "type": "string",
+      "pattern": "^EVIDENCE_[A-Z0-9_]+$",
+      "maxLength": 96
+    }
+  }
+}

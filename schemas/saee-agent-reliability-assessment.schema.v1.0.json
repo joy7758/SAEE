@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-reliability-assessment.schema.v1.0.json",
+  "title": "SAEE Agent Reliability Assessment v1.0",
+  "description": "Provider-neutral categorical observations; not a score, ranking, certification, or production decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assessment_version", "assessment_id", "run_id", "agent_profile", "scenario_id", "source_type", "dimensions", "failure_taxonomy", "assessment_availability", "evidence_assessment", "limitations", "truth_boundary"],
+  "properties": {
+    "assessment_version": {"const": "1.0"},
+    "assessment_id": {"type": "string", "pattern": "^saee:reliability-assessment:[a-z0-9_.:-]+$"},
+    "run_id": {"type": "string", "minLength": 1},
+    "agent_profile": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "source_type": {"enum": ["RELIABILITY_STUDY_RUN", "STATEFUL_BUSINESS_RUN", "RECOMMENDATION_BENCHMARK_RUN"]},
+    "dimensions": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_execution_reliability", "recovery_reliability", "boundary_reliability", "evidence_reliability", "assessment_availability"],
+      "properties": {
+        "task_execution_reliability": {"$ref": "#/$defs/dimension"},
+        "recovery_reliability": {"$ref": "#/$defs/dimension"},
+        "boundary_reliability": {"$ref": "#/$defs/dimension"},
+        "evidence_reliability": {"$ref": "#/$defs/dimension"},
+        "assessment_availability": {"$ref": "#/$defs/dimension"}
+      }
+    },
+    "failure_taxonomy": {"type": "array", "uniqueItems": true, "items": {"enum": ["CONTRACT_FAILURE", "MODEL_RESPONSE_FAILURE", "TOOL_FAILURE", "ENVIRONMENT_FAILURE", "BOUNDARY_FAILURE", "EVIDENCE_FAILURE"]}},
+    "assessment_availability": {
+      "type": "object", "additionalProperties": false,
+      "required": ["successful_assessments", "attempted_assessments", "assessment_availability_rate", "assessment_unavailable_is_agent_failure"],
+      "properties": {
+        "successful_assessments": {"type": "integer", "minimum": 0},
+        "attempted_assessments": {"type": "integer", "minimum": 1},
+        "assessment_availability_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "assessment_unavailable_is_agent_failure": {"const": false}
+      }
+    },
+    "evidence_assessment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim_type", "result", "evaluator_ref", "accountability_claim_established"],
+      "properties": {
+        "claim_type": {"type": ["string", "null"]},
+        "result": {"enum": ["PASS", "FAIL", "NOT_ASSESSED"]},
+        "evaluator_ref": {"const": "saee_backend/services/evidence_adequacy.py"},
+        "accountability_claim_established": {"const": false}
+      }
+    },
+    "limitations": {"$ref": "#/$defs/nonempty_strings"},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["leaderboard", "ranking_generated", "certification", "intelligence_score_generated", "production_ready", "external_validation_completed"],
+      "properties": {
+        "leaderboard": {"const": false}, "ranking_generated": {"const": false}, "certification": {"const": false},
+        "intelligence_score_generated": {"const": false}, "production_ready": {"const": false}, "external_validation_completed": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "nonempty_strings": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "dimension": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "evidence_refs", "limitations"],
+      "properties": {
+        "status": {"enum": ["OBSERVED_PASS", "OBSERVED_PARTIAL", "OBSERVED_FAIL", "NOT_ASSESSED"]},
+        "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "limitations": {"$ref": "#/$defs/nonempty_strings"}
+      }
+    }
+  }
+}

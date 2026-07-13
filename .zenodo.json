@@ -1,0 +1,61 @@
+{
+  "title": "SAEE: AI Agent Long-term Stability Evaluation and Decision Infrastructure System",
+  "upload_type": "software",
+  "description": "SAEE is an AI agent long-term stability evaluation and decision infrastructure system. It provides a public product-facing layer for long-horizon evaluation, multi-agent comparison, failure-mode analysis, survival ranking, and deploy / hold / retest decision support while preserving the project identity of Silicon-Amplified Evolutionary Ecology and the engineering core of the Digital Biosphere Evolution Engine. This metadata does not disclose private implementation internals and does not claim production readiness, customer validation, benchmark superiority, external validation success, or a public SDK release.",
+  "creators": [
+    {
+      "name": "Zhang, Bin"
+    }
+  ],
+  "keywords": [
+    "SAEE",
+    "Silicon-Amplified Evolutionary Ecology",
+    "AI agents",
+    "agent evaluation",
+    "long-term stability",
+    "multi-agent comparison",
+    "failure-mode analysis",
+    "deployment decision support",
+    "decision infrastructure",
+    "Digital Biosphere Evolution Engine"
+  ],
+  "language": "eng",
+  "version": "v1.1-external-canonical-sync",
+  "license": "cc-by-4.0",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/joy7758/SAEE",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://joy7758.github.io/SAEE/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.21135471",
+      "relation": "isVersionOf",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.21215282",
+      "relation": "isIdenticalTo",
+      "resource_type": "publication"
+    }
+  ],
+  "notes": "Current public Zenodo metadata surface for the SAEE public-safe canonical layer. A new Zenodo version was published on 2026-07-06 with DOI 10.5281/zenodo.21215282 under concept DOI 10.5281/zenodo.21135471. The package remains definition-only and does not disclose private implementation internals.",
+  "claim_boundary": {
+    "external_validation_claim": false,
+    "production_ready_claim": false,
+    "customer_validated_claim": false,
+    "product_launch_claim": false,
+    "public_sdk_release_claim": false,
+    "platform_publish_performed_by_codex": true,
+    "runtime_modified": false,
+    "backend_modified": false,
+    "kernel_modified": false,
+    "api_schema_modified": false,
+    "private_core_exposed": false
+  }
+}

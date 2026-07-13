@@ -1,0 +1,8 @@
+{
+  "scenario_id": "FEEDBACK_GENERATION",
+  "stage": "FEEDBACK",
+  "request": "生成四字段结构化合成反馈。",
+  "expected_outcome": "FEEDBACK_CREATED",
+  "expected_reason_code": "SYNTHETIC_FEEDBACK_SCHEMA_VALID",
+  "simulation_only": true
+}

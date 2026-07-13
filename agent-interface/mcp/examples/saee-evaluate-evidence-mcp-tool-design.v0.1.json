@@ -1,0 +1,67 @@
+{
+  "saee_mcp_capability_mapping_design_v0_1": true,
+  "mapping_version": "0.1",
+  "capability_object_id": "saee:capability:evidence-adequacy:0.1",
+  "capability_object_ref": "agent-interface/registry/objects/saee-evidence-adequacy-capability-object.v0.1.json",
+  "mcp_tool_name": "evaluate_evidence_adequacy",
+  "tool_metadata": {
+    "name": "evaluate_evidence_adequacy",
+    "description": "Evaluate evidence sufficiency for defined accountability claims.",
+    "capability_category": "agent evidence evaluation",
+    "read_only_intent": true,
+    "side_effects_allowed": false
+  },
+  "input_mapping": {
+    "schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+    "schema_version": "0.1",
+    "field_mappings": [
+      {"mcp_field": "evidence_object", "saee_field": "evidence_object", "required": true},
+      {"mcp_field": "accountability_claim", "saee_field": "accountability_claim", "required": true},
+      {"mcp_field": "evaluation_profile", "saee_field": "evaluation_profile", "required": true},
+      {"mcp_field": "observation_references", "saee_field": "observation_references", "required": false}
+    ],
+    "observation_references_are_evidence": false,
+    "unknown_fields_allowed": false
+  },
+  "output_mapping": {
+    "schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+    "schema_version": "0.1",
+    "transport_status_field": "tool_result",
+    "response_fields": [
+      "claim_assessment",
+      "evidence_sufficiency_status",
+      "missing_requirements",
+      "reason_codes",
+      "limitations",
+      "boundary_statement"
+    ],
+    "supported_means_deployment_approval": false
+  },
+  "error_handling": {
+    "invalid_input": "REJECTED_INPUT",
+    "missing_evidence": "INSUFFICIENT_EVIDENCE",
+    "unknown_profile": "REJECTED_INPUT",
+    "guess_missing_information": false
+  },
+  "lifecycle_mapping": {
+    "capability_object_state": "LOCAL_PROTOTYPE",
+    "mcp_exposure_state": "DESIGN_ONLY",
+    "production_state_mapped": false,
+    "lifecycle_upgrade_authorized": false
+  },
+  "boundaries": {
+    "boundary_contract_ref": "docs/architecture/SAEE_MCP_BOUNDARY_CONTRACT.md",
+    "authorization_provided": false,
+    "deployment_approval_provided": false,
+    "certification_provided": false,
+    "runtime_blocking_provided": false,
+    "legal_judgment_provided": false,
+    "human_authority_required": true
+  },
+  "implementation_status": "design_only",
+  "server_available": false,
+  "public_endpoint_available": false,
+  "external_agents_connected": false,
+  "mcp_compatibility_completed": false,
+  "production_ready": false
+}

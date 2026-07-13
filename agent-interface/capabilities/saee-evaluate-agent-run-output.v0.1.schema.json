@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE evaluate_agent_run Output v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_evaluate_agent_run_output_v0_1", "schema_version", "capability_id", "run_ref", "trace_ref", "claim_type", "assessment", "profile_result", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement", "truth_boundary"],
+  "properties": {
+    "saee_evaluate_agent_run_output_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "capability_id": {"const": "saee.evaluate_agent_run"},
+    "run_ref": {"type": "string", "minLength": 1, "maxLength": 180},
+    "trace_ref": {"type": "string", "minLength": 1, "maxLength": 180},
+    "claim_type": {"const": "AUTHORIZED_AGENT_ACTION"},
+    "assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE"]},
+    "profile_result": {"enum": ["PASS", "FAIL"]},
+    "missing_requirements": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "failed_relationships": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "limitations": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "boundary_statement": {"type": "string", "minLength": 1},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_requirements_evaluated", "accountability_claim_established", "task_success_established", "agent_safety_established", "compliance_established", "deployment_authorized", "real_external_agent_validated", "customer_validated", "production_ready"],
+      "properties": {
+        "profile_requirements_evaluated": {"const": true},
+        "accountability_claim_established": {"const": false},
+        "task_success_established": {"const": false},
+        "agent_safety_established": {"const": false},
+        "compliance_established": {"const": false},
+        "deployment_authorized": {"const": false},
+        "real_external_agent_validated": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

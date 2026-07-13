@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "SAEE software copyright application manifest",
+  "status": "hold_owner_signature_registry_check_and_portal_authorization",
+  "applicant": {
+    "name": "山西游骑兵电子商务有限公司",
+    "type": "enterprise_legal_person",
+    "entity_type_zh": "有限责任公司（自然人独资）",
+    "unified_social_credit_code": "91140802MA0GRJAX44",
+    "registered_address": "运城市盐湖区马郝大道118号（耀华创业大厦四楼1号）",
+    "legal_representative": "张斌",
+    "registered_capital_zh": "壹佰万元整",
+    "establishment_date": "2015-12-04",
+    "business_term_zh": "长期",
+    "business_license_copy": "APPLICANT_PROVIDED_COPY_AVAILABLE_FOR_PORTAL_UPLOAD",
+    "contact_name": "张斌",
+    "contact_phone": "PRIVATE_LOCAL_VALUE_PRESENT",
+    "contact_email": "PRIVATE_LOCAL_VALUE_PRESENT",
+    "mailing_address": "PRIVATE_LOCAL_VALUE_PRESENT",
+    "postal_code": "PRIVATE_LOCAL_VALUE_PRESENT"
+  },
+  "business_license_evidence": {
+    "present": true,
+    "stored_outside_repository": true,
+    "sha256": "97164a93f5491a3429ca0ff58093a23a2b52a7b150057cb54c1519a16518ab81",
+    "copy_date_observed": "2020-02-28",
+    "qr_unified_social_credit_code": "91140802MA0GRJAX44",
+    "current_registry_live_verified": false,
+    "live_verification_note": "2026-07-13 access blocked by browser client; recheck before portal submission"
+  },
+  "private_application_manifest": "docs/ip/software-copyright/SAEE_SOFTWARE_COPYRIGHT_PRIVATE_APPLICATION_V1.json",
+  "software": {
+    "full_name": "SAEE智能体就绪评估软件",
+    "short_name": "SAEE",
+    "version": "V1.0",
+    "development_mode": "independent_development",
+    "development_mode_zh": "独立开发 / 自主研发",
+    "rights_acquisition": "original_acquisition",
+    "rights_acquisition_zh": "原始取得",
+    "rights_scope": "all_rights",
+    "rights_scope_zh": "全部权利",
+    "development_completion_date": "2026-07-13",
+    "publication_status": "unpublished",
+    "publication_status_zh": "未发表",
+    "first_publication_date": null,
+    "first_publication_place": null,
+    "deposit_mode": "ordinary_deposit",
+    "deposit_mode_zh": "普通交存",
+    "source_logical_line_count": 359
+  },
+  "candidate_freeze": {
+    "git_head_observed": "14bf42f2e3bd53c524d6dd4861e59b001a727616",
+    "freeze_id_sha256": "e998fb3c8ee569f37550f89d20a49a89b940bd9ea14a442c07016f99ce7e758a",
+    "all_source_files_tracked_clean": true,
+    "files": [
+      {
+        "path": "scripts/saee_agent_readiness_mcp_stdio.py",
+        "role": "source_program",
+        "sha256": "414e3aeae0a710284604863f9fb1cddbbda4ac4cb03e89d62fad87c7a8e4cfde",
+        "bytes": 615,
+        "logical_lines": 25,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "saee_backend/services/qianfan_readiness_mcp_adapter.py",
+        "role": "source_program",
+        "sha256": "0203087c1e26c2a7c7cca28f5f2c5ffb4a7069d52c7c9b2b9adecf7ca5a06c86",
+        "bytes": 7818,
+        "logical_lines": 160,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "saee_backend/services/baidu_agent_readiness_service.py",
+        "role": "source_program",
+        "sha256": "bbd3253f0c56bef899fded64ba9242fb0108e8fd5a2e6e94107db3f07d738c37",
+        "bytes": 7191,
+        "logical_lines": 174,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-readiness-evidence-item.schema.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "d8b30c0008beefcbc5c1ca73ff8bac3e052045cc4026bab2768ec13274799e0f",
+        "bytes": 916,
+        "logical_lines": 24,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-evaluate-agent-run-request.schema.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "574e2befbe581fd64b1cb45e21fc5002697bb1edd6d0faa7c9ed3be5ab6415b6",
+        "bytes": 1639,
+        "logical_lines": 43,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-evaluate-agent-run-response.schema.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "b029de934fdd7f662279de3c3a128771bc86f1c4cfd87e1785f44fad8212917c",
+        "bytes": 2194,
+        "logical_lines": 38,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-evaluate-evidence-request.schema.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "05a2d638a9872bd194dea22276cfaca555604430196bab4f50321df359e5e9ba",
+        "bytes": 986,
+        "logical_lines": 27,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-evaluate-evidence-response.schema.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "352ca8177f8e765df65927ca139a17c20c2bbc640a745c339fc95ef97046635c",
+        "bytes": 2238,
+        "logical_lines": 40,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json",
+        "role": "machine_contract",
+        "sha256": "be55818fd6215cf6a27f69fb486a08d3a2feec0fcfde7b7b7fe5e95ff434b0cf",
+        "bytes": 836,
+        "logical_lines": 30,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "agent-interface/product/saee-agent-readiness-capability.v2.json",
+        "role": "machine_contract",
+        "sha256": "a1e8f96223c9c74d561644e28182404a1b049fd393c91b5d27403702f63da138",
+        "bytes": 1447,
+        "logical_lines": 42,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "examples/baidu-qianfan/customer-service-refund/request.json",
+        "role": "example",
+        "sha256": "61a8f150e8feec5ce899d0496e05f92791062b1c706e6a4d732b07432a7d3b94",
+        "bytes": 1394,
+        "logical_lines": 19,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "examples/baidu-qianfan/coding-agent-release/request.json",
+        "role": "example",
+        "sha256": "18d9b14c0c9cc057f5bce74d5a5d5f977195b569f01c1d282b65ae476ff040ca",
+        "bytes": 1348,
+        "logical_lines": 19,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "examples/baidu-qianfan/evaluate-evidence/request.json",
+        "role": "example",
+        "sha256": "cda7ccbe70bfbbfdf1901d2ae4ad4a0f3f8646dd10c731cd444b8463ed072f07",
+        "bytes": 650,
+        "logical_lines": 12,
+        "git_state": "tracked_clean"
+      },
+      {
+        "path": "scripts/saee_qianfan_readiness_mcp_smoke.py",
+        "role": "offline_validation",
+        "sha256": "9808ed78b8554230c8d8e1de1ccf600eddd5f418d6f7d6a778cf136283e921f3",
+        "bytes": 6187,
+        "logical_lines": 125,
+        "git_state": "tracked_clean"
+      }
+    ]
+  },
+  "source_logical_line_count": 359,
+  "blocking_fields": [
+    {
+      "field": "business_registry_currentness_confirmation",
+      "field_zh": "提交前复核企业当前登记状态"
+    },
+    {
+      "field": "owner_signature_or_seal",
+      "field_zh": "在权属与申请确认书上签字或盖章"
+    },
+    {
+      "field": "explicit_portal_submission_authorization",
+      "field_zh": "另行明确授权门户登录、上传和提交"
+    }
+  ],
+  "truth_boundary": {
+    "application_materials_prepared_local": true,
+    "owner_legal_fields_complete": true,
+    "owner_recommendation_authorized": true,
+    "ownership_declaration_prepared": true,
+    "ownership_declaration_signed_or_sealed": false,
+    "ownership_verified": false,
+    "publication_status_selected": true,
+    "deposit_mode_selected": true,
+    "source_version_committed": true,
+    "portal_login_performed": false,
+    "files_uploaded": false,
+    "application_submitted": false,
+    "application_accepted": false,
+    "certificate_issued": false,
+    "production_ready": false,
+    "customer_validated": false,
+    "marketplace_listed": false
+  },
+  "generated_documents": [
+    "docs/ip/software-copyright/SAEE智能体就绪评估软件V1.0_申请字段底稿.docx",
+    "docs/ip/software-copyright/SAEE智能体就绪评估软件V1.0_用户操作说明书.docx",
+    "docs/ip/software-copyright/SAEE智能体就绪评估软件V1.0_权属与申请确认书.docx",
+    "docs/ip/software-copyright/SAEE智能体就绪评估软件V1.0_源程序鉴别材料.docx"
+  ],
+  "source_display_line_count": 383
+}

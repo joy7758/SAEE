@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 商用阻塞关闭准备度</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f4ee;
+        --surface: #ffffff;
+        --surface-soft: #efede6;
+        --text: #151513;
+        --muted: #5f625c;
+        --line: #ddd8ce;
+        --accent: #0a6b50;
+        --danger: #8a3d2c;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.7fr);
+        gap: 24px;
+        align-items: stretch;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 62px);
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+      .lead {
+        max-width: 720px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .metric, .panel {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      .metric { padding: 18px; }
+      .metric strong {
+        display: block;
+        font-size: 32px;
+        line-height: 1;
+      }
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .panel {
+        margin-top: 24px;
+        padding: 22px;
+      }
+      h2 {
+        margin: 0 0 14px;
+        font-size: 24px;
+      }
+      ul {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      th, td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        font-size: 14px;
+      }
+      th {
+        background: var(--surface-soft);
+        font-size: 13px;
+      }
+      tr:last-child td { border-bottom: 0; }
+      .pill {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        border-radius: 999px;
+        padding: 0 10px;
+        font-size: 12px;
+        font-weight: 900;
+      }
+      .pill.hold {
+        color: var(--danger);
+        background: #f8ebe8;
+      }
+      .boundary {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      @media (max-width: 820px) {
+        .hero, .summary { grid-template-columns: 1fr; }
+        table { display: block; overflow-x: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">SAEE 商用阻塞关闭准备度</p>
+          <h1>现在没有任何 blocker 可以关闭。</h1>
+          <p class="lead">
+            这页只帮助人工审查：哪些生产阻塞还缺证据、是否可以进入最终关闭审查。
+            当前 24 个阻塞全部仍是 hold，不代表已经商用，也不代表已经生产可用。
+          </p>
+        </div>
+        <div class="summary" aria-label="关闭准备度摘要">
+          <div class="metric"><strong>24</strong><span>生产阻塞总数</span></div>
+          <div class="metric"><strong>24</strong><span>仍未关闭</span></div>
+          <div class="metric"><strong>0</strong><span>可进入人工最终关闭审查</span></div>
+          <div class="metric"><strong>0</strong><span>本页关闭的阻塞</span></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>下一步只允许人工补证据</h2>
+        <ul>
+          <li>先通过单独批准的证据请求补齐真实生产证据。</li>
+          <li>重新运行相关 builder 和 go/no-go 检查。</li>
+          <li>只有证据通过后，才可进入单独的人工最终关闭审查。</li>
+          <li>本页不执行任务、不收集证据、不联系客户、不关闭 blocker。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>24 个 blocker 状态</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Blocker</th>
+              <th>类别</th>
+              <th>状态</th>
+              <th>缺失证据数</th>
+              <th>主要原因</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <tr>
+            <td>customer_support</td>
+            <td>support</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>2</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>customer_validated</td>
+            <td>validation</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>data_processing_agreement</td>
+            <td>privacy_security</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>external_alert_delivery</td>
+            <td>operations</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>formal_security_review</td>
+            <td>privacy_security</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>3</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>invoice_process</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>oauth_oidc</td>
+            <td>auth</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>on_call_rotation</td>
+            <td>operations</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>3</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>payment_provider</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>pilot_results</td>
+            <td>validation</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>pricing_page</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>4</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>privacy_legal_review</td>
+            <td>privacy_security</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_identity_provider</td>
+            <td>auth</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_monitoring</td>
+            <td>operations</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>4</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>production_restore_policy</td>
+            <td>data_ops</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>rbac</td>
+            <td>auth</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>3</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>refund_policy</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>restore_tested</td>
+            <td>data_ops</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>0</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open</td>
+          </tr>
+        
+
+          <tr>
+            <td>sla</td>
+            <td>support</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>support_contact</td>
+            <td>support</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>tax_review</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>5</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>tenant_billing_isolation</td>
+            <td>billing</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>6</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>tenant_storage_isolation</td>
+            <td>tenant</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>4</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+
+          <tr>
+            <td>vulnerability_management</td>
+            <td>privacy_security</td>
+            <td><span class="pill hold">未可关闭</span></td>
+            <td>7</td>
+            <td>blocker_status_open, dashboard_closure_not_allowed, dashboard_satisfied_false, matrix_closure_not_allowed, matrix_local_evidence_not_ready, matrix_status_open, missing_production_evidence</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </section>
+
+      <p class="boundary">
+        本页为本地静态 HTML 诊断页。No runtime modified. No backend modified.
+        No kernel modified. No API schema modified. No private core exposed.
+        No product launched. No customer contacted. No blocker closed by this board.
+      </p>
+    </main>
+  </body>
+</html>

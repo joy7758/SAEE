@@ -1,0 +1,7 @@
+generation_count: 100
+population_size: 8
+deterministic_seed: enabled
+logging_level: full_trace
+seed_path: kernel/examples/seed_genome.json
+output_dir: saee_experiments/output/demo-run
+

@@ -1,0 +1,11 @@
+{
+  "pilot_id":"saee:internal-agent-pilot:agent-delegation-workflow",
+  "agent_type":"evaluation_agent",
+  "task_type":"evaluate_agent_delegation_record",
+  "workflow_scope":{"allowed":["inspect_local_delegation_contract","compare_handoff_evidence","identify_missing_context","recommend_replan"],"forbidden":["customer_data","production_system","external_side_effect","permission_expansion","untrusted_code_execution"]},
+  "scenario":{"scenario_id":"AGENT_DELEGATION_WORKFLOW","objective":"Evaluate whether agent-to-agent delegation preserves task scope, handoff evidence, and authority boundaries.","evaluation_dimensions":["delegation","evidence","traceability","boundary"]},
+  "execution_environment":{"environment_type":"local_controlled","network_access":false,"external_world_actions":false,"customer_data":false},
+  "evidence_policy":{"observation_required":true,"reliability_evaluation_required":true,"evidence_evaluation_required":true,"recommendation_required":true,"raw_secret_storage":false},
+  "limitations":["The plan does not connect external agents.","Delegation assessment is decision context and not delegated authority."],
+  "truth_boundary":{"internal_agent_pilot":true,"pilot_executed":false,"external_validation":false,"external_participants":false,"customer_data":false,"production_execution":false,"adoption_validated":false,"production_ready":false}
+}

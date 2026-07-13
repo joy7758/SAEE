@@ -1,0 +1,16 @@
+item_id,field_path,item_type,required_value,current_value,complete,human_instruction
+PIDP-EBR-001,human_requester_name,text,nonempty,,false,Name of the human owner requesting builder approval.
+PIDP-EBR-002,request_date,text,nonempty,,false,Request date in YYYY-MM-DD format.
+PIDP-EBR-003,approval_reference,text,nonempty,,false,Reference to the passing approval-input validation record.
+PIDP-EBR-004,validated_input_path,text,nonempty,,false,Path to the human-filled input that passed validation.
+PIDP-EBR-005,human_acknowledgements.approval_input_validator_passed,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-006,human_acknowledgements.runbook_reviewed,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-007,human_acknowledgements.human_filled_input_available,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-008,human_acknowledgements.validated_input_path_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-009,human_acknowledgements.phase1_builder_input_path_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-010,human_acknowledgements.target_builder_confirmed,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-011,human_acknowledgements.no_external_calls_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-012,human_acknowledgements.no_identity_provider_contact_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-013,human_acknowledgements.no_jwks_fetch_by_codex,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-014,human_acknowledgements.no_production_auth_enablement,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.
+PIDP-EBR-015,human_acknowledgements.no_blocker_closure_by_request,boolean,true,false,false,Human must set this acknowledgement to true before builder execution can be separately requested.

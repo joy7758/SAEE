@@ -1,0 +1,266 @@
+{
+  "admin_recovery_policy_reviewed": false,
+  "api_schema_modified": false,
+  "auth_failure_handling_reviewed": false,
+  "auth_oidc_rbac_fixture_dry_run_v0_1": true,
+  "backend_modified": false,
+  "blockers_closed_by_fixture_dry_run": 0,
+  "claims_mapping_reviewed": false,
+  "counts": {
+    "fixture_claim_cases": 5,
+    "fixture_claim_cases_passed": 5,
+    "fixture_rbac_cases": 6,
+    "fixture_rbac_cases_passed": 6
+  },
+  "customer_contacted": false,
+  "customer_validated": false,
+  "evidence_scope": "local_fixture_only_no_external_idp",
+  "expected_audience": "saee-controlled-preview",
+  "expected_issuer": "https://idp.example.invalid/",
+  "external_calls_made": false,
+  "fixture_claim_cases": [
+    {
+      "actual_accept": true,
+      "case_id": "OIDC-FIX-001",
+      "claim_keys_seen": [
+        "aud",
+        "exp",
+        "iat",
+        "iss",
+        "roles",
+        "sub",
+        "tenant_id"
+      ],
+      "description": "valid local fixture claims",
+      "expected_accept": true,
+      "passed": true,
+      "problems": []
+    },
+    {
+      "actual_accept": false,
+      "case_id": "OIDC-FIX-002",
+      "claim_keys_seen": [
+        "aud",
+        "exp",
+        "iat",
+        "iss",
+        "roles",
+        "sub"
+      ],
+      "description": "missing tenant_id claim",
+      "expected_accept": false,
+      "passed": true,
+      "problems": [
+        "missing_claim:tenant_id",
+        "tenant_id_missing_or_empty"
+      ]
+    },
+    {
+      "actual_accept": false,
+      "case_id": "OIDC-FIX-003",
+      "claim_keys_seen": [
+        "aud",
+        "exp",
+        "iat",
+        "iss",
+        "roles",
+        "sub",
+        "tenant_id"
+      ],
+      "description": "wrong audience claim",
+      "expected_accept": false,
+      "passed": true,
+      "problems": [
+        "audience_mismatch"
+      ]
+    },
+    {
+      "actual_accept": false,
+      "case_id": "OIDC-FIX-004",
+      "claim_keys_seen": [
+        "aud",
+        "exp",
+        "iat",
+        "iss",
+        "roles",
+        "sub",
+        "tenant_id"
+      ],
+      "description": "expired fixture token",
+      "expected_accept": false,
+      "passed": true,
+      "problems": [
+        "expired_or_invalid_exp"
+      ]
+    },
+    {
+      "actual_accept": false,
+      "case_id": "OIDC-FIX-005",
+      "claim_keys_seen": [
+        "aud",
+        "exp",
+        "iat",
+        "iss",
+        "sub",
+        "tenant_id"
+      ],
+      "description": "missing roles claim",
+      "expected_accept": false,
+      "passed": true,
+      "problems": [
+        "missing_claim:roles",
+        "roles_missing_or_empty"
+      ]
+    }
+  ],
+  "fixture_dry_run_type": "local_auth_oidc_rbac_fixture_dry_run",
+  "fixture_rbac_cases": [
+    {
+      "actual_allowed": true,
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "case_id": "RBAC-FIX-001",
+      "expected_allowed": true,
+      "passed": true,
+      "reason": "allowed",
+      "required_permission": "operations:read",
+      "role": "owner",
+      "route": "GET /operations/telemetry"
+    },
+    {
+      "actual_allowed": true,
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "support_operator"
+      ],
+      "case_id": "RBAC-FIX-002",
+      "expected_allowed": true,
+      "passed": true,
+      "reason": "allowed",
+      "required_permission": "operations:read",
+      "role": "support_operator",
+      "route": "GET /operations/alerts"
+    },
+    {
+      "actual_allowed": true,
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator"
+      ],
+      "case_id": "RBAC-FIX-003",
+      "expected_allowed": true,
+      "passed": true,
+      "reason": "allowed",
+      "required_permission": "experiment:run",
+      "role": "evaluator_operator",
+      "route": "POST /experiment/run"
+    },
+    {
+      "actual_allowed": false,
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator"
+      ],
+      "case_id": "RBAC-FIX-004",
+      "expected_allowed": false,
+      "passed": true,
+      "reason": "role_not_allowed",
+      "required_permission": "experiment:create",
+      "role": "viewer",
+      "route": "POST /experiment/create"
+    },
+    {
+      "actual_allowed": false,
+      "allowed_roles": [
+        "owner",
+        "admin",
+        "evaluator_operator"
+      ],
+      "case_id": "RBAC-FIX-005",
+      "expected_allowed": false,
+      "passed": true,
+      "reason": "role_not_allowed",
+      "required_permission": "experiment:run",
+      "role": "support_operator",
+      "route": "POST /experiment/run"
+    },
+    {
+      "actual_allowed": false,
+      "allowed_roles": [],
+      "case_id": "RBAC-FIX-006",
+      "expected_allowed": false,
+      "passed": true,
+      "reason": "missing_role",
+      "required_permission": null,
+      "role": "",
+      "route": "GET /health"
+    }
+  ],
+  "forbidden_identity_claims": [
+    "email",
+    "email_verified",
+    "phone",
+    "name",
+    "address"
+  ],
+  "generated_at": "2026-07-13",
+  "generated_by": "scripts/saee_auth_oidc_rbac_fixture_dry_run.py",
+  "identity_provider_admin_owner_named": false,
+  "identity_provider_contacted": false,
+  "jwks_fetched": false,
+  "jwks_rotation_policy_reviewed": false,
+  "kernel_modified": false,
+  "known_roles": [
+    "owner",
+    "admin",
+    "evaluator_operator",
+    "viewer",
+    "support_operator"
+  ],
+  "least_privilege_reviewed": false,
+  "local_fixture_claims_mapping_reviewed": true,
+  "local_fixture_negative_auth_cases_rejected": true,
+  "local_fixture_rbac_route_matrix_passed": true,
+  "local_fixture_rbac_route_matrix_tested": true,
+  "local_fixture_token_validation_test_recorded": true,
+  "next_action": "Use these fixture results as local review support only; production auth blockers still require a real IdP, approved OAuth/OIDC flow, signed-token validation, and independently reviewed RBAC policy.",
+  "oauth_oidc_available": false,
+  "oauth_oidc_flow_approved": false,
+  "oidc_audience_approved": false,
+  "oidc_issuer_verified": false,
+  "optional_claims": [
+    "nbf",
+    "jti"
+  ],
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_auth_enabled": false,
+  "production_auth_ready": false,
+  "production_identity_provider_available": false,
+  "production_identity_provider_selected": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "rbac_available": false,
+  "rbac_enforced_in_production": false,
+  "rbac_policy_approved": false,
+  "required_claims": [
+    "iss",
+    "sub",
+    "aud",
+    "exp",
+    "iat",
+    "tenant_id",
+    "roles"
+  ],
+  "runtime_modified": false,
+  "session_expiry_policy_approved": false,
+  "status": "pass",
+  "token_validation_test_recorded": false,
+  "tokens_validated_in_production": false
+}

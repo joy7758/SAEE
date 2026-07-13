@@ -1,0 +1,72 @@
+{
+  "aggregate_metrics": {
+    "decision_influence_rate": null,
+    "go_hold_pivot": "not_evaluated",
+    "repeat_usage_intent": null,
+    "session_count": 0,
+    "trust_rate": null,
+    "understanding_rate": null
+  },
+  "boundary_note": "A human reviewer must fill sessions and explicitly set evidence_review flags after an approved pilot. Codex must not infer missing results.",
+  "customer_contacted": false,
+  "customer_validated": false,
+  "customer_validation_evidence_input_v0_1": true,
+  "evidence_review": {
+    "at_least_one_human_approved_pilot_session_completed": false,
+    "boundary_flags_reviewed": false,
+    "claim_scope_approved": false,
+    "customer_problem_fit_reviewed": false,
+    "customer_role_and_segment_recorded": false,
+    "customer_validation_record_approved_by_human": false,
+    "decision_usefulness_observed": false,
+    "deployment_decision_value_observed": false,
+    "failure_summary_usefulness_observed": false,
+    "feedback_form_completed": false,
+    "go_hold_pivot_decision_recorded": false,
+    "negative_feedback_recorded": false,
+    "no_customer_secrets_collected": false,
+    "no_customer_upload_required": false,
+    "no_private_core_disclosed": false,
+    "no_production_ready_claim_added": false,
+    "no_public_launch_claim_added": false,
+    "pain_point_fit_observed": false,
+    "permission_to_use_feedback_recorded": false,
+    "pilot_result_reviewed_by_human": false,
+    "pilot_result_template_completed": false,
+    "real_customer_or_target_user_feedback_recorded": false,
+    "recommendation_output_understood": false,
+    "reviewer_approved_validation_claim": false,
+    "success_criteria_applied": false
+  },
+  "pilot_result_template_v0_1": true,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "sessions": [
+    {
+      "boundary_flags": {
+        "customer_data_uploaded": false,
+        "private_core_disclosed": false,
+        "production_data_collected": false,
+        "production_ready_claim_made": false,
+        "secrets_collected": false
+      },
+      "candidate_count": 0,
+      "current_evaluation_method": "",
+      "decision_influence_score": null,
+      "evidence_missing": "",
+      "notes": "",
+      "participant_role": "",
+      "repeat_usage_intent_score": null,
+      "saee_demo_surface_used": "local_mvp_demo",
+      "session_date": "",
+      "session_id": "PILOT-YYYYMMDD-001",
+      "team_type": "",
+      "time_to_value_minutes": null,
+      "top_objection": "",
+      "trust_score": null,
+      "understanding_score": null,
+      "willing_to_test_own_candidates": null
+    }
+  ]
+}

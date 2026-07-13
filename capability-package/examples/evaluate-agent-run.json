@@ -1,0 +1,13 @@
+{
+  "example_version": "1.0.0",
+  "operation_id": "evaluate_agent_run",
+  "implementation_status": "implemented_local_offline_alpha",
+  "scenario_ref": "../../agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
+  "input_schema_ref": "../../agent-interface/rehearsal/saee-agent-rehearsal-run.v0.1.schema.json",
+  "output_schema_ref": "../../agent-interface/capabilities/saee-evaluate-agent-run-output.v0.1.schema.json",
+  "local_command": "python3 scripts/saee_evaluate_agent_run.py --scenario agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
+  "expected_assessment": "SUPPORTED",
+  "network_required": false,
+  "production_ready": false
+}
+

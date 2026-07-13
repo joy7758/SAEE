@@ -1,0 +1,11 @@
+execution_row_number,review_batch_row_id,quick_fill_row_id,blocker_id,input_group,input_key,plain_label,plain_fill_guide,plain_blank_guide,expected_value_shape,target_json_pointer,source_column_to_fill,optional_notes_column,human_value_to_enter,notes_for_human
+1,RBT-001,,workbook_import_approval,workbook_import_approval_review,assigned_human_owner,谁负责确认支持入口,填已确认的负责人姓名、角色或内部负责人标识。,没有明确负责人就留空。,,,human_value_to_enter,notes_for_human,,
+2,RBT-002,,workbook_import_approval,workbook_import_approval_review,owner_contact_reference,负责人或内部记录在哪里,填内部可追溯记录，例如工单、会议纪要、文档路径或审批编号。,没有内部记录或审批来源就留空。,,,human_value_to_enter,notes_for_human,,
+3,RBT-003,,workbook_import_approval,workbook_import_approval_review,target_review_date,计划哪天确认完,填目标日期，建议 YYYY-MM-DD。,没有目标日期就留空。,,,human_value_to_enter,notes_for_human,,
+4,RBT-004,,workbook_import_approval,workbook_import_approval_review,owner_acknowledged_scope,负责人是否确认范围,填负责人已确认的范围，例如只确认支持入口，不代表正式上线。,负责人还没确认范围就留空。,,,human_value_to_enter,notes_for_human,,
+5,RBT-005,,workbook_import_approval,workbook_import_approval_review,human_approval_reference,人工批准记录编号,填人工批准、会议纪要或审查记录编号。,没有人工批准记录就留空。,,,human_value_to_enter,notes_for_human,,
+6,RBT-006,,workbook_import_approval,workbook_import_approval_review,human_reviewer_name,谁做了本次审查,填本次人工审查人的姓名、角色或内部标识。,没有实际审查人就留空。,,,human_value_to_enter,notes_for_human,,
+7,RBT-007,,workbook_import_approval,workbook_import_approval_review,review_date,审查日期,填实际审查日期，建议 YYYY-MM-DD。,还没审查就留空。,,,human_value_to_enter,notes_for_human,,
+8,RBT-008,,workbook_import_approval,workbook_import_approval_review,selected_support_contact_channel,客户以后从哪里找支持,填人工选择的支持入口类型，例如邮箱、表单、工单系统或暂不开放。,支持入口尚未人工决定就留空。,,,human_value_to_enter,notes_for_human,,
+9,RBT-009,,workbook_import_approval,workbook_import_approval_review,decision_summary,一句话说明选择原因,用一句话说明当前支持入口决策，不要写成已经对客户正式开放。,还没有形成决策就留空。,,,human_value_to_enter,notes_for_human,,
+10,RBT-010,,workbook_import_approval,workbook_import_approval_review,abuse_handling_path_defined,滥用或异常请求由谁处理,填是否已有滥用处理路径及负责人；没有人工确认就留空。,滥用处理路径还没人工确认就留空。,,,human_value_to_enter,notes_for_human,,

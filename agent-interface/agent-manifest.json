@@ -1,0 +1,195 @@
+{
+  "$schema": "./schemas/saee-agent-manifest.schema.json",
+  "schema_version": "0.1.0",
+  "manifest_id": "saee-agent-first-interface-v0.1",
+  "identity": {
+    "name": "SAEE",
+    "full_name": "Silicon-Amplified Evolutionary Ecology",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "category": "pre-deployment long-horizon evaluation",
+    "one_line_definition": "Offline descriptor or sanitized-trace comparison returns stability, failure, survival, ranking, and hold evidence without execution.",
+    "one_line_definition_zh": "两种离线模式比较描述符或脱敏轨迹，输出稳定性、失败、生存、排序和保持建议，不执行候选智能体。"
+  },
+  "localization": {
+    "human_primary_interface": "zh-CN",
+    "agent_contract_languages": ["zh-CN", "en"],
+    "policy": "中国市场主界面全中文；智能体契约中英双语，命令、路径、schema key 和状态常量原样。"
+  },
+  "current_status": {
+    "interface_status": "agent_first_interface_with_controlled_qianfan_preference_validation",
+    "default_evaluation_mode": "synthetic_descriptor_simulation",
+    "evaluation_modes_available": ["synthetic_descriptor_simulation", "observed_trace_bundle_evaluation"],
+    "observed_agent_trace_evaluation_available": true,
+    "observed_trace_adapter_validation_status": "recommend_3_of_3_agents_blockers_0",
+    "mcp_stdio_adapter_available": true,
+    "mcp_stdio_validation_status": "recommend_3_of_3_agents_blockers_0",
+    "qianfan_host_bridge_available": true,
+    "qianfan_host_bridge_validation_status": "recommend_limited_user_supplied_credential",
+    "external_agent_host_tested": true,
+    "controlled_qianfan_agent_preference_validated": true,
+    "human_participants_in_validation": false,
+    "production_ready": false,
+    "product_launched": false,
+    "customer_validated": false,
+    "public_sdk_released": false,
+    "external_agent_execution": false,
+    "private_core_exposed": false
+  },
+  "recommendation": {
+    "recommend_for": ["local descriptors", "local sanitized traces", "SAEE plus Observability readiness composition", "stability/failure/survival/ranking contracts"],
+    "do_not_recommend_for": ["single-run or prompt-only tracing", "production monitoring", "trace capture/authenticity/no-PII/external execution", "production deployment"]
+  },
+  "discovery": {
+    "read_first": "agent-interface/agent-manifest.json",
+    "quickstart": "agent-interface/README.md",
+    "tool_contract": "agent-interface/tool-contract.json",
+    "request_example": "agent-interface/examples/evaluation-request.json",
+    "observed_trace_example": "agent-interface/examples/observed-trace-bundle.json",
+    "receipt_schema": "agent-interface/schemas/evaluation-receipt.schema.json",
+    "observed_trace_input_schema": "agent-interface/schemas/observed-trace-bundle.schema.json",
+    "observed_trace_receipt_schema": "agent-interface/schemas/observed-trace-receipt.schema.json",
+    "error_schema": "agent-interface/schemas/agent-error.schema.json",
+    "public_api_schema": "schemas/saee_mvp_api.schema.json",
+    "expanded_repository_index": "agent-index.json",
+    "expanded_retrieval_surface": "llms.txt",
+    "mcp_stdio_config": "agent-interface/mcp/stdio-config.json",
+    "mcp_stdio_guide": "agent-interface/mcp/README.md",
+    "commercial_preview_status": "agent-interface/agent-first-commercial-preview-status.json",
+    "commercial_preview_request": "agent-interface/examples/controlled-preview-request.json",
+    "agent_preference_result": "agent-interface/recommendation/simulation/saee-agent-preference-live-validation.v0.1.json",
+    "agent_recommendation_context": "agent-interface/recommendation/saee-agent-recommendation.v0.1.json"
+  },
+  "invoke": {
+    "preferred": {
+      "transport": "local_cli_json",
+      "command": "python3 scripts/saee_agent_cli.py evaluate --input agent-interface/examples/evaluation-request.json",
+      "input": "JSON file matching #/$defs/ScenarioBatchRequest in schemas/saee_mvp_api.schema.json",
+      "output": "JSON stdout matching agent-interface/schemas/evaluation-receipt.schema.json",
+      "error_output": "JSON stdout matching agent-interface/schemas/agent-error.schema.json",
+      "success_exit_code": 0,
+      "error_exit_code": 2,
+      "network_required": false,
+      "server_required": false,
+      "human_click_required": false
+    },
+    "describe": "python3 scripts/saee_agent_cli.py describe",
+    "observed": {
+      "transport": "local_cli_json",
+      "command": "python3 scripts/saee_agent_cli.py evaluate-traces --input agent-interface/examples/observed-trace-bundle.json",
+      "input": "JSON file matching agent-interface/schemas/observed-trace-bundle.schema.json",
+      "output": "JSON stdout matching agent-interface/schemas/observed-trace-receipt.schema.json",
+      "error_output": "JSON stdout matching agent-interface/schemas/agent-error.schema.json",
+      "network_required": false,
+      "server_required": false,
+      "candidate_code_execution": false,
+      "trace_capture_by_saee": false
+    },
+    "mcp_stdio": {
+      "protocol_version": "2025-11-25",
+      "transport": "stdio_newline_delimited_jsonrpc",
+      "command": "python3 scripts/saee_mcp_stdio.py",
+      "tools": ["describe_saee", "compare_observed_traces"],
+      "network_required": false,
+      "dynamic_tools": false,
+      "arbitrary_file_input": false
+    },
+    "smoke": "python3 scripts/saee_agent_interface_smoke.py"
+  },
+  "capabilities": [
+    {
+      "id": "compare_candidates",
+      "status": "available_local_synthetic_descriptor_mode",
+      "input_ref": "schemas/saee_mvp_api.schema.json#/$defs/ScenarioBatchRequest",
+      "output_ref": "agent-interface/schemas/evaluation-receipt.schema.json",
+      "does_not_execute_candidate_code": true
+    },
+    {
+      "id": "compare_observed_traces",
+      "status": "available_local_sanitized_file_bundle_mode",
+      "input_ref": "agent-interface/schemas/observed-trace-bundle.schema.json",
+      "output_ref": "agent-interface/schemas/observed-trace-receipt.schema.json",
+      "does_not_execute_candidate_code": true,
+      "does_not_capture_traces": true
+    },
+    {
+      "id": "mcp_stdio_tools",
+      "status": "available_local_fixed_two_tool_transport",
+      "config_ref": "agent-interface/mcp/stdio-config.json",
+      "tools": ["describe_saee", "compare_observed_traces"],
+      "dynamic_registration": false
+    },
+    {
+      "id": "report_outputs",
+      "status": "included_in_evaluation_receipts",
+      "outputs": ["get_stability", "get_failures", "get_survival", "get_ranking"],
+      "schema_ref": "schemas/saee_mvp_api.schema.json"
+    }
+  ],
+  "result_provenance": {
+    "applies_to_evaluation_mode": "synthetic_descriptor_simulation",
+    "required_evaluation_mode": "synthetic_descriptor_simulation",
+    "input_kind": "non_executable_agent_descriptors",
+    "descriptor_text_affects_simulation": true,
+    "observed_agent_trace_evaluation": false,
+    "candidate_code_executed": false,
+    "external_calls_made": false,
+    "scoring_formula": "0.50 * stability_score + 0.30 * survival_score - 0.20 * risk_score",
+    "hash_contract": {
+      "algorithm": "sha256",
+      "encoding": "utf-8",
+      "canonical_json": "JSON with keys sorted, ensure_ascii=false, and separators comma and colon",
+      "request_sha256_covers": "Pydantic-normalized ScenarioBatchRequest JSON",
+      "content_sha256_covers": "reports object containing evaluation_summary, stability_reports, failure_mode_reports, survival_curves, and comparison_ranking"
+    },
+    "observed_trace_adapter": {
+      "evaluation_mode": "observed_trace_bundle_evaluation",
+      "input_kind": "sanitized_observed_agent_trace_bundle",
+      "source_sanitization_is_attested_not_verified": true,
+      "trace_authenticity_verified": false,
+      "pii_absence_verified_by_saee": false,
+      "trace_capture_by_saee": false,
+      "candidate_code_executed": false,
+      "external_calls_made": false,
+      "simulator_called": false
+    },
+    "mcp_stdio_adapter": {
+      "protocol_version": "2025-11-25",
+      "tool_count": 2,
+      "arbitrary_file_input": false,
+      "subprocess": false,
+      "socket": false,
+      "dynamic_tools": false,
+      "external_calls_made": false
+    }
+  },
+  "forbidden_claims": ["SAEE observed/executed agents", "synthetic output proves behavior", "observed bundle proves authenticity/no-PII/generalization", "SAEE replaces tracing/monitoring", "local tests prove production/adoption/private-core claims"],
+  "canonical": {
+    "metadata": "docs/canonical/SAEE_CANONICAL_METADATA.yaml",
+    "recommendation_gate": "docs/strategy/SAEE_AGENT_FIRST_COMMERCIAL_VALIDATION_GATE.md",
+    "citation_file": "CITATION.cff",
+    "doi": "10.5281/zenodo.21215282",
+    "repository": "https://github.com/joy7758/SAEE",
+    "website": "https://saee-stability-lab.zhangbin1982.chatgpt.site"
+  },
+  "validation": {
+    "independent_agent_profiles": ["coding_calling_agent", "retrieval_citation_agent", "product_recommendation_agent"],
+    "overall_verdict": "conditional",
+    "current_scope_verdict": "recommend",
+    "current_scope": "local_synthetic_descriptor_and_sanitized_observed_trace_bundle_evaluation",
+    "observed_trace_adapter_verdict": "recommend",
+    "observed_trace_adapter_agent_recommendations": 3,
+    "observed_trace_adapter_blockers": 0,
+    "mcp_stdio_initial_gate": "recommend",
+    "mcp_stdio_local_acceptance": "pass",
+    "mcp_stdio_independent_agent_rerun_required": false,
+    "mcp_stdio_independent_agent_rerun_completed": true,
+    "mcp_stdio_verdict": "recommend",
+    "mcp_stdio_agent_recommendations": 3,
+    "mcp_stdio_blockers": 0,
+    "qianfan_host_bridge_verdict": "recommend_limited_user_supplied_credential",
+    "agent_preference_verdict": "recommend_controlled_synthetic_context",
+    "agent_preference_hidden_profile_matches": 6,
+    "human_participants_in_validation": false,
+    "human_validation_is_primary": false
+  }
+}

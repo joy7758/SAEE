@@ -1,0 +1,6 @@
+request_id,blocker_id,title,owner_review_lane,assigned_human_owner,human_approval_reference,approval_scope,approval_decision,evidence_collection_request_reference,execution_request_reference,owner_acknowledged_scope,boundary_acknowledged,notes
+ERD-001,support_contact,Evidence request draft for support contact,support_operations,,,,hold,,,False,False,
+ERD-002,pricing_page,Evidence request draft for pricing page,commercial_finance_legal,,,,hold,,,False,False,
+ERD-003,formal_security_review,Evidence request draft for formal security review,security_legal_privacy,,,,hold,,,False,False,
+ERD-004,production_restore_policy,Evidence request draft for production restore policy,data_operations,,,,hold,,,False,False,
+ERD-005,production_monitoring,Evidence request draft for production monitoring,operations_engineering,,,,hold,,,False,False,

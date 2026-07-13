@@ -1,0 +1,85 @@
+{
+  "name": "SAEE Production Data Operations Requirements v0.1",
+  "purpose": "Define production restore testing and production restore policy requirements and evidence without running production restore, changing live data paths, closing data operations blockers, or claiming production readiness.",
+  "production_data_operations_requirements_v0_1": true,
+  "requirements_status": "requirements_defined_implementation_hold",
+  "data_ops_blockers_covered_as_requirements": [
+    "restore_tested",
+    "production_restore_policy"
+  ],
+  "required_restore_test_controls": [
+    "production_like_backup_source_defined",
+    "isolated_restore_environment_defined",
+    "restore_to_live_path_forbidden_without_approval",
+    "restore_integrity_checks_defined",
+    "rto_rpo_targets_defined",
+    "tenant_restore_scope_defined",
+    "rollback_after_restore_drill_defined",
+    "restore_test_result_record_required"
+  ],
+  "required_production_restore_policy_sections": [
+    "restore_authority_and_approval",
+    "backup_retention_and_encryption",
+    "tenant_data_scope_and_isolation",
+    "customer_data_handling_boundary",
+    "credential_and_secret_exclusion",
+    "private_core_exclusion",
+    "incident_response_handoff",
+    "customer_notification_boundary",
+    "restore_evidence_retention",
+    "post_restore_review"
+  ],
+  "evidence_required_before_closing_blockers": [
+    {
+      "blocker_id": "restore_tested",
+      "required_evidence": [
+        "production_like_restore_test_plan_approved",
+        "isolated_restore_environment_used",
+        "restore_integrity_checks_passed",
+        "rto_rpo_observed_and_recorded",
+        "tenant_scope_validated_if_customer_data_exists",
+        "restore_test_report_reviewed"
+      ]
+    },
+    {
+      "blocker_id": "production_restore_policy",
+      "required_evidence": [
+        "production_restore_policy_approved",
+        "backup_retention_policy_approved",
+        "tenant_restore_boundary_approved",
+        "credential_secret_exclusion_reviewed",
+        "customer_notification_boundary_approved",
+        "incident_response_handoff_approved"
+      ]
+    }
+  ],
+  "production_data_operations_implemented": false,
+  "restore_tested": false,
+  "production_restore_tested": false,
+  "production_restore_policy_available": false,
+  "production_restore_policy_approved": false,
+  "restore_to_live_path_enabled": false,
+  "tenant_restore_available": false,
+  "customer_data_restore_ready": false,
+  "backup_encryption_review_completed": false,
+  "rto_rpo_targets_approved": false,
+  "disaster_recovery_runbook_available": false,
+  "production_data_operations_ready": false,
+  "production_ready": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "task_candidates_executed": false,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "customer_contacted": false,
+  "production_data_path_modified": false,
+  "live_restore_performed": false,
+  "credentials_restored": false,
+  "private_core_restored": false
+}

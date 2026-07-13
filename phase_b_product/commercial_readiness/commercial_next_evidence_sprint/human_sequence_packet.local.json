@@ -1,0 +1,213 @@
+{
+  "api_schema_modified": false,
+  "approval_import_ready_count": 0,
+  "approval_readiness_status": "hold_no_approved_request",
+  "backend_modified": false,
+  "blocker_closure_authorized": false,
+  "blockers_closed_by_packet": 0,
+  "boundary_violation_count": 0,
+  "boundary_violations": [],
+  "closure_candidate_count": 0,
+  "closure_readiness_status": "hold_no_blockers_ready_for_closure",
+  "commercial_evidence_sprint_human_sequence_packet_v0_1": true,
+  "current_step_command_template": "python3 scripts/saee_commercial_evidence_sprint_owner_assignment_completion_helper.py \\\n  --single-blocker-id support_contact \\\n  --assigned-human-owner \"<human owner>\" \\\n  --owner-contact-reference \"<internal owner reference>\" \\\n  --target-review-date \"YYYY-MM-DD\" \\\n  --owner-acknowledged-scope true \\\n  --human-approval-reference \"<human approval record>\" \\\n  --output-input-json phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_input.human_filled.local.json",
+  "current_step_command_template_available": true,
+  "current_step_entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input_request_packet.md",
+  "current_step_id": "SEQ-001",
+  "customer_contacted": false,
+  "customer_data_collected": false,
+  "customer_data_processed": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "first_blocker_id": "support_contact",
+  "generated_at": "2026-07-13T13:59:30.864366+00:00",
+  "generated_by": "scripts/saee_commercial_evidence_sprint_human_sequence_packet.py",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "next_human_action": "Fill the first owner-assignment fields for support_contact; do not collect evidence yet.",
+  "owner_assigned_by_codex": false,
+  "owner_assignment_status": "hold_no_complete_owner_assignment",
+  "owner_contacted_by_codex": false,
+  "owner_import_ready_count": 0,
+  "packet_scope": "local_human_only_commercial_evidence_sprint_sequence",
+  "packet_type": "saee_commercial_evidence_sprint_human_sequence_packet",
+  "packet_version": "v0.1",
+  "payment_collected": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "ready_for_separate_evidence_collection_request": false,
+  "ready_for_validator_import": false,
+  "request_approved_by_codex": false,
+  "revenue_validated": false,
+  "runtime_modified": false,
+  "separate_approval_required": true,
+  "separate_evidence_collection_request_required": true,
+  "separate_final_closure_approval_required": true,
+  "separate_owner_input_required": true,
+  "separate_validator_required": true,
+  "sequence_step_count": 7,
+  "sequence_steps": [
+    {
+      "automated_by_codex": false,
+      "current_step": true,
+      "current_step_by_default": true,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input_request_packet.md",
+      "human_action": "Open the first owner input request packet and fill owner fields for the first blocker using its command template.",
+      "must_not_do": [
+        "contact customer",
+        "collect evidence",
+        "execute work",
+        "close blocker"
+      ],
+      "required_before_next_step": [
+        "assigned_human_owner",
+        "owner_contact_reference",
+        "target_review_date",
+        "owner_acknowledged_scope",
+        "human_approval_reference"
+      ],
+      "step_id": "SEQ-001",
+      "target_blocker_id": "support_contact",
+      "title": "Fill first owner-assignment input"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_readiness_board.local.json",
+      "human_action": "Run the owner-assignment readiness board and validator on human-filled local input.",
+      "must_not_do": [
+        "collect evidence without separate request",
+        "execute work",
+        "close blocker"
+      ],
+      "required_before_next_step": [
+        "owner_assignment_complete",
+        "validator_pass"
+      ],
+      "step_id": "SEQ-002",
+      "target_blocker_id": "support_contact",
+      "title": "Run owner-assignment validator"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/evidence_request_approval_input_completion.csv",
+      "human_action": "If owner validation passes, fill one ERD approval row for a separate evidence collection request.",
+      "must_not_do": [
+        "approve more than one ERD row by default",
+        "execute implementation work",
+        "close blocker"
+      ],
+      "required_before_next_step": [
+        "approval_decision",
+        "approval_scope",
+        "human_approval_reference",
+        "boundary_acknowledged",
+        "evidence_collection_request_reference"
+      ],
+      "step_id": "SEQ-003",
+      "target_blocker_id": "support_contact",
+      "title": "Fill ERD approval input"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/evidence_request_approval_readiness_board.local.json",
+      "human_action": "Run approval readiness board and approval input validator.",
+      "must_not_do": [
+        "treat approval input as evidence itself",
+        "close blocker"
+      ],
+      "required_before_next_step": [
+        "approved_request_count=1",
+        "ready_for_separate_evidence_collection_request=true"
+      ],
+      "step_id": "SEQ-004",
+      "target_blocker_id": "support_contact",
+      "title": "Run ERD approval validator"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/evidence_request_draft_packet.md",
+      "human_action": "Create a separate human-approved evidence collection request using the approved ERD reference.",
+      "must_not_do": [
+        "modify runtime",
+        "modify backend",
+        "modify API schema",
+        "expose private core"
+      ],
+      "required_before_next_step": [
+        "separate_evidence_collection_request",
+        "scope",
+        "owner",
+        "allowed evidence files"
+      ],
+      "step_id": "SEQ-005",
+      "target_blocker_id": "support_contact",
+      "title": "Open separate evidence collection request"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "separate_human_approved_evidence_collection_request_required",
+      "human_action": "Only after separate approval, collect or build the scoped evidence artifact.",
+      "must_not_do": [
+        "infer missing evidence",
+        "use fixture as production evidence",
+        "close blocker directly"
+      ],
+      "required_before_next_step": [
+        "real evidence artifact",
+        "source reference",
+        "boundary audit"
+      ],
+      "step_id": "SEQ-006",
+      "target_blocker_id": "support_contact",
+      "title": "Collect evidence in separate request"
+    },
+    {
+      "automated_by_codex": false,
+      "current_step": false,
+      "current_step_by_default": false,
+      "entrypoint": "phase_b_product/commercial_readiness/commercial_blocker_closure_readiness_board/closure_readiness_board.local.json",
+      "human_action": "Run commercial go/no-go and closure readiness checks before any human final closure decision.",
+      "must_not_do": [
+        "auto-close blocker",
+        "claim production readiness",
+        "launch product"
+      ],
+      "required_before_next_step": [
+        "commercial_go_no_go_pass",
+        "closure_candidate",
+        "human_final_closure_approval"
+      ],
+      "step_id": "SEQ-007",
+      "target_blocker_id": "support_contact",
+      "title": "Run go/no-go and closure review"
+    }
+  ],
+  "source_files": {
+    "closure_readiness_board": "phase_b_product/commercial_readiness/commercial_blocker_closure_readiness_board/closure_readiness_board.local.json",
+    "evidence_request_approval_readiness_board": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/evidence_request_approval_readiness_board.local.json",
+    "first_owner_action_packet": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_action_packet.local.json",
+    "first_owner_input_request_packet": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input_request_packet.local.json",
+    "first_owner_input_request_packet_markdown": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/first_owner_input_request_packet.md",
+    "owner_assignment_readiness_board": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/owner_assignment_readiness_board.local.json"
+  },
+  "status": "hold_first_owner_input_required",
+  "task_candidates_executed": false,
+  "vendor_contacted": false
+}

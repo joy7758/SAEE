@@ -1,0 +1,13 @@
+{
+  "saee_synthetic_otel_event_v0_1": true,
+  "schema_version": "0.1.0",
+  "trace_source": "synthetic_opentelemetry_style",
+  "trace_event_id": "trace-missing-agent-001",
+  "observed_timestamp": "2026-07-11T08:10:00Z",
+  "attributes": {
+    "action.type": "resource:retrieve",
+    "tool.name": "repository.clone",
+    "resource.reference": "repository:synthetic/example@v0.1.0",
+    "status": "success"
+  }
+}

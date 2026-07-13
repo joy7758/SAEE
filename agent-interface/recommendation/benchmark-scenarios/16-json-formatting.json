@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:16-json-formatting:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只要求格式化一段本地 JSON 文本，不执行代码，也不改变任何外部系统。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "TEXT_TRANSFORMATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LANGUAGE_TOOL",
+  "reasoning_boundary": "本地格式转换无需智能体上线前演练。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

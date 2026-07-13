@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-scope.schema.v0.1.json",
+  "title": "SAEE External Validation Scope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scope_id", "allowed", "forbidden", "external_side_effects", "customer_data_allowed", "permission_expansion_allowed"],
+  "properties": {
+    "scope_id": {"type": "string", "pattern": "^scope:[a-z0-9][a-z0-9._-]{2,119}$"},
+    "allowed": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["capability_discovery_test", "integration_test", "interpretation_test", "compatibility_feedback"]}},
+    "forbidden": {"type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["production_execution", "customer_data_access", "private_system_access", "external_side_effects"]}},
+    "external_side_effects": {"const": false},
+    "customer_data_allowed": {"const": false},
+    "permission_expansion_allowed": {"const": false}
+  }
+}
+

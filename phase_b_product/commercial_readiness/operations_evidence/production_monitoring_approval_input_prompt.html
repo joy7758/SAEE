@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 生产监控人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f6f3;
+        --surface: #ffffff;
+        --surface-soft: #eef3ef;
+        --text: #232521;
+        --muted: #686d64;
+        --line: #e2e1dc;
+        --accent: #1f7a68;
+        --ink: #141613;
+        --danger: #9f3a32;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(1040px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+      header, section {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+      header {
+        display: grid;
+        gap: 18px;
+        padding: 28px;
+        box-shadow: 0 20px 54px rgba(20, 22, 19, 0.08);
+      }
+      .label {
+        margin: 0;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      h1 {
+        max-width: 850px;
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+      p { margin: 0; }
+      .lead {
+        max-width: 780px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .status-grid, .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+      .pill, .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      .pill { padding: 16px; }
+      .pill span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .pill strong {
+        display: block;
+        margin-top: 4px;
+        color: var(--ink);
+        font-size: 20px;
+      }
+      section {
+        margin-top: 24px;
+        padding: 24px;
+      }
+      h2 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.18;
+      }
+      ol, ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+      li + li { margin-top: 8px; }
+      code {
+        padding: 2px 5px;
+        border-radius: 6px;
+        background: var(--surface-soft);
+        color: var(--ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card { padding: 18px; }
+      .card strong { display: block; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .danger {
+        border-color: rgba(159, 58, 50, 0.22);
+        background: #fff8f6;
+      }
+      .danger strong { color: var(--danger); }
+      .boundary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .boundary-grid div {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+      @media (max-width: 760px) {
+        .status-grid, .cards, .boundary-grid { grid-template-columns: 1fr; }
+        main { width: min(100% - 24px, 1040px); padding-top: 24px; }
+        header, section { padding: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="label">SAEE 生产监控人工审批入口</p>
+        <h1>先确认谁看护线上状态，再谈正式商用。</h1>
+        <p class="lead">生产监控还没有人工批准，也没有部署，不能对外说已经有人看护线上状态。</p>
+        <div class="status-grid" aria-label="当前状态">
+          <div class="pill"><span>当前状态</span><strong>等待人工填写</strong></div>
+          <div class="pill"><span>需要填写</span><strong>5 项人员信息</strong></div>
+          <div class="pill"><span>需要审查</span><strong>5 项监控证据</strong></div>
+        </div>
+      </header>
+
+      <section>
+        <h2>人要先确认什么？</h2>
+        <ol>
+          <li>复制模板：<code>cp phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.template.json phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json</code></li>
+          <li>填写审核人、监控负责人、运维审核人和审核结论。</li>
+          <li>逐项确认监控计划、指标覆盖、SLO 看板、日志保留和演练记录。</li>
+          <li>运行验证：<code>python3 scripts/saee_production_monitoring_approval_input_validator.py --input phase_b_product/commercial_readiness/operations_evidence/production_monitoring_evidence_input.human_filled.local.json</code></li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>必须由人填写的字段</h2>
+        <ul><li><code>human_reviewer_name</code></li>
+<li><code>review_date</code></li>
+<li><code>monitoring_owner</code></li>
+<li><code>operations_reviewer_name</code></li>
+<li><code>decision_summary</code></li></ul>
+      </section>
+
+      <section>
+        <h2>必须由人审查的监控证据</h2>
+        <div class="cards"><li><strong>log_retention_reviewed</strong><span>需要人工确认、来源说明、监控证据槽位、负责人和人工复核。</span></li>
+<li><strong>metrics_coverage_approved</strong><span>需要人工确认、来源说明、监控证据槽位、负责人和人工复核。</span></li>
+<li><strong>monitoring_dry_run_recorded</strong><span>需要人工确认、来源说明、监控证据槽位、负责人和人工复核。</span></li>
+<li><strong>production_monitoring_plan_approved</strong><span>需要人工确认、来源说明、监控证据槽位、负责人和人工复核。</span></li>
+<li><strong>slo_dashboard_defined</strong><span>需要人工确认、来源说明、监控证据槽位、负责人和人工复核。</span></li></div>
+      </section>
+
+      <section class="danger">
+        <h2>到这里必须停下</h2>
+        <p>填完并验证输入后停止；运行 evidence builder、部署监控、配置看板、启用指标导出、改变日志保留、联系客户或关闭 blocker 都需要单独批准。</p>
+      </section>
+
+      <section>
+        <h2>边界状态</h2>
+        <div class="boundary-grid">
+          <div><strong>production_monitoring_available:</strong> false</div>
+          <div><strong>production_monitoring_approved:</strong> false</div>
+          <div><strong>production_monitoring_deployed:</strong> false</div>
+          <div><strong>dashboard_configured_by_codex:</strong> false</div>
+          <div><strong>metrics_export_enabled_by_codex:</strong> false</div>
+          <div><strong>log_retention_changed_by_codex:</strong> false</div>
+          <div><strong>customer_contacted:</strong> false</div>
+          <div><strong>production_ready:</strong> false</div>
+          <div><strong>private_core_exposed:</strong> false</div>
+          <div><strong>blockers_closed_by_prompt:</strong> 0</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

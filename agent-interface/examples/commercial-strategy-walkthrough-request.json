@@ -1,0 +1,41 @@
+{
+  "experiment_id": "commercial-strategy-walkthrough-001",
+  "agents": [
+    {
+      "agent_id": "strategy-a-aggressive-expansion",
+      "config": {
+        "description": "fast aggressive expansion without bounded resource fallback"
+      },
+      "type": "workflow"
+    },
+    {
+      "agent_id": "strategy-b-staged-investment",
+      "config": {
+        "description": "bounded staged investment with monitored adaptation and stable fallback"
+      },
+      "type": "workflow"
+    },
+    {
+      "agent_id": "strategy-c-conservative-maintenance",
+      "config": {
+        "description": "conservative maintenance rule with safe fallback and limited growth"
+      },
+      "type": "rule"
+    }
+  ],
+  "environment": {
+    "scenario_type": "business_strategy_descriptor_stress_test",
+    "noise_level": 0.35,
+    "competition_intensity": 0.65,
+    "time_horizon": 80
+  },
+  "evaluation_config": {
+    "metrics": [
+      "stability",
+      "survival",
+      "failure_mode",
+      "ranking"
+    ],
+    "repeat_runs": 5
+  }
+}

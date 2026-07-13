@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "runs": [
+    {
+      "run_id": "run_001",
+      "final_answer_sha256": "c75dfc2827987c185db7920a282ef5e30574fcd3fcb1f3e64e148eb56d8e6e52",
+      "receipt_sha256": "37275d10b546126a45cf4532210a70d315660580beadafa43fbe6ba9a369efe5",
+      "provider_transcript_sha256": "e4ef4a670297e7400df3c7ef833d3571a831d01065f3c9d084599d2fcf9b8eed",
+      "mcp_transcript_sha256": "15a1753d4a5249b10834cc5cb85a7f7ff9f8e1aa609b18b336f5ba2104b94b8e",
+      "status": "pass"
+    },
+    {
+      "run_id": "run_002",
+      "final_answer_sha256": "73d0b388bd3eebc04dd1cad0d7a79fff72156ff57728195aa20ebd427bd8ccbc",
+      "receipt_sha256": "37275d10b546126a45cf4532210a70d315660580beadafa43fbe6ba9a369efe5",
+      "provider_transcript_sha256": "d27ffed4f07d94ead79a219fc1afbcd14d3e6f393310f944d13ef067b3b03be8",
+      "mcp_transcript_sha256": "15a1753d4a5249b10834cc5cb85a7f7ff9f8e1aa609b18b336f5ba2104b94b8e",
+      "status": "pass"
+    },
+    {
+      "run_id": "run_003",
+      "final_answer_sha256": "0104ee9160d263e6a7c6f3ad643ab4edf3b5b82df1f0b65e7a18158f793337f5",
+      "receipt_sha256": "37275d10b546126a45cf4532210a70d315660580beadafa43fbe6ba9a369efe5",
+      "provider_transcript_sha256": "d0902f84c1040111ee16b515177a3f5061989c68d07e11e8146aa4da9192743d",
+      "mcp_transcript_sha256": "15a1753d4a5249b10834cc5cb85a7f7ff9f8e1aa609b18b336f5ba2104b94b8e",
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Observation Envelope v0.1",
+  "description": "A strict receive-only metadata envelope for synthetic or externally attested observations. Validation does not establish evidence, authorization, trace authenticity, or deployment authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_observation_envelope_v0_1",
+    "schema_version",
+    "observation_id",
+    "trace_id",
+    "created_at",
+    "producer",
+    "source",
+    "authorization",
+    "sanitization",
+    "events",
+    "privacy",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_observation_envelope_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "observation_id": {"$ref": "#/$defs/id"},
+    "trace_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer_id", "type", "version", "adapter_implemented"],
+      "properties": {
+        "producer_id": {"$ref": "#/$defs/id"},
+        "type": {
+          "enum": [
+            "synthetic_generator",
+            "runtime_adapter_declaration",
+            "memory_adapter_declaration",
+            "tool_trace_adapter_declaration",
+            "customer_trace_export"
+          ]
+        },
+        "version": {"$ref": "#/$defs/id"},
+        "adapter_implemented": {"const": false}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "runtime_ref",
+        "adapter_ref",
+        "receive_only",
+        "external_execution_by_saee",
+        "raw_content_included"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "synthetic_environment",
+            "runtime_observation",
+            "memory_observation",
+            "tool_trace_observation"
+          ]
+        },
+        "runtime_ref": {"$ref": "#/$defs/id"},
+        "adapter_ref": {"$ref": "#/$defs/id"},
+        "receive_only": {"const": true},
+        "external_execution_by_saee": {"const": false},
+        "raw_content_included": {"const": false}
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "authorization_ref",
+        "scope",
+        "independently_verified",
+        "authorization_inferred_from_trace"
+      ],
+      "properties": {
+        "status": {"enum": ["synthetic_declared_only", "externally_attested_not_verified"]},
+        "authorization_ref": {"$ref": "#/$defs/id"},
+        "scope": {"type": "string", "minLength": 1, "maxLength": 240},
+        "independently_verified": {"const": false},
+        "authorization_inferred_from_trace": {"const": false}
+      }
+    },
+    "sanitization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "method", "raw_content_excluded", "independently_verified"],
+      "properties": {
+        "status": {"enum": ["synthetic_no_raw_content", "attested_sanitized_not_verified"]},
+        "method": {"enum": ["synthetic_generation", "metadata_only_redaction", "external_attestation"]},
+        "raw_content_excluded": {"const": true},
+        "independently_verified": {"const": false}
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "items": {"$ref": "#/$defs/event"}
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retention_ref",
+        "deletion_ref",
+        "personal_data_included",
+        "retention_verified",
+        "deletion_verified"
+      ],
+      "properties": {
+        "retention_ref": {"$ref": "#/$defs/id"},
+        "deletion_ref": {"$ref": "#/$defs/id"},
+        "personal_data_included": {"const": false},
+        "retention_verified": {"const": false},
+        "deletion_verified": {"const": false}
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_only",
+        "evidence_established",
+        "trace_authenticity_verified",
+        "authorization_proven",
+        "deployment_authorized",
+        "automatic_decision",
+        "real_agent_executed_by_saee",
+        "network_accessed",
+        "production_ready"
+      ],
+      "properties": {
+        "observation_only": {"const": true},
+        "evidence_established": {"const": false},
+        "trace_authenticity_verified": {"const": false},
+        "authorization_proven": {"const": false},
+        "deployment_authorized": {"const": false},
+        "automatic_decision": {"const": false},
+        "real_agent_executed_by_saee": {"const": false},
+        "network_accessed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,159}$"
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "sequence",
+        "timestamp",
+        "event_type",
+        "summary",
+        "digest_algorithm",
+        "summary_digest",
+        "payload_included",
+        "observation_is_evidence",
+        "authorization_inferred",
+        "deployment_decision_inferred"
+      ],
+      "properties": {
+        "event_id": {"$ref": "#/$defs/id"},
+        "parent_event_id": {"$ref": "#/$defs/id"},
+        "sequence": {"type": "integer", "minimum": 0},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "event_type": {
+          "enum": [
+            "agent_output",
+            "runtime_state",
+            "memory_change",
+            "state_transition",
+            "tool_call",
+            "tool_result",
+            "failure_signal"
+          ]
+        },
+        "summary": {"type": "string", "minLength": 1, "maxLength": 500},
+        "digest_algorithm": {"const": "sha256"},
+        "summary_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "payload_included": {"const": false},
+        "observation_is_evidence": {"const": false},
+        "authorization_inferred": {"const": false},
+        "deployment_decision_inferred": {"const": false}
+      }
+    }
+  }
+}

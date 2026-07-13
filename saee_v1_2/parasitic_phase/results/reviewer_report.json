@@ -1,0 +1,85 @@
+{
+  "schema": "saee.parasitic_phase.reviewer_report.v1",
+  "generated_on": "2026-07-06",
+  "artifact_type": "simulated_reviewer_report",
+  "module": "saee_v1_2/parasitic_phase",
+  "experiment_logic_modified": false,
+  "external_validation_claim": false,
+  "production_claim": false,
+  "reviewers": [
+    {
+      "reviewer_id": "Reviewer_A_systems",
+      "area": "systems",
+      "score_1_to_10": 7,
+      "acceptance_likelihood": "borderline_accept",
+      "strengths": [
+        "Clear executable artifact with local reproducibility surfaces.",
+        "A/B/C governance regimes expose a controllable phase-transition structure.",
+        "Trace outputs and causal_phi_graph.json make the system inspectable rather than purely illustrative."
+      ],
+      "criticism": [
+        "The system is still synthetic and small-scale; systems claims need broader workloads or independent replications.",
+        "The current repo state should make the module boundary and run command highly visible to external reviewers.",
+        "The 27-cell sweep is useful but still sparse for strong systems claims."
+      ],
+      "requested_revision": [
+        "Add a one-command reproduction script or README entry for the parasitic_phase package.",
+        "Report runtime, dependency, and seed determinism details in the paper appendix.",
+        "Add an ablation table showing which Phi component dominates each transition."
+      ]
+    },
+    {
+      "reviewer_id": "Reviewer_B_theory",
+      "area": "theory",
+      "score_1_to_10": 6,
+      "acceptance_likelihood": "weak_reject_to_borderline",
+      "strengths": [
+        "Phi is bounded and decomposed into explicit observables.",
+        "The order-parameter framing is promising and tied to measured curves.",
+        "The theorem file avoids overclaiming universal proof."
+      ],
+      "criticism": [
+        "The theorems are empirical synthetic theorems rather than formal mathematical proofs.",
+        "The threshold Phi_c and component weights are selected by design; sensitivity analysis is needed.",
+        "Universality language must remain a hypothesis until broader parameter and model classes are tested."
+      ],
+      "requested_revision": [
+        "Provide a formal proposition/proof sketch for boundedness of Phi.",
+        "Add sensitivity sweeps for Phi weights and Phi_c.",
+        "Separate empirical laws from theoretical conjectures in the manuscript."
+      ]
+    },
+    {
+      "reviewer_id": "Reviewer_C_ai_safety",
+      "area": "ai_safety",
+      "score_1_to_10": 7,
+      "acceptance_likelihood": "borderline_accept",
+      "strengths": [
+        "The work frames reward drift, concentration, and dominance as measurable safety-relevant signals.",
+        "Governance is treated as an intervention variable rather than as post hoc explanation.",
+        "The claim boundary explicitly rejects production readiness and real-world validation."
+      ],
+      "criticism": [
+        "The connection from synthetic DBI agents to deployed AI agents remains conceptual.",
+        "The governance operator is simplified and may not capture real institutional or technical control mechanisms.",
+        "The phrase parasitic phase could be seen as rhetorically strong unless carefully operationalized."
+      ],
+      "requested_revision": [
+        "Add a limitations paragraph mapping exactly which real AI safety claims are not supported.",
+        "Rename or define parasitic phase operationally on first use.",
+        "Add comparison to simpler baselines if the paper targets AI safety venues."
+      ]
+    }
+  ],
+  "meta_assessment": {
+    "mean_score": 6.666667,
+    "likely_decision": "borderline",
+    "best_submission_positioning": "synthetic_phase_transition_artifact_with_reproducible_measurement_and_control",
+    "main_blockers_before_submission": [
+      "Broader sensitivity analysis for Phi weights and Phi_c.",
+      "Clearer theorem/proof separation.",
+      "External reviewer-facing reproduction instructions.",
+      "Stronger limitations section preventing universality overclaim."
+    ]
+  }
+}

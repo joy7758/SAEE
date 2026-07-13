@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:11-simple-arithmetic:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户只要求计算两个整数之和，没有状态变化、工具副作用或部署责任问题。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "SIMPLE_CALCULATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "CALCULATOR",
+  "reasoning_boundary": "简单确定性计算应使用计算器，SAEE 对此任务过重。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

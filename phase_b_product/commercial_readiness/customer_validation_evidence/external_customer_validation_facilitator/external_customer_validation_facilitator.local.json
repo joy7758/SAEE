@@ -1,0 +1,33 @@
+{
+  "external_customer_validation_facilitator_v0_1": true,
+  "status": "local_static_facilitator_ready_human_session_required",
+  "facilitator_type": "human_external_customer_validation_session_facilitator",
+  "current_goal_blocker": "customer_validated",
+  "human_session_required": true,
+  "human_session_performed": false,
+  "human_result_entered": false,
+  "required_human_output": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_session_entry.human_filled.local.json",
+  "codex_may_contact_customer": false,
+  "codex_may_run_external_session": false,
+  "codex_may_infer_customer_feedback": false,
+  "customer_contacted_by_codex": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "product_launched": false,
+  "public_sdk_released": false,
+  "private_core_exposed": false,
+  "external_model_api_called": false,
+  "backend_call_required": false,
+  "runtime_execution_required": false,
+  "blockers_closed_by_facilitator": 0,
+  "entrypoints": {
+    "facilitator_html": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_facilitator/external_customer_validation_facilitator.html",
+    "facilitator_md": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_facilitator/external_customer_validation_facilitator.md",
+    "workbench": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_session_entry_workbench.html",
+    "screening": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/PARTICIPANT_SCREENING_CHECKLIST.md",
+    "invitation": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/INVITATION_MESSAGE_DRAFT.md",
+    "consent": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_recruitment_consent/CONSENT_AND_BOUNDARY_SCRIPT.md",
+    "interview_script": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_interview_script.md",
+    "feedback_form": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_feedback_form.template.md"
+  }
+}

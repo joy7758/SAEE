@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-simulation-participant.schema.v0.1.json",
+  "title": "SAEE External Validation Simulation Participant v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "participant_type", "authorization_status", "validation_scope", "simulation_only", "limitations", "identity", "authorization", "scope", "allowed_tests", "expected_feedback"],
+  "properties": {
+    "participant_id": {"type": "string", "pattern": "^SIM_[A-Z_]+$"},
+    "participant_type": {"enum": ["agent_framework", "developer", "research_group", "cloud_platform"]},
+    "authorization_status": {"enum": ["NOT_AUTHORIZED", "AUTHORIZED_FOR_VALIDATION"]},
+    "validation_scope": {"type": "string", "pattern": "^scope:simulation-[a-z0-9._-]+$"},
+    "simulation_only": {"const": true},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "identity": {"type": "object", "additionalProperties": false, "required": ["kind", "display_name"], "properties": {"kind": {"const": "synthetic_fixture"}, "display_name": {"type": "string", "minLength": 1, "maxLength": 100}}},
+    "authorization": {"const": "simulation_record_only"},
+    "scope": {"const": "local_synthetic_external_validation_simulation_only"},
+    "allowed_tests": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["capability_discovery_test", "integration_test", "interpretation_test", "compatibility_feedback"]}},
+    "expected_feedback": {"const": "structured_simulation_feedback"}
+  }
+}
+

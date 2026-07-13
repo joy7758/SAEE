@@ -1,0 +1,19 @@
+{
+  "tool_simulator_version": "0.1",
+  "status": "architecture_only_not_executable",
+  "tools": [
+    {"name": "code_repository", "simulates": "versioned repository reads and synthetic patches", "state_scope": "resource_state", "external_execution": false},
+    {"name": "test_runner", "simulates": "allowlisted deterministic test outcomes", "state_scope": "task_state", "external_execution": false},
+    {"name": "deployment_simulator", "simulates": "deployment requests and policy denials without deployment", "state_scope": "world_state", "external_execution": false},
+    {"name": "database_simulator", "simulates": "in-memory transactional records", "state_scope": "resource_state", "external_execution": false},
+    {"name": "customer_ticket_system", "simulates": "synthetic ticket lifecycle and messages", "state_scope": "task_state", "external_execution": false}
+  ],
+  "truth_boundary": {
+    "all_tools_simulated": true,
+    "network_tools_available": false,
+    "filesystem_execution_available": false,
+    "subprocess_available": false,
+    "external_world_actions": false,
+    "production_ready": false
+  }
+}

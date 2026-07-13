@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tenant-context.schema.v0.1.json",
+  "title": "SAEE Synthetic Tenant Context v0.1",
+  "description": "Declaration-only Tenant namespace label for simulation; not an authorization or isolation runtime.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_synthetic_tenant_context_v0_1",
+    "simulation_version",
+    "tenant_id",
+    "namespace",
+    "access_scope",
+    "requested_tenant_id",
+    "cross_tenant_access",
+    "tenant_label_is_authorization",
+    "tenant_runtime_implemented"
+  ],
+  "properties": {
+    "saee_synthetic_tenant_context_v0_1": {"const": true},
+    "simulation_version": {"const": "0.1"},
+    "tenant_id": {"type": "string", "pattern": "^tenant:synthetic:[a-z0-9-]+$", "maxLength": 128},
+    "namespace": {"type": "string", "pattern": "^tenant:synthetic:[a-z0-9-]+:evidence$", "maxLength": 160},
+    "access_scope": {"const": "EVIDENCE_EVALUATION_ONLY"},
+    "requested_tenant_id": {"type": "string", "pattern": "^tenant:synthetic:[a-z0-9-]+$", "maxLength": 128},
+    "cross_tenant_access": {"const": false},
+    "tenant_label_is_authorization": {"const": false},
+    "tenant_runtime_implemented": {"const": false}
+  }
+}

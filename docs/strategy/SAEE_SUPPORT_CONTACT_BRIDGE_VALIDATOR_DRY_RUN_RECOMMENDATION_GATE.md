@@ -1,0 +1,34 @@
+# SAEE Support Contact Bridge Validator Dry Run Recommendation Gate
+
+answer: recommend
+recommend_for_fixture_only_validator_compatibility: true
+recommend_for_real_evidence: false
+recommend_for_evidence_collection: false
+recommend_for_automatic_execution: false
+recommend_for_blocker_closure: false
+recommend_for_product_launch: false
+recommend_for_production_readiness_claim: false
+
+reason: The dry run proves the bridge-to-validator handoff locally using
+temporary fixture files while keeping production evidence and blocker closure
+false.
+
+support_contact_bridge_validator_dry_run_v0_1: true
+status: pass_fixture_only
+dry_run_scope: local_tempfile_fixture_validator_compatibility_only
+fixture_only: true
+combined_input_fixture_used: true
+temp_exports_only: true
+local_validators_invoked: true
+first_owner_validator_validation_status: pass
+support_contact_approval_validation_status: pass
+support_contact_approval_builder_ready: true
+ready_for_evidence_collection: false
+evidence_collection_authorized: false
+execution_authorized: false
+evidence_builder_executed: false
+blockers_closed_by_dry_run: 0
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false

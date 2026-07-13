@@ -1,0 +1,30 @@
+{
+  "discovery_version": "1.0.0",
+  "capabilities": [
+    {
+      "id": "saee.agent-reliability",
+      "name": "SAEE Agent Reliability Assessment",
+      "stage": "local_contract_alpha",
+      "capability_card": "../capability-card.json",
+      "protocol_descriptions": ["OPENAPI_3_1", "MCP_TOOL_DESCRIPTOR"],
+      "openapi_ref": "../openapi.yaml",
+      "mcp_tool_ref": "../mcp-tool.json",
+      "local_runtime_ref": "../../saee_backend/services/capability_runtime/capability_invocation.py",
+      "local_runtime_available": true,
+      "local_mcp_adapter_ref": "../../agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+      "local_stdio_mcp_adapter_available": true,
+      "local_http_adapter_ref": "../../agent-interface/http/saee-capability-http-adapter.v0.1.json",
+      "local_http_adapter_available": true,
+      "integration_examples_reference": "../../agent-interface/integration/saee-agent-ecosystem-integration.v0.1.json",
+      "public_capability_surface_reference": "../../agent-interface/public/saee-public-capability-surface.v0.1.json",
+      "repository_well_known_reference": "../../.well-known/saee-capability-index.json",
+      "alpha_release_reference": "../../agent-interface/release/saee-alpha-release-manifest.v0.1.json",
+      "truth_consistency_validation_reference": "../../agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
+      "network_endpoint": null,
+      "public_mcp_endpoint": null
+    }
+  ],
+  "discovery_document_is_publicly_deployed": false,
+  "capability_description_is_capability_proof": false,
+  "production_ready": false
+}

@@ -1,0 +1,78 @@
+{
+  "saee_pilot_preparation_v0_1": true,
+  "preparation_version": "0.1",
+  "status": "preparation_only",
+  "pilot_objective": "Prepare a controlled future pilot for claim-level SAEE evidence adequacy assessment without executing a pilot or collecting data.",
+  "scenario": {
+    "scenario_id": "code_agent_tool_execution",
+    "status": "proposed_not_executed",
+    "components": [
+      "task_input",
+      "agent_actions",
+      "tool_interactions",
+      "resource_references",
+      "authorization_context",
+      "human_oversight_events",
+      "execution_effects"
+    ]
+  },
+  "required_inputs": [
+    {"input_id": "task_description", "purpose": "bound the task and allowed behavior", "required_fields": ["task_id", "objective", "allowed_actions", "forbidden_actions", "expected_outcome"], "sensitivity": "low_to_context_dependent", "retention": "version and delete under the approved schedule"},
+    {"input_id": "agent_action_trace", "purpose": "record observed action sequence", "required_fields": ["agent_id", "action_id", "event_type", "timestamp"], "sensitivity": "medium", "retention": "prefer summaries and separate raw payloads"},
+    {"input_id": "resource_metadata", "purpose": "distinguish requested and resolved resources", "required_fields": ["requested_resource", "resolved_uri", "publisher_identity", "content_digest"], "sensitivity": "medium", "retention": "redact private locations and retain provenance manifest"},
+    {"input_id": "authorization_records", "purpose": "evaluate action authorization scope", "required_fields": ["policy_decision_ref", "decision", "authority_scope", "valid_at", "action_ref"], "sensitivity": "medium_high", "retention": "restrict access and minimize disclosed policy content"},
+    {"input_id": "human_approval_records", "purpose": "evaluate human oversight claims", "required_fields": ["human_identity", "approval_context", "approved_scope", "approval_timestamp"], "sensitivity": "high", "retention": "pseudonymize and use the shortest approved period"},
+    {"input_id": "execution_outcomes", "purpose": "bind effect or denial to the controlled action", "required_fields": ["execution_effect_ref", "status", "sandbox_ref", "causal_binding"], "sensitivity": "medium", "retention": "separate sensitive output from structured result"},
+    {"input_id": "evidence_package", "purpose": "provide claim-specific evaluator input", "required_fields": ["claim_type", "profile_ref", "evidence_objects", "relationships", "manifest"], "sensitivity": "inherits_components", "retention": "retain version, digest, access and deletion records"}
+  ],
+  "data_source_options": [
+    {"option_id": "A_SYNTHETIC_CONTROLLED", "status": "option_not_selected", "advantages": ["controlled_reference_relationships", "fault_injection"], "risks": ["limited_generalization", "researcher_bias"], "requirements": ["frozen_generation_rules", "pilot_main_split"]},
+    {"option_id": "B_RESEARCHER_CONTROLLED_LOCAL_AGENT", "status": "option_not_selected", "advantages": ["execution_like_records", "controlled_environment"], "risks": ["tool_execution_risk", "sensitive_trace_content"], "requirements": ["non_networked_sandbox", "allowlisted_tools", "owned_assets", "complete_audit_trail"]},
+    {"option_id": "C_APPROVED_EXTERNAL_DATASET", "status": "option_not_selected", "advantages": ["cross_source_variation"], "risks": ["permission_uncertainty", "personal_data", "weak_reference_truth"], "requirements": ["written_approval", "license_review", "privacy_review", "provenance_manifest", "deletion_plan"]}
+  ],
+  "annotation_protocol": {
+    "status": "draft_not_approved_not_started",
+    "unit": "claim_level_evidence_adequacy",
+    "labels": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "INVALID_RELATIONSHIP", "UNKNOWN"],
+    "annotators_per_item": 2,
+    "adjudication_required_for_disagreement": true,
+    "inter_annotator_agreement_target": ">=0.80"
+  },
+  "risks": [
+    "data_permission_unclear",
+    "personal_or_sensitive_data_exposure",
+    "unknown_external_code_execution",
+    "uncontrolled_network_access",
+    "annotation_ambiguity",
+    "reference_truth_uncertainty",
+    "environment_or_reproduction_drift"
+  ],
+  "readiness_criteria": {
+    "ready_requires": ["dataset_source_approved", "annotation_protocol_approved", "privacy_and_license_review_completed", "environment_fixed", "reproduction_steps_tested", "safety_gate_approved"],
+    "not_ready_if": ["data_source_unclear", "permissions_unclear", "evaluation_labels_undefined_or_unapproved", "environment_unfixed", "reproduction_untested"],
+    "current_assessment": "NOT_READY",
+    "unmet_requirements": ["dataset_source_approved", "annotation_protocol_approved", "privacy_and_license_review_completed", "environment_fixed", "reproduction_steps_tested", "safety_gate_approved"]
+  },
+  "documents": {
+    "preparation": "docs/evaluation/SAEE_EXTERNAL_EVALUATION_PILOT_PREPARATION.md",
+    "annotation_codebook": "docs/evaluation/SAEE_ANNOTATION_CODEBOOK.md",
+    "privacy_checklist": "docs/evaluation/SAEE_PILOT_PRIVACY_CHECKLIST.md",
+    "execution_safety_gate": "docs/evaluation/SAEE_PILOT_EXECUTION_SAFETY_GATE.md"
+  },
+  "pilot_executed": false,
+  "dataset_collected": false,
+  "data_source_selected": false,
+  "real_agent_executed": false,
+  "annotations_started": false,
+  "annotations_completed": false,
+  "annotators_recruited": false,
+  "personal_data_processed": false,
+  "network_accessed": false,
+  "subprocess_started": false,
+  "external_code_executed": false,
+  "external_validation_completed": false,
+  "scientific_result_claimed": false,
+  "production_ready": false,
+  "recommended_next_pr": "Add SAEE Pilot Dataset Specification v0.1"
+}
+

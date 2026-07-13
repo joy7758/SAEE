@@ -1,0 +1,26 @@
+{
+  "adapter_version": "0.1.0",
+  "adapter_id": "saee.capability-runtime.mcp-stdio",
+  "name": "SAEE Capability Runtime MCP Adapter Alpha",
+  "stage": "local_stdio_alpha",
+  "protocol_revision": "2025-11-25",
+  "transport": "stdio",
+  "capability_id": "saee.agent-reliability",
+  "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+  "runtime_reference": "saee_backend/services/capability_runtime/capability_invocation.py",
+  "server_reference": "saee_backend/services/capability_mcp_adapter.py",
+  "command": "python3 scripts/saee_capability_mcp_stdio.py",
+  "truth_boundary": {
+    "local_stdio_adapter_available": true,
+    "runtime_delegation_required": true,
+    "direct_evaluator_access": false,
+    "network_listener_available": false,
+    "public_service": false,
+    "oauth_available": false,
+    "multi_tenant": false,
+    "external_agent_connected": false,
+    "external_mcp_interoperability_validated": false,
+    "production_ready": false
+  }
+}
+

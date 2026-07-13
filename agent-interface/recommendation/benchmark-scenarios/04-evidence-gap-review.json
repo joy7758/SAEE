@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:04-evidence-gap-review:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "治理智能体需要判断一次工具执行的责任声明是否具有足够的观察、授权和结果证据。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "ACCOUNTABILITY_CLAIM_DEFINED",
+    "EVIDENCE_RELATIONSHIPS_AVAILABLE"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE",
+  "reasoning_boundary": "SAEE 可以识别声明所需的证据关系与缺口，不证明事件必然真实。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

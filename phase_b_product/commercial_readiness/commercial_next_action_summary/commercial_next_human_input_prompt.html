@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 商用下一步</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f8f4;
+        --panel: #ffffff;
+        --soft: #eef2ed;
+        --text: #111310;
+        --muted: #5f6b62;
+        --line: #dce5dc;
+        --accent: #0a6f5b;
+        --danger: #8b2f24;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      main {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        box-shadow: 0 18px 48px rgba(20, 42, 32, 0.07);
+      }
+      .intro { padding: clamp(24px, 5vw, 46px); }
+      .status { padding: 22px; background: var(--soft); }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { margin-bottom: 18px; font-size: clamp(34px, 5vw, 62px); line-height: 1.04; letter-spacing: 0; }
+      h2 { margin-bottom: 12px; font-size: 22px; }
+      h3 { margin-bottom: 8px; font-size: 16px; }
+      p { color: var(--muted); }
+      .kicker { color: var(--accent); font-size: 13px; font-weight: 800; }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: #e2f2ec;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .card {
+        min-height: 126px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+      }
+      .step-list {
+        display: grid;
+        gap: 12px;
+        padding: 0;
+        margin: 20px 0 0;
+        list-style: none;
+      }
+      .step-list li {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+      }
+      .step-list span {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 900;
+      }
+      code {
+        padding: 2px 5px;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--text);
+        overflow-wrap: anywhere;
+      }
+      pre {
+        overflow: auto;
+        margin: 12px 0 0;
+        padding: 14px;
+        border-radius: 10px;
+        background: #111d18;
+        color: #eef8f4;
+        font-size: 13px;
+      }
+      .stop {
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid #ecd4cf;
+        border-radius: 10px;
+        background: #fff4f1;
+      }
+      .stop strong { color: var(--danger); }
+      .meta {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+      }
+      .meta div {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+      }
+      .meta div:last-child { border-bottom: 0; padding-bottom: 0; }
+      .meta dt { color: var(--muted); }
+      .meta dd { margin: 0; font-weight: 800; text-align: right; }
+      a { color: var(--accent); font-weight: 800; text-decoration: none; }
+      @media (max-width: 820px) {
+        .hero, .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="panel intro">
+          <p class="kicker">SAEE 商用下一步</p>
+          <h1>审查 validator hold 输出。</h1>
+          <p>
+            当前最短路径不是开发新功能，也不是继续执行。5 个本地 validator 已经运行；
+            结果全部是 hold。现在只需要人审查这些 hold 原因，决定下一步补哪些证据。
+          </p>
+          <p>
+            Codex 不能直接执行 evidence builder。只有你明确发出单独执行请求后，后续脚本
+            才能继续。现在不能收集证据、关闭 blocker、联系客户或发布产品。
+          </p>
+          <div class="grid">
+            <div class="card">
+              <h3>缺失值</h3>
+              <p><strong>0</strong> 行</p>
+            </div>
+            <div class="card">
+              <h3>下一步</h3>
+              <p><strong>人工审查</strong> validator hold 输出</p>
+            </div>
+            <div class="card">
+              <h3>上线状态</h3>
+              <p><strong>未生产可用</strong>，仍有 24 个 blocker</p>
+            </div>
+          </div>
+        </div>
+        <aside class="panel status">
+          <span class="badge">ready_for_separate_evidence_builder_request</span>
+          <h2>当前边界</h2>
+          <dl class="meta">
+            <div><dt>生产可用</dt><dd>false</dd></div>
+            <div><dt>客户验证</dt><dd>false</dd></div>
+            <div><dt>产品发布</dt><dd>false</dd></div>
+            <div><dt>模板转写已完成</dt><dd>true</dd></div>
+            <div><dt>validator 本地运行</dt><dd>true</dd></div>
+            <div><dt>证据收集授权</dt><dd>false</dd></div>
+            <div><dt>关闭 blocker</dt><dd>0</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section>
+        <ol class="step-list">
+          <li>
+            <span>1</span>
+            <div>
+              <h2>打开 validator hold 输出</h2>
+              <p>
+                先看当前人工审查路径：
+                <code>separate_evidence_builder_request</code>
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h2>确认边界</h2>
+              <p>确认本次只做审批记录，不运行验证、不生成证据、不上线。</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h2>审批后仍然停止</h2>
+              <p>即使审批通过，validator 执行和证据收集仍需要单独请求。</p>
+              <pre>只审查 validator 批准请求
+停止在 execution / evidence / closure 之前</pre>
+            </div>
+          </li>
+        </ol>
+        <div class="stop">
+          <h2>停止点</h2>
+          <p>
+            <strong>到 validator 审批审查就停。</strong>
+            现在不运行真实输入 validator、
+            不收集证据、不关闭 blocker、不联系客户、不发布产品、不声明生产可用。
+            后续任何一步都需要单独人工批准。
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

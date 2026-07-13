@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Evidence Adequacy Benchmark Profile v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_evidence_adequacy_benchmark_v0_1",
+    "benchmark_version",
+    "benchmark_id",
+    "scope",
+    "scenarios",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_evidence_adequacy_benchmark_v0_1": {"const": true},
+    "benchmark_version": {"const": "0.1.0"},
+    "benchmark_id": {"const": "SAEE-EAB-v0.1"},
+    "scope": {"const": "synthetic_offline_evidence_adequacy"},
+    "scenarios": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {"$ref": "#/$defs/scenario"}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_occurrence_proven",
+        "legal_accountability_established",
+        "external_validation_claimed",
+        "benchmark_superiority_claimed",
+        "certification_claimed",
+        "production_ready"
+      ],
+      "properties": {
+        "event_occurrence_proven": {"const": false},
+        "legal_accountability_established": {"const": false},
+        "external_validation_claimed": {"const": false},
+        "benchmark_superiority_claimed": {"const": false},
+        "certification_claimed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario_id",
+        "claim_type",
+        "scenario_description",
+        "evidence_level",
+        "available_evidence",
+        "evidence_inputs",
+        "expected_result",
+        "expected_missing_requirements",
+        "expected_reason_codes",
+        "limitations"
+      ],
+      "properties": {
+        "scenario_id": {"type": "string", "pattern": "^eab-(?:l[0-3])-[a-z0-9-]+$"},
+        "claim_type": {
+          "enum": [
+            "RESOURCE_AUTHENTICITY",
+            "AUTHORIZED_AGENT_ACTION",
+            "HUMAN_OVERSIGHT",
+            "EXECUTION_BOUNDARY"
+          ]
+        },
+        "scenario_description": {"type": "string", "minLength": 1, "maxLength": 512},
+        "evidence_level": {
+          "enum": [
+            "LEVEL_0_TRACE_ONLY",
+            "LEVEL_1_RECEIPT",
+            "LEVEL_2_RECEIPT_WITH_RELATIONSHIPS",
+            "LEVEL_3_COMPLETE_EVIDENCE_PACKAGE"
+          ]
+        },
+        "available_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,63}$"}
+        },
+        "evidence_inputs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fixture_ref", "mutations"],
+          "properties": {
+            "fixture_ref": {
+              "type": "string",
+              "pattern": "^agent-interface/examples/evidence-adequacy/[a-z_]+_pass\\.json$"
+            },
+            "mutations": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/mutation"}
+            }
+          }
+        },
+        "expected_result": {"enum": ["PASS", "FAIL"]},
+        "expected_missing_requirements": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^/[A-Za-z0-9._/-]+$"}
+        },
+        "expected_reason_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^EVIDENCE_[A-Z0-9_]+$"}
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 256}
+        }
+      }
+    },
+    "mutation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation", "path"],
+      "properties": {
+        "operation": {"enum": ["add", "replace", "remove"]},
+        "path": {"type": "string", "pattern": "^/[A-Za-z0-9._/-]+$"},
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"operation": {"enum": ["add", "replace"]}}},
+          "then": {"required": ["value"]}
+        },
+        {
+          "if": {"properties": {"operation": {"const": "remove"}}},
+          "then": {"not": {"required": ["value"]}}
+        }
+      ]
+    }
+  }
+}

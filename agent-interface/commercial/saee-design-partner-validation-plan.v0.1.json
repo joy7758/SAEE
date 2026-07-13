@@ -1,0 +1,169 @@
+{
+  "saee_design_partner_validation_plan_v0_1": true,
+  "plan_version": "0.1.0",
+  "validation_stage": "historical_protocol_inactive_human_participants_excluded",
+  "active_validation_route": false,
+  "human_participants_excluded": true,
+  "objective": "Determine whether external AI practitioners recognize a claim-specific Agent evidence adequacy review problem and whether the synthetic SAEE report could fit an existing review workflow.",
+  "source_artifacts": [
+    "docs/commercial/SAEE_COMMERCIAL_READINESS_REVIEW.md",
+    "docs/commercial/SAEE_SYNTHETIC_EVIDENCE_REVIEW_REPORT_EXAMPLE.md",
+    "docs/architecture/SAEE_PHASE2B_COMPLETION_ARCHITECTURE_REVIEW.md",
+    "docs/evaluation/SAEE_EXTERNAL_EVALUATION_DESIGN.md",
+    "docs/evaluation/SAEE_EXTERNAL_EVALUATION_PILOT_PREPARATION.md"
+  ],
+  "profiles": [
+    {
+      "profile_id": "AI_EVALUATION_RED_TEAM_LAB",
+      "problem_hypothesis": "Trace, scores, and annotations do not consistently establish whether evidence is sufficient for a defined accountability claim.",
+      "expected_feedback": "Clarity of evidence labels, actionability of missing requirements, and fit with evaluation reporting.",
+      "adoption_barrier": "Independent baselines, reproducibility, and trusted binding of external inputs are not yet established."
+    },
+    {
+      "profile_id": "AI_GOVERNANCE_CONSULTANCY",
+      "problem_hypothesis": "Evidence is fragmented across traces, authorization, oversight, and execution results, making bounded review explanations difficult.",
+      "expected_feedback": "Whether supported, insufficient, and unknown findings can be explained without overclaiming.",
+      "adoption_barrier": "Existing client methods, responsibility boundaries, report formats, and evidence trust requirements may not align."
+    },
+    {
+      "profile_id": "AI_AGENT_PLATFORM_TEAM",
+      "problem_hypothesis": "Release gates contain tests and permission switches but lack claim-specific evidence checks.",
+      "expected_feedback": "Whether missing-evidence output can fit release review and which integrations or ownership fields are essential.",
+      "adoption_barrier": "No real Runtime Adapter, organizational authorization model, production data approval, or platform integration exists."
+    }
+  ],
+  "interview": {
+    "duration_minutes": {
+      "minimum": 20,
+      "maximum": 30
+    },
+    "synthetic_material_only": true,
+    "recording_allowed": false,
+    "sections": [
+      {
+        "section_id": "CURRENT_PRACTICE",
+        "questions": [
+          "How do you currently determine whether an AI Agent can move to the next review stage?",
+          "What types of records or evidence do you collect?",
+          "Which roles review the materials and which role makes the deployment decision?",
+          "How are traces connected to authorization, human oversight, or execution outcomes?"
+        ]
+      },
+      {
+        "section_id": "PAIN_DISCOVERY",
+        "questions": [
+          "Which accountability questions are hardest to answer from current materials?",
+          "At what stage are evidence gaps usually discovered?",
+          "How does the team explain what happened after an Agent failure?",
+          "How are disagreements between reviewers resolved?"
+        ]
+      },
+      {
+        "section_id": "SAEE_CONCEPT_REVIEW",
+        "questions": [
+          "Which parts of this synthetic output could help your current review process, and why?",
+          "Which fields, relationships, or context are missing?",
+          "Is the difference between insufficient evidence and an unsafe system clear?",
+          "Which source materials or approval records would you need to trace a finding?"
+        ]
+      },
+      {
+        "section_id": "ADOPTION_BARRIER",
+        "questions": [
+          "What would prevent further evaluation of an evidence-review assistant?",
+          "Which data boundaries, trust mechanisms, or workflow integrations would be required?",
+          "Which outputs would conflict with current responsibilities or approval workflows?"
+        ]
+      }
+    ]
+  },
+  "demo": {
+    "script_ref": "docs/commercial/SAEE_DESIGN_PARTNER_DEMO_SCRIPT.md",
+    "report_ref": "docs/commercial/SAEE_SYNTHETIC_EVIDENCE_REVIEW_REPORT_EXAMPLE.md",
+    "steps": [
+      "SHOW_AGENT_TRACE",
+      "SHOW_EVIDENCE_GAP",
+      "SHOW_SAEE_REVIEW_REPORT",
+      "EXPLAIN_BOUNDARIES"
+    ],
+    "safety_or_compliance_certification_claimed": false,
+    "deployment_authority_claimed": false
+  },
+  "feedback_template": {
+    "template_ref": "docs/commercial/SAEE_DESIGN_PARTNER_FEEDBACK_TEMPLATE.md",
+    "allowed_categories": [
+      "role_category",
+      "organization_type_category",
+      "current_workflow",
+      "pain_points",
+      "useful_aspects",
+      "missing_capabilities",
+      "adoption_barriers",
+      "follow_up_interest"
+    ],
+    "forbidden_collection_fields": [
+      "person_name",
+      "email_address",
+      "organization_name",
+      "contact_details",
+      "private_logs",
+      "production_traces",
+      "customer_data"
+    ],
+    "feedback_records": []
+  },
+  "metrics": [
+    {
+      "metric_id": "PROBLEM_RECOGNITION",
+      "allowed_values": ["recognized", "not_recognized", "unclear"],
+      "does_not_establish": "market_validation"
+    },
+    {
+      "metric_id": "WORKFLOW_FIT",
+      "allowed_values": ["fit", "partial_fit", "no_fit", "unclear"],
+      "does_not_establish": "customer_adoption"
+    },
+    {
+      "metric_id": "VALUE_PERCEPTION",
+      "allowed_values": ["useful", "partly_useful", "not_useful", "unclear"],
+      "does_not_establish": "commercial_value"
+    },
+    {
+      "metric_id": "ADOPTION_BARRIER",
+      "allowed_values": ["data_boundary", "trust", "integration", "methodology", "ownership", "workflow", "other_non_identifying"],
+      "does_not_establish": "barrier_resolution"
+    },
+    {
+      "metric_id": "FOLLOW_UP_INTEREST",
+      "allowed_values": ["yes", "no", "unclear"],
+      "does_not_establish": "willingness_to_pay"
+    }
+  ],
+  "boundaries": {
+    "protocol_review_required_before_interview": true,
+    "per_session_consent_required": true,
+    "synthetic_examples_only": true,
+    "personal_information_collection_allowed": false,
+    "customer_data_collection_allowed": false,
+    "private_log_collection_allowed": false,
+    "production_trace_collection_allowed": false,
+    "customer_outreach_authorized": false,
+    "sales_activity_authorized": false,
+    "pilot_authorized": false,
+    "pricing_discussion_in_scope": false,
+    "contract_creation_in_scope": false,
+    "crm_creation_in_scope": false
+  },
+  "customer_contacted": false,
+  "feedback_collected": false,
+  "customer_data_received": false,
+  "personal_data_stored": false,
+  "pilot_started": false,
+  "customer_validated": false,
+  "market_fit_achieved": false,
+  "revenue_opportunity_confirmed": false,
+  "customer_adoption_confirmed": false,
+  "commercial_success_claimed": false,
+  "production_ready": false,
+  "next_step": "No human session; use controlled Qianfan multi-Agent preference validation and controlled Agent-native integration"
+}

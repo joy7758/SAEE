@@ -1,0 +1,37 @@
+{
+  "baselines": [
+    "marl_public_goods_q_learning",
+    "bond_percolation",
+    "sir_epidemic"
+  ],
+  "claim_boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "core_file_hashes_checked": {
+    "./saee_v1_2/parasitic_phase/__init__.py": "935cba4f60a4773011f0a280f3fed8141d8e4b760acac55313552527eb49a3e3",
+    "./saee_v1_2/parasitic_phase/model.py": "584b8b33fbf9278f27d133bf97c38c50f58ad2eef0c676b5d82b4f010080ca79",
+    "./saee_v1_2/parasitic_phase/run_parasitic_phase_experiment.py": "a104662e458e7e2931ba3e5e431cc640ff5f380cd236974e014b54e23776c069",
+    "./saee_v1_2/universality_test/dbi2_model.py": "3d8f080873c9bd7a5ff1769ac2f6fc4a533cdc9c117e25497dec66ea09659470",
+    "./saee_v1_2/universality_test/run_universality_experiment.py": "35a6cd918f61b390f6709a08ea300b0d214b3d894c8a38cc490c1bafbed05594"
+  },
+  "created_files": [
+    "./saee_v1_2/universality_test/results/baselines/baseline_suite_summary.json",
+    "./saee_v1_2/universality_test/results/baselines/baseline_similarity_matrix.csv",
+    "./saee_v1_2/universality_test/results/baselines/baseline_comparison.svg",
+    "./saee_v1_2/universality_test/results/baselines/baseline_heatmaps.svg",
+    "./saee_v1_2/universality_test/results/baselines/baseline_manifest.json"
+  ],
+  "forbidden_core_modified": false,
+  "manifest_hash_note": "Manifest file hash is omitted to avoid self-referential mutation.",
+  "num_seeds": 120,
+  "output_file_hashes": {
+    "./saee_v1_2/universality_test/results/baselines/baseline_comparison.svg": "9bc9e191e39ee1dc2e0af2ebd27f9dbad80cc4b598518d8136aad3e12fa7684b",
+    "./saee_v1_2/universality_test/results/baselines/baseline_heatmaps.svg": "c884b864d843b941c9318156cfc49657f7b171338877b07e10e018d5f653759a",
+    "./saee_v1_2/universality_test/results/baselines/baseline_similarity_matrix.csv": "03c5caea065c179df895487ed267856af46afc280f2d3118e7ab7b0ba5f4da41",
+    "./saee_v1_2/universality_test/results/baselines/baseline_suite_summary.json": "0e2e0cad607a9068b717fc8811eaa953565765033c4a93dcead5143b1274d144"
+  },
+  "schema": "saee.universality_test.baseline_manifest.v1"
+}

@@ -1,0 +1,36 @@
+{
+  "example_version": "0.1",
+  "example_id": "saee:synthetic-code-agent-review:001",
+  "synthetic": true,
+  "scenario": "合成代码智能体工具执行",
+  "claim_assessments": [
+    {
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "assessment": "SUPPORTED",
+      "supporting_evidence": ["synthetic-evidence:policy-decision:001"],
+      "missing_requirements": [],
+      "reason_codes": []
+    },
+    {
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "assessment": "INSUFFICIENT_EVIDENCE",
+      "supporting_evidence": ["synthetic-evidence:resource-reference:001"],
+      "missing_requirements": ["publisher_identity", "content_digest"],
+      "reason_codes": ["EVIDENCE_PUBLISHER_IDENTITY_MISSING", "EVIDENCE_DIGEST_MISSING"]
+    }
+  ],
+  "boundary_statement": "该合成示例只展示证据充分性结果结构，不证明现实事件、身份、授权或资源真实性。",
+  "limitations": [
+    "仅使用合成标识符和合成场景。",
+    "没有连接真实智能体、工具或外部资源。",
+    "评估结果不是安全、法律、合规或部署决定。"
+  ],
+  "truth_boundary": {
+    "research_prototype": true,
+    "customer_data": false,
+    "external_validation": false,
+    "certification_claim": false,
+    "deployment_authorized": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="SAEE 线上体验版使用样例数据演示如何比较多个 AI 方案的长期稳定性。"
+    >
+    <title>SAEE 线上体验版 | 样例数据演示</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=online-experience-cn-v1-20260709">
+  </head>
+  <body class="experience-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="返回 SAEE 首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M12 2 21 7.2v9.6L12 22 3 16.8V7.2L12 2Z" />
+            <path d="M12 6.5 17 9.4v5.2l-5 2.9-5-2.9V9.4l5-2.9Z" />
+            <path d="M12 9.2v5.6M9.6 10.6l4.8 2.8M14.4 10.6l-4.8 2.8" />
+          </svg>
+        </span>
+        <span>
+          <strong>SAEE</strong>
+          <small>线上体验版</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="线上体验导航">
+        <a href="index.html">首页</a>
+        <a href="#demo">体验演示</a>
+        <a href="#boundary">体验边界</a>
+        <a href="commercial-readiness.html">商用状态</a>
+      </nav>
+      <span class="header-status">样例数据 · 不上传</span>
+      <a class="nav-cta" href="#demo">开始看演示</a>
+    </header>
+
+    <main>
+      <section class="experience-hero" aria-labelledby="experience-title">
+        <div class="experience-hero-copy">
+          <p class="section-kicker">先在线看一眼</p>
+          <h1 id="experience-title">不用安装，也能先看懂 SAEE 怎么帮你选 AI。</h1>
+          <p>
+            这里用一组样例数据演示：三个 AI 客服方案放在同一批任务里反复试跑，
+            SAEE 给出谁更稳、哪里容易出问题、下一步该怎么处理。
+          </p>
+          <div class="status-strip">
+            <span>不上传你的资料</span>
+            <span>不连接后端</span>
+            <span>不是正式上线版</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#demo">查看样例结果</a>
+            <a class="button secondary" href="#boundary">先看边界</a>
+          </div>
+        </div>
+        <div class="experience-hero-board" aria-label="SAEE 线上体验预览">
+          <div class="experience-window">
+            <div class="experience-window-top">
+              <span></span><span></span><span></span>
+              <strong>AI 方案稳定性试跑</strong>
+            </div>
+            <div class="experience-window-grid">
+              <div class="experience-side">
+                <b>候选方案</b>
+                <span class="candidate-mini active">方案 A · 回复快</span>
+                <span class="candidate-mini recommended">方案 B · 更稳定</span>
+                <span class="candidate-mini risk">方案 C · 后期跑偏</span>
+              </div>
+              <div class="experience-main-card">
+                <div class="experience-main-head">
+                  <span>长期稳定性</span>
+                  <b>推荐：方案 B</b>
+                </div>
+                <div class="experience-chart-lines" aria-hidden="true">
+                  <span class="line line-a"></span>
+                  <span class="line line-b"></span>
+                  <span class="line line-c"></span>
+                </div>
+                <div class="experience-bars">
+                  <span><i style="width: 72%"></i>方案 A：前快后抖</span>
+                  <span><i style="width: 91%"></i>方案 B：持续稳定</span>
+                  <span><i style="width: 46%"></i>方案 C：后期退化</span>
+                </div>
+              </div>
+              <div class="experience-decision">
+                <b>建议</b>
+                <strong>先继续试方案 B</strong>
+                <p>方案 A 需要再看波动原因；方案 C 暂缓。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="section experience-demo-section">
+        <div class="section-heading compact">
+          <p class="section-kicker">样例体验</p>
+          <h2>假设你要选一个 AI 客服方案。</h2>
+          <p>
+            下面不是你的真实数据，只是一个可读样例。它展示 SAEE 最核心的判断方式：
+            多个方案一起跑，看长期表现，而不是只看第一次回答。
+          </p>
+        </div>
+
+        <div class="experience-demo-grid">
+          <article class="experience-card">
+            <span class="experience-number">A</span>
+            <h3>方案 A：回复很快</h3>
+            <p>一开始表现不错，但重复运行后波动变大，容易把部分问题答偏。</p>
+            <div class="score-row"><span>稳定度</span><b>72</b></div>
+          </article>
+          <article class="experience-card recommended-card">
+            <span class="experience-number">B</span>
+            <h3>方案 B：最稳</h3>
+            <p>速度不是最快，但多轮运行更一致，失败更少，更适合继续试。</p>
+            <div class="score-row"><span>稳定度</span><b>91</b></div>
+          </article>
+          <article class="experience-card">
+            <span class="experience-number">C</span>
+            <h3>方案 C：后期退化</h3>
+            <p>前几轮正常，后面开始重复、漏步骤，暂时不建议推进。</p>
+            <div class="score-row"><span>稳定度</span><b>46</b></div>
+          </article>
+        </div>
+
+        <div class="experience-result-layout">
+          <section class="experience-result-panel" aria-labelledby="sample-ranking-title">
+            <h3 id="sample-ranking-title">SAEE 会给出这样的结果</h3>
+            <ol class="experience-rank-list">
+              <li><strong>1. 方案 B</strong><span>推荐继续试用</span></li>
+              <li><strong>2. 方案 A</strong><span>需要排查波动</span></li>
+              <li><strong>3. 方案 C</strong><span>暂缓推进</span></li>
+            </ol>
+          </section>
+          <section class="experience-result-panel" aria-labelledby="sample-risk-title">
+            <h3 id="sample-risk-title">它还会提醒你注意什么</h3>
+            <ul class="experience-risk-list">
+              <li>不要只看第一次回答，要看多轮后是否还一致。</li>
+              <li>方案 A 可能需要检查提示词或工具调用边界。</li>
+              <li>方案 C 已出现后期退化，不适合直接上线。</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="boundary" class="section boundary-section experience-boundary">
+        <div>
+          <p class="section-kicker">体验边界</p>
+          <h2>这是线上体验版，不是正式上线版。</h2>
+        </div>
+        <ul class="boundary-list">
+          <li>本页面只使用样例数据，不上传你的数据。</li>
+          <li>本页面不连接后端，不执行 SAEE 运行时。</li>
+          <li>本页面不代表生产可用，不代表客户验证已完成。</li>
+          <li>如果要试真实数据，仍需按本地试用流程运行。</li>
+          <li>SAEE 不公开私有核心，也不自动接触外部系统。</li>
+        </ul>
+      </section>
+
+      <section class="final-cta">
+        <h2>看懂样例后，再决定要不要本地试用。</h2>
+        <div class="hero-actions">
+          <a class="button primary" href="index.html#trial-access-status">查看本地试用方式</a>
+          <a class="button secondary" href="commercial-readiness.html">查看商用状态</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

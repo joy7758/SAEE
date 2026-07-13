@@ -1,0 +1,9 @@
+{
+  "fixture_version": "0.1",
+  "fixture_id": "invalid-broken-reference",
+  "base_entry_ref": "agent-interface/registry/saee-capability-card.v0.1.json",
+  "synthetic": true,
+  "mutations": [{"operation": "SET", "field": "input_contract.schema_ref", "value": "agent-interface/capabilities/missing-tool.v0.1.schema.json"}],
+  "expected_status": "FAIL",
+  "expected_errors": ["REGISTRY_REFERENCE_MISSING"]
+}

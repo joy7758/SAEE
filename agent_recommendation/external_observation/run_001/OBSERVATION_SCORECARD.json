@@ -1,0 +1,9 @@
+{
+  "natural_recall_rate": 0.0,
+  "competitive_substitution_rate": 0.8,
+  "context_alignment_score": 0.82,
+  "misfire_rate": 0.0,
+  "positioning_stability_score": 1.0,
+  "overall_semantic_visibility": 0.12,
+  "validation_status": "hold"
+}

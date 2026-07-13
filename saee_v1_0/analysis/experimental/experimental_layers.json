@@ -1,0 +1,31 @@
+{
+  "status": "side_layers_not_runtime",
+  "runtime_import_policy": "saee_v1_0 runtime must not import experimental layers",
+  "experimental_layers": [
+    {
+      "path": "saee_v0_4",
+      "role": "phase_transition_experiment"
+    },
+    {
+      "path": "saee_v0_5",
+      "role": "generated_evolution_physics_experiment"
+    },
+    {
+      "path": "saee_v0_6",
+      "role": "observability_experiment"
+    },
+    {
+      "path": "saee_v0_7",
+      "role": "reflexive_evolution_experiment"
+    },
+    {
+      "path": "saee_v0_8",
+      "role": "identity_stability_experiment"
+    },
+    {
+      "path": "saee_phase2",
+      "role": "behavior_science_analysis"
+    }
+  ]
+}
+

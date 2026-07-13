@@ -1,0 +1,180 @@
+{
+  "saee_research_artifact_manifest_v0_1": true,
+  "artifact_version": "0.1",
+  "artifact_id": "saee-research-artifact-paper-package-v0.1",
+  "status": "local_paper_support_package_not_submitted",
+  "research_question": "Can a local evidence-adequacy architecture distinguish runtime observations, structured evidence objects, evidence relationships, and bounded accountability-claim requirements without treating traces as proof?",
+  "artifact_scope": [
+    "evidence_objects",
+    "adequacy_profiles",
+    "trace_candidate_mapping",
+    "benchmark",
+    "reproducibility"
+  ],
+  "evaluation_type": "synthetic_offline",
+  "contributions": [
+    "evidence_object_layer",
+    "evidence_adequacy_layer",
+    "candidate_trace_mapping_layer",
+    "reproducibility_layer"
+  ],
+  "components": [
+    {
+      "component_id": "resource_resolution_receipt",
+      "purpose": "Bind synthetic requested and resolved resources, declared publisher identity, content digest, policy reference, and sandbox boundary in a closed local evidence object.",
+      "artifact_files": [
+        "agent-interface/schemas/resource-resolution-receipt.schema.json",
+        "agent-interface/examples/verified-resource-resolution.json",
+        "agent-interface/fixtures/resource-resolution/resource_missing_publisher_identity.json",
+        "agent-interface/fixtures/resource-resolution/resource_digest_mismatch_or_invalid.json",
+        "agent-interface/fixtures/resource-resolution/resource_missing_policy_decision.json",
+        "agent-interface/fixtures/resource-resolution/resource_unbound_execution_effect.json",
+        "saee_backend/services/resource_resolution_receipt.py",
+        "scripts/saee_resource_resolution_receipt_smoke.py",
+        "docs/RESOURCE_RESOLUTION_EVIDENCE.md"
+      ],
+      "validation_command": "make check-resource-resolution-receipt",
+      "expected_output": "SAEE_RESOURCE_RESOLUTION_RECEIPT_SMOKE: PASS",
+      "result_summary": "1 positive, 4 negative, 38 adversarial, and 10 deterministic-run checks."
+    },
+    {
+      "component_id": "evidence_adequacy_profile",
+      "purpose": "Evaluate whether fields and semantic relationships in synthetic evidence packages satisfy one of four bounded local claim profiles.",
+      "artifact_files": [
+        "agent-interface/schemas/evidence-adequacy-profile.schema.json",
+        "agent-interface/profiles/evidence-adequacy/resource-authenticity.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json",
+        "agent-interface/profiles/evidence-adequacy/execution-boundary.v0.1.json",
+        "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+        "agent-interface/fixtures/evidence-adequacy/resource_authenticity_missing_digest.json",
+        "saee_backend/services/evidence_adequacy.py",
+        "scripts/saee_evidence_adequacy_smoke.py",
+        "docs/EVIDENCE_ADEQUACY_PROFILE.md"
+      ],
+      "validation_command": "make check-evidence-adequacy",
+      "expected_output": "SAEE_EVIDENCE_ADEQUACY_SMOKE: PASS",
+      "result_summary": "4 positive, 4 negative, 16 adversarial, and 20 deterministic-run checks."
+    },
+    {
+      "component_id": "otel_candidate_mapping",
+      "purpose": "Transform closed synthetic OpenTelemetry-style observations into non-authoritative candidate fields before adequacy evaluation.",
+      "artifact_files": [
+        "agent-interface/schemas/otel-candidate-evidence-mapping.schema.json",
+        "agent-interface/examples/otel-mapping/trace_candidate_resource_retrieval.json",
+        "agent-interface/examples/otel-mapping/trace_candidate_tool_invocation.json",
+        "agent-interface/examples/otel-mapping/trace_candidate_human_approval_observation.json",
+        "agent-interface/fixtures/otel-mapping/trace_missing_agent_identity.json",
+        "saee_backend/services/otel_candidate_mapping.py",
+        "scripts/saee_otel_candidate_mapping_smoke.py",
+        "docs/OTEL_CANDIDATE_EVIDENCE_MAPPING.md"
+      ],
+      "validation_command": "make check-otel-candidate-mapping",
+      "expected_output": "SAEE_OTEL_CANDIDATE_MAPPING_SMOKE: PASS",
+      "result_summary": "3 positive, 3 negative, 7 adversarial, and 15 deterministic-run checks; no trace is automatically accepted as evidence."
+    },
+    {
+      "component_id": "agent_receipt_crosswalk",
+      "purpose": "Record a non-normative research comparison between local SAEE concepts and adjacent agent-receipt concept families.",
+      "artifact_files": [
+        "agent-interface/mappings/agent-receipt-crosswalk.v0.1.json",
+        "docs/standards/SAEE_AGENT_RECEIPT_CROSSWALK.md",
+        "docs/standards/SAEE_AGENT_RECEIPT_GAP_ANALYSIS.md",
+        "docs/standards/SAEE_STANDARD_BOUNDARIES.md",
+        "scripts/saee_agent_receipt_crosswalk_smoke.py"
+      ],
+      "validation_command": "make check-agent-receipt-crosswalk",
+      "expected_output": "SAEE_AGENT_RECEIPT_CROSSWALK_SMOKE: PASS",
+      "result_summary": "1 valid mapping, 2 invalid mappings, 9 mapping rows, and 10 deterministic-run checks; unsupported standards claims remain zero."
+    },
+    {
+      "component_id": "evidence_adequacy_benchmark",
+      "purpose": "Compare expected and observed local adequacy results across twelve synthetic scenarios, four claim types, and four evidence levels.",
+      "artifact_files": [
+        "agent-interface/schemas/evidence-adequacy-benchmark.schema.json",
+        "agent-interface/benchmarks/evidence-adequacy/benchmark.v0.1.json",
+        "saee_backend/services/evidence_adequacy_benchmark.py",
+        "scripts/saee_evidence_adequacy_benchmark_smoke.py",
+        "docs/EVIDENCE_ADEQUACY_BENCHMARK.md"
+      ],
+      "validation_command": "make check-evidence-adequacy-benchmark",
+      "expected_output": "SAEE_EVIDENCE_ADEQUACY_BENCHMARK_SMOKE: PASS",
+      "result_summary": "12 synthetic scenarios: 5 PASS and 7 FAIL, with zero curated-dataset false positives and zero truth-boundary violations."
+    },
+    {
+      "component_id": "reproducibility_package",
+      "purpose": "Declare local artifact paths, commands, expected regression outputs, environment constraints, and truth boundaries.",
+      "artifact_files": [
+        "agent-interface/schemas/reproducibility-manifest.schema.json",
+        "agent-interface/reproducibility/saee-reproducibility-manifest.v0.1.json",
+        "agent-interface/reproducibility/expected-results.v0.1.json",
+        "docs/REPRODUCIBILITY_ARTIFACT_INVENTORY.md",
+        "docs/REPRODUCE_SAEE_EXPERIMENT.md",
+        "docs/REPRODUCIBILITY_ENVIRONMENT_REQUIREMENTS.md",
+        "scripts/saee_reproducibility_smoke.py",
+        "scripts/saee_environment_requirements_smoke.py"
+      ],
+      "validation_command": "make check-saee-reproducibility",
+      "expected_output": "SAEE_REPRODUCIBILITY_SMOKE: PASS",
+      "result_summary": "Local manifest, 23 referenced artifact files, 6 commands, expected results, and environment declarations are checked without executing artifact code."
+    }
+  ],
+  "documentation": [
+    "docs/research-artifact/SAEE_RESEARCH_ARTIFACT_OVERVIEW.md",
+    "docs/research-artifact/SAEE_ARTIFACT_STRUCTURE.md",
+    "docs/research-artifact/SAEE_ARCHITECTURE.md",
+    "docs/research-artifact/SAEE_EXPERIMENT_SUMMARY.md",
+    "docs/research-artifact/FIGURE_SPECIFICATIONS.md",
+    "docs/research-artifact/PAPER_ARTIFACT_CHECKLIST.md"
+  ],
+  "validation_commands": [
+    "make check-saee-research-artifact",
+    "make check-saee-reproducibility",
+    "make check-saee-environment-requirements",
+    "make check-evidence-adequacy-benchmark",
+    "make check-evidence-adequacy",
+    "make check-otel-candidate-mapping",
+    "make check-resource-resolution-receipt",
+    "make check-agent-receipt-crosswalk",
+    "python3 scripts/saee_agent_interface_smoke.py",
+    "python3 scripts/mainline_guard.py"
+  ],
+  "benchmark_summary": {
+    "scenario_count": 12,
+    "claim_type_count": 4,
+    "evidence_level_count": 4,
+    "pass_count": 5,
+    "fail_count": 7,
+    "false_positive_count": 0,
+    "boundary_violation_count": 0,
+    "scope": "curated_synthetic_regression_only"
+  },
+  "environment_ref": "agent-interface/reproducibility/saee-reproducibility-manifest.v0.1.json",
+  "limitations": [
+    "All identities, resources, authorizations, approvals, effects, traces, and benchmark scenarios are synthetic.",
+    "The benchmark is a curated deterministic regression suite and does not estimate real-world performance.",
+    "Trace candidate mapping is not an OpenTelemetry SDK integration or conformance implementation.",
+    "The crosswalk is non-normative research analysis and is not standards adoption, compatibility, or compliance.",
+    "Local schema, digest, and relationship checks do not prove underlying events, identities, authorization, or causality.",
+    "The package has not been independently reproduced or externally validated.",
+    "The package is not a publication, acceptance decision, certification, release, DOI, or production deployment."
+  ],
+  "external_validation": false,
+  "publication_status": "not_submitted",
+  "truth_boundary": {
+    "paper_submitted": false,
+    "paper_accepted": false,
+    "arxiv_uploaded": false,
+    "doi_created": false,
+    "github_release_created": false,
+    "publication_tag_created": false,
+    "external_reproduction_completed": false,
+    "third_party_validation_completed": false,
+    "superiority_claimed": false,
+    "regulatory_compliance_claimed": false,
+    "legal_validity_claimed": false,
+    "certification_claimed": false,
+    "production_ready": false
+  },
+  "production_ready": false
+}

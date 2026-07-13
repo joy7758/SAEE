@@ -1,0 +1,25 @@
+{
+  "agent_validation_type": "independent_agent_recommendation_gate",
+  "blockers": [],
+  "blockers_closed_by_validation": 0,
+  "customer_validated": false,
+  "generated_at": "2026-07-10",
+  "independent_agent_profile": "recommendation_agent_validation",
+  "membership_scope": "configured_preview_allowlist_not_identity_authentication",
+  "production_ready": false,
+  "production_tenant_storage_isolated": false,
+  "recommendation_scope": "factory_configured_controlled_preview_allowlist_membership_enforcement",
+  "round_1": {
+    "blocker_count": 1,
+    "verdict": "conditional"
+  },
+  "round_2": {
+    "blocker_count": 0,
+    "verdict": "recommend"
+  },
+  "single_tenant_format_contract": "saee_backend.config.tenant_id_format_valid",
+  "tenant_authorization_enabled": false,
+  "unlisted_tenant_operation_cases_passed": 7,
+  "unlisted_tenant_operation_cases_total": 7,
+  "verdict": "recommend"
+}

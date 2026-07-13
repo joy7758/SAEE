@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 商用人工动作板</title>
+  <style>
+    :root {
+      --bg: #f8f7f2;
+      --text: #171717;
+      --muted: #5f675f;
+      --line: #dedbd2;
+      --card: #fffdf8;
+      --accent: #10a37f;
+      --accent-soft: #e5f3ed;
+      --warn: #8a5a10;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 8% 4%, rgba(16, 163, 127, 0.14), transparent 28rem),
+        linear-gradient(135deg, #fffdf8 0%, var(--bg) 62%, #edf4ef 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+    }
+    .hero {
+      display: grid;
+      gap: 22px;
+      padding: 34px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(32px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .stats, .lanes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 28px 0;
+    }
+    .stat, .lane-card, section {
+      background: rgba(255, 253, 248, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(23, 23, 23, 0.06);
+    }
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      color: var(--accent);
+    }
+    .stat span, .lane-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    section { margin: 26px 0; overflow-x: auto; }
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(229, 243, 237, 0.55);
+    }
+    .notice {
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 163, 127, 0.28);
+    }
+    .warning {
+      background: #fff6df;
+      border-color: #ead59a;
+      color: var(--warn);
+    }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    code {
+      background: rgba(23, 23, 23, 0.06);
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="eyebrow">SAEE 商用准备</div>
+      <h1>先把能人工处理的阻塞项排清楚。</h1>
+      <p>这个页面把当前 24 个正式商用阻塞项放在一张人工动作板里。它只帮助人审和分派，不执行任务、不收集证据、不关闭阻塞项。</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><strong>24</strong><span>仍未关闭的商用阻塞项</span></div>
+      <div class="stat"><strong>9</strong><span>现在可以进入人工审查</span></div>
+      <div class="stat"><strong>5</strong><span>当前 sprint 优先处理项</span></div>
+      <div class="stat"><strong>64</strong><span>当前缺少的人工填写值</span></div>
+    </div>
+
+    <section class="notice">
+      <h2>人现在该做什么</h2>
+      <p>先看“当前 sprint”的 5 项，给每项指定真人负责人。需要收集证据或改系统时，必须另开一个明确批准的请求。</p>
+      <p>建议优先处理：支持联系人、生产监控、正式安全审查、生产恢复方案、价格页。</p>
+    </section>
+
+    <section>
+      <h2>当前 sprint：先处理这 5 项</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>阻塞项</th>
+            <th>负责人方向</th>
+            <th>缺少人工值</th>
+            <th>依赖状态</th>
+            <th>允许执行</th>
+            <th>允许关闭</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><strong>生产监控（production_monitoring）</strong></td>
+              <td>运维工程（operations_engineering）</td>
+              <td>10</td>
+              <td>可审查</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            
+            <tr>
+              <td><strong>正式安全审查（formal_security_review）</strong></td>
+              <td>安全、法务与隐私（security_legal_privacy）</td>
+              <td>12</td>
+              <td>可审查</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            
+            <tr>
+              <td><strong>生产恢复方案（production_restore_policy）</strong></td>
+              <td>数据与恢复（data_operations）</td>
+              <td>13</td>
+              <td>可审查</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            
+            <tr>
+              <td><strong>价格页（pricing_page）</strong></td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>14</td>
+              <td>可审查</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            
+            <tr>
+              <td><strong>支持联系人（support_contact）</strong></td>
+              <td>支持运营（support_operations）</td>
+              <td>15</td>
+              <td>可审查</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>负责人方向</h2>
+      <div class="lanes">
+            <article class="lane-card">
+              <h3>商业、财务与法务（commercial_finance_legal）</h3>
+              <p><strong>6</strong> 个阻塞项</p>
+              <p>可审查：3；被依赖卡住：3</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>客户验证（customer_validation）</h3>
+              <p><strong>2</strong> 个阻塞项</p>
+              <p>可审查：0；被依赖卡住：2</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>数据与恢复（data_operations）</h3>
+              <p><strong>2</strong> 个阻塞项</p>
+              <p>可审查：1；被依赖卡住：1</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>工程与数据安全（engineering_data_security）</h3>
+              <p><strong>1</strong> 个阻塞项</p>
+              <p>可审查：0；被依赖卡住：1</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>工程安全（engineering_security）</h3>
+              <p><strong>3</strong> 个阻塞项</p>
+              <p>可审查：1；被依赖卡住：2</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>运维工程（operations_engineering）</h3>
+              <p><strong>3</strong> 个阻塞项</p>
+              <p>可审查：1；被依赖卡住：2</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>安全、法务与隐私（security_legal_privacy）</h3>
+              <p><strong>4</strong> 个阻塞项</p>
+              <p>可审查：2；被依赖卡住：2</p>
+            </article>
+            
+            <article class="lane-card">
+              <h3>支持运营（support_operations）</h3>
+              <p><strong>3</strong> 个阻塞项</p>
+              <p>可审查：1；被依赖卡住：2</p>
+            </article>
+            </div>
+    </section>
+
+    <section>
+      <h2>全部 24 个阻塞项</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>阻塞项</th>
+            <th>阶段</th>
+            <th>依赖状态</th>
+            <th>负责人方向</th>
+            <th>证据样例</th>
+            <th>默认决策</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>企业登录（oauth_oidc）</td>
+              <td>身份与租户边界（phase_1_identity_and_tenant_boundary）</td>
+              <td>被依赖卡住</td>
+              <td>工程安全（engineering_security）</td>
+              <td>ECP-006, ECP-007, ECP-008</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>生产身份系统（production_identity_provider）</td>
+              <td>身份与租户边界（phase_1_identity_and_tenant_boundary）</td>
+              <td>可审查</td>
+              <td>工程安全（engineering_security）</td>
+              <td>ECP-001, ECP-002, ECP-003</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>权限分级（rbac）</td>
+              <td>身份与租户边界（phase_1_identity_and_tenant_boundary）</td>
+              <td>被依赖卡住</td>
+              <td>工程安全（engineering_security）</td>
+              <td>ECP-011, ECP-012, ECP-013</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>租户数据隔离（tenant_storage_isolation）</td>
+              <td>身份与租户边界（phase_1_identity_and_tenant_boundary）</td>
+              <td>被依赖卡住</td>
+              <td>工程与数据安全（engineering_data_security）</td>
+              <td>ECP-016, ECP-017, ECP-018</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>外部告警送达（external_alert_delivery）</td>
+              <td>数据与运营韧性（phase_2_data_and_operations_resilience）</td>
+              <td>被依赖卡住</td>
+              <td>运维工程（operations_engineering）</td>
+              <td>ECP-039, ECP-040, ECP-041</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>值班安排（on_call_rotation）</td>
+              <td>数据与运营韧性（phase_2_data_and_operations_resilience）</td>
+              <td>被依赖卡住</td>
+              <td>运维工程（operations_engineering）</td>
+              <td>ECP-045, ECP-046, ECP-047</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>生产监控（production_monitoring）</td>
+              <td>数据与运营韧性（phase_2_data_and_operations_resilience）</td>
+              <td>可审查</td>
+              <td>运维工程（operations_engineering）</td>
+              <td>ECP-034, ECP-035, ECP-036</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>生产恢复方案（production_restore_policy）</td>
+              <td>数据与运营韧性（phase_2_data_and_operations_resilience）</td>
+              <td>可审查</td>
+              <td>数据与恢复（data_operations）</td>
+              <td>ECP-054, ECP-055, ECP-056</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>恢复演练（restore_tested）</td>
+              <td>数据与运营韧性（phase_2_data_and_operations_resilience）</td>
+              <td>被依赖卡住</td>
+              <td>数据与恢复（data_operations）</td>
+              <td>ECP-048, ECP-049, ECP-050</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>客户支持流程（customer_support）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>被依赖卡住</td>
+              <td>支持运营（support_operations）</td>
+              <td>ECP-065, ECP-066, ECP-067</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>数据处理协议（data_processing_agreement）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>被依赖卡住</td>
+              <td>安全、法务与隐私（security_legal_privacy）</td>
+              <td>ECP-091, ECP-092, ECP-093</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>正式安全审查（formal_security_review）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>可审查</td>
+              <td>安全、法务与隐私（security_legal_privacy）</td>
+              <td>ECP-076, ECP-077, ECP-078</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>隐私和法务审查（privacy_legal_review）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>可审查</td>
+              <td>安全、法务与隐私（security_legal_privacy）</td>
+              <td>ECP-082, ECP-083, ECP-084</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>服务承诺（sla）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>被依赖卡住</td>
+              <td>支持运营（support_operations）</td>
+              <td>ECP-070, ECP-071, ECP-072</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>支持联系人（support_contact）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>可审查</td>
+              <td>支持运营（support_operations）</td>
+              <td>ECP-060, ECP-061, ECP-062</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>漏洞管理（vulnerability_management）</td>
+              <td>支持、安全与法务（phase_3_support_security_legal）</td>
+              <td>被依赖卡住</td>
+              <td>安全、法务与隐私（security_legal_privacy）</td>
+              <td>ECP-097, ECP-098, ECP-099</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>开票流程（invoice_process）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>被依赖卡住</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-116, ECP-117, ECP-118</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>支付服务商（payment_provider）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>被依赖卡住</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-110, ECP-111, ECP-112</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>价格页（pricing_page）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>可审查</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-105, ECP-106, ECP-107</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>退款政策（refund_policy）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>可审查</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-127, ECP-128, ECP-129</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>税务审查（tax_review）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>可审查</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-122, ECP-123, ECP-124</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>租户账单隔离（tenant_billing_isolation）</td>
+              <td>商业包装与收费（phase_4_commercial_packaging_and_billing）</td>
+              <td>被依赖卡住</td>
+              <td>商业、财务与法务（commercial_finance_legal）</td>
+              <td>ECP-132, ECP-133, ECP-134</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>客户验证（customer_validated）</td>
+              <td>客户验证与发布审查（phase_5_customer_validation_and_launch_review）</td>
+              <td>被依赖卡住</td>
+              <td>客户验证（customer_validation）</td>
+              <td>ECP-144, ECP-145, ECP-146</td>
+              <td>hold</td>
+            </tr>
+            
+            <tr>
+              <td>试点结果（pilot_results）</td>
+              <td>客户验证与发布审查（phase_5_customer_validation_and_launch_review）</td>
+              <td>被依赖卡住</td>
+              <td>客户验证（customer_validation）</td>
+              <td>ECP-138, ECP-139, ECP-140</td>
+              <td>hold</td>
+            </tr>
+            </tbody>
+      </table>
+    </section>
+
+    <section class="warning">
+      <h2>边界</h2>
+      <p>这个页面不是正式商用批准，也不是执行授权。</p>
+      <ul><li><strong>production_ready:</strong> false</li>
+<li><strong>product_launched:</strong> false</li>
+<li><strong>customer_validated:</strong> false</li>
+<li><strong>execution_authorized:</strong> false</li>
+<li><strong>evidence_collection_authorized:</strong> false</li>
+<li><strong>blockers_closed_by_board:</strong> 0</li>
+<li><strong>runtime_modified:</strong> false</li>
+<li><strong>backend_modified:</strong> false</li>
+<li><strong>kernel_modified:</strong> false</li>
+<li><strong>api_schema_modified:</strong> false</li>
+<li><strong>private_core_exposed:</strong> false</li></ul>
+    </section>
+  </main>
+</body>
+</html>

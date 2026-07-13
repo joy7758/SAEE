@@ -1,0 +1,10 @@
+{
+  "scenario_id": "RELIABILITY_ASSESSMENT_TASK",
+  "task_type": "AGENT_RELIABILITY_ASSESSMENT",
+  "task_description": "Assess a validated synthetic autonomous-agent workflow run.",
+  "expected_selection": "evaluate_agent_run",
+  "expected_outcome": "SUCCESS",
+  "invocation_allowed": true,
+  "input_ref": "agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
+  "simulation_only": true
+}

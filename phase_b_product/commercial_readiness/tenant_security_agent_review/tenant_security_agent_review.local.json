@@ -1,0 +1,88 @@
+{
+  "agent_validation_primary": true,
+  "audit_retention_atomic_replace": true,
+  "blockers_closed": 0,
+  "customer_validated": false,
+  "forged_restore_manifest_rejected": true,
+  "formal_production_security_review_completed": false,
+  "generated_at": "2026-07-13",
+  "generated_by": "scripts/saee_tenant_security_agent_review_profile.py",
+  "human_validation_used": false,
+  "negative_cases_passed": 8,
+  "negative_cases_total": 8,
+  "product_launched": false,
+  "production_ready": false,
+  "production_restore_policy_available": false,
+  "production_restore_tested": false,
+  "production_tenant_storage_isolated": false,
+  "restore_source_symlink_rejected": true,
+  "retention_audit_symlink_rejected": true,
+  "retention_non_regular_path_rejected": true,
+  "retention_sqlite_symlink_rejected": true,
+  "review_actor_type": "independent_agent",
+  "review_scope": "local_controlled_preview_tenant_storage",
+  "security_smokes_passed": 7,
+  "security_smokes_total": 7,
+  "smoke_results": [
+    {
+      "script": "scripts/saee_bound_tenant_authorization_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "d3dc0e445b402db14b4dc0009238b523f9cbc11c2eda11571b2b7ef0f19bea5a"
+    },
+    {
+      "script": "scripts/saee_tenant_secret_boundary_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "a4e3c844a0fef8730c52f303ddd706b58a6d53ccb549c5f5d181cbae8c82787c"
+    },
+    {
+      "script": "scripts/saee_request_audit_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "08f7344840522799599c258fde2f60e71e51cea641cce79178ea276d6f765ef2"
+    },
+    {
+      "script": "scripts/saee_controlled_preview_tenant_storage_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "299ffa5a7ff2054acaeb5d1ace540ae77802440326ce61493df81a4ebd1a9dc2"
+    },
+    {
+      "script": "scripts/saee_data_backup_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "66439427c3d90bd49f0dbaab4ddc8b9bfb835ddaa9001e64575e5800f3cc6159"
+    },
+    {
+      "script": "scripts/saee_data_retention_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "e41a2eba9106f60f74cc42829becd3ed59b80818a529041b533391ff425d924f"
+    },
+    {
+      "script": "scripts/saee_data_restore_drill_smoke.py",
+      "status": "pass",
+      "stdout_sha256": "d75b94e5764b0df9bcb2884fb8157bb2f90a0db3d6acd4933359b87874f4d28d"
+    }
+  ],
+  "source_sha256": {
+    "saee_backend/api/audit.py": "9226fd343195e21cfc908d802acba1d6e88af9bf21db89b4163a06d07559dd40",
+    "saee_backend/api/security.py": "a83c8c9e168b748358671457b840dc81ed3abf3d25b83a577d42227566b83a30",
+    "saee_backend/services/authorization_context.py": "05aec14aab022da1b03a257fc67b97baa492d9f0bf20afb445e8ba33344982a1",
+    "saee_backend/services/data_backup.py": "212c08252f66f9214471cf721fadea58bb82f439dc5779e939d21c4332761905",
+    "saee_backend/services/data_restore_drill.py": "81b1d01ae161d173078a0394a4871daddbf8ef488dd87c812a1fbc83b2cce71a",
+    "saee_backend/services/data_retention.py": "684404845cb1f9ea9a42c8c166b5c690a70396f5b5da4dd7a1f86f995d372e6f",
+    "saee_backend/services/jwt_preview_auth.py": "f8c0da924db52501c7b403f70639448559cb8868cf590df4b816424bdca42601",
+    "saee_backend/services/public_input_contract.py": "d2fcbb0103d3e1f601d47ef20cc8abcabcdceb7e2ed602c2cab7d1f667920137",
+    "saee_backend/services/rbac_policy.py": "30ba31f922c3bd8c67d2e78b7239c91c9addf4b5ed7ed9f7a17d04052db429ee",
+    "saee_backend/storage/factory.py": "0a6e9dc32521b64ff2ff813c9d4f567cf2d028aa02488bdcd9f47cca56345096",
+    "saee_backend/storage/memory_db.py": "4818393760c2d3b0595b68299393c3b6987c4d1f1fbaa9a6bbb2b3193863c90a",
+    "saee_backend/storage/secret_boundary.py": "71c87b77217ab1fea41b664457128e713fa2597aef45d55b5d40c8ca3787e850",
+    "saee_backend/storage/sqlite_store.py": "a9e0ef2546206c5ba0d4cb33fe35c157aad23e4bf09ecedbadb9d7dde2955287",
+    "saee_backend/storage/tenant_key.py": "cf70e651491df54eb02ed4bc81e71a442f91148925bb01b95c11b2e79a03e58b",
+    "scripts/saee_bound_tenant_authorization_smoke.py": "15aa4153f9613da9f55f94efa47b57386e297ece35ebd4242123daefada01bd9",
+    "scripts/saee_controlled_preview_tenant_storage_smoke.py": "b45400b5d5b4b848fd9489d633c5a90d170509a7f575176a132e06f29060f925",
+    "scripts/saee_data_backup_smoke.py": "659bfa44d9c8bb3437c2f795ee22f5cab67f80966245846bcf7de0c4cbf17d4c",
+    "scripts/saee_data_restore_drill_smoke.py": "f5760076ff2ba6ef4fa437cc17777dd2d7c632e1fce231606e452f25a8692c39",
+    "scripts/saee_data_retention_smoke.py": "6bb3b333b7dcd01043d9bd8c97bc9b560539bacea43641a261b0a4fe1adad041",
+    "scripts/saee_request_audit_smoke.py": "c4478791e9ab62440a2e5bb3d046f6df439c081a6f190130671bbabe063bfab8",
+    "scripts/saee_tenant_secret_boundary_smoke.py": "ffd96eed4f4675830d27f9ddfd4e1e36750d5232624c492fee0ebeae23ba6ca8"
+  },
+  "status": "pass_local_controlled_preview_security_review",
+  "tenant_security_agent_review_profile_v0_1": true
+}

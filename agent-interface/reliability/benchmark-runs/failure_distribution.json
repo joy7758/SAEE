@@ -1,0 +1,18 @@
+{
+  "failure_distribution_version": "1.0",
+  "benchmark_id": "saee-internal-reliability-v1.0",
+  "failed_runs": 13,
+  "classified_failed_runs": 13,
+  "failure_taxonomy_coverage": 1.0,
+  "counts": {
+    "CONTRACT_FAILURE": 12,
+    "ENVIRONMENT_FAILURE": 1,
+    "EVIDENCE_FAILURE": 9,
+    "MODEL_RESPONSE_FAILURE": 11,
+    "TOOL_FAILURE": 1
+  },
+  "non_implications": {
+    "CONTRACT_FAILURE": "not a security failure",
+    "MODEL_RESPONSE_FAILURE": "not an intelligence failure"
+  }
+}

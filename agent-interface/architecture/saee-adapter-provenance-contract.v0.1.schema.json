@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Adapter Provenance and Output Binding Contract v0.1",
+  "description": "A strict sidecar contract that records an Observation Adapter implementation state and binds one immutable input snapshot to one Observation Envelope output without granting execution, evidence, risk, decision, or termination authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_adapter_provenance_contract_v0_1",
+    "schema_version",
+    "adapter_provenance_id",
+    "adapter_id",
+    "adapter_version",
+    "implementation_status",
+    "producer_type",
+    "source_schema_ref",
+    "input_snapshot_ref",
+    "input_snapshot_digest",
+    "output_envelope_ref",
+    "output_envelope_digest",
+    "digest_algorithm",
+    "process_same_bytes",
+    "read_once_verified",
+    "adapter_receive_only",
+    "produces_observation",
+    "produces_evidence",
+    "produces_risk",
+    "produces_decision",
+    "network_accessed",
+    "external_execution",
+    "validation_status",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_adapter_provenance_contract_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "adapter_provenance_id": {"$ref": "#/$defs/id"},
+    "adapter_id": {"$ref": "#/$defs/id"},
+    "adapter_version": {"$ref": "#/$defs/id"},
+    "implementation_status": {"enum": ["declared", "prototype", "validated"]},
+    "producer_type": {
+      "enum": [
+        "runtime_adapter_declaration",
+        "memory_adapter_declaration",
+        "tool_trace_adapter_declaration",
+        "synthetic_observation_adapter",
+        "runtime_observation_adapter",
+        "memory_observation_adapter",
+        "tool_trace_observation_adapter"
+      ]
+    },
+    "source_schema_ref": {
+      "const": "agent-interface/architecture/saee-observation-envelope.v0.1.schema.json"
+    },
+    "input_snapshot_ref": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/local_ref"}
+      ]
+    },
+    "input_snapshot_digest": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/sha256"}
+      ]
+    },
+    "output_envelope_ref": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/local_ref"}
+      ]
+    },
+    "output_envelope_digest": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/sha256"}
+      ]
+    },
+    "digest_algorithm": {"const": "sha256"},
+    "process_same_bytes": {"type": "boolean"},
+    "read_once_verified": {"type": "boolean"},
+    "adapter_receive_only": {"const": true},
+    "produces_observation": {"const": true},
+    "produces_evidence": {"const": false},
+    "produces_risk": {"const": false},
+    "produces_decision": {"const": false},
+    "network_accessed": {"const": false},
+    "external_execution": {"const": false},
+    "validation_status": {
+      "enum": ["declaration_only", "prototype_binding_validated", "binding_validated"]
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_scope",
+        "adapter_identity_independently_verified",
+        "adapter_behavior_independently_verified",
+        "input_snapshot_authenticity_independently_verified",
+        "output_envelope_authenticity_independently_verified",
+        "observation_is_evidence",
+        "risk_probability_measured",
+        "decision_authorized",
+        "termination_authority",
+        "customer_data_processed",
+        "production_ready"
+      ],
+      "properties": {
+        "record_scope": {
+          "enum": ["synthetic_example_only", "local_implementation_record", "external_attestation_not_verified"]
+        },
+        "adapter_identity_independently_verified": {"const": false},
+        "adapter_behavior_independently_verified": {"const": false},
+        "input_snapshot_authenticity_independently_verified": {"const": false},
+        "output_envelope_authenticity_independently_verified": {"const": false},
+        "observation_is_evidence": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "decision_authorized": {"const": false},
+        "termination_authority": {"const": false},
+        "customer_data_processed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"implementation_status": {"const": "declared"}}},
+      "then": {
+        "properties": {
+          "input_snapshot_ref": {"type": "null"},
+          "input_snapshot_digest": {"type": "null"},
+          "output_envelope_ref": {"type": "null"},
+          "output_envelope_digest": {"type": "null"},
+          "process_same_bytes": {"const": false},
+          "read_once_verified": {"const": false},
+          "validation_status": {"const": "declaration_only"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"implementation_status": {"const": "prototype"}}},
+      "then": {
+        "properties": {
+          "input_snapshot_ref": {"$ref": "#/$defs/local_ref"},
+          "input_snapshot_digest": {"$ref": "#/$defs/sha256"},
+          "output_envelope_ref": {"$ref": "#/$defs/local_ref"},
+          "output_envelope_digest": {"$ref": "#/$defs/sha256"},
+          "process_same_bytes": {"const": true},
+          "read_once_verified": {"const": true},
+          "validation_status": {"const": "prototype_binding_validated"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"implementation_status": {"const": "validated"}}},
+      "then": {
+        "properties": {
+          "input_snapshot_ref": {"$ref": "#/$defs/local_ref"},
+          "input_snapshot_digest": {"$ref": "#/$defs/sha256"},
+          "output_envelope_ref": {"$ref": "#/$defs/local_ref"},
+          "output_envelope_digest": {"$ref": "#/$defs/sha256"},
+          "process_same_bytes": {"const": true},
+          "read_once_verified": {"const": true},
+          "validation_status": {"const": "binding_validated"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,159}$"
+    },
+    "local_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

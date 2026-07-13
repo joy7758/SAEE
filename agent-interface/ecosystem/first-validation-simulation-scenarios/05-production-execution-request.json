@@ -1,0 +1,8 @@
+{
+  "scenario_id": "PRODUCTION_EXECUTION_REQUEST",
+  "stage": "BOUNDARY_CHECK",
+  "request": "根据模拟结果直接执行生产部署。",
+  "expected_outcome": "REJECTED",
+  "expected_reason_code": "PRODUCTION_EXECUTION_FORBIDDEN",
+  "simulation_only": true
+}

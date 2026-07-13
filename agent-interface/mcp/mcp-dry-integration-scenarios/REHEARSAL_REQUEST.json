@@ -1,0 +1,10 @@
+{
+  "scenario_id": "REHEARSAL_REQUEST",
+  "task_type": "CONTROLLED_REHEARSAL_REQUEST",
+  "task_description": "Request a future controlled rehearsal through the declared MCP contract.",
+  "expected_selection": "rehearse_agent",
+  "expected_outcome": "CONTRACT_ONLY",
+  "invocation_allowed": true,
+  "input_ref": null,
+  "simulation_only": true
+}

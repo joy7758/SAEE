@@ -1,0 +1,150 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "browser_readable_production_restore_policy_approval_input_prompt": true,
+  "builder_ready": false,
+  "category": "data_ops",
+  "check_target": "make check-production-restore-policy-approval-input-prompt",
+  "codex_contacted_customer": false,
+  "codex_contacted_vendor": false,
+  "completed_metadata_field_count": 0,
+  "completed_policy_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.template.json phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.human_filled.local.json",
+  "credentials_restored": false,
+  "customer_contacted": false,
+  "customer_notification_sent_by_codex": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:13.782342+00:00",
+  "generated_by": "scripts/saee_production_restore_policy_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.human_filled.local.json",
+  "human_review_required": true,
+  "kernel_modified": false,
+  "live_restore_authorized_by_codex": false,
+  "live_restore_performed": false,
+  "local_static_production_restore_policy_approval_input_prompt_html": true,
+  "make_target": "make production-restore-policy-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "data_operations_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "security_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "privacy_legal_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "incident_response_owner",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "decision_summary",
+      "human_must_provide": true
+    }
+  ],
+  "next_human_action": "Copy the template, fill all metadata fields, set each policy evidence review key only after human approval, add source notes and evidence slot references, then run the validator. Stop before evidence builder execution.",
+  "plain_language_next_action": "\u8bf7\u4eba\u7c7b\u8d1f\u8d23\u4eba\u786e\u8ba4\u6062\u590d\u8d1f\u8d23\u4eba\u3001\u6062\u590d\u8303\u56f4\u3001\u5907\u4efd\u4fdd\u7559\u7b56\u7565\u3001\u79df\u6237\u6062\u590d\u8fb9\u754c\u3001\u51ed\u636e\u6392\u9664\u89c4\u5219\u548c\u4e8b\u6545\u4ea4\u63a5\u65b9\u5f0f\uff1b\u786e\u8ba4\u524d\u4e0d\u8981\u8fd0\u884c\u6062\u590d\u3001\u5bfc\u5165\u8bc1\u636e\u6216\u5173\u95ed blocker\u3002",
+  "plain_language_production_restore_policy_approval_input_prompt_v0_2": true,
+  "plain_language_status_label": "\u751f\u4ea7\u6062\u590d\u7b56\u7565\u8fd8\u6ca1\u6709\u4eba\u5de5\u6279\u51c6\uff0c\u4e5f\u6ca1\u6709\u505a\u6b63\u5f0f\u6062\u590d\u6f14\u7ec3\uff0c\u4e0d\u80fd\u5bf9\u5916\u8bf4\u5df2\u7ecf\u5177\u5907\u751f\u4ea7\u6062\u590d\u80fd\u529b\u3002",
+  "plain_language_stop_point": "\u586b\u5b8c\u5e76\u9a8c\u8bc1\u8f93\u5165\u540e\u505c\u6b62\uff1b\u8fd0\u884c evidence builder\u3001\u6267\u884c\u6062\u590d\u3001\u89e6\u78b0\u5b9e\u65f6\u6570\u636e\u8def\u5f84\u3001\u8054\u7cfb\u5ba2\u6237\u6216\u5173\u95ed blocker \u90fd\u9700\u8981\u5355\u72ec\u6279\u51c6\u3002",
+  "policy_approved_by_codex": false,
+  "policy_draft_available": true,
+  "policy_evidence_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "backup_retention_policy_approved",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "credential_secret_exclusion_reviewed",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "customer_notification_boundary_approved",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "incident_response_handoff_approved",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "production_restore_policy_approved",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "tenant_restore_boundary_approved",
+      "human_source_note_required": true,
+      "policy_evidence_slot_required": true,
+      "set_policy_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "private_core_exposed": false,
+  "private_core_restored": false,
+  "product_launched": false,
+  "production_data_path_modified": false,
+  "production_ready": false,
+  "production_restore_policy_approval_input_prompt_v0_1": true,
+  "production_restore_policy_approved": false,
+  "production_restore_policy_available": false,
+  "production_restore_policy_human_review_step_count": 4,
+  "prompt_scope": "local_human_restore_policy_approval_input_prompt_only",
+  "prompt_type": "saee_production_restore_policy_approval_input_prompt",
+  "public_sdk_released": false,
+  "ready_for_evidence_builder": false,
+  "required_metadata_field_count": 7,
+  "required_policy_evidence_item_count": 6,
+  "restore_policy_published_by_codex": false,
+  "restore_to_live_path_enabled": false,
+  "runtime_modified": false,
+  "separate_evidence_builder_request_required": true,
+  "separate_validator_required": true,
+  "source_policy_draft": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_draft.local.json",
+  "source_production_restore_policy_approval_input_prompt_html": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input_prompt.html",
+  "source_template": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.template.json",
+  "source_validation": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input_validation.local.json",
+  "status": "hold_human_restore_policy_approval_input_required",
+  "target_blocker_id": "production_restore_policy",
+  "task_candidates_executed": false,
+  "validation_status": "pass",
+  "validator_command": "python3 scripts/saee_production_restore_policy_approval_input_validator.py --input phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.human_filled.local.json"
+}

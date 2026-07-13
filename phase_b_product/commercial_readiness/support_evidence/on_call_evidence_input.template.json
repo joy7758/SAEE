@@ -1,0 +1,93 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_builder": false,
+  "boundary_review": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "blockers_closed_by_builder": false,
+    "codex_contacted_customer": false,
+    "codex_contacted_vendor": false,
+    "codex_inferred_missing_evidence": false,
+    "customer_contacted": false,
+    "customer_validated": false,
+    "escalation_schedule_published_by_codex": false,
+    "execution_authorized": false,
+    "external_ai_assistant_tested": false,
+    "external_calls_made": false,
+    "external_model_api_called": false,
+    "incident_commander_assigned_by_codex": false,
+    "kernel_modified": false,
+    "on_call_rotation_started_by_codex": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_on_call_claim_published": false,
+    "production_ready": false,
+    "public_sdk_released": false,
+    "runtime_modified": false,
+    "support_operations_started": false,
+    "support_vendor_contacted": false
+  },
+  "codex_contacted_customer": false,
+  "codex_contacted_vendor": false,
+  "codex_inferred_missing_evidence": false,
+  "customer_contacted": false,
+  "customer_validated": false,
+  "decision_summary": "",
+  "escalation_schedule_published_by_codex": false,
+  "evidence_review": {
+    "escalation_schedule_defined": false,
+    "incident_commander_named": false,
+    "on_call_rotation_defined": false
+  },
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "human_reviewer_name": "",
+  "incident_commander_assigned_by_codex": false,
+  "incident_operations_owner": "",
+  "input_status": "template_pending_human_input",
+  "kernel_modified": false,
+  "on_call_evidence_slots": [
+    {
+      "evidence_key": "on_call_rotation_defined",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "escalation_schedule_defined",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    },
+    {
+      "evidence_key": "incident_commander_named",
+      "evidence_reference": "",
+      "human_source_note": "",
+      "owner_named": false,
+      "reviewed_by_human": false
+    }
+  ],
+  "on_call_owner": "",
+  "on_call_rotation_started_by_codex": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_on_call_claim_published": false,
+  "production_ready": false,
+  "public_sdk_released": false,
+  "review_date": "",
+  "runtime_modified": false,
+  "source_notes_by_key": {
+    "escalation_schedule_defined": "",
+    "incident_commander_named": "",
+    "on_call_rotation_defined": ""
+  },
+  "support_operations_started": false,
+  "support_vendor_contacted": false,
+  "template_type": "saee_on_call_evidence_input",
+  "template_version": "v0.1"
+}

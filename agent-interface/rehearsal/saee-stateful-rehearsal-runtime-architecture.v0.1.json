@@ -1,0 +1,58 @@
+{
+  "saee_stateful_rehearsal_runtime_architecture_v0_1": true,
+  "architecture_version": "0.1",
+  "status": "architecture_design_reusing_existing_single_provider_runtime",
+  "components": {
+    "agent_adapter": {"defined": true, "ref": "agent-interface/rehearsal/saee-agent-execution-result.v0.1.schema.json"},
+    "state_environment": {"defined": true, "ref": "docs/architecture/SAEE_STATEFUL_REHEARSAL_RUNTIME_ARCHITECTURE.md"},
+    "scenario_model": {"defined": true, "ref": "agent-interface/rehearsal/saee-stateful-rehearsal-scenario.v0.1.schema.json"},
+    "tool_simulator": {"defined": true, "ref": "agent-interface/rehearsal/saee-tool-simulator.v0.1.json"},
+    "observation_contract": {"defined": true, "ref": "agent-interface/rehearsal/saee-stateful-rehearsal-observation.v0.1.schema.json"},
+    "evidence_pipeline": {"defined": true, "ref": "docs/architecture/SAEE_STATEFUL_REHEARSAL_RUNTIME_ARCHITECTURE.md"},
+    "report_format": {"defined": true, "ref": "docs/architecture/SAEE_REHEARSAL_REPORT_FORMAT.md"},
+    "multi_agent_evaluation": {"defined": true, "ref": "docs/architecture/SAEE_STATEFUL_REHEARSAL_RUNTIME_ARCHITECTURE.md"}
+  },
+  "provider_matrix": [
+    {
+      "provider": "baidu_qianfan",
+      "adapter_status": "existing_controlled_stateful_adapter_validated",
+      "runtime_ref": "saee_backend/services/stateful_business_rehearsal.py",
+      "provider_gateway_separated_from_model_vendor": true,
+      "multi_vendor_catalog_observed": true,
+      "multi_vendor_rehearsal_validated": false,
+      "gateway_observation_ref": "agent-interface/rehearsal/saee-qianfan-multi-vendor-observation.v0.1.json"
+    },
+    {"provider": "openai_compatible", "adapter_status": "design_target_not_implemented", "runtime_ref": null},
+    {
+      "provider": "volcengine_ark",
+      "adapter_status": "controlled_experiment_client_implemented_not_general_adapter",
+      "runtime_ref": "saee_backend/services/rehearsal_runtime/multi_agent_runner.py",
+      "gateway_model_vendors": [
+        {"model_vendor": "bytedance", "catalog_visible": true, "live_inference_observed": true},
+        {"model_vendor": "deepseek", "catalog_visible": true, "live_inference_observed": true},
+        {"model_vendor": "zhipu", "catalog_visible": true, "live_inference_observed": true},
+        {"model_vendor": "moonshot", "catalog_visible": true, "live_inference_observed": false}
+      ],
+      "gateway_observation_ref": "agent-interface/rehearsal/saee-volcengine-multi-vendor-observation.v0.1.json"
+    },
+    {"provider": "anthropic_compatible", "adapter_status": "design_only_not_configured_not_tested", "runtime_ref": null},
+    {"provider": "future_provider", "adapter_status": "extension_point_only", "runtime_ref": null}
+  ],
+  "required_runtime_flags": {
+    "real_model_execution": true,
+    "external_world_actions": false,
+    "customer_data_used": false,
+    "production_execution": false
+  },
+  "truth_boundary": {
+    "architecture_only": true,
+    "multi_provider_runtime_implemented": false,
+    "new_provider_adapter_implemented": false,
+    "existing_qianfan_runtime_modified": false,
+    "second_evaluator_created": false,
+    "external_world_actions": false,
+    "customer_data_used": false,
+    "production_execution": false,
+    "production_ready": false
+  }
+}

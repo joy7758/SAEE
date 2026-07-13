@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-mcp-dry-integration-trace.schema.v0.1.json",
+  "title": "SAEE MCP Dry Integration Trace v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["trace_version", "trace_id", "scenario_id", "agent_id", "discovery_event", "tool_selection", "adapter_call", "runtime_delegation", "result_type", "interpretation_result", "truth_boundary"],
+  "properties": {
+    "trace_version": {"const": "0.1"},
+    "trace_id": {"type": "string", "pattern": "^trace:mcp-dry:[a-z0-9_-]+$"},
+    "scenario_id": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+    "agent_id": {"type": "string", "pattern": "^agent:synthetic-mcp:[a-z0-9-]+$"},
+    "discovery_event": {
+      "type": "object", "additionalProperties": false,
+      "required": ["package_ref", "tools_discovered"],
+      "properties": {
+        "package_ref": {"const": "ecosystem/mcp-entry-package-v1/capability-card.json"},
+        "tools_discovered": {"type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]}}
+      }
+    },
+    "tool_selection": {
+      "type": "object", "additionalProperties": false,
+      "required": ["selected_tool", "selection_status"],
+      "properties": {
+        "selected_tool": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
+        "selection_status": {"enum": ["SELECTED", "REJECTED_NOT_SAEE_CAPABILITY", "ABSTAINED_NO_SAEE_NEED"]}
+      }
+    },
+    "adapter_call": {
+      "type": "object", "additionalProperties": false,
+      "required": ["called", "adapter_ref"],
+      "properties": {
+        "called": {"type": "boolean"},
+        "adapter_ref": {"const": "saee_backend/services/capability_mcp_adapter.py"}
+      }
+    },
+    "runtime_delegation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["delegated", "runtime_ref", "canonical_service_path"],
+      "properties": {
+        "delegated": {"type": "boolean"},
+        "runtime_ref": {"const": "saee_backend/services/capability_runtime/capability_invocation.py"},
+        "canonical_service_path": {"enum": ["AGENT_RUN_CAPABILITY", "EVIDENCE_ADEQUACY", "CONTRACT_ONLY", "NOT_INVOKED"]}
+      }
+    },
+    "result_type": {"enum": ["SUCCESS", "CONTRACT_ONLY", "SELECTION_REJECTED", "ABSTAINED"]},
+    "interpretation_result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "meaning", "overinterpretation_rejected"],
+      "properties": {
+        "status": {"enum": ["VALID", "NOT_APPLICABLE"]},
+        "meaning": {"enum": ["PROFILE_REQUIREMENT_SATISFIED", "BOUNDED_RELIABILITY_CONTEXT", "CAPABILITY_CONTRACT_ONLY", "SAEE_NOT_SELECTED"]},
+        "overinterpretation_rejected": {"const": true}
+      }
+    },
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["synthetic_agent_only", "external_mcp", "external_agent", "customer_data", "secret_recorded", "prompt_recorded", "chain_of_thought_recorded", "private_model_state_recorded", "production_ready"],
+      "properties": {
+        "synthetic_agent_only": {"const": true},
+        "external_mcp": {"const": false},
+        "external_agent": {"const": false},
+        "customer_data": {"const": false},
+        "secret_recorded": {"const": false},
+        "prompt_recorded": {"const": false},
+        "chain_of_thought_recorded": {"const": false},
+        "private_model_state_recorded": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

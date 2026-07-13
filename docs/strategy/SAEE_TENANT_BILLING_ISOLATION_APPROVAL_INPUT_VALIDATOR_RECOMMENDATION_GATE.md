@@ -1,0 +1,49 @@
+# SAEE Tenant Billing Isolation Approval Input Validator Recommendation Gate
+
+answer: conditional
+
+recommend_for_human_input_validation: true
+recommend_for_tenant_billing_isolation_approval: false
+recommend_for_tenant_billing_isolation_publication: false
+recommend_for_evidence_collection_authorization: false
+recommend_for_blocker_closure: false
+recommend_for_tenant_billing_account_model_approval: false
+recommend_for_cross_tenant_billing_access_testing: false
+recommend_for_payment_provider_tenant_mapping_configuration: false
+recommend_for_payment_collection: false
+recommend_for_revenue_validation: false
+recommend_for_customer_contact: false
+recommend_for_production_launch: false
+recommend_for_production_readiness_claim: false
+
+## Reason
+
+The validator is useful because it catches missing human input and boundary
+violations before the tenant billing isolation evidence builder is run. It is
+not tenant billing isolation approval, does not configure payment-provider
+tenant mapping, and does not close the tenant_billing_isolation blocker by
+itself.
+
+## Boundary
+
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false
+runtime_modified: false
+backend_modified: false
+kernel_modified: false
+api_schema_modified: false
+external_calls_made: false
+customer_contacted: false
+tenant_billing_isolated: false
+tenant_billing_isolation_approved: false
+tenant_billing_account_model_approved: false
+cross_tenant_billing_access_tests_passed: false
+payment_provider_tenant_mapping_configured: false
+customer_payment_collected: false
+revenue_validated: false
+tenant_billing_isolation_approved_by_validator: false
+tenant_billing_isolation_published_by_validator: false
+tenant_billing_isolation_completed_by_validator: false
+blockers_closed_by_validator: 0

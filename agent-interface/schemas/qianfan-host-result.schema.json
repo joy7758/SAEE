@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.example/schemas/qianfan-host-result.schema.json",
+  "title": "SAEE Qianfan Function Host Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "adapter_id",
+    "status",
+    "provider",
+    "mcp",
+    "verification",
+    "security",
+    "truth_boundary"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "adapter_id": {"const": "saee-qianfan-function-host-v0.1"},
+    "status": {"enum": ["success", "error"]},
+    "error": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["type", "message", "retryable"],
+      "properties": {
+        "type": {"type": "string"},
+        "message": {"type": "string"},
+        "retryable": {"type": "boolean"},
+        "http_status": {"type": ["integer", "null"]}
+      }
+    },
+    "provider": {"type": "object"},
+    "mcp": {"type": "object"},
+    "final_answer": {"type": ["string", "null"]},
+    "verification": {"type": "object"},
+    "security": {"type": "object"},
+    "truth_boundary": {"type": "object"}
+  }
+}

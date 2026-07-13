@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://redcrag.cn/schemas/saee-technical-signal-release.schema.v1.0.json",
+  "title":"SAEE Technical Signal Release Package v1.0",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["signal_version","signal_id","stage_id","recommendation","evolution_subsystems","article","github_signal","developer_signal","target_ecosystems","references","truth_boundary"],
+  "properties":{
+    "signal_version":{"const":"1.0"},
+    "signal_id":{"const":"saee.technical-signal-release.v1"},
+    "stage_id":{"const":"TECHNICAL_SIGNAL_RELEASE"},
+    "recommendation":{"const":"recommend"},
+    "evolution_subsystems":{"type":"array","const":["GLOBAL_SENSING","TRAIT_EXTRACTION"]},
+    "article":{"type":"object","additionalProperties":false,"required":["title_zh","title_en","reference","status"],"properties":{"title_zh":{"const":"为什么自主智能体需要执行前可靠性评估"},"title_en":{"const":"Why Agents Need Readiness Evaluation Before Autonomous Execution"},"reference":{"const":"docs/public/WHY_AGENTS_NEED_READINESS_EVALUATION.md"},"status":{"const":"local_publication_ready_draft"}}},
+    "github_signal":{"type":"object","additionalProperties":false,"required":["canonical_product_center","machine_discovery_surfaces","status"],"properties":{"canonical_product_center":{"const":"joy7758/SAEE"},"machine_discovery_surfaces":{"type":"array","const":["README.md","agent-index.json","llms.txt"]},"status":{"const":"local_repository_surface_ready"}}},
+    "developer_signal":{"type":"object","additionalProperties":false,"required":["public_operations","protocols","status"],"properties":{"public_operations":{"type":"array","const":["saee.evaluate_agent_run","saee.evaluate_evidence"]},"protocols":{"type":"array","const":["MCP","HTTP Contract"]},"status":{"const":"local_contracts_discoverable"}}},
+    "target_ecosystems":{"type":"array","minItems":4,"uniqueItems":true,"items":{"type":"string","minLength":3}},
+    "references":{"type":"object","additionalProperties":false,"required":["roadmap","public_surface","capability_index","recommendation_gate"],"properties":{"roadmap":{"const":"agent-interface/ecosystem/saee-ecosystem-first-roadmap.v1.0.json"},"public_surface":{"const":"agent-interface/public/saee-public-capability-surface.v0.1.json"},"capability_index":{"const":".well-known/saee-capability-index.json"},"recommendation_gate":{"const":"docs/strategy/SAEE_TECHNICAL_SIGNAL_RELEASE_RECOMMENDATION_GATE.md"}}},
+    "truth_boundary":{"type":"object","additionalProperties":false,"required":["technical_signal_package_ready","article_published","github_release_created","developer_activity_presented","ecosystem_technical_conversation_verified","partner_relationship_established","official_cloud_integration","marketplace_listed","external_agent_adoption_validated","production_ready"],"properties":{"technical_signal_package_ready":{"const":true},"article_published":{"const":false},"github_release_created":{"const":false},"developer_activity_presented":{"const":false},"ecosystem_technical_conversation_verified":{"const":false},"partner_relationship_established":{"const":false},"official_cloud_integration":{"const":false},"marketplace_listed":{"const":false},"external_agent_adoption_validated":{"const":false},"production_ready":{"const":false}}}
+  }
+}

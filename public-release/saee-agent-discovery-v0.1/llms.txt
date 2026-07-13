@@ -1,0 +1,38 @@
+# SAEE Evidence Adequacy Layer
+
+> SAEE 为智能体责任工作流提供机器可验证的证据充分性评估能力。
+
+SAEE is a research prototype and evidence adequacy evaluation capability.
+SAEE does not provide security certification, legal determination, regulatory compliance, deployment approval, or a production governance guarantee.
+
+## Agent entry points
+
+- Agent index: https://redcrag.cn/.well-known/agent-index.json
+- Capability manifest: https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json
+- Overview: https://redcrag.cn/docs/overview.md
+- Architecture: https://redcrag.cn/docs/architecture-overview.md
+- Evidence adequacy: https://redcrag.cn/docs/evidence-adequacy.md
+- Reproducibility: https://redcrag.cn/docs/reproducibility-overview.md
+- Limitations: https://redcrag.cn/docs/limitations.md
+- Synthetic example: https://redcrag.cn/examples/synthetic-review-example.json
+
+## Use SAEE when
+
+- a bounded accountability claim is defined;
+- evidence objects and observation references are available;
+- a fixed evaluation profile is selected;
+- missing evidence relationships must be identified.
+
+## Do not use SAEE for
+
+- runtime authorization enforcement;
+- malware detection;
+- legal or regulatory determination;
+- deployment authorization;
+- runtime safety blocking.
+
+## Output contract
+
+SAEE outputs claim assessment, evidence sufficiency status, missing requirements, stable reason codes, limitations, and a boundary statement.
+
+The public layer is static and read-only. It provides no API, MCP endpoint, executable adapter, or production service.

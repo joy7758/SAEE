@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-reliability-research-artifact-manifest.schema.v1.0.json",
+  "title": "SAEE Agent Reliability Research Artifact Manifest v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest_version", "artifact_id", "source_benchmark_id", "run_count", "methodology_review_reference", "report_reference", "sources", "limitations", "truth_boundary"],
+  "properties": {
+    "manifest_version": {"const": "1.0"},
+    "artifact_id": {"const": "saee-agent-reliability-research-artifact-v1"},
+    "source_benchmark_id": {"const": "saee-extended-internal-reliability-v1.1"},
+    "run_count": {"const": 75},
+    "methodology_review_reference": {"const": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json"},
+    "report_reference": {"const": "docs/research/SAEE_AGENT_RELIABILITY_RESEARCH_REPORT_V1.md"},
+    "sources": {"type": "array", "minItems": 6, "maxItems": 10, "uniqueItems": true, "items": {"type": "object", "additionalProperties": false, "required": ["reference", "sha256"], "properties": {"reference": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+    "limitations": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "truth_boundary": {"type": "object", "additionalProperties": false, "required": ["internal_benchmark", "public_benchmark", "peer_reviewed", "publicly_published", "ranking_generated", "certification", "population_reliability_probability_established", "external_validation_completed", "production_ready"], "properties": {"internal_benchmark": {"const": true}, "public_benchmark": {"const": false}, "peer_reviewed": {"const": false}, "publicly_published": {"const": false}, "ranking_generated": {"const": false}, "certification": {"const": false}, "population_reliability_probability_established": {"const": false}, "external_validation_completed": {"const": false}, "production_ready": {"const": false}}}
+  }
+}

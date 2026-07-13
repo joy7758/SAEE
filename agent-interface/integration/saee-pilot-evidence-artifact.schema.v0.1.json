@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saee:integration:pilot-evidence-artifact:0.1",
+  "title": "SAEE Synthetic Pilot Gap Evidence Artifact v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "source_gap_id",
+    "artifact_version",
+    "verification_method",
+    "verification_status",
+    "evidence_reference"
+  ],
+  "properties": {
+    "artifact_id": {"type": "string", "minLength": 1, "pattern": "^synthetic:artifact:[a-z0-9-]+$"},
+    "artifact_type": {"type": "string", "minLength": 1},
+    "source_gap_id": {"type": "string", "minLength": 1, "pattern": "^GAP_[A-Z0-9_]+$"},
+    "artifact_version": {"type": "string", "minLength": 1},
+    "verification_method": {"type": "string", "minLength": 1},
+    "verification_status": {"enum": ["PENDING", "VERIFIED", "REJECTED"]},
+    "evidence_reference": {"type": "string", "minLength": 1}
+  }
+}

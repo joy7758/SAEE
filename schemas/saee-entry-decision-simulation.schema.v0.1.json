@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"saee-entry-decision-simulation.schema.v0.1.json",
+  "title":"SAEE Entry Decision Simulation Scenario v0.1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["simulation_id","input_readiness","gap_state","evidence_state","independent_review_state","decision_result","execution_authorized","limitations"],
+  "properties":{
+    "simulation_id":{"type":"string","pattern":"^[A-Z][A-Z0-9_]{2,80}$"},
+    "input_readiness":{"type":"object","additionalProperties":false,"required":["critical_gaps_open","required_gaps_open","all_required_gaps_closed","requested_execution_authorized"],"properties":{"critical_gaps_open":{"type":"integer","minimum":0,"maximum":20},"required_gaps_open":{"type":"integer","minimum":0,"maximum":20},"all_required_gaps_closed":{"type":"boolean"},"requested_execution_authorized":{"type":"boolean"}}},
+    "gap_state":{"type":"object","additionalProperties":false,"required":["claimed_closed_gap_ids","closure_records"],"properties":{"claimed_closed_gap_ids":{"type":"array","maxItems":20,"uniqueItems":true,"items":{"type":"string","pattern":"^EVR-[A-Z]+-[0-9]{3}$"}},"closure_records":{"type":"array","maxItems":20,"items":{"$ref":"saee-gap-closure-evidence.schema.v0.1.json"}}}},
+    "evidence_state":{"type":"object","additionalProperties":false,"required":["evidence_verified","closure_evidence_present","customer_validated","adoption_claim","market_validation","external_approval_claimed","production_ready"],"properties":{"evidence_verified":{"type":"boolean"},"closure_evidence_present":{"type":"boolean"},"customer_validated":{"type":"boolean"},"adoption_claim":{"type":"boolean"},"market_validation":{"type":"boolean"},"external_approval_claimed":{"type":"boolean"},"production_ready":{"type":"boolean"}}},
+    "independent_review_state":{"type":"object","additionalProperties":false,"required":["completed","review_reference"],"properties":{"completed":{"type":"boolean"},"review_reference":{"type":"string","maxLength":240}}},
+    "decision_result":{"enum":["HOLD","CONDITIONAL_ENTRY_REVIEW","ENTRY_READY","REJECTED"]},
+    "execution_authorized":{"const":false},
+    "limitations":{"type":"array","minItems":2,"maxItems":10,"uniqueItems":true,"items":{"type":"string","minLength":1,"maxLength":300}}
+  }
+}
+

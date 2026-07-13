@@ -1,0 +1,10 @@
+{
+  "scenario_id": "EVIDENCE_EVALUATION_TASK",
+  "task_type": "EVIDENCE_ADEQUACY_EVALUATION",
+  "task_description": "Evaluate whether a closed synthetic evidence package satisfies its fixed profile.",
+  "expected_selection": "evaluate_evidence",
+  "expected_outcome": "SUCCESS",
+  "invocation_allowed": true,
+  "input_ref": "agent-interface/capabilities/examples/valid_supported_request.json",
+  "simulation_only": true
+}

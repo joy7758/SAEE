@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "software_name": "SAEE智能体就绪评估软件",
+  "software_version": "V1.0",
+  "candidate_freeze_id_sha256": "e998fb3c8ee569f37550f89d20a49a89b940bd9ea14a442c07016f99ce7e758a",
+  "source_logical_line_count": 359,
+  "source_display_line_count": 383,
+  "files": [
+    {
+      "path": "scripts/saee_agent_readiness_mcp_stdio.py",
+      "role": "source_program",
+      "sha256": "414e3aeae0a710284604863f9fb1cddbbda4ac4cb03e89d62fad87c7a8e4cfde",
+      "bytes": 615,
+      "logical_lines": 25,
+      "git_state": "tracked_clean"
+    },
+    {
+      "path": "saee_backend/services/qianfan_readiness_mcp_adapter.py",
+      "role": "source_program",
+      "sha256": "0203087c1e26c2a7c7cca28f5f2c5ffb4a7069d52c7c9b2b9adecf7ca5a06c86",
+      "bytes": 7818,
+      "logical_lines": 160,
+      "git_state": "tracked_clean"
+    },
+    {
+      "path": "saee_backend/services/baidu_agent_readiness_service.py",
+      "role": "source_program",
+      "sha256": "bbd3253f0c56bef899fded64ba9242fb0108e8fd5a2e6e94107db3f07d738c37",
+      "bytes": 7191,
+      "logical_lines": 174,
+      "git_state": "tracked_clean"
+    }
+  ],
+  "complete_source_submitted_because_under_60_pages": true,
+  "final_submission_ready": false
+}

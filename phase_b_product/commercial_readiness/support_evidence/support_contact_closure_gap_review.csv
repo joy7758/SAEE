@@ -1,0 +1,5 @@
+group_id,purpose,required_count,complete_count,missing_count,missing_keys,ready_for_review
+support_contact,"Support intake contact, owner, abuse path, notice route, and test record.",5,5,0,,True
+customer_support,"Staffed support workflow, triage, audit trail, engineering handoff, customer template, and dry run.",6,6,0,,True
+sla,"Human-approved SLA terms, severity definitions, hours, response targets, exclusions, and legal review.",6,6,0,,True
+on_call,"On-call rotation, escalation schedule, and incident commander ownership.",3,3,0,,True

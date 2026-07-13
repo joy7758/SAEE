@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "review_id": "saee:review:external-agent-pilot-readiness:0.1",
+  "review_stage": "read_only_gap_assessment",
+  "documentation_ref": "docs/commercial/SAEE_EXTERNAL_AGENT_PILOT_READINESS_REVIEW.md",
+  "dimensions": {
+    "identity": {
+      "status": "PARTIAL",
+      "blocking": true,
+      "design_context_refs": ["docs/architecture/SAEE_EXTERNAL_AGENT_INTEGRATION_DESIGN.md"],
+      "evidence_refs": [
+        "agent-interface/integration/saee-external-agent-integration-design.v0.1.json",
+        "docs/architecture/SAEE_EXTERNAL_AGENT_INTEGRATION_DESIGN.md"
+      ],
+      "checks": [
+        {"check_id": "identity_model_exists", "satisfied": true, "evidence_refs": ["agent-interface/integration/saee-external-agent-integration-design.v0.1.json"]},
+        {"check_id": "authentication_plan_exists", "satisfied": false, "evidence_refs": []},
+        {"check_id": "trust_boundary_defined", "satisfied": true, "evidence_refs": ["docs/architecture/SAEE_EXTERNAL_AGENT_INTEGRATION_DESIGN.md"]}
+      ],
+      "missing_evidence": ["approved_authentication_plan", "verified_external_agent_identity_evidence"]
+    },
+    "security": {
+      "status": "NOT_READY",
+      "blocking": true,
+      "design_context_refs": ["docs/architecture/SAEE_EXTERNAL_AGENT_INTEGRATION_DESIGN.md"],
+      "evidence_refs": [],
+      "checks": [
+        {"check_id": "security_review_completed", "satisfied": false, "evidence_refs": []},
+        {"check_id": "credential_policy_approved", "satisfied": false, "evidence_refs": []},
+        {"check_id": "incident_handling_implemented", "satisfied": false, "evidence_refs": []}
+      ],
+      "missing_evidence": ["formal_security_review", "approved_credential_policy", "implemented_incident_handling_evidence"]
+    },
+    "data": {
+      "status": "NOT_READY",
+      "blocking": true,
+      "design_context_refs": ["docs/commercial/SAEE_CONTROLLED_EXTERNAL_AGENT_PILOT_DESIGN.md"],
+      "evidence_refs": [],
+      "checks": [
+        {"check_id": "data_ownership_established", "satisfied": false, "evidence_refs": []},
+        {"check_id": "data_permission_approved", "satisfied": false, "evidence_refs": []},
+        {"check_id": "retention_policy_approved", "satisfied": false, "evidence_refs": []},
+        {"check_id": "deletion_process_implemented", "satisfied": false, "evidence_refs": []}
+      ],
+      "missing_evidence": ["data_ownership_record", "data_usage_permission", "approved_retention_policy", "implemented_deletion_evidence"]
+    },
+    "runtime": {
+      "status": "NOT_READY",
+      "blocking": true,
+      "design_context_refs": ["docs/commercial/SAEE_CONTROLLED_PILOT_SIMULATION.md"],
+      "evidence_refs": [],
+      "checks": [
+        {"check_id": "environment_isolation_implemented", "satisfied": false, "evidence_refs": []},
+        {"check_id": "monitoring_implemented", "satisfied": false, "evidence_refs": []},
+        {"check_id": "recovery_implemented", "satisfied": false, "evidence_refs": []}
+      ],
+      "missing_evidence": ["isolation_test_evidence", "monitoring_test_evidence", "recovery_and_rollback_test_evidence"]
+    },
+    "human_governance": {
+      "status": "PARTIAL",
+      "blocking": true,
+      "design_context_refs": ["docs/commercial/SAEE_CONTROLLED_EXTERNAL_AGENT_PILOT_DESIGN.md"],
+      "evidence_refs": ["agent-interface/integration/saee-controlled-pilot-design.v0.1.json"],
+      "checks": [
+        {"check_id": "responsible_owner_assigned", "satisfied": false, "evidence_refs": []},
+        {"check_id": "approval_path_defined", "satisfied": true, "evidence_refs": ["agent-interface/integration/saee-controlled-pilot-design.v0.1.json"]},
+        {"check_id": "escalation_owner_assigned", "satisfied": false, "evidence_refs": []}
+      ],
+      "missing_evidence": ["named_responsible_owner", "named_escalation_owner", "execution_authority_assignment"]
+    }
+  },
+  "readiness_score": {
+    "method": "SATISFIED_CHECKS_OVER_REQUIRED_CHECKS",
+    "satisfied_checks": 3,
+    "required_checks": 16,
+    "percentage": 19,
+    "is_probability": false,
+    "operational_readiness_established": false
+  },
+  "blocking_conditions": [
+    "AUTHENTICATION_PLAN_MISSING",
+    "VERIFIED_EXTERNAL_IDENTITY_MISSING",
+    "SECURITY_REVIEW_MISSING",
+    "CREDENTIAL_POLICY_MISSING",
+    "INCIDENT_HANDLING_MISSING",
+    "DATA_OWNERSHIP_EVIDENCE_MISSING",
+    "DATA_PERMISSION_EVIDENCE_MISSING",
+    "RETENTION_POLICY_APPROVAL_MISSING",
+    "DELETION_IMPLEMENTATION_EVIDENCE_MISSING",
+    "ENVIRONMENT_ISOLATION_EVIDENCE_MISSING",
+    "MONITORING_EVIDENCE_MISSING",
+    "RECOVERY_EVIDENCE_MISSING",
+    "RESPONSIBLE_OWNER_MISSING",
+    "ESCALATION_OWNER_MISSING",
+    "EXECUTION_AUTHORITY_MISSING"
+  ],
+  "human_boundary": {
+    "human_review_required": true,
+    "responsible_owner_assigned": false,
+    "execution_authority_assigned": false,
+    "automatic_approval_allowed": false
+  },
+  "pilot_authorized": false,
+  "external_agent_connected": false,
+  "external_validation_completed": false,
+  "customer_validated": false,
+  "production_ready": false,
+  "network_accessed": false,
+  "external_execution": false
+}

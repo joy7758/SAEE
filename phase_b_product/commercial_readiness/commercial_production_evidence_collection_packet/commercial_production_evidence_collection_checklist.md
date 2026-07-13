@@ -1,0 +1,170 @@
+# SAEE Commercial Production Evidence Collection Checklist
+
+Use this checklist only after a separate human decision authorizes evidence collection.
+
+## Phase 1: Identity, authorization, and tenant boundary
+- [ ] ECP-001 `production_identity_provider` / `production_identity_provider_selected` - owner lane: `engineering_security`
+- [ ] ECP-002 `production_identity_provider` / `identity_provider_admin_owner_named` - owner lane: `engineering_security`
+- [ ] ECP-003 `production_identity_provider` / `oidc_issuer_verified` - owner lane: `engineering_security`
+- [ ] ECP-004 `production_identity_provider` / `oidc_audience_approved` - owner lane: `engineering_security`
+- [ ] ECP-005 `production_identity_provider` / `jwks_rotation_policy_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-006 `oauth_oidc` / `oauth_oidc_flow_approved` - owner lane: `engineering_security`
+- [ ] ECP-007 `oauth_oidc` / `token_validation_test_recorded` - owner lane: `engineering_security`
+- [ ] ECP-008 `oauth_oidc` / `claims_mapping_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-009 `oauth_oidc` / `session_expiry_policy_approved` - owner lane: `engineering_security`
+- [ ] ECP-010 `oauth_oidc` / `auth_failure_handling_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-011 `rbac` / `rbac_policy_approved` - owner lane: `engineering_security`
+- [ ] ECP-012 `rbac` / `role_matrix_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-013 `rbac` / `tenant_role_boundary_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-014 `rbac` / `least_privilege_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-015 `rbac` / `admin_recovery_policy_reviewed` - owner lane: `engineering_security`
+- [ ] ECP-016 `tenant_storage_isolation` / `production_tenant_data_model_approved` - owner lane: `engineering_data_security`
+- [ ] ECP-017 `tenant_storage_isolation` / `tenant_scoped_primary_keys_or_partitions_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-018 `tenant_storage_isolation` / `tenant_query_enforcement_design_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-019 `tenant_storage_isolation` / `tenant_storage_migration_plan_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-020 `tenant_storage_isolation` / `same_experiment_id_cross_tenant_partition_tests_passed` - owner lane: `engineering_data_security`
+- [ ] ECP-021 `tenant_storage_isolation` / `cross_tenant_read_denial_tests_passed` - owner lane: `engineering_data_security`
+- [ ] ECP-022 `tenant_storage_isolation` / `cross_tenant_write_denial_tests_passed` - owner lane: `engineering_data_security`
+- [ ] ECP-023 `tenant_storage_isolation` / `tenant_scoped_listing_tests_passed` - owner lane: `engineering_data_security`
+- [ ] ECP-024 `tenant_storage_isolation` / `tenant_scoped_report_endpoint_tests_passed` - owner lane: `engineering_data_security`
+- [ ] ECP-025 `tenant_storage_isolation` / `tenant_scoped_audit_metadata_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-026 `tenant_storage_isolation` / `tenant_backup_restore_boundary_approved` - owner lane: `engineering_data_security`
+- [ ] ECP-027 `tenant_storage_isolation` / `tenant_deletion_retention_boundary_approved` - owner lane: `engineering_data_security`
+- [ ] ECP-028 `tenant_storage_isolation` / `tenant_storage_observability_plan_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-029 `tenant_storage_isolation` / `tenant_authorization_policy_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-030 `tenant_storage_isolation` / `tenant_secret_boundary_reviewed` - owner lane: `engineering_data_security`
+- [ ] ECP-031 `tenant_storage_isolation` / `security_review_completed` - owner lane: `engineering_data_security`
+- [ ] ECP-032 `tenant_storage_isolation` / `privacy_legal_review_completed` - owner lane: `engineering_data_security`
+- [ ] ECP-033 `tenant_storage_isolation` / `customer_data_processing_non_claim_reviewed` - owner lane: `engineering_data_security`
+
+## Phase 2: Data recovery and production operations
+- [ ] ECP-034 `production_monitoring` / `production_monitoring_plan_approved` - owner lane: `operations_engineering`
+- [ ] ECP-035 `production_monitoring` / `metrics_coverage_approved` - owner lane: `operations_engineering`
+- [ ] ECP-036 `production_monitoring` / `slo_dashboard_defined` - owner lane: `operations_engineering`
+- [ ] ECP-037 `production_monitoring` / `log_retention_reviewed` - owner lane: `operations_engineering`
+- [ ] ECP-038 `production_monitoring` / `monitoring_dry_run_recorded` - owner lane: `operations_engineering`
+- [ ] ECP-039 `external_alert_delivery` / `external_alert_channel_configured` - owner lane: `operations_engineering`
+- [ ] ECP-040 `external_alert_delivery` / `alert_routing_policy_approved` - owner lane: `operations_engineering`
+- [ ] ECP-041 `external_alert_delivery` / `alert_delivery_test_recorded` - owner lane: `operations_engineering`
+- [ ] ECP-042 `external_alert_delivery` / `alert_failure_handling_defined` - owner lane: `operations_engineering`
+- [ ] ECP-043 `external_alert_delivery` / `incident_escalation_path_defined` - owner lane: `operations_engineering`
+- [ ] ECP-044 `external_alert_delivery` / `alert_acknowledgement_process_defined` - owner lane: `operations_engineering`
+- [ ] ECP-045 `on_call_rotation` / `on_call_rotation_defined` - owner lane: `operations_engineering`
+- [ ] ECP-046 `on_call_rotation` / `escalation_schedule_defined` - owner lane: `operations_engineering`
+- [ ] ECP-047 `on_call_rotation` / `incident_commander_named` - owner lane: `operations_engineering`
+- [ ] ECP-048 `restore_tested` / `production_like_restore_test_plan_approved` - owner lane: `data_operations`
+- [ ] ECP-049 `restore_tested` / `isolated_restore_environment_used` - owner lane: `data_operations`
+- [ ] ECP-050 `restore_tested` / `restore_integrity_checks_passed` - owner lane: `data_operations`
+- [ ] ECP-051 `restore_tested` / `rto_rpo_observed_and_recorded` - owner lane: `data_operations`
+- [ ] ECP-052 `restore_tested` / `tenant_scope_validated_if_customer_data_exists` - owner lane: `data_operations`
+- [ ] ECP-053 `restore_tested` / `restore_test_report_reviewed` - owner lane: `data_operations`
+- [ ] ECP-054 `production_restore_policy` / `production_restore_policy_approved` - owner lane: `data_operations`
+- [ ] ECP-055 `production_restore_policy` / `backup_retention_policy_approved` - owner lane: `data_operations`
+- [ ] ECP-056 `production_restore_policy` / `tenant_restore_boundary_approved` - owner lane: `data_operations`
+- [ ] ECP-057 `production_restore_policy` / `credential_secret_exclusion_reviewed` - owner lane: `data_operations`
+- [ ] ECP-058 `production_restore_policy` / `customer_notification_boundary_approved` - owner lane: `data_operations`
+- [ ] ECP-059 `production_restore_policy` / `incident_response_handoff_approved` - owner lane: `data_operations`
+
+## Phase 3: Support, security, privacy, and legal readiness
+- [ ] ECP-060 `support_contact` / `customer_facing_support_contact_configured` - owner lane: `support_operations`
+- [ ] ECP-061 `support_contact` / `support_contact_owner_named` - owner lane: `support_operations`
+- [ ] ECP-062 `support_contact` / `support_contact_test_recorded` - owner lane: `support_operations`
+- [ ] ECP-063 `support_contact` / `abuse_handling_path_defined` - owner lane: `support_operations`
+- [ ] ECP-064 `support_contact` / `customer_notice_route_defined` - owner lane: `support_operations`
+- [ ] ECP-065 `customer_support` / `staffed_support_process_defined` - owner lane: `support_operations`
+- [ ] ECP-066 `customer_support` / `case_triage_workflow_defined` - owner lane: `support_operations`
+- [ ] ECP-067 `customer_support` / `customer_communication_template_approved` - owner lane: `support_operations`
+- [ ] ECP-068 `customer_support` / `support_case_audit_trail_available` - owner lane: `support_operations`
+- [ ] ECP-069 `customer_support` / `handoff_to_engineering_defined` - owner lane: `support_operations`
+- [ ] ECP-070 `sla` / `human_approved_sla_terms` - owner lane: `support_operations`
+- [ ] ECP-071 `sla` / `support_hours_approved` - owner lane: `support_operations`
+- [ ] ECP-072 `sla` / `response_targets_approved` - owner lane: `support_operations`
+- [ ] ECP-073 `sla` / `severity_definitions_approved` - owner lane: `support_operations`
+- [ ] ECP-074 `sla` / `exclusions_approved` - owner lane: `support_operations`
+- [ ] ECP-075 `sla` / `legal_review_completed` - owner lane: `support_operations`
+- [ ] ECP-076 `formal_security_review` / `formal_security_review_report` - owner lane: `security_legal_privacy`
+- [ ] ECP-077 `formal_security_review` / `public_shell_threat_model_reviewed` - owner lane: `security_legal_privacy`
+- [ ] ECP-078 `formal_security_review` / `dependency_review_completed` - owner lane: `security_legal_privacy`
+- [ ] ECP-079 `formal_security_review` / `auth_and_tenant_boundary_reviewed` - owner lane: `security_legal_privacy`
+- [ ] ECP-080 `formal_security_review` / `storage_backup_and_restore_reviewed` - owner lane: `security_legal_privacy`
+- [ ] ECP-081 `formal_security_review` / `review_findings_triaged` - owner lane: `security_legal_privacy`
+- [ ] ECP-082 `privacy_legal_review` / `privacy_notice_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-083 `privacy_legal_review` / `privacy_notice_published` - owner lane: `security_legal_privacy`
+- [ ] ECP-084 `privacy_legal_review` / `data_inventory_reviewed` - owner lane: `security_legal_privacy`
+- [ ] ECP-085 `privacy_legal_review` / `controller_processor_roles_defined` - owner lane: `security_legal_privacy`
+- [ ] ECP-086 `privacy_legal_review` / `subprocessor_inventory_reviewed` - owner lane: `security_legal_privacy`
+- [ ] ECP-087 `privacy_legal_review` / `retention_policy_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-088 `privacy_legal_review` / `terms_of_service_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-089 `privacy_legal_review` / `terms_published` - owner lane: `security_legal_privacy`
+- [ ] ECP-090 `privacy_legal_review` / `breach_notice_terms_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-091 `data_processing_agreement` / `customer_dpa_template_available` - owner lane: `security_legal_privacy`
+- [ ] ECP-092 `data_processing_agreement` / `dpa_terms_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-093 `data_processing_agreement` / `subprocessor_terms_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-094 `data_processing_agreement` / `deletion_or_return_terms_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-095 `data_processing_agreement` / `customer_data_processing_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-096 `data_processing_agreement` / `dpa_sent_to_customer` - owner lane: `security_legal_privacy`
+- [ ] ECP-097 `vulnerability_management` / `security_contact_configured` - owner lane: `security_legal_privacy`
+- [ ] ECP-098 `vulnerability_management` / `coordinated_disclosure_policy_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-099 `vulnerability_management` / `vulnerability_case_dry_run_recorded` - owner lane: `security_legal_privacy`
+- [ ] ECP-100 `vulnerability_management` / `triage_owner_named` - owner lane: `security_legal_privacy`
+- [ ] ECP-101 `vulnerability_management` / `severity_model_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-102 `vulnerability_management` / `remediation_targets_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-103 `vulnerability_management` / `advisory_publication_policy_approved` - owner lane: `security_legal_privacy`
+- [ ] ECP-104 `vulnerability_management` / `vulnerability_management_operational` - owner lane: `security_legal_privacy`
+
+## Phase 4: Commercial packaging and billing
+- [ ] ECP-105 `pricing_page` / `human_approved_pricing_page_copy` - owner lane: `commercial_finance_legal`
+- [ ] ECP-106 `pricing_page` / `approved_plan_and_usage_terms` - owner lane: `commercial_finance_legal`
+- [ ] ECP-107 `pricing_page` / `legal_review_completed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-108 `pricing_page` / `production_readiness_non_claim_reviewed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-109 `pricing_page` / `pricing_page_publication_approval_recorded` - owner lane: `commercial_finance_legal`
+- [ ] ECP-110 `payment_provider` / `payment_provider_selected` - owner lane: `commercial_finance_legal`
+- [ ] ECP-111 `payment_provider` / `test_mode_configuration_reviewed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-112 `payment_provider` / `checkout_enablement_approval_required` - owner lane: `commercial_finance_legal`
+- [ ] ECP-113 `payment_provider` / `webhook_signature_validation_tested` - owner lane: `commercial_finance_legal`
+- [ ] ECP-114 `payment_provider` / `payment_event_redaction_reviewed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-115 `payment_provider` / `security_review_completed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-116 `invoice_process` / `invoice_owner_named` - owner lane: `commercial_finance_legal`
+- [ ] ECP-117 `invoice_process` / `invoice_workflow_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-118 `invoice_process` / `contract_handoff_defined` - owner lane: `commercial_finance_legal`
+- [ ] ECP-119 `invoice_process` / `payment_reconciliation_tested` - owner lane: `commercial_finance_legal`
+- [ ] ECP-120 `invoice_process` / `billing_support_handoff_defined` - owner lane: `commercial_finance_legal`
+- [ ] ECP-121 `invoice_process` / `bookkeeping_review_completed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-122 `tax_review` / `target_jurisdictions_reviewed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-123 `tax_review` / `tax_obligations_reviewed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-124 `tax_review` / `invoice_wording_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-125 `tax_review` / `currency_policy_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-126 `tax_review` / `tax_collection_approval_recorded` - owner lane: `commercial_finance_legal`
+- [ ] ECP-127 `refund_policy` / `refund_policy_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-128 `refund_policy` / `cancellation_process_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-129 `refund_policy` / `trial_conversion_policy_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-130 `refund_policy` / `service_failure_remedy_boundary_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-131 `refund_policy` / `support_escalation_route_defined` - owner lane: `commercial_finance_legal`
+- [ ] ECP-132 `tenant_billing_isolation` / `tenant_billing_account_model_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-133 `tenant_billing_isolation` / `tenant_invoice_partitioning_tested` - owner lane: `commercial_finance_legal`
+- [ ] ECP-134 `tenant_billing_isolation` / `tenant_payment_event_partitioning_tested` - owner lane: `commercial_finance_legal`
+- [ ] ECP-135 `tenant_billing_isolation` / `cross_tenant_billing_access_tests_passed` - owner lane: `commercial_finance_legal`
+- [ ] ECP-136 `tenant_billing_isolation` / `billing_audit_metadata_policy_approved` - owner lane: `commercial_finance_legal`
+- [ ] ECP-137 `tenant_billing_isolation` / `tenant_billing_retention_policy_approved` - owner lane: `commercial_finance_legal`
+
+## Phase 5: Customer validation and launch review
+- [ ] ECP-138 `pilot_results` / `at_least_one_human_approved_pilot_session_completed` - owner lane: `customer_validation`
+- [ ] ECP-139 `pilot_results` / `pilot_result_template_completed` - owner lane: `customer_validation`
+- [ ] ECP-140 `pilot_results` / `feedback_form_completed` - owner lane: `customer_validation`
+- [ ] ECP-141 `pilot_results` / `success_criteria_applied` - owner lane: `customer_validation`
+- [ ] ECP-142 `pilot_results` / `boundary_flags_reviewed` - owner lane: `customer_validation`
+- [ ] ECP-143 `pilot_results` / `pilot_result_reviewed_by_human` - owner lane: `customer_validation`
+- [ ] ECP-144 `customer_validated` / `real_customer_or_target_user_feedback_recorded` - owner lane: `customer_validation`
+- [ ] ECP-145 `customer_validated` / `permission_to_use_feedback_recorded` - owner lane: `customer_validation`
+- [ ] ECP-146 `customer_validated` / `customer_problem_fit_reviewed` - owner lane: `customer_validation`
+- [ ] ECP-147 `customer_validated` / `decision_usefulness_observed` - owner lane: `customer_validation`
+- [ ] ECP-148 `customer_validated` / `claim_scope_approved` - owner lane: `customer_validation`
+- [ ] ECP-149 `customer_validated` / `customer_validation_record_approved_by_human` - owner lane: `customer_validation`
+
+## Collection Boundary
+
+- Do not contact customers unless separately approved.
+- Do not contact vendors unless separately approved.
+- Do not enable payments, checkout, invoices, or tax collection from this packet.
+- Do not modify runtime, backend, kernel, API schema, or private core from this packet.
+- Do not close blockers from this packet alone.

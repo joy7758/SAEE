@@ -1,0 +1,55 @@
+{
+  "matrix_version": "0.1",
+  "matrix_id": "saee.first-real-ecosystem-validation-readiness",
+  "dimensions": [
+    {
+      "dimension": "technical",
+      "status": "READY",
+      "checks": [
+        {"check_id": "mcp_package", "status": "VERIFIED", "evidence_ref": "ecosystem/mcp-entry-package-v1/capability-card.json"},
+        {"check_id": "local_runtime", "status": "VERIFIED", "evidence_ref": "saee_backend/services/capability_runtime/capability_invocation.py"},
+        {"check_id": "ecosystem_demo", "status": "VERIFIED", "evidence_ref": "examples/ecosystem-demo-v1/README.md"},
+        {"check_id": "feedback_schema", "status": "VERIFIED", "evidence_ref": "schemas/saee-ecosystem-validation-feedback.schema.v0.1.json"}
+      ]
+    },
+    {
+      "dimension": "candidate",
+      "status": "READY",
+      "checks": [
+        {"check_id": "candidate_category_defined", "status": "VERIFIED", "evidence_ref": "agent-interface/ecosystem/saee-first-validation-candidate-matrix.v0.1.json"},
+        {"check_id": "success_criteria_defined", "status": "VERIFIED", "evidence_ref": "agent-interface/ecosystem/saee-first-validation-success-criteria.v0.1.json"}
+      ]
+    },
+    {
+      "dimension": "scope",
+      "status": "READY",
+      "checks": [
+        {"check_id": "scope_defined", "status": "VERIFIED", "evidence_ref": "schemas/saee-first-ecosystem-validation-scope.schema.v0.1.json"},
+        {"check_id": "synthetic_candidate_simulated", "status": "VERIFIED", "evidence_ref": "agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json"}
+      ]
+    },
+    {
+      "dimension": "risk",
+      "status": "GAP",
+      "checks": [
+        {"check_id": "data_boundary", "status": "UNVERIFIED", "evidence_ref": "docs/ecosystem/SAEE_ECOSYSTEM_VALIDATION_EVIDENCE_BOUNDARY.md"},
+        {"check_id": "credential_boundary", "status": "UNVERIFIED", "evidence_ref": "docs/ecosystem/SAEE_CONTROLLED_EXTERNAL_VALIDATION_DESIGN.md"},
+        {"check_id": "external_action_boundary", "status": "VERIFIED", "evidence_ref": "docs/ecosystem/SAEE_EXTERNAL_VALIDATION_TERMINATION_POLICY.md"}
+      ]
+    },
+    {
+      "dimension": "operational",
+      "status": "GAP",
+      "checks": [
+        {"check_id": "owner_role", "status": "UNVERIFIED", "evidence_ref": "docs/ecosystem/SAEE_EXTERNAL_VALIDATION_TERMINATION_POLICY.md"},
+        {"check_id": "issue_handling", "status": "UNVERIFIED", "evidence_ref": "docs/ecosystem/SAEE_CONTROLLED_EXTERNAL_VALIDATION_DESIGN.md"},
+        {"check_id": "termination_path", "status": "VERIFIED", "evidence_ref": "docs/ecosystem/SAEE_EXTERNAL_VALIDATION_TERMINATION_POLICY.md"}
+      ]
+    }
+  ],
+  "limitations": [
+    "All readiness evidence is local and does not establish real participant readiness.",
+    "Synthetic candidate simulation does not verify external interoperability.",
+    "Risk and operational checks remain unverified for a real validation session."
+  ]
+}

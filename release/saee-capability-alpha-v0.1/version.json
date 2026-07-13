@@ -1,0 +1,9 @@
+{
+  "release_id": "saee-capability-alpha-v0.1",
+  "version": "0.1.0",
+  "version_channel": "alpha",
+  "release_status": "ALPHA_PREPARATION",
+  "version_policy_reference": "../../docs/release/SAEE_CAPABILITY_VERSION_POLICY.md",
+  "public_release": false,
+  "production_ready": false
+}

@@ -1,0 +1,1745 @@
+{
+  "ablations": [
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 1.0,
+        "DBI-2": null,
+        "DBI-3": 1.0
+      },
+      "name": "full",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 1.0,
+        "DBI-2": 1.0,
+        "DBI-3": 1.0
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 1.0,
+        "DBI-2": 1.0,
+        "DBI-3": 1.0
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.95,
+        "DBI-2": 1.0,
+        "DBI-3": 0.733333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 1.0,
+        "DBI-2": 1.0,
+        "DBI-3": 1.0
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          27.0,
+          28.0
+        ],
+        "DBI-2": [
+          15.0,
+          16.0
+        ],
+        "DBI-3": [
+          105.0,
+          119.5
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 27.0,
+        "DBI-2": 15.0,
+        "DBI-3": 111.5
+      },
+      "weights": {
+        "AD": 0.3,
+        "RC": 0.35,
+        "RD": 0.35
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.986842,
+        "DBI-2": null,
+        "DBI-3": 0.96875
+      },
+      "name": "drop_RC",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.946991,
+        "DBI-2": 0.985338,
+        "DBI-3": 0.983695
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.805405,
+        "DBI-2": 0.986038,
+        "DBI-3": 0.96916
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.966667,
+        "DBI-2": 1.0,
+        "DBI-3": 1.0
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.866823,
+        "DBI-2": 0.983542,
+        "DBI-3": 0.383646
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          14.0,
+          14.0
+        ],
+        "DBI-2": [
+          14.0,
+          15.0
+        ],
+        "DBI-3": [
+          25.5,
+          30.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 14.0,
+        "DBI-2": 14.0,
+        "DBI-3": 28.0
+      },
+      "weights": {
+        "AD": 0.5,
+        "RC": 0.0,
+        "RD": 0.5
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.834795,
+        "DBI-2": null,
+        "DBI-3": 0.518466
+      },
+      "name": "drop_RD",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.769647,
+        "DBI-2": 0.95065,
+        "DBI-3": 0.785456
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.941202,
+        "DBI-2": 0.980344,
+        "DBI-3": 0.41525
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.066667,
+        "DBI-2": 0.983333,
+        "DBI-3": 0.883333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.105521,
+        "DBI-2": 0.612083,
+        "DBI-3": 0.387396
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          35.0,
+          66.0
+        ],
+        "DBI-2": [
+          66.0,
+          78.0
+        ],
+        "DBI-3": [
+          21.0,
+          32.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 51.5,
+        "DBI-2": 72.0,
+        "DBI-3": 25.5
+      },
+      "weights": {
+        "AD": 0.5,
+        "RC": 0.5,
+        "RD": 0.0
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.988304,
+        "DBI-2": null,
+        "DBI-3": 0.93821
+      },
+      "name": "drop_AD",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.967859,
+        "DBI-2": 0.450269,
+        "DBI-3": 0.850104
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.943226,
+        "DBI-2": 0.128019,
+        "DBI-3": 0.924919
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.966667,
+        "DBI-2": 1.0,
+        "DBI-3": 0.008333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.911354,
+        "DBI-2": 0.911823,
+        "DBI-3": 0.274687
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          22.0,
+          25.0
+        ],
+        "DBI-2": [
+          3.0,
+          3.0
+        ],
+        "DBI-3": [
+          155.0,
+          155.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 24.0,
+        "DBI-2": 3.0,
+        "DBI-3": 155.0
+      },
+      "weights": {
+        "AD": 0.0,
+        "RC": 0.5,
+        "RD": 0.5
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.988304,
+        "DBI-2": null,
+        "DBI-3": 0.93821
+      },
+      "name": "pair_RC_RD",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.967859,
+        "DBI-2": 0.450269,
+        "DBI-3": 0.850104
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.943226,
+        "DBI-2": 0.128019,
+        "DBI-3": 0.924919
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.966667,
+        "DBI-2": 1.0,
+        "DBI-3": 0.008333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.911354,
+        "DBI-2": 0.911823,
+        "DBI-3": 0.274687
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          22.0,
+          25.0
+        ],
+        "DBI-2": [
+          3.0,
+          3.0
+        ],
+        "DBI-3": [
+          155.0,
+          155.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 24.0,
+        "DBI-2": 3.0,
+        "DBI-3": 155.0
+      },
+      "weights": {
+        "AD": 0.0,
+        "RC": 0.5,
+        "RD": 0.5
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.834795,
+        "DBI-2": null,
+        "DBI-3": 0.518466
+      },
+      "name": "pair_RC_AD",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.769647,
+        "DBI-2": 0.95065,
+        "DBI-3": 0.785456
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.941202,
+        "DBI-2": 0.980344,
+        "DBI-3": 0.41525
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.066667,
+        "DBI-2": 0.983333,
+        "DBI-3": 0.883333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.105521,
+        "DBI-2": 0.612083,
+        "DBI-3": 0.387396
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          32.0,
+          66.0
+        ],
+        "DBI-2": [
+          66.0,
+          78.0
+        ],
+        "DBI-3": [
+          20.5,
+          32.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 51.5,
+        "DBI-2": 72.0,
+        "DBI-3": 25.5
+      },
+      "weights": {
+        "AD": 0.5,
+        "RC": 0.5,
+        "RD": 0.0
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 0.986842,
+        "DBI-2": null,
+        "DBI-3": 0.96875
+      },
+      "name": "pair_RD_AD",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.946991,
+        "DBI-2": 0.985338,
+        "DBI-3": 0.983695
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.805405,
+        "DBI-2": 0.986038,
+        "DBI-3": 0.96916
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.966667,
+        "DBI-2": 1.0,
+        "DBI-3": 1.0
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.866823,
+        "DBI-2": 0.983542,
+        "DBI-3": 0.383646
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          14.0,
+          14.0
+        ],
+        "DBI-2": [
+          14.0,
+          15.0
+        ],
+        "DBI-3": [
+          26.0,
+          30.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 14.0,
+        "DBI-2": 14.0,
+        "DBI-3": 28.0
+      },
+      "weights": {
+        "AD": 0.5,
+        "RC": 0.0,
+        "RD": 0.5
+      }
+    },
+    {
+      "auc_against_full_transition_label": {
+        "DBI-1": 1.0,
+        "DBI-2": null,
+        "DBI-3": 1.0
+      },
+      "name": "equal",
+      "pearson_correlation_with_full_phi": {
+        "DBI-1": 0.999512,
+        "DBI-2": 0.998742,
+        "DBI-3": 0.998624
+      },
+      "rank_correlation_with_full_phi": {
+        "DBI-1": 0.999422,
+        "DBI-2": 0.999369,
+        "DBI-3": 0.998876
+      },
+      "transition_probability_by_system": {
+        "DBI-1": 0.925,
+        "DBI-2": 1.0,
+        "DBI-3": 0.808333
+      },
+      "transition_step_agreement_with_full": {
+        "DBI-1": 0.922292,
+        "DBI-2": 0.964635,
+        "DBI-3": 0.883125
+      },
+      "transition_step_bootstrap_95_ci_by_system": {
+        "DBI-1": [
+          28.0,
+          31.0
+        ],
+        "DBI-2": [
+          17.0,
+          19.5
+        ],
+        "DBI-3": [
+          100.0,
+          111.0
+        ]
+      },
+      "transition_step_median_by_system": {
+        "DBI-1": 28.0,
+        "DBI-2": 17.5,
+        "DBI-3": 103.0
+      },
+      "weights": {
+        "AD": 0.3333333333333333,
+        "RC": 0.3333333333333333,
+        "RD": 0.3333333333333333
+      }
+    }
+  ],
+  "bootstrap_resamples": 5000,
+  "claim_boundaries": {
+    "production_ready": false,
+    "real_world_validated": false,
+    "synthetic_only": true,
+    "universality_claim": false
+  },
+  "num_seeds": 120,
+  "permutation_controls": {
+    "DBI-1": 0.966667,
+    "DBI-2": 1.0,
+    "DBI-3": 0.8
+  },
+  "random_weight_controls": {
+    "num_weight_samples": 100,
+    "summary": [
+      {
+        "sample": 0,
+        "transition_probability_by_system": {
+          "DBI-1": 0.783333,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.8464251446859236,
+          "RC": 0.023533020211361413,
+          "RD": 0.13004183510271508
+        }
+      },
+      {
+        "sample": 1,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.883333
+        },
+        "weights": {
+          "AD": 0.16675100356841246,
+          "RC": 0.06576919737071131,
+          "RD": 0.7674797990608763
+        }
+      },
+      {
+        "sample": 2,
+        "transition_probability_by_system": {
+          "DBI-1": 0.958333,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5260384780843749,
+          "RC": 0.1627803291297771,
+          "RD": 0.311181192785848
+        }
+      },
+      {
+        "sample": 3,
+        "transition_probability_by_system": {
+          "DBI-1": 0.616667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.06547460631983353,
+          "RC": 0.7353216564863976,
+          "RD": 0.19920373719376885
+        }
+      },
+      {
+        "sample": 4,
+        "transition_probability_by_system": {
+          "DBI-1": 0.575,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.2551466122648275,
+          "RC": 0.5518457718282689,
+          "RD": 0.19300761590690366
+        }
+      },
+      {
+        "sample": 5,
+        "transition_probability_by_system": {
+          "DBI-1": 0.683333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.22839006135529652,
+          "RC": 0.5400389487870197,
+          "RD": 0.2315709898576838
+        }
+      },
+      {
+        "sample": 6,
+        "transition_probability_by_system": {
+          "DBI-1": 0.791667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.65
+        },
+        "weights": {
+          "AD": 0.34413691926438145,
+          "RC": 0.39808802636373525,
+          "RD": 0.2577750543718832
+        }
+      },
+      {
+        "sample": 7,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.616667
+        },
+        "weights": {
+          "AD": 0.2613594677344692,
+          "RC": 0.3693812298983277,
+          "RD": 0.36925930236720306
+        }
+      },
+      {
+        "sample": 8,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.725
+        },
+        "weights": {
+          "AD": 0.20924528920431296,
+          "RC": 0.3080442008174253,
+          "RD": 0.4827105099782617
+        }
+      },
+      {
+        "sample": 9,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.075
+        },
+        "weights": {
+          "AD": 0.12732792422970513,
+          "RC": 0.4595640777916052,
+          "RD": 0.41310799797868974
+        }
+      },
+      {
+        "sample": 10,
+        "transition_probability_by_system": {
+          "DBI-1": 0.891667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5573485805062759,
+          "RC": 0.22245989162529756,
+          "RD": 0.2201915278684266
+        }
+      },
+      {
+        "sample": 11,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.991667
+        },
+        "weights": {
+          "AD": 0.4448645166021637,
+          "RC": 0.022092178337924734,
+          "RD": 0.5330433050599115
+        }
+      },
+      {
+        "sample": 12,
+        "transition_probability_by_system": {
+          "DBI-1": 0.883333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.975
+        },
+        "weights": {
+          "AD": 0.44102103838924783,
+          "RC": 0.30132859432138787,
+          "RD": 0.2576503672893643
+        }
+      },
+      {
+        "sample": 13,
+        "transition_probability_by_system": {
+          "DBI-1": 0.25,
+          "DBI-2": 0.983333,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.2506158994107714,
+          "RC": 0.6184087764862701,
+          "RD": 0.1309753241029585
+        }
+      },
+      {
+        "sample": 14,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.958333
+        },
+        "weights": {
+          "AD": 0.3712226608562727,
+          "RC": 0.2481696682846692,
+          "RD": 0.38060767085905817
+        }
+      },
+      {
+        "sample": 15,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.10348633308910918,
+          "RC": 0.5317991894250341,
+          "RD": 0.36471447748585667
+        }
+      },
+      {
+        "sample": 16,
+        "transition_probability_by_system": {
+          "DBI-1": 0.908333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.933333
+        },
+        "weights": {
+          "AD": 0.3959691080610768,
+          "RC": 0.3181171004672535,
+          "RD": 0.2859137914716697
+        }
+      },
+      {
+        "sample": 17,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.791667
+        },
+        "weights": {
+          "AD": 0.2514554462710449,
+          "RC": 0.29459758806194686,
+          "RD": 0.4539469656670082
+        }
+      },
+      {
+        "sample": 18,
+        "transition_probability_by_system": {
+          "DBI-1": 0.858333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.441667
+        },
+        "weights": {
+          "AD": 0.286085180320093,
+          "RC": 0.4194218225353163,
+          "RD": 0.2944929971445907
+        }
+      },
+      {
+        "sample": 19,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.016667
+        },
+        "weights": {
+          "AD": 0.0232600333987133,
+          "RC": 0.4771196896112315,
+          "RD": 0.4996202769900552
+        }
+      },
+      {
+        "sample": 20,
+        "transition_probability_by_system": {
+          "DBI-1": 0.1,
+          "DBI-2": 0.941667,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.28939323046770377,
+          "RC": 0.650925667742344,
+          "RD": 0.059681101789952326
+        }
+      },
+      {
+        "sample": 21,
+        "transition_probability_by_system": {
+          "DBI-1": 0.941667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.558333
+        },
+        "weights": {
+          "AD": 0.2720428691315591,
+          "RC": 0.3896324759461696,
+          "RD": 0.3383246549222712
+        }
+      },
+      {
+        "sample": 22,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.43426928080968474,
+          "RC": 0.1883396296397751,
+          "RD": 0.3773910895505401
+        }
+      },
+      {
+        "sample": 23,
+        "transition_probability_by_system": {
+          "DBI-1": 0.233333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.553333581557323,
+          "RC": 0.3347831544401496,
+          "RD": 0.11188326400252732
+        }
+      },
+      {
+        "sample": 24,
+        "transition_probability_by_system": {
+          "DBI-1": 0.916667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.816667
+        },
+        "weights": {
+          "AD": 0.34036124695266723,
+          "RC": 0.3359999176198174,
+          "RD": 0.32363883542751526
+        }
+      },
+      {
+        "sample": 25,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.258333
+        },
+        "weights": {
+          "AD": 0.09273129748466148,
+          "RC": 0.3931053531691544,
+          "RD": 0.5141633493461841
+        }
+      },
+      {
+        "sample": 26,
+        "transition_probability_by_system": {
+          "DBI-1": 0.908333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.808333
+        },
+        "weights": {
+          "AD": 0.34525104843193977,
+          "RC": 0.34618079413960684,
+          "RD": 0.3085681574284534
+        }
+      },
+      {
+        "sample": 27,
+        "transition_probability_by_system": {
+          "DBI-1": 0.225,
+          "DBI-2": 1.0,
+          "DBI-3": 0.991667
+        },
+        "weights": {
+          "AD": 0.6799748968771271,
+          "RC": 0.22148347794815976,
+          "RD": 0.0985416251747133
+        }
+      },
+      {
+        "sample": 28,
+        "transition_probability_by_system": {
+          "DBI-1": 0.6,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.022676510712280884,
+          "RC": 0.7773351777638363,
+          "RD": 0.19998831152388266
+        }
+      },
+      {
+        "sample": 29,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.42497173269618205,
+          "RC": 0.20128272225994578,
+          "RD": 0.37374554504387214
+        }
+      },
+      {
+        "sample": 30,
+        "transition_probability_by_system": {
+          "DBI-1": 0.95,
+          "DBI-2": 1.0,
+          "DBI-3": 0.691667
+        },
+        "weights": {
+          "AD": 0.2821754647857846,
+          "RC": 0.36223507164770646,
+          "RD": 0.35558946356650895
+        }
+      },
+      {
+        "sample": 31,
+        "transition_probability_by_system": {
+          "DBI-1": 0.925,
+          "DBI-2": 1.0,
+          "DBI-3": 0.316667
+        },
+        "weights": {
+          "AD": 0.23718150180694716,
+          "RC": 0.42375012928261396,
+          "RD": 0.33906836891043884
+        }
+      },
+      {
+        "sample": 32,
+        "transition_probability_by_system": {
+          "DBI-1": 0.55,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.24582278479965045,
+          "RC": 0.5688746622361157,
+          "RD": 0.1853025529642338
+        }
+      },
+      {
+        "sample": 33,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.741667
+        },
+        "weights": {
+          "AD": 0.25378571855786874,
+          "RC": 0.3140275828122798,
+          "RD": 0.43218669862985143
+        }
+      },
+      {
+        "sample": 34,
+        "transition_probability_by_system": {
+          "DBI-1": 0.916667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.4797906744210018,
+          "RC": 0.22966914337288616,
+          "RD": 0.290540182206112
+        }
+      },
+      {
+        "sample": 35,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.016667
+        },
+        "weights": {
+          "AD": 0.0383888072958137,
+          "RC": 0.4916447924334874,
+          "RD": 0.4699664002706989
+        }
+      },
+      {
+        "sample": 36,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.966667
+        },
+        "weights": {
+          "AD": 0.3552095220506049,
+          "RC": 0.16492534042154833,
+          "RD": 0.4798651375278469
+        }
+      },
+      {
+        "sample": 37,
+        "transition_probability_by_system": {
+          "DBI-1": 0.808333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.3
+        },
+        "weights": {
+          "AD": 0.2785651670285235,
+          "RC": 0.44418595532783356,
+          "RD": 0.27724887764364287
+        }
+      },
+      {
+        "sample": 38,
+        "transition_probability_by_system": {
+          "DBI-1": 0.491667,
+          "DBI-2": 0.991667,
+          "DBI-3": 0.133333
+        },
+        "weights": {
+          "AD": 0.3297054214289943,
+          "RC": 0.4882430109733034,
+          "RD": 0.1820515675977022
+        }
+      },
+      {
+        "sample": 39,
+        "transition_probability_by_system": {
+          "DBI-1": 0.058333,
+          "DBI-2": 0.591667,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.13501825076866686,
+          "RC": 0.8272861363324095,
+          "RD": 0.03769561289892358
+        }
+      },
+      {
+        "sample": 40,
+        "transition_probability_by_system": {
+          "DBI-1": 0.791667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.316667
+        },
+        "weights": {
+          "AD": 0.29330619310016215,
+          "RC": 0.4407644282703976,
+          "RD": 0.26592937862944027
+        }
+      },
+      {
+        "sample": 41,
+        "transition_probability_by_system": {
+          "DBI-1": 0.916667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.49619175266967075,
+          "RC": 0.21928615010989125,
+          "RD": 0.2845220972204379
+        }
+      },
+      {
+        "sample": 42,
+        "transition_probability_by_system": {
+          "DBI-1": 0.775,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.7318025357930565,
+          "RC": 0.1141481592571159,
+          "RD": 0.15404930494982758
+        }
+      },
+      {
+        "sample": 43,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.008333
+        },
+        "weights": {
+          "AD": 0.03355092426962176,
+          "RC": 0.5002668911805846,
+          "RD": 0.46618218454979354
+        }
+      },
+      {
+        "sample": 44,
+        "transition_probability_by_system": {
+          "DBI-1": 0.141667,
+          "DBI-2": 0.991667,
+          "DBI-3": 0.991667
+        },
+        "weights": {
+          "AD": 0.6200342459230332,
+          "RC": 0.318533298874309,
+          "RD": 0.06143245520265785
+        }
+      },
+      {
+        "sample": 45,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.625
+        },
+        "weights": {
+          "AD": 0.2363923623883908,
+          "RC": 0.35441727462328343,
+          "RD": 0.4091903629883258
+        }
+      },
+      {
+        "sample": 46,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.8
+        },
+        "weights": {
+          "AD": 0.16830895697630183,
+          "RC": 0.18950488489426953,
+          "RD": 0.6421861581294286
+        }
+      },
+      {
+        "sample": 47,
+        "transition_probability_by_system": {
+          "DBI-1": 0.05,
+          "DBI-2": 0.316667,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.11201469100307657,
+          "RC": 0.8597994845716453,
+          "RD": 0.028185824425278082
+        }
+      },
+      {
+        "sample": 48,
+        "transition_probability_by_system": {
+          "DBI-1": 0.958333,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.554122822461753,
+          "RC": 0.1440869979800442,
+          "RD": 0.3017901795582028
+        }
+      },
+      {
+        "sample": 49,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5073204163481508,
+          "RC": 0.07611437282280012,
+          "RD": 0.41656521082904907
+        }
+      },
+      {
+        "sample": 50,
+        "transition_probability_by_system": {
+          "DBI-1": 0.133333,
+          "DBI-2": 0.966667,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.2897703362064683,
+          "RC": 0.6293316729445282,
+          "RD": 0.08089799084900354
+        }
+      },
+      {
+        "sample": 51,
+        "transition_probability_by_system": {
+          "DBI-1": 0.391667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.466701124650827,
+          "RC": 0.36318471549245895,
+          "RD": 0.170114159856714
+        }
+      },
+      {
+        "sample": 52,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.591667
+        },
+        "weights": {
+          "AD": 0.23441523706082526,
+          "RC": 0.367103682444736,
+          "RD": 0.3984810804944387
+        }
+      },
+      {
+        "sample": 53,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.183333
+        },
+        "weights": {
+          "AD": 0.14119007787402715,
+          "RC": 0.4277129869252234,
+          "RD": 0.4310969352007495
+        }
+      },
+      {
+        "sample": 54,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.44319279665290706,
+          "RC": 0.18048986282697516,
+          "RD": 0.37631734052011767
+        }
+      },
+      {
+        "sample": 55,
+        "transition_probability_by_system": {
+          "DBI-1": 0.25,
+          "DBI-2": 0.991667,
+          "DBI-3": 0.891667
+        },
+        "weights": {
+          "AD": 0.4533219373351634,
+          "RC": 0.41923417553241493,
+          "RD": 0.12744388713242155
+        }
+      },
+      {
+        "sample": 56,
+        "transition_probability_by_system": {
+          "DBI-1": 0.625,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.1612418096217839,
+          "RC": 0.6342969234759216,
+          "RD": 0.20446126690229444
+        }
+      },
+      {
+        "sample": 57,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.933333
+        },
+        "weights": {
+          "AD": 0.37041269585663006,
+          "RC": 0.2736940859130891,
+          "RD": 0.35589321823028075
+        }
+      },
+      {
+        "sample": 58,
+        "transition_probability_by_system": {
+          "DBI-1": 0.675,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.0955894088018579,
+          "RC": 0.6804489410447846,
+          "RD": 0.22396165015335753
+        }
+      },
+      {
+        "sample": 59,
+        "transition_probability_by_system": {
+          "DBI-1": 0.116667,
+          "DBI-2": 0.991667,
+          "DBI-3": 0.991667
+        },
+        "weights": {
+          "AD": 0.7112198127547826,
+          "RC": 0.266050538345644,
+          "RD": 0.02272964889957336
+        }
+      },
+      {
+        "sample": 60,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.916667
+        },
+        "weights": {
+          "AD": 0.2764576426151828,
+          "RC": 0.1257549915961523,
+          "RD": 0.597787365788665
+        }
+      },
+      {
+        "sample": 61,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.958333
+        },
+        "weights": {
+          "AD": 0.3077746521242519,
+          "RC": 0.027916644866871336,
+          "RD": 0.6643087030088768
+        }
+      },
+      {
+        "sample": 62,
+        "transition_probability_by_system": {
+          "DBI-1": 0.891667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.46319897458688053,
+          "RC": 0.2836929227571671,
+          "RD": 0.2531081026559524
+        }
+      },
+      {
+        "sample": 63,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.775
+        },
+        "weights": {
+          "AD": 0.013762047047252894,
+          "RC": 0.097627679498412,
+          "RD": 0.8886102734543351
+        }
+      },
+      {
+        "sample": 64,
+        "transition_probability_by_system": {
+          "DBI-1": 0.208333,
+          "DBI-2": 0.991667,
+          "DBI-3": 0.041667
+        },
+        "weights": {
+          "AD": 0.36403059985945463,
+          "RC": 0.5186336740986265,
+          "RD": 0.11733572604191878
+        }
+      },
+      {
+        "sample": 65,
+        "transition_probability_by_system": {
+          "DBI-1": 0.9,
+          "DBI-2": 1.0,
+          "DBI-3": 0.975
+        },
+        "weights": {
+          "AD": 0.447387612923761,
+          "RC": 0.2803614710183767,
+          "RD": 0.2722509160578624
+        }
+      },
+      {
+        "sample": 66,
+        "transition_probability_by_system": {
+          "DBI-1": 0.841667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.65
+        },
+        "weights": {
+          "AD": 0.3306517386983784,
+          "RC": 0.39032444693147456,
+          "RD": 0.27902381437014706
+        }
+      },
+      {
+        "sample": 67,
+        "transition_probability_by_system": {
+          "DBI-1": 0.125,
+          "DBI-2": 0.983333,
+          "DBI-3": 0.316667
+        },
+        "weights": {
+          "AD": 0.4180238654358171,
+          "RC": 0.49997719812859764,
+          "RD": 0.0819989364355853
+        }
+      },
+      {
+        "sample": 68,
+        "transition_probability_by_system": {
+          "DBI-1": 0.108333,
+          "DBI-2": 0.983333,
+          "DBI-3": 0.133333
+        },
+        "weights": {
+          "AD": 0.41481863994785434,
+          "RC": 0.5240921074542048,
+          "RD": 0.06108925259794094
+        }
+      },
+      {
+        "sample": 69,
+        "transition_probability_by_system": {
+          "DBI-1": 0.925,
+          "DBI-2": 1.0,
+          "DBI-3": 0.825
+        },
+        "weights": {
+          "AD": 0.3413389042242551,
+          "RC": 0.32632647101715473,
+          "RD": 0.3323346247585901
+        }
+      },
+      {
+        "sample": 70,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.866667
+        },
+        "weights": {
+          "AD": 0.2575939768252859,
+          "RC": 0.22935056996856765,
+          "RD": 0.5130554532061464
+        }
+      },
+      {
+        "sample": 71,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.75
+        },
+        "weights": {
+          "AD": 0.0626216115346813,
+          "RC": 0.20288573609951804,
+          "RD": 0.7344926523658005
+        }
+      },
+      {
+        "sample": 72,
+        "transition_probability_by_system": {
+          "DBI-1": 0.2,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.7190269113506779,
+          "RC": 0.19936154494204075,
+          "RD": 0.08161154370728142
+        }
+      },
+      {
+        "sample": 73,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.616667
+        },
+        "weights": {
+          "AD": 0.2531538906841803,
+          "RC": 0.36199057530107953,
+          "RD": 0.3848555340147401
+        }
+      },
+      {
+        "sample": 74,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.766667
+        },
+        "weights": {
+          "AD": 0.22749243364955815,
+          "RC": 0.28714629294976607,
+          "RD": 0.4853612734006758
+        }
+      },
+      {
+        "sample": 75,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.4154746548183216,
+          "RC": 0.22031797925329705,
+          "RD": 0.3642073659283815
+        }
+      },
+      {
+        "sample": 76,
+        "transition_probability_by_system": {
+          "DBI-1": 0.908333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.058333
+        },
+        "weights": {
+          "AD": 0.19468265612375935,
+          "RC": 0.4728540952381961,
+          "RD": 0.33246324863804455
+        }
+      },
+      {
+        "sample": 77,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.375
+        },
+        "weights": {
+          "AD": 0.03393245200720907,
+          "RC": 0.35525509831072877,
+          "RD": 0.6108124496820622
+        }
+      },
+      {
+        "sample": 78,
+        "transition_probability_by_system": {
+          "DBI-1": 0.9,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.4528640101758557,
+          "RC": 0.283895251859973,
+          "RD": 0.26324073796417136
+        }
+      },
+      {
+        "sample": 79,
+        "transition_probability_by_system": {
+          "DBI-1": 0.233333,
+          "DBI-2": 0.825,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.05788667953649241,
+          "RC": 0.8155080662652772,
+          "RD": 0.12660525419823032
+        }
+      },
+      {
+        "sample": 80,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.716667
+        },
+        "weights": {
+          "AD": 0.2587560981352785,
+          "RC": 0.3339444929341296,
+          "RD": 0.4072994089305919
+        }
+      },
+      {
+        "sample": 81,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.891667
+        },
+        "weights": {
+          "AD": 0.2085786572099781,
+          "RC": 0.057165050259167856,
+          "RD": 0.734256292530854
+        }
+      },
+      {
+        "sample": 82,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.541667
+        },
+        "weights": {
+          "AD": 0.16814193510942077,
+          "RC": 0.35549017107154374,
+          "RD": 0.47636789381903544
+        }
+      },
+      {
+        "sample": 83,
+        "transition_probability_by_system": {
+          "DBI-1": 0.716667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.09435696618703228,
+          "RC": 0.6336271312776751,
+          "RD": 0.27201590253529256
+        }
+      },
+      {
+        "sample": 84,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.515686988654809,
+          "RC": 0.07035138371889983,
+          "RD": 0.4139616276262911
+        }
+      },
+      {
+        "sample": 85,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5274588844166678,
+          "RC": 0.06751784556129992,
+          "RD": 0.40502327002203237
+        }
+      },
+      {
+        "sample": 86,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.775
+        },
+        "weights": {
+          "AD": 0.03480667551754847,
+          "RC": 0.12202216209154018,
+          "RD": 0.8431711623909114
+        }
+      },
+      {
+        "sample": 87,
+        "transition_probability_by_system": {
+          "DBI-1": 0.908333,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5721512349973613,
+          "RC": 0.17363190506253773,
+          "RD": 0.25421685994010096
+        }
+      },
+      {
+        "sample": 88,
+        "transition_probability_by_system": {
+          "DBI-1": 0.5,
+          "DBI-2": 1.0,
+          "DBI-3": 0.983333
+        },
+        "weights": {
+          "AD": 0.5045130303380791,
+          "RC": 0.31309387504370956,
+          "RD": 0.1823930946182113
+        }
+      },
+      {
+        "sample": 89,
+        "transition_probability_by_system": {
+          "DBI-1": 0.066667,
+          "DBI-2": 0.983333,
+          "DBI-3": 0.441667
+        },
+        "weights": {
+          "AD": 0.4583734291731685,
+          "RC": 0.5208089047736727,
+          "RD": 0.020817666053158858
+        }
+      },
+      {
+        "sample": 90,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.725
+        },
+        "weights": {
+          "AD": 0.07697904319223918,
+          "RC": 0.2370699996511699,
+          "RD": 0.6859509571565909
+        }
+      },
+      {
+        "sample": 91,
+        "transition_probability_by_system": {
+          "DBI-1": 0.666667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.416667
+        },
+        "weights": {
+          "AD": 0.34132882678531345,
+          "RC": 0.4428376806931829,
+          "RD": 0.2158334925215036
+        }
+      },
+      {
+        "sample": 92,
+        "transition_probability_by_system": {
+          "DBI-1": 0.916667,
+          "DBI-2": 1.0,
+          "DBI-3": 1.0
+        },
+        "weights": {
+          "AD": 0.5602727664967619,
+          "RC": 0.1556549762673434,
+          "RD": 0.28407225723589463
+        }
+      },
+      {
+        "sample": 93,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.9
+        },
+        "weights": {
+          "AD": 0.29378390281417205,
+          "RC": 0.19872771189159308,
+          "RD": 0.507488385294235
+        }
+      },
+      {
+        "sample": 94,
+        "transition_probability_by_system": {
+          "DBI-1": 0.208333,
+          "DBI-2": 0.983333,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.311662643920275,
+          "RC": 0.5680525984206689,
+          "RD": 0.12028475765905608
+        }
+      },
+      {
+        "sample": 95,
+        "transition_probability_by_system": {
+          "DBI-1": 0.966667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.975
+        },
+        "weights": {
+          "AD": 0.4078105565911423,
+          "RC": 0.23895258788950213,
+          "RD": 0.3532368555193556
+        }
+      },
+      {
+        "sample": 96,
+        "transition_probability_by_system": {
+          "DBI-1": 0.716667,
+          "DBI-2": 1.0,
+          "DBI-3": 0.0
+        },
+        "weights": {
+          "AD": 0.12181321788452136,
+          "RC": 0.6021335262320234,
+          "RD": 0.2760532558834553
+        }
+      },
+      {
+        "sample": 97,
+        "transition_probability_by_system": {
+          "DBI-1": 0.775,
+          "DBI-2": 1.0,
+          "DBI-3": 0.533333
+        },
+        "weights": {
+          "AD": 0.3250850812448981,
+          "RC": 0.42146876053009824,
+          "RD": 0.2534461582250036
+        }
+      },
+      {
+        "sample": 98,
+        "transition_probability_by_system": {
+          "DBI-1": 0.808333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.35
+        },
+        "weights": {
+          "AD": 0.28923608064117984,
+          "RC": 0.43139949439747544,
+          "RD": 0.27936442496134467
+        }
+      },
+      {
+        "sample": 99,
+        "transition_probability_by_system": {
+          "DBI-1": 0.883333,
+          "DBI-2": 1.0,
+          "DBI-3": 0.941667
+        },
+        "weights": {
+          "AD": 0.40377624090429615,
+          "RC": 0.32719789532038585,
+          "RD": 0.2690258637753179
+        }
+      }
+    ]
+  },
+  "schema": "saee.universality_test.phi_ablation_summary.v1",
+  "steps": 160,
+  "systems": [
+    "DBI-1",
+    "DBI-2",
+    "DBI-3"
+  ]
+}

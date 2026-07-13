@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saee/archive.schema.json",
+  "title": "SAEE Archive Record",
+  "type": "object",
+  "required": ["id", "artifact_type", "state", "lineage_id", "retention_reason"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "artifact_type": {"type": "string", "enum": ["genome", "trait", "phenotype", "fitness_record", "failure", "rollback_point"]},
+    "state": {"type": "string", "enum": ["active", "dormant", "rolled_back", "rejected", "archived"]},
+    "lineage_id": {"type": "string", "minLength": 1},
+    "retention_reason": {"type": "string", "minLength": 1},
+    "reuse_notes": {"type": "string"},
+    "safety_notes": {"type": "string"}
+  }
+}
+

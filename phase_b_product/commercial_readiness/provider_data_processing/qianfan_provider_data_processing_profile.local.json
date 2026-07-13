@@ -1,0 +1,79 @@
+{
+  "profile_type": "saee_qianfan_provider_data_processing_inventory",
+  "profile_version": "v0.1",
+  "generated_by": "scripts/saee_qianfan_provider_data_processing_profile.py",
+  "generated_at": "2026-07-10",
+  "provider": "baidu_qianfan",
+  "endpoint": "https://qianfan.baidubce.com/v2/chat/completions",
+  "model": "ernie-4.5-turbo-128k",
+  "observed_run_count": 3,
+  "observed_run_evidence_manifest": "agent_recommendation/agent_first_validation/run_005/roundtrip_evidence_manifest.json",
+  "observed_run_evidence_manifest_sha256": "645bff67f7dc67ba036588e6dd47360284b2804c4a29c687a75f68277f892792",
+  "data_sent_to_provider": [
+    "system_instruction_for_bounded_tool selection",
+    "sanitized numerical observed-trace fixture",
+    "MCP-derived JSON Schema tool definitions for exactly two tools",
+    "tool result messages returned by the fixed local MCP adapter",
+    "final-answer fact prompt containing receipt fields"
+  ],
+  "data_not_sent_by_host": [
+    "QIANFAN_API_KEY",
+    "candidate source code",
+    "local filesystem paths or arbitrary URLs",
+    "shell commands or raw logs",
+    "customer records or production data",
+    "SAEE private evolution internals"
+  ],
+  "observed_boundary_facts": {
+    "external_provider_network_used": true,
+    "saee_mcp_network_used": false,
+    "candidate_code_executed": false,
+    "external_system_executed": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "api_key_in_transcripts": false,
+    "authorization_header_in_evidence": false
+  },
+  "official_policy_reference": {
+    "url": "https://cloud.baidu.com/doc/qianfan/s/emh4stmvj",
+    "catalog_url": "https://cloud.baidu.com/doc/qianfan/s/Umleypdhw",
+    "catalog_last_updated": "2026-02-09",
+    "reviewed_on": "2026-07-10",
+    "interpretation": "Official policy text is a source-linked review input; it is not treated as a completed DPA or production approval.",
+    "observed_clauses": [
+      {
+        "source": "special_agreement",
+        "locator": "2.2-2.3",
+        "fact": "平台要求输入、上传、提交的数据来源合法，并说明可在法律允许范围内显示、使用、存储和处理。"
+      },
+      {
+        "source": "special_agreement",
+        "locator": "2.4",
+        "fact": "上传的知识文档、数据集限定在账号内使用；条款声明除执行服务要求外不进行未获授权的使用或披露，并声明不用于训练或与第三方共享。"
+      },
+      {
+        "source": "user_agreement_2023_11_16",
+        "locator": "9.1-9.3",
+        "fact": "用户协议说明平台没有义务保存或提供内容副本、对内容不承担保密义务，并保留为合规、安全或技术原因披露内容的条款。"
+      }
+    ],
+    "unresolved_questions": [
+      "本次具体 API 模式的保留期限、删除机制和备份周期未从公开页面核验。",
+      "SAEE 作为商业服务使用方所需的数据处理协议、跨境/地域条款和安全附件未完成签署或审批。",
+      "用户协议与专项约定的适用版本、优先级及具体企业套餐条款仍需授权负责人确认。"
+    ]
+  },
+  "review_status": {
+    "technical_data_flow_inventory": "complete_for_run_005",
+    "provider_retention_terms_verified": false,
+    "privacy_legal_review_completed": false,
+    "data_processing_agreement_completed": false,
+    "production_provider_approval": false,
+    "blockers_closed_by_profile": 0,
+    "human_review_required": false,
+    "human_validation_used": false,
+    "agent_legal_review_required": true,
+    "agent_validation_primary": true
+  },
+  "next_required_action": "Independent privacy/legal agent reviews provider retention, cross-border/data-processing terms and records a bounded decision; DPA signature and production approval remain false until authoritative evidence exists."
+}

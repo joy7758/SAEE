@@ -1,0 +1,2 @@
+status,local_trial_session_state,local_trial_ready_for_manual_browser_tryout,local_trial_landing_url,commercial_status,production_launch_status,production_blocker_count,missing_value_row_count,first_action_id,first_blocker_id,cloud_package_status,cloud_clear_performed,cloud_sync_performed,production_ready
+local_trial_not_running_commercial_hold,not_running,false,http://127.0.0.1:8765/,hold,hold,24,0,NEXT-CV-001,customer_validated,local_package_ready_for_human_review,false,false,false

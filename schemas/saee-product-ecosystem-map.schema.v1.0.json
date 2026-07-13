@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redcrag.cn/schemas/saee-product-ecosystem-map.schema.v1.0.json",
+  "title": "SAEE Product Ecosystem Map v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["map_version", "canonical_identity", "modules", "truth_boundary"],
+  "properties": {
+    "map_version": {"const": "1.0"},
+    "canonical_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "theory_name", "engineering_core", "product_surface", "primary_language", "secondary_language"],
+      "properties": {
+        "project": {"const": "SAEE"},
+        "theory_name": {"const": "Silicon-Amplified Evolutionary Ecology"},
+        "engineering_core": {"const": "Digital Biosphere Evolution Engine"},
+        "product_surface": {"const": "Agent Reliability Evaluation Capability Layer"},
+        "primary_language": {"const": "zh-CN"},
+        "secondary_language": {"const": "en"}
+      }
+    },
+    "modules": {
+      "type": "array",
+      "minItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module_id", "name_zh", "name_en", "source", "repository", "role", "core", "public", "notice_status"],
+        "properties": {
+          "module_id": {"type": "string", "pattern": "^[a-z][a-z0-9_]+$"},
+          "name_zh": {"type": "string", "minLength": 1},
+          "name_en": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1},
+          "repository": {
+            "oneOf": [
+              {"type": "string", "pattern": "^https://github.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+              {"type": "null"}
+            ]
+          },
+          "role": {"type": "string", "minLength": 1},
+          "core": {"type": "boolean"},
+          "public": {"type": "boolean"},
+          "notice_status": {
+            "enum": [
+              "DEFERRED_DIRTY_WORKTREE_AND_REPOSITORY_POLICY",
+              "DEFERRED_DIRTY_WORKTREE",
+              "HOLD_NO_ORIGIN_AND_HEAVY_DIRTY_WORKTREE",
+              "RELATED_CASE_NOT_RELABELED_AS_MODULE",
+              "INTERNAL_COMPONENT"
+            ]
+          }
+        }
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["branding_consolidation_local", "canonical_identity_changed", "historical_repository_deleted", "historical_repository_notice_written", "repository_renamed", "history_rewritten", "public_release", "external_announcement", "production_ready"],
+      "properties": {
+        "branding_consolidation_local": {"const": true},
+        "canonical_identity_changed": {"const": false},
+        "historical_repository_deleted": {"const": false},
+        "historical_repository_notice_written": {"const": false},
+        "repository_renamed": {"const": false},
+        "history_rewritten": {"const": false},
+        "public_release": {"const": false},
+        "external_announcement": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

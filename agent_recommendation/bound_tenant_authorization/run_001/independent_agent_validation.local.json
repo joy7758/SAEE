@@ -1,0 +1,30 @@
+{
+  "agent_validation_type": "independent_agent_recommendation_gate",
+  "blockers": [],
+  "blockers_closed_by_validation": 0,
+  "customer_validated": false,
+  "generated_at": "2026-07-10",
+  "independent_agent_profile": "recommendation_agent_validation",
+  "negative_cases_passed": 14,
+  "negative_cases_total": 14,
+  "production_auth_ready": false,
+  "production_identity_provider_available": false,
+  "production_ready": false,
+  "production_tenant_storage_isolated": false,
+  "recommendation_scope": "local_controlled_preview_bound_tenant_authorization_chain",
+  "round_1": {
+    "blocker_count": 4,
+    "verdict": "conditional"
+  },
+  "round_2": {
+    "blocker_count": 1,
+    "verdict": "conditional"
+  },
+  "round_3": {
+    "blocker_count": 0,
+    "verdict": "recommend"
+  },
+  "tenant_authorization_enabled": false,
+  "tenant_authorization_policy_reviewed": false,
+  "verdict": "recommend"
+}

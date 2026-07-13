@@ -1,0 +1,12 @@
+{
+  "definition_version": "0.1",
+  "transport": "MCP",
+  "status": "LOCAL_ADAPTER_REFERENCE_ONLY",
+  "tool_definition_ref": "capability-package/mcp-tool.json",
+  "adapter_ref": "agent-interface/mcp/saee-capability-mcp-adapter.v0.1.json",
+  "validation_ref": "scripts/saee_capability_mcp_adapter_smoke.py",
+  "remote_service": false,
+  "official_platform_integration": false,
+  "authorization_performed": false,
+  "production_ready": false
+}

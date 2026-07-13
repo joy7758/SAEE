@@ -1,0 +1,125 @@
+{
+  "blockers_closed": 0,
+  "customer_data_processed": false,
+  "customer_validated": false,
+  "data_processing_agreement_completed": false,
+  "deidentification_proven": false,
+  "explicit_preview_configuration_required": true,
+  "general_dlp_available": false,
+  "generated_at": "2026-07-10",
+  "generated_by": "scripts/saee_tenant_privacy_data_flow_profile.py",
+  "pattern_detection_only": true,
+  "privacy_legal_review_completed": false,
+  "product_launched": false,
+  "production_ready": false,
+  "qianfan_provider_legal_approval_completed": false,
+  "real_customer_data_allowed": false,
+  "review_scope": "whole_tenant_api_synthetic_only_controlled_preview",
+  "source_sha256": {
+    "phase_b_product/commercial_readiness/provider_data_processing/qianfan_provider_data_processing_profile.local.json": "fe691fab55d0bbcf003538a501f1e7380832c2edf4fd3a610a38779179c9176b",
+    "saee_backend/api/audit.py": "9226fd343195e21cfc908d802acba1d6e88af9bf21db89b4163a06d07559dd40",
+    "saee_backend/api/experiment.py": "e030944be180c9a98ab98044268dd50d5161d9b15695dbc12f67b4c0c0bdd286",
+    "saee_backend/api/security.py": "a83c8c9e168b748358671457b840dc81ed3abf3d25b83a577d42227566b83a30",
+    "saee_backend/config.py": "4c448907d3690f4f9ac53510509e2235183821a957b69f96ad4066bf45a6cb95",
+    "saee_backend/core/runner.py": "9f4c4319d405ccf1c8154d0d011158ea1d4ee4fc4d47cdacf813ebd487c35a33",
+    "saee_backend/models/request.py": "6ea332548ac86cc7474aa98ad0bf677aa9a03c6085ecc0803ce623d23ce6ee5f",
+    "saee_backend/schemas/saee_mvp_api.schema.json": "fd0116b91692138dd239a245c9778e6e48327f5d3918a1ef77da9941ed704b7e",
+    "saee_backend/services/data_backup.py": "212c08252f66f9214471cf721fadea58bb82f439dc5779e939d21c4332761905",
+    "saee_backend/services/data_restore_drill.py": "81b1d01ae161d173078a0394a4871daddbf8ef488dd87c812a1fbc83b2cce71a",
+    "saee_backend/services/data_retention.py": "684404845cb1f9ea9a42c8c166b5c690a70396f5b5da4dd7a1f86f995d372e6f",
+    "saee_backend/services/experiment_service.py": "51f385c6229e04973f23a4899cb2ed0950c9b86e615a4477ef930690e99a540c",
+    "saee_backend/services/jwt_preview_auth.py": "f8c0da924db52501c7b403f70639448559cb8868cf590df4b816424bdca42601",
+    "saee_backend/services/public_input_contract.py": "d2fcbb0103d3e1f601d47ef20cc8abcabcdceb7e2ed602c2cab7d1f667920137",
+    "saee_backend/storage/memory_db.py": "4818393760c2d3b0595b68299393c3b6987c4d1f1fbaa9a6bbb2b3193863c90a",
+    "saee_backend/storage/sqlite_store.py": "a9e0ef2546206c5ba0d4cb33fe35c157aad23e4bf09ecedbadb9d7dde2955287",
+    "schemas/saee_mvp_api.schema.json": "fd0116b91692138dd239a245c9778e6e48327f5d3918a1ef77da9941ed704b7e"
+  },
+  "status": "pass_synthetic_only_controlled_preview_inventory",
+  "surface_count": 8,
+  "surfaces": [
+    {
+      "accepted": "closed_scenario_and_create_contracts",
+      "controls": [
+        "pydantic_extra_forbid",
+        "closed_config_keys",
+        "public_safe_identifiers",
+        "runner_revalidation"
+      ],
+      "personal_data_allowed": false,
+      "surface": "request_json_body"
+    },
+    {
+      "accepted": "public_safe_experiment_identifier_only_or_closed_pagination",
+      "controls": [
+        "service_layer_identifier_validation",
+        "non_reflecting_not_found_error"
+      ],
+      "personal_data_allowed": false,
+      "surface": "path_and_query"
+    },
+    {
+      "accepted": "allowlisted_public_safe_identifiers_only",
+      "controls": [
+        "tenant_format",
+        "allowlist",
+        "rbac_closed_policy"
+      ],
+      "personal_data_allowed": false,
+      "surface": "tenant_and_role_headers"
+    },
+    {
+      "accepted": "transient_credentials_only",
+      "controls": [
+        "not_persisted",
+        "not_audited",
+        "not_reflected"
+      ],
+      "personal_data_allowed": false,
+      "surface": "authorization_and_api_key_headers"
+    },
+    {
+      "accepted": "exact_closed_claim_set_without_email",
+      "controls": [
+        "hs256_signature",
+        "public_safe_subject_tenant_roles",
+        "extra_claims_rejected"
+      ],
+      "personal_data_allowed": false,
+      "surface": "preview_jwt"
+    },
+    {
+      "accepted": "closed_metadata_only",
+      "controls": [
+        "no_body",
+        "no_credentials",
+        "hashed_tenant",
+        "non_reflecting_validation_errors"
+      ],
+      "personal_data_allowed": false,
+      "surface": "audit_and_errors"
+    },
+    {
+      "accepted": "synthetic_evaluation_records_and_closed_audit_metadata_only",
+      "controls": [
+        "tenant_partition",
+        "local_backup_manifest",
+        "no_follow_restore",
+        "retention_atomic_replace"
+      ],
+      "personal_data_allowed": false,
+      "surface": "storage_backup_restore_retention"
+    },
+    {
+      "accepted": "sanitized_numeric_fixture_and_fixed_tool_receipts_only",
+      "controls": [
+        "no_customer_records",
+        "no_api_key_transcript",
+        "no_candidate_code"
+      ],
+      "personal_data_allowed": false,
+      "surface": "baidu_qianfan_provider"
+    }
+  ],
+  "synthetic_data_only": true,
+  "tenant_privacy_data_flow_profile_v0_1": true
+}

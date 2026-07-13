@@ -1,0 +1,43 @@
+{
+  "saee_registry_validation_result_v0_1": true,
+  "validation_version": "0.1",
+  "validation_status": "PASS",
+  "capability_id": "saee.evidence-adequacy",
+  "capability_version": "0.1",
+  "lifecycle_state": "LOCAL_PROTOTYPE",
+  "identity_valid": true,
+  "version_consistent": true,
+  "contract_references_valid": true,
+  "lifecycle_valid": true,
+  "boundary_valid": true,
+  "reference_chain_valid": true,
+  "checked_reference_count": 12,
+  "errors": [],
+  "fixture_summary": {
+    "fixture_cases": 7,
+    "valid_cases": 1,
+    "invalid_cases": 6,
+    "expected_outcomes_matched": true,
+    "deterministic_runs": 5
+  },
+  "fixture_results": [
+    {"fixture_id": "invalid-boundary-overclaim", "validation_status": "FAIL", "errors": ["REGISTRY_BOUNDARY_OVERCLAIM"]},
+    {"fixture_id": "invalid-broken-reference", "validation_status": "FAIL", "errors": ["REGISTRY_REFERENCE_MISSING"]},
+    {"fixture_id": "invalid-missing-contract", "validation_status": "FAIL", "errors": ["REGISTRY_CONTRACT_REQUIRED"]},
+    {"fixture_id": "invalid-production-without-evidence", "validation_status": "FAIL", "errors": ["REGISTRY_PRODUCTION_EVIDENCE_REQUIRED"]},
+    {"fixture_id": "invalid-state-adoption-claim", "validation_status": "FAIL", "errors": ["REGISTRY_ADOPTION_CLAIM_FORBIDDEN"]},
+    {"fixture_id": "invalid-version-mismatch", "validation_status": "FAIL", "errors": ["REGISTRY_CONTRACT_VERSION_MISMATCH"]},
+    {"fixture_id": "valid-registry-entry", "validation_status": "PASS", "errors": []}
+  ],
+  "truth_boundary": {
+    "registry_service_available": false,
+    "external_registry": false,
+    "trust_authority": false,
+    "capability_certified": false,
+    "adoption_validated": false,
+    "production_ready": false,
+    "network_accessed": false,
+    "subprocess_started": false,
+    "external_execution": false
+  }
+}

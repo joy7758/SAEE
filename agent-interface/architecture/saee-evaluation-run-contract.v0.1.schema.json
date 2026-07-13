@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Evaluation Run Contract v0.1",
+  "description": "A strict local synthetic lifecycle record that binds one Evaluation Input, one declared evaluator/grader/criteria version set, one deterministic result, and one derived Evidence Case. It does not implement a real evaluator runtime, execute an Agent, measure risk probability, make a decision, or authorize deployment.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_evaluation_run_contract_v0_1",
+    "schema_version",
+    "evaluation_run_id",
+    "evaluation_input_ref",
+    "evaluation_input_digest",
+    "replay_evaluation_contract_ref",
+    "replay_evaluation_contract_digest",
+    "evaluator_ref",
+    "evaluator_version",
+    "grader_ref",
+    "grader_version",
+    "criteria_ref",
+    "criteria_version",
+    "run_started_at",
+    "run_completed_at",
+    "run_status",
+    "result_ref",
+    "result_digest",
+    "evidence_case_ref",
+    "evidence_case_digest",
+    "operator_ref",
+    "stop_authority_ref",
+    "execution_environment_ref",
+    "lineage_edges",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_evaluation_run_contract_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "evaluation_run_id": {"$ref": "#/$defs/id"},
+    "evaluation_input_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/phase1_5_cases/[A-Za-z0-9._-]+\\.json$"
+    },
+    "evaluation_input_digest": {"$ref": "#/$defs/digest"},
+    "replay_evaluation_contract_ref": {
+      "type": "string",
+      "pattern": "^agent-interface/architecture/examples/replay-evaluation/[A-Za-z0-9._-]+\\.json$"
+    },
+    "replay_evaluation_contract_digest": {"$ref": "#/$defs/digest"},
+    "evaluator_ref": {"$ref": "#/$defs/id"},
+    "evaluator_version": {"$ref": "#/$defs/version"},
+    "grader_ref": {"$ref": "#/$defs/id"},
+    "grader_version": {"$ref": "#/$defs/version"},
+    "criteria_ref": {"$ref": "#/$defs/id"},
+    "criteria_version": {"$ref": "#/$defs/version"},
+    "run_started_at": {"type": "string", "format": "date-time"},
+    "run_completed_at": {"type": "string", "format": "date-time"},
+    "run_status": {
+      "enum": [
+        "synthetic_recorded_completed",
+        "synthetic_recorded_completed_with_evaluation_failure",
+        "synthetic_recorded_repeat_completed"
+      ]
+    },
+    "repeat_of_run_ref": {"$ref": "#/$defs/id"},
+    "result_ref": {"$ref": "#/$defs/id"},
+    "result_digest": {"$ref": "#/$defs/digest"},
+    "evidence_case_ref": {"$ref": "#/$defs/id"},
+    "evidence_case_digest": {"$ref": "#/$defs/digest"},
+    "operator_ref": {"$ref": "#/$defs/id"},
+    "stop_authority_ref": {"$ref": "#/$defs/id"},
+    "execution_environment_ref": {"$ref": "#/$defs/id"},
+    "lineage_edges": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 16,
+      "items": {"$ref": "#/$defs/lineage_edge"}
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_only",
+        "synthetic_run_record",
+        "real_evaluator_runtime_executed",
+        "real_agent_executed",
+        "external_tool_executed",
+        "network_accessed",
+        "customer_data_processed",
+        "evaluator_provenance_independently_verified",
+        "grader_provenance_independently_verified",
+        "criteria_provenance_independently_verified",
+        "result_authenticity_independently_verified",
+        "evidence_case_authenticity_independently_verified",
+        "risk_probability_measured",
+        "automatic_decision",
+        "deployment_authorized",
+        "architecture_implemented",
+        "risk_model_implemented",
+        "external_validation_completed",
+        "customer_validated",
+        "production_ready"
+      ],
+      "properties": {
+        "contract_only": {"const": true},
+        "synthetic_run_record": {"const": true},
+        "real_evaluator_runtime_executed": {"const": false},
+        "real_agent_executed": {"const": false},
+        "external_tool_executed": {"const": false},
+        "network_accessed": {"const": false},
+        "customer_data_processed": {"const": false},
+        "evaluator_provenance_independently_verified": {"const": false},
+        "grader_provenance_independently_verified": {"const": false},
+        "criteria_provenance_independently_verified": {"const": false},
+        "result_authenticity_independently_verified": {"const": false},
+        "evidence_case_authenticity_independently_verified": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "automatic_decision": {"const": false},
+        "deployment_authorized": {"const": false},
+        "architecture_implemented": {"const": false},
+        "risk_model_implemented": {"const": false},
+        "external_validation_completed": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"run_status": {"const": "synthetic_recorded_repeat_completed"}},
+        "required": ["run_status"]
+      },
+      "then": {"required": ["repeat_of_run_ref"]},
+      "else": {"not": {"required": ["repeat_of_run_ref"]}}
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]{0,79}$"
+    },
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "lineage_edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge_id", "from_type", "from_ref", "to_type", "to_ref", "relationship"],
+      "properties": {
+        "edge_id": {"$ref": "#/$defs/id"},
+        "from_type": {
+          "enum": ["replay_evaluation_contract", "evaluation_input", "evaluation_run", "evaluation_result", "derived_evidence_case"]
+        },
+        "from_ref": {"$ref": "#/$defs/id"},
+        "to_type": {
+          "enum": ["replay_evaluation_contract", "evaluation_input", "evaluation_run", "evaluation_result", "derived_evidence_case"]
+        },
+        "to_ref": {"$ref": "#/$defs/id"},
+        "relationship": {
+          "enum": ["governs", "consumed_by", "produces", "binds_to", "reverse_lookup_anchor"]
+        }
+      }
+    }
+  }
+}

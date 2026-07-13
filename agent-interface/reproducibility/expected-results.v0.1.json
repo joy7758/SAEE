@@ -1,0 +1,57 @@
+{
+  "saee_reproducibility_expected_results_v0_1": true,
+  "results_version": "0.1.0",
+  "scope": "local_regression_expectations_only",
+  "resource_resolution_receipt": {
+    "positive_cases": 1,
+    "negative_cases": 4,
+    "adversarial_cases": 38,
+    "deterministic_runs": 10
+  },
+  "evidence_adequacy": {
+    "positive_cases": 4,
+    "negative_cases": 4,
+    "adversarial_cases": 16,
+    "deterministic_runs": 20,
+    "accountability_claim_established": false
+  },
+  "otel_candidate_mapping": {
+    "positive_mapping_cases": 3,
+    "negative_mapping_cases": 3,
+    "adversarial_cases": 7,
+    "deterministic_runs": 15,
+    "adequacy_fail_after_valid_mapping": 3,
+    "trace_auto_accepted_as_evidence": 0
+  },
+  "agent_receipt_crosswalk": {
+    "valid_mapping_cases": 1,
+    "invalid_mapping_cases": 2,
+    "mapping_rows": 9,
+    "deterministic_runs": 10,
+    "unsupported_claims": 0
+  },
+  "evidence_adequacy_benchmark": {
+    "scenario_cases": 12,
+    "pass_cases": 5,
+    "fail_cases": 7,
+    "expected_result_matches": "12/12",
+    "missing_evidence_accuracy": "12/12",
+    "reason_code_accuracy": "12/12",
+    "false_positive_count": 0,
+    "boundary_violation_count": 0,
+    "level_coverage": {
+      "LEVEL_0_TRACE_ONLY": "0/3",
+      "LEVEL_1_RECEIPT": "1/3",
+      "LEVEL_2_RECEIPT_WITH_RELATIONSHIPS": "1/3",
+      "LEVEL_3_COMPLETE_EVIDENCE_PACKAGE": "3/3"
+    }
+  },
+  "truth_boundary": {
+    "scientific_performance_claimed": false,
+    "external_reproduction_completed": false,
+    "third_party_validation_completed": false,
+    "certification_claimed": false,
+    "underlying_events_proven": false,
+    "production_ready": false
+  }
+}

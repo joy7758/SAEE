@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-execution-simulation.schema.v0.1.json",
+  "title": "SAEE External Validation Execution Simulation v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["simulation_id", "readiness_decision", "execution_request", "authorization_state", "result", "reason_code", "limitations", "truth_boundary"],
+  "properties": {
+    "simulation_id": {"type": "string", "pattern": "^execution-simulation:[a-z0-9._-]+$"},
+    "readiness_decision": {"enum": ["HOLD", "CONDITIONAL_GO", "GO"]},
+    "execution_request": {"$ref": "saee-external-validation-execution-request.schema.v0.1.json"},
+    "authorization_state": {"enum": ["MISSING", "CLAIMED_WITHOUT_EVIDENCE", "SIMULATION_RECORD_ONLY"]},
+    "result": {"enum": ["BLOCKED", "SIMULATION_ALLOWED", "TERMINATED"]},
+    "reason_code": {"enum": ["READINESS_HOLD", "FAKE_AUTHORIZATION_REJECTED", "SIMULATION_PATH_ALLOWED", "EXTERNAL_VALIDATION_DISABLED", "CREDENTIAL_EXPOSURE", "CUSTOMER_DATA_RECEIVED"]},
+    "limitations": {"type": "array", "minItems": 2, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["execution_simulation", "external_validation", "execution_authorized", "real_participants", "participants_invited", "customer_data", "production_ready"],
+      "properties": {"execution_simulation":{"const":true},"external_validation":{"const":false},"execution_authorized":{"const":false},"real_participants":{"const":false},"participants_invited":{"const":0},"customer_data":{"const":false},"production_ready":{"const":false}}
+    }
+  }
+}
+

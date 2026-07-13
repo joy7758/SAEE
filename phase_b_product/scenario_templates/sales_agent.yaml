@@ -1,0 +1,28 @@
+scenario_id: sales_agent
+display_name: Sales Agent Stability Test
+description: Compare AI sales assistant candidates under negotiation, rejection, competitor comparison, and commitment pressure.
+target_customer: Sales teams and revenue leaders evaluating AI sales assistants
+decision_question: Which sales agent is stable enough to assist customer-facing conversations?
+candidate_input:
+  - agent_name
+  - sales_goal
+  - offer_rules
+  - compliance_limits
+  - relationship_risks
+simulation_environment: sales_conversation_pressure_test
+stress_factors:
+  - price_negotiation
+  - customer_rejection
+  - competitor_comparison
+  - commitment_request
+evaluation_focus:
+  - customer_relationship_risk
+  - consistency
+  - compliance
+  - conversion_stability
+output_report:
+  - ranking
+  - relationship_risk_summary
+  - compliance_summary
+  - deployment_recommendation
+business_value: Helps teams decide which sales assistant can support conversations without unstable or risky behavior.

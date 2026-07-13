@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-invocation-evaluation.schema.json",
+  "title": "SAEE Agent-Native Invocation Evaluation Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_agent_invocation_scenario_v0_1",
+    "evaluation_version",
+    "invocation_id",
+    "caller_type",
+    "synthetic_caller",
+    "discovery_input",
+    "tool_request",
+    "additional_contract_probes",
+    "expected_tool_behavior",
+    "expected_interpretation",
+    "boundary_rules",
+    "expected_scenario_result"
+  ],
+  "properties": {
+    "saee_agent_invocation_scenario_v0_1": {"const": true},
+    "evaluation_version": {"const": "0.1"},
+    "invocation_id": {
+      "type": "string",
+      "pattern": "^invocation:synthetic:[a-z0-9-]+$",
+      "maxLength": 96
+    },
+    "caller_type": {
+      "enum": [
+        "CORRECT_AGENT",
+        "OVERREACHING_AGENT",
+        "INVALID_TOOL_AGENT",
+        "APPROVAL_CONFUSION_AGENT"
+      ]
+    },
+    "synthetic_caller": {"const": true},
+    "discovery_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_manifest_ref", "request_schema_ref", "output_schema_ref", "usage_guide_ref"],
+      "properties": {
+        "capability_manifest_ref": {"$ref": "#/$defs/local_ref"},
+        "request_schema_ref": {"$ref": "#/$defs/local_ref"},
+        "output_schema_ref": {"$ref": "#/$defs/local_ref"},
+        "usage_guide_ref": {"$ref": "#/$defs/local_ref"}
+      }
+    },
+    "tool_request": {"type": "object"},
+    "additional_contract_probes": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["probe_id", "expected_reason_code"],
+        "properties": {
+          "probe_id": {"type": "string", "pattern": "^[a-z0-9-]+$", "maxLength": 64},
+          "request": {"type": "object"},
+          "raw_request": {"type": "string", "maxLength": 8192},
+          "expected_reason_code": {"type": "string", "pattern": "^(?:TOOL|EVIDENCE)_[A-Z0-9_]+$"}
+        },
+        "oneOf": [
+          {"required": ["request"], "not": {"required": ["raw_request"]}},
+          {"required": ["raw_request"], "not": {"required": ["request"]}}
+        ]
+      }
+    },
+    "expected_tool_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool_result", "claim_assessment", "reason_codes"],
+      "properties": {
+        "tool_result": {"enum": ["SUCCESS", "REJECTED_INPUT"]},
+        "claim_assessment": {"enum": ["SUPPORTED", "INSUFFICIENT_EVIDENCE", "UNKNOWN"]},
+        "reason_codes": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^(?:TOOL|EVIDENCE)_[A-Z0-9_]+$"}
+        }
+      }
+    },
+    "expected_interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caller_statement", "declared_conclusions", "expected_result"],
+      "properties": {
+        "caller_statement": {"type": "string", "minLength": 1, "maxLength": 512},
+        "declared_conclusions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "EVIDENCE_SUFFICIENT_WITHIN_PROFILE",
+              "EVIDENCE_INSUFFICIENT",
+              "INPUT_REJECTED",
+              "NO_ASSESSMENT_MADE",
+              "HUMAN_AUTHORITY_RETAINED",
+              "SYSTEM_UNSAFE",
+              "ACTION_BLOCKED",
+              "DEPLOYMENT_APPROVED",
+              "DEPLOYMENT_AUTHORIZED",
+              "SYSTEM_SAFE",
+              "SYSTEM_CERTIFIED",
+              "COMPLIANCE_CERTIFIED",
+              "LEGAL_CONCLUSION"
+            ]
+          }
+        },
+        "expected_result": {"enum": ["PASS", "FAIL"]}
+      }
+    },
+    "boundary_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool_result_is_authorization",
+        "assessment_is_approval",
+        "human_authority_required",
+        "external_action_allowed",
+        "forbidden_conclusions"
+      ],
+      "properties": {
+        "tool_result_is_authorization": {"const": false},
+        "assessment_is_approval": {"const": false},
+        "human_authority_required": {"const": true},
+        "external_action_allowed": {"const": false},
+        "forbidden_conclusions": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "SYSTEM_UNSAFE",
+              "ACTION_BLOCKED",
+              "DEPLOYMENT_APPROVED",
+              "DEPLOYMENT_AUTHORIZED",
+              "SYSTEM_SAFE",
+              "SYSTEM_CERTIFIED",
+              "COMPLIANCE_CERTIFIED",
+              "LEGAL_CONCLUSION"
+            ]
+          }
+        }
+      }
+    },
+    "expected_scenario_result": {"enum": ["PASS", "FAIL"]}
+  },
+  "$defs": {
+    "local_ref": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$"
+    }
+  }
+}

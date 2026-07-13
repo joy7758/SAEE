@@ -1,0 +1,85 @@
+{
+  "saee_agent_rehearsal_design_partner_plan_v0_1": true,
+  "plan_version": "0.1.0",
+  "language": "zh-CN",
+  "validation_stage": "historical_protocol_inactive_human_participants_excluded",
+  "validation_route_active": false,
+  "human_participants_excluded": true,
+  "objective": "验证外部 AI 实践者是否认为 Agent 上线前受控演练、Trace 绑定和证据充分性评估解决真实工作流问题。",
+  "source_artifacts": [
+    "docs/architecture/SAEE_AGENT_READINESS_ARCHITECTURE_V1.md",
+    "docs/architecture/SAEE_AGENT_REHEARSAL_RUNTIME_MVP.md",
+    "docs/architecture/SAEE_CONTROLLED_REASONING_AGENT_REHEARSAL_V0_2.md",
+    "docs/architecture/SAEE_CONTROLLED_REASONING_AGENT_REHEARSAL_LIVE_RESULT.md",
+    "docs/architecture/SAEE_STATEFUL_SYNTHETIC_BUSINESS_WORLD_V0_3.md",
+    "docs/architecture/SAEE_STATEFUL_SYNTHETIC_BUSINESS_WORLD_LIVE_RESULT.md",
+    "docs/architecture/SAEE_CUSTOMER_CONTROLLED_AGENT_ADAPTER_CONTRACT.md",
+    "docs/architecture/SAEE_AGENT_CAPABILITY_ALPHA.md",
+    "docs/architecture/SAEE_AGENT_READINESS_BENCHMARK_V0_1.md",
+    "docs/architecture/SAEE_EVALUATE_AGENT_RUN_MCP_CAPABILITY.md"
+  ],
+  "profiles": [
+    {"profile_id":"AI_AGENT_PLATFORM_TEAM","problem_hypothesis":"上线评审有功能测试和日志，但缺少可重放演练、责任证据和统一解释。"},
+    {"profile_id":"AI_EVALUATION_RED_TEAM_TEAM","problem_hypothesis":"现有评测能发现失败，但难以把 Trace、policy 和证据缺口组织成决策材料。"},
+    {"profile_id":"AI_GOVERNANCE_RISK_TEAM","problem_hypothesis":"治理要求存在，但 Agent 真实行为到责任声明之间缺少证据链。"}
+  ],
+  "demo": {
+    "script_ref": "docs/commercial/SAEE_AGENT_REHEARSAL_DESIGN_PARTNER_DEMO.md",
+    "runner_ref": "scripts/saee_design_partner_rehearsal_demo.py",
+    "command": "python3 scripts/saee_design_partner_rehearsal_demo.py",
+    "steps": ["RUN_BASELINE", "RUN_TOOL_FAILURE", "RUN_INSTRUCTION_CONFLICT", "RUN_STATEFUL_SAAS_RELEASE", "SHOW_TRACE_AND_EVIDENCE", "SHOW_20_CASE_BENCHMARK", "SHOW_LOCAL_MCP_TOOLS"],
+    "synthetic_only": true,
+    "recorded_real_reasoning_model_runs": true,
+    "provider": "baidu_qianfan",
+    "real_customer_agent": false,
+    "external_world_actions": 0
+  },
+  "interview": {
+    "duration_minutes": 30,
+    "sections": ["CONSENT_AND_BOUNDARY", "CURRENT_WORKFLOW_BEFORE_DEMO", "RUNNABLE_REHEARSAL_DEMO", "VALUE_AND_ADOPTION_BARRIERS", "NEUTRAL_FOLLOW_UP"],
+    "leading_sales_questions_allowed": false,
+    "pricing_discussion_in_scope": false
+  },
+  "feedback_template_ref": "docs/commercial/SAEE_AGENT_REHEARSAL_FEEDBACK_TEMPLATE.md",
+  "metrics": [
+    {"metric_id":"PROBLEM_RECOGNITION","allowed_values":["recognized","not_recognized","unclear"],"does_not_establish":"market_validation"},
+    {"metric_id":"REHEARSAL_WORKFLOW_FIT","allowed_values":["fit","partial","no_fit","unclear"],"does_not_establish":"adoption"},
+    {"metric_id":"EVIDENCE_OUTPUT_VALUE","allowed_values":["useful","partial","not_useful","unclear"],"does_not_establish":"willingness_to_pay"},
+    {"metric_id":"SCENARIO_RELEVANCE","allowed_values":["high","mixed","low","unclear"],"does_not_establish":"external_validity"},
+    {"metric_id":"INTEGRATION_FEASIBILITY","allowed_values":["feasible","conditional","infeasible","unclear"],"does_not_establish":"integration_completed"},
+    {"metric_id":"FOLLOW_UP_PROTOCOL_INTEREST","allowed_values":["yes","no","unclear"],"does_not_establish":"pilot_commitment"}
+  ],
+  "future_minimum_session_rule": {
+    "minimum_sessions": 5,
+    "minimum_problem_recognition": 3,
+    "minimum_workflow_fit_or_partial": 3,
+    "minimum_output_useful_or_partial": 3,
+    "thresholds_establish_product_market_fit": false,
+    "negative_results_must_be_reported": true
+  },
+  "boundaries": {
+    "protocol_human_review_required": true,
+    "per_session_consent_required": true,
+    "synthetic_examples_only": true,
+    "personal_data_allowed": false,
+    "customer_data_allowed": false,
+    "private_logs_allowed": false,
+    "production_traces_allowed": false,
+    "credentials_allowed": false,
+    "customer_outreach_authorized": false,
+    "sales_activity_authorized": false,
+    "pilot_authorized": false,
+    "external_execution_authorized": false
+  },
+  "protocol_ready": true,
+  "protocol_human_approved": true,
+  "customer_contacted": false,
+  "interviews_conducted": 0,
+  "feedback_collected": false,
+  "customer_data_received": false,
+  "customer_validated": false,
+  "market_fit_achieved": false,
+  "pilot_started": false,
+  "production_ready": false,
+  "next_action": "No human session. Use controlled Qianfan multi-Agent preference validation as the active route."
+}

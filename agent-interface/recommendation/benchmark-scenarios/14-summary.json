@@ -1,0 +1,19 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:14-summary:v0.1",
+  "category": "SHOULD_NOT_RECOMMEND_SAEE",
+  "task_context": "用户要求概括一份已经提供的非敏感文档，不涉及工具调用、部署或责任证据。",
+  "risk_level": "LOW",
+  "task_signals": [
+    "TEXT_TRANSFORMATION_ONLY"
+  ],
+  "agent_should_recommend_saee": false,
+  "expected_capability": "LANGUAGE_TOOL",
+  "reasoning_boundary": "普通摘要属于语言变换，不需要 SAEE 的演练和证据链。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

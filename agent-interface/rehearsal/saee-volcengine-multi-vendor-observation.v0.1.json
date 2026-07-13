@@ -1,0 +1,56 @@
+{
+  "observation_version": "0.1",
+  "observed_on": "2026-07-12",
+  "provider_gateway": "volcengine_ark",
+  "credential_source": "environment_variable_not_recorded",
+  "model_catalog": {
+    "visible_model_count": 126,
+    "gateway_identity_is_model_vendor": false
+  },
+  "vendor_observations": [
+    {
+      "model_vendor": "bytedance",
+      "model": "doubao-seed-2-0-lite-260215",
+      "catalog_visible": true,
+      "live_inference_observed": true,
+      "function_calling_observed": true
+    },
+    {
+      "model_vendor": "deepseek",
+      "model": "deepseek-v4-flash-260425",
+      "catalog_visible": true,
+      "live_inference_observed": true,
+      "function_calling_advertised_by_catalog": true,
+      "function_calling_observed": true,
+      "controlled_rehearsal_completed": true,
+      "controlled_rehearsal_ref": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json"
+    },
+    {
+      "model_vendor": "zhipu",
+      "model": "glm-5-2-260617",
+      "catalog_visible": true,
+      "live_inference_observed": true,
+      "function_calling_advertised_by_catalog": true,
+      "function_calling_observed": true,
+      "controlled_rehearsal_completed": true,
+      "controlled_rehearsal_ref": "agent-interface/benchmark/saee-agent-comparison-result.v0.1.json"
+    },
+    {
+      "model_vendor": "moonshot",
+      "catalog_models": ["kimi-k2-250711", "kimi-k2-250905", "kimi-k2-thinking-251104"],
+      "catalog_visible": true,
+      "catalog_statuses": ["Shutdown", "Retiring"],
+      "live_inference_observed": false,
+      "invocation_result": "InvalidEndpointOrModel.NotFound"
+    }
+  ],
+  "truth_boundary": {
+    "catalog_visibility_is_invocation": false,
+    "gateway_access_is_native_agent_orchestration": false,
+    "provider_gateway_separated_from_model_vendor": true,
+    "customer_data_used": false,
+    "external_world_actions": false,
+    "secret_reflected": false,
+    "production_ready": false
+  }
+}

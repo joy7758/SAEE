@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1",
+  "project": "SAEE",
+  "name": "SAEE Evidence Adequacy Layer",
+  "language": "zh-CN",
+  "base_url": "https://redcrag.cn/",
+  "release": {
+    "version": "0.1",
+    "type": "agent_discovery_layer",
+    "stage": "research_prototype"
+  },
+  "capability": {
+    "id": "saee-evidence-adequacy",
+    "manifest": "https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json",
+    "summary": "评估现有证据关系是否满足指定智能体责任声明的固定剖面要求。"
+  },
+  "entrypoints": {
+    "human": "https://redcrag.cn/",
+    "llm": "https://redcrag.cn/llms.txt",
+    "overview": "https://redcrag.cn/docs/overview.md",
+    "example": "https://redcrag.cn/examples/synthetic-review-example.json",
+    "limitations": "https://redcrag.cn/docs/limitations.md"
+  },
+  "truth_boundary": {
+    "research_prototype": true,
+    "production_service": false,
+    "commercial_service": false,
+    "external_validation": false,
+    "certification_claim": false,
+    "agent_callable_runtime": false
+  }
+}

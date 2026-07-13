@@ -1,0 +1,81 @@
+{
+  "saee_observation_envelope_v0_1": true,
+  "schema_version": "0.1.0",
+  "observation_id": "observation:tool-trace-envelope-001",
+  "trace_id": "trace:tool-trace-envelope-001",
+  "created_at": "2026-07-11T14:20:00Z",
+  "producer": {
+    "producer_id": "producer:synthetic-tool-trace-declaration",
+    "type": "tool_trace_adapter_declaration",
+    "version": "tool-trace-declaration:v0.1",
+    "adapter_implemented": false
+  },
+  "source": {
+    "source_type": "tool_trace_observation",
+    "runtime_ref": "runtime:synthetic-tool-runtime-001",
+    "adapter_ref": "adapter:tool-trace-future-receive-only",
+    "receive_only": true,
+    "external_execution_by_saee": false,
+    "raw_content_included": false
+  },
+  "authorization": {
+    "status": "synthetic_declared_only",
+    "authorization_ref": "authorization:tool-trace-envelope-001",
+    "scope": "local synthetic read-only tool trace metadata review",
+    "independently_verified": false,
+    "authorization_inferred_from_trace": false
+  },
+  "sanitization": {
+    "status": "synthetic_no_raw_content",
+    "method": "synthetic_generation",
+    "raw_content_excluded": true,
+    "independently_verified": false
+  },
+  "events": [
+    {
+      "event_id": "event:tool-call-001",
+      "sequence": 0,
+      "timestamp": "2026-07-11T14:20:01Z",
+      "event_type": "tool_call",
+      "summary": "Synthetic tool invocation metadata declared a read-only lookup request.",
+      "digest_algorithm": "sha256",
+      "summary_digest": "f63f4bdba126bc257d100e5e8cdabc036ed8a1a57426e58d675c38701406ebfe",
+      "payload_included": false,
+      "observation_is_evidence": false,
+      "authorization_inferred": false,
+      "deployment_decision_inferred": false
+    },
+    {
+      "event_id": "event:tool-result-001",
+      "parent_event_id": "event:tool-call-001",
+      "sequence": 1,
+      "timestamp": "2026-07-11T14:20:02Z",
+      "event_type": "tool_result",
+      "summary": "Synthetic tool result metadata declared a timeout without raw payload.",
+      "digest_algorithm": "sha256",
+      "summary_digest": "e46caa8a5080ed20846709033a11294bb7fc541ece259c7f2c3caa2efb9bf1ea",
+      "payload_included": false,
+      "observation_is_evidence": false,
+      "authorization_inferred": false,
+      "deployment_decision_inferred": false
+    }
+  ],
+  "privacy": {
+    "retention_ref": "retention:synthetic-tool-trace-local",
+    "deletion_ref": "deletion:synthetic-tool-trace-local",
+    "personal_data_included": false,
+    "retention_verified": false,
+    "deletion_verified": false
+  },
+  "truth_boundary": {
+    "observation_only": true,
+    "evidence_established": false,
+    "trace_authenticity_verified": false,
+    "authorization_proven": false,
+    "deployment_authorized": false,
+    "automatic_decision": false,
+    "real_agent_executed_by_saee": false,
+    "network_accessed": false,
+    "production_ready": false
+  }
+}

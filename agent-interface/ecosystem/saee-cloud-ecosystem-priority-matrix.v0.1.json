@@ -1,0 +1,64 @@
+{
+  "matrix_version": "0.1",
+  "strategy_id": "saee.cloud-ecosystem-integration-strategy.v1",
+  "position": "Agent Reliability Capability Layer",
+  "ecosystem_entry_package_reference": "ecosystem/mcp-entry-package-v1/capability-card.json",
+  "platforms": [
+    {
+      "ecosystem": "MCP_ECOSYSTEM",
+      "integration_surface": ["LOCAL_MCP_ADAPTER", "CAPABILITY_PACKAGE", "TOOL_DISCOVERY"],
+      "strategic_fit": "VERY_HIGH",
+      "technical_readiness": "LOCAL_ALPHA_AVAILABLE",
+      "commercial_readiness": "STRATEGY_ONLY",
+      "priority": "P0",
+      "limitations": ["NO_REMOTE_MCP_SERVICE", "NO_CROSS_VENDOR_INTEROPERABILITY_PROOF", "MCP_IS_NOT_TRUST_AUTHORITY"]
+    },
+    {
+      "ecosystem": "VOLCENGINE_ARK",
+      "integration_surface": ["AGENT_TOOL", "MCP", "HTTP_CAPABILITY", "EVALUATION_WORKFLOW"],
+      "strategic_fit": "HIGH",
+      "technical_readiness": "PROVIDER_OBSERVATIONS_AND_LOCAL_ADAPTERS_AVAILABLE",
+      "commercial_readiness": "STRATEGY_ONLY",
+      "priority": "P1",
+      "limitations": ["NO_OFFICIAL_INTEGRATION", "NO_ARK_AGENT_ADAPTER_VALIDATION", "NO_MARKETPLACE_SUBMISSION"]
+    },
+    {
+      "ecosystem": "BAIDU_QIANFAN",
+      "integration_surface": ["APPBUILDER_MCP_COMPONENT", "CAPABILITY_TOOL", "DEVELOPER_WORKFLOW"],
+      "strategic_fit": "HIGH",
+      "technical_readiness": "CONTROLLED_MODEL_EVIDENCE_AVAILABLE_NATIVE_INTEGRATION_UNPROVEN",
+      "commercial_readiness": "STRATEGY_ONLY",
+      "priority": "P1",
+      "limitations": ["NO_OFFICIAL_INTEGRATION", "QIANFAN_NATIVE_MCP_SUPPORT_FOR_SAEE_UNPROVEN", "NO_MARKETPLACE_SUBMISSION"]
+    },
+    {
+      "ecosystem": "ALIBABA_BAILIAN",
+      "integration_surface": ["CUSTOM_MCP_SERVICE", "AGENT_WORKFLOW", "HIGH_CODE_APPLICATION"],
+      "strategic_fit": "HIGH",
+      "technical_readiness": "NOT_TESTED",
+      "commercial_readiness": "STRATEGY_ONLY",
+      "priority": "P2",
+      "limitations": ["NO_PROVIDER_TEST", "NO_INTEGRATION", "NO_PLATFORM_REVIEW"]
+    },
+    {
+      "ecosystem": "GLOBAL_AGENT_PLATFORMS",
+      "integration_surface": ["MCP_BACKED_TOOLS", "LOCAL_HTTP_CONTRACT", "CAPABILITY_METADATA"],
+      "strategic_fit": "MEDIUM_HIGH",
+      "technical_readiness": "LOCAL_CONTRACTS_ONLY",
+      "commercial_readiness": "STRATEGY_ONLY",
+      "priority": "P2",
+      "limitations": ["NO_EXTERNAL_PLATFORM_TEST", "NO_OFFICIAL_SUPPORT", "NO_ADOPTION_EVIDENCE"]
+    }
+  ],
+  "truth_boundary": {
+    "cloud_ecosystem_strategy": true,
+    "cloud_integration_executed": false,
+    "official_support": false,
+    "partner_contact": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "external_agents_connected": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

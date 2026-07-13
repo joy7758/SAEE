@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 正式安全审查人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f7f2;
+        --surface: #ffffff;
+        --surface-soft: #eef1eb;
+        --text: #1f211d;
+        --muted: #66706a;
+        --line: #dfe3dc;
+        --accent: #10a37f;
+        --accent-deep: #10221d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      main {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+      header, section {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: 0 18px 44px rgba(17, 21, 18, 0.06);
+      }
+      header { padding: 28px; }
+      section { padding: 24px; }
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #0a7f64;
+        font-size: 13px;
+        font-weight: 800;
+      }
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(32px, 5vw, 58px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin: 0 0 14px;
+        font-size: 22px;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+      ol, ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      li + li { margin-top: 10px; }
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: var(--surface-soft);
+        color: var(--accent-deep);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92em;
+      }
+      .command {
+        overflow-x: auto;
+        padding: 14px;
+        border-radius: 10px;
+        background: #111512;
+        color: #ffffff;
+        font-size: 13px;
+      }
+      .status, .mini-list {
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        list-style: none;
+      }
+      .status li {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .status li:last-child { border-bottom: 0; }
+      .mini-list li {
+        display: grid;
+        grid-template-columns: minmax(210px, 0.7fr) 1fr;
+        gap: 12px;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fbfcf9;
+      }
+      .note {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 10px;
+        background: #e5f4ef;
+        color: var(--accent-deep);
+        font-weight: 700;
+      }
+      @media (max-width: 760px) {
+        main { width: min(100% - 24px, 1080px); padding-top: 24px; }
+        header, section { padding: 18px; }
+        .grid { grid-template-columns: 1fr; }
+        .mini-list li { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">SAEE 正式安全审查人工审批入口</p>
+        <h1>先完成安全审查，再谈正式商用。</h1>
+        <p class="lead">
+          这个页面只告诉人类该填哪些本地证据。它不会替你做安全审查，
+          不会跑渗透测试，也不会查看或公开私有核心。
+        </p>
+        <p class="note">正式安全审查还没有完成，也不能声称安全已审。</p>
+      </header>
+
+      <div class="grid">
+        <section>
+          <h2>人类要做的 5 步</h2>
+          <ol>
+            <li>复制本地模板。</li>
+            <li>填写审查负责人、日期、报告引用和结论摘要。</li>
+            <li>逐项确认 7 个安全审查证据键。</li>
+            <li>每项都要有来源说明、审查材料和负责人。</li>
+            <li>运行本地验证后停下，等待单独批准。</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>当前状态</h2>
+          <ul class="status">
+            <li><span>正式安全审查完成</span><code>false</code></li>
+            <li><span>Codex 执行安全审查</span><code>false</code></li>
+            <li><span>渗透测试已运行</span><code>false</code></li>
+            <li><span>私有核心已查看</span><code>false</code></li>
+            <li><span>生产可用</span><code>false</code></li>
+            <li><span>关闭 blocker</span><code>0</code></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="grid">
+        <section>
+          <h2>复制模板</h2>
+          <div class="command">cp phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.template.json phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json</div>
+          <h2 style="margin-top: 22px;">人工填写后验证</h2>
+          <div class="command">python3 scripts/saee_formal_security_review_approval_input_validator.py --input phase_b_product/commercial_readiness/privacy_security_legal_evidence/formal_security_review_evidence_input.human_filled.local.json</div>
+        </section>
+
+        <section>
+          <h2>不能越过的边界</h2>
+          <ul>
+            <li>不联系安全审查方或供应商。</li>
+            <li>不运行扫描、渗透测试或外部安全服务。</li>
+            <li>不检查、不公开、不复制私有核心。</li>
+            <li>不声称安全审查完成或生产可用。</li>
+          </ul>
+        </section>
+      </div>
+
+      <section style="margin-top: 18px;">
+        <h2>必须填写的元数据</h2>
+        <ul class="mini-list"><li><code>human_reviewer_name</code><span>必须由人类填写。</span></li>
+<li><code>review_date</code><span>必须由人类填写。</span></li>
+<li><code>security_review_owner</code><span>必须由人类填写。</span></li>
+<li><code>report_reference</code><span>必须由人类填写。</span></li>
+<li><code>decision_summary</code><span>必须由人类填写。</span></li></ul>
+      </section>
+
+      <section style="margin-top: 18px;">
+        <h2>必须审查的 7 个证据项</h2>
+        <ul class="mini-list"><li><code>auth_and_tenant_boundary_reviewed</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>dependency_review_completed</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>formal_security_review_report</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>private_core_non_exposure_review_completed</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>public_shell_threat_model_reviewed</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>review_findings_triaged</code><span>需要审查记录、来源说明和负责人。</span></li>
+<li><code>storage_backup_and_restore_reviewed</code><span>需要审查记录、来源说明和负责人。</span></li></ul>
+      </section>
+    </main>
+  </body>
+</html>

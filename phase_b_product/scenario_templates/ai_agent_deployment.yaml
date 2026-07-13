@@ -1,0 +1,27 @@
+scenario_id: ai_agent_deployment
+display_name: AI Agent Deployment Evaluation
+description: Compare AI agents before deployment and identify which candidate is more stable over long-horizon tasks.
+target_customer: AI companies and enterprise AI teams
+decision_question: Which agent should be deployed?
+candidate_input:
+  - agent_name
+  - objective
+  - capabilities
+  - risks
+  - failure_conditions
+simulation_environment: long_horizon_agent_tasks
+stress_factors:
+  - user_behavior_change
+  - task_complexity
+  - tool_failure
+  - long_context
+evaluation_focus:
+  - stability
+  - failure_risk
+  - deployment_confidence
+output_report:
+  - ranking
+  - stability_score
+  - failure_summary
+  - deployment_recommendation
+business_value: Helps teams choose the safer AI agent candidate before broader rollout.

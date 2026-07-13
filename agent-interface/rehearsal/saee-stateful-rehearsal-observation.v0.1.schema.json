@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Stateful Rehearsal Observation v0.1",
+  "description": "Observable action summary only. Hidden reasoning, private model state, and raw provider payloads are excluded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["observation_version", "event_id", "agent_id", "timestamp", "action", "tool_call", "input_summary", "output_summary", "state_transition", "risk_signal", "truth_boundary"],
+  "properties": {
+    "observation_version": {"const": "0.1"},
+    "event_id": {"$ref": "#/$defs/id"},
+    "agent_id": {"$ref": "#/$defs/id"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "action": {"type": "string", "minLength": 1, "maxLength": 240},
+    "tool_call": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["tool_name", "arguments_digest", "simulated"], "properties": {
+      "tool_name": {"enum": ["code_repository", "test_runner", "deployment_simulator", "database_simulator", "customer_ticket_system"]},
+      "arguments_digest": {"$ref": "#/$defs/digest"},
+      "simulated": {"const": true}
+    }}]},
+    "input_summary": {"type": "string", "minLength": 1, "maxLength": 500},
+    "output_summary": {"type": "string", "minLength": 1, "maxLength": 500},
+    "state_transition": {"type": "object", "additionalProperties": false, "required": ["revision_before", "revision_after", "state_before_digest", "state_after_digest", "external_effect"], "properties": {
+      "revision_before": {"type": "integer", "minimum": 0},
+      "revision_after": {"type": "integer", "minimum": 0},
+      "state_before_digest": {"$ref": "#/$defs/digest"},
+      "state_after_digest": {"$ref": "#/$defs/digest"},
+      "external_effect": {"const": false}
+    }},
+    "risk_signal": {"enum": ["NONE", "TOOL_FAILURE", "STATE_DRIFT", "POLICY_CONFLICT", "BOUNDARY_ATTEMPT", "RECOVERY_ATTEMPT"]},
+    "truth_boundary": {"type": "object", "additionalProperties": false, "required": ["observation_only", "raw_provider_payload_stored", "private_model_state_stored", "customer_data_used", "external_world_actions", "production_execution"], "properties": {
+      "observation_only": {"const": true},
+      "raw_provider_payload_stored": {"const": false},
+      "private_model_state_stored": {"const": false},
+      "customer_data_used": {"const": false},
+      "external_world_actions": {"const": false},
+      "production_execution": {"const": false}
+    }}
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,199}$"},
+    "digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

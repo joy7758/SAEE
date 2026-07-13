@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-07-02",
+  "mode": "additive_v0_3_bootstrap",
+  "refactor_existing_kernels": false,
+  "external_code_execution": false,
+  "corrections": [
+    {
+      "conflict": "v0.2 has population ecology but no meta-evolution rule genome",
+      "patch": "saee_v0_3/meta_evolution/rule_engine.py"
+    },
+    {
+      "conflict": "architecture asks for counterfactual simulation but v0.2 did not simulate rule changes",
+      "patch": "saee_v0_3/evolution_engine/counterfactual.py"
+    },
+    {
+      "conflict": "rule drift risk could corrupt lineage, sensing, or fitness vectors",
+      "patch": "saee_v0_3/meta_evolution/drift_guard.py"
+    },
+    {
+      "conflict": "lineage graph only tracked genomes, not rule evolution",
+      "patch": "saee_v0_3/lineage/dag.py"
+    }
+  ],
+  "boundaries": [
+    "no_real_api_calls",
+    "no_network_access",
+    "no_external_repo_execution",
+    "no_permission_expansion",
+    "no_publication_claim"
+  ]
+}
+

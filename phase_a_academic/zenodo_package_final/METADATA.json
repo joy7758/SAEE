@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "package": "SAEE Phase A Zenodo Package Final",
+  "status": "local_academic_definition_lock_not_uploaded",
+  "source_packages": [
+    "zenodo_final_submission/",
+    "paper_submission/",
+    "docs/science/phase_diagram/",
+    "docs/science/laws/",
+    "saee_experiments/reports/"
+  ],
+  "scientific_object": "frozen_empirical_phase_space_object",
+  "core_result": {
+    "dominant_regime": "stable_regime",
+    "dominant_basin": "stable_lineage_basin",
+    "observed_transition": "stable_regime -> stable_regime",
+    "collapse_observed": false,
+    "lineage_nodes": 808,
+    "lineage_edges": 1590,
+    "candidate_law_count": 5
+  },
+  "claim_boundary": {
+    "implementation_disclosed": false,
+    "kernel_modified": false,
+    "new_data_generated": false,
+    "external_validation_claimed": false,
+    "universal_law_claimed": false,
+    "open_ended_evolution_claimed_under_current_constraints": false,
+    "zenodo_uploaded": false,
+    "doi_assigned": false,
+    "paper_submitted": false,
+    "github_release_created": false
+  },
+  "human_review_required_before_external_action": true
+}

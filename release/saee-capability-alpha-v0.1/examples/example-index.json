@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "examples": [
+    {"operation_id":"evaluate_agent_run","reference":"../../../capability-package/examples/evaluate-agent-run.json"},
+    {"operation_id":"evaluate_evidence","reference":"../../../capability-package/examples/evaluate-evidence.json"},
+    {"operation_id":"rehearse_agent","reference":"../../../capability-package/examples/rehearse-agent.json"}
+  ],
+  "integration_examples_reference": "../../../examples/agent-integrations/README.md",
+  "example_payloads_duplicated": false
+}

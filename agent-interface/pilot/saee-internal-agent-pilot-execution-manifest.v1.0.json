@@ -1,0 +1,17 @@
+{
+  "manifest_version":"1.0",
+  "pilot_id":"saee.internal-agent-pilot.execution.v1",
+  "runs":[
+    {
+      "run_id":"saee:internal-pilot-run:001","agent_type":"coding_agent","agent_runtime":"codex_desktop_current_session","model_provider":"openai_codex","model_reference":"codex-current-session-model-id-not-recorded","task_type":"implement_bounded_internal_pilot_execution_contract","scenario":"CODE_CHANGE_WORKFLOW","execution_environment":"LOCAL_CONTROLLED","tool_scope":["read_local_files","apply_bounded_patch","run_offline_validator","run_local_test"],"data_scope":"SYNTHETIC_OR_PUBLIC_ONLY","limitations":["The exact hosted model identifier is not recorded by this runtime surface.","Repository changes are internal development work and not production deployment."]
+    },
+    {
+      "run_id":"saee:internal-pilot-run:002","agent_type":"research_agent","agent_runtime":"codex_desktop_current_session","model_provider":"openai_codex","model_reference":"codex-current-session-model-id-not-recorded","task_type":"analyze_local_pilot_and_evaluator_contracts","scenario":"RESEARCH_WORKFLOW","execution_environment":"LOCAL_CONTROLLED","tool_scope":["read_local_files","compute_digest"],"data_scope":"SYNTHETIC_OR_PUBLIC_ONLY","limitations":["Research uses checked-in local sources only.","Conclusions do not establish external factual or market validity."]
+    },
+    {
+      "run_id":"saee:internal-pilot-run:003","agent_type":"automation_agent","agent_runtime":"codex_desktop_current_session","model_provider":"openai_codex","model_reference":"codex-current-session-model-id-not-recorded","task_type":"run_fixed_local_validation_sequence","scenario":"AUTOMATION_WORKFLOW","execution_environment":"LOCAL_CONTROLLED","tool_scope":["read_local_files","run_offline_validator","run_local_test","compute_digest"],"data_scope":"SYNTHETIC_OR_PUBLIC_ONLY","limitations":["Automation is limited to local validation commands.","No provider API, production system, or external tool is invoked."]
+    }
+  ],
+  "limitations":["This manifest records one Codex session operating in three bounded roles, not three independent agents.","Stored provider credentials were inventoried by variable name only and were not used.","Internal execution does not establish external validation, customer value, or adoption."],
+  "truth_boundary":{"internal_agent_pilot":true,"pilot_executed":true,"real_internal_execution":true,"external_validation":false,"customer_data":false,"production_execution":false,"external_world_actions":false,"adoption_validated":false,"production_ready":false}
+}

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SAEE AI 智能体上线前可靠性评估服务架构</title>
+  <desc id="desc">客户提交经授权脱敏的工作流、场景和运行记录，经过范围与数据边界确认后，由 SAEE 人工评估服务检查证据覆盖、失败定位和恢复准备，交付结构化 JSON、中文报告、缺口清单和改进建议，最终由客户负责人独立决定是否继续、调整、人工复核或停止。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L11,4 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L11,4 z" fill="#b7791f"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#f7f9fc"/>
+  <text x="72" y="78" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="700" fill="#172033">SAEE AI 智能体上线前可靠性评估服务架构</text>
+  <text x="72" y="120" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="21" fill="#536078">单工作流 · 单场景 · 授权脱敏材料 · 人工评估交付</text>
+
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <g transform="translate(70 205)">
+      <rect width="245" height="175" rx="22" fill="#fff7e6" stroke="#b7791f" stroke-width="3"/>
+      <text x="122.5" y="48" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">客户授权材料</text>
+      <text x="122.5" y="86" text-anchor="middle" font-size="17" fill="#536078">工作流说明 + 业务场景</text>
+      <text x="122.5" y="118" text-anchor="middle" font-size="17" fill="#536078">脱敏运行记录 / 测试结果</text>
+      <text x="122.5" y="150" text-anchor="middle" font-size="15" fill="#b7791f">不提交密码、密钥或敏感原始数据</text>
+    </g>
+
+    <g transform="translate(385 205)">
+      <rect width="245" height="175" rx="22" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+      <text x="122.5" y="48" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">范围与边界确认</text>
+      <text x="122.5" y="86" text-anchor="middle" font-size="17" fill="#536078">确认评估对象与交付范围</text>
+      <text x="122.5" y="118" text-anchor="middle" font-size="17" fill="#536078">检查授权、脱敏和材料完整性</text>
+      <text x="122.5" y="150" text-anchor="middle" font-size="15" fill="#2563eb">缺失材料先标记，不扩大权限</text>
+    </g>
+
+    <g transform="translate(700 205)">
+      <rect width="245" height="175" rx="22" fill="#eef4ff" stroke="#2563eb" stroke-width="4"/>
+      <text x="122.5" y="48" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">SAEE 评估服务</text>
+      <text x="122.5" y="86" text-anchor="middle" font-size="17" fill="#536078">证据覆盖 · 失败定位</text>
+      <text x="122.5" y="118" text-anchor="middle" font-size="17" fill="#536078">恢复准备 · 权限边界</text>
+      <text x="122.5" y="150" text-anchor="middle" font-size="15" fill="#2563eb">人工评估，不执行客户工作流</text>
+    </g>
+
+    <g transform="translate(1015 205)">
+      <rect width="245" height="175" rx="22" fill="#ffffff" stroke="#278a5b" stroke-width="3"/>
+      <text x="122.5" y="48" text-anchor="middle" font-size="25" font-weight="700" fill="#172033">结构化交付</text>
+      <text x="122.5" y="86" text-anchor="middle" font-size="17" fill="#536078">JSON + 中文评估报告</text>
+      <text x="122.5" y="118" text-anchor="middle" font-size="17" fill="#536078">缺口清单 + 改进建议</text>
+      <text x="122.5" y="150" text-anchor="middle" font-size="15" fill="#278a5b">人可读，也便于智能体解析复用</text>
+    </g>
+
+    <g transform="translate(1330 205)">
+      <rect width="200" height="175" rx="22" fill="#fff7e6" stroke="#b7791f" stroke-width="3" stroke-dasharray="10 7"/>
+      <text x="100" y="48" text-anchor="middle" font-size="24" font-weight="700" fill="#172033">客户负责人决策</text>
+      <text x="100" y="88" text-anchor="middle" font-size="17" fill="#536078">继续 / 调整</text>
+      <text x="100" y="120" text-anchor="middle" font-size="17" fill="#536078">人工复核 / 停止</text>
+      <text x="100" y="151" text-anchor="middle" font-size="15" fill="#b7791f">高影响动作单独授权</text>
+    </g>
+
+    <g stroke="#2563eb" stroke-width="4" fill="none" marker-end="url(#arrow)">
+      <path d="M315 292 H372"/>
+      <path d="M630 292 H687"/>
+      <path d="M945 292 H1002"/>
+    </g>
+    <path d="M1260 292 H1317" stroke="#b7791f" stroke-width="4" stroke-dasharray="10 7" fill="none" marker-end="url(#arrowGold)"/>
+
+    <text x="800" y="450" text-anchor="middle" font-size="24" font-weight="700" fill="#172033">核心评估维度</text>
+    <g transform="translate(275 485)">
+      <rect width="290" height="115" rx="18" fill="#ffffff" stroke="#d8deea" stroke-width="2"/>
+      <circle cx="48" cy="57" r="25" fill="#eef4ff"/>
+      <text x="48" y="65" text-anchor="middle" font-size="24" font-weight="700" fill="#2563eb">1</text>
+      <text x="95" y="48" font-size="21" font-weight="700" fill="#172033">证据是否充分</text>
+      <text x="95" y="78" font-size="16" fill="#536078">关键事件、异常和影响是否可追溯</text>
+    </g>
+    <g transform="translate(655 485)">
+      <rect width="290" height="115" rx="18" fill="#ffffff" stroke="#d8deea" stroke-width="2"/>
+      <circle cx="48" cy="57" r="25" fill="#eef4ff"/>
+      <text x="48" y="65" text-anchor="middle" font-size="24" font-weight="700" fill="#2563eb">2</text>
+      <text x="95" y="48" font-size="21" font-weight="700" fill="#172033">失败能否定位</text>
+      <text x="95" y="78" font-size="16" fill="#536078">责任边界、失败点和缺失信息是否明确</text>
+    </g>
+    <g transform="translate(1035 485)">
+      <rect width="290" height="115" rx="18" fill="#ffffff" stroke="#d8deea" stroke-width="2"/>
+      <circle cx="48" cy="57" r="25" fill="#eef4ff"/>
+      <text x="48" y="65" text-anchor="middle" font-size="24" font-weight="700" fill="#2563eb">3</text>
+      <text x="95" y="48" font-size="21" font-weight="700" fill="#172033">恢复是否就绪</text>
+      <text x="95" y="78" font-size="16" fill="#536078">人工确认、回滚和下一步是否已准备</text>
+    </g>
+
+    <g transform="translate(70 665)">
+      <rect width="700" height="155" rx="22" fill="#ffffff" stroke="#d8deea" stroke-width="2"/>
+      <text x="30" y="42" font-size="21" font-weight="700" fill="#172033">智能体可读交付契约</text>
+      <text x="30" y="78" font-size="17" fill="#536078">输入：工作流说明、评估场景、授权脱敏运行材料</text>
+      <text x="30" y="110" font-size="17" fill="#536078">输出：结构化 JSON、中文报告、证据缺口、改进建议</text>
+      <text x="30" y="140" font-size="17" fill="#536078">建议标签：CONTINUE · REPLAN · HUMAN_REVIEW_REQUIRED · STOP</text>
+    </g>
+
+    <g transform="translate(830 665)">
+      <rect width="700" height="155" rx="22" fill="#fff7e6" stroke="#b7791f" stroke-width="2"/>
+      <text x="30" y="42" font-size="21" font-weight="700" fill="#172033">服务安全边界</text>
+      <text x="30" y="78" font-size="17" fill="#536078">不自动部署 · 不操作客户生产系统 · 不自动扩大权限</text>
+      <text x="30" y="110" font-size="17" fill="#536078">不替代安全认证或合规认证 · 不承诺零故障</text>
+      <text x="30" y="140" font-size="17" fill="#536078">上线、发布和高影响动作仍由客户负责人独立授权</text>
+    </g>
+  </g>
+</svg>

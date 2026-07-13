@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-registry-validation-result.schema.v0.1.json",
+  "title": "SAEE Capability Registry Validation Result v0.1",
+  "description": "Strict offline result for internal capability registry consistency validation; not a trust or certification result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_registry_validation_result_v0_1",
+    "validation_version",
+    "validation_status",
+    "capability_id",
+    "capability_version",
+    "lifecycle_state",
+    "identity_valid",
+    "version_consistent",
+    "contract_references_valid",
+    "lifecycle_valid",
+    "boundary_valid",
+    "reference_chain_valid",
+    "checked_reference_count",
+    "errors",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_registry_validation_result_v0_1": {"const": true},
+    "validation_version": {"const": "0.1"},
+    "validation_status": {"enum": ["PASS", "FAIL"]},
+    "capability_id": {"type": "string", "maxLength": 128},
+    "capability_version": {"type": "string", "maxLength": 16},
+    "lifecycle_state": {"type": "string", "maxLength": 48},
+    "identity_valid": {"type": "boolean"},
+    "version_consistent": {"type": "boolean"},
+    "contract_references_valid": {"type": "boolean"},
+    "lifecycle_valid": {"type": "boolean"},
+    "boundary_valid": {"type": "boolean"},
+    "reference_chain_valid": {"type": "boolean"},
+    "checked_reference_count": {"type": "integer", "minimum": 0, "maximum": 64},
+    "errors": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^REGISTRY_[A-Z0-9_]+$", "maxLength": 96}
+    },
+    "fixture_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixture_cases", "valid_cases", "invalid_cases", "expected_outcomes_matched", "deterministic_runs"],
+      "properties": {
+        "fixture_cases": {"type": "integer", "minimum": 7},
+        "valid_cases": {"type": "integer", "minimum": 1},
+        "invalid_cases": {"type": "integer", "minimum": 6},
+        "expected_outcomes_matched": {"const": true},
+        "deterministic_runs": {"type": "integer", "minimum": 5}
+      }
+    },
+    "fixture_results": {
+      "type": "array",
+      "minItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fixture_id", "validation_status", "errors"],
+        "properties": {
+          "fixture_id": {"type": "string", "pattern": "^[a-z0-9-]+$", "maxLength": 96},
+          "validation_status": {"enum": ["PASS", "FAIL"]},
+          "errors": {
+            "type": "array",
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^REGISTRY_[A-Z0-9_]+$", "maxLength": 96}
+          }
+        }
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_service_available",
+        "external_registry",
+        "trust_authority",
+        "capability_certified",
+        "adoption_validated",
+        "production_ready",
+        "network_accessed",
+        "subprocess_started",
+        "external_execution"
+      ],
+      "properties": {
+        "registry_service_available": {"const": false},
+        "external_registry": {"const": false},
+        "trust_authority": {"const": false},
+        "capability_certified": {"const": false},
+        "adoption_validated": {"const": false},
+        "production_ready": {"const": false},
+        "network_accessed": {"const": false},
+        "subprocess_started": {"const": false},
+        "external_execution": {"const": false}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"validation_status": {"const": "PASS"}}},
+      "then": {
+        "properties": {
+          "identity_valid": {"const": true},
+          "version_consistent": {"const": true},
+          "contract_references_valid": {"const": true},
+          "lifecycle_valid": {"const": true},
+          "boundary_valid": {"const": true},
+          "reference_chain_valid": {"const": true},
+          "errors": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"validation_status": {"const": "FAIL"}}},
+      "then": {"properties": {"errors": {"minItems": 1}}}
+    }
+  ]
+}

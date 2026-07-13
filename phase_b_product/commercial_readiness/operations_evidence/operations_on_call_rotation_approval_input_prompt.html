@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 运维值班轮转人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --surface: #ffffff;
+        --line: #e3e7ef;
+        --text: #111827;
+        --muted: #667085;
+        --accent: #3457d5;
+        --soft: #eef2ff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 56px 0;
+      }
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(34px, 5vw, 60px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      h2 { margin: 0 0 14px; font-size: 22px; }
+      p { color: var(--muted); }
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--accent);
+        font-size: 0.92em;
+      }
+      .lead { max-width: 720px; font-size: 18px; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 28px;
+      }
+      section {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 22px;
+        box-shadow: 0 16px 36px rgba(17, 24, 39, 0.06);
+      }
+      ul, ol { margin: 0; padding-left: 20px; }
+      li + li { margin-top: 8px; }
+      .evidence-list { padding-left: 0; list-style: none; }
+      .evidence-list li {
+        display: grid;
+        gap: 3px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .evidence-list li:last-child { border-bottom: 0; }
+      .evidence-list span { color: var(--muted); }
+      .status {
+        display: inline-flex;
+        margin: 18px 0 0;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--accent);
+        font-weight: 800;
+      }
+      .full { grid-column: 1 / -1; }
+      @media (max-width: 720px) {
+        main { padding: 36px 0; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="status">等待人工填写</p>
+      <h1>先确认谁值班、谁升级，再谈正式商用。</h1>
+      <p class="lead">运维值班轮转还没有人工批准，也没有启动，不能对外说已经有人正式接警和升级。</p>
+      <div class="grid">
+        <section>
+          <h2>人要先确认什么？</h2>
+          <ol>
+            <li>谁负责运维值班轮转。</li>
+            <li>排班怎么覆盖工作日和非工作日。</li>
+            <li>升级时间表和升级路径是否清楚。</li>
+            <li>事故负责人是否已经明确。</li>
+          </ol>
+        </section>
+        <section>
+          <h2>必须由人填写的字段</h2>
+          <ul><li><code>human_reviewer_name</code></li>
+<li><code>review_date</code></li>
+<li><code>on_call_rotation_owner</code></li>
+<li><code>operations_reviewer_name</code></li>
+<li><code>decision_summary</code></li></ul>
+        </section>
+        <section class="full">
+          <h2>必须由人审查的值班证据</h2>
+          <ul class="evidence-list"><li><strong>escalation_schedule_defined</strong><span>需要人工确认、来源说明、证据槽位、负责人和人工复核。</span></li>
+<li><strong>incident_commander_named</strong><span>需要人工确认、来源说明、证据槽位、负责人和人工复核。</span></li>
+<li><strong>on_call_rotation_defined</strong><span>需要人工确认、来源说明、证据槽位、负责人和人工复核。</span></li></ul>
+        </section>
+        <section>
+          <h2>下一步人工动作</h2>
+          <p>请人类负责人确认值班负责人、排班方式、升级时间表和事故负责人；确认前不要启动值班、发布升级表或关闭 blocker。</p>
+          <p><code>cp phase_b_product/commercial_readiness/operations_evidence/operations_on_call_rotation_evidence_input.template.json phase_b_product/commercial_readiness/operations_evidence/operations_on_call_rotation_evidence_input.human_filled.local.json</code></p>
+          <p><code>python3 scripts/saee_operations_on_call_rotation_approval_input_validator.py --input phase_b_product/commercial_readiness/operations_evidence/operations_on_call_rotation_evidence_input.human_filled.local.json</code></p>
+        </section>
+        <section>
+          <h2>到这里必须停下</h2>
+          <p>填完并验证输入后停止；运行 evidence builder、启动值班轮转、发布升级表、指定事故负责人、联系供应商或关闭 blocker 都需要单独批准。</p>
+        </section>
+        <section class="full">
+          <h2>边界状态</h2>
+          <ul><li><strong>on_call_rotation_available:</strong> false</li>
+<li><strong>on_call_rotation_approved:</strong> false</li>
+<li><strong>on_call_rotation_started:</strong> false</li>
+<li><strong>on_call_rotation_started_by_codex:</strong> false</li>
+<li><strong>escalation_schedule_published_by_codex:</strong> false</li>
+<li><strong>incident_commander_assigned_by_codex:</strong> false</li>
+<li><strong>on_call_vendor_contacted_by_codex:</strong> false</li>
+<li><strong>customer_contacted:</strong> false</li>
+<li><strong>production_ready:</strong> false</li>
+<li><strong>private_core_exposed:</strong> false</li>
+<li><strong>blockers_closed_by_prompt:</strong> 0</li></ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

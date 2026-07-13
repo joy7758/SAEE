@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE SLA 人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --soft: #edf4ff;
+        --ink: #111827;
+        --text: #374151;
+        --muted: #667085;
+        --line: #e5e7eb;
+        --accent: #2563eb;
+        --danger: #b42318;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      main {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: clamp(36px, 7vw, 76px) 0;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.75fr);
+        gap: 28px;
+        align-items: start;
+      }
+      h1 {
+        margin: 0;
+        max-width: 780px;
+        color: var(--ink);
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 22px;
+      }
+      p { margin: 16px 0 0; }
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--ink);
+        font-size: 0.92em;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--card);
+        padding: 22px;
+        box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      }
+      .status {
+        display: inline-flex;
+        margin-top: 22px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #fff1f0;
+        color: var(--danger);
+        font-weight: 800;
+        font-size: 13px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      li + li { margin-top: 8px; }
+      .steps {
+        display: grid;
+        gap: 12px;
+        margin-top: 26px;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #ffffff;
+      }
+      .num {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #fff;
+        font-weight: 900;
+      }
+      .boundary {
+        margin-top: 28px;
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      .boundary h2 { color: #fff; }
+      .boundary code {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+      @media (max-width: 840px) {
+        .hero, .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>先把服务承诺审清楚，再谈对外 SLA。</h1>
+          <p>这个页面只帮人工审查 <code>sla</code> 需要填什么。它不是 SLA 发布页，也不会启动客服或联系客户。</p>
+          <span class="status">SLA 还没有批准，也没有发布，不能对外承诺服务响应。</span>
+        </div>
+        <aside class="card">
+          <h2>当前边界</h2>
+          <ul>
+            <li>Codex 可代执行：<code>false</code></li>
+            <li>sla_available: <code>false</code></li>
+            <li>sla_approved: <code>false</code></li>
+            <li>sla_published: <code>false</code></li>
+            <li>support_operations_started: <code>false</code></li>
+            <li>customer_contacted: <code>false</code></li>
+            <li>production_ready: <code>false</code></li>
+            <li>private_core_exposed: <code>false</code></li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="steps">
+        <div class="step"><span class="num">1</span><div><strong>复制本地模板。</strong><br><code>cp phase_b_product/commercial_readiness/support_evidence/sla_evidence_input.template.json phase_b_product/commercial_readiness/support_evidence/sla_evidence_input.human_filled.local.json</code></div></div>
+        <div class="step"><span class="num">2</span><div><strong>人工填写 SLA 审查信息。</strong><br>先由人审服务承诺负责人、法务审核人、支持时间、响应目标、升级路径和对外说明，再填写本地证据模板。</div></div>
+        <div class="step"><span class="num">3</span><div><strong>运行本地验证。</strong><br><code>python3 scripts/saee_sla_approval_input_validator.py --input phase_b_product/commercial_readiness/support_evidence/sla_evidence_input.human_filled.local.json</code></div></div>
+        <div class="step"><span class="num">4</span><div><strong>验证后停下。</strong><br>只到本地证据准备为止；没有单独批准，不发布 SLA、不启动支持运营、不联系客户、不关闭阻塞项。</div></div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>要填的基本信息</h2>
+          <ul><li><code>human_reviewer_name</code></li>
+<li><code>review_date</code></li>
+<li><code>sla_terms_owner</code></li>
+<li><code>legal_reviewer_name</code></li>
+<li><code>decision_summary</code></li></ul>
+        </article>
+        <article class="card">
+          <h2>要逐项审的 SLA 证据</h2>
+          <ul><li><code>exclusions_approved</code></li>
+<li><code>human_approved_sla_terms</code></li>
+<li><code>legal_review_completed</code></li>
+<li><code>response_targets_approved</code></li>
+<li><code>severity_definitions_approved</code></li>
+<li><code>support_hours_approved</code></li></ul>
+        </article>
+      </section>
+
+      <section class="card boundary">
+        <h2>这一步不能做什么</h2>
+        <p>不批准 SLA，不发布 SLA，不完成法务审核，不发布支持时间或响应目标，不启动支持运营，不联系客户或供应商，不执行证据生成器，不关闭 blocker，不声明正式商用。</p>
+      </section>
+    </main>
+  </body>
+</html>

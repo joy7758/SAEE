@@ -1,0 +1,70 @@
+{
+  "saee_replay_evaluation_contract_v0_1": true,
+  "schema_version": "0.1.0",
+  "replay_evaluation_id": "replay-evaluation:synthetic-001",
+  "created_at": "2026-07-11T16:00:00Z",
+  "contract_status": "local_synthetic_mapping_contract_only",
+  "replay_contract_ref": "agent-interface/architecture/examples/replay/synthetic-replay-case.json",
+  "replay_contract_digest": "5ca3f17e063cc179bade2d89ebdae389c5422d94ef86dc59cdac66364d199563",
+  "source_observation_refs": [
+    {
+      "observation_id": "observation:synthetic-envelope-001",
+      "envelope_ref": "agent-interface/architecture/examples/observation/synthetic-observation.json",
+      "digest_algorithm": "sha256",
+      "envelope_digest": "981c6716e9f1cf1140746dc2765af86712efb79427f2d8aa66287e881abfac5f"
+    }
+  ],
+  "task_contract_ref": "task-contract-corpus-001",
+  "environment_contract_ref": "environment-contract-corpus-001",
+  "mapping_profile_ref": "mapping-profile:synthetic-observation-to-baseline-evaluation",
+  "mapping_profile_version": "0.1.0",
+  "observation_mapping_rules": [
+    {
+      "rule_id": "mapping-rule:synthetic-baseline-classification",
+      "source_observation_id": "observation:synthetic-envelope-001",
+      "source_selector": "events[*].event_type",
+      "target_selector": "observations[*].failure_class",
+      "mapping_method": "synthetic_classification_projection",
+      "deterministic": true,
+      "executable": false
+    }
+  ],
+  "failure_estimate_source": {
+    "source_type": "synthetic_rule_reference",
+    "source_ref": "task-contract-corpus-001",
+    "generated_from_trace": false,
+    "generated_by_replay": false,
+    "risk_probability_measured": false
+  },
+  "transformation_provenance_ref": "provenance:synthetic-envelope-001",
+  "consent_ref": "consent:synthetic-declaration-001",
+  "data_use_permission_ref": "permission:synthetic-replay-001",
+  "evaluation_input_ref": "agent-interface/architecture/examples/phase1_5_cases/case-001-baseline-stability.json",
+  "evaluation_input_digest": "4a44452b09a6b2d3aaa3842350c5cdd605088b299242662415a989748b94b341",
+  "lineage_edges": [
+    {"edge_id": "lineage:synthetic-001-observation-replay", "from_type": "observation_envelope", "from_ref": "observation:synthetic-envelope-001", "to_type": "replay_contract", "to_ref": "replay:synthetic-contract-001", "relationship": "governed_by"},
+    {"edge_id": "lineage:synthetic-001-replay-mapping", "from_type": "replay_contract", "from_ref": "replay:synthetic-contract-001", "to_type": "replay_evaluation_contract", "to_ref": "replay-evaluation:synthetic-001", "relationship": "mapped_by"},
+    {"edge_id": "lineage:synthetic-001-mapping-input", "from_type": "replay_evaluation_contract", "from_ref": "replay-evaluation:synthetic-001", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-001-baseline", "relationship": "binds_to"},
+    {"edge_id": "lineage:synthetic-001-input-derived", "from_type": "evaluation_input", "from_ref": "saee-case-corpus-001-baseline", "to_type": "derived_evidence_case", "to_ref": "saee-case-corpus-001-baseline", "relationship": "derives_to"},
+    {"edge_id": "lineage:synthetic-001-derived-input", "from_type": "derived_evidence_case", "from_ref": "saee-case-corpus-001-baseline", "to_type": "evaluation_input", "to_ref": "saee-case-corpus-001-baseline", "relationship": "reverse_lookup_anchor"}
+  ],
+  "operator_ref": "operator:synthetic-human-controlled",
+  "stop_authority_ref": "stop-authority:synthetic-human-controlled",
+  "truth_boundary": {
+    "contract_only": true,
+    "mapping_executed": false,
+    "evaluation_input_generated": false,
+    "replay_executed": false,
+    "replay_generated_risk": false,
+    "risk_probability_measured": false,
+    "automatic_decision": false,
+    "deployment_authorized": false,
+    "architecture_implemented": false,
+    "risk_model_implemented": false,
+    "real_agent_executed": false,
+    "customer_data_processed": false,
+    "external_validation_completed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "response_version": "1.0",
+  "response_id": "saee:commercial-assessment:internal-reliability-full-scope-v1",
+  "request_id": "internal-reliability-full-scope-v1",
+  "service_stage": "local_agent_callable_validated_service",
+  "scope_summary": {
+    "available_runs": 75,
+    "selected_runs": 75,
+    "agent_profiles": [
+      "deepseek_ark",
+      "doubao_ark",
+      "glm_ark"
+    ],
+    "scenario_ids": [
+      "saee-mvp:coding-agent-release:v0.1",
+      "saee-rehearsal:business-operation:v0.2",
+      "saee-rehearsal:customer-support:v0.2",
+      "saee-rehearsal:research-evidence-review:v0.2",
+      "saee-rehearsal:security-boundary:v0.2"
+    ],
+    "language": "zh-CN"
+  },
+  "dimension_findings": [
+    {
+      "dimension": "task_execution_reliability",
+      "assessment": "MIXED_OBSERVATIONS",
+      "observed_pass": 53,
+      "observed_partial": 0,
+      "observed_fail": 0,
+      "not_assessed": 22,
+      "statement_zh": "当前范围包含通过、部分、失败或未评估状态，必须按场景与证据引用分别审查。"
+    },
+    {
+      "dimension": "recovery_reliability",
+      "assessment": "INSUFFICIENT_OBSERVATION",
+      "observed_pass": 0,
+      "observed_partial": 0,
+      "observed_fail": 0,
+      "not_assessed": 75,
+      "statement_zh": "当前范围没有足够观察支持该维度判断。"
+    },
+    {
+      "dimension": "boundary_reliability",
+      "assessment": "MIXED_OBSERVATIONS",
+      "observed_pass": 27,
+      "observed_partial": 0,
+      "observed_fail": 0,
+      "not_assessed": 48,
+      "statement_zh": "当前范围包含通过、部分、失败或未评估状态，必须按场景与证据引用分别审查。"
+    },
+    {
+      "dimension": "evidence_reliability",
+      "assessment": "MIXED_OBSERVATIONS",
+      "observed_pass": 39,
+      "observed_partial": 0,
+      "observed_fail": 14,
+      "not_assessed": 22,
+      "statement_zh": "当前范围包含通过、部分、失败或未评估状态，必须按场景与证据引用分别审查。"
+    },
+    {
+      "dimension": "assessment_availability",
+      "assessment": "MIXED_OBSERVATIONS",
+      "observed_pass": 53,
+      "observed_partial": 0,
+      "observed_fail": 22,
+      "not_assessed": 0,
+      "statement_zh": "当前范围包含通过、部分、失败或未评估状态，必须按场景与证据引用分别审查。"
+    }
+  ],
+  "failure_observations": [
+    {
+      "failure_type": "CONTRACT_FAILURE",
+      "count": 20,
+      "interpretation_boundary": "合同失败不等于安全失败。"
+    },
+    {
+      "failure_type": "ENVIRONMENT_FAILURE",
+      "count": 2,
+      "interpretation_boundary": "环境失败不得归因于模型。"
+    },
+    {
+      "failure_type": "EVIDENCE_FAILURE",
+      "count": 14,
+      "interpretation_boundary": "证据不足不等于系统不安全。"
+    },
+    {
+      "failure_type": "MODEL_RESPONSE_FAILURE",
+      "count": 18,
+      "interpretation_boundary": "模型响应失败不等于通用智能能力失败。"
+    },
+    {
+      "failure_type": "TOOL_FAILURE",
+      "count": 2,
+      "interpretation_boundary": "合成工具失败只适用于当前场景。"
+    }
+  ],
+  "evidence_summary": {
+    "supported": 39,
+    "insufficient": 14,
+    "not_assessed": 22,
+    "accountability_claim_established": false
+  },
+  "review_actions": [
+    "检查模型输出、Adapter 与结构化合同之间的兼容性，并保留失败样本。",
+    "针对证据充分性失败项补齐缺失关系；不得把证据不足解释为系统不安全。",
+    "为未评估运行补充可绑定观察和证据对象，或明确维持 NOT_ASSESSED。",
+    "由独立治理能力决定是否继续测试；本响应不提供部署授权。"
+  ],
+  "input_bindings": [
+    {
+      "reference": "agent-interface/reliability/saee-extended-internal-reliability-benchmark-result.v1.1.json",
+      "sha256": "fd90dedb25375e3f0d15d57f6d2ca0e7a0d2d94f41b45aa8f1b4b01cc0234835"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-combined-run-manifests.v1.1.json",
+      "sha256": "5486cf5cc506eb7e97352071ba8426d07e3f240e75c61987ae6a21c515b0ae33"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-assessments.v1.1.json",
+      "sha256": "ca89f3fb1471b7ce60856579a66b85b459fd2820f83a452747292905e91b3d1f"
+    }
+  ],
+  "limitations": [
+    "本服务只读取仓库内受控合成结果。",
+    "维度状态是场景约束下的观察，不是总体可靠性概率。",
+    "不同场景的 Evidence Adequacy Profile 不可互换。",
+    "Provider、模型、Adapter 与场景因素仍可能混杂。",
+    "输出不是安全或合规认证、法律判断、模型排名或部署批准。",
+    "当前未使用客户数据，也未完成外部 Agent Design Partner 验证。"
+  ],
+  "truth_boundary": {
+    "customer_data_used": false,
+    "commercial_delivery_completed": false,
+    "customer_validated": false,
+    "external_validation_completed": false,
+    "overall_score_generated": false,
+    "ranking_generated": false,
+    "winner_selected": false,
+    "security_certification": false,
+    "compliance_determination": false,
+    "legal_judgment": false,
+    "deployment_authorized": false,
+    "production_ready": false
+  }
+}

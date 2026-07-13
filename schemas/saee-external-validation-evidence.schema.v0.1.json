@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-external-validation-evidence.schema.v0.1.json",
+  "title": "SAEE External Validation Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "participant_ref", "scope_ref", "evidence_type", "version_information", "limitations", "contains_private_data", "claim_boundary"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^external-validation-evidence:[a-z0-9._-]{3,120}$"},
+    "participant_ref": {"type": "string", "pattern": "^participant:[a-z0-9][a-z0-9._-]{2,119}$"},
+    "scope_ref": {"type": "string", "pattern": "^scope:[a-z0-9][a-z0-9._-]{2,119}$"},
+    "evidence_type": {"enum": ["test_execution_record", "compatibility_result", "structured_feedback", "version_information"]},
+    "version_information": {"type": "string", "minLength": 1, "maxLength": 160},
+    "limitations": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+    "contains_private_data": {"const": false},
+    "claim_boundary": {"const": "compatibility_observation_only"}
+  }
+}
+

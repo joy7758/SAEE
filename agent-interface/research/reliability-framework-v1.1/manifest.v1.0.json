@@ -1,0 +1,57 @@
+{
+  "manifest_version": "1.0",
+  "artifact_id": "saee-agent-reliability-research-artifact-v1",
+  "source_benchmark_id": "saee-extended-internal-reliability-v1.1",
+  "run_count": 75,
+  "methodology_review_reference": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json",
+  "report_reference": "docs/research/SAEE_AGENT_RELIABILITY_RESEARCH_REPORT_V1.md",
+  "sources": [
+    {
+      "reference": "agent-interface/reliability/saee-extended-internal-reliability-benchmark-result.v1.1.json",
+      "sha256": "fd90dedb25375e3f0d15d57f6d2ca0e7a0d2d94f41b45aa8f1b4b01cc0234835"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-new-run-manifests.v1.1.json",
+      "sha256": "d6743fe0f3505e13ec36d09888765b6bf0753e55d0847c02c069c178ce3ed843"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-combined-run-manifests.v1.1.json",
+      "sha256": "5486cf5cc506eb7e97352071ba8426d07e3f240e75c61987ae6a21c515b0ae33"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-assessments.v1.1.json",
+      "sha256": "ca89f3fb1471b7ce60856579a66b85b459fd2820f83a452747292905e91b3d1f"
+    },
+    {
+      "reference": "agent-interface/reliability/benchmark-runs/v1.1/saee-extended-internal-reliability-failure-distribution.v1.1.json",
+      "sha256": "a4afd706a2686c4efc6d4c9861b870a8cdc2622fbe947a7ef97de12bdf67723d"
+    },
+    {
+      "reference": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json",
+      "sha256": "fe857596447c5ee27881073afc76c8ef1540716025f415c7698dac9dfdafeaf3"
+    },
+    {
+      "reference": "docs/research/SAEE_EXTENDED_INTERNAL_RELIABILITY_BENCHMARK_REPORT_V1_1.md",
+      "sha256": "934663ed1dc388f59eef83be3ae9a12d06b3d1343fd733a7030052225ea93ad3"
+    }
+  ],
+  "limitations": [
+    "Internal controlled synthetic benchmark only.",
+    "Five repetitions per cell do not establish a population reliability probability.",
+    "Provider, model, Adapter, and scenario effects remain partially confounded.",
+    "Scenario-specific Evidence Adequacy profiles are not interchangeable.",
+    "Contract failure is not a security or intelligence conclusion.",
+    "No customer, production, certification, compliance, legal, or deployment claim is established."
+  ],
+  "truth_boundary": {
+    "internal_benchmark": true,
+    "public_benchmark": false,
+    "peer_reviewed": false,
+    "publicly_published": false,
+    "ranking_generated": false,
+    "certification": false,
+    "population_reliability_probability_established": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  }
+}

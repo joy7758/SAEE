@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://redcrag.cn/sitemap.xml

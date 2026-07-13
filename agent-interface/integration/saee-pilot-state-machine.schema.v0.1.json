@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saee:integration:pilot-state-machine:0.1",
+  "title": "SAEE Controlled Pilot Simulation Scenario v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "simulation_id",
+    "scenario_type",
+    "synthetic",
+    "initial_state",
+    "gate_states",
+    "requested_transitions",
+    "boundary_events",
+    "termination_request",
+    "closure_actions",
+    "expected_result"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "simulation_id": {"type": "string", "minLength": 1, "pattern": "^simulation:pilot:[a-z0-9-]+$"},
+    "scenario_type": {
+      "enum": [
+        "COMPLETE_APPROVAL_PATH",
+        "MISSING_SECURITY_GATE",
+        "DATA_BOUNDARY_VIOLATION",
+        "SECRET_EXPOSURE_DURING_PILOT",
+        "NORMAL_TERMINATION"
+      ]
+    },
+    "synthetic": {"const": true},
+    "initial_state": {"const": "DESIGN_ONLY"},
+    "gate_states": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TECHNICAL_READINESS",
+        "SECURITY_REVIEW",
+        "DATA_APPROVAL",
+        "HUMAN_RESPONSIBILITY_ASSIGNMENT",
+        "EXECUTION_AUTHORIZATION"
+      ],
+      "properties": {
+        "TECHNICAL_READINESS": {"$ref": "#/$defs/gate"},
+        "SECURITY_REVIEW": {"$ref": "#/$defs/gate"},
+        "DATA_APPROVAL": {"$ref": "#/$defs/gate"},
+        "HUMAN_RESPONSIBILITY_ASSIGNMENT": {"$ref": "#/$defs/gate"},
+        "EXECUTION_AUTHORIZATION": {"$ref": "#/$defs/gate"}
+      }
+    },
+    "requested_transitions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "TECHNICAL_READY",
+          "SECURITY_READY",
+          "DATA_READY",
+          "HUMAN_OWNER_ASSIGNED",
+          "EXECUTION_AUTHORIZED",
+          "PILOT_ACTIVE"
+        ]
+      }
+    },
+    "boundary_events": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["customer_data_without_approval", "secret_exposure", "unauthorized_action"],
+      "properties": {
+        "customer_data_without_approval": {"type": "boolean"},
+        "secret_exposure": {"type": "boolean"},
+        "unauthorized_action": {"type": "boolean"}
+      }
+    },
+    "termination_request": {"type": "boolean"},
+    "closure_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revoke_access", "delete_simulated_data", "retain_artifacts"],
+      "properties": {
+        "revoke_access": {"type": "boolean"},
+        "delete_simulated_data": {"type": "boolean"},
+        "retain_artifacts": {"type": "boolean"}
+      }
+    },
+    "expected_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["simulation_result", "current_state", "stop_reason", "cleanup_result"],
+      "properties": {
+        "simulation_result": {"enum": ["PASS", "BLOCK", "STOP", "IMMEDIATE_TERMINATION"]},
+        "current_state": {"enum": ["TECHNICAL_READY", "PILOT_ACTIVE", "PILOT_TERMINATED"]},
+        "stop_reason": {"enum": ["NONE", "MISSING_SECURITY_GATE", "DATA_BOUNDARY_VIOLATION", "SECRET_EXPOSURE", "UNAUTHORIZED_ACTION", "NORMAL_TERMINATION"]},
+        "cleanup_result": {"enum": ["NOT_REQUIRED", "PENDING", "COMPLETED"]}
+      }
+    }
+  },
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence_reference", "approval_reference"],
+      "properties": {
+        "status": {"enum": ["NOT_READY", "READY", "APPROVED"]},
+        "evidence_reference": {"type": ["string", "null"], "minLength": 1},
+        "approval_reference": {"type": ["string", "null"], "minLength": 1}
+      }
+    }
+  }
+}

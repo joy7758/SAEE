@@ -1,0 +1,13 @@
+{
+  "signal_version":"1.0",
+  "signal_id":"saee.technical-signal-release.v1",
+  "stage_id":"TECHNICAL_SIGNAL_RELEASE",
+  "recommendation":"recommend",
+  "evolution_subsystems":["GLOBAL_SENSING","TRAIT_EXTRACTION"],
+  "article":{"title_zh":"为什么自主智能体需要执行前可靠性评估","title_en":"Why Agents Need Readiness Evaluation Before Autonomous Execution","reference":"docs/public/WHY_AGENTS_NEED_READINESS_EVALUATION.md","status":"local_publication_ready_draft"},
+  "github_signal":{"canonical_product_center":"joy7758/SAEE","machine_discovery_surfaces":["README.md","agent-index.json","llms.txt"],"status":"local_repository_surface_ready"},
+  "developer_signal":{"public_operations":["saee.evaluate_agent_run","saee.evaluate_evidence"],"protocols":["MCP","HTTP Contract"],"status":"local_contracts_discoverable"},
+  "target_ecosystems":["MCP","BAIDU_QIANFAN","VOLCENGINE_ARK","ALIBABA_BAILIAN","TENCENT_AGENT_PLATFORM","HUAWEI_PANGU_ECOSYSTEM"],
+  "references":{"roadmap":"agent-interface/ecosystem/saee-ecosystem-first-roadmap.v1.0.json","public_surface":"agent-interface/public/saee-public-capability-surface.v0.1.json","capability_index":".well-known/saee-capability-index.json","recommendation_gate":"docs/strategy/SAEE_TECHNICAL_SIGNAL_RELEASE_RECOMMENDATION_GATE.md"},
+  "truth_boundary":{"technical_signal_package_ready":true,"article_published":false,"github_release_created":false,"developer_activity_presented":false,"ecosystem_technical_conversation_verified":false,"partner_relationship_established":false,"official_cloud_integration":false,"marketplace_listed":false,"external_agent_adoption_validated":false,"production_ready":false}
+}

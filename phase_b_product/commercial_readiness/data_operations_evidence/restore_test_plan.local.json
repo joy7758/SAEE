@@ -1,0 +1,44 @@
+{
+  "boundary_flags": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "credentials_restored": false,
+    "customer_contacted": false,
+    "customer_validated": false,
+    "external_calls_made": false,
+    "kernel_modified": false,
+    "live_restore_performed": false,
+    "private_core_exposed": false,
+    "private_core_restored": false,
+    "product_launched": false,
+    "production_data_path_modified": false,
+    "production_ready": false,
+    "restore_to_live_path_enabled": false,
+    "runtime_modified": false
+  },
+  "generated_by": "scripts/saee_data_operations_evidence_runner.py",
+  "plan_approval_scope": "local_restore_drill_plan_only_not_production_policy",
+  "plan_scope": "local_public_shell_isolated_restore_only",
+  "production_like_restore_test_plan_approved": true,
+  "restore_test_plan_type": "local_public_shell_restore_test_plan",
+  "success_criteria": {
+    "audit_jsonl_file_copied": true,
+    "backup_manifest_created": true,
+    "restored_files_readable": true,
+    "rto_rpo_observed_and_recorded": true,
+    "sqlite_file_copied": true,
+    "tenant_scope_validated_if_customer_data_exists": true
+  },
+  "test_controls": {
+    "credentials_restore_allowed": false,
+    "customer_data_restore_allowed": false,
+    "external_service_required": false,
+    "isolated_restore_environment_required": true,
+    "private_core_restore_allowed": false,
+    "restore_to_live_path_allowed": false
+  },
+  "test_inputs": [
+    "local SQLite public-shell experiment store",
+    "local request audit JSONL metadata"
+  ]
+}

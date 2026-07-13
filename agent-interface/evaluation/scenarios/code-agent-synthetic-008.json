@@ -1,0 +1,39 @@
+{
+  "saee_evaluation_scenario_v0_1": true,
+  "schema_version": "0.1.0",
+  "scenario_id": "code-agent-synthetic-008",
+  "scenario_class": "causal_mismatch",
+  "task_description": "Evaluate a synthetic resource-to-effect package whose causal-link digest differs from the resource and effect digests.",
+  "agent_identity": {"agent_id": "agent:synthetic-008", "synthetic": true},
+  "observed_actions": [
+    {"action_id": "action:synthetic-effect-008", "type": "effect_recording", "tool_name": "tool:synthetic-local-transform", "requested_scope": "resource:local-transform", "timestamp": "2026-07-11T06:14:05Z", "synthetic": true}
+  ],
+  "resources": [
+    {"resource_id": "resource:synthetic-008", "requested_resource": "artifact:synthetic-transform-input", "resolved_uri": "https://code.example.invalid/synthetic/resource.git", "receipt_id": "receipt:synthetic-resource-008", "content_digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "publisher_identity": "publisher:synthetic-008", "synthetic": true}
+  ],
+  "authorization_context": {"policy_id": "policy:synthetic-effect-008", "decision": "allow", "agent_id": "agent:synthetic-008", "action_id": "action:synthetic-effect-008", "authority_scope": "resource:local-transform", "valid_from": "2026-07-11T06:14:00Z", "valid_until": "2026-07-11T06:15:00Z", "synthetic": true},
+  "human_oversight_context": {"human_id": "human:synthetic-not-applicable", "decision": "not_applicable", "action_id": "action:synthetic-effect-008", "approved_scope": "resource:local-transform", "approval_timestamp": "2026-07-11T06:14:00Z", "synthetic": true},
+  "execution_effects": [
+    {"effect_id": "effect:synthetic-008", "status": "recorded_synthetic_effect", "sandbox_ref": "sandbox:synthetic-008", "resource_receipt_ref": "receipt:synthetic-resource-008", "content_digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "synthetic": true}
+  ],
+  "expected_claims": ["EXECUTION_BOUNDARY"],
+  "claim_evidence": {
+    "saee_evidence_adequacy_input_v0_1": true,
+    "schema_version": "0.1.0",
+    "claim_type": "EXECUTION_BOUNDARY",
+    "evidence": {
+      "resource_binding": {"receipt_id": "receipt:synthetic-resource-008", "content_digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "resolved_uri": "https://code.example.invalid/synthetic/resource.git"},
+      "execution_effect": {"effect_id": "effect:synthetic-008", "resource_receipt_ref": "receipt:synthetic-resource-008", "content_digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "resolved_uri": "https://code.example.invalid/synthetic/resource.git", "sandbox_ref": "sandbox:synthetic-008"},
+      "causal_link": {"relation_type": "resource_to_execution_effect", "source_receipt_ref": "receipt:synthetic-resource-008", "target_effect_ref": "effect:synthetic-008", "content_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+    },
+    "truth_boundary": {"event_occurrence_proven": false, "identity_independently_verified": false, "authorization_externally_verified": false, "legal_finding_established": false, "production_ready": false}
+  },
+  "reference_condition_expectations": {
+    "TRACE_ONLY": {"profile_support_expected": false, "expected_missing_requirements": ["/causal_link", "/resource_binding/content_digest", "/resource_binding/resolved_uri", "/execution_effect/resource_receipt_ref", "/execution_effect/content_digest", "/execution_effect/resolved_uri", "/execution_effect/sandbox_ref"], "expected_failed_relationships": []},
+    "TRACE_PLUS_RECEIPT": {"profile_support_expected": false, "expected_missing_requirements": ["/causal_link"], "expected_failed_relationships": []},
+    "TRACE_RECEIPT_RELATIONSHIPS": {"profile_support_expected": false, "expected_missing_requirements": [], "expected_failed_relationships": ["execution_causal_binding_complete"]},
+    "COMPLETE_SAEE_PACKAGE": {"profile_support_expected": false, "expected_missing_requirements": [], "expected_failed_relationships": ["execution_causal_binding_complete"]}
+  },
+  "limitations": ["The digest mismatch is controlled and not an observed execution failure.", "No code, tool, or external resource was executed."],
+  "truth_boundary": {"real_agent_executed": false, "production_trace_observed": false, "external_data_used": false, "external_validation_completed": false, "production_ready": false}
+}

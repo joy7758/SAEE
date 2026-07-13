@@ -1,0 +1,7 @@
+{
+  "discovery_feedback": "CLEAR",
+  "integration_feedback": "WORKS_LOCALLY",
+  "documentation_feedback": "CLEAR",
+  "boundary_feedback": "PRESERVED",
+  "simulation_only": true
+}

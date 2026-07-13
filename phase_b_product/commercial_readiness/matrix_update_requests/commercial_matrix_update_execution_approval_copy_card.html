@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAEE 矩阵更新批准复制卡</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f4;
+      --ink: #171717;
+      --muted: #62625d;
+      --line: #deded7;
+      --panel: #ffffff;
+      --accent: #0f6f5c;
+      --warn: #8a5a00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.06;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    .lead {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 32px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.06);
+    }
+    .status {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      color: var(--warn);
+      background: #fffaf0;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 116px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      font: 18px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--ink);
+      background: #fbfbf8;
+    }
+    button {
+      margin-top: 14px;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: var(--ink);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:focus-visible {
+      outline: 3px solid rgba(15, 111, 92, 0.28);
+      outline-offset: 2px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .item {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: var(--muted);
+    }
+    .item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+    }
+    .note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>只差一句明确授权</h1>
+    <p class="lead">这一步只允许记录 review-ready 标记，不关闭 blocker，不发布价格页，不启用 checkout，也不声明生产可用。</p>
+    <section class="panel">
+      <div class="status">当前状态：ready_for_exact_phrase_human_approval_no_execution</div>
+      <label for="phrase"><strong>需要复制并发回 Codex 的完整句子</strong></label>
+      <textarea id="phrase" readonly>批准矩阵更新执行：仅应用 review-ready markers，不关闭 blocker，不发布价格页，不启用 checkout，不声明生产可用。</textarea>
+      <button type="button" onclick="copyPhrase()">复制这句话</button>
+      <div class="grid">
+        <div class="item"><strong>矩阵更新</strong>未执行</div>
+        <div class="item"><strong>Blocker</strong>不会被关闭</div>
+        <div class="item"><strong>生产可用</strong>仍为 false</div>
+        <div class="item"><strong>客户验证</strong>仍为 false</div>
+      </div>
+      <p class="note">复制后，把这句话原样发给 Codex。Codex 仍需先跑批准入口、验证器、dry run 和 applier 检查。</p>
+    </section>
+  </main>
+  <script>
+    async function copyPhrase() {
+      const el = document.getElementById('phrase');
+      el.select();
+      try {
+        await navigator.clipboard.writeText(el.value);
+      } catch (err) {
+        document.execCommand('copy');
+      }
+    }
+  </script>
+</body>
+</html>

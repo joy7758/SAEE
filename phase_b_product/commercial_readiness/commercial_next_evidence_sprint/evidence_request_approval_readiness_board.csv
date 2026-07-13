@@ -1,0 +1,6 @@
+request_id,blocker_id,title,approval_decision,row_status,import_ready,boundary_safe,missing_fields,notes
+ERD-001,support_contact,Evidence request draft for support contact,hold,held,False,True,,row remains on hold
+ERD-002,pricing_page,Evidence request draft for pricing page,hold,held,False,True,,row remains on hold
+ERD-003,formal_security_review,Evidence request draft for formal security review,hold,held,False,True,,row remains on hold
+ERD-004,production_restore_policy,Evidence request draft for production restore policy,hold,held,False,True,,row remains on hold
+ERD-005,production_monitoring,Evidence request draft for production monitoring,hold,held,False,True,,row remains on hold

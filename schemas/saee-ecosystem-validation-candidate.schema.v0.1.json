@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-ecosystem-validation-candidate.schema.v0.1.json",
+  "title": "SAEE Ecosystem Validation Candidate Category v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_type", "selection_reason", "validation_goal", "required_capabilities", "validation_scope", "limitations"],
+  "properties": {
+    "candidate_type": {"enum": ["mcp_agent_developer", "agent_framework_developer", "cloud_platform"]},
+    "selection_reason": {"type": "string", "minLength": 20, "maxLength": 480},
+    "validation_goal": {"type": "string", "minLength": 20, "maxLength": 480},
+    "required_capabilities": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {"enum": ["capability_discovery", "mcp_tool_discovery", "evaluate_agent_run", "evaluate_evidence"]}
+    },
+    "validation_scope": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"enum": ["capability_discovery", "mcp_tool_discovery", "local_invocation", "result_interpretation", "documentation_feedback"]}
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 5, "maxLength": 240}
+    }
+  }
+}

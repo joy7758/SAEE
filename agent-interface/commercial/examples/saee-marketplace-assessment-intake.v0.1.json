@@ -1,0 +1,86 @@
+{
+  "saee_marketplace_assessment_intake_v0_1": true,
+  "intake_version": "0.1.0",
+  "assessment_id": "assessment:synthetic-marketplace-001",
+  "order_ref": "marketplace-order:synthetic-001",
+  "scope": {
+    "workflow_id": "workflow:coding-release-demo",
+    "scenario_id": "scenario:pre-release-check",
+    "language": "zh-CN",
+    "one_workflow": true,
+    "one_scenario": true
+  },
+  "material_attestation": {
+    "source_authorized": true,
+    "sanitization_attested": true,
+    "personal_data_excluded": true,
+    "secrets_excluded": true,
+    "raw_content_excluded": true,
+    "executable_content_excluded": true,
+    "arbitrary_urls_excluded": true,
+    "permission_expansion_requested": false
+  },
+  "readiness_request": {
+    "request_id": "request:marketplace-synthetic-001",
+    "agent_id": "agent:coding-release-demo",
+    "task": "检查一个合成软件发布工作流的上线前证据准备情况。",
+    "trace": {
+      "events": [
+        {
+          "event_id": "event:change-prepared",
+          "event_type": "PLAN",
+          "summary": "已声明准备变更，但不执行生产部署。",
+          "external_effect": false,
+          "high_impact": false
+        },
+        {
+          "event_id": "event:test-checked",
+          "event_type": "CHECK",
+          "summary": "已声明检查本地测试结果。",
+          "external_effect": false,
+          "high_impact": false
+        },
+        {
+          "event_id": "event:release-decision",
+          "event_type": "DECISION",
+          "summary": "形成发布建议，生产动作仍由负责人决定。",
+          "external_effect": true,
+          "high_impact": true
+        }
+      ]
+    },
+    "evidence": [
+      {
+        "evidence_id": "evidence:test-result",
+        "evidence_type": "TEST_RESULT",
+        "present": true,
+        "source_ref": "ref:test-result-summary"
+      },
+      {
+        "evidence_id": "evidence:rollback-plan",
+        "evidence_type": "ROLLBACK_PLAN",
+        "present": false,
+        "source_ref": null
+      },
+      {
+        "evidence_id": "evidence:permission-boundary",
+        "evidence_type": "PERMISSION_BOUNDARY",
+        "present": true,
+        "source_ref": "ref:permission-boundary-summary"
+      },
+      {
+        "evidence_id": "evidence:human-approval",
+        "evidence_type": "HUMAN_APPROVAL",
+        "present": false,
+        "source_ref": null
+      }
+    ],
+    "customer_data_included": false
+  },
+  "delivery_policy": {
+    "local_retention_days": 0,
+    "local_source_deletion_required": true,
+    "human_boundary_review_required": true,
+    "marketplace_delivery_manual": true
+  }
+}

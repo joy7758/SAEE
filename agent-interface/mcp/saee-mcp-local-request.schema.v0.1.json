@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-mcp-local-request.schema.v0.1.json",
+  "title": "SAEE Local MCP Request v0.1",
+  "description": "Closed local request for the single-tool SAEE Evidence Adequacy MCP prototype.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tool_name", "arguments"],
+  "properties": {
+    "tool_name": {"const": "evaluate_evidence_adequacy"},
+    "arguments": {"$ref": "../capabilities/saee-evaluate-evidence-tool.v0.1.schema.json"}
+  }
+}

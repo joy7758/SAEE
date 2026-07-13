@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-mcp-capability-mapping.schema.v0.1.json",
+  "title": "SAEE MCP Capability Mapping Design v0.1",
+  "description": "Strict design-only mapping from the SAEE Evidence Adequacy Capability Object to a future MCP tool interface.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_mcp_capability_mapping_design_v0_1",
+    "mapping_version",
+    "capability_object_id",
+    "capability_object_ref",
+    "mcp_tool_name",
+    "tool_metadata",
+    "input_mapping",
+    "output_mapping",
+    "error_handling",
+    "lifecycle_mapping",
+    "boundaries",
+    "implementation_status",
+    "server_available",
+    "public_endpoint_available",
+    "external_agents_connected",
+    "mcp_compatibility_completed",
+    "production_ready"
+  ],
+  "properties": {
+    "saee_mcp_capability_mapping_design_v0_1": {"const": true},
+    "mapping_version": {"const": "0.1"},
+    "capability_object_id": {"const": "saee:capability:evidence-adequacy:0.1"},
+    "capability_object_ref": {"const": "agent-interface/registry/objects/saee-evidence-adequacy-capability-object.v0.1.json"},
+    "mcp_tool_name": {"const": "evaluate_evidence_adequacy"},
+    "tool_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "capability_category", "read_only_intent", "side_effects_allowed"],
+      "properties": {
+        "name": {"const": "evaluate_evidence_adequacy"},
+        "description": {"const": "Evaluate evidence sufficiency for defined accountability claims."},
+        "capability_category": {"const": "agent evidence evaluation"},
+        "read_only_intent": {"const": true},
+        "side_effects_allowed": {"const": false}
+      }
+    },
+    "input_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_ref", "schema_version", "field_mappings", "observation_references_are_evidence", "unknown_fields_allowed"],
+      "properties": {
+        "schema_ref": {"const": "agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json"},
+        "schema_version": {"const": "0.1"},
+        "field_mappings": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["mcp_field", "saee_field", "required"],
+            "properties": {
+              "mcp_field": {"enum": ["evidence_object", "accountability_claim", "evaluation_profile", "observation_references"]},
+              "saee_field": {"enum": ["evidence_object", "accountability_claim", "evaluation_profile", "observation_references"]},
+              "required": {"type": "boolean"}
+            }
+          }
+        },
+        "observation_references_are_evidence": {"const": false},
+        "unknown_fields_allowed": {"const": false}
+      }
+    },
+    "output_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_ref", "schema_version", "transport_status_field", "response_fields", "supported_means_deployment_approval"],
+      "properties": {
+        "schema_ref": {"const": "agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json"},
+        "schema_version": {"const": "0.1"},
+        "transport_status_field": {"const": "tool_result"},
+        "response_fields": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {"enum": ["claim_assessment", "evidence_sufficiency_status", "missing_requirements", "reason_codes", "limitations", "boundary_statement"]}
+        },
+        "supported_means_deployment_approval": {"const": false}
+      }
+    },
+    "error_handling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["invalid_input", "missing_evidence", "unknown_profile", "guess_missing_information"],
+      "properties": {
+        "invalid_input": {"const": "REJECTED_INPUT"},
+        "missing_evidence": {"const": "INSUFFICIENT_EVIDENCE"},
+        "unknown_profile": {"const": "REJECTED_INPUT"},
+        "guess_missing_information": {"const": false}
+      }
+    },
+    "lifecycle_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability_object_state", "mcp_exposure_state", "production_state_mapped", "lifecycle_upgrade_authorized"],
+      "properties": {
+        "capability_object_state": {"const": "LOCAL_PROTOTYPE"},
+        "mcp_exposure_state": {"const": "DESIGN_ONLY"},
+        "production_state_mapped": {"const": false},
+        "lifecycle_upgrade_authorized": {"const": false}
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_contract_ref",
+        "authorization_provided",
+        "deployment_approval_provided",
+        "certification_provided",
+        "runtime_blocking_provided",
+        "legal_judgment_provided",
+        "human_authority_required"
+      ],
+      "properties": {
+        "boundary_contract_ref": {"const": "docs/architecture/SAEE_MCP_BOUNDARY_CONTRACT.md"},
+        "authorization_provided": {"const": false},
+        "deployment_approval_provided": {"const": false},
+        "certification_provided": {"const": false},
+        "runtime_blocking_provided": {"const": false},
+        "legal_judgment_provided": {"const": false},
+        "human_authority_required": {"const": true}
+      }
+    },
+    "implementation_status": {"const": "design_only"},
+    "server_available": {"const": false},
+    "public_endpoint_available": {"const": false},
+    "external_agents_connected": {"const": false},
+    "mcp_compatibility_completed": {"const": false},
+    "production_ready": {"const": false}
+  }
+}

@@ -1,0 +1,30 @@
+# Phase 3 Support/Security/Legal Priority Evidence Collection v0.1
+
+phase_3_support_security_legal_priority_evidence_collection_v0_1: true
+status: ready_for_human_review_not_execution
+scope: phase_3_support_security_legal_priority_human_evidence_collection
+required_evidence_item_count: 45
+local_public_shell_present_count: 10
+missing_production_evidence_count: 35
+accepted_for_blocker_closure_count: 0
+blockers_closed_by_collection: 0
+execution_authorized: false
+evidence_collection_authorized: false
+support_vendor_contacted_by_codex: false
+support_contact_published_by_codex: false
+sla_published_by_codex: false
+security_reviewer_contacted_by_codex: false
+formal_security_review_completed_by_codex: false
+legal_counsel_contacted_by_codex: false
+privacy_legal_review_completed_by_codex: false
+dpa_approved_by_codex: false
+vulnerability_operations_activated_by_codex: false
+customer_contacted: false
+customer_data_processed: false
+production_ready: false
+customer_validated: false
+private_core_exposed: false
+
+This packet extracts the 45 Phase 3 evidence items from the cross-phase queue
+and provides a human-fillable priority evidence template. It is not production
+evidence and does not close blockers.

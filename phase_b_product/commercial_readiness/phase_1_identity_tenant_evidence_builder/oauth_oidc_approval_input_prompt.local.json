@@ -1,0 +1,117 @@
+{
+  "api_schema_modified": false,
+  "backend_modified": false,
+  "blockers_closed_by_prompt": 0,
+  "builder_ready": false,
+  "category": "auth",
+  "check_target": "make check-oauth-oidc-approval-input-prompt",
+  "codex_contacted_identity_provider": false,
+  "codex_fetched_jwks": false,
+  "codex_validated_production_tokens": false,
+  "completed_metadata_field_count": 0,
+  "completed_oauth_oidc_evidence_item_count": 0,
+  "copy_template_command": "cp phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/oauth_oidc_approval_input.human_filled.local.json",
+  "customer_contacted": false,
+  "customer_validated": false,
+  "development_permission_granted": false,
+  "evidence_builder_command_after_separate_approval": "python3 scripts/saee_phase1_identity_tenant_evidence_builder.py --input phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/oauth_oidc_approval_input.human_filled.local.json",
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "external_ai_assistant_tested": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "generated_at": "2026-07-13T13:59:07.140653+00:00",
+  "generated_by": "scripts/saee_oauth_oidc_approval_input_prompt.py",
+  "human_filled_input_path": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/oauth_oidc_approval_input.human_filled.local.json",
+  "human_review_required": true,
+  "identity_provider_contacted_by_codex": false,
+  "jwks_fetched_by_codex": false,
+  "kernel_modified": false,
+  "make_target": "make oauth-oidc-approval-input-prompt",
+  "metadata_fields_to_fill": [
+    {
+      "codex_may_fill": false,
+      "field_name": "human_reviewer_name",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "review_date",
+      "human_must_provide": true
+    },
+    {
+      "codex_may_fill": false,
+      "field_name": "evidence_source_notes",
+      "human_must_provide": true
+    }
+  ],
+  "next_human_action": "Copy the Phase 1 identity/tenant template, fill the three review metadata fields, set only the five OAuth/OIDC evidence_review keys after human approval, add source notes for those keys, then run the OAuth/OIDC approval input validator. Stop before evidence builder execution.",
+  "oauth_oidc_approval_input_prompt_v0_1": true,
+  "oauth_oidc_approved": false,
+  "oauth_oidc_approved_by_prompt": false,
+  "oauth_oidc_available": false,
+  "oauth_oidc_available_by_prompt": false,
+  "oauth_oidc_evidence_keys_to_review": [
+    {
+      "codex_may_fill": false,
+      "evidence_key": "oauth_oidc_flow_approved",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "token_validation_test_recorded",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "claims_mapping_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "session_expiry_policy_approved",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    },
+    {
+      "codex_may_fill": false,
+      "evidence_key": "auth_failure_handling_reviewed",
+      "human_source_note_required": true,
+      "set_evidence_review_to_true_only_after_human_approval": true
+    }
+  ],
+  "oauth_oidc_flow_approved_by_codex": false,
+  "phase_1_evidence_builder_run_by_prompt": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "production_auth_enabled": false,
+  "production_auth_evidence_built_by_prompt": false,
+  "production_auth_ready": false,
+  "production_identity_provider_available": false,
+  "production_ready": false,
+  "production_tokens_validated_by_codex": false,
+  "prompt_scope": "local_human_oauth_oidc_approval_input_prompt_only",
+  "prompt_type": "saee_oauth_oidc_approval_input_prompt",
+  "public_sdk_released": false,
+  "rbac_available": false,
+  "rbac_enforced_in_production": false,
+  "ready_for_evidence_builder": false,
+  "required_metadata_field_count": 3,
+  "required_oauth_oidc_evidence_item_count": 5,
+  "runtime_modified": false,
+  "separate_evidence_builder_request_required": true,
+  "separate_validator_required": true,
+  "source_template": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
+  "source_validation": "phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/oauth_oidc_approval_input_validation.local.json",
+  "status": "hold_human_oauth_oidc_approval_input_required",
+  "target_blocker_ids": [
+    "oauth_oidc"
+  ],
+  "task_candidates_executed": false,
+  "validation_status": "hold",
+  "validator_builder_ready": false,
+  "validator_command": "python3 scripts/saee_oauth_oidc_approval_input_validator.py --input phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/oauth_oidc_approval_input.human_filled.local.json"
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "SAEE Universal Law Extraction v1.0",
+  "science_lock": true,
+  "object_status": "Frozen Empirical Phase Space Object",
+  "derivation_mode": "existing_phase_diagram_and_logs_only",
+  "source_policy": {
+    "new_data_generation_allowed": false,
+    "runtime_modification_allowed": false,
+    "kernel_modification_allowed": false,
+    "new_mechanisms_allowed": false,
+    "allowed_action": "falsifiable candidate law extraction"
+  },
+  "source_files": [
+    "docs/science/phase_diagram/SAEE_PHASE_SPACE_V1.json",
+    "docs/science/phase_diagram/REGIME_TRANSITION_GRAPH.json",
+    "docs/science/phase_diagram/ATTRACTOR_BASIN_MAP.json",
+    "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json",
+    "saee_experiments/reports/stability_report.json",
+    "saee_experiments/reports/lineage_statistics.json",
+    "saee_experiments/output/demo-run/drift_report.json",
+    "saee_phase2/output/demo-run/attractor_map.json",
+    "saee_phase2/output/demo-run/regime_transition_log.json"
+  ],
+  "law_set_summary": {
+    "system_characterization": "convergent evolutionary dynamical system with dominant attractor",
+    "dominant_regime": "stable_regime",
+    "dominant_basin": "stable_lineage_basin",
+    "observed_transition": "stable_regime->stable_regime",
+    "collapse_observed": false,
+    "cross_regime_transition_observed": false,
+    "external_validated_law_count": 0,
+    "candidate_law_count": 5
+  },
+  "laws": [
+    {
+      "law_id": "saee_law_v1_001_attractor_dominance",
+      "name": "Attractor Dominance Law",
+      "name_zh": "吸引子主导定律",
+      "claim_status": "candidate_law",
+      "statement": "In a constrained evolutionary kernel with stable selection pressure, bounded mutation entropy, a smooth monotonic selection function, and no external diversity perturbation, the system converges to a single dominant attractor basin.",
+      "observed_expression": "stable_lineage_basin dominates the observed phase space.",
+      "conditions": [
+        "mutation_entropy_bounded",
+        "selection_function_smooth_monotonic",
+        "population_diversity_not_externally_perturbed"
+      ],
+      "empirical_evidence": [
+        "docs/science/phase_diagram/ATTRACTOR_BASIN_MAP.json: stable_lineage_basin.observed=true, stability_score=1.0",
+        "docs/science/phase_diagram/SAEE_PHASE_SPACE_V1.json: observed_primary_basin=stable_lineage_basin",
+        "saee_phase2/output/demo-run/attractor_map.json: attractor_count=1"
+      ],
+      "testable_predictions": [
+        "Repeated runs under the same constrained kernel should preserve stable_lineage_basin as the primary basin.",
+        "If mutation entropy is increased by a controlled future perturbation, dominance score should decrease or additional basins should appear."
+      ],
+      "falsification_conditions": [
+        "A controlled existing-equivalent run shows more than one dominant attractor basin.",
+        "stable_lineage_basin loses primary-basin status without external perturbation.",
+        "collapse_sink or chaotic basin becomes dominant under unchanged constraints."
+      ],
+      "non_claims": [
+        "not_external_validation",
+        "not_universal_law",
+        "not_open_ended_evolution_claim"
+      ]
+    },
+    {
+      "law_id": "saee_law_v1_002_regime_non_transition",
+      "name": "Regime Non-Transition Law",
+      "name_zh": "机制不跃迁定律",
+      "claim_status": "candidate_law",
+      "statement": "Regime transitions vanish when fitness variance contracts below the observed stability region and mutation does not introduce directional bias, leaving the system in a self-reinforcing stable-regime loop.",
+      "observed_expression": "stable_regime->stable_regime is the only observed transition.",
+      "conditions": [
+        "fitness_variance_contracts",
+        "population_variance_below_transition_threshold",
+        "mutation_without_directional_bias"
+      ],
+      "empirical_evidence": [
+        "docs/science/phase_diagram/REGIME_TRANSITION_GRAPH.json: stable_regime->stable_regime probability=1.0",
+        "saee_phase2/output/demo-run/regime_transition_log.json: transitions=[] and regime_counts.stable_regime=6",
+        "saee_experiments/reports/stability_report.json: convergence_tendency=converging"
+      ],
+      "testable_predictions": [
+        "Under the same phase-space constraints, cross-regime transition count should remain zero.",
+        "If controlled perturbation raises variance beyond the observed stability region, exploratory or chaotic labels should become observable."
+      ],
+      "falsification_conditions": [
+        "An unchanged constrained run records stable_regime->exploratory_regime, exploratory_regime->chaotic_regime, or chaotic_regime->collapse_regime.",
+        "Regime transition count becomes nonzero while fitness variance remains in the current convergent range."
+      ],
+      "non_claims": [
+        "not_proof_that_transitions_are_impossible",
+        "not_external_validation",
+        "not_universal_law"
+      ]
+    },
+    {
+      "law_id": "saee_law_v1_003_lineage_stability",
+      "name": "Lineage Stability Law",
+      "name_zh": "谱系稳定定律",
+      "claim_status": "candidate_law",
+      "statement": "Lineage DAGs remain structurally stable when reproduction is constrained by single-loop selection, branching factor is bounded, and cross-lineage recombination is absent.",
+      "observed_expression": "DAG grows to 808 nodes and 1590 edges without recorded lineage-integrity failure.",
+      "conditions": [
+        "single_loop_selection_constrains_reproduction",
+        "branching_factor_bounded",
+        "cross_lineage_recombination_absent"
+      ],
+      "empirical_evidence": [
+        "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json: lineage_integrity_invariant stability_score=1.0",
+        "saee_experiments/reports/lineage_statistics.json: graph_type=lineage_dag, node_count=808, edge_count=1590, lineage_integrity_preserved=true",
+        "docs/science/phase_diagram/SAEE_PHASE_SPACE_V1.json: lineage_integrity_preserved=true"
+      ],
+      "testable_predictions": [
+        "DAG endpoint validity should remain true under unchanged constrained runs.",
+        "Branching density should remain finite and positive without topological explosion under unchanged constraints."
+      ],
+      "falsification_conditions": [
+        "A lineage edge references a missing parent or child under unchanged constraints.",
+        "Branching density grows without bound in a controlled run.",
+        "The graph ceases to be a DAG under unchanged single-loop selection."
+      ],
+      "non_claims": [
+        "not_a_general_graph_theorem",
+        "not_external_validation",
+        "not_universal_law"
+      ]
+    },
+    {
+      "law_id": "saee_law_v1_004_bounded_diversity",
+      "name": "Bounded Diversity Law",
+      "name_zh": "有界多样性定律",
+      "claim_status": "candidate_law",
+      "statement": "Population diversity remains bounded when the fitness function compresses behavioral space, selection pressure favors convergence, and mutation does not explore orthogonal dimensions.",
+      "observed_expression": "Population remains at configured size across 100 generations while turnover continues inside the stable basin.",
+      "conditions": [
+        "fitness_function_compresses_behavioral_space",
+        "selection_pressure_favors_convergence",
+        "mutation_does_not_explore_orthogonal_dimensions"
+      ],
+      "empirical_evidence": [
+        "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json: population_viability_invariant stability_score=1.0",
+        "saee_experiments/reports/stability_report.json: population_count=8 for 100/100 generations",
+        "saee_experiments/output/demo-run/drift_report.json: mean_population_turnover=0.545531",
+        "docs/science/phase_diagram/ATTRACTOR_BASIN_MAP.json: exploration_basin observed inside stable_lineage_basin"
+      ],
+      "testable_predictions": [
+        "Population count should remain at configured size under unchanged v1.0 constraints.",
+        "Turnover may remain nonzero, but collapse and unbounded diversification should remain absent under unchanged constraints."
+      ],
+      "falsification_conditions": [
+        "Population count escapes configured bounds under unchanged constraints.",
+        "Collapse events occur without external perturbation.",
+        "Structural diversification creates additional dominant basins under unchanged constraints."
+      ],
+      "non_claims": [
+        "not_claiming_no_diversity",
+        "not_external_validation",
+        "not_universal_law"
+      ]
+    },
+    {
+      "law_id": "saee_law_v1_005_fitness_convergence",
+      "name": "Fitness Convergence Law",
+      "name_zh": "适应度收敛定律",
+      "claim_status": "candidate_law",
+      "statement": "Fitness variance decreases over time when selection is deterministic or near-deterministic, environmental signals are static or abstracted, and mutation magnitude is low.",
+      "observed_expression": "Fitness variance trend is converging, with last-window variance below first-window variance.",
+      "conditions": [
+        "selection_near_deterministic",
+        "environmental_signals_static_or_abstracted",
+        "mutation_magnitude_low"
+      ],
+      "empirical_evidence": [
+        "saee_experiments/reports/stability_report.json: convergence_tendency=converging",
+        "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json: fitness_convergence_tendency classification=candidate_pattern",
+        "docs/science/phase_diagram/INVARIANT_CLUSTER_SPACE.json: first_10_variance_mean=0.000001839, last_10_variance_mean=0.000000705, variance_ratio=0.383360522"
+      ],
+      "testable_predictions": [
+        "Last-window variance should remain below first-window variance in repeated unchanged runs.",
+        "If mutation magnitude is increased by future controlled perturbation, variance ratio should increase."
+      ],
+      "falsification_conditions": [
+        "Fitness variance diverges under unchanged constraints.",
+        "Last-window variance repeatedly exceeds first-window variance under unchanged constraints.",
+        "Fitness convergence disappears while all stated conditions remain unchanged."
+      ],
+      "non_claims": [
+        "not_monotonic_every_generation",
+        "not_external_validation",
+        "not_universal_law"
+      ]
+    }
+  ]
+}

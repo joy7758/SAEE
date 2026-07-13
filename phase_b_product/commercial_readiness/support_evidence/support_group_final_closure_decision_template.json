@@ -1,0 +1,24 @@
+{
+  "allowed_final_decisions": [
+    "approve_for_separate_matrix_update_request",
+    "hold",
+    "reject"
+  ],
+  "authorize_blocker_closure_now": false,
+  "authorize_product_launch": false,
+  "authorize_separate_matrix_update_request": true,
+  "confirm_no_customer_validation_claim": true,
+  "confirm_no_production_ready_claim": true,
+  "decision_date": "2026-07-09",
+  "decision_scope": "support_group_final_closure_decision",
+  "human_final_decision": "approve_for_separate_matrix_update_request",
+  "human_reviewer": "张斌",
+  "reason": "人工检查完毕，没有问题。Support-group evidence is locally complete; approve only a separate matrix update request, without immediate blocker closure, launch, customer-validation claim, or production-ready claim.",
+  "recommended_final_decision": "approve_for_separate_matrix_update_request",
+  "target_blockers": [
+    "support_contact",
+    "customer_support",
+    "sla",
+    "on_call_rotation"
+  ]
+}

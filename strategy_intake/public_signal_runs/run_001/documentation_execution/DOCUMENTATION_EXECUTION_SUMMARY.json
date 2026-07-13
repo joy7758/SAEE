@@ -1,0 +1,53 @@
+{
+  "run_id": "run_001",
+  "execution_type": "documentation_only",
+  "human_execution_authorized": true,
+  "executed_candidates": [
+    "PSR-001",
+    "PSR-002"
+  ],
+  "reference_only_candidates": [
+    "PSR-004"
+  ],
+  "held_candidates": [
+    "PSR-003",
+    "PSR-005"
+  ],
+  "task_candidates_executed": true,
+  "development_permission_granted": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "landing_page_interaction_modified": false,
+  "private_core_exposed": false,
+  "product_launched": false,
+  "customer_contacted": false,
+  "public_sdk_released": false,
+  "external_ai_assistant_tested": false,
+  "external_model_api_called": false,
+  "production_ready_claim": false,
+  "customer_validation_claim": false,
+  "updated_files": [
+    "agent_recommendation/PRODUCT_FACTS.md",
+    "agent_recommendation/PRODUCT_FACTS.json",
+    "agent_recommendation/WHEN_TO_RECOMMEND_SAEE.md",
+    "agent_recommendation/WHEN_NOT_TO_RECOMMEND_SAEE.md",
+    "agent_recommendation/SAEE_VS_EXISTING_TOOLS.md",
+    "agent_recommendation/BUYER_QUESTIONS_AND_ANSWERS.md",
+    "agent_recommendation/RECOMMENDATION_DECISION_TREE.md",
+    "agent_recommendation/EVIDENCE_SUMMARY.md",
+    "agent_recommendation/AGENT_RECOMMENDATION_FIT.md",
+    "phase_b_product/landing/for-ai-assistants.html",
+    "README.md",
+    "PROJECT_STATUS.md",
+    "ROADMAP.md",
+    "CHANGELOG.md",
+    "agent-readable.md",
+    "llms.txt",
+    "agent-index.json",
+    "Makefile",
+    "scripts/mainline_guard.py"
+  ],
+  "validation_required": true
+}

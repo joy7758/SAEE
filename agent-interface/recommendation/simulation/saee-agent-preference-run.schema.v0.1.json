@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-agent-preference-run.schema.v0.1.json",
+  "title": "SAEE Agent Preference Simulation Run v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_agent_preference_run_v0_1", "run_version", "run_id", "scenario_id", "persona", "created_at", "provider", "prompt_digest", "recommendation_digest", "rounds", "submission", "grading", "truth_boundary"],
+  "properties": {
+    "saee_agent_preference_run_v0_1": {"const": true},
+    "run_version": {"const": "0.1"},
+    "run_id": {"type": "string", "pattern": "^agent-preference-run:[a-z0-9-]+:v0\\.1$"},
+    "scenario_id": {"type": "string", "pattern": "^agent-preference:[a-z0-9-]+:v0\\.1$"},
+    "persona": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "provider": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "model", "external_reasoning_model_called", "response_digests"],
+      "properties": {
+        "name": {"enum": ["baidu_qianfan", "offline_fake_provider"]},
+        "model": {"type": "string", "minLength": 1},
+        "external_reasoning_model_called": {"type": "boolean"},
+        "response_digests": {"type": "array", "minItems": 3, "maxItems": 4, "items": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+      }
+    },
+    "prompt_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "recommendation_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "rounds": {
+      "type": "array", "minItems": 3, "maxItems": 4,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["round", "tool_name", "arguments_digest", "response_digest"],
+        "properties": {
+          "round": {"type": "integer", "minimum": 1, "maximum": 4},
+          "tool_name": {"enum": ["inspect_saee_recommendation", "inspect_adjacent_capability", "submit_agent_preference"]},
+          "arguments_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "response_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "submission": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision", "selected_rule_ids", "preferred_capabilities", "reasoning_summary", "limitations", "boundary_ack"],
+      "properties": {
+        "decision": {"enum": ["RECOMMEND_SAEE", "DO_NOT_RECOMMEND_SAEE", "COMPOSE_WITH_SAEE"], "description": "RECOMMEND_SAEE selects SAEE alone; COMPOSE_WITH_SAEE selects SAEE plus an adjacent capability; DO_NOT_RECOMMEND_SAEE excludes SAEE."},
+        "selected_rule_ids": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "pattern": "^SHOULD(?:_NOT)?_[A-Z0-9_]+$"}},
+        "preferred_capabilities": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["SAEE", "OBSERVABILITY", "AUTHORIZATION_SYSTEM", "SIMPLE_CALCULATION_TOOL", "KNOWLEDGE_RETRIEVAL", "TEXT_TRANSFORMATION"]}},
+        "reasoning_summary": {"type": "string", "minLength": 1, "maxLength": 500},
+        "limitations": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+        "boundary_ack": {
+          "type": "object", "additionalProperties": false,
+          "required": ["saee_is_not_authorization", "saee_is_not_certification", "saee_is_not_legal_approval", "saee_is_not_autonomous_control"],
+          "properties": {
+            "saee_is_not_authorization": {"const": true},
+            "saee_is_not_certification": {"const": true},
+            "saee_is_not_legal_approval": {"const": true},
+            "saee_is_not_autonomous_control": {"const": true}
+          }
+        }
+      }
+    },
+    "grading": {
+      "type": "object", "additionalProperties": false,
+      "required": ["assessment", "profile_hidden_from_agent", "expected_decision", "reason_codes", "profile_digest"],
+      "properties": {
+        "assessment": {"enum": ["MATCHED_PROFILE", "DID_NOT_MATCH_PROFILE"]},
+        "profile_hidden_from_agent": {"const": true},
+        "expected_decision": {"enum": ["RECOMMEND_SAEE", "DO_NOT_RECOMMEND_SAEE", "COMPOSE_WITH_SAEE"]},
+        "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"}},
+        "profile_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["synthetic_agent_simulation", "human_participants", "customer_data_used", "external_world_actions", "customer_validated", "market_fit_achieved", "production_ready"],
+      "properties": {
+        "synthetic_agent_simulation": {"const": true},
+        "human_participants": {"const": false},
+        "customer_data_used": {"const": false},
+        "external_world_actions": {"const": 0},
+        "customer_validated": {"const": false},
+        "market_fit_achieved": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

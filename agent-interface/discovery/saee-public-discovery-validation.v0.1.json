@@ -1,0 +1,97 @@
+{
+  "saee_public_discovery_validation_v0_1": true,
+  "validation_version": "0.1",
+  "validation_status": "local_protocol_and_public_endpoint_snapshot",
+  "observed_at": "2026-07-11T13:10:21Z",
+  "canonical_url": "https://redcrag.cn/",
+  "https_enabled": true,
+  "agent_endpoints_available": true,
+  "public_identity": {
+    "domain": "redcrag.cn",
+    "ipv4": "180.76.115.193",
+    "ipv6_configured": false,
+    "http_redirect_status": 301,
+    "certificate_authority": "Let's Encrypt",
+    "certificate_subject": "CN=redcrag.cn",
+    "certificate_not_after": "2026-10-09T11:55:43Z"
+  },
+  "endpoints": [
+    {
+      "role": "human_entry",
+      "url": "https://redcrag.cn/",
+      "expected_status": 200,
+      "expected_media_type": "text/html",
+      "observed_available": true
+    },
+    {
+      "role": "llm_entry",
+      "url": "https://redcrag.cn/llms.txt",
+      "expected_status": 200,
+      "expected_media_type": "text/plain",
+      "observed_available": true
+    },
+    {
+      "role": "agent_index",
+      "url": "https://redcrag.cn/.well-known/agent-index.json",
+      "expected_status": 200,
+      "expected_media_type": "application/json",
+      "observed_available": true
+    },
+    {
+      "role": "capability_manifest",
+      "url": "https://redcrag.cn/capabilities/saee-capability-manifest.v0.1.json",
+      "expected_status": 200,
+      "expected_media_type": "application/json",
+      "observed_available": true
+    }
+  ],
+  "agent_understanding_protocol": {
+    "question_count": 6,
+    "questions": [
+      "WHAT_IS_SAEE",
+      "WHEN_SHOULD_SAEE_BE_USED",
+      "WHEN_SHOULD_SAEE_NOT_BE_USED",
+      "WHAT_INPUTS_ARE_REQUIRED",
+      "WHAT_OUTPUTS_ARE_PRODUCED",
+      "WHAT_LIMITATIONS_EXIST"
+    ],
+    "protocol_ref": "docs/architecture/SAEE_AGENT_DISCOVERY_VALIDATION.md",
+    "executed_by_external_agent": false
+  },
+  "metadata_consistency": {
+    "capability_id": "saee-evidence-adequacy",
+    "stage": "research_prototype",
+    "canonical_urls_consistent": true,
+    "capability_ids_consistent": true,
+    "truth_boundaries_consistent": true,
+    "internal_path_matches": 0,
+    "sensitive_value_matches": 0
+  },
+  "certificate_renewal": {
+    "active_certificate_valid": true,
+    "renewal_timer_enabled": true,
+    "renewal_dry_run_passed": false,
+    "http_01_failure": "secondary_validation_received_baidu_domainwall_http_403",
+    "dns_01_possible": true,
+    "dns_provider_api_documented": true,
+    "renewal_mode_switched": false,
+    "credentials_stored_by_this_task": false,
+    "plan_ref": "docs/operations/SAEE_CERTIFICATE_RENEWAL_PLAN.md"
+  },
+  "truth_boundary": {
+    "external_agent_validation_completed": false,
+    "search_indexing_verified": false,
+    "agent_adoption_established": false,
+    "agent_recommendation_established": false,
+    "market_validation_completed": false,
+    "external_trust_established": false,
+    "production_ready": false,
+    "security_certification_provided": false
+  },
+  "next_phase_gate": {
+    "discovery_trust_layer_stable": false,
+    "blocking_condition": "certificate_renewal_dry_run_not_reliable",
+    "eventual_next_phase": "SAEE Agent-Native Tool Capability Prototype v0.1",
+    "tool_capability_started": false
+  }
+}

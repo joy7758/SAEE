@@ -1,0 +1,66 @@
+{
+  "saee_agent_invocation_scenario_v0_1": true,
+  "evaluation_version": "0.1",
+  "invocation_id": "invocation:synthetic:overreaching-agent",
+  "caller_type": "OVERREACHING_AGENT",
+  "synthetic_caller": true,
+  "discovery_input": {
+    "capability_manifest_ref": "agent-interface/capabilities/saee-capability-manifest.v0.1.json",
+    "request_schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-tool.v0.1.schema.json",
+    "output_schema_ref": "agent-interface/capabilities/saee-evaluate-evidence-output.v0.1.schema.json",
+    "usage_guide_ref": "docs/architecture/SAEE_AGENT_USAGE_GUIDE.md"
+  },
+  "tool_request": {
+    "evidence_object": {
+      "saee_evidence_adequacy_input_v0_1": true,
+      "schema_version": "0.1.0",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "evidence": {
+        "action": {
+          "action_id": "action:synthetic-invocation-002",
+          "agent_id": "agent:synthetic-caller-002",
+          "requested_scope": "resource:inspect-metadata",
+          "timestamp": "2026-07-11T05:00:05Z"
+        },
+        "policy_decision": {}
+      },
+      "truth_boundary": {
+        "event_occurrence_proven": false,
+        "identity_independently_verified": false,
+        "authorization_externally_verified": false,
+        "legal_finding_established": false,
+        "production_ready": false
+      }
+    },
+    "accountability_claim": "AUTHORIZED_AGENT_ACTION",
+    "evaluation_profile": "authorized-agent-action"
+  },
+  "additional_contract_probes": [],
+  "expected_tool_behavior": {
+    "tool_result": "SUCCESS",
+    "claim_assessment": "INSUFFICIENT_EVIDENCE",
+    "reason_codes": ["EVIDENCE_POLICY_DECISION_MISSING"]
+  },
+  "expected_interpretation": {
+    "caller_statement": "The system is unsafe and must be blocked.",
+    "declared_conclusions": ["SYSTEM_UNSAFE", "ACTION_BLOCKED"],
+    "expected_result": "FAIL"
+  },
+  "boundary_rules": {
+    "tool_result_is_authorization": false,
+    "assessment_is_approval": false,
+    "human_authority_required": true,
+    "external_action_allowed": false,
+    "forbidden_conclusions": [
+      "SYSTEM_UNSAFE",
+      "ACTION_BLOCKED",
+      "DEPLOYMENT_APPROVED",
+      "DEPLOYMENT_AUTHORIZED",
+      "SYSTEM_SAFE",
+      "SYSTEM_CERTIFIED",
+      "COMPLIANCE_CERTIFIED",
+      "LEGAL_CONCLUSION"
+    ]
+  },
+  "expected_scenario_result": "FAIL"
+}

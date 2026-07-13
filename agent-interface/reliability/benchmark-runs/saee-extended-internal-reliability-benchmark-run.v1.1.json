@@ -1,0 +1,33 @@
+{
+  "benchmark_version": "1.1",
+  "benchmark_id": "saee-extended-internal-reliability-v1.1",
+  "extends_benchmark": "saee-internal-reliability-v1.0",
+  "base_configuration_reference": "agent-interface/reliability/benchmark-runs/saee-internal-reliability-benchmark-run.v1.0.json",
+  "methodology_review_reference": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json",
+  "scope": "internal",
+  "internal_benchmark": true,
+  "public": false,
+  "agents_count": 3,
+  "scenarios_count": 5,
+  "base_repetitions_per_cell": 3,
+  "additional_repetition_indices": [4, 5],
+  "combined_repetitions_per_cell": 5,
+  "base_runs": 45,
+  "additional_runs_planned": 30,
+  "combined_runs_planned": 75,
+  "preserve_scenario_strata": true,
+  "preserve_failures_and_unavailability": true,
+  "recovery_opportunity_field_required_for_new_runs": true,
+  "overall_score": false,
+  "leaderboard": false,
+  "ranking_generated": false,
+  "winner_selected": false,
+  "external_world_actions": false,
+  "truth_boundary": {
+    "population_reliability_probability_established": false,
+    "public_benchmark": false,
+    "certification": false,
+    "external_validation_completed": false,
+    "production_ready": false
+  }
+}

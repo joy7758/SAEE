@@ -3,7 +3,8 @@
   "service": "SAEE Agent Readiness Platform",
   "publication_status": "repository_public_surface_prepared_not_deployed",
   "capabilities": [
-    {"id": "saee.agent-readiness", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"}
+    {"id": "saee.agent-reliability", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"},
+    {"id": "saee.evidence-evaluation", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"}
   ],
   "capability_reference": "agent-interface/public/saee-public-capability-surface.v0.1.json",
   "product_identity_reference": "agent-interface/product/saee-agent-readiness-platform.v0.1.json",

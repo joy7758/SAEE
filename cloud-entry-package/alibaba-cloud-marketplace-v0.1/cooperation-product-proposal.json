@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "proposal_id": "saee.alibaba-cloud.cooperation-product-proposal.v0.1",
+  "status": "local_draft_owner_review_required",
+  "product_name": "SAEE Agent Readiness Assessment",
+  "product_name_zh": "SAEE 智能体上线可靠性评估服务",
+  "product_version": "v0.1-alpha",
+  "product_summary": "通过受控场景、执行轨迹和证据充分性评估，帮助团队在真实部署前识别 AI Agent 工作流中的证据缺口与恢复准备缺口。",
+  "proposed_alibaba_cloud_product": "Alibaba Cloud Model Studio",
+  "proposed_integration": {
+    "mode": "post_run_read_only_assessment",
+    "input": "owner-approved sanitized workflow execution evidence",
+    "operations": [
+      "saee.evaluate_agent_run",
+      "saee.evaluate_evidence"
+    ],
+    "external_world_execution": false,
+    "deployment_authority": false
+  },
+  "evidence_refs": [
+    "saee-capability-card.json",
+    "agent-interface/product/saee-agent-readiness-capability.v2.json",
+    "commercial/agent-readiness-assessment-package-v1/product.json",
+    "docs/ecosystem/SAEE_ALIBABA_BAILIAN_INTEGRATION_STRATEGY.md"
+  ],
+  "owner_inputs_required_before_submission": [
+    "confirm_public_product_name_and_version",
+    "confirm_company_website_surface",
+    "confirm_alibaba_cloud_product_association",
+    "confirm_product_material_archive",
+    "confirm_product_contact_values_in_platform_without_repository_storage",
+    "authorize_external_cooperation_product_submission"
+  ],
+  "truth_boundary": {
+    "cooperation_product_submission": false,
+    "cooperation_product_approved": false,
+    "bailian_tested": false,
+    "bailian_integrated": false,
+    "integration_certification_application_submission": false,
+    "official_support": false,
+    "marketplace_product_submission": false,
+    "production_ready": false
+  }
+}
+

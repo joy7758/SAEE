@@ -1,0 +1,53 @@
+{
+  "audit_metadata": {
+    "credentials_recorded": false,
+    "private_core_data_recorded": false,
+    "request_body_recorded": false,
+    "tenant_id_recorded_in_public_store_key": true,
+    "tenant_scoped_list_summary_keeps_public_experiment_id": true
+  },
+  "backup_restore_boundary": {
+    "cross_tenant_restore_allowed": false,
+    "customer_data_restore_claim_allowed": false,
+    "manual_operator_review_required": true,
+    "restore_to_live_path_allowed": false,
+    "tenant_scoped_restore_target_required": true
+  },
+  "boundary_flags": {
+    "api_schema_modified": false,
+    "backend_modified": false,
+    "customer_data_processed": false,
+    "customer_validated": false,
+    "external_calls_made": false,
+    "kernel_modified": false,
+    "migration_executed": false,
+    "private_core_exposed": false,
+    "product_launched": false,
+    "production_ready": false,
+    "production_tenant_storage_isolated": false,
+    "runtime_modified": false,
+    "storage_behavior_modified": false
+  },
+  "deletion_retention_boundary": {
+    "cross_tenant_deletion_allowed": false,
+    "legal_privacy_review_required_before_customer_data": true,
+    "retention_policy_must_be_tenant_scoped": true,
+    "tenant_id_required_for_deletion_scope": true
+  },
+  "generated_by": "scripts/saee_tenant_storage_isolation_evidence_runner.py",
+  "observability_boundary": {
+    "external_export_configured": false,
+    "private_core_inspection_allowed": false,
+    "production_monitoring_claim_allowed": false,
+    "request_body_inspection_allowed": false,
+    "tenant_label_required_for_aggregate_counts": true
+  },
+  "operations_boundary_scope": "local_public_shell_review_only",
+  "operations_boundary_type": "tenant_storage_operations_boundary",
+  "review_results": {
+    "tenant_backup_restore_boundary_approved": true,
+    "tenant_deletion_retention_boundary_approved": true,
+    "tenant_scoped_audit_metadata_reviewed": true,
+    "tenant_storage_observability_plan_reviewed": true
+  }
+}

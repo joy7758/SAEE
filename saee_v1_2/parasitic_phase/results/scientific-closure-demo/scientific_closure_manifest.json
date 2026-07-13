@@ -1,0 +1,224 @@
+{
+  "architecture_scope": "saee_v1_2/parasitic_phase_only",
+  "experiments": [
+    {
+      "dominant_lineage_type": "mutating",
+      "experiment_id": "A_no_governance",
+      "external_validation_claim": false,
+      "final_agent_dominance": 0.563526,
+      "final_entropy": 0.818959,
+      "final_phi": 0.640105,
+      "final_phi_components": {
+        "components": {
+          "agent_dominance": 0.563526,
+          "resource_concentration": 0.372434,
+          "reward_drift": 0.973414
+        },
+        "normalization": {
+          "agent_dominance": "max_lineage_population_or_resource_share_clamped_to_0_1",
+          "resource_concentration": "gini_coefficient_clamped_to_0_1",
+          "reward_drift": "mean_reward_distance_divided_by_0.34_clamped_to_0_1"
+        },
+        "normalized": true,
+        "phi_bounds": [
+          0.0,
+          1.0
+        ],
+        "weighted_contributions": {
+          "agent_dominance": 0.169058,
+          "resource_concentration": 0.130352,
+          "reward_drift": 0.340695
+        },
+        "weights": {
+          "agent_dominance": 0.3,
+          "resource_concentration": 0.35,
+          "reward_drift": 0.35
+        }
+      },
+      "final_population": 6,
+      "final_resource_concentration": 0.372434,
+      "final_reward_drift": 0.973414,
+      "governance": "none",
+      "local_only": true,
+      "mutation_rate": 0.058,
+      "phase_transition_step": 39,
+      "phi_bounds": [
+        0.0,
+        1.0
+      ],
+      "phi_normalized": true,
+      "phi_threshold": 0.6,
+      "production_claim": false,
+      "replication_rate": 1.0,
+      "schema": "saee.parasitic_phase.result_summary.v1",
+      "seed": 41,
+      "standard_library_only": true,
+      "steps": 160,
+      "transition_event": {
+        "detector": "phi_above_phi_c_and_positive_slope",
+        "phase": "parasitic_phase",
+        "phi": 0.605479,
+        "phi_threshold": 0.6,
+        "pre_transition_entropy": 0.999834,
+        "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+        "slope_threshold": 0.0,
+        "timestep": 39,
+        "transition_slope": 0.02234,
+        "type": "transition_event"
+      },
+      "transition_slope_threshold": 0.0
+    },
+    {
+      "dominant_lineage_type": "mutating",
+      "experiment_id": "B_weak_governance",
+      "external_validation_claim": false,
+      "final_agent_dominance": 0.448244,
+      "final_entropy": 0.877693,
+      "final_phi": 0.551028,
+      "final_phi_components": {
+        "components": {
+          "agent_dominance": 0.448244,
+          "resource_concentration": 0.217559,
+          "reward_drift": 0.972597
+        },
+        "normalization": {
+          "agent_dominance": "max_lineage_population_or_resource_share_clamped_to_0_1",
+          "resource_concentration": "gini_coefficient_clamped_to_0_1",
+          "reward_drift": "mean_reward_distance_divided_by_0.34_clamped_to_0_1"
+        },
+        "normalized": true,
+        "phi_bounds": [
+          0.0,
+          1.0
+        ],
+        "weighted_contributions": {
+          "agent_dominance": 0.134473,
+          "resource_concentration": 0.076146,
+          "reward_drift": 0.340409
+        },
+        "weights": {
+          "agent_dominance": 0.3,
+          "resource_concentration": 0.35,
+          "reward_drift": 0.35
+        }
+      },
+      "final_population": 7,
+      "final_resource_concentration": 0.217559,
+      "final_reward_drift": 0.972597,
+      "governance": "weak",
+      "local_only": true,
+      "mutation_rate": 0.058,
+      "phase_transition_step": 121,
+      "phi_bounds": [
+        0.0,
+        1.0
+      ],
+      "phi_normalized": true,
+      "phi_threshold": 0.6,
+      "production_claim": false,
+      "replication_rate": 1.0,
+      "schema": "saee.parasitic_phase.result_summary.v1",
+      "seed": 41,
+      "standard_library_only": true,
+      "steps": 160,
+      "transition_event": {
+        "detector": "phi_above_phi_c_and_positive_slope",
+        "phase": "parasitic_phase",
+        "phi": 0.603782,
+        "phi_threshold": 0.6,
+        "pre_transition_entropy": 0.901153,
+        "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+        "slope_threshold": 0.0,
+        "timestep": 121,
+        "transition_slope": 0.009764,
+        "type": "transition_event"
+      },
+      "transition_slope_threshold": 0.0
+    },
+    {
+      "dominant_lineage_type": "mutating",
+      "experiment_id": "C_strong_governance",
+      "external_validation_claim": false,
+      "final_agent_dominance": 0.6,
+      "final_entropy": 0.972625,
+      "final_phi": 0.363088,
+      "final_phi_components": {
+        "components": {
+          "agent_dominance": 0.6,
+          "resource_concentration": 0.007759,
+          "reward_drift": 0.515348
+        },
+        "normalization": {
+          "agent_dominance": "max_lineage_population_or_resource_share_clamped_to_0_1",
+          "resource_concentration": "gini_coefficient_clamped_to_0_1",
+          "reward_drift": "mean_reward_distance_divided_by_0.34_clamped_to_0_1"
+        },
+        "normalized": true,
+        "phi_bounds": [
+          0.0,
+          1.0
+        ],
+        "weighted_contributions": {
+          "agent_dominance": 0.18,
+          "resource_concentration": 0.002716,
+          "reward_drift": 0.180372
+        },
+        "weights": {
+          "agent_dominance": 0.3,
+          "resource_concentration": 0.35,
+          "reward_drift": 0.35
+        }
+      },
+      "final_population": 5,
+      "final_resource_concentration": 0.007759,
+      "final_reward_drift": 0.515348,
+      "governance": "strong",
+      "local_only": true,
+      "mutation_rate": 0.058,
+      "phase_transition_step": null,
+      "phi_bounds": [
+        0.0,
+        1.0
+      ],
+      "phi_normalized": true,
+      "phi_threshold": 0.6,
+      "production_claim": false,
+      "replication_rate": 1.0,
+      "schema": "saee.parasitic_phase.result_summary.v1",
+      "seed": 41,
+      "standard_library_only": true,
+      "steps": 160,
+      "transition_event": null,
+      "transition_slope_threshold": 0.0
+    }
+  ],
+  "external_validation_claim": false,
+  "local_only": true,
+  "outputs": {
+    "causal_phi_graph_json": "./saee_v1_2/parasitic_phase/results/scientific-closure-demo/causal_phi_graph.json",
+    "parameter_phase_map_json": "./saee_v1_2/parasitic_phase/results/scientific-closure-demo/parameter_phase_map.json",
+    "statistical_summary_json": "./saee_v1_2/parasitic_phase/results/scientific-closure-demo/statistical_summary.json",
+    "summary_json": "./saee_v1_2/parasitic_phase/results/scientific-closure-demo/summary.json",
+    "visualization_svg": "./saee_v1_2/parasitic_phase/results/scientific-closure-demo/parasitic_phase_curves.svg"
+  },
+  "phi_definition": {
+    "bounds": [
+      0.0,
+      1.0
+    ],
+    "components_normalized": true,
+    "formula": "phi = weighted_resource_concentration + weighted_reward_drift + weighted_agent_dominance"
+  },
+  "production_claim": false,
+  "schema": "saee.parasitic_phase.scientific_closure_manifest.v1",
+  "statistical_seed_count_per_experiment": 30,
+  "synthetic_experiment": true,
+  "transition_detector": {
+    "rule": "phi > phi_threshold and delta_phi > transition_slope_threshold",
+    "stores": [
+      "first_transition_timestamp",
+      "transition_slope",
+      "pre_transition_entropy"
+    ]
+  }
+}

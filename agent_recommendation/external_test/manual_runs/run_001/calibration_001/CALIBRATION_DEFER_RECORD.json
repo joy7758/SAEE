@@ -1,0 +1,19 @@
+{
+  "calibration_run_id": "calibration_001",
+  "previous_status": "started_pending_human_execution",
+  "new_status": "deferred_by_human_decision",
+  "manual_external_test_performed": true,
+  "records_entered": 6,
+  "internal_self_play_available": true,
+  "internal_self_play_status": "pass",
+  "external_ai_tested": true,
+  "external_validation_claim": false,
+  "customer_validated": false,
+  "product_launched": false,
+  "production_ready_claim": false,
+  "private_core_exposed": false,
+  "reason": "Historical defer record superseded by six human-provided external calibration responses. Current outcome is hold, not external validation success.",
+  "next_allowed_action": "review calibration hold reasons before reopening or expanding external manual testing",
+  "superseded_by_human_results": true,
+  "current_status": "completed_with_human_results_hold"
+}

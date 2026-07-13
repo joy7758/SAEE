@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "saee.alibaba-cloud-marketplace.store-profile-draft.v0.1",
+  "destination": "Alibaba Cloud Marketplace service-provider store editor",
+  "submission_state": "submitted_owner_confirmed_platform_followup_observed",
+  "merchant_summary": "SAEE（Silicon-Amplified Evolutionary Ecology）提供面向 AI Agent 工作流的上线前可靠性评估服务。首个方案聚焦单个工作流和单个场景，基于经授权、脱敏的执行证据，交付结构化 JSON 与可读报告。",
+  "store_description": "SAEE 的工程核心是 Digital Biosphere Evolution Engine（数字生物圈进化引擎）。我们面向 AI Agent 工作流提供有界的上线前可靠性评估服务，依据经授权、脱敏的运行轨迹和执行证据，交付结构化 JSON 与人类可读报告。适用场景包括上线前证据检查、失败模式定位、回归比较和候选方案评估。SAEE 不替代安全或合规认证，不授权生产部署，不自动执行外部系统，也不处理未经授权的客户数据。首个服务范围为 1 个工作流和 1 个场景，具体交付内容、价格与服务时限以阿里云市场最终商品说明为准。",
+  "store_description_editor_state": "synchronized_required_error_cleared",
+  "customer_service_hours": "周一至周五 09:00-18:00（北京时间，法定节假日除外）",
+  "assets": {
+    "store_logo": {
+      "path": "cloud-entry-package/alibaba-cloud-marketplace-v0.1/assets/store-logo-180x120.png",
+      "dimensions": "180x120",
+      "format": "png",
+      "source": "cloud-entry-package/alibaba-cloud-marketplace-v0.1/assets/store-logo-source.svg"
+    },
+    "store_banner": {
+      "path": "cloud-entry-package/alibaba-cloud-marketplace-v0.1/assets/store-banner-920x518.png",
+      "dimensions": "920x518",
+      "format": "png",
+      "source": "output/saee-landing-v18-browser-1280x720-final.png"
+    }
+  },
+  "private_contact_fields": {
+    "values_stored_here": false,
+    "source": "local private Alibaba Cloud Marketplace profile",
+    "fields": [
+      "customer_service_email",
+      "customer_service_phone",
+      "400_binding_phone"
+    ]
+  },
+  "truth_boundary": {
+    "store_profile_submission": true,
+    "marketplace_product_draft_created": false,
+    "marketplace_product_submission": false,
+    "marketplace_product_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

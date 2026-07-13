@@ -1,0 +1,322 @@
+{
+  "pricing_page_minimum_human_input_workspace_v0_1": true,
+  "workspace_type": "minimum_pricing_page_human_input_workspace",
+  "workspace_scope": "human_field_inventory_only_no_values_no_submit_no_execution",
+  "status": "hold_minimum_human_input_required",
+  "commercial_status": "hold",
+  "production_launch_status": "hold",
+  "target_blocker_id": "pricing_page",
+  "source_prompt_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_approval_input_prompt.local.json",
+  "source_template_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.template.json",
+  "source_validation_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_approval_input_validation.local.json",
+  "source_review_packet_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_review_packet.local.json",
+  "source_copy_draft_json": "phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_copy_draft.local.json",
+  "generated_at": "2026-07-13T13:59:10.446977+00:00",
+  "minimum_required_field_count": 34,
+  "minimum_required_human_value_count": 34,
+  "filled_value_count": 0,
+  "blank_value_count": 34,
+  "metadata_field_count": 9,
+  "pricing_page_evidence_key_count": 5,
+  "evidence_review_field_count": 5,
+  "source_note_field_count": 5,
+  "review_artifact_field_count": 15,
+  "field_rows": [
+    {
+      "field_id": "pricing_page_evidence_input.human_reviewer_name",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_date",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.commercial_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.product_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.accounting_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.legal_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.billing_owner",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_record_reference",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.decision_summary",
+      "group": "metadata",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "由人填写真实审批信息；Codex 不能代填。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.evidence_review.approved_plan_and_usage_terms",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.source_notes_by_key.approved_plan_and_usage_terms",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号或付款凭据。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[approved_plan_and_usage_terms].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查材料或审批记录引用。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[approved_plan_and_usage_terms].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[approved_plan_and_usage_terms].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.evidence_review.human_approved_pricing_page_copy",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.source_notes_by_key.human_approved_pricing_page_copy",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号或付款凭据。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[human_approved_pricing_page_copy].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查材料或审批记录引用。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[human_approved_pricing_page_copy].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[human_approved_pricing_page_copy].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.evidence_review.legal_review_completed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.source_notes_by_key.legal_review_completed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号或付款凭据。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[legal_review_completed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查材料或审批记录引用。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[legal_review_completed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[legal_review_completed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.evidence_review.pricing_page_publication_approval_recorded",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.source_notes_by_key.pricing_page_publication_approval_recorded",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号或付款凭据。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[pricing_page_publication_approval_recorded].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查材料或审批记录引用。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[pricing_page_publication_approval_recorded].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[pricing_page_publication_approval_recorded].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.evidence_review.production_readiness_non_claim_reviewed",
+      "group": "evidence_review",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "只有人工确认真实证据存在时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.source_notes_by_key.production_readiness_non_claim_reviewed",
+      "group": "source_note",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写可追溯来源说明；不要写密钥、账号或付款凭据。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[production_readiness_non_claim_reviewed].artifact_reference",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "填写人工审查材料或审批记录引用。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[production_readiness_non_claim_reviewed].owner_named",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应负责人已明确时才设为 true。"
+    },
+    {
+      "field_id": "pricing_page_evidence_input.review_artifacts[production_readiness_non_claim_reviewed].reviewed_by_human",
+      "group": "review_artifact",
+      "required": true,
+      "where_to_fill": "pricing_page_evidence_input.human_filled.local.json",
+      "human_instruction": "对应材料已由人审过时才设为 true。"
+    }
+  ],
+  "prompt_status": "hold_human_pricing_page_input_required",
+  "validator_status": "pass",
+  "review_packet_status": "draft_ready_for_human_review",
+  "copy_draft_status": "draft_not_approved",
+  "human_review_required": true,
+  "human_input_required": true,
+  "next_human_action": "Copy pricing_page_evidence_input.template.json to the human_filled path, fill only human-approved metadata, evidence flags, source notes, and review-artifact references, then run the local validator. Do not publish pricing, create offers, configure payment, contact customers, or close blockers.",
+  "copy_commands": [
+    "cp phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.template.json phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json"
+  ],
+  "post_fill_validation_commands": [
+    "python3 scripts/saee_pricing_page_approval_input_validator.py --input phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json"
+  ],
+  "separate_execution_only_after_human_approval": [
+    "python3 scripts/saee_pricing_page_evidence_builder.py --input phase_b_product/commercial_readiness/billing_revenue_evidence/pricing_page_evidence_input.human_filled.local.json"
+  ],
+  "boundary_violations": [],
+  "boundary_violation_count": 0,
+  "production_ready": false,
+  "product_launched": false,
+  "customer_validated": false,
+  "customer_contacted": false,
+  "private_core_exposed": false,
+  "runtime_modified": false,
+  "backend_modified": false,
+  "kernel_modified": false,
+  "api_schema_modified": false,
+  "external_calls_made": false,
+  "external_model_api_called": false,
+  "external_ai_assistant_tested": false,
+  "workbook_import_authorized": false,
+  "evidence_collection_authorized": false,
+  "execution_authorized": false,
+  "blocker_closure_authorized": false,
+  "development_permission_granted": false,
+  "production_ready_claim": false,
+  "customer_validation_claim": false,
+  "human_values_generated_by_codex": false,
+  "human_input_filled_by_codex": false,
+  "validator_inputs_exported": false,
+  "validators_run": false,
+  "values_saved_by_workspace": false,
+  "form_submission_enabled": false,
+  "pricing_page_approved": false,
+  "pricing_page_published": false,
+  "pricing_page_claim_published": false,
+  "pricing_page_publication_approved": false,
+  "pricing_page_completed": false,
+  "customer_facing_pricing_page_created": false,
+  "sales_offer_generated": false,
+  "sales_offer_sent": false,
+  "payment_provider_configured": false,
+  "checkout_enabled": false,
+  "customer_payment_collected": false,
+  "revenue_validated": false,
+  "production_billing_enabled": false,
+  "paid_product_launched": false,
+  "enterprise_contract_signed": false
+}

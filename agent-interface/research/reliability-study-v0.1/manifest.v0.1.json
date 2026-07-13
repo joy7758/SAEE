@@ -1,0 +1,38 @@
+{
+  "artifact_version": "0.1",
+  "artifact_id": "saee-research:agent-reliability-study:v0.1",
+  "title": "SAEE Agent Reliability Study v0.1",
+  "status": "local_publication_draft_not_published",
+  "study_result_digest": "sha256:d1eeb7ac80d56ae55acf1fbc9b7193dafa2a468996013647d8d46e32495ddd93",
+  "references": [
+    {"role": "scenario", "path": "agent-interface/rehearsal/mvp/coding-agent-release-rehearsal.v0.1.json", "sha256": "5bd2fb7496364b3aced7e23fe48b8a3b0f8b9eed479c6dbc3222b9fb15ff42d2"},
+    {"role": "agent_profile_deepseek", "path": "agent-interface/benchmark/agents/deepseek_ark.json", "sha256": "39359aca8c88b0260bd1d24f6ebcc9ccc0862cb40d1565f61323a52b6913a6f9"},
+    {"role": "agent_profile_glm", "path": "agent-interface/benchmark/agents/glm_ark.json", "sha256": "089f76d0d2dc2b1c8c71390edf922618934c2514ff72461bf887215af6a9b6f5"},
+    {"role": "agent_profile_doubao", "path": "agent-interface/benchmark/agents/doubao_ark.json", "sha256": "d5fb6db0ed95272f94ee3caf5a61340b0b4bb06972b744fea132c8b80a817837"},
+    {"role": "experiment_configuration", "path": "agent-interface/reliability/studies/coding-agent-release-reliability-v0.1.json", "sha256": "3580faf668d5f13dd4e878d5f54381904c2d718ff3ceb71da612dc715b215ac6"},
+    {"role": "result_schema", "path": "agent-interface/reliability/saee-agent-reliability-study.schema.v0.1.json", "sha256": "f56f5230ebd7915f1c7cd4155f0340c7a790eeb5dcbf3bfcbc02bc06a413b077"},
+    {"role": "frozen_result", "path": "agent-interface/reliability/saee-agent-reliability-result.v0.1.json", "sha256": "d1eeb7ac80d56ae55acf1fbc9b7193dafa2a468996013647d8d46e32495ddd93"},
+    {"role": "run_manager", "path": "saee_backend/services/rehearsal_runtime/reliability_runner.py", "sha256": "c4750f27a4855615efeaa860f31ced6b79c5586688512f4528e0ca179229b742"},
+    {"role": "stability_analyzer", "path": "saee_backend/services/rehearsal_runtime/reliability_analyzer.py", "sha256": "14361cd6884054b01cb9ef503145aac413dee5b696f3627e38cc1c20f4917841"},
+    {"role": "offline_validator", "path": "scripts/saee_agent_reliability_smoke.py", "sha256": "d84bc57d32e6c5327f70dd5d84ff3501a25fe06212a8dac04128195f73532844"},
+    {"role": "publication_validator", "path": "scripts/saee_reliability_publication_smoke.py", "sha256": "bdfdb82cbf433d8db314e6cf63df8775ecf762d120a9d0d6f3abca0181027556"},
+    {"role": "publication_report", "path": "docs/research/SAEE_AGENT_RELIABILITY_STUDY_V0_1.md", "sha256": "4f20515fd81b513a2cec0ba058dd7539bb947044921553bb21f23fa51e4a4cf0"},
+    {"role": "external_summary", "path": "docs/research/SAEE_AGENT_RELIABILITY_SUMMARY_V0_1.md", "sha256": "73f4e77aa1fec85d8fcc1557a54dde70c72b6dbd0adf3337156833cdc307109c"}
+  ],
+  "commands": {
+    "offline_publication_validation": "python3 scripts/saee_reliability_publication_smoke.py",
+    "offline_study_validation": "python3 scripts/saee_agent_reliability_smoke.py",
+    "live_rerun_requires_provider_key_and_cost": "python3 scripts/saee_agent_reliability_study.py"
+  },
+  "excluded_material": ["API keys", "provider raw payloads", "hidden reasoning", "private logs", "customer data"],
+  "truth_boundary": {
+    "experiments_rerun_for_publication": false,
+    "external_validation": false,
+    "peer_reviewed": false,
+    "doi_assigned": false,
+    "publicly_published": false,
+    "ranking_generated": false,
+    "certification_claimed": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "scenario_id": "RESULT_INTERPRETATION_SUCCESS",
+  "stage": "RESULT_INTERPRETATION",
+  "request": "确认 SUPPORTED 只表示固定 profile requirements satisfied。",
+  "expected_outcome": "INTERPRETED",
+  "expected_reason_code": "SUPPORTED_MEANING_BOUNDED",
+  "simulation_only": true
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAEE 生产恢复策略人工审批入口</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f4ef;
+        --surface: #ffffff;
+        --ink: #111111;
+        --muted: #6a6d70;
+        --line: #dedbd2;
+        --accent: #2f6f66;
+        --soft: #eef4f1;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        width: min(960px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+      header, section {
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: clamp(20px, 4vw, 34px);
+        margin-bottom: 18px;
+      }
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      h1, h2 { margin: 0; line-height: 1.15; }
+      h1 { font-size: clamp(34px, 6vw, 58px); letter-spacing: 0; }
+      h2 { font-size: clamp(22px, 3vw, 30px); }
+      p { color: var(--muted); margin: 14px 0 0; }
+      ul, ol { padding-left: 20px; margin: 16px 0 0; }
+      li { margin: 8px 0; }
+      code {
+        background: var(--soft);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 2px 6px;
+      }
+      .status {
+        display: inline-flex;
+        margin-top: 18px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--accent);
+        font-weight: 800;
+      }
+      .stop {
+        border-color: #d9c6aa;
+        background: #fbf4e8;
+      }
+      @media (max-width: 640px) {
+        main { width: min(100% - 24px, 960px); padding-top: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="kicker">SAEE 人工审批入口</p>
+        <h1>先确认怎么恢复，再谈正式商用。</h1>
+        <p>生产恢复策略还没有人工批准，也没有做正式恢复演练，不能对外说已经具备生产恢复能力。</p>
+        <span class="status">等待人工填写</span>
+      </header>
+      <section>
+        <h2>必须由人填写的字段</h2>
+        <p>这些字段需要负责人真实确认，Codex 不能代填。</p>
+        <ul><li><code>human_reviewer_name</code></li>
+<li><code>review_date</code></li>
+<li><code>data_operations_owner</code></li>
+<li><code>security_owner</code></li>
+<li><code>privacy_legal_owner</code></li>
+<li><code>incident_response_owner</code></li>
+<li><code>decision_summary</code></li></ul>
+      </section>
+      <section>
+        <h2>必须由人审查的恢复策略证据</h2>
+        <p>每一项都需要人工批准后，才能在输入文件里标记为通过。</p>
+        <ul><li><code>backup_retention_policy_approved</code><span>需要人工确认、来源说明和证据槽位。</span></li>
+<li><code>credential_secret_exclusion_reviewed</code><span>需要人工确认、来源说明和证据槽位。</span></li>
+<li><code>customer_notification_boundary_approved</code><span>需要人工确认、来源说明和证据槽位。</span></li>
+<li><code>incident_response_handoff_approved</code><span>需要人工确认、来源说明和证据槽位。</span></li>
+<li><code>production_restore_policy_approved</code><span>需要人工确认、来源说明和证据槽位。</span></li>
+<li><code>tenant_restore_boundary_approved</code><span>需要人工确认、来源说明和证据槽位。</span></li></ul>
+      </section>
+      <section>
+        <h2>人工操作顺序</h2>
+        <ol>
+          <li>复制模板到 human-filled 输入文件。</li>
+          <li>由负责人填写元数据和审批结论。</li>
+          <li>逐项补充来源说明和证据槽位。</li>
+          <li>只运行 validator 检查输入格式，然后停止。</li>
+        </ol>
+        <p>请人类负责人确认恢复负责人、恢复范围、备份保留策略、租户恢复边界、凭据排除规则和事故交接方式；确认前不要运行恢复、导入证据或关闭 blocker。</p>
+      </section>
+      <section class="stop">
+        <h2>到这里必须停下</h2>
+        <p>填完并验证输入后停止；运行 evidence builder、执行恢复、触碰实时数据路径、联系客户或关闭 blocker 都需要单独批准。</p>
+        <ul><li><code>production_restore_policy_available</code>: false</li>
+<li><code>production_restore_policy_approved</code>: false</li>
+<li><code>live_restore_authorized_by_codex</code>: false</li>
+<li><code>live_restore_performed</code>: false</li>
+<li><code>restore_to_live_path_enabled</code>: false</li>
+<li><code>production_data_path_modified</code>: false</li>
+<li><code>credentials_restored</code>: false</li>
+<li><code>customer_contacted</code>: false</li>
+<li><code>production_ready</code>: false</li>
+<li><code>private_core_exposed</code>: false</li>
+<li><code>blockers_closed_by_prompt</code>: false</li></ul>
+      </section>
+    </main>
+  </body>
+</html>

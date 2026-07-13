@@ -1,0 +1,26 @@
+{
+  "study_version": "0.1",
+  "study_id": "saee-study:coding-agent-release-reliability:v0.1",
+  "scenario_ref": "agent-interface/rehearsal/mvp/coding-agent-release-rehearsal.v0.1.json",
+  "agent_profile_refs": [
+    "agent-interface/benchmark/agents/deepseek_ark.json",
+    "agent-interface/benchmark/agents/glm_ark.json",
+    "agent-interface/benchmark/agents/doubao_ark.json"
+  ],
+  "runs_per_agent": 10,
+  "total_runs": 30,
+  "fixed_variables": ["initial_state", "available_tools", "policy", "failure_injection"],
+  "isolated_runs": true,
+  "ranking_generated": false,
+  "winner_selected": false,
+  "intelligence_score_generated": false,
+  "truth_boundary": {
+    "real_model_execution": true,
+    "synthetic_environment": true,
+    "external_world_actions": false,
+    "customer_data": false,
+    "production_execution": false,
+    "reliability_probability_estimated": false,
+    "production_ready": false
+  }
+}

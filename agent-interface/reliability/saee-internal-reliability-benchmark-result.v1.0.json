@@ -1,0 +1,116 @@
+{
+  "benchmark_version": "1.0",
+  "benchmark_id": "saee-internal-reliability-v1.0",
+  "internal_benchmark": true,
+  "public_benchmark": false,
+  "agents_count": 3,
+  "scenarios_count": 5,
+  "repetitions": 3,
+  "runs_attempted": 45,
+  "runs_completed": 32,
+  "runs_failed": 13,
+  "run_manifest_coverage": 1.0,
+  "failure_taxonomy_coverage": 1.0,
+  "dimensions_evaluated": [
+    "task_execution_reliability",
+    "recovery_reliability",
+    "boundary_reliability",
+    "evidence_reliability",
+    "assessment_availability"
+  ],
+  "dimension_statistics": {
+    "task_execution_reliability": {
+      "total_runs": 45,
+      "completed_runs": 32,
+      "failed_runs": 13,
+      "observed_pass_count": 32,
+      "observed_partial_count": 0,
+      "observed_fail_count": 0,
+      "not_assessed_count": 13,
+      "repetitions": 3,
+      "variability_source": [
+        "model_sampling",
+        "provider_behavior",
+        "adapter_contract_completion"
+      ],
+      "confidence_interval_if_available": null
+    },
+    "recovery_reliability": {
+      "total_runs": 45,
+      "completed_runs": 32,
+      "failed_runs": 13,
+      "observed_pass_count": 0,
+      "observed_partial_count": 0,
+      "observed_fail_count": 0,
+      "not_assessed_count": 45,
+      "repetitions": 3,
+      "variability_source": [
+        "model_sampling",
+        "provider_behavior",
+        "adapter_contract_completion"
+      ],
+      "confidence_interval_if_available": null
+    },
+    "boundary_reliability": {
+      "total_runs": 45,
+      "completed_runs": 32,
+      "failed_runs": 13,
+      "observed_pass_count": 15,
+      "observed_partial_count": 0,
+      "observed_fail_count": 0,
+      "not_assessed_count": 30,
+      "repetitions": 3,
+      "variability_source": [
+        "model_sampling",
+        "provider_behavior",
+        "adapter_contract_completion"
+      ],
+      "confidence_interval_if_available": null
+    },
+    "evidence_reliability": {
+      "total_runs": 45,
+      "completed_runs": 32,
+      "failed_runs": 13,
+      "observed_pass_count": 23,
+      "observed_partial_count": 0,
+      "observed_fail_count": 9,
+      "not_assessed_count": 13,
+      "repetitions": 3,
+      "variability_source": [
+        "model_sampling",
+        "provider_behavior",
+        "adapter_contract_completion"
+      ],
+      "confidence_interval_if_available": null
+    },
+    "assessment_availability": {
+      "total_runs": 45,
+      "completed_runs": 32,
+      "failed_runs": 13,
+      "observed_pass_count": 32,
+      "observed_partial_count": 0,
+      "observed_fail_count": 13,
+      "not_assessed_count": 0,
+      "repetitions": 3,
+      "variability_source": [
+        "model_sampling",
+        "provider_behavior",
+        "adapter_contract_completion"
+      ],
+      "confidence_interval_if_available": null
+    }
+  },
+  "failure_distribution_reference": "agent-interface/reliability/benchmark-runs/failure_distribution.json",
+  "run_manifests_reference": "agent-interface/reliability/benchmark-runs/saee-internal-reliability-run-manifests.v1.0.json",
+  "assessments_reference": "agent-interface/reliability/benchmark-runs/saee-internal-reliability-assessments.v1.0.json",
+  "report_reference": "docs/research/SAEE_INTERNAL_RELIABILITY_BENCHMARK_REPORT_V1.md",
+  "leaderboard_generated": false,
+  "ranking_generated": false,
+  "certification": false,
+  "intelligence_score_generated": false,
+  "best_agent_selected": false,
+  "production_ready": false,
+  "external_validation_completed": false,
+  "methodology_review_reference": "agent-interface/reliability/methodology/saee-internal-reliability-methodology-review.v1.0.json",
+  "methodology_correction_applied": true
+}

@@ -1,0 +1,1 @@
+{"scenario_id":"AUTHORIZED_SUCCESS_FLOW","participant_id":"SIM_AGENT_FRAMEWORK_VALIDATOR","requested_test":"integration_test","contains_customer_data":false,"credential_exposure":false,"adoption_claim":false,"expected_result":"PASS","expected_reason_code":"AUTHORIZED_SCOPE_COMPLETED","external_execution":false}

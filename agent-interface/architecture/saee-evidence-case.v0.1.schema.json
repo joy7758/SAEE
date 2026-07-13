@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE Evidence Case Object v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["saee_evidence_case_v0_1", "schema_version", "architecture_version", "case_id", "case_status", "created_at", "identity", "task_contract", "environment_contract", "candidates", "observations", "evidence_packages", "risk_policy", "truth_boundary"],
+  "properties": {
+    "saee_evidence_case_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "architecture_version": {"const": "3.0-draft"},
+    "case_id": {"$ref": "#/$defs/id"},
+    "case_status": {"const": "local_synthetic_vertical_slice"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "identity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["case_type", "owner_scope", "synthetic"],
+      "properties": {
+        "case_type": {"const": "deployment_assurance_projection_case"},
+        "owner_scope": {"const": "local_research_only"},
+        "synthetic": {"const": true}
+      }
+    },
+    "task_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_contract_id", "objective", "task_category", "business_impact_class", "candidate_refs", "acceptance_criteria", "explicit_exclusions"],
+      "properties": {
+        "task_contract_id": {"$ref": "#/$defs/id"},
+        "objective": {"type": "string", "minLength": 1, "maxLength": 600},
+        "task_category": {"$ref": "#/$defs/id"},
+        "business_impact_class": {"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+        "candidate_refs": {"type": "array", "minItems": 2, "maxItems": 8, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "acceptance_criteria": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}},
+        "explicit_exclusions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 300}}
+      }
+    },
+    "environment_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["environment_contract_id", "environment_version", "distribution_basis", "scenarios"],
+      "properties": {
+        "environment_contract_id": {"$ref": "#/$defs/id"},
+        "environment_version": {"$ref": "#/$defs/id"},
+        "distribution_basis": {"const": "synthetic"},
+        "scenarios": {
+          "type": "array", "minItems": 2, "maxItems": 32,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["scenario_id", "description", "weight", "business_impact", "exposure", "control_effectiveness", "uncertainty_penalty"],
+            "properties": {
+              "scenario_id": {"$ref": "#/$defs/id"},
+              "description": {"type": "string", "minLength": 1, "maxLength": 400},
+              "weight": {"$ref": "#/$defs/unit"},
+              "business_impact": {"$ref": "#/$defs/unit"},
+              "exposure": {"$ref": "#/$defs/unit"},
+              "control_effectiveness": {"$ref": "#/$defs/unit"},
+              "uncertainty_penalty": {"$ref": "#/$defs/unit"}
+            }
+          }
+        }
+      }
+    },
+    "candidates": {
+      "type": "array", "minItems": 2, "maxItems": 8,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["candidate_ref", "label", "version_ref", "synthetic"],
+        "properties": {
+          "candidate_ref": {"$ref": "#/$defs/id"},
+          "label": {"type": "string", "minLength": 1, "maxLength": 120},
+          "version_ref": {"$ref": "#/$defs/id"},
+          "synthetic": {"const": true}
+        }
+      }
+    },
+    "observations": {
+      "type": "array", "minItems": 4, "maxItems": 256,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["observation_ref", "candidate_ref", "scenario_ref", "failure_estimate", "reason", "failure_class", "evidence_ref", "synthetic", "observation_is_evidence"],
+        "properties": {
+          "observation_ref": {"$ref": "#/$defs/id"},
+          "candidate_ref": {"$ref": "#/$defs/id"},
+          "scenario_ref": {"$ref": "#/$defs/id"},
+          "failure_estimate": {"$ref": "#/$defs/unit"},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 400},
+          "failure_class": {"$ref": "#/$defs/id"},
+          "evidence_ref": {"$ref": "#/$defs/id"},
+          "synthetic": {"const": true},
+          "observation_is_evidence": {"const": false}
+        }
+      }
+    },
+    "evidence_packages": {
+      "type": "array", "minItems": 2, "maxItems": 8,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["candidate_ref", "evidence_contract_ref", "claim_evidence"],
+        "properties": {
+          "candidate_ref": {"$ref": "#/$defs/id"},
+          "evidence_contract_ref": {"$ref": "#/$defs/id"},
+          "claim_evidence": {
+            "type": "object", "additionalProperties": false,
+            "required": ["saee_evidence_adequacy_input_v0_1", "schema_version", "claim_type", "evidence", "truth_boundary"],
+            "properties": {
+              "saee_evidence_adequacy_input_v0_1": {"const": true},
+              "schema_version": {"const": "0.1.0"},
+              "claim_type": {"enum": ["RESOURCE_AUTHENTICITY", "AUTHORIZED_AGENT_ACTION", "HUMAN_OVERSIGHT", "EXECUTION_BOUNDARY"]},
+              "evidence": {"type": "object", "minProperties": 1},
+              "truth_boundary": {
+                "type": "object", "additionalProperties": false,
+                "required": ["event_occurrence_proven", "identity_independently_verified", "authorization_externally_verified", "legal_finding_established", "production_ready"],
+                "properties": {
+                  "event_occurrence_proven": {"const": false},
+                  "identity_independently_verified": {"const": false},
+                  "authorization_externally_verified": {"const": false},
+                  "legal_finding_established": {"const": false},
+                  "production_ready": {"const": false}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "risk_policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["formula_version", "deploy_limited_threshold", "retest_threshold", "threshold_scope", "estimate_not_measurement"],
+      "properties": {
+        "formula_version": {"const": "Rs=P*I*X*(1-C)+U;Rtotal=sum(w*Rs)"},
+        "deploy_limited_threshold": {"type": "number", "minimum": 0, "maximum": 2},
+        "retest_threshold": {"type": "number", "minimum": 0, "maximum": 2},
+        "threshold_scope": {"const": "local_synthetic_case_only"},
+        "estimate_not_measurement": {"const": true}
+      }
+    },
+    "truth_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["real_agent_executed", "external_tool_executed", "production_trace_observed", "customer_data_used", "risk_probability_measured", "deployment_authorized", "external_validation_completed", "customer_validated", "production_ready"],
+      "properties": {
+        "real_agent_executed": {"const": false},
+        "external_tool_executed": {"const": false},
+        "production_trace_observed": {"const": false},
+        "customer_data_used": {"const": false},
+        "risk_probability_measured": {"const": false},
+        "deployment_authorized": {"const": false},
+        "external_validation_completed": {"const": false},
+        "customer_validated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 160, "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]{0,159}$"},
+    "unit": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}
+

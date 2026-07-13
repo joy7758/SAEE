@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:02-long-running-autonomy:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "一个长时自主工作流跨越多个状态和工具调用，团队需要识别漂移、状态不一致和证据缺口。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "MULTI_STEP_WORKFLOW",
+    "FAILURE_MODE_REHEARSAL_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE",
+  "reasoning_boundary": "任务核心是上线前长流程演练与准备度评估，SAEE 不替代运行时授权。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

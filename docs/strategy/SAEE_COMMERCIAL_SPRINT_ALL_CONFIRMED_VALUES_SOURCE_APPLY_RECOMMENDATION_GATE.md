@@ -1,0 +1,41 @@
+# SAEE Commercial Sprint All Confirmed Values Source Apply Recommendation Gate
+
+commercial_sprint_all_confirmed_values_source_apply_v0_1: true
+answer: conditional
+recommend_for_human_confirmed_source_apply: true
+recommend_for_workbook_import: false
+recommend_for_template_transfer: false
+recommend_for_validator_execution: false
+recommend_for_evidence_collection: false
+recommend_for_blocker_closure: false
+recommend_for_product_launch: false
+recommend_for_production_readiness_claim: false
+
+## Status
+
+commercial_sprint_all_confirmed_values_source_apply_v0_1: true
+status: source_values_applied_pending_safety_preflight
+apply_scope: copy_human_confirmed_preview_values_to_official_quick_fill_source_only
+source_quick_fill_row_count: 64
+preview_value_row_count: 64
+applied_value_row_count: 64
+missing_preview_value_row_count: 0
+source_quick_fill_packet_modified: true
+ready_for_safety_preflight: true
+ready_for_workbook_import: false
+quick_fill_imported_to_workbook: false
+workbook_import_performed: false
+workbook_written: false
+values_transferred: false
+human_filled_templates_written: false
+validators_run_on_real_input: false
+evidence_collection_authorized: false
+execution_authorized: false
+evidence_builder_executed: false
+blocker_closure_authorized: false
+blockers_closed_by_source_apply: 0
+boundary_violation_count: 0
+production_ready: false
+customer_validated: false
+product_launched: false
+private_core_exposed: false

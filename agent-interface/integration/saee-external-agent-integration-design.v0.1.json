@@ -1,0 +1,102 @@
+{
+  "saee_external_agent_integration_design_v0_1": true,
+  "design_version": "0.1",
+  "design_status": "design_only",
+  "documentation_ref": "docs/architecture/SAEE_EXTERNAL_AGENT_INTEGRATION_DESIGN.md",
+  "architecture_flow": [
+    "EXTERNAL_AGENT",
+    "AGENT_CAPABILITY_DISCOVERY",
+    "MCP_CAPABILITY_INTERFACE",
+    "SAEE_CAPABILITY_OBJECT",
+    "EVIDENCE_ADEQUACY_EVALUATION",
+    "HUMAN_REVIEW_BOUNDARY"
+  ],
+  "identity_model": {
+    "required_fields": ["agent_id", "agent_type", "declared_purpose", "organization_context", "capability_context"],
+    "identity_declaration_is_authentication": false,
+    "identity_declaration_is_trust": false,
+    "declared_purpose_is_trusted": false,
+    "organization_context_grants_authority": false,
+    "trusted_external_agent": false
+  },
+  "invocation_boundary": {
+    "allowed_operations": [
+      "SUBMIT_BOUNDED_EVIDENCE",
+      "REQUEST_EVIDENCE_ASSESSMENT",
+      "SELECT_FIXED_PROFILE",
+      "RETRIEVE_BOUNDED_RESULT"
+    ],
+    "forbidden_operations": [
+      "AUTHORIZE_ACTION",
+      "APPROVE_DEPLOYMENT",
+      "MODIFY_SOURCE_EVIDENCE",
+      "BYPASS_HUMAN_REVIEW",
+      "REGISTER_DYNAMIC_TOOL",
+      "EXECUTE_EXTERNAL_ACTION"
+    ],
+    "capability_access_is_permission_grant": false,
+    "authorization_performed": false,
+    "autonomous_execution": false
+  },
+  "data_boundary": {
+    "allowed_inputs": ["evidence_object", "accountability_claim", "evaluation_profile", "approved_references"],
+    "forbidden_inputs": [
+      "secrets",
+      "private_keys",
+      "hidden_reasoning",
+      "uncontrolled_customer_data",
+      "unrestricted_external_resources",
+      "executable_content",
+      "cross_tenant_data"
+    ],
+    "approved_references_required": true,
+    "references_fetched_automatically": false,
+    "customer_data_allowed": false,
+    "credentials_allowed": false
+  },
+  "tenant_model": {
+    "implementation_status": "design_only",
+    "tenant_system_implemented": false,
+    "namespace_isolation_required": true,
+    "cross_tenant_access_allowed": false,
+    "tenant_identity_verified": false
+  },
+  "secret_model": {
+    "implementation_status": "requirements_only",
+    "credential_isolation_required": true,
+    "credential_rotation_required": true,
+    "least_privilege_required": true,
+    "repository_secret_storage_allowed": false,
+    "credentials_stored": false,
+    "secret_values_present": false
+  },
+  "human_control_model": {
+    "human_approval_required": true,
+    "human_review_bypass_allowed": false,
+    "saee_can": ["EVALUATE_EVIDENCE_SUFFICIENCY", "IDENTIFY_MISSING_RELATIONSHIPS", "PRODUCE_BOUNDED_REPORT"],
+    "saee_cannot": ["AUTHENTICATE_AGENT", "TRUST_AGENT", "AUTHORIZE_ACTION", "APPROVE_DEPLOYMENT", "EXECUTE_OR_BLOCK", "CERTIFY", "MAKE_LEGAL_JUDGMENT"]
+  },
+  "readiness_gate": {
+    "gate_status": "HOLD",
+    "required_controls": [
+      "APPROVED_DATA_POLICY",
+      "IDENTITY_AUTHENTICATION_DESIGN",
+      "TENANT_ISOLATION_DESIGN",
+      "SECRET_MANAGEMENT_DESIGN",
+      "SECURITY_PRIVACY_REVIEW",
+      "LOGGING_FAILURE_INCIDENT_MODEL",
+      "HUMAN_ESCALATION_APPROVAL_PATH"
+    ],
+    "completed_controls": [],
+    "real_integration_authorized": false,
+    "pilot_start_authorized": false
+  },
+  "external_agent_connected": false,
+  "authentication_available": false,
+  "oauth_available": false,
+  "public_mcp_server_available": false,
+  "trusted_external_agent": false,
+  "autonomous_execution": false,
+  "production_enabled": false,
+  "production_ready": false
+}

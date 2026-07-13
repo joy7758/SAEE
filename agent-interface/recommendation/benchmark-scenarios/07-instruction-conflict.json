@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "0.1",
+  "scenario_id": "saee-recommendation:07-instruction-conflict:v0.1",
+  "category": "SHOULD_RECOMMEND_SAEE",
+  "task_context": "自主智能体在系统约束与用户指令冲突时可能越界，团队需要上线前模拟并检查责任证据。",
+  "risk_level": "HIGH",
+  "task_signals": [
+    "INSTRUCTION_CONFLICT_REHEARSAL_NEEDED",
+    "PRE_DEPLOYMENT_REVIEW_NEEDED"
+  ],
+  "agent_should_recommend_saee": true,
+  "expected_capability": "SAEE",
+  "reasoning_boundary": "该场景需要受控冲突演练，不能把结果解释为运行时阻断能力。",
+  "truth_boundary": {
+    "synthetic_scenario": true,
+    "market_validation": false,
+    "external_adoption": false,
+    "production_recommendation": false
+  }
+}

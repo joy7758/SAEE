@@ -1,0 +1,37 @@
+{
+  "agent_validation_type": "independent_agent_recommendation_gate",
+  "blockers": [],
+  "blockers_closed_by_validation": 0,
+  "customer_validated": false,
+  "generated_at": "2026-07-10",
+  "independent_agent_profile": "recommendation_agent_validation",
+  "production_ready": false,
+  "product_launched": false,
+  "recommendation_scope": "controlled_preview_storage_defense_in_depth",
+  "round_1": {
+    "blocker_count": 3,
+    "verdict": "conditional"
+  },
+  "round_2": {
+    "blocker_count": 0,
+    "verdict": "recommend"
+  },
+  "truth_boundary": {
+    "cross_tenant_write_denial_is_authorization_denial": false,
+    "customer_data_processed": false,
+    "customer_validated": false,
+    "default_local_unscoped_mode_preserved": true,
+    "migration_executed": false,
+    "multi_tenant_production_ready": false,
+    "privacy_legal_review_completed": false,
+    "production_data_migration_authorized": false,
+    "production_tenant_storage_isolated": false,
+    "require_tenant_id_configuration_required": true,
+    "requires_factory_configured_store": true,
+    "security_review_completed": false,
+    "tenant_authorization_enabled": false
+  },
+  "unscoped_operation_cases_passed": 7,
+  "unscoped_operation_cases_total": 7,
+  "verdict": "recommend"
+}
