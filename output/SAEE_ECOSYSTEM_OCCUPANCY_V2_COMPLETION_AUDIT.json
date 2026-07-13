@@ -160,9 +160,10 @@
       "evidence": [
         "agent-interface/ecosystem/saee-qoder-technical-conversation-request-email-receipt.v1.json",
         "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
+        "agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json",
         "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
       ],
-      "note": "completed=0/2; three request events cover two vendor targets, but no completed conversation is inferred."
+      "note": "completed=0/2; four request events cover two vendor targets and the QoderCn ticket is assigned, but no completed conversation is inferred."
     },
     {
       "requirement_id": "R16",
