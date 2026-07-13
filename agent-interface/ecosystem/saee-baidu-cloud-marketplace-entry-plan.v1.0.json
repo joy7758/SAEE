@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "plan_id": "saee.baidu-cloud-marketplace-entry",
   "plan_version": "1.0.0",
-  "status": "phases_0_to_3_local_complete_phase_4_human_gate",
+  "status": "phases_0_to_4_partner_consultation_submitted_public_release_withheld",
   "external_brand": {
     "name": "SAEE Agent Readiness Platform",
     "name_zh": "SAEE 智能体上线准备平台",
@@ -73,7 +73,7 @@
     {
       "phase": "PHASE_4",
       "name": "Baidu ecosystem cooperation",
-      "status": "human_authorization_required",
+      "status": "partner_consultation_submitted_waiting_response",
       "required_artifacts": [
         "company_introduction",
         "product_introduction",
@@ -85,11 +85,12 @@
     }
   ],
   "current_blockers": [
-    "qianfan_real_provider_product_roundtrip_missing",
-    "public_release_baseline_and_license_missing",
-    "company_identity_and_public_price_approval_missing",
+    "public_license_tag_push_and_github_release_withheld",
+    "public_demo_and_technical_article_publication_not_authorized",
+    "baidu_partner_response_pending",
+    "public_price_approval_missing",
     "direct_marketplace_qualification_and_software_copyright_evidence_missing",
-    "external_authorization_missing"
+    "customer_validation_and_production_support_evidence_missing"
   ],
   "truth_boundary": {
     "local_preparation": true,

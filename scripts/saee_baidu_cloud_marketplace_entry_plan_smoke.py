@@ -23,9 +23,19 @@ def main() -> None:
     gate = GATE.read_text(encoding="utf-8")
     matrix = MATRIX.read_text(encoding="utf-8")
     require(plan["external_brand"]["name"] == "SAEE Agent Readiness Platform", "brand")
+    require(plan["status"] == "phases_0_to_4_partner_consultation_submitted_public_release_withheld", "plan status")
     require(plan["public_operations_target"] == ["evaluate_agent_run", "evaluate_evidence"], "public operation target")
     require(set(plan["internal_debug_operations"]) == {"describe_saee", "compare_observed_traces"}, "debug operation classification")
     require([item["phase"] for item in plan["phases"]] == ["PHASE_0", "PHASE_1", "PHASE_2", "PHASE_3", "PHASE_4"], "phase ladder")
+    require(plan["phases"][-1]["status"] == "partner_consultation_submitted_waiting_response", "phase 4 status")
+    blockers = set(plan["current_blockers"])
+    require("qianfan_real_provider_product_roundtrip_missing" not in blockers, "stale Qianfan blocker")
+    require("external_authorization_missing" not in blockers, "stale authorization blocker")
+    require({
+        "public_license_tag_push_and_github_release_withheld",
+        "public_demo_and_technical_article_publication_not_authorized",
+        "baidu_partner_response_pending",
+    }.issubset(blockers), "current blockers")
     boundary = plan["truth_boundary"]
     for key in (
         "qianfan_product_adapter_validated",
