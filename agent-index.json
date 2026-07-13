@@ -1631,7 +1631,7 @@
     },
     "completed_governance_change": "Canonical Capability Inventory, Routing and Deprecation Map v1",
     "duplicate_build_prevention": true,
-    "ledger_updated": "2026-07-13",
+    "ledger_updated": "2026-07-14",
     "mandatory_duplicate_check": [
       "agent-index.json",
       "llms.txt",
@@ -1648,6 +1648,8 @@
       "affected contracts and tests",
       "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md when conclusions change"
     ],
+    "merge_readiness_report": "reports/CANONICAL_CAPABILITY_MERGE_READINESS_REVIEW.md",
+    "merge_readiness_status": "blocked_incompatible_remote_and_non_idempotent_full_check",
     "recommendation_gate": "docs/strategy/SAEE_CAPABILITY_PROGRESS_LEDGER_RECOMMENDATION_GATE.md",
     "roadmap_policy": {
       "capability_facts_authority": "capability-package/manifest.json#canonical_inventory",

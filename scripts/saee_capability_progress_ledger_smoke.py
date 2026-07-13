@@ -23,6 +23,7 @@ START_FILE = "AGENTS.md"
 INDEX_FILE = "agent-index.json"
 LLMS_FILE = "llms.txt"
 REPORT_FILE = "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"
+MERGE_REVIEW_FILE = "reports/CANONICAL_CAPABILITY_MERGE_READINESS_REVIEW.md"
 GATE_FILE = "docs/strategy/SAEE_CAPABILITY_PROGRESS_LEDGER_RECOMMENDATION_GATE.md"
 VALIDATOR_FILE = "scripts/saee_capability_progress_ledger_smoke.py"
 CURRENT_PR = "Canonical Capability Inventory, Routing and Deprecation Map v1"
@@ -69,6 +70,8 @@ def validate(
         "canonical_source": CANONICAL_SOURCE,
         "completed_governance_change": CURRENT_PR,
         "duplicate_build_prevention": True,
+        "merge_readiness_report": MERGE_REVIEW_FILE,
+        "merge_readiness_status": "blocked_incompatible_remote_and_non_idempotent_full_check",
         "recommendation_gate": GATE_FILE,
         "smoke_command": f"python3 {VALIDATOR_FILE}",
         "status": "active_canonical_machine_ledger",
@@ -213,7 +216,7 @@ def validate(
 
 
 def main() -> int:
-    required_paths = (START_FILE, INDEX_FILE, LLMS_FILE, REPORT_FILE, GATE_FILE)
+    required_paths = (START_FILE, INDEX_FILE, LLMS_FILE, REPORT_FILE, MERGE_REVIEW_FILE, GATE_FILE)
     missing = [path for path in required_paths if not (ROOT / path).is_file()]
     if missing:
         print("SAEE_CAPABILITY_PROGRESS_LEDGER_SMOKE: FAIL")
@@ -260,7 +263,7 @@ def main() -> int:
         return 1
 
     print("SAEE_CAPABILITY_PROGRESS_LEDGER_SMOKE: PASS")
-    print("surfaces=5/5")
+    print("surfaces=6/6")
     capability_count = len(load_canonical_inventory()["capabilities"])
     print(f"capability_statuses={capability_count}/{capability_count}")
     print("active_legacy_otel_next_pr=0")

@@ -4,6 +4,13 @@ Date: 2026-07-13
 Scope: repository-local governance and routing; no new OTLP receiver, mapper,
 MCP service or production control plane.
 
+> Merge-readiness update, 2026-07-14: an independent isolated-worktree review
+> found that the only GitHub repository candidate has no common ancestor with
+> this checkout, and that `make check` leaves generated changes before a second
+> `mainline_guard.py` run fails. The implementation remains locally reviewable,
+> but push, Draft PR and merge readiness are blocked. See
+> `reports/CANONICAL_CAPABILITY_MERGE_READINESS_REVIEW.md`.
+
 ## 1. Preflight Recommendation
 
 The preflight result was `conditional`. SAEE was recommendable only for
