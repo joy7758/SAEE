@@ -7,8 +7,8 @@ and must not be silently flattened or converted into a submodule.
 ```text
 source_repo=sites/saee-commercial
 branch=main
-local_commit=3d2012dad
-commit_subject=Add human readable JSON data viewer
+local_commit=b4391013c
+commit_subject=Sync Baidu entry truth surface
 site_tests=12/12_pass
 product_title=SAEE：让企业 Agent 上线前先通过可靠性验证
 public_operation_count=2
