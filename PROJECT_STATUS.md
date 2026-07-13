@@ -97,6 +97,10 @@ evidence and do not substitute for Baidu acceptance, team/service history,
 staffed 5x8 support, software copyright, a dedicated verified account, or
 Marketplace agreement review. Direct Marketplace application remains
 `do_not_recommend_currently`.
+A sanitized, fail-closed evidence-intake contract is now locally ready for
+`owner-held://` and existing safe `repo://` references. It stores no raw
+qualification documents or personal data and does not change the `0/7`
+provider-verified count by itself.
 This does not establish
 Qianfan-native MCP compatibility, a remote MCP service, official Baidu support,
 GitHub Release, marketplace submission, customer validation, or production readiness.
@@ -132,6 +136,7 @@ baidu_partnership_approved=false
 marketplace_qualification_verified_count=0
 marketplace_qualification_partial_count=1
 marketplace_qualification_complete=false
+qualification_evidence_intake_ready=true
 direct_marketplace_application_recommended=false
 marketplace_submission=false
 marketplace_listed=false
@@ -143,7 +148,9 @@ external_action_authorization_scope_limited=true
 ```
 
 Validation: `python3 scripts/saee_cloud_entry_package_smoke.py` and
-`python3 scripts/saee_baidu_marketplace_qualification_smoke.py`.
+`python3 scripts/saee_baidu_marketplace_qualification_smoke.py`; the sanitized
+intake has its own
+`python3 scripts/saee_baidu_marketplace_qualification_evidence_intake_smoke.py`.
 Plan: `agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json`.
 
 <!-- END SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_V1 -->

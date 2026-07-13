@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://redcrag.cn/schemas/saee-baidu-marketplace-qualification-evidence-intake.schema.v1.json",
+  "title": "SAEE Baidu Marketplace Qualification Evidence Intake v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "intake_id", "status", "evidence_slots", "aggregate", "truth_boundary"],
+  "properties": {
+    "$schema": {"type": "string", "const": "./saee-baidu-marketplace-qualification-evidence-intake.schema.v1.json"},
+    "intake_id": {"type": "string", "pattern": "^saee\\.baidu-marketplace\\.qualification-evidence-intake\\.v1$"},
+    "status": {"type": "string", "const": "awaiting_owner_evidence_references"},
+    "evidence_slots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "company_qualification",
+        "technical_and_support_team_at_least_10",
+        "industry_service_experience_at_least_2_years",
+        "online_support_at_least_5x8",
+        "software_copyright_certificate",
+        "dedicated_enterprise_verified_baidu_cloud_account",
+        "marketplace_agreement_acceptance"
+      ],
+      "properties": {
+        "company_qualification": {"$ref": "#/$defs/evidenceSlot"},
+        "technical_and_support_team_at_least_10": {"$ref": "#/$defs/evidenceSlot"},
+        "industry_service_experience_at_least_2_years": {"$ref": "#/$defs/evidenceSlot"},
+        "online_support_at_least_5x8": {"$ref": "#/$defs/evidenceSlot"},
+        "software_copyright_certificate": {"$ref": "#/$defs/evidenceSlot"},
+        "dedicated_enterprise_verified_baidu_cloud_account": {"$ref": "#/$defs/evidenceSlot"},
+        "marketplace_agreement_acceptance": {"$ref": "#/$defs/evidenceSlot"}
+      }
+    },
+    "aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion_count", "reference_present_count", "not_provided_count", "provider_accepted_count"],
+      "properties": {
+        "criterion_count": {"type": "integer", "const": 7},
+        "reference_present_count": {"type": "integer", "minimum": 0, "maximum": 7},
+        "not_provided_count": {"type": "integer", "minimum": 0, "maximum": 7},
+        "provider_accepted_count": {"type": "integer", "const": 0}
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw_evidence_stored_in_repository", "personal_data_stored", "qualification_updated_by_intake", "marketplace_submission", "provider_qualification_accepted", "production_ready"],
+      "properties": {
+        "raw_evidence_stored_in_repository": {"type": "boolean", "const": false},
+        "personal_data_stored": {"type": "boolean", "const": false},
+        "qualification_updated_by_intake": {"type": "boolean", "const": false},
+        "marketplace_submission": {"type": "boolean", "const": false},
+        "provider_qualification_accepted": {"type": "boolean", "const": false},
+        "production_ready": {"type": "boolean", "const": false}
+      }
+    }
+  },
+  "$defs": {
+    "evidenceSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intake_status", "evidence_references", "evidence_date", "owner_reviewed", "provider_accepted", "repository_contains_raw_evidence"],
+      "properties": {
+        "intake_status": {"type": "string", "enum": ["not_provided", "partial_reference_only", "reference_provided_for_review"]},
+        "evidence_references": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 6, "maxLength": 180, "pattern": "^(repo|owner-held)://[a-z0-9][a-z0-9._/-]+$"}
+        },
+        "evidence_date": {"oneOf": [{"type": "null"}, {"type": "string", "format": "date"}]},
+        "owner_reviewed": {"type": "boolean"},
+        "provider_accepted": {"type": "boolean", "const": false},
+        "repository_contains_raw_evidence": {"type": "boolean", "const": false}
+      }
+    }
+  }
+}

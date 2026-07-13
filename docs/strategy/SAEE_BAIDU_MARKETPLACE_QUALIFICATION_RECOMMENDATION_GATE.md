@@ -22,6 +22,8 @@ recommendation_gate:
     - dedicated enterprise-verified Baidu Marketplace account is not evidenced
     - Marketplace agreement has not received owner and legal review
   decomposition:
+    - use the sanitized evidence-intake contract for owner-held or repository-safe references only
+    - never commit raw qualification documents, staff records, contracts, personal data, or account identifiers
     - collect provider-acceptable company and team evidence without committing personal records
     - collect dated relevant service evidence; do not substitute company age
     - establish real staffed support before claiming 5x8 availability
@@ -40,6 +42,11 @@ recommendation_gate:
 3. Composable? `conditional`: agents can assemble a qualification packet, but
    cannot create staff, operational support, certificates, account verification,
    legal approval, or provider acceptance.
+
+The composable intake surface is
+`agent-interface/ecosystem/saee-baidu-marketplace-qualification-evidence-intake.template.v1.json`.
+Passing its fail-closed validator proves only that sanitized references conform
+to the contract; it does not change any qualification state.
 
 ## Required evolution design check
 

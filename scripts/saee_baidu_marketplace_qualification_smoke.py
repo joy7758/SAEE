@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json"
+INTAKE = ROOT / "agent-interface/ecosystem/saee-baidu-marketplace-qualification-evidence-intake.template.v1.json"
 PREFLIGHT = ROOT / "agent-interface/ecosystem/saee-baidu-official-entry-preflight.v1.json"
 PLAN = ROOT / "agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json"
 GATE = ROOT / "docs/strategy/SAEE_BAIDU_MARKETPLACE_QUALIFICATION_RECOMMENDATION_GATE.md"
@@ -53,11 +54,14 @@ def main() -> None:
     require("not staffed 5x8" in criteria["online_support_at_least_5x8"]["non_substitution"], "support substitution")
     require(matrix["decision"] == "do_not_recommend_currently", "decision")
     require(matrix["recommendation_gate_ref"] == str(GATE.relative_to(ROOT)), "gate discovery")
+    require(matrix["evidence_intake_ref"] == str(INTAKE.relative_to(ROOT)), "evidence intake discovery")
+    require(INTAKE.is_file(), "evidence intake file")
     require(matrix["truth_boundary"]["public_release_allowlist_included"] is False, "release allowlist boundary")
     for key in ("provider_qualification_accepted", "direct_marketplace_application_recommended", "marketplace_submission", "marketplace_listed", "customer_validated", "production_ready"):
         require(matrix["truth_boundary"][key] is False, key)
     require(preflight["qualification_matrix_ref"] == str(MATRIX.relative_to(ROOT)), "preflight discovery")
     require(plan["direct_marketplace_qualification"]["matrix_ref"] == str(MATRIX.relative_to(ROOT)), "plan discovery")
+    require(plan["direct_marketplace_qualification"]["evidence_intake_ref"] == str(INTAKE.relative_to(ROOT)), "plan intake discovery")
     require("answer: do_not_recommend" in gate and "audit_first_reframe=false" in gate, "recommendation gate")
     serialized = MATRIX.read_text(encoding="utf-8")
     require(re.search(r"(?<!\d)1[3-9]\d{9}(?!\d)", serialized) is None, "phone stored")

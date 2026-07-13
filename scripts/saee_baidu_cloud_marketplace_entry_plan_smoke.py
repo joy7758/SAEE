@@ -28,6 +28,7 @@ def main() -> None:
     require(plan["direct_marketplace_qualification"] == {
         "decision": "do_not_recommend_currently",
         "matrix_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json",
+        "evidence_intake_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-evidence-intake.template.v1.json",
         "verified_criterion_count": 0,
         "criterion_count": 7,
         "public_release_allowlist_included": False,

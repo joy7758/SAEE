@@ -5,6 +5,8 @@
   "route": "cloud_marketplace_provider",
   "decision": "do_not_recommend_currently",
   "recommendation_gate_ref": "docs/strategy/SAEE_BAIDU_MARKETPLACE_QUALIFICATION_RECOMMENDATION_GATE.md",
+  "evidence_intake_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-evidence-intake.template.v1.json",
+  "evidence_intake_schema_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-evidence-intake.schema.v1.json",
   "official_sources": {
     "conditions": "https://cloud.baidu.com/doc/Market/s/ojy6wl8sd",
     "process": "https://cloud.baidu.com/doc/Market/s/9jy6y1c8f"

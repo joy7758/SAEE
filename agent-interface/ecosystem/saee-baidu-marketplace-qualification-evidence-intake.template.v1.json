@@ -1,0 +1,33 @@
+{
+  "$schema": "./saee-baidu-marketplace-qualification-evidence-intake.schema.v1.json",
+  "intake_id": "saee.baidu-marketplace.qualification-evidence-intake.v1",
+  "status": "awaiting_owner_evidence_references",
+  "evidence_slots": {
+    "company_qualification": {
+      "intake_status": "partial_reference_only",
+      "evidence_references": [
+        "owner-held://company/business-license-current",
+        "repo://agent-interface/ecosystem/saee-alibaba-cloud-product-partner-application-submission-receipt.v1.json"
+      ],
+      "evidence_date": "2026-07-13",
+      "owner_reviewed": true,
+      "provider_accepted": false,
+      "repository_contains_raw_evidence": false
+    },
+    "technical_and_support_team_at_least_10": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false},
+    "industry_service_experience_at_least_2_years": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false},
+    "online_support_at_least_5x8": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false},
+    "software_copyright_certificate": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false},
+    "dedicated_enterprise_verified_baidu_cloud_account": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false},
+    "marketplace_agreement_acceptance": {"intake_status": "not_provided", "evidence_references": [], "evidence_date": null, "owner_reviewed": false, "provider_accepted": false, "repository_contains_raw_evidence": false}
+  },
+  "aggregate": {"criterion_count": 7, "reference_present_count": 1, "not_provided_count": 6, "provider_accepted_count": 0},
+  "truth_boundary": {
+    "raw_evidence_stored_in_repository": false,
+    "personal_data_stored": false,
+    "qualification_updated_by_intake": false,
+    "marketplace_submission": false,
+    "provider_qualification_accepted": false,
+    "production_ready": false
+  }
+}
