@@ -52,6 +52,12 @@ public allowlist。独立站点仓库中的既有公开字段属于另一治理�
 不少于 5×8 在线服务、协议、与百度云资源的产品关系、软件著作权，以及专用企业
 实名百度智能云账号。当前这些条件没有充分证据，因此不推荐直接申请云市场。
 
+逐条件脱敏矩阵：
+`agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json`。
+当前 `verified=0/7`、`partial=1/7`、`missing=6/7`。已有营业执照观察记录和其他
+云厂商企业认证只能作为公司资质的部分外部证据，不能替代百度云市场接受；公司
+成立年限不能替代 2 年相关行业服务，支持流程 dry run 也不能替代真实 5×8 人员。
+
 ## 当前推荐结论
 
 ```text
@@ -68,4 +74,6 @@ submission=true
 submission_redirect_observed=true
 backend_submission_id_available=false
 marketplace_submission=false
+marketplace_qualification_verified_count=0
+marketplace_qualification_complete=false
 ```

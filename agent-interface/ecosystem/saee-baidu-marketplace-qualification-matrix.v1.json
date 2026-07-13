@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "matrix_id": "saee.baidu-marketplace.qualification-matrix.v1",
+  "observed_at": "2026-07-13T14:14:01+08:00",
+  "route": "cloud_marketplace_provider",
+  "decision": "do_not_recommend_currently",
+  "recommendation_gate_ref": "docs/strategy/SAEE_BAIDU_MARKETPLACE_QUALIFICATION_RECOMMENDATION_GATE.md",
+  "official_sources": {
+    "conditions": "https://cloud.baidu.com/doc/Market/s/ojy6wl8sd",
+    "process": "https://cloud.baidu.com/doc/Market/s/9jy6y1c8f"
+  },
+  "criteria": [
+    {
+      "criterion_id": "company_qualification",
+      "state": "partial_external_evidence_not_verified_for_baidu_marketplace",
+      "available_evidence": [
+        "owner_supplied_business_license_observed_during_authorized_portal_flow",
+        "third_party_cloud_enterprise_verification_observed"
+      ],
+      "missing_evidence": [
+        "baidu_marketplace_company_qualification_acceptance"
+      ],
+      "non_substitution": "A business-license image and another provider's enterprise verification do not prove Baidu Marketplace qualification."
+    },
+    {
+      "criterion_id": "technical_and_support_team_at_least_10",
+      "state": "missing_owner_evidence",
+      "available_evidence": [],
+      "missing_evidence": [
+        "current_team_roster_or_equivalent_provider_accepted_proof"
+      ]
+    },
+    {
+      "criterion_id": "industry_service_experience_at_least_2_years",
+      "state": "missing_owner_evidence",
+      "available_evidence": [],
+      "missing_evidence": [
+        "dated_industry_service_contracts_or_equivalent_provider_accepted_proof"
+      ],
+      "non_substitution": "Legal-entity age alone is not evidence of two years of relevant industry service."
+    },
+    {
+      "criterion_id": "online_support_at_least_5x8",
+      "state": "missing_operational_evidence",
+      "available_evidence": [
+        "local_support_process_design_and_dry_run_only"
+      ],
+      "missing_evidence": [
+        "staffed_5x8_support_schedule",
+        "active_support_channel",
+        "approved_support_terms"
+      ],
+      "non_substitution": "A local support workflow or dry run is not staffed 5x8 online support."
+    },
+    {
+      "criterion_id": "software_copyright_certificate",
+      "state": "missing_certificate_evidence",
+      "available_evidence": [],
+      "missing_evidence": [
+        "saee_software_copyright_certificate"
+      ]
+    },
+    {
+      "criterion_id": "dedicated_enterprise_verified_baidu_cloud_account",
+      "state": "missing_account_verification_evidence",
+      "available_evidence": [
+        "baidu_cloud_account_and_host_usage_observed"
+      ],
+      "missing_evidence": [
+        "dedicated_marketplace_account_enterprise_verification_receipt"
+      ],
+      "non_substitution": "Existing Baidu Cloud resource use does not prove that a dedicated Marketplace account is enterprise verified."
+    },
+    {
+      "criterion_id": "marketplace_agreement_acceptance",
+      "state": "not_reviewed_or_accepted",
+      "available_evidence": [],
+      "missing_evidence": [
+        "owner_and_legal_review",
+        "marketplace_agreement_acceptance_receipt"
+      ],
+      "non_substitution": "Consent to the Qianfan consultation form is not Marketplace agreement acceptance."
+    }
+  ],
+  "aggregate": {
+    "criterion_count": 7,
+    "verified_count": 0,
+    "partial_count": 1,
+    "missing_count": 6,
+    "qualification_complete": false
+  },
+  "sanitization": {
+    "company_name_stored": false,
+    "legal_representative_stored": false,
+    "registered_address_stored": false,
+    "phone_stored": false,
+    "email_stored": false,
+    "identity_number_stored": false,
+    "business_license_image_stored": false,
+    "account_identifier_stored": false
+  },
+  "truth_boundary": {
+    "qualification_evidence_reviewed": true,
+    "public_release_allowlist_included": false,
+    "provider_qualification_accepted": false,
+    "direct_marketplace_application_recommended": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "next_owner_evidence_sequence": [
+    "confirm_team_size_evidence",
+    "provide_two_year_relevant_service_evidence",
+    "decide_and_staff_5x8_support",
+    "obtain_or_confirm_saee_software_copyright_certificate",
+    "confirm_dedicated_baidu_marketplace_account_enterprise_verification",
+    "perform_legal_review_before_marketplace_agreement_acceptance"
+  ]
+}

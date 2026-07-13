@@ -91,6 +91,12 @@ is asserted.
 Three synthetic demos now also have a publication-ready local index and a
 bounded Qianfan technical-article draft. Neither has been published because
 community, article, Git push and GitHub Release actions are not authorized.
+The direct Marketplace qualification matrix currently records `verified=0/7`,
+`partial=1/7`, and `missing=6/7`; company-document observations are only partial
+evidence and do not substitute for Baidu acceptance, team/service history,
+staffed 5x8 support, software copyright, a dedicated verified account, or
+Marketplace agreement review. Direct Marketplace application remains
+`do_not_recommend_currently`.
 This does not establish
 Qianfan-native MCP compatibility, a remote MCP service, official Baidu support,
 GitHub Release, marketplace submission, customer validation, or production readiness.
@@ -108,6 +114,7 @@ product_page_local_build_validated=true
 technical_whitepaper_local_validated=true
 three_minute_demo_video_local_validated=true
 release_candidate_prepared=true
+release_candidate_refresh_required_for_qualification_matrix=true
 official_entry_routes_verified=true
 partner_product_solution_docx_ready=true
 qianfan_partner_consultation_payload_contract_ready=true
@@ -122,6 +129,10 @@ qianfan_partner_submission_acknowledgement=redirect_no_backend_id
 baidu_response_tracker_ready=true
 baidu_response_received=false
 baidu_partnership_approved=false
+marketplace_qualification_verified_count=0
+marketplace_qualification_partial_count=1
+marketplace_qualification_complete=false
+direct_marketplace_application_recommended=false
 marketplace_submission=false
 marketplace_listed=false
 public_price_points_approved=false
@@ -131,7 +142,8 @@ external_action_authorized=true
 external_action_authorization_scope_limited=true
 ```
 
-Validation: `python3 scripts/saee_cloud_entry_package_smoke.py`.
+Validation: `python3 scripts/saee_cloud_entry_package_smoke.py` and
+`python3 scripts/saee_baidu_marketplace_qualification_smoke.py`.
 Plan: `agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json`.
 
 <!-- END SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_V1 -->

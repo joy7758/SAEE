@@ -22,6 +22,14 @@
     "describe_saee",
     "compare_observed_traces"
   ],
+  "direct_marketplace_qualification": {
+    "decision": "do_not_recommend_currently",
+    "matrix_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json",
+    "verified_criterion_count": 0,
+    "criterion_count": 7,
+    "public_release_allowlist_included": false,
+    "release_candidate_refresh_required": true
+  },
   "phases": [
     {
       "phase": "PHASE_0",

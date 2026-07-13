@@ -18,7 +18,7 @@
 | Git Alpha Release | `main` 本地基线 commit `c0cf49e` 已创建；许可证暂不公开 | `local_commit_complete_public_release_withheld` | 未授权 tag、push 或 GitHub Release |
 | 定价 | 建议价仅来自目标文件 | `human_review_required` | owner 批准价格记录；发布另需授权 |
 | 百度生态合作申请 | 千帆伙伴咨询已使用 owner 提供字段提交；观察到官方成功分支配置的千帆产品页跳转 | `partner_consultation_submitted_redirect_acknowledged` | 脱敏 receipt 已记录；页面未提供 backend submission ID，不等于 Marketplace 入驻 |
-| 云市场直接入驻 | 官方条件要求主体、10+ 技术/客服、2+ 年经验、5×8 支持、软著和专用实名账号 | `do_not_recommend_currently` | 每一条件均有来源证据后再评估，不把千帆咨询等同入驻 |
+| 云市场直接入驻 | 7 条资格矩阵：`verified=0`、`partial=1`、`missing=6` | `do_not_recommend_currently` | `saee-baidu-marketplace-qualification-matrix.v1.json`；不把公司年龄、其他云认证、支持 dry run 或千帆咨询等同入驻资质 |
 
 ## 当前阶段结论
 

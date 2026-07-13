@@ -52,6 +52,7 @@ def main() -> None:
     gate = json_read("agent-interface/ecosystem/saee-baidu-external-action-authorization-gate.v1.json")
     identity = json_read("agent-interface/product/saee-agent-readiness-platform.v0.1.json")
     publication = json_read("agent-interface/ecosystem/saee-baidu-publication-package.v1.json")
+    qualification = json_read("agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json")
     response_tracker = json_read("agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json")
     readme = read("README.md")
     site = read("sites/saee-commercial/app/page.tsx")
@@ -76,6 +77,7 @@ def main() -> None:
         "publication_package": command_ok(["python3", "scripts/saee_baidu_publication_package_smoke.py"]),
         "response_tracker": command_ok(["python3", "scripts/saee_baidu_partner_response_tracker_smoke.py"]),
         "product_page": command_ok(["npm", "test"], site_root),
+        "marketplace_qualification": command_ok(["python3", "scripts/saee_baidu_marketplace_qualification_smoke.py"]),
     }
     public_operations = [item["name"] for item in card["public_operations"]]
     expected_sentence = "SAEE is an Agent Readiness Infrastructure for evaluating whether AI agents have sufficient execution evidence before real-world deployment."
@@ -121,8 +123,9 @@ def main() -> None:
         requirement("R13", "Prepare three public demos", "proven_complete_publication" if checks["publication_package"] and public_demos_published else "local_publication_package_ready_not_public", ["cloud-entry-package/public-demos/README.md", "agent-interface/ecosystem/saee-baidu-publication-package.v1.json"], f"publication_package_smoke={str(checks['publication_package']).lower()}; public_demos_published={str(public_demos_published).lower()}."),
         requirement("R14", "Execute the 90-day route", "proven_complete_external_route" if day_61_90_complete else "partially_achieved_waiting_baidu_response_and_publication_authorization", ["docs/ecosystem/SAEE_BAIDU_90_DAY_EXECUTION_BOARD_V1.md", "agent-interface/ecosystem/saee-baidu-partner-response-tracker.v1.json"], f"response_tracker_smoke={str(checks['response_tracker']).lower()}; baidu_response_received={str(response_received).lower()}; technical_article_published={str(technical_article_published).lower()}; public_release_complete={str(public_release_complete).lower()}."),
         requirement("R15", "Become callable by a real Baidu Qianfan Agent", "proven_complete_real_provider_synthetic" if checks["qianfan_live_receipts"] else "evidence_failed", ["scripts/saee_qianfan_readiness_host.py", "scripts/saee_qianfan_readiness_live_receipt_smoke.py", "agent-interface/qianfan/live-validation/"], f"qianfan_key_name_present={str(qianfan_key_name_present).lower()}; live_receipt_smoke={str(checks['qianfan_live_receipts']).lower()}; official_qianfan_integration=false."),
+        requirement("R16", "Close direct Baidu Marketplace provider qualifications", "proven_complete_marketplace_qualification" if checks["marketplace_qualification"] and qualification["aggregate"]["qualification_complete"] else "qualification_packet_prepared_provider_criteria_unmet", ["agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json", "docs/strategy/SAEE_BAIDU_MARKETPLACE_QUALIFICATION_RECOMMENDATION_GATE.md"], f"qualification_smoke={str(checks['marketplace_qualification']).lower()}; verified={qualification['aggregate']['verified_count']}/7; partial={qualification['aggregate']['partial_count']}/7; direct_application_recommended=false."),
     ]
-    achieved_statuses = {"proven_complete_local", "proven_complete_target_architecture", "proven_complete_controlled_offline", "proven_complete_real_provider_synthetic", "proven_complete_local_not_published", "proven_complete_internal_hypothesis_public_approval_missing", "proven_complete_partner_consultation_submitted", "proven_complete_public_release", "proven_complete_publication", "proven_complete_external_route"}
+    achieved_statuses = {"proven_complete_local", "proven_complete_target_architecture", "proven_complete_controlled_offline", "proven_complete_real_provider_synthetic", "proven_complete_local_not_published", "proven_complete_internal_hypothesis_public_approval_missing", "proven_complete_partner_consultation_submitted", "proven_complete_public_release", "proven_complete_publication", "proven_complete_external_route", "proven_complete_marketplace_qualification"}
     achieved = sum(item["status"] in achieved_statuses for item in requirements)
     incomplete = [item["requirement_id"] for item in requirements if item["status"] not in achieved_statuses]
     result = {
@@ -130,7 +133,7 @@ def main() -> None:
         "objective_requirement_count": len(requirements),
         "proven_complete_requirement_count": achieved,
         "incomplete_requirement_ids": incomplete,
-        "goal_status": "complete" if not incomplete else "not_complete_public_release_demo_publication_and_90_day_gates",
+        "goal_status": "complete" if not incomplete else "not_complete_public_release_demo_publication_90_day_and_marketplace_qualification_gates",
         "validator_results": checks,
         "requirements": requirements,
         "blocking_facts": {
@@ -146,6 +149,8 @@ def main() -> None:
             "technical_article_published": technical_article_published,
             "baidu_response_received": response_received,
             "github_release_created": github_release_created,
+            "marketplace_qualification_verified_count": qualification["aggregate"]["verified_count"],
+            "marketplace_qualification_complete": qualification["aggregate"]["qualification_complete"],
             "baidu_submission": preflight["truth_boundary"]["submission"]
         }
     }
@@ -158,7 +163,7 @@ def main() -> None:
         "",
         "This is a requirement-by-requirement completion audit, not a launch or submission receipt.",
         "",
-        f"Overall: `not_complete_public_release_demo_publication_and_90_day_gates`; requirements proven complete: `{achieved}/{len(requirements)}`.",
+        f"Overall: `{result['goal_status']}`; requirements proven complete: `{achieved}/{len(requirements)}`.",
         "",
         *rows,
         "",
@@ -167,6 +172,7 @@ def main() -> None:
         "1. Public license, tag, push and GitHub Release remain withheld or unauthorized.",
         "2. Public price approval and later direct-marketplace qualification evidence.",
         "3. Baidu response is pending; the remaining 90-day public demo, community and technical-article publication actions are not authorized.",
+        "4. Direct Marketplace qualification remains `verified=0/7`; team, service history, staffed 5x8 support, software copyright, dedicated account, and agreement evidence are not closed.",
         "",
         "```text",
         "goal_complete=false",

@@ -3,6 +3,7 @@
   "preflight_id": "saee.baidu.official-entry-preflight.v1",
   "checked_at": "2026-07-13",
   "status": "qianfan_partner_consultation_submitted_redirect_acknowledged",
+  "qualification_matrix_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json",
   "recommended_route": {
     "route_id": "qianfan_partner_consultation",
     "decision": "submitted_redirect_acknowledged_awaiting_baidu_response",
@@ -46,6 +47,7 @@
       "decision": "do_not_recommend_currently",
       "conditions_url": "https://cloud.baidu.com/doc/Market/s/ojy6wl8sd",
       "process_url": "https://cloud.baidu.com/doc/Market/s/9jy6y1c8f",
+      "qualification_matrix_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json",
       "missing_evidence": [
         "company_qualification",
         "technical_and_support_team_at_least_10",
@@ -78,6 +80,9 @@
     "submission": true,
     "submission_redirect_observed": true,
     "backend_submission_id_available": false,
+    "marketplace_qualification_verified_count": 0,
+    "marketplace_qualification_partial_count": 1,
+    "marketplace_qualification_missing_count": 6,
     "marketplace_submission": false,
     "marketplace_listed": false,
     "external_action_authorized": true,

@@ -25,6 +25,14 @@ def main() -> None:
     require(plan["external_brand"]["name"] == "SAEE Agent Readiness Platform", "brand")
     require(plan["status"] == "phases_0_to_4_partner_consultation_submitted_public_release_withheld", "plan status")
     require(plan["public_operations_target"] == ["evaluate_agent_run", "evaluate_evidence"], "public operation target")
+    require(plan["direct_marketplace_qualification"] == {
+        "decision": "do_not_recommend_currently",
+        "matrix_ref": "agent-interface/ecosystem/saee-baidu-marketplace-qualification-matrix.v1.json",
+        "verified_criterion_count": 0,
+        "criterion_count": 7,
+        "public_release_allowlist_included": False,
+        "release_candidate_refresh_required": True,
+    }, "direct marketplace qualification")
     require(set(plan["internal_debug_operations"]) == {"describe_saee", "compare_observed_traces"}, "debug operation classification")
     require([item["phase"] for item in plan["phases"]] == ["PHASE_0", "PHASE_1", "PHASE_2", "PHASE_3", "PHASE_4"], "phase ladder")
     require(plan["phases"][-1]["status"] == "partner_consultation_submitted_waiting_response", "phase 4 status")
