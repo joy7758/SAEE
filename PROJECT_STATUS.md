@@ -4,16 +4,20 @@
 
 ## Multi-Cloud Partner Entry v1.0
 
-Status: `two_interest_submissions_one_human_contact_one_captcha_handoff_three_formal_routes_blocked`.
+Status: `two_interest_submissions_one_human_contact_one_alibaba_formal_application_under_review_one_captcha_handoff_two_routes_blocked`.
 
 Under explicit scope-limited owner authorization, the official Volcengine AI
 partner consultation was submitted for MCP/product-integration cooperation and
 returned an explicit success state. The OpenAI Partner Network Interest Form was
 also submitted and returned explicit thanks. Google Cloud rejected Gmail and
 requires a company-domain email. Alibaba Cloud's official human pre-sales
-service received the product-ecosystem cooperation inquiry and contact details,
-but the formal partner route still requires account login and enterprise
-verification. Tencent Cloud's global sales form was filled and send was
+service received the product-ecosystem cooperation inquiry and contact details.
+Alibaba Cloud displays the owner-controlled account as enterprise verified,
+confirmed that its registration-age and registered-capital entry requirements
+are satisfied, and accepted the formal FY27 product-ecosystem application on
+2026-07-13. The confirmation page states that the application is under review
+and estimates three working days for review. Agreement signature and guarantee
+deposit remain later consequential gates; neither has occurred. Tencent Cloud's global sales form was filled and send was
 attempted; the site then required a visible human slider CAPTCHA, so the inquiry
 is not recorded as submitted. Its formal partner route separately requires an
 owner-selected password, SMS verification, and a dedicated partner account.
@@ -25,14 +29,21 @@ provider_count=5
 volcengine_ai_partner_consultation_submitted=true
 openai_partner_interest_submitted=true
 google_cloud_partner_enrollment_submitted=false
-alibaba_cloud_product_partner_submitted=false
+alibaba_cloud_product_partner_submitted=true
 alibaba_cloud_pre_sales_cooperation_inquiry_submitted=true
+alibaba_cloud_enterprise_verified=true
+alibaba_cloud_formal_partner_application_started=true
+alibaba_cloud_agreement_signed=false
+alibaba_cloud_guarantee_deposit_paid=false
 tencent_cloud_product_partner_submitted=false
 tencent_cloud_business_cooperation_form_filled=true
 tencent_cloud_business_cooperation_inquiry_submitted=false
 tencent_cloud_human_slider_captcha_required=true
 acknowledged_external_intake_count=3
-formal_partner_application_count=0
+external_submission_event_count=4
+formal_partner_application_started_count=1
+formal_partner_application_count=1
+formal_partner_application_under_review_count=1
 provider_approved_count=0
 marketplace_submission_count=0
 marketplace_listed_count=0

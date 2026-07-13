@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
-  "status": "two_interest_submissions_one_human_contact_one_captcha_handoff_three_formal_routes_blocked",
-  "observed_at": "2026-07-13T13:26:15+08:00",
+  "status": "two_interest_submissions_one_human_contact_one_alibaba_formal_application_under_review_one_captcha_handoff_two_routes_blocked",
+  "observed_at": "2026-07-13T13:56:53+08:00",
   "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
   "providers": [
     {
@@ -49,16 +49,18 @@
       "official_route": "Product ecosystem partner / Alibaba Cloud MaaS product partner program",
       "official_url": "https://chanpinshengtai.aliyun.com/partner/partner",
       "program_url": "https://chanpinshengtai.aliyun.com/partner/ai",
-      "application_url": "https://aps.aliyun.com/partnerApply/#/identityInfo?param=product-ecology",
+      "application_url": "https://aps.aliyun.com/partnerApply/#/enterpriseInfo?param=27Partner",
       "contact_route": "Alibaba Cloud pre-sales online human service",
       "contact_url": "https://smartservice.console.aliyun.com/pre-sale/chat?entrance=201",
       "recommendation": "conditional",
       "agent_readable_reason": "Product integration is the appropriate route; reseller and marketplace routes would overstate current commercial readiness.",
-      "current_state": "human_pre_sales_cooperation_inquiry_submitted_formal_partner_application_blocked_login_and_enterprise_verification",
+      "current_state": "formal_product_partner_application_submitted_under_review",
       "contact_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-pre-sales-cooperation-inquiry-receipt.v1.json",
-      "missing_inputs": [
-        "aliyun_account_login",
-        "enterprise_real_name_verification"
+      "application_submission_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-product-partner-application-submission-receipt.v1.json",
+      "missing_inputs": [],
+      "later_consequential_human_gates": [
+        "agreement_review_and_signature",
+        "guarantee_deposit_decision_and_payment"
       ],
       "marketplace_submission": false,
       "provider_approval": false
@@ -86,13 +88,18 @@
   ],
   "aggregate_truth": {
     "provider_count": 5,
-    "submitted_count": 2,
+    "submitted_count": 3,
+    "submitted_provider_count": 3,
     "partner_or_ecosystem_interest_submission_count": 2,
     "provider_contact_inquiry_count": 1,
+    "external_submission_event_count": 4,
     "acknowledged_external_intake_count": 3,
     "incomplete_form_handoff_count": 1,
-    "formal_partner_application_count": 0,
-    "blocked_count": 3,
+    "enterprise_verified_provider_count": 1,
+    "formal_partner_application_started_count": 1,
+    "formal_partner_application_count": 1,
+    "formal_partner_application_under_review_count": 1,
+    "blocked_count": 2,
     "provider_approved_count": 0,
     "marketplace_submission_count": 0,
     "marketplace_listed_count": 0,

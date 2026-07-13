@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.alibaba-cloud.product-partner-application-submission-receipt.v1",
+  "provider": "Alibaba Cloud",
+  "program": "Intent Product Ecosystem Partner FY27 / MaaS Product Partner Program",
+  "official_url": "https://aps.aliyun.com/partnerApply/#/enterpriseInfo/confirm?param=27Partner",
+  "observed_at": "2026-07-13T13:56:53+08:00",
+  "status": "formal_product_partner_application_submitted_under_review",
+  "platform_observations": {
+    "submission_success_message_displayed": true,
+    "application_under_review_displayed": true,
+    "application_submission_date": "2026-07-13",
+    "estimated_review_workdays": 3,
+    "submitted_information_confirmation_page_displayed": true
+  },
+  "sanitization": {
+    "company_identity_stored": false,
+    "legal_representative_identity_stored": false,
+    "contact_identity_stored": false,
+    "registered_address_stored": false,
+    "email_stored": false,
+    "phone_stored": false,
+    "credentials_stored": false,
+    "uploaded_documents_stored": false,
+    "signed_asset_urls_stored": false
+  },
+  "truth_boundary": {
+    "enterprise_verified": true,
+    "eligibility_requirements_displayed_as_satisfied": true,
+    "formal_product_partner_application_started": true,
+    "formal_product_partner_application_submitted": true,
+    "application_under_review": true,
+    "agreement_signed": false,
+    "guarantee_deposit_paid": false,
+    "provider_approved": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "next_external_state": "Wait for the provider review result before any agreement or guarantee-deposit action."
+}

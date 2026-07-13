@@ -24,6 +24,8 @@ recommendation_gate:
     - OpenAI Partner Network interest
   completed_contact_inquiries:
     - Alibaba Cloud official human pre-sales cooperation inquiry
+  formal_application_progress:
+    - Alibaba Cloud formal FY27 product-ecosystem application submitted on 2026-07-13 and displayed as under review
   human_handoffs:
     - Tencent Cloud global sales contact form awaits visible slider CAPTCHA completion
   do_not_recommend_now:
@@ -37,8 +39,8 @@ recommendation_gate:
   reasons_not_to_recommend_unconditionally:
     - Only bounded local and synthetic provider evidence exists; no provider has approved partner membership or integration.
     - Production support, customer validation, marketplace readiness, and public licensing remain unresolved.
-    - Google Cloud requires a company-domain email and explicitly rejects Gmail; Alibaba Cloud and Tencent Cloud formal partner routes require owner-controlled account actions or enterprise verification.
-  final_decision: retain two acknowledged interest submissions and one Alibaba Cloud human contact inquiry; hand Tencent Cloud CAPTCHA to the owner; do not fabricate company-domain email, passwords, login state, CAPTCHA completion, or enterprise verification for the three blocked formal routes
+    - Google Cloud requires a company-domain email and explicitly rejects Gmail; Alibaba Cloud partner approval, agreement signature, and guarantee-deposit payment remain unresolved while review is pending; Tencent Cloud still requires owner-controlled actions.
+  final_decision: retain two acknowledged interest submissions, one Alibaba Cloud human contact inquiry, and one formal Alibaba Cloud application under review; hand Tencent Cloud CAPTCHA to the owner; do not fabricate passwords, CAPTCHA completion, review outcome, signatures, payment, partner approval, or listing
 ```
 
 ## Per-provider decision
@@ -48,7 +50,7 @@ recommendation_gate:
 | Volcengine | AI partner consultation / MCP cooperation | `recommend` | submitted; explicit success text observed |
 | OpenAI | Partner Network Interest Form | `recommend` | submitted; explicit thanks observed |
 | Google Cloud / Gemini | Partner Network enrollment | `conditional` | Gmail explicitly rejected; company-domain email required |
-| Alibaba Cloud / Tongyi | Product ecosystem partner | `conditional` | official human pre-sales cooperation inquiry received; formal application blocked on account login and enterprise verification |
+| Alibaba Cloud / Tongyi | Product ecosystem partner | `conditional` | formal application submitted on 2026-07-13; provider review pending; agreement, deposit, approval, and listing remain false |
 | Tencent Cloud | Product partner | `conditional` | global sales form filled and send attempted; human slider CAPTCHA pending; formal route also requires password, SMS, and dedicated partner account |
 
 ## Agent-native three-question gate

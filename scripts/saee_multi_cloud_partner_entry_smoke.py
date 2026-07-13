@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 
@@ -39,16 +40,30 @@ def main() -> None:
     alibaba_receipt = json.loads((ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"]).read_text(encoding="utf-8"))
     require(alibaba_receipt["truth_boundary"]["product_ecosystem_cooperation_inquiry_submitted"] is True, "Alibaba contact inquiry")
     require(alibaba_receipt["truth_boundary"]["formal_product_partner_application_submitted"] is False, "Alibaba formal application boundary")
+    alibaba_submission = json.loads((ROOT / providers["Alibaba Cloud"]["application_submission_receipt_ref"]).read_text(encoding="utf-8"))
+    require(alibaba_submission["platform_observations"]["submission_success_message_displayed"] is True, "Alibaba submission success")
+    require(alibaba_submission["platform_observations"]["application_under_review_displayed"] is True, "Alibaba review state")
+    require(alibaba_submission["truth_boundary"]["enterprise_verified"] is True, "Alibaba enterprise verification")
+    require(alibaba_submission["truth_boundary"]["formal_product_partner_application_started"] is True, "Alibaba application started")
+    require(alibaba_submission["truth_boundary"]["formal_product_partner_application_submitted"] is True, "Alibaba application submitted")
+    require(alibaba_submission["truth_boundary"]["application_under_review"] is True, "Alibaba application under review")
+    require(alibaba_submission["truth_boundary"]["agreement_signed"] is False, "Alibaba agreement boundary")
+    require(alibaba_submission["truth_boundary"]["guarantee_deposit_paid"] is False, "Alibaba deposit boundary")
     tencent_handoff = json.loads((ROOT / providers["Tencent Cloud"]["contact_handoff_ref"]).read_text(encoding="utf-8"))
     require(tencent_handoff["truth_boundary"]["human_slider_captcha_required"] is True, "Tencent CAPTCHA handoff")
     require(tencent_handoff["truth_boundary"]["business_cooperation_inquiry_submitted"] is False, "Tencent inquiry boundary")
-    require(aggregate["submitted_count"] == 2, "submitted count")
+    require(aggregate["submitted_count"] == 3, "submitted count")
+    require(aggregate["submitted_provider_count"] == 3, "submitted provider count")
     require(aggregate["partner_or_ecosystem_interest_submission_count"] == 2, "interest submission count")
     require(aggregate["provider_contact_inquiry_count"] == 1, "contact inquiry count")
+    require(aggregate["external_submission_event_count"] == 4, "external submission event count")
     require(aggregate["acknowledged_external_intake_count"] == 3, "acknowledged intake count")
     require(aggregate["incomplete_form_handoff_count"] == 1, "handoff count")
-    require(aggregate["formal_partner_application_count"] == 0, "formal application count")
-    require(aggregate["blocked_count"] == 3, "blocked count")
+    require(aggregate["enterprise_verified_provider_count"] == 1, "enterprise verified provider count")
+    require(aggregate["formal_partner_application_started_count"] == 1, "formal application started count")
+    require(aggregate["formal_partner_application_count"] == 1, "formal application count")
+    require(aggregate["formal_partner_application_under_review_count"] == 1, "formal application under review count")
+    require(aggregate["blocked_count"] == 2, "blocked count")
     for key in ("provider_approved_count", "marketplace_submission_count", "marketplace_listed_count"):
         require(aggregate[key] == 0, key)
     require(aggregate["customer_validated"] is False, "customer validation")
@@ -62,16 +77,19 @@ def main() -> None:
             ROOT / receipt_ref,
             ROOT / providers["OpenAI"]["submission_receipt_ref"],
             ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"],
+            ROOT / providers["Alibaba Cloud"]["application_submission_receipt_ref"],
             ROOT / providers["Tencent Cloud"]["contact_handoff_ref"],
         )
     )
-    for forbidden in ("18518485118", "139115", "joy7759@gmail.com", "张斌", "山西游骑兵电子商务有限公司"):
-        require(forbidden not in serialized, "sensitive value stored")
+    require(re.search(r"(?<!\d)1[3-9]\d{9}(?!\d)", serialized) is None, "phone number stored")
+    require(re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", serialized) is None, "email address stored")
+    require(re.search(r"(?<!\d)\d{17}[0-9Xx](?!\d)", serialized) is None, "identity number stored")
 
     print(
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
-        "providers=5 interest_submitted=2 contact_inquiry=1 captcha_handoff=1 "
-        "formal_partner_application=0 blocked=3 provider_approved=0 "
+        "providers=5 interest_submitted=2 contact_inquiry=1 enterprise_verified=1 "
+        "formal_application_started=1 formal_partner_application=1 under_review=1 "
+        "captcha_handoff=1 blocked=2 provider_approved=0 "
         "marketplace_submission=0 production_ready=false"
     )
 
