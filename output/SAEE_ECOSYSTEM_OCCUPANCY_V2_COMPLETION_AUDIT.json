@@ -56,9 +56,10 @@
       "title": "Validate a Qoder process invoking SAEE",
       "status": "incomplete",
       "evidence": [
-        "adapters/qoder/README.md"
+        "adapters/qoder/README.md",
+        "agent-interface/ecosystem/saee-qoder-cli-installation-preflight.v1.json"
       ],
-      "note": "Qoder CLI is absent; no Qoder process receipt exists."
+      "note": "Qoder CLI is absent. The official installer and bounded validation sequence are inspected and ready, but installation and login remain behind explicit owner authorization; no Qoder process receipt exists."
     },
     {
       "requirement_id": "R06",

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "preflight_id": "saee.qoder-cli.installation-preflight.v1",
+  "observed_at": "2026-07-13T17:00:53+08:00",
+  "purpose": "Prepare a real Qoder-process invocation of the existing two-operation SAEE MCP server without installing software or expanding permissions before explicit owner authorization.",
+  "official_sources": {
+    "download": "https://qoder.com/download",
+    "cli_quick_start": "https://docs.qoder.com/en/cli/quick-start",
+    "mcp_servers": "https://docs.qoder.com/en/cli/mcp-servers",
+    "permissions": "https://docs.qoder.com/en/cli/permissions",
+    "installer": "https://qoder.com/install"
+  },
+  "host_observation": {
+    "operating_system": "Darwin",
+    "architecture": "arm64",
+    "product_version": "26.5.2",
+    "qoder_desktop_detected": false,
+    "qodercli_detected": false,
+    "unzip_detected": true,
+    "tar_detected": true
+  },
+  "installer_observation": {
+    "observed_sha256": "93f742613cf1f38626a6d745988f020b04928e7067eaf7797bf967cb6d630bce",
+    "hash_observation_is_time_bounded": true,
+    "refetch_and_reinspect_before_execution": true,
+    "fetches_platform_manifest": true,
+    "downloads_platform_binary": true,
+    "verifies_manifest_sha256": true,
+    "executes_downloaded_qodercli_install_subcommand": true,
+    "may_modify_user_path_or_shell_configuration": true,
+    "telemetry_environment_marker_present": true
+  },
+  "authorization_gate": {
+    "installation_authorized": false,
+    "installer_executed": false,
+    "qoder_login_authorized": false,
+    "qoder_authentication_completed": false,
+    "required_owner_approval": "Approve installing the official Qoder CLI and running a bounded, read-only SAEE MCP validation.",
+    "tokens_must_not_be_pasted_into_chat_or_committed": true,
+    "preferred_authentication": "interactive_browser_login"
+  },
+  "post_authorization_sequence": [
+    "Refetch and inspect the official installer; stop on material drift.",
+    "Install Qoder CLI from the official Qoder route.",
+    "Verify qodercli --version and record the executable path.",
+    "Complete interactive browser login without exposing credentials or tokens.",
+    "From the SAEE repository, run qodercli mcp list and verify saee-readiness discovery from .mcp.json.",
+    "Run one bounded Qoder Agent prompt with only the saee-readiness MCP server allowed and risky built-in tools denied.",
+    "Capture a sanitized Qoder-process receipt proving one SAEE operation invocation and no deployment, permission expansion, or external-world action."
+  ],
+  "bounded_validation_policy": {
+    "permission_mode": "dont_ask",
+    "allowed_mcp_server_names": ["saee-readiness"],
+    "allowed_capability_operations": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+    "disallowed_builtin_tools": ["Bash", "Edit", "Write", "WebFetch", "WebSearch", "Agent"],
+    "fixture_only": true,
+    "customer_data_allowed": false,
+    "deployment_allowed": false,
+    "permission_expansion_allowed": false,
+    "external_world_actions_allowed": false
+  },
+  "truth_boundary": {
+    "qoder_cli_installation_preflight_ready": true,
+    "qoder_cli_installed": false,
+    "qoder_process_invocation_validated": false,
+    "official_qoder_integration": false,
+    "official_qoder_plugin": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

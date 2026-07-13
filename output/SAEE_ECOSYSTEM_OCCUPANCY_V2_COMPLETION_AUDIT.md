@@ -8,7 +8,7 @@ Overall: `goal_complete=false`; proven complete: `17/23`.
 | R02 | Expose exactly evaluate_agent_run and evaluate_evidence | `proven_complete` | Two public operations; three internal operations excluded. |
 | R03 | Create the SAEE Capability Card | `proven_complete` | Discovery, use/do-not-use, schemas and boundaries are file-backed. |
 | R04 | Create Qoder-first adapter configuration | `proven_complete` | Official-format project config and local protocol compatibility pass. |
-| R05 | Validate a Qoder process invoking SAEE | `incomplete` | Qoder CLI is absent; no Qoder process receipt exists. |
+| R05 | Validate a Qoder process invoking SAEE | `incomplete` | Qoder CLI is absent. The official installer and bounded validation sequence are inspected and ready, but installation and login remain behind explicit owner authorization; no Qoder process receipt exists. |
 | R06 | Complete Qoder coding-release Demo | `proven_complete` | REPLAN with rollback and approval missing; no deployment. |
 | R07 | Retain Qianfan adapter evidence | `proven_complete` | Bounded synthetic provider receipts pass; official integration false. |
 | R08 | Prepare LangChain, CrewAI, and Claude Code branches | `proven_complete` | Configuration templates only; framework processes not run. |

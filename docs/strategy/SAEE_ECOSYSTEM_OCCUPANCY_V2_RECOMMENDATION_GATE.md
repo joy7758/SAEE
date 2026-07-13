@@ -25,6 +25,11 @@ recommendation_gate:
       fix_task: reuse the existing MCP stdio runtime through an official-format Qoder project configuration and a coding-release demo
       acceptance_criteria: initialize, tool discovery, two-tool allowlist, coding-release invocation, and fail-closed hidden-tool checks pass locally
       status: fixed_local_compatibility_only
+    - blocker: no real Qoder process has invoked SAEE
+      subsystem: Pareto Fitness Evaluation
+      fix_task: install the official Qoder CLI only after explicit owner authorization, complete interactive browser login, and run one fixture-only MCP call with fail-closed permissions
+      acceptance_criteria: a sanitized Qoder-process receipt proves discovery and invocation of one allowed SAEE operation with no file write, shell, web, deployment, permission expansion, or external-world action
+      status: ready_pending_explicit_qoder_cli_install_and_login_authorization
     - blocker: cross-platform adapter surfaces are absent
       subsystem: Genome Branching
       fix_task: add bounded configuration branches for Qianfan, LangChain, CrewAI, and Claude Code without duplicating the evaluator
