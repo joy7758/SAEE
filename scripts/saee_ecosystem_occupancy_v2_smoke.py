@@ -130,6 +130,8 @@ def main() -> None:
     require(alibaba_qoder_support["truth_boundary"]["technical_conversation_in_progress"] is False, "Alibaba Qoder technical conversation not active")
     require(alibaba_qoder_support["truth_boundary"]["support_scope_closed_without_technical_answer"] is True, "Alibaba Qoder support scope result")
     require(alibaba_qoder_support["truth_boundary"]["provider_business_handoff_pending"] is True, "Alibaba Qoder business handoff")
+    require(alibaba_qoder_support["truth_boundary"]["owner_business_contact_reference_provided"] is True, "Alibaba Qoder business contact reference")
+    require(alibaba_qoder_support["repository_privacy"]["full_phone_repeated_in_conversation"] is False, "Alibaba Qoder contact privacy")
     require(alibaba_qoder_support["truth_boundary"]["technical_conversation_completed"] is False, "Alibaba Qoder support conversation boundary")
     require(alibaba_qoder_support["repository_privacy"]["raw_phone_stored"] is False, "Alibaba Qoder support privacy")
     require(baidu_email["truth_boundary"]["outbound_request_sent"] is True, "Baidu email request")

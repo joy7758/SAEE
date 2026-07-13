@@ -27,6 +27,7 @@
     "qoder_process_invocation_validated": false,
     "qoder_global_partner_application_submitted": true,
     "qoder_technical_conversation_request_sent": true,
+    "qoder_business_contact_reference_provided": true,
     "alibaba_product_ecosystem_partner_active": true,
     "approved_cloud_marketplace_route_available": true,
     "qianfan_partner_consultation_submission_event_count": 2,

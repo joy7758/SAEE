@@ -8,7 +8,7 @@
   "urgency": "产品使用咨询",
   "initial_status": "已分派",
   "observed_status": "处理中",
-  "last_observed_at": "2026-07-13T16:55:54+08:00",
+  "last_observed_at": "2026-07-13T17:04:06+08:00",
   "engineer_acknowledged_at": "2026-07-13T16:21:53+08:00",
   "engineer_acknowledgement": "已收到您提交的问题",
   "interaction_events": [
@@ -35,6 +35,18 @@
       "actor": "SAEE owner",
       "type": "business_handoff_receipt_request",
       "summary": "Asked for the expected contact channel, any routing reference or responsible team name, and for the ticket to remain open until business contact occurs."
+    },
+    {
+      "at": "2026-07-13T16:58:37+08:00",
+      "actor": "Alibaba Cloud after-sales engineer",
+      "type": "business_contact_request",
+      "summary": "Asked the owner to provide a convenient contact phone for the business handoff."
+    },
+    {
+      "at": "2026-07-13T17:03:46+08:00",
+      "actor": "SAEE owner",
+      "type": "masked_business_contact_reference",
+      "summary": "Directed the business colleague to the ticket-bound phone, supplied only the last four digits and contact name in the conversation, and requested a confidential follow-up if the full number is not visible to the provider."
     }
   ],
   "source_route_receipt_ref": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
@@ -45,7 +57,9 @@
     "raw_phone_stored": false,
     "account_email_stored": false,
     "account_id_stored": false,
-    "masked_contact_only": true
+    "masked_contact_only": true,
+    "masked_phone_reference_shared_in_conversation": true,
+    "full_phone_repeated_in_conversation": false
   },
   "truth_boundary": {
     "official_qoder_product_support_ticket_submitted": true,
@@ -58,6 +72,8 @@
     "support_scope_closed_without_technical_answer": true,
     "provider_business_handoff_stated": true,
     "provider_business_handoff_pending": true,
+    "provider_requested_business_contact_phone": true,
+    "owner_business_contact_reference_provided": true,
     "business_contact_received": false,
     "business_contact_channel_confirmed": false,
     "business_handoff_reference_received": false,
