@@ -17,7 +17,10 @@
 - Qoder 官方合作申请脱敏回执：`agent-interface/ecosystem/saee-qoder-global-partner-application-submission-receipt.v1.json`
 - 生态占位 v2 路线：`agent-interface/ecosystem/saee-ecosystem-occupancy-execution-plan.v2.json`
 - 百度实施计划：`agent-interface/ecosystem/saee-baidu-cloud-marketplace-entry-plan.v1.0.json`
-- 两工具本地 MCP：`python3 scripts/saee_qianfan_readiness_mcp_stdio.py`
+- 规范两工具本地 MCP：`python3 scripts/saee_agent_readiness_mcp_stdio.py`
+- Qianfan 兼容包装：`python3 scripts/saee_qianfan_readiness_mcp_stdio.py`
+- 规范能力真源：`capability-package/manifest.json#canonical_inventory`
+- 能力与 MCP 路由说明：`docs/CAPABILITY_INVENTORY.md`
 - 真实 Qianfan 合成场景回执校验：`python3 scripts/saee_qianfan_readiness_live_receipt_smoke.py`
 - 百度伙伴咨询申请契约：`agent-interface/ecosystem/saee-baidu-partner-consultation-application.v1.json`
 - 百度伙伴咨询脱敏提交回执：`agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json`
@@ -237,9 +240,13 @@ MCP `P0`、火山方舟和百度千帆 `P1`、阿里云百炼与海外 Agent 平
 
 ## Capability Service Package v1.0
 
-智能体标准入口：`capability-package/manifest.json`。该 Package 统一描述
+智能体标准入口：`capability-package/manifest.json#canonical_inventory`。该 Package 统一描述
 `evaluate_agent_run`、`evaluate_evidence` 和预留的 `rehearse_agent`，让 Agent
 能够判断适用场景、非适用场景、输入输出和组合边界。
+
+该 inventory 是当前能力事实、规范入口、MCP 表面角色与兼容关系的唯一
+机器可读真源；`agent-index.json` 和公共元数据是受验证投影，研发建议保留在
+评估或路线图文档中。
 
 - Capability Card：`capability-package/capability-card.json`
 - OpenAPI 契约：`capability-package/openapi.yaml`
@@ -255,7 +262,8 @@ MCP `P0`、火山方舟和百度千帆 `P1`、阿里云百炼与海外 Agent 平
 - Local Runtime：`saee_backend/services/capability_runtime/`
 - Runtime demo：`python3 scripts/saee_capability_runtime_demo.py`
 - Runtime validation：`python3 scripts/saee_capability_runtime_smoke.py`
-- MCP Adapter：`python3 scripts/saee_capability_mcp_stdio.py`
+- 规范公共契约 MCP：`python3 scripts/saee_agent_readiness_mcp_stdio.py`
+- 内部 Capability Package MCP Adapter：`python3 scripts/saee_capability_mcp_stdio.py`
 - MCP validation：`python3 scripts/saee_capability_mcp_adapter_smoke.py`
 - HTTP demo：`python3 scripts/saee_capability_http_demo.py`
 - HTTP validation：`python3 scripts/saee_capability_http_adapter_smoke.py`

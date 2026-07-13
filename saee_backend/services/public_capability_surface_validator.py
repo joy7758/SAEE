@@ -9,11 +9,14 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
+from saee_backend.services.capability_runtime.canonical_capability_inventory import (
+    load_canonical_inventory,
+)
+
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = ROOT / "schemas/saee-public-capability-surface.schema.v0.1.json"
 EXPECTED_CAPABILITIES = {"saee.agent-reliability", "saee.evidence-evaluation"}
-EXPECTED_OPERATIONS = {"saee.evaluate_agent_run", "saee.evaluate_evidence"}
 EXPECTED_PROTOCOLS = {"MCP", "HTTP Contract"}
 FORBIDDEN_AFFIRMATIVE_CLAIMS = (
     re.compile(r"\b(?:certified|approved|safe)\b", re.I),
@@ -84,7 +87,18 @@ def validate_public_capability_surface(surface: Any, index: Any) -> dict[str, An
         return _result(False, ["PUBLIC_SURFACE_SCHEMA_INVALID"], surface)
     if {item.get("id") for item in surface["capabilities"]} != EXPECTED_CAPABILITIES:
         return _result(False, ["PUBLIC_SURFACE_CAPABILITY_SET_INVALID"], surface)
-    if {item.get("operation_id") for item in surface["available_operations"]} != EXPECTED_OPERATIONS:
+    canonical_inventory = load_canonical_inventory()
+    expected_operations = {
+        item["capability_id"]
+        for item in canonical_inventory["capabilities"]
+        if any(
+            interface.get("interface_type") == "mcp"
+            and interface.get("audience") == "public"
+            and interface.get("role") == "canonical"
+            for interface in item.get("interfaces", [])
+        )
+    }
+    if {item.get("operation_id") for item in surface["available_operations"]} != expected_operations:
         return _result(False, ["PUBLIC_SURFACE_OPERATION_SET_INVALID"], surface)
     if set(surface["protocols"]) != EXPECTED_PROTOCOLS:
         return _result(False, ["PUBLIC_SURFACE_PROTOCOL_SET_INVALID"], surface)
@@ -97,7 +111,7 @@ def validate_public_capability_surface(surface: Any, index: Any) -> dict[str, An
     if len(index_refs) < 2 or any(not _safe_public_ref(ref) for ref in index_refs):
         return _result(False, ["PUBLIC_SURFACE_INDEX_CAPABILITY_INVALID"], surface)
     truth = surface["truth_boundary"]
-    if truth.get("public_product_operation_count") != len(EXPECTED_OPERATIONS):
+    if truth.get("public_product_operation_count") != len(expected_operations):
         return _result(False, ["PUBLIC_SURFACE_OPERATION_COUNT_INVALID"], surface)
     index_truth = {key: index.get(key) for key in ("publicly_deployed", "public_api", "public_service", "production_ready")}
     if any(value is not False for value in index_truth.values()) or any(

@@ -6,6 +6,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from saee_backend.services.capability_runtime.canonical_capability_inventory import (
+    load_canonical_inventory,
+)
 from saee_backend.services.capability_runtime.capability_registry_loader import load_capability_registry
 
 
@@ -23,13 +26,6 @@ SOURCE_REFERENCES = {
 PRIMARY_CAPABILITY = "saee.agent-reliability"
 CANONICAL_CAPABILITIES = {PRIMARY_CAPABILITY, "saee.evidence-evaluation"}
 CAPABILITY_ALIASES = {"saee.evidence-adequacy": "saee.evidence-evaluation"}
-EXPECTED_OPERATIONS = {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}
-EXPECTED_PUBLIC_OPERATIONS = {"saee.evaluate_agent_run", "saee.evaluate_evidence"}
-EXPECTED_STATUS = {
-    "evaluate_agent_run": "IMPLEMENTED",
-    "evaluate_evidence": "IMPLEMENTED",
-    "rehearse_agent": "CONTRACT_ONLY",
-}
 EXPECTED_PROTOCOLS = {"MCP", "HTTP Contract"}
 
 
@@ -81,6 +77,29 @@ def validate_truth_sources(sources: Any) -> dict[str, Any]:
     obj, registry, package = sources["object"], sources["registry"], sources["package"]
     release, public, mcp = sources["release"], sources["public"], sources["mcp"]
     http, runtime = sources["http"], sources["runtime"]
+    canonical_inventory = load_canonical_inventory()
+    canonical_records = {
+        item["capability_id"]: item for item in canonical_inventory["capabilities"]
+    }
+    expected_operations = set(_operation_map(package.get("operations")))
+    expected_public_operations = {
+        capability_id
+        for capability_id, item in canonical_records.items()
+        if any(
+            interface.get("interface_type") == "mcp"
+            and interface.get("audience") == "public"
+            and interface.get("role") == "canonical"
+            for interface in item.get("interfaces", [])
+        )
+    }
+    expected_status = {
+        operation: (
+            "IMPLEMENTED"
+            if canonical_records[f"saee.{operation}"]["implementation_status"] == "implemented"
+            else "CONTRACT_ONLY"
+        )
+        for operation in expected_operations
+    }
     conflicts: list[str] = []
 
     object_id = obj.get("identity", {}).get("capability_id")
@@ -118,8 +137,8 @@ def validate_truth_sources(sources: Any) -> dict[str, Any]:
     operation_sets.extend([set(mcp.get("tools", [])), set(http.get("endpoints", {}).values())])
     public_operation_map = _operation_map(public.get("available_operations"))
     operation_match = (
-        all(operation_set == EXPECTED_OPERATIONS for operation_set in operation_sets)
-        and set(public_operation_map) == EXPECTED_PUBLIC_OPERATIONS
+        all(operation_set == expected_operations for operation_set in operation_sets)
+        and set(public_operation_map) == expected_public_operations
         and public.get("truth_boundary", {}).get("public_product_operation_count") == 2
     )
     if not operation_match:
@@ -138,7 +157,7 @@ def validate_truth_sources(sources: Any) -> dict[str, Any]:
         "evaluate_evidence": "IMPLEMENTED",
     }
     status_match = (
-        all(mapping == EXPECTED_STATUS for mapping in normalized.values())
+        all(mapping == expected_status for mapping in normalized.values())
         and normalized_public == expected_public_status
     )
     if not status_match:

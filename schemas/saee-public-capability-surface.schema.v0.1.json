@@ -48,8 +48,9 @@
     "protocols": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"enum": ["MCP", "HTTP Contract"]}},
     "references": {
       "type": "object", "additionalProperties": false,
-      "required": ["product_identity", "qianfan_product_mcp", "internal_capability_package", "integration_examples", "public_document", "quick_understanding", "discovery_validation_reference", "alpha_release_reference", "alpha_release_position_reference", "cloud_ecosystem_strategy_reference", "ecosystem_entry_package_reference", "ecosystem_demo_reference", "ecosystem_validation_preparation_reference", "ecosystem_dry_run_reference", "agent_native_adoption_strategy_reference", "marketplace_position_reference", "capability_composition_reference"],
+      "required": ["canonical_inventory", "product_identity", "qianfan_product_mcp", "internal_capability_package", "integration_examples", "public_document", "quick_understanding", "discovery_validation_reference", "alpha_release_reference", "alpha_release_position_reference", "cloud_ecosystem_strategy_reference", "ecosystem_entry_package_reference", "ecosystem_demo_reference", "ecosystem_validation_preparation_reference", "ecosystem_dry_run_reference", "agent_native_adoption_strategy_reference", "marketplace_position_reference", "capability_composition_reference"],
       "properties": {
+        "canonical_inventory": {"const": "capability-package/manifest.json"},
         "product_identity": {"const": "agent-interface/product/saee-agent-readiness-platform.v0.1.json"},
         "qianfan_product_mcp": {"const": "agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json"},
         "internal_capability_package": {"const": "capability-package/manifest.json"},

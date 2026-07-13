@@ -85436,6 +85436,8 @@ def main() -> None:
     require_local_smoke("saee_external_agent_discovery_validation_smoke.py")
     require_local_smoke("saee_capability_alpha_release_smoke.py")
     require_local_smoke("saee_capability_truth_consistency_smoke.py")
+    require_local_smoke("saee_canonical_capability_inventory_smoke.py")
+    require_local_smoke("saee_capability_progress_ledger_smoke.py")
     require_local_smoke("saee_ecosystem_validation_preparation_smoke.py")
     require_local_smoke("saee_ecosystem_dry_run_smoke.py")
     require_local_smoke("saee_external_validation_design_smoke.py")

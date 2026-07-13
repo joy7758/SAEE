@@ -210,12 +210,87 @@ def main() -> int:
         help="Generate a bounded Chinese-first assessment from local SAEE reliability artifacts.",
     )
     commercial_assessment_parser.add_argument("--input", required=True, type=Path)
+    subparsers.add_parser(
+        "capability-list",
+        help="List canonical capability facts from the checked-in Capability Package manifest.",
+    )
+    capability_show_parser = subparsers.add_parser(
+        "capability-show",
+        help="Show one exact canonical capability id or alias.",
+    )
+    capability_show_parser.add_argument("capability_id")
+    capability_resolve_parser = subparsers.add_parser(
+        "capability-resolve",
+        help="Resolve one exact capability id or alias to its unique canonical interface.",
+    )
+    capability_resolve_parser.add_argument("capability_id")
+    capability_resolve_parser.add_argument("--interface", required=True, choices=["mcp", "cli", "http", "python"])
+    subparsers.add_parser(
+        "capability-validate",
+        help="Validate the canonical inventory and bounded repository projections.",
+    )
     args = parser.parse_args()
 
     try:
         if args.command == "describe":
             emit(json.loads(MANIFEST.read_text(encoding="utf-8")))
             return 0
+        if args.command in {
+            "capability-list",
+            "capability-show",
+            "capability-resolve",
+            "capability-validate",
+        }:
+            from saee_backend.services.capability_runtime.canonical_capability_inventory import (
+                CANONICAL_SOURCE,
+                get_capability,
+                load_canonical_inventory,
+                normalize_inventory,
+                resolve_interface,
+                validate_repository_inventory,
+            )
+
+            if args.command == "capability-list":
+                inventory = normalize_inventory(load_canonical_inventory())
+                emit(
+                    {
+                        "canonical_source": CANONICAL_SOURCE,
+                        "capabilities": [
+                            {
+                                "capability_id": item["capability_id"],
+                                "implementation_status": item["implementation_status"],
+                                "lifecycle_status": item["lifecycle_status"],
+                                "canonical_entrypoint": item["canonical_entrypoint"],
+                            }
+                            for item in inventory["capabilities"]
+                        ],
+                        "production_ready": False,
+                    }
+                )
+                return 0
+            if args.command == "capability-show":
+                emit(
+                    {
+                        "canonical_source": CANONICAL_SOURCE,
+                        "capability": get_capability(args.capability_id),
+                        "production_ready": False,
+                    }
+                )
+                return 0
+            if args.command == "capability-resolve":
+                emit(resolve_interface(args.capability_id, args.interface))
+                return 0
+            errors = validate_repository_inventory()
+            emit(
+                {
+                    "canonical_source": CANONICAL_SOURCE,
+                    "valid": not errors,
+                    "errors": errors,
+                    "validation_only": True,
+                    "production_ready": False,
+                }
+            )
+            return 0 if not errors else 2
         if args.command == "validate-resource-resolution":
             from saee_backend.services.resource_resolution_receipt import (
                 validate_resource_resolution_json,

@@ -28,6 +28,7 @@
   ],
   "protocols": ["MCP", "HTTP Contract"],
   "references": {
+    "canonical_inventory": "capability-package/manifest.json",
     "product_identity": "agent-interface/product/saee-agent-readiness-platform.v0.1.json",
     "qianfan_product_mcp": "agent-interface/qianfan/saee-qianfan-agent-readiness-mcp.v0.1.json",
     "internal_capability_package": "capability-package/manifest.json",

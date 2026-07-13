@@ -1,5 +1,18 @@
 # SAEE Agent Readiness Platform
 
+Capability progress ledger updated: 2026-07-13
+Agent startup progress and duplicate-build rules: AGENTS.md#capability-progress-ledger-and-duplicate-build-prevention
+Canonical capability source: capability-package/manifest.json#canonical_inventory
+Machine capability ledger projection: agent-index.json#capability_progress_ledger_v1
+Detailed capability assessment: reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md
+Capability ledger recommendation gate: docs/strategy/SAEE_CAPABILITY_PROGRESS_LEDGER_RECOMMENDATION_GATE.md
+Capability ledger validation: python3 scripts/saee_capability_progress_ledger_smoke.py
+Current OTEL truth: synthetic OpenTelemetry-style candidate mapping is implemented locally; OpenTelemetry SDK/OTLP ingestion is not implemented; trusted trace-to-evidence conversion is not implemented.
+Duplicate-build prohibition: do not rebuild synthetic OpenTelemetry-style candidate evidence mapping; inspect and reuse saee_backend/services/otel_candidate_mapping.py and scripts/saee_otel_candidate_mapping_smoke.py.
+Completed governance change: Canonical Capability Inventory, Routing and Deprecation Map v1.
+Roadmap authority: reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs; agent-index.json recommended_next_pr fields are deprecated compatibility metadata.
+Ledger sync rule: capability status, canonical route, lifecycle, limitation, and next-PR changes must update AGENTS.md when startup-critical, agent-index.json, this llms.txt block, affected contracts/tests, and the assessment report when its conclusions change.
+
 Frozen external brand: SAEE Agent Readiness Platform / SAEE 智能体上线准备平台
 First product: SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务
 One sentence: SAEE evaluates whether an AI Agent has sufficient execution evidence before real-world deployment.

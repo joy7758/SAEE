@@ -4612,6 +4612,24 @@ check-otel-candidate-mapping:
 	python3 -m json.tool agent-interface/schemas/otel-candidate-evidence-mapping.schema.json
 	python3 -m json.tool agent-index.json
 
+.PHONY: capability-progress-ledger-smoke check-capability-progress-ledger
+.PHONY: canonical-capability-inventory-smoke check-canonical-capability-inventory
+
+capability-progress-ledger-smoke:
+	python3 scripts/saee_capability_progress_ledger_smoke.py
+
+check-capability-progress-ledger:
+	python3 scripts/saee_capability_progress_ledger_smoke.py
+	python3 -m json.tool agent-index.json
+
+canonical-capability-inventory-smoke:
+	python3 scripts/saee_canonical_capability_inventory_smoke.py
+
+check-canonical-capability-inventory:
+	python3 scripts/saee_canonical_capability_inventory_smoke.py
+	python3 -m json.tool capability-package/manifest.json
+	python3 -m json.tool schemas/saee-canonical-capability-inventory.schema.v1.json
+
 agent-receipt-crosswalk-smoke:
 	python3 scripts/saee_agent_receipt_crosswalk_smoke.py
 

@@ -2,6 +2,7 @@
   "discovery_version": "0.1.0",
   "service": "SAEE Agent Readiness Platform",
   "publication_status": "repository_public_surface_prepared_not_deployed",
+  "canonical_capability_source": "capability-package/manifest.json#canonical_inventory",
   "capabilities": [
     {"id": "saee.agent-reliability", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"},
     {"id": "saee.evidence-evaluation", "reference": "agent-interface/public/saee-public-capability-surface.v0.1.json"}

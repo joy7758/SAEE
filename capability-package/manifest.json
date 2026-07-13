@@ -2,6 +2,475 @@
   "manifest_version": "1.0.0",
   "package_id": "saee.agent-reliability",
   "package_name": "SAEE Capability Service Package",
+  "canonical_inventory": {
+    "schema_version": "1.0.0",
+    "schema": "schemas/saee-canonical-capability-inventory.schema.v1.json",
+    "source_role": "sole_canonical_capability_fact_source",
+    "roadmap_fields_allowed": false,
+    "roadmap_reference": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs",
+    "capabilities": [
+      {
+        "capability_id": "saee.evaluate_agent_run",
+        "name": "Evaluate Agent Run",
+        "description": "Evaluate declared Agent trace metadata and required evidence coverage through the bounded local readiness implementation.",
+        "implementation_status": "implemented",
+        "lifecycle_status": "active",
+        "canonical_implementation": "saee_backend/services/baidu_agent_readiness_service.py",
+        "canonical_entrypoint": "python3 scripts/saee_agent_readiness_mcp_stdio.py",
+        "interfaces": [
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_agent_readiness_mcp_stdio.py",
+            "tool_name": "saee.evaluate_agent_run",
+            "endpoint": null,
+            "audience": "public",
+            "role": "canonical",
+            "stability": "alpha",
+            "replacement": null
+          },
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_qianfan_readiness_mcp_stdio.py",
+            "tool_name": "saee.evaluate_agent_run",
+            "endpoint": null,
+            "audience": "integration",
+            "role": "compatibility",
+            "stability": "alpha",
+            "replacement": "scripts/saee_agent_readiness_mcp_stdio.py#saee.evaluate_agent_run"
+          }
+        ],
+        "aliases": ["evaluate_agent_run"],
+        "implementation_evidence": [
+          "saee_backend/services/baidu_agent_readiness_service.py",
+          "saee_backend/services/qianfan_readiness_mcp_adapter.py",
+          "scripts/saee_agent_readiness_mcp_stdio.py"
+        ],
+        "test_evidence": [
+          "scripts/saee_qoder_adapter_smoke.py",
+          "scripts/saee_qianfan_readiness_mcp_smoke.py"
+        ],
+        "documentation": ["docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [
+          "Local deterministic evaluation of declared trace metadata and required evidence coverage is implemented.",
+          "The platform-neutral MCP stdio wrapper exposes the bounded operation locally."
+        ],
+        "non_claims": [
+          "The trace is not authenticated.",
+          "The result does not authorize deployment.",
+          "No public service, customer validation or production readiness is established."
+        ]
+      },
+      {
+        "capability_id": "saee.evaluate_evidence",
+        "name": "Evaluate Evidence",
+        "description": "Evaluate whether a declared closed evidence bundle covers an explicit readiness evidence set without granting authority.",
+        "implementation_status": "implemented",
+        "lifecycle_status": "active",
+        "canonical_implementation": "saee_backend/services/baidu_agent_readiness_service.py",
+        "canonical_entrypoint": "python3 scripts/saee_agent_readiness_mcp_stdio.py",
+        "interfaces": [
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_agent_readiness_mcp_stdio.py",
+            "tool_name": "saee.evaluate_evidence",
+            "endpoint": null,
+            "audience": "public",
+            "role": "canonical",
+            "stability": "alpha",
+            "replacement": null
+          },
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_qianfan_readiness_mcp_stdio.py",
+            "tool_name": "saee.evaluate_evidence",
+            "endpoint": null,
+            "audience": "integration",
+            "role": "compatibility",
+            "stability": "alpha",
+            "replacement": "scripts/saee_agent_readiness_mcp_stdio.py#saee.evaluate_evidence"
+          },
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_capability_mcp_stdio.py",
+            "tool_name": "evaluate_evidence",
+            "endpoint": null,
+            "audience": "internal",
+            "role": "internal",
+            "stability": "alpha",
+            "replacement": "scripts/saee_agent_readiness_mcp_stdio.py#saee.evaluate_evidence"
+          }
+        ],
+        "aliases": ["evaluate_evidence", "saee.evidence-evaluation", "saee.evidence-adequacy"],
+        "implementation_evidence": [
+          "saee_backend/services/baidu_agent_readiness_service.py",
+          "saee_backend/services/evidence_adequacy.py",
+          "saee_backend/services/qianfan_readiness_mcp_adapter.py"
+        ],
+        "test_evidence": [
+          "scripts/saee_evidence_adequacy_smoke.py",
+          "scripts/saee_qianfan_readiness_mcp_smoke.py"
+        ],
+        "documentation": ["docs/EVIDENCE_ADEQUACY_PROFILE.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [
+          "Closed local evidence bundles can be checked against explicit repository-controlled requirements.",
+          "Missing evidence and stable bounded reason codes are returned."
+        ],
+        "non_claims": [
+          "A passing profile does not prove a real-world event.",
+          "The result is not authorization, certification or legal accountability.",
+          "No public service, customer validation or production readiness is established."
+        ]
+      },
+      {
+        "capability_id": "saee.rehearse_agent",
+        "name": "Rehearse Agent",
+        "description": "Describe a future controlled rehearsal request in the Capability Package without providing the public operation in this package.",
+        "implementation_status": "design_only",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": null,
+        "canonical_entrypoint": null,
+        "interfaces": [
+          {
+            "interface_type": "mcp",
+            "path": "scripts/saee_capability_mcp_stdio.py",
+            "tool_name": "rehearse_agent",
+            "endpoint": null,
+            "audience": "internal",
+            "role": "experimental",
+            "stability": "contract_only",
+            "replacement": null
+          }
+        ],
+        "aliases": ["rehearse_agent"],
+        "implementation_evidence": [],
+        "test_evidence": ["scripts/saee_capability_mcp_adapter_smoke.py"],
+        "documentation": ["capability-package/limitations.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": ["A contract-only request shape is discoverable through the internal package adapter."],
+        "non_claims": ["No standalone public rehearsal operation is implemented by the Capability Package."]
+      },
+      {
+        "capability_id": "saee.otel_style_candidate_mapping",
+        "name": "OpenTelemetry-Style Candidate Evidence Mapping",
+        "description": "Map one closed synthetic OpenTelemetry-style observation into non-authoritative candidate evidence for local adequacy evaluation.",
+        "implementation_status": "implemented",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": "saee_backend/services/otel_candidate_mapping.py",
+        "canonical_entrypoint": "python3 scripts/saee_agent_cli.py evaluate-trace-candidate --profile RESOURCE_AUTHENTICITY --input agent-interface/examples/otel-mapping/trace_candidate_resource_retrieval.json",
+        "interfaces": [
+          {
+            "interface_type": "cli",
+            "path": "scripts/saee_agent_cli.py",
+            "tool_name": "evaluate-trace-candidate",
+            "endpoint": null,
+            "audience": "internal",
+            "role": "canonical",
+            "stability": "experimental",
+            "replacement": null
+          }
+        ],
+        "aliases": ["synthetic_opentelemetry_style", "otel_candidate_evidence_mapping_v0_1"],
+        "implementation_evidence": ["saee_backend/services/otel_candidate_mapping.py"],
+        "test_evidence": ["scripts/saee_otel_candidate_mapping_smoke.py"],
+        "documentation": ["docs/OTEL_CANDIDATE_EVIDENCE_MAPPING.md"],
+        "supersedes": [
+          "Add OpenTelemetry-to-SAEE Evidence Adequacy Mapping",
+          "Add OpenTelemetry-to-SAEE resource event mapping"
+        ],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [
+          "One allowlisted closed synthetic event shape maps deterministically to candidate evidence.",
+          "Mapped candidates can be routed into the existing Evidence Adequacy evaluator."
+        ],
+        "non_claims": [
+          "This is not OTLP ingestion.",
+          "This is not OpenTelemetry Collector compatibility or semantic-convention compliance.",
+          "This does not verify telemetry authenticity, identity binding or delegation binding.",
+          "A trace is not automatically evidence."
+        ]
+      },
+      {
+        "capability_id": "saee.general_trace_normalization",
+        "name": "General Agent Trace Normalization",
+        "description": "Normalize bounded sanitized trace bundles and selected synthetic candidate fields; full OpenTelemetry trace normalization is absent.",
+        "implementation_status": "partial",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": "saee_backend/observed_trace_adapter.py",
+        "canonical_entrypoint": "python3 scripts/saee_agent_cli.py evaluate-traces --input agent-interface/examples/observed-trace-bundle.json",
+        "interfaces": [
+          {
+            "interface_type": "cli",
+            "path": "scripts/saee_agent_cli.py",
+            "tool_name": "evaluate-traces",
+            "endpoint": null,
+            "audience": "internal",
+            "role": "canonical",
+            "stability": "experimental",
+            "replacement": null
+          }
+        ],
+        "aliases": [],
+        "implementation_evidence": [
+          "saee_backend/observed_trace_adapter.py",
+          "saee_backend/services/otel_candidate_mapping.py"
+        ],
+        "test_evidence": [
+          "scripts/saee_agent_interface_smoke.py",
+          "scripts/saee_otel_candidate_mapping_smoke.py"
+        ],
+        "documentation": ["reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": {
+          "implemented": [
+            "sanitized observed-trace bundle evaluation",
+            "allowlisted synthetic OpenTelemetry-style candidate fields"
+          ],
+          "missing": [
+            "span hierarchy and links",
+            "resource and scope normalization",
+            "sampling and clock semantics",
+            "current GenAI semantic conventions"
+          ]
+        },
+        "claims": ["Bounded repository-defined trace inputs can be normalized for local evaluation."],
+        "non_claims": ["General OpenTelemetry or arbitrary Agent trace normalization is not implemented."]
+      },
+      {
+        "capability_id": "saee.otel_sdk_or_otlp_ingestion",
+        "name": "OTLP Ingestion",
+        "description": "Receive real OpenTelemetry Protocol traffic through SDK, Collector, OTLP/gRPC or OTLP/HTTP integration.",
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": null,
+        "canonical_entrypoint": null,
+        "interfaces": [],
+        "aliases": ["real_otlp_ingestion"],
+        "implementation_evidence": [],
+        "test_evidence": [],
+        "documentation": ["reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [],
+        "non_claims": ["No OpenTelemetry SDK, Collector, OTLP/gRPC or OTLP/HTTP receiver is implemented."]
+      },
+      {
+        "capability_id": "saee.trusted_trace_to_evidence_conversion",
+        "name": "Trusted Trace to Evidence Conversion",
+        "description": "Convert an authenticated trace into trusted evidence with provenance and integrity authority.",
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": null,
+        "canonical_entrypoint": null,
+        "interfaces": [],
+        "aliases": [],
+        "implementation_evidence": [],
+        "test_evidence": [],
+        "documentation": ["reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [],
+        "non_claims": ["Candidate extraction does not authenticate a trace or elevate it into trusted evidence."]
+      },
+      {
+        "capability_id": "saee.external_identity_binding",
+        "name": "External Agent Identity Binding",
+        "description": "Bind externally authenticated Agent identity to trace, evidence and evaluation lineage.",
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": null,
+        "canonical_entrypoint": null,
+        "interfaces": [],
+        "aliases": [],
+        "implementation_evidence": [],
+        "test_evidence": [],
+        "documentation": ["reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [],
+        "non_claims": ["Caller-declared agent identifiers are not externally authenticated identity binding."]
+      },
+      {
+        "capability_id": "saee.delegation_binding",
+        "name": "Delegation Binding",
+        "description": "Bind a verifiable delegation chain, scope and expiry to trace and evidence lineage.",
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental",
+        "canonical_implementation": null,
+        "canonical_entrypoint": null,
+        "interfaces": [],
+        "aliases": [],
+        "implementation_evidence": [],
+        "test_evidence": [],
+        "documentation": ["reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md"],
+        "supersedes": [],
+        "superseded_by": [],
+        "deprecation": {
+          "reason": null,
+          "replacement": null,
+          "migration_guidance": null,
+          "removal_criteria": null,
+          "usage_evidence": "UNKNOWN"
+        },
+        "partial_scope": null,
+        "claims": [],
+        "non_claims": ["Synthetic delegation fields are not a signed end-to-end delegation chain."]
+      }
+    ],
+    "mcp_surfaces": [
+      {
+        "surface_id": "saee.agent_readiness_mcp_stdio",
+        "implementation_path": "scripts/saee_agent_readiness_mcp_stdio.py",
+        "start_command": "python3 scripts/saee_agent_readiness_mcp_stdio.py",
+        "tools": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+        "intended_users": "external Agents and platform-neutral local integrations",
+        "public_contract": true,
+        "publicly_deployed": false,
+        "documented_as_recommended": true,
+        "test_evidence": ["scripts/saee_qoder_adapter_smoke.py"],
+        "shared_implementation": "saee_backend/services/qianfan_readiness_mcp_adapter.py",
+        "wrapper_only": true,
+        "classification": "canonical_public",
+        "stability": "alpha",
+        "replacement": null,
+        "migration_guidance": "Use the repository .mcp.json configuration or start this command directly for new local integrations.",
+        "removal_criteria": "Not eligible for removal while it is the canonical local public-contract entry.",
+        "usage_evidence": "UNKNOWN"
+      },
+      {
+        "surface_id": "saee.qianfan_readiness_mcp_stdio",
+        "implementation_path": "scripts/saee_qianfan_readiness_mcp_stdio.py",
+        "start_command": "python3 scripts/saee_qianfan_readiness_mcp_stdio.py",
+        "tools": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+        "intended_users": "Qianfan-specific local integration and compatibility flows",
+        "public_contract": false,
+        "publicly_deployed": false,
+        "documented_as_recommended": true,
+        "test_evidence": ["scripts/saee_qianfan_readiness_mcp_smoke.py"],
+        "shared_implementation": "saee_backend/services/qianfan_readiness_mcp_adapter.py",
+        "wrapper_only": true,
+        "classification": "compatibility",
+        "stability": "alpha",
+        "replacement": "saee.agent_readiness_mcp_stdio",
+        "migration_guidance": "Platform-neutral consumers should move to scripts/saee_agent_readiness_mcp_stdio.py; Qianfan-specific callers may retain this wrapper during the compatibility cycle.",
+        "removal_criteria": "Known Qianfan callers are migrated and real usage evidence confirms no remaining dependency.",
+        "usage_evidence": "UNKNOWN"
+      },
+      {
+        "surface_id": "saee.capability_package_mcp_stdio",
+        "implementation_path": "scripts/saee_capability_mcp_stdio.py",
+        "start_command": "python3 scripts/saee_capability_mcp_stdio.py",
+        "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+        "intended_users": "internal Capability Package development and compatibility tests",
+        "public_contract": false,
+        "publicly_deployed": false,
+        "documented_as_recommended": true,
+        "test_evidence": ["scripts/saee_capability_mcp_adapter_smoke.py"],
+        "shared_implementation": "saee_backend/services/capability_mcp_adapter.py",
+        "wrapper_only": true,
+        "classification": "internal",
+        "stability": "alpha",
+        "replacement": "saee.agent_readiness_mcp_stdio",
+        "migration_guidance": "External callers should use the namespaced two-tool readiness surface. Keep this adapter for package-runtime tests and contract-only rehearsal discovery.",
+        "removal_criteria": "Internal package consumers are migrated and the contract-only rehearsal exposure has a separately approved disposition.",
+        "usage_evidence": "UNKNOWN"
+      },
+      {
+        "surface_id": "saee.legacy_observed_trace_mcp_stdio",
+        "implementation_path": "scripts/saee_mcp_stdio.py",
+        "start_command": "python3 scripts/saee_mcp_stdio.py",
+        "tools": ["describe_saee", "compare_observed_traces"],
+        "intended_users": "internal legacy observed-trace and descriptor evaluation workflows",
+        "public_contract": false,
+        "publicly_deployed": false,
+        "documented_as_recommended": true,
+        "test_evidence": ["scripts/saee_mcp_stdio_smoke.py"],
+        "shared_implementation": null,
+        "wrapper_only": false,
+        "classification": "internal",
+        "stability": "legacy_alpha",
+        "replacement": null,
+        "migration_guidance": "Do not treat this surface as the public readiness product. Existing observed-trace callers may retain it until a separately reviewed equivalent route exists.",
+        "removal_criteria": "All callers are identified, equivalent functionality is mapped where appropriate, documentation is migrated and usage evidence supports removal.",
+        "usage_evidence": "UNKNOWN"
+      }
+    ],
+    "truth_boundary": {
+      "inventory_is_runtime_service": false,
+      "public_mcp_endpoint_available": false,
+      "external_mcp_interoperability_validated": false,
+      "customer_validated": false,
+      "production_ready": false
+    }
+  },
   "package_stage": "local_contract_alpha",
   "default_language": "zh-CN",
   "files": {

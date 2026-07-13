@@ -1586,6 +1586,89 @@
     "tenant_authorization_enabled": false,
     "tenant_authorization_policy_reviewed": false
   },
+  "capability_progress_ledger_v1": {
+    "agent_start_file": "AGENTS.md",
+    "assessment_base_commit": "00d8d0467",
+    "assessment_report": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md",
+    "canonical_source": "capability-package/manifest.json#canonical_inventory",
+    "capability_status_projection": {
+      "saee.delegation_binding": {
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental"
+      },
+      "saee.evaluate_agent_run": {
+        "implementation_status": "implemented",
+        "lifecycle_status": "active"
+      },
+      "saee.evaluate_evidence": {
+        "implementation_status": "implemented",
+        "lifecycle_status": "active"
+      },
+      "saee.external_identity_binding": {
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental"
+      },
+      "saee.general_trace_normalization": {
+        "implementation_status": "partial",
+        "lifecycle_status": "experimental"
+      },
+      "saee.otel_sdk_or_otlp_ingestion": {
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental"
+      },
+      "saee.otel_style_candidate_mapping": {
+        "implementation_status": "implemented",
+        "lifecycle_status": "experimental"
+      },
+      "saee.rehearse_agent": {
+        "implementation_status": "design_only",
+        "lifecycle_status": "experimental"
+      },
+      "saee.trusted_trace_to_evidence_conversion": {
+        "implementation_status": "missing",
+        "lifecycle_status": "experimental"
+      }
+    },
+    "completed_governance_change": "Canonical Capability Inventory, Routing and Deprecation Map v1",
+    "duplicate_build_prevention": true,
+    "ledger_updated": "2026-07-13",
+    "mandatory_duplicate_check": [
+      "agent-index.json",
+      "llms.txt",
+      "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md",
+      "relevant schemas",
+      "relevant services",
+      "relevant examples",
+      "relevant smoke tests"
+    ],
+    "mandatory_sync_surfaces": [
+      "AGENTS.md when startup-critical",
+      "agent-index.json",
+      "llms.txt",
+      "affected contracts and tests",
+      "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md when conclusions change"
+    ],
+    "recommendation_gate": "docs/strategy/SAEE_CAPABILITY_PROGRESS_LEDGER_RECOMMENDATION_GATE.md",
+    "roadmap_policy": {
+      "capability_facts_authority": "capability-package/manifest.json#canonical_inventory",
+      "recommended_next_pr_field": "deprecated_compatibility_only",
+      "replacement": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs",
+      "roadmap_authority": false
+    },
+    "smoke_command": "python3 scripts/saee_capability_progress_ledger_smoke.py",
+    "status": "active_canonical_machine_ledger",
+    "superseded_active_next_pr_instructions": [
+      "Add OpenTelemetry-to-SAEE Evidence Adequacy Mapping",
+      "Add OpenTelemetry-to-SAEE resource event mapping"
+    ],
+    "truth_boundary": {
+      "customer_validated": false,
+      "external_integration_validated": false,
+      "product_launched": false,
+      "production_ready": false,
+      "public_service": false
+    }
+  },
   "cloud_ecosystem_strategy_v1": {
     "asset_audit": "docs/ecosystem/SAEE_CLOUD_ECOSYSTEM_ASSET_AUDIT.md",
     "cloud_ecosystem_strategy": true,
@@ -22606,10 +22689,14 @@
     "profile_version": "0.1.0",
     "purpose": "Evaluate whether closed synthetic evidence packages satisfy file-backed field and semantic relationship requirements for defined accountability claim profiles without elevating profile satisfaction into real-world proof.",
     "recommendation_gate": "docs/strategy/SAEE_EVIDENCE_ADEQUACY_PROFILE_RECOMMENDATION_GATE.md",
-    "recommended_next_pr": "Add OpenTelemetry-to-SAEE Evidence Adequacy Mapping",
+    "recommended_next_pr": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs",
+    "recommended_next_pr_migration": "Use the assessment or roadmap; this compatibility field is not capability authority.",
+    "recommended_next_pr_status": "deprecated_compatibility_only",
     "smoke_command": "python3 scripts/saee_evidence_adequacy_smoke.py",
     "status": "implemented_local_offline_synthetic_profile_evaluation_only",
-    "subprocess_started": false
+    "subprocess_started": false,
+    "superseded_reason": "Implemented by otel_candidate_evidence_mapping_v0_1; do not rebuild.",
+    "superseded_recommended_next_pr": "Add OpenTelemetry-to-SAEE Evidence Adequacy Mapping"
   },
   "evolution_loop": [
     "Global Sensing",
@@ -23813,7 +23900,9 @@
     "purpose": "Bind a requested external resource, canonical resolved URI, declared publisher identity and verification method, bounded synthetic content digest, authorization decision, non-execution sandbox, and effect boundary into one offline-verifiable receipt.",
     "receipt_type": "external_resource_resolution",
     "recommendation_gate": "docs/strategy/SAEE_RESOURCE_RESOLUTION_RECEIPT_RECOMMENDATION_GATE.md",
-    "recommended_next_pr": "Add OpenTelemetry-to-SAEE resource event mapping",
+    "recommended_next_pr": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs",
+    "recommended_next_pr_migration": "Use the assessment or roadmap; this compatibility field is not capability authority.",
+    "recommended_next_pr_status": "deprecated_compatibility_only",
     "resource_imported": false,
     "sandbox_execution_performed": false,
     "schema": "agent-interface/schemas/resource-resolution-receipt.schema.json",
@@ -23827,6 +23916,8 @@
     ],
     "status": "implemented_local_offline_synthetic_only",
     "subprocess_started": false,
+    "superseded_reason": "Implemented by otel_candidate_evidence_mapping_v0_1; do not rebuild.",
+    "superseded_recommended_next_pr": "Add OpenTelemetry-to-SAEE resource event mapping",
     "supply_chain_verified": false,
     "uri_dereferenced": false,
     "validator_service": "saee_backend/services/resource_resolution_receipt.py"
@@ -27697,6 +27788,8 @@
     "candidate_code_executed": false,
     "cli_command": "python3 scripts/saee_agent_cli.py evaluate-trace-candidate --profile RESOURCE_AUTHENTICITY --input agent-interface/examples/otel-mapping/trace_candidate_resource_retrieval.json",
     "customer_validated": false,
+    "deferred_reason": "Canonical inventory, routing and duplicate prevention must precede another standards mapping.",
+    "deferred_recommended_next_pr": "IETF Agent Receipt Compatibility Mapping",
     "deterministic_runs": "15/15",
     "documentation": "docs/OTEL_CANDIDATE_EVIDENCE_MAPPING.md",
     "evidence_adequacy_connected": true,
@@ -27715,7 +27808,9 @@
     "production_ready": false,
     "purpose": "Extract non-authoritative candidate fields from closed synthetic OpenTelemetry-style observations and route them into SAEE Evidence Adequacy evaluation without treating traces as evidence.",
     "recommendation_gate": "docs/strategy/SAEE_OTEL_CANDIDATE_EVIDENCE_MAPPING_RECOMMENDATION_GATE.md",
-    "recommended_next_pr": "IETF Agent Receipt Compatibility Mapping",
+    "recommended_next_pr": "reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs",
+    "recommended_next_pr_migration": "Use the assessment or roadmap; this compatibility field is not capability authority.",
+    "recommended_next_pr_status": "deprecated_compatibility_only",
     "schema": "agent-interface/schemas/otel-candidate-evidence-mapping.schema.json",
     "schema_version": "0.1.0",
     "smoke_command": "python3 scripts/saee_otel_candidate_mapping_smoke.py",

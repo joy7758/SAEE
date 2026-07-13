@@ -1,5 +1,11 @@
 # SAEE MCP stdio Adapter
 
+> Routing status: this document describes the internal legacy observed-trace
+> surface. New local external-Agent integrations use `.mcp.json` and
+> `python3 scripts/saee_agent_readiness_mcp_stdio.py`. Canonical classification
+> and migration rules are in `docs/CAPABILITY_INVENTORY.md` and
+> `capability-package/manifest.json#canonical_inventory`.
+
 启动命令 / Start command:
 
 ```bash

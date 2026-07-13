@@ -6,15 +6,12 @@ import json
 from pathlib import Path
 from typing import Any
 
+from .canonical_capability_inventory import get_capability
+
 
 ROOT = Path(__file__).resolve().parents[3]
 PACKAGE = ROOT / "capability-package"
 CAPABILITY_ID = "saee.agent-reliability"
-EXPECTED_OPERATIONS = {
-    "evaluate_agent_run": "implemented_local_offline_alpha",
-    "evaluate_evidence": "implemented_local_offline_prototype",
-    "rehearse_agent": "contract_only",
-}
 
 
 class CapabilityPackageError(ValueError):
@@ -43,16 +40,21 @@ def load_capability_registry() -> dict[str, Any]:
         item.get("operation_id"): item.get("implementation_status") for item in card.get("capabilities", [])
     }
     mcp_operations = {item.get("name") for item in mcp.get("tools", [])}
-    if manifest_operations != EXPECTED_OPERATIONS:
+    if not manifest_operations or None in manifest_operations:
         raise CapabilityPackageError("CAPABILITY_PACKAGE_OPERATION_DRIFT")
-    expected_card = dict(EXPECTED_OPERATIONS)
-    expected_card["rehearse_agent"] = "contract_only"
-    if card_operations != expected_card or mcp_operations != set(EXPECTED_OPERATIONS):
+    for operation_id, compatibility_status in manifest_operations.items():
+        canonical = get_capability(f"saee.{operation_id}")
+        canonical_status = canonical["implementation_status"]
+        if canonical_status == "implemented" and not str(compatibility_status).startswith("implemented_"):
+            raise CapabilityPackageError("CAPABILITY_PACKAGE_OPERATION_STATUS_DRIFT")
+        if canonical_status == "design_only" and compatibility_status != "contract_only":
+            raise CapabilityPackageError("CAPABILITY_PACKAGE_OPERATION_STATUS_DRIFT")
+    if card_operations != manifest_operations or mcp_operations != set(manifest_operations):
         raise CapabilityPackageError("CAPABILITY_PACKAGE_SURFACE_DRIFT")
     return {
         "capability_id": CAPABILITY_ID,
         "runtime_stage": "local_alpha",
-        "operations": dict(EXPECTED_OPERATIONS),
+        "operations": dict(manifest_operations),
         "package_operations_verified": True,
         "hidden_operations": [],
         "network_api_available": False,
@@ -60,4 +62,3 @@ def load_capability_registry() -> dict[str, Any]:
         "standard_mcp_transport": False,
         "production_ready": False,
     }
-

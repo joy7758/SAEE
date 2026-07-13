@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-canonical-capability-inventory.schema.v1.json",
+  "title": "SAEE Canonical Capability Inventory v1",
+  "description": "Schema for capability-package/manifest.json#canonical_inventory. It defines repository-local capability facts and routing without authorizing deployment or external execution.",
+  "type": "object",
+  "required": ["canonical_inventory"],
+  "properties": {
+    "canonical_inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "schema",
+        "source_role",
+        "roadmap_fields_allowed",
+        "roadmap_reference",
+        "capabilities",
+        "mcp_surfaces",
+        "truth_boundary"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "schema": {"const": "schemas/saee-canonical-capability-inventory.schema.v1.json"},
+        "source_role": {"const": "sole_canonical_capability_fact_source"},
+        "roadmap_fields_allowed": {"const": false},
+        "roadmap_reference": {"type": "string", "pattern": "^reports/"},
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/capability"}
+        },
+        "mcp_surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/mcp_surface"}
+        },
+        "truth_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "inventory_is_runtime_service",
+            "public_mcp_endpoint_available",
+            "external_mcp_interoperability_validated",
+            "customer_validated",
+            "production_ready"
+          ],
+          "properties": {
+            "inventory_is_runtime_service": {"const": false},
+            "public_mcp_endpoint_available": {"const": false},
+            "external_mcp_interoperability_validated": {"const": false},
+            "customer_validated": {"const": false},
+            "production_ready": {"const": false}
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "repo_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+    },
+    "nullable_repo_path": {
+      "oneOf": [{"$ref": "#/$defs/repo_path"}, {"type": "null"}]
+    },
+    "interface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "interface_type",
+        "path",
+        "tool_name",
+        "endpoint",
+        "audience",
+        "role",
+        "stability",
+        "replacement"
+      ],
+      "properties": {
+        "interface_type": {"enum": ["mcp", "cli", "http", "python"]},
+        "path": {"$ref": "#/$defs/repo_path"},
+        "tool_name": {"type": ["string", "null"]},
+        "endpoint": {"type": ["string", "null"]},
+        "audience": {"enum": ["public", "integration", "internal", "test"]},
+        "role": {"enum": ["canonical", "compatibility", "experimental", "internal", "test_only", "deprecated"]},
+        "stability": {"type": "string", "minLength": 1},
+        "replacement": {"type": ["string", "null"]}
+      }
+    },
+    "deprecation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "replacement", "migration_guidance", "removal_criteria", "usage_evidence"],
+      "properties": {
+        "reason": {"type": ["string", "null"]},
+        "replacement": {"type": ["string", "null"]},
+        "migration_guidance": {"type": ["string", "null"]},
+        "removal_criteria": {"type": ["string", "null"]},
+        "usage_evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "partial_scope": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["implemented", "missing"],
+          "properties": {
+            "implemented": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+            "missing": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+          }
+        }
+      ]
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capability_id",
+        "name",
+        "description",
+        "implementation_status",
+        "lifecycle_status",
+        "canonical_implementation",
+        "canonical_entrypoint",
+        "interfaces",
+        "aliases",
+        "implementation_evidence",
+        "test_evidence",
+        "documentation",
+        "supersedes",
+        "superseded_by",
+        "deprecation",
+        "partial_scope",
+        "claims",
+        "non_claims"
+      ],
+      "properties": {
+        "capability_id": {"type": "string", "pattern": "^saee\\.[a-z0-9_.-]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "implementation_status": {"enum": ["implemented", "partial", "design_only", "missing"]},
+        "lifecycle_status": {"enum": ["active", "experimental", "deprecated", "retired"]},
+        "canonical_implementation": {"$ref": "#/$defs/nullable_repo_path"},
+        "canonical_entrypoint": {"type": ["string", "null"]},
+        "interfaces": {"type": "array", "items": {"$ref": "#/$defs/interface"}},
+        "aliases": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "implementation_evidence": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/repo_path"}},
+        "test_evidence": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/repo_path"}},
+        "documentation": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/repo_path"}},
+        "supersedes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "superseded_by": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "deprecation": {"$ref": "#/$defs/deprecation"},
+        "partial_scope": {"$ref": "#/$defs/partial_scope"},
+        "claims": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "non_claims": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "mcp_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface_id",
+        "implementation_path",
+        "start_command",
+        "tools",
+        "intended_users",
+        "public_contract",
+        "publicly_deployed",
+        "documented_as_recommended",
+        "test_evidence",
+        "shared_implementation",
+        "wrapper_only",
+        "classification",
+        "stability",
+        "replacement",
+        "migration_guidance",
+        "removal_criteria",
+        "usage_evidence"
+      ],
+      "properties": {
+        "surface_id": {"type": "string", "pattern": "^saee\\.[a-z0-9_.-]+$"},
+        "implementation_path": {"$ref": "#/$defs/repo_path"},
+        "start_command": {"type": "string", "minLength": 1},
+        "tools": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "intended_users": {"type": "string", "minLength": 1},
+        "public_contract": {"type": "boolean"},
+        "publicly_deployed": {"const": false},
+        "documented_as_recommended": {"type": "boolean"},
+        "test_evidence": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/repo_path"}},
+        "shared_implementation": {"$ref": "#/$defs/nullable_repo_path"},
+        "wrapper_only": {"type": "boolean"},
+        "classification": {"enum": ["canonical_public", "compatibility", "internal", "experimental", "test_only", "deprecated", "UNKNOWN"]},
+        "stability": {"type": "string", "minLength": 1},
+        "replacement": {"type": ["string", "null"]},
+        "migration_guidance": {"type": "string", "minLength": 1},
+        "removal_criteria": {"type": "string", "minLength": 1},
+        "usage_evidence": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

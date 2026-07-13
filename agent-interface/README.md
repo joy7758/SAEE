@@ -291,6 +291,11 @@ Commercial Review Report Prototype, not real Adapter integration. See
 
 Connect through fixed MCP stdio tools:
 
+The following command is the internal legacy observed-trace surface, not the
+canonical public readiness entry. New local integrations use `.mcp.json` and
+`python3 scripts/saee_agent_readiness_mcp_stdio.py`; see
+`docs/CAPABILITY_INVENTORY.md`.
+
 ```bash
 python3 scripts/saee_mcp_stdio.py
 ```
