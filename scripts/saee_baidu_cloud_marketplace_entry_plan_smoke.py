@@ -23,7 +23,7 @@ def main() -> None:
     gate = GATE.read_text(encoding="utf-8")
     matrix = MATRIX.read_text(encoding="utf-8")
     require(plan["external_brand"]["name"] == "SAEE Agent Readiness Platform", "brand")
-    require(plan["status"] == "phases_0_to_4_partner_consultation_submitted_public_release_withheld", "plan status")
+    require(plan["status"] == "phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld", "plan status")
     require(plan["public_operations_target"] == ["evaluate_agent_run", "evaluate_evidence"], "public operation target")
     require(plan["direct_marketplace_qualification"] == {
         "decision": "do_not_recommend_currently",
@@ -51,7 +51,7 @@ def main() -> None:
     }, "public demo site source")
     require(set(plan["internal_debug_operations"]) == {"describe_saee", "compare_observed_traces"}, "debug operation classification")
     require([item["phase"] for item in plan["phases"]] == ["PHASE_0", "PHASE_1", "PHASE_2", "PHASE_3", "PHASE_4"], "phase ladder")
-    require(plan["phases"][-1]["status"] == "partner_consultation_submitted_waiting_response", "phase 4 status")
+    require(plan["phases"][-1]["status"] == "partner_consultation_and_qianfan_technical_ticket_submitted_waiting_response", "phase 4 status")
     blockers = set(plan["current_blockers"])
     require("qianfan_real_provider_product_roundtrip_missing" not in blockers, "stale Qianfan blocker")
     require("external_authorization_missing" not in blockers, "stale authorization blocker")
@@ -59,6 +59,7 @@ def main() -> None:
         "public_license_tag_push_and_github_release_withheld",
         "qianfan_community_and_technical_article_publication_not_authorized",
         "baidu_partner_response_pending",
+        "qianfan_agent_technical_ticket_response_pending",
     }.issubset(blockers), "current blockers")
     boundary = plan["truth_boundary"]
     for key in (
@@ -72,6 +73,8 @@ def main() -> None:
         "external_action_authorized",
         "baidu_partner_contacted",
         "baidu_ecosystem_application_submitted",
+        "qianfan_agent_technical_ticket_submitted",
+        "qianfan_agent_technical_ticket_engineer_acknowledged",
     ):
         require(boundary[key] is True, key)
     for key in (
@@ -82,6 +85,7 @@ def main() -> None:
         "public_price_points_approved",
         "customer_validated",
         "production_ready",
+        "qianfan_agent_technical_conversation_completed",
     ):
         require(boundary[key] is False, key)
     require(boundary["public_demo_site_source_ready"] is True, "public demo source ready")
@@ -92,7 +96,9 @@ def main() -> None:
     require(boundary["qianfan_community_demos_published"] is False, "Qianfan community publication boundary")
     require("answer: conditional" in gate, "conditional recommendation")
     require("audit_first_reframe=false" in gate, "audit boundary")
-    require("overall_status=phases_0_to_4_partner_consultation_submitted_public_release_withheld" in matrix, "truth matrix status")
+    require("overall_status=phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld" in matrix, "truth matrix status")
+    require("qianfan_agent_technical_ticket_submitted=true" in matrix, "technical ticket truth")
+    require("qianfan_agent_technical_conversation_completed=false" in matrix, "technical conversation boundary")
     require("marketplace_submission=false" in matrix and "production_ready=false" in matrix, "matrix false boundaries")
     print(
         "SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_PLAN_SMOKE: PASS "

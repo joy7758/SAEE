@@ -44,7 +44,7 @@ recommendation_gate:
       subsystem: Pareto Fitness Evaluation
       fix_task: collect two technical-conversation records, one ecosystem presentation, three consented external developer tests, one Design Partner, and one bounded joint-solution draft
       acceptance_criteria: external receipts exist and do not infer partnership, adoption, official integration, or production readiness
-      status: open_external_qoder_business_handoff_pending_contact
+      status: open_external_qianfan_technical_ticket_in_progress_qoder_business_handoff_pending
   final_decision: Continue local productization and compatibility preparation; do not claim Qoder Plugin, official integration, adoption, marketplace entry, or production readiness.
   evidence:
     docs:
@@ -64,6 +64,7 @@ recommendation_gate:
       - agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json
       - agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json
       - agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json
+      - agent-interface/ecosystem/saee-baidu-qianfan-agent-technical-ticket-submission-receipt.v1.json
 ```
 
 ## Required evolution design check

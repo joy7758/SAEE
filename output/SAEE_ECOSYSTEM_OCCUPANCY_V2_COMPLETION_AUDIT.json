@@ -162,9 +162,10 @@
         "agent-interface/ecosystem/saee-qoder-technical-conversation-request-email-receipt.v1.json",
         "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
         "agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json",
-        "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
+        "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json",
+        "agent-interface/ecosystem/saee-baidu-qianfan-agent-technical-ticket-submission-receipt.v1.json"
       ],
-      "note": "completed=0/2; in_progress=0; business_handoff_pending=1; Qoder CN support declared the request outside support scope and forwarded it to business, so no active or completed technical conversation is inferred."
+      "note": "completed=0/2; in_progress=1; business_handoff_pending=1; Baidu Qianfan ticket 20260713170942316 is processing and acknowledged by an engineer, while Qoder is pending business contact. Neither is inferred complete."
     },
     {
       "requirement_id": "R16",

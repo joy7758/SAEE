@@ -52,6 +52,7 @@
     "alibaba_qoder_technical_ticket_receipt": "agent-interface/ecosystem/saee-alibaba-qoder-technical-consultation-ticket-receipt.v1.json",
     "alibaba_qoder_official_support_ticket_receipt": "agent-interface/ecosystem/saee-alibaba-qoder-official-support-ticket-submission-receipt.v1.json",
     "baidu_qianfan_partner_consultation_receipt": "agent-interface/ecosystem/saee-baidu-partner-consultation-submission-receipt.v1.json",
+    "baidu_qianfan_agent_technical_ticket_receipt": "agent-interface/ecosystem/saee-baidu-qianfan-agent-technical-ticket-submission-receipt.v1.json",
     "baidu_qianfan_technical_conversation_email_receipt": "agent-interface/ecosystem/saee-baidu-qianfan-technical-conversation-request-email-receipt.v1.json"
   },
   "kpis": {
@@ -65,9 +66,9 @@
     "ecosystem": {
       "cloud_vendor_technical_conversation_target": 2,
       "cloud_vendor_technical_conversation_completed": 0,
-      "cloud_vendor_technical_conversation_in_progress": 0,
+      "cloud_vendor_technical_conversation_in_progress": 1,
       "cloud_vendor_business_handoff_pending": 1,
-      "technical_conversation_request_events_submitted": 4,
+      "technical_conversation_request_events_submitted": 5,
       "technical_conversation_distinct_vendor_targets": 2,
       "owned_public_demo_accessible": true,
       "external_ecosystem_presentation_target": 1,
@@ -94,6 +95,7 @@
     "alibaba_marketplace_product_listed": false,
     "baidu_partner_consultation": "official_form_submitted_twice_and_partner_email_sent_waiting_response",
     "baidu_partner_consultation_submission_event_count": 2,
+    "baidu_qianfan_agent_technical_ticket": "processing_20260713170942316_engineer_acknowledged",
     "baidu_qianfan_technical_conversation_request_email": "sent_waiting_response",
     "qoder_global_partner_application": "submitted_waiting_review",
     "qoder_cli_installation_preflight": "ready_pending_explicit_install_and_login_authorization",

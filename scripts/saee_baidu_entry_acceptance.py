@@ -36,7 +36,7 @@ def main() -> None:
         raise SystemExit("SAEE_BAIDU_ENTRY_ACCEPTANCE: FAIL external authorization boundary")
     report = {
         "acceptance_id": "saee-baidu-entry-local-v1",
-        "status": "phases_0_to_4_partner_consultation_submitted_public_release_withheld",
+        "status": "phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld",
         "checks": receipts,
         "truth_boundary": {
             "real_qianfan_product_roundtrip": True,
@@ -50,6 +50,9 @@ def main() -> None:
             "external_action_authorization_scope_limited": True,
             "qianfan_partner_consultation_submitted": True,
             "baidu_partner_contacted": True,
+            "qianfan_agent_technical_ticket_submitted": True,
+            "qianfan_agent_technical_ticket_engineer_acknowledged": True,
+            "qianfan_agent_technical_conversation_completed": False,
         },
     }
     output = ROOT / "output/SAEE_BAIDU_ENTRY_LOCAL_ACCEPTANCE_V1.json"

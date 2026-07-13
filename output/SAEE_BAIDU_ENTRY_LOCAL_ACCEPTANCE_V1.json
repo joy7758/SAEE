@@ -1,0 +1,61 @@
+{
+  "acceptance_id": "saee-baidu-entry-local-v1",
+  "status": "phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld",
+  "checks": [
+    {
+      "command": "scripts/saee_baidu_cloud_marketplace_entry_plan_smoke.py",
+      "result": "SAEE_BAIDU_CLOUD_MARKETPLACE_ENTRY_PLAN_SMOKE: PASS phases=5 local_phases_complete=4 public_operations_target=2 recommendation=conditional real_qianfan_synthetic_scenarios=2 partner_consultation_submitted=true external_action_authorized=true_scope_limited marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_qianfan_readiness_mcp_smoke.py",
+      "result": "SAEE_QIANFAN_READINESS_MCP_SMOKE: PASS tools=2 demos=3 customer_readiness=conditional coding_readiness=replan evidence_quality=PARTIAL invalid_cases=3 deterministic_runs=5/5 network=false external_execution=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_qianfan_readiness_host_smoke.py",
+      "result": "SAEE_QIANFAN_READINESS_HOST_SMOKE: PASS provider_simulations=2 provider_rounds=4 mcp_tools=2 alias_crosswalk=2 negative_cases=2 external_provider_network=false external_world_actions=0 marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_qianfan_readiness_live_receipt_smoke.py",
+      "result": "SAEE_QIANFAN_LIVE_RECEIPT_SMOKE: PASS live_scenarios=2 provider_rounds=4 external_world_actions=0 official_qianfan_integration=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_baidu_partner_consultation_application_smoke.py",
+      "result": "SAEE_BAIDU_PARTNER_APPLICATION_SMOKE: PASS contract_valid=true ready_for_submission=false repository_personal_data=false submitted=true acknowledgement=redirect_no_backend_id marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_baidu_publication_package_smoke.py",
+      "result": "SAEE_BAIDU_PUBLICATION_PACKAGE_SMOKE: PASS demos=3 site_source_ready=true site_machine_assets=6 article_draft=true public_demos_published=false technical_article_published=false marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_baidu_partner_response_tracker_smoke.py",
+      "result": "SAEE_BAIDU_PARTNER_RESPONSE_TRACKER_SMOKE: PASS status=waiting_for_initial_baidu_response transitions=4 response_received=false follow_up_authorized=false marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_cloud_entry_package_smoke.py",
+      "result": "SAEE_CLOUD_ENTRY_PACKAGE_SMOKE: PASS files=29 public_tools=2 demos=3 cli_paths=3 images=3 whitepaper_pages=10 video_seconds=180.021 video_scenes=9 deterministic_runs=5/5 release_candidate=true github_release=false provider_credentials=false network=false cloud_upload=false marketplace_submission=false production_ready=false"
+    },
+    {
+      "command": "scripts/saee_public_baseline_audit.py",
+      "result": "SAEE_PUBLIC_BASELINE_AUDIT: PASS candidate_files=93 candidate_bytes=4257107 git_head_exists=true root_license_present=false high_confidence_secret_findings=0 files_staged=false"
+    },
+    {
+      "command": "scripts/saee_baidu_goal_completion_audit.py",
+      "result": "SAEE_BAIDU_GOAL_COMPLETION_AUDIT: PASS audited=16 proven_complete=11 incomplete=5 goal_complete=false"
+    }
+  ],
+  "truth_boundary": {
+    "real_qianfan_product_roundtrip": true,
+    "qianfan_live_synthetic_scenario_count": 2,
+    "github_release_created": false,
+    "baidu_partner_contacted": true,
+    "marketplace_submission": false,
+    "customer_validated": false,
+    "production_ready": false,
+    "external_action_authorized": true,
+    "external_action_authorization_scope_limited": true,
+    "qianfan_partner_consultation_submitted": true,
+    "qianfan_agent_technical_ticket_submitted": true,
+    "qianfan_agent_technical_ticket_engineer_acknowledged": true,
+    "qianfan_agent_technical_conversation_completed": false
+  }
+}

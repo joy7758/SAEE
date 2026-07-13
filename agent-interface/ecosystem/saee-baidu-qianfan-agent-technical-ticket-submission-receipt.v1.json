@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.baidu-qianfan-agent.technical-ticket-submission-receipt.v1",
+  "provider": "Baidu AI Cloud",
+  "ticket_id": "20260713170942316",
+  "submitted_at": "2026-07-13T17:09:42+08:00",
+  "engineer_acknowledged_at": "2026-07-13T17:09:57+08:00",
+  "observed_status": "处理中",
+  "related_product": "百度千帆Agent开发平台",
+  "product_code": "QFAB",
+  "issue_type": "综合咨询",
+  "request": "Obtain a Qianfan technical or ecosystem contact, a third-party read-only MCP Capability validation path, and component-marketplace, partner, or joint-solution entry guidance.",
+  "submitted_boundary_summary": {
+    "public_operations": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+    "read_only_evaluation": true,
+    "local_mcp_protocol_validated": true,
+    "real_qianfan_provider_bounded_synthetic_roundtrip_validated": true,
+    "qianfan_native_mcp_claimed": false,
+    "official_qianfan_integration_claimed": false,
+    "customer_validation_claimed": false,
+    "production_readiness_claimed": false
+  },
+  "browser_observation": {
+    "official_console_authenticated": true,
+    "ticket_detail_view_observed": true,
+    "ticket_id_observed": true,
+    "processing_status_observed": true,
+    "engineer_acknowledgement_observed": true,
+    "engineer_acknowledgement_summary": "The submitted issue was received and is being processed.",
+    "separate_submit_button_click_recorded": false,
+    "submission_transition_observed_after_product_selection": true
+  },
+  "repository_privacy": {
+    "raw_phone_stored": false,
+    "raw_email_stored": false,
+    "account_name_stored": false,
+    "masked_contact_only": true,
+    "credentials_or_tokens_stored": false
+  },
+  "truth_boundary": {
+    "official_qianfan_agent_technical_ticket_submitted": true,
+    "engineer_acknowledgement_received": true,
+    "engineer_acknowledgement_is_completed_technical_conversation": false,
+    "technical_conversation_in_progress": true,
+    "provider_technical_response_received": false,
+    "technical_conversation_scheduled": false,
+    "technical_conversation_completed": false,
+    "official_qianfan_integration": false,
+    "qianfan_capability_entry_approved": false,
+    "joint_solution_confirmed": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

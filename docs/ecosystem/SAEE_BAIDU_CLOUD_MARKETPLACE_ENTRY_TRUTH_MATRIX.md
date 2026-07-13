@@ -18,13 +18,17 @@
 | Git Alpha Release | `main` 本地基线 commit `c0cf49e` 已创建；许可证暂不公开 | `local_commit_complete_public_release_withheld` | 未授权 tag、push 或 GitHub Release |
 | 定价 | 建议价仅来自目标文件 | `human_review_required` | owner 批准价格记录；发布另需授权 |
 | 百度生态合作申请 | 千帆伙伴咨询已使用 owner 提供字段提交；观察到官方成功分支配置的千帆产品页跳转 | `partner_consultation_submitted_redirect_acknowledged` | 脱敏 receipt 已记录；页面未提供 backend submission ID，不等于 Marketplace 入驻 |
+| 千帆 Agent 技术咨询 | 官方工单 `20260713170942316` 已提交并获工程师受理确认 | `technical_ticket_processing` | 等待实质技术答复；处理中不等于技术交流完成、官方集成或合作通过 |
 | 云市场直接入驻 | 7 条资格矩阵：`verified=0`、`partial=1`、`missing=6` | `do_not_recommend_currently` | `saee-baidu-marketplace-qualification-matrix.v1.json`；不把公司年龄、其他云认证、支持 dry run 或千帆咨询等同入驻资质 |
 
 ## 当前阶段结论
 
 ```text
-overall_status=phases_0_to_4_partner_consultation_submitted_public_release_withheld
+overall_status=phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld
 recommendation=conditional
+qianfan_agent_technical_ticket_submitted=true
+qianfan_agent_technical_ticket_engineer_acknowledged=true
+qianfan_agent_technical_conversation_completed=false
 marketplace_submission=false
 marketplace_listed=false
 customer_validated=false
@@ -35,6 +39,6 @@ external_action_authorization_scope_limited=true
 
 ## 下一最小验收
 
-千帆伙伴咨询已提交。下一步等待百度运营经理反馈，并在获得新授权后决定是否
+千帆伙伴咨询与千帆 Agent 技术工单均已提交。下一步等待百度运营经理和技术工程师的实质反馈，并在获得新授权后决定是否
 公开 Demo、技术文章或 GitHub Release。许可证保持暂不公开；tag、push、
 GitHub Release 与公开价格仍未授权，不得执行。

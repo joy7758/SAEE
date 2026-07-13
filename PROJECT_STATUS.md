@@ -60,7 +60,7 @@ Validation: `python3 scripts/saee_multi_cloud_partner_entry_smoke.py`.
 
 ## Baidu Cloud Marketplace Entry Plan v1.0
 
-Status: `phases_0_to_4_partner_consultation_submitted_public_release_withheld`.
+Status: `phases_0_to_4_partner_consultation_and_qianfan_technical_ticket_submitted_public_release_withheld`.
 
 The frozen external brand is `SAEE Agent Readiness Platform`; the first product
 shape is `SAEE Agent Readiness Assessment`. The Baidu-facing public capability
