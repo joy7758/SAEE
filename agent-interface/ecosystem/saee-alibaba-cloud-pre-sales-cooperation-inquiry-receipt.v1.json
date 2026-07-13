@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "receipt_id": "saee.alibaba-cloud.pre-sales-cooperation-inquiry-receipt.v1",
+  "provider": "Alibaba Cloud",
+  "product_context": "Tongyi / Bailian / MCP integration",
+  "official_route": "Alibaba Cloud pre-sales online human service",
+  "official_url": "https://smartservice.console.aliyun.com/pre-sale/chat?entrance=201",
+  "observed_at": "2026-07-13T13:25:33+08:00",
+  "status": "human_pre_sales_session_established_and_cooperation_inquiry_received",
+  "service_reference": "000FLRAZ8R",
+  "sanitization": {
+    "company_identity_stored": false,
+    "contact_identity_stored": false,
+    "email_stored": false,
+    "phone_stored": false,
+    "credentials_stored": false
+  },
+  "truth_boundary": {
+    "pre_sales_human_session_established": true,
+    "product_ecosystem_cooperation_inquiry_submitted": true,
+    "formal_product_partner_application_submitted": false,
+    "aliyun_account_login_completed": false,
+    "enterprise_real_name_verification_completed": false,
+    "provider_approved": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "next_human_gate": "Use an owner-controlled Alibaba Cloud account and complete enterprise real-name verification before any formal product ecosystem partner application."
+}

@@ -36,7 +36,18 @@ def main() -> None:
     require(openai_receipt["truth_boundary"]["openai_partner_interest_submitted"] is True, "OpenAI submission")
     require(all(providers[name]["recommendation"] == "conditional" for name in ("Google Cloud", "Alibaba Cloud", "Tencent Cloud")), "conditional routes")
     require(providers["Google Cloud"]["current_state"] == "blocked_personal_email_domain_rejected", "Google email rejection")
+    alibaba_receipt = json.loads((ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"]).read_text(encoding="utf-8"))
+    require(alibaba_receipt["truth_boundary"]["product_ecosystem_cooperation_inquiry_submitted"] is True, "Alibaba contact inquiry")
+    require(alibaba_receipt["truth_boundary"]["formal_product_partner_application_submitted"] is False, "Alibaba formal application boundary")
+    tencent_handoff = json.loads((ROOT / providers["Tencent Cloud"]["contact_handoff_ref"]).read_text(encoding="utf-8"))
+    require(tencent_handoff["truth_boundary"]["human_slider_captcha_required"] is True, "Tencent CAPTCHA handoff")
+    require(tencent_handoff["truth_boundary"]["business_cooperation_inquiry_submitted"] is False, "Tencent inquiry boundary")
     require(aggregate["submitted_count"] == 2, "submitted count")
+    require(aggregate["partner_or_ecosystem_interest_submission_count"] == 2, "interest submission count")
+    require(aggregate["provider_contact_inquiry_count"] == 1, "contact inquiry count")
+    require(aggregate["acknowledged_external_intake_count"] == 3, "acknowledged intake count")
+    require(aggregate["incomplete_form_handoff_count"] == 1, "handoff count")
+    require(aggregate["formal_partner_application_count"] == 0, "formal application count")
     require(aggregate["blocked_count"] == 3, "blocked count")
     for key in ("provider_approved_count", "marketplace_submission_count", "marketplace_listed_count"):
         require(aggregate[key] == 0, key)
@@ -45,14 +56,22 @@ def main() -> None:
 
     serialized = "\n".join(
         path.read_text(encoding="utf-8")
-        for path in (MATRIX, AUTH, ROOT / receipt_ref, ROOT / providers["OpenAI"]["submission_receipt_ref"])
+        for path in (
+            MATRIX,
+            AUTH,
+            ROOT / receipt_ref,
+            ROOT / providers["OpenAI"]["submission_receipt_ref"],
+            ROOT / providers["Alibaba Cloud"]["contact_receipt_ref"],
+            ROOT / providers["Tencent Cloud"]["contact_handoff_ref"],
+        )
     )
     for forbidden in ("18518485118", "139115", "joy7759@gmail.com", "张斌", "山西游骑兵电子商务有限公司"):
         require(forbidden not in serialized, "sensitive value stored")
 
     print(
         "SAEE_MULTI_CLOUD_PARTNER_ENTRY_SMOKE: PASS "
-        "providers=5 submitted=2 blocked=3 provider_approved=0 "
+        "providers=5 interest_submitted=2 contact_inquiry=1 captcha_handoff=1 "
+        "formal_partner_application=0 blocked=3 provider_approved=0 "
         "marketplace_submission=0 production_ready=false"
     )
 

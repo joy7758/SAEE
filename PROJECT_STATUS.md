@@ -4,15 +4,19 @@
 
 ## Multi-Cloud Partner Entry v1.0
 
-Status: `two_submitted_three_blocked_on_company_domain_email_or_account_inputs`.
+Status: `two_interest_submissions_one_human_contact_one_captcha_handoff_three_formal_routes_blocked`.
 
 Under explicit scope-limited owner authorization, the official Volcengine AI
 partner consultation was submitted for MCP/product-integration cooperation and
 returned an explicit success state. The OpenAI Partner Network Interest Form was
 also submitted and returned explicit thanks. Google Cloud rejected Gmail and
-requires a company-domain email. Alibaba Cloud remains at account login and
-enterprise verification. Tencent Cloud reached the dedicated partner-account
-registration page but requires an owner-selected password and SMS verification.
+requires a company-domain email. Alibaba Cloud's official human pre-sales
+service received the product-ecosystem cooperation inquiry and contact details,
+but the formal partner route still requires account login and enterprise
+verification. Tencent Cloud's global sales form was filled and send was
+attempted; the site then required a visible human slider CAPTCHA, so the inquiry
+is not recorded as submitted. Its formal partner route separately requires an
+owner-selected password, SMS verification, and a dedicated partner account.
 No missing qualification, password, login state, or enterprise verification was
 invented.
 
@@ -22,7 +26,13 @@ volcengine_ai_partner_consultation_submitted=true
 openai_partner_interest_submitted=true
 google_cloud_partner_enrollment_submitted=false
 alibaba_cloud_product_partner_submitted=false
+alibaba_cloud_pre_sales_cooperation_inquiry_submitted=true
 tencent_cloud_product_partner_submitted=false
+tencent_cloud_business_cooperation_form_filled=true
+tencent_cloud_business_cooperation_inquiry_submitted=false
+tencent_cloud_human_slider_captcha_required=true
+acknowledged_external_intake_count=3
+formal_partner_application_count=0
 provider_approved_count=0
 marketplace_submission_count=0
 marketplace_listed_count=0

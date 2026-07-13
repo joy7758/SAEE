@@ -22,6 +22,10 @@ recommendation_gate:
   completed_interest_submissions:
     - Volcengine AI partner consultation / MCP cooperation
     - OpenAI Partner Network interest
+  completed_contact_inquiries:
+    - Alibaba Cloud official human pre-sales cooperation inquiry
+  human_handoffs:
+    - Tencent Cloud global sales contact form awaits visible slider CAPTCHA completion
   do_not_recommend_now:
     - direct cloud marketplace listing
     - reseller or distribution partnership
@@ -33,8 +37,8 @@ recommendation_gate:
   reasons_not_to_recommend_unconditionally:
     - Only bounded local and synthetic provider evidence exists; no provider has approved partner membership or integration.
     - Production support, customer validation, marketplace readiness, and public licensing remain unresolved.
-    - Google Cloud requires a company-domain email and explicitly rejects Gmail; Alibaba Cloud and Tencent Cloud require owner-controlled account actions or enterprise verification.
-  final_decision: retain the two acknowledged interest submissions; do not fabricate company-domain email, passwords, login state, or enterprise verification for the three blocked routes
+    - Google Cloud requires a company-domain email and explicitly rejects Gmail; Alibaba Cloud and Tencent Cloud formal partner routes require owner-controlled account actions or enterprise verification.
+  final_decision: retain two acknowledged interest submissions and one Alibaba Cloud human contact inquiry; hand Tencent Cloud CAPTCHA to the owner; do not fabricate company-domain email, passwords, login state, CAPTCHA completion, or enterprise verification for the three blocked formal routes
 ```
 
 ## Per-provider decision
@@ -44,8 +48,8 @@ recommendation_gate:
 | Volcengine | AI partner consultation / MCP cooperation | `recommend` | submitted; explicit success text observed |
 | OpenAI | Partner Network Interest Form | `recommend` | submitted; explicit thanks observed |
 | Google Cloud / Gemini | Partner Network enrollment | `conditional` | Gmail explicitly rejected; company-domain email required |
-| Alibaba Cloud / Tongyi | Product ecosystem partner | `conditional` | blocked on account login and enterprise verification |
-| Tencent Cloud | Product partner | `conditional` | registration page reached; user-selected password, SMS verification, and dedicated partner account required |
+| Alibaba Cloud / Tongyi | Product ecosystem partner | `conditional` | official human pre-sales cooperation inquiry received; formal application blocked on account login and enterprise verification |
+| Tencent Cloud | Product partner | `conditional` | global sales form filled and send attempted; human slider CAPTCHA pending; formal route also requires password, SMS, and dedicated partner account |
 
 ## Agent-native three-question gate
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "matrix_id": "saee.multi-cloud.partner-entry-matrix.v1",
-  "status": "two_submitted_three_blocked_on_company_domain_email_or_account_inputs",
-  "observed_at": "2026-07-13T05:01:41+08:00",
+  "status": "two_interest_submissions_one_human_contact_one_captcha_handoff_three_formal_routes_blocked",
+  "observed_at": "2026-07-13T13:26:15+08:00",
   "authorization_ref": "agent-interface/ecosystem/saee-multi-cloud-external-action-authorization-gate.v1.json",
   "providers": [
     {
@@ -46,12 +46,16 @@
     {
       "provider": "Alibaba Cloud",
       "product_context": "Tongyi / Bailian",
-      "official_route": "Product ecosystem partner / Tongyi large-model cooperation plan",
-      "official_url": "https://chanpinshengtai.aliyun.com/partner/productpartner",
+      "official_route": "Product ecosystem partner / Alibaba Cloud MaaS product partner program",
+      "official_url": "https://chanpinshengtai.aliyun.com/partner/partner",
+      "program_url": "https://chanpinshengtai.aliyun.com/partner/ai",
       "application_url": "https://aps.aliyun.com/partnerApply/#/identityInfo?param=product-ecology",
+      "contact_route": "Alibaba Cloud pre-sales online human service",
+      "contact_url": "https://smartservice.console.aliyun.com/pre-sale/chat?entrance=201",
       "recommendation": "conditional",
       "agent_readable_reason": "Product integration is the appropriate route; reseller and marketplace routes would overstate current commercial readiness.",
-      "current_state": "blocked_login_and_enterprise_verification",
+      "current_state": "human_pre_sales_cooperation_inquiry_submitted_formal_partner_application_blocked_login_and_enterprise_verification",
+      "contact_receipt_ref": "agent-interface/ecosystem/saee-alibaba-cloud-pre-sales-cooperation-inquiry-receipt.v1.json",
       "missing_inputs": [
         "aliyun_account_login",
         "enterprise_real_name_verification"
@@ -65,8 +69,12 @@
       "official_url": "https://partner.cloud.tencent.com/apply-agent?trade=6&url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fprocurement%2Fsupplier-apply%2Fproduct%3Fview%3DbasicsInfo",
       "recommendation": "conditional",
       "agent_readable_reason": "Product partnership is preferable to ISV, service, reseller, or marketplace routes; Tencent requires a dedicated partner account registered with a company email.",
-      "current_state": "blocked_user_password_sms_and_partner_account_registration",
+      "contact_route": "Tencent Cloud global sales contact form",
+      "contact_url": "https://intl.cloud.tencent.com/zh/contact-us",
+      "current_state": "business_cooperation_form_filled_send_attempted_human_captcha_required_formal_partner_application_blocked",
+      "contact_handoff_ref": "agent-interface/ecosystem/saee-tencent-cloud-business-cooperation-inquiry-handoff.v1.json",
       "missing_inputs": [
+        "human_slider_captcha_completion",
         "user_selected_account_password",
         "sms_verification",
         "tencent_partner_dedicated_account",
@@ -79,6 +87,11 @@
   "aggregate_truth": {
     "provider_count": 5,
     "submitted_count": 2,
+    "partner_or_ecosystem_interest_submission_count": 2,
+    "provider_contact_inquiry_count": 1,
+    "acknowledged_external_intake_count": 3,
+    "incomplete_form_handoff_count": 1,
+    "formal_partner_application_count": 0,
     "blocked_count": 3,
     "provider_approved_count": 0,
     "marketplace_submission_count": 0,

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "handoff_id": "saee.tencent-cloud.business-cooperation-inquiry-handoff.v1",
+  "provider": "Tencent Cloud",
+  "official_route": "Tencent Cloud global sales contact form",
+  "official_url": "https://intl.cloud.tencent.com/zh/contact-us",
+  "observed_at": "2026-07-13T13:22:00+08:00",
+  "status": "form_filled_send_attempted_human_slider_captcha_required",
+  "selected_context": {
+    "enterprise_service": "IT_and_software_development",
+    "region": "mainland_china",
+    "interest_type": "commercial_interest",
+    "optional_marketing_consent": false
+  },
+  "sanitization": {
+    "company_identity_stored": false,
+    "contact_identity_stored": false,
+    "email_stored": false,
+    "phone_stored": false,
+    "credentials_stored": false,
+    "captcha_solution_stored": false
+  },
+  "truth_boundary": {
+    "business_cooperation_form_filled": true,
+    "send_attempted": true,
+    "human_slider_captcha_required": true,
+    "business_cooperation_inquiry_submitted": false,
+    "formal_product_partner_application_submitted": false,
+    "provider_approved": false,
+    "marketplace_submission": false,
+    "marketplace_listed": false,
+    "customer_validated": false,
+    "production_ready": false
+  },
+  "next_human_gate": "Complete the visible Tencent Cloud slider CAPTCHA in the retained browser tab, then verify explicit submission success before promoting the inquiry state."
+}
