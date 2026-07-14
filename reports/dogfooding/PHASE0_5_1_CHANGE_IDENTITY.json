@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "change_id": "phase0_5_1_codex_identity_alignment",
+  "commit": "e12f62a2cd8aa39f70c2ec48f3ffa1b8ba7c3b81",
+  "purpose": "Align SAEE Codex identity contract with SAEE Development Constitution v1.1",
+  "affected_layer": "Governance",
+  "affected_objects": [
+    "Codex context contract",
+    "Codex context validator",
+    "Agent-readable repository entrypoints",
+    "Focused identity tests",
+    "Phase 0.5.1 governance reports"
+  ],
+  "risk_scope": "Local repository governance and validation behavior only",
+  "business_logic_changed": false,
+  "capability_fact_changed": false,
+  "production_ready": false
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "saee_internal_change_evidence",
+  "change_id": "phase0_5_1_codex_identity_alignment",
+  "git": {
+    "commit": "e12f62a2cd8aa39f70c2ec48f3ffa1b8ba7c3b81",
+    "short_commit": "e12f62a2",
+    "parent": "be7b87ff2a7a31f9fd10594e3bf086071685632c",
+    "tree": "738778b5416c1a58ab6bb863d78cfbabb11a05d2",
+    "message": "chore: align SAEE Codex identity contract with constitution v1.1",
+    "patch_sha256": "167e19e4f9012b34b5241237fee91689b490a2065650178b9b4158f28bf83788"
+  },
+  "changed_files": [
+    ".codex/context.md",
+    "AGENTS.md",
+    "README.md",
+    "llms.txt",
+    "reports/CODEX_IDENTITY_ALIGNMENT_TEST_REPORT.md",
+    "reports/CODEX_IDENTITY_DRIFT_INVENTORY.md",
+    "reports/PHASE0_5_1_CODEX_IDENTITY_GATE.md",
+    "scripts/codex_context_check.py",
+    "tests/test_codex_context_check.py"
+  ],
+  "validation_evidence": [
+    {
+      "check": "Codex context check",
+      "result": "PASS",
+      "evidence": "SAEE_CODEX_CONTEXT_CHECK: PASS"
+    },
+    {
+      "check": "Governance registry",
+      "result": "PASS",
+      "evidence": "SAEE_GOVERNANCE_REGISTRY_CHECK: PASS"
+    },
+    {
+      "check": "Development Constitution smoke",
+      "result": "PASS",
+      "evidence": "SAEE_DEVELOPMENT_CONSTITUTION_SMOKE: PASS"
+    },
+    {
+      "check": "Capability progress ledger",
+      "result": "PASS",
+      "evidence": "SAEE_CAPABILITY_PROGRESS_LEDGER_SMOKE: PASS"
+    },
+    {
+      "check": "Mainline guard",
+      "result": "PASS",
+      "evidence": "reports/CODEX_IDENTITY_ALIGNMENT_TEST_REPORT.md"
+    },
+    {
+      "check": "Focused and governance unit tests",
+      "result": "PASS",
+      "evidence": "12 tests; OK"
+    }
+  ],
+  "negative_evidence": {
+    "mcp_change": false,
+    "api_change": false,
+    "runtime_deployment": false,
+    "product_change": false,
+    "capability_manifest_change": false,
+    "agent_evidence_change": false,
+    "alibaba_change": false,
+    "website_change": false,
+    "registry_structure_change": false
+  },
+  "evidence_boundary": "Git path evidence and local deterministic validation support only the bounded governance-change decision.",
+  "production_ready": false
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "saee_internal_change_intent",
+  "change_id": "phase0_5_1_codex_identity_alignment",
+  "intent": "Align Codex identity contract with SAEE Constitution v1.1",
+  "why": "Restore governance consistency",
+  "expected_outcome": [
+    "Codex follows constitution",
+    "Validator accepts new identity",
+    "Mainline guard restored"
+  ],
+  "non_goals": [
+    "no product change",
+    "no capability change",
+    "no runtime change",
+    "no MCP or API change",
+    "no Agent Evidence migration",
+    "no Alibaba or website change"
+  ],
+  "affected_evolution_subsystem": "Evolutionary Archive / Rollback Immune System",
+  "capability_fact_change": false,
+  "production_ready": false
+}

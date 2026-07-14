@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "saee_internal_change_scope",
+  "change_id": "phase0_5_1_codex_identity_alignment",
+  "affected_layer": "Governance",
+  "allowed_scope": [
+    ".codex/context.md",
+    "scripts/codex_context_check.py",
+    "AGENTS.md",
+    "README.md",
+    "llms.txt",
+    "tests/test_codex_context_check.py",
+    "reports/CODEX_IDENTITY_ALIGNMENT_TEST_REPORT.md",
+    "reports/CODEX_IDENTITY_DRIFT_INVENTORY.md",
+    "reports/PHASE0_5_1_CODEX_IDENTITY_GATE.md"
+  ],
+  "changed_files": [
+    ".codex/context.md",
+    "AGENTS.md",
+    "README.md",
+    "llms.txt",
+    "reports/CODEX_IDENTITY_ALIGNMENT_TEST_REPORT.md",
+    "reports/CODEX_IDENTITY_DRIFT_INVENTORY.md",
+    "reports/PHASE0_5_1_CODEX_IDENTITY_GATE.md",
+    "scripts/codex_context_check.py",
+    "tests/test_codex_context_check.py"
+  ],
+  "changed_file_count": 9,
+  "unchanged_sensitive_areas": [
+    "saee_backend/ business logic and evaluators",
+    "capability-package/manifest.json#canonical_inventory",
+    "SAEE MCP implementations and API contracts",
+    "runtime and deployment assets",
+    "/Users/zhangbin/GitHub/agent-evidence-layer",
+    "cloud-entry-package/alibaba-cloud-marketplace-v0.1/",
+    "sites/ and website sources",
+    "governance/registry/ structure"
+  ],
+  "business_logic_changed": false,
+  "capability_changed": false,
+  "mcp_changed": false,
+  "api_changed": false,
+  "runtime_changed": false,
+  "product_changed": false
+}

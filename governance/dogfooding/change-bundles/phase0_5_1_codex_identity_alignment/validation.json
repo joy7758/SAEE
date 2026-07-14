@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "record_type": "saee_internal_change_validation",
+  "change_id": "phase0_5_1_codex_identity_alignment",
+  "validation_date": "2026-07-14",
+  "checks": [
+    {
+      "command": "python3 scripts/codex_context_check.py",
+      "result": "PASS",
+      "rerun_during_dogfooding": true
+    },
+    {
+      "command": "python3 scripts/saee_governance_registry_check.py",
+      "result": "PASS",
+      "rerun_during_dogfooding": true
+    },
+    {
+      "command": "python3 scripts/saee_development_constitution_smoke.py",
+      "result": "PASS",
+      "rerun_during_dogfooding": true
+    },
+    {
+      "command": "python3 scripts/saee_capability_progress_ledger_smoke.py",
+      "result": "PASS",
+      "rerun_during_dogfooding": true
+    },
+    {
+      "command": "python3 -m unittest tests/test_governance_registry.py tests/test_codex_context_check.py",
+      "result": "PASS",
+      "test_count": 12,
+      "rerun_during_dogfooding": true
+    },
+    {
+      "command": "python3 scripts/mainline_guard.py",
+      "result": "PASS",
+      "rerun_during_dogfooding": false,
+      "evidence_origin": "reports/CODEX_IDENTITY_ALIGNMENT_TEST_REPORT.md",
+      "note": "The Phase 0.5.1 run passed. It was not rerun because some nested reconciliation smokes rewrite local status snapshots even on PASS."
+    }
+  ],
+  "all_required_checks_passed": true,
+  "validation_is_production_approval": false,
+  "validation_is_security_or_compliance_certification": false,
+  "production_ready": false
+}
