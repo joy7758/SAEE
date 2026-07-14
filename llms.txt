@@ -10,13 +10,18 @@ Capability lookup rule: read current status, lifecycle, canonical route and MCP 
 Duplicate-build prohibition: do not start from historical roadmap text; resolve the exact capability or alias, inspect its implementation and test evidence, and prefer reuse or migration.
 Roadmap authority: reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs; agent-index.json recommended_next_pr fields are deprecated compatibility metadata.
 Ledger sync rule: capability facts update the canonical source and machine projection; update AGENTS.md or this block only when pointers or working rules change, never by copying live capability status.
-
+Development constitution: docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md
+Development constitution machine contract: agent-interface/governance/saee-development-constitution.v1.1.json
+Development constitution validation: python3 scripts/saee_development_constitution_smoke.py
 Phase 0 governance entry: governance/README.md
 Phase 0 governance registries: governance/registry/
 Phase 0 Codex rules: governance/codex/codex-governance-rules.md
 Phase 0 governance validation: python3 scripts/saee_governance_registry_check.py
 Governance startup rule: read the development constitution, then governance registries, then capability-package/manifest.json#canonical_inventory before proposing architecture, repository, capability, MCP, product or migration changes.
 Governance authority rule: governance/registry/capability-crosswalk.json maps constitutional concepts to existing implementation and is not a second capability fact source; do not copy live status into this file.
+Agent Evidence Project role: SAEE Evidence and Immune Subsystem
+Agent Evidence Project boundary: constitutional ownership is active; source-code migration, unified runtime integration, external validation, customer validation and production readiness are not established by this relationship.
+
 Frozen external brand: SAEE Agent Readiness Platform / SAEE 智能体上线准备平台
 First product: SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务
 One sentence: SAEE evaluates whether an AI Agent has sufficient execution evidence before real-world deployment.

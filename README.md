@@ -10,6 +10,8 @@
 
 工程核心保持为 `Digital Biosphere Evolution Engine`；Agent Readiness Capability 是面向外部生态的能力投影，不替换项目科学身份。
 
+开发治理现由 [SAEE Development Constitution v1.1](docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md) 统一约束。`Agent Evidence Project`（历史产品名 `Agent Evidence Receipt`、历史源仓库 `agent-evidence-layer`）已在架构归属上并入 `SAEE Evidence and Immune Subsystem`，服务于观察、评估、选择、归档与回滚；这不表示其源代码或运行时已经迁移，也不把 SAEE 改写为 audit-first 系统。
+
 Phase 0 治理入口位于 [`governance/`](governance/README.md)。任何 AI Agent
 或 Codex 开始架构、仓库、能力、MCP、产品或迁移工作前，必须依次读取开发宪法、
 治理 registry 与 `capability-package/manifest.json#canonical_inventory`。
@@ -18,6 +20,8 @@ Phase 0 治理入口位于 [`governance/`](governance/README.md)。任何 AI Age
 `python3 scripts/saee_governance_registry_check.py`。
 
 - 产品身份：`docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md`
+- 开发宪法机器契约：`agent-interface/governance/saee-development-constitution.v1.1.json`
+- 开发宪法校验：`python3 scripts/saee_development_constitution_smoke.py`
 - 机器身份：`agent-interface/product/saee-agent-readiness-capability.v2.json`
 - Capability Card：`saee-capability-card.json`
 - Qoder-first 适配：`adapters/qoder/README.md`
@@ -123,6 +127,7 @@ SAEE 的正式理论身份是 Silicon-Amplified Evolutionary Ecology（硅基放
 - Rehearsal Engine：反事实模拟与沙盒发育；
 - Reliability Evaluation：执行、恢复、边界与证据可靠性；
 - Evidence / Immune Subsystem：证据充分性和回滚免疫支持；
+- Agent Evidence Project：Evidence / Immune Subsystem 的收据、完整性、provenance 与 source-completeness 来源；当前仅完成宪法归属，代码迁移与统一运行时尚未完成；
 - Capability Runtime：本地 Agent 可调用能力；
 - MCP / HTTP：有边界的运输适配器。
 

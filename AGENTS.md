@@ -11,6 +11,39 @@ The project is NOT an audit-first system, NOT a generic agent framework, and NOT
 Its engineering core is Digital Biosphere Evolution Engine.
 其工程核心是 Digital Biosphere Evolution Engine（数字生物圈进化引擎）。
 
+## Constitutional Authority
+
+All repository changes are governed by `SAEE Development Constitution v1.1`.
+所有仓库修改都受 `SAEE 开发宪法 v1.1` 约束。
+
+```text
+constitution=docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md
+machine_contract=agent-interface/governance/saee-development-constitution.v1.1.json
+recommendation_gate=docs/strategy/SAEE_DEVELOPMENT_CONSTITUTION_V1_1_RECOMMENDATION_GATE.md
+constitution_validator=scripts/saee_development_constitution_smoke.py
+```
+
+Before changing behavior, resolve the canonical capability inventory, run the
+duplicate-build validator, identify the affected evolution subsystem, execute
+the Agent Recommendation Gate, define claims and non-claims, and preserve
+staged truth.
+修改行为前，必须解析规范能力清单、运行防重复建设校验、确认受影响的演化子系统、
+执行智能体推荐门、定义主张与非主张，并保持分阶段真值。
+
+The Agent Evidence Project (legacy product name `Agent Evidence Receipt`,
+legacy source repository `agent-evidence-layer`) is constitutionally part of
+the `SAEE Evidence and Immune Subsystem`. This ownership does not claim that
+its source code or runtime has been migrated. Reuse or adapt existing SAEE
+capabilities before any code migration; never copy the legacy repository as a
+parallel receipt stack.
+智能体证据项目在宪法上属于 `SAEE Evidence and Immune Subsystem`；该归属不表示
+源代码或运行时已经迁移。任何代码迁移前必须先复用或适配 SAEE 现有规范能力，禁止
+复制旧仓库形成平行收据栈。
+
+Run `python3 scripts/saee_development_constitution_smoke.py` before completing
+any constitutional, architectural, product-boundary or evidence-subsystem
+change.
+
 ## Phase 0 Governance Foundation
 
 Before any AI Agent or Codex proposes a repository, architecture, capability,

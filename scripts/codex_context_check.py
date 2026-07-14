@@ -19,12 +19,36 @@ REQUIRED_FILES = [
     ".codex/change_policy.md",
     ".codex/task_queue/README.md",
     "scripts/codex_prepare_task.py",
+    "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+    "governance/README.md",
+    "capability-package/manifest.json",
+    "AGENTS.md",
+    "README.md",
+    "llms.txt",
+]
+
+REQUIRED_DIRS = [
+    ".codex/task_queue",
+    "governance/registry",
 ]
 
 REQUIRED_TOKENS = {
     ".codex/context.md": [
         "SAEE Project Context",
-        "AI agent long-term stability evaluation",
+        "SAEE Development Constitution v1.1",
+        "Architecture-governed AI engineering assistant",
+        "受架构治理",
+        "AI 工程助手",
+        "Silicon-Amplified Evolutionary Ecology",
+        "Digital Biosphere Evolution Engine",
+        "Agent Readiness is an external capability",
+        "Development authority:",
+        "governance/README.md",
+        "capability-package/manifest.json#canonical_inventory",
+        "not a second capability fact",
+        "automatic approval",
+        "automatic deployment",
+        "automatic decision authority",
         "Input",
         "Simulation",
         "Competition",
@@ -79,11 +103,57 @@ REQUIRED_TOKENS = {
         "One task",
         "One objective",
     ],
+    "AGENTS.md": [
+        "SAEE Development Constitution v1.1",
+        "Read the constitution first, the governance registries second, and the",
+        "canonical capability inventory third",
+        "not a second",
+        "capability fact source",
+    ],
+    "README.md": [
+        "SAEE Development Constitution v1.1",
+        "Phase 0 治理入口",
+        "capability-package/manifest.json#canonical_inventory",
+        "不是第二个能力事实真源",
+    ],
+    "llms.txt": [
+        "Development constitution: docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+        "Phase 0 governance entry: governance/README.md",
+        "Governance startup rule: read the development constitution, then governance registries, then capability-package/manifest.json#canonical_inventory",
+        "not a second capability fact source",
+    ],
 }
+
+DEPRECATED_CONTEXT_PHRASES = [
+    "AI agent long-term stability evaluation",
+    "SAEE is an Agent Readiness Infrastructure",
+]
+
+SINGLETON_AUTHORITY_MARKERS = [
+    "Development authority:",
+    "Canonical capability facts:",
+    "Governance mapping boundary:",
+]
 
 
 def fail(message: str) -> None:
     raise SystemExit(f"SAEE_CODEX_CONTEXT_CHECK: FAIL: {message}")
+
+
+def validate_context_contract(text: str) -> None:
+    """Validate identity boundaries that token-presence checks cannot express."""
+    deprecated = [phrase for phrase in DEPRECATED_CONTEXT_PHRASES if phrase in text]
+    if deprecated:
+        fail(".codex/context.md contains deprecated identity phrases: " + ", ".join(deprecated))
+
+    duplicated = [
+        marker for marker in SINGLETON_AUTHORITY_MARKERS if text.count(marker) != 1
+    ]
+    if duplicated:
+        fail(
+            ".codex/context.md authority markers must occur exactly once: "
+            + ", ".join(duplicated)
+        )
 
 
 def main() -> None:
@@ -91,14 +161,17 @@ def main() -> None:
         if not (ROOT / rel).is_file():
             fail(f"missing {rel}")
 
-    if not (ROOT / ".codex/task_queue").is_dir():
-        fail("missing .codex/task_queue")
+    missing_dirs = [rel for rel in REQUIRED_DIRS if not (ROOT / rel).is_dir()]
+    if missing_dirs:
+        fail("missing directories: " + ", ".join(missing_dirs))
 
     for rel, tokens in REQUIRED_TOKENS.items():
         text = (ROOT / rel).read_text(encoding="utf-8")
         missing = [token for token in tokens if token not in text]
         if missing:
             fail(f"{rel} missing tokens: {', '.join(missing)}")
+
+    validate_context_contract((ROOT / ".codex/context.md").read_text(encoding="utf-8"))
 
     prepare_script = (ROOT / "scripts/codex_prepare_task.py").read_text(encoding="utf-8")
     forbidden = ["requests.", "urllib.request", "httpx.", "webbrowser", "selenium"]
