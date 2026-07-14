@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "saee.phase0.repository-registry",
+  "phase0_baseline": "2026-07-14",
+  "repositories": [
+    {
+      "name": "saee",
+      "path": "/Users/zhangbin/Documents/SAEE",
+      "git_head": "85677aaadfaee3a7d7bc4197da21e1c9328c70d7",
+      "branch": "feat/canonical-capability-inventory-routing-v1",
+      "remote": null,
+      "role": "local engineering and governance source",
+      "canonicality": "canonical",
+      "migration_status": "KEEP",
+      "notes": "Canonical local only. Canonical Git remote is not established; public repositories do not inherit authority automatically."
+    },
+    {
+      "name": "agent-evidence-layer",
+      "path": "/Users/zhangbin/GitHub/agent-evidence-layer",
+      "git_head": "e5f3ab67dfc3",
+      "branch": "main",
+      "remote": null,
+      "role": "external subsystem source for Agent Evidence Project and Receipt runtime",
+      "canonicality": "external",
+      "migration_status": "MIGRATE",
+      "notes": "Not merged. Source, runtime and marketplace remain independent until explicit migration gates pass."
+    },
+    {
+      "name": "agent-evidence",
+      "path": "/Users/zhangbin/GitHub/agent-evidence",
+      "git_head": "d26d6dcb7971",
+      "branch": "revision/softwarex-v2-grounding-fix",
+      "remote": "https://github.com/joy7758/agent-evidence.git",
+      "role": "public evidence reference implementation",
+      "canonicality": "reference",
+      "migration_status": "KEEP",
+      "notes": "Independent release and citation identity."
+    },
+    {
+      "name": "agent-receipt-validator-mcp",
+      "path": "/Users/zhangbin/GitHub/agent-receipt-validator-mcp",
+      "git_head": "74a8463f3264",
+      "branch": "main",
+      "remote": "git@github.com:joy7758/agent-receipt-validator-mcp.git",
+      "role": "independent receipt validator MCP",
+      "canonicality": "reference",
+      "migration_status": "KEEP",
+      "notes": "Not the SAEE canonical MCP."
+    },
+    {
+      "name": "persona-object-protocol",
+      "path": "/Users/zhangbin/GitHub/persona-object-protocol",
+      "git_head": "02592fef7a70",
+      "branch": "main",
+      "remote": "https://github.com/joy7758/persona-object-protocol.git",
+      "role": "Persona protocol support",
+      "canonicality": "reference",
+      "migration_status": "KEEP",
+      "notes": "No repository merge in Phase 0."
+    },
+    {
+      "name": "agent-object-protocol",
+      "path": "/Users/zhangbin/GitHub/agent-object-protocol",
+      "git_head": "c0619f50eba4",
+      "branch": "main",
+      "remote": "https://github.com/joy7758/agent-object-protocol",
+      "role": "Agent object protocol support",
+      "canonicality": "reference",
+      "migration_status": "KEEP",
+      "notes": "Protocol repository, not runtime."
+    },
+    {
+      "name": "aro-audit",
+      "path": "/Users/zhangbin/GitHub/aro-audit",
+      "git_head": "74a7f584b8cb",
+      "branch": "audit-scope-alignment-v1",
+      "remote": "https://github.com/joy7758/aro-audit.git",
+      "role": "Evidence and Immune public reference",
+      "canonicality": "reference",
+      "migration_status": "KEEP",
+      "notes": "Not an SAEE Execution Object or production control plane."
+    },
+    {
+      "name": "digital-biosphere-architecture",
+      "path": "/Users/zhangbin/GitHub/digital-biosphere-architecture",
+      "git_head": "1d0c3ba2d750",
+      "branch": "main",
+      "remote": "https://github.com/joy7758/digital-biosphere-architecture.git",
+      "role": "architecture and vocabulary reference",
+      "canonicality": "reference",
+      "migration_status": "MERGE",
+      "notes": "MERGE is limited to authority pointers and vocabulary alignment."
+    },
+    {
+      "name": "saee-commercial",
+      "path": "/Users/zhangbin/Documents/SAEE/sites/saee-commercial",
+      "git_head": "c4e8743f00ab",
+      "branch": "main",
+      "remote": "https://git.chatgpt-team.site/9040a589-b78b-4cc3-97af-a87118abb120/appgprj_6a5099d5a99c8191bdb92fdcb9d67f2c.git",
+      "role": "website source and public fact projection",
+      "canonicality": "external",
+      "migration_status": "MIGRATE",
+      "notes": "Private site-source remote; not a runtime or capability fact authority."
+    }
+  ]
+}

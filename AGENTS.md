@@ -11,6 +11,28 @@ The project is NOT an audit-first system, NOT a generic agent framework, and NOT
 Its engineering core is Digital Biosphere Evolution Engine.
 其工程核心是 Digital Biosphere Evolution Engine（数字生物圈进化引擎）。
 
+## Phase 0 Governance Foundation
+
+Before any AI Agent or Codex proposes a repository, architecture, capability,
+MCP, product or migration change, read these authorities in order:
+
+```text
+governance_entry=governance/README.md
+constitution_alignment=governance/constitution/constitution-alignment.md
+asset_registry=governance/registry/asset-registry.json
+repository_registry=governance/registry/repository-registry.json
+capability_crosswalk=governance/registry/capability-crosswalk.json
+mcp_registry=governance/registry/mcp-registry.json
+product_registry=governance/registry/product-registry.json
+codex_rules=governance/codex/codex-governance-rules.md
+governance_validator=scripts/saee_governance_registry_check.py
+```
+
+Read the constitution first, the governance registries second, and the
+canonical capability inventory third. The governance crosswalk is not a second
+capability fact source; do not copy live repository, capability, MCP, product
+or external-system status into this startup file.
+
 ## Agent-Readable First
 
 All code and repository surfaces must include an agent-readable layer.

@@ -1,0 +1,68 @@
+{
+  "$schema": "../schemas/mcp-entry.schema.json",
+  "schema_version": "1.0.0",
+  "registry_id": "saee.phase0.mcp-registry",
+  "canonical_saee_surface": "saee.agent_readiness_mcp_stdio",
+  "entries": [
+    {
+      "name": "saee.agent_readiness_mcp_stdio",
+      "namespace": "saee.*",
+      "tools": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+      "owner": "SAEE",
+      "type": "canonical",
+      "status": "active_local_alpha_not_publicly_deployed",
+      "canonical": true,
+      "canonical_scope": "SAEE only",
+      "location": "scripts/saee_agent_readiness_mcp_stdio.py",
+      "production_ready": false
+    },
+    {
+      "name": "saee.qianfan_readiness_mcp_stdio",
+      "namespace": "saee.*",
+      "tools": ["saee.evaluate_agent_run", "saee.evaluate_evidence"],
+      "owner": "SAEE",
+      "type": "compatibility",
+      "status": "active_local_compatibility",
+      "canonical": false,
+      "canonical_scope": "none; routes to saee.agent_readiness_mcp_stdio",
+      "location": "scripts/saee_qianfan_readiness_mcp_stdio.py",
+      "production_ready": false
+    },
+    {
+      "name": "saee.capability_package_mcp_stdio",
+      "namespace": "internal.saee.*",
+      "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+      "owner": "SAEE",
+      "type": "internal",
+      "status": "internal_alpha_contract_test",
+      "canonical": false,
+      "canonical_scope": "none",
+      "location": "scripts/saee_capability_mcp_stdio.py",
+      "production_ready": false
+    },
+    {
+      "name": "saee.legacy_observed_trace_mcp_stdio",
+      "namespace": "legacy.saee.trace.*",
+      "tools": ["describe_saee", "compare_observed_traces"],
+      "owner": "SAEE",
+      "type": "legacy",
+      "status": "legacy_alpha_usage_unknown",
+      "canonical": false,
+      "canonical_scope": "none",
+      "location": "scripts/saee_mcp_stdio.py",
+      "production_ready": false
+    },
+    {
+      "name": "agent-evidence-receipt-mcp",
+      "namespace": "receipt.*",
+      "tools": ["submit_evidence_job", "get_evidence_job_status", "get_evidence_job_result"],
+      "owner": "Agent Evidence Project",
+      "type": "external-product",
+      "status": "public_single_node_alpha_marketplace_review_not_listed",
+      "canonical": true,
+      "canonical_scope": "Agent Evidence Receipt only; never SAEE canonical",
+      "location": "https://redcrag.cn/mcp",
+      "production_ready": false
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/governance/schemas/product.schema.json",
+  "title": "SAEE Phase 0 Product Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "registry_id", "excluded_future_concepts", "products"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"const": "saee.phase0.product-registry"},
+    "excluded_future_concepts": {
+      "type": "array",
+      "const": ["SAEE Governance", "SAEE Autonomous"]
+    },
+    "products": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/product"}
+    }
+  },
+  "$defs": {
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type", "relationship", "status", "commercial_surface", "saee_relationship", "runtime_owner", "production_ready"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*$"},
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["engine", "subsystem", "external-product", "capability-service"]},
+        "relationship": {"enum": ["core", "evidence_and_immune_subsystem", "saee_subproject", "product_projection"]},
+        "status": {"enum": ["active_local", "partial", "public_single_node_alpha", "implemented_local", "future_concept"]},
+        "commercial_surface": {"type": "string", "minLength": 1},
+        "saee_relationship": {"type": "string", "minLength": 1},
+        "runtime_owner": {"type": "string", "minLength": 1},
+        "source_code_migrated": {"type": "boolean"},
+        "runtime_integrated": {"type": "boolean"},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "saee.phase0.external-system-registry",
+  "systems": [
+    {
+      "id": "redcrag-cn",
+      "name": "redcrag.cn",
+      "type": "public_host",
+      "location": "https://redcrag.cn/",
+      "owner": "external system operator",
+      "relationship": "Website host and Agent Evidence Receipt MCP host; not proof of SAEE canonical runtime deployment",
+      "status": "partial_public_surface",
+      "private_access_performed": false,
+      "production_ready": false
+    },
+    {
+      "id": "baidu-agent-evidence-runtime",
+      "name": "Baidu-hosted Agent Evidence Receipt runtime",
+      "type": "cloud_runtime",
+      "location": "external provider; public endpoint recorded as https://redcrag.cn/mcp",
+      "owner": "Agent Evidence Project",
+      "relationship": "Independent single-node alpha runtime; not SAEE runtime",
+      "status": "public_single_node_alpha",
+      "private_access_performed": false,
+      "production_ready": false
+    },
+    {
+      "id": "aliyun-marketplace",
+      "name": "Alibaba Cloud Marketplace",
+      "type": "marketplace",
+      "location": "external provider console",
+      "owner": "external provider with separate product owners",
+      "relationship": "Hosts separate submissions 68657 and 68658; neither is listed",
+      "status": "submitted_products_not_listed",
+      "private_access_performed": false,
+      "production_ready": false
+    },
+    {
+      "id": "saee-sites-source",
+      "name": "SAEE Sites source remote",
+      "type": "website_source",
+      "location": "private sites-source Git remote recorded in repository-registry.json",
+      "owner": "SAEE website owner",
+      "relationship": "Website source transport; not capability or runtime authority",
+      "status": "active_source_remote",
+      "private_access_performed": false,
+      "production_ready": false
+    },
+    {
+      "id": "github-public-saee",
+      "name": "Public joy7758/SAEE repository",
+      "type": "public_repository",
+      "location": "https://github.com/joy7758/SAEE",
+      "owner": "public repository maintainer",
+      "relationship": "Public abstraction or mirror relationship not established; cannot inherit local canonical authority automatically",
+      "status": "relationship_unknown",
+      "private_access_performed": false,
+      "production_ready": false
+    }
+  ]
+}

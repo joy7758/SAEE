@@ -10,6 +10,13 @@
 
 工程核心保持为 `Digital Biosphere Evolution Engine`；Agent Readiness Capability 是面向外部生态的能力投影，不替换项目科学身份。
 
+Phase 0 治理入口位于 [`governance/`](governance/README.md)。任何 AI Agent
+或 Codex 开始架构、仓库、能力、MCP、产品或迁移工作前，必须依次读取开发宪法、
+治理 registry 与 `capability-package/manifest.json#canonical_inventory`。
+`governance/registry/capability-crosswalk.json` 只做宪法概念到现有实现的映射，
+不是第二个能力事实真源。离线治理校验：
+`python3 scripts/saee_governance_registry_check.py`。
+
 - 产品身份：`docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md`
 - 机器身份：`agent-interface/product/saee-agent-readiness-capability.v2.json`
 - Capability Card：`saee-capability-card.json`

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/governance/schemas/capability.schema.json",
+  "title": "SAEE Phase 0 Capability Crosswalk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "registry_id", "canonical_capability_source", "crosswalk_is_capability_source", "capabilities"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"const": "saee.phase0.capability-crosswalk"},
+    "canonical_capability_source": {"const": "capability-package/manifest.json#canonical_inventory"},
+    "crosswalk_is_capability_source": {"const": false},
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/capability"}
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capability", "layer", "implementation", "owner", "status", "claims", "non_claims"],
+      "properties": {
+        "capability": {"type": "string", "minLength": 1},
+        "layer": {"enum": ["Evidence", "Evaluation", "Governance", "Autonomous", "Outside"]},
+        "implementation": {"type": "string", "minLength": 1},
+        "owner": {"type": "string", "minLength": 1},
+        "status": {"enum": ["implemented", "partial", "design_only", "missing", "external_reference"]},
+        "claims": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

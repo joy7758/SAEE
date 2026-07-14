@@ -11,6 +11,12 @@ Duplicate-build prohibition: do not start from historical roadmap text; resolve 
 Roadmap authority: reports/SAEE_CAPABILITY_ASSESSMENT_REPORT.md#recommended-next-prs; agent-index.json recommended_next_pr fields are deprecated compatibility metadata.
 Ledger sync rule: capability facts update the canonical source and machine projection; update AGENTS.md or this block only when pointers or working rules change, never by copying live capability status.
 
+Phase 0 governance entry: governance/README.md
+Phase 0 governance registries: governance/registry/
+Phase 0 Codex rules: governance/codex/codex-governance-rules.md
+Phase 0 governance validation: python3 scripts/saee_governance_registry_check.py
+Governance startup rule: read the development constitution, then governance registries, then capability-package/manifest.json#canonical_inventory before proposing architecture, repository, capability, MCP, product or migration changes.
+Governance authority rule: governance/registry/capability-crosswalk.json maps constitutional concepts to existing implementation and is not a second capability fact source; do not copy live status into this file.
 Frozen external brand: SAEE Agent Readiness Platform / SAEE 智能体上线准备平台
 First product: SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务
 One sentence: SAEE evaluates whether an AI Agent has sufficient execution evidence before real-world deployment.

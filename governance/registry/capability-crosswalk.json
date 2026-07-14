@@ -1,0 +1,90 @@
+{
+  "$schema": "../schemas/capability.schema.json",
+  "schema_version": "1.0.0",
+  "registry_id": "saee.phase0.capability-crosswalk",
+  "canonical_capability_source": "capability-package/manifest.json#canonical_inventory",
+  "crosswalk_is_capability_source": false,
+  "capabilities": [
+    {
+      "capability": "saee.evaluate_agent_run",
+      "layer": "Evaluation",
+      "implementation": "saee_backend/services/baidu_agent_readiness_service.py; scripts/saee_agent_readiness_mcp_stdio.py",
+      "owner": "SAEE",
+      "status": "implemented",
+      "claims": ["Bounded local evaluation of declared Agent trace metadata and required evidence coverage is implemented."],
+      "non_claims": ["The trace is not authenticated.", "The result does not authorize deployment.", "No public SAEE service or production readiness is established."]
+    },
+    {
+      "capability": "saee.evaluate_evidence",
+      "layer": "Evaluation",
+      "implementation": "saee_backend/services/baidu_agent_readiness_service.py; saee_backend/services/evidence_adequacy.py; scripts/saee_agent_readiness_mcp_stdio.py",
+      "owner": "SAEE",
+      "status": "implemented",
+      "claims": ["Closed local evidence bundles can be checked against explicit repository-controlled requirements."],
+      "non_claims": ["A passing profile does not prove a real-world event.", "The result is not authorization, certification or legal accountability."]
+    },
+    {
+      "capability": "evidence.receipt",
+      "layer": "Evidence",
+      "implementation": "saee_backend/services/capability_runtime/invocation_receipt.py; schemas/saee-capability-invocation-receipt.schema.v0.1.json; external Agent Evidence Project contracts",
+      "owner": "SAEE Evidence and Immune Subsystem",
+      "status": "partial",
+      "claims": ["SAEE creates deterministic non-persistent invocation metadata receipts with request and result digests."],
+      "non_claims": ["The SAEE local receipt is not signed.", "Digest binding does not authenticate the original event.", "Agent Evidence source code and runtime are not migrated into SAEE."]
+    },
+    {
+      "capability": "evidence.validation",
+      "layer": "Evidence",
+      "implementation": "saee_backend/services/evidence_adequacy.py; agent-interface/profiles/evidence-adequacy; external agent-receipt-validator-mcp reference",
+      "owner": "SAEE Evidence and Immune Subsystem",
+      "status": "partial",
+      "claims": ["Fixed local evidence profiles and independent receipt-validation references exist."],
+      "non_claims": ["There is no unified production trust authority.", "Signature validation does not prove provider origin, completeness or legal responsibility."]
+    },
+    {
+      "capability": "capability.registry",
+      "layer": "Governance",
+      "implementation": "capability-package/manifest.json#canonical_inventory; saee_backend/services/capability_runtime/canonical_capability_inventory.py",
+      "owner": "SAEE",
+      "status": "implemented",
+      "claims": ["One file-backed canonical capability fact source and machine projection validation exist."],
+      "non_claims": ["This crosswalk is not a second capability registry.", "Registry consistency is not external adoption or production readiness."]
+    },
+    {
+      "capability": "mcp.discovery",
+      "layer": "Autonomous",
+      "implementation": ".mcp.json; scripts/saee_agent_readiness_mcp_stdio.py; capability-package/manifest.json#canonical_inventory.mcp_surfaces",
+      "owner": "SAEE",
+      "status": "partial",
+      "claims": ["Agents can discover and invoke the canonical SAEE readiness MCP locally through a fixed stdio contract."],
+      "non_claims": ["No SAEE public network MCP endpoint is established.", "Agent Evidence Receipt MCP is a separate external-product surface."]
+    },
+    {
+      "capability": "saee.otel_sdk_or_otlp_ingestion",
+      "layer": "Outside",
+      "implementation": "none",
+      "owner": "SAEE",
+      "status": "missing",
+      "claims": [],
+      "non_claims": ["Real OpenTelemetry SDK, Collector, OTLP/gRPC or OTLP/HTTP ingestion is not implemented."]
+    },
+    {
+      "capability": "saee.external_identity_binding",
+      "layer": "Outside",
+      "implementation": "none",
+      "owner": "SAEE",
+      "status": "missing",
+      "claims": [],
+      "non_claims": ["Caller-declared identifiers are not external authenticated identity binding."]
+    },
+    {
+      "capability": "saee.delegation_binding",
+      "layer": "Outside",
+      "implementation": "none",
+      "owner": "SAEE",
+      "status": "missing",
+      "claims": [],
+      "non_claims": ["No verifiable delegation chain, scope and expiry binding is implemented."]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/governance/schemas/mcp-entry.schema.json",
+  "title": "SAEE Phase 0 MCP Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "registry_id", "canonical_saee_surface", "entries"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"const": "saee.phase0.mcp-registry"},
+    "canonical_saee_surface": {"const": "saee.agent_readiness_mcp_stdio"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/mcp_entry"}
+    }
+  },
+  "$defs": {
+    "mcp_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "namespace", "tools", "owner", "type", "status", "canonical", "canonical_scope", "location", "production_ready"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "namespace": {"type": "string", "pattern": "^[a-z][a-z0-9._*-]*$"},
+        "tools": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "owner": {"type": "string", "minLength": 1},
+        "type": {"enum": ["canonical", "compatibility", "internal", "legacy", "external-product"]},
+        "status": {"type": "string", "minLength": 1},
+        "canonical": {"type": "boolean"},
+        "canonical_scope": {"type": "string", "minLength": 1},
+        "location": {"type": "string", "minLength": 1},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}
