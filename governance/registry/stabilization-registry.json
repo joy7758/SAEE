@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "saee-phase0.5-stabilization-2026-07-14",
+  "baseline": {
+    "repository": "/Users/zhangbin/Documents/SAEE",
+    "branch": "feat/canonical-capability-inventory-routing-v1",
+    "head": "307cebd6c1a6072958264b35eb2c38edd7195eb2",
+    "phase0_commit": "307cebd6c1a6072958264b35eb2c38edd7195eb2",
+    "dirty_count": 21,
+    "status_fingerprint_sha256": "f0253d0208e1ca3191836058ba88c643bc23c797b13c3bc96d58fec8abc0dce7",
+    "remote": "NONE",
+    "canonical_source": "LOCAL_ONLY"
+  },
+  "dirty_assets": {
+    "count": 21,
+    "categories": {
+      "A_FORMAL_HISTORY": 21,
+      "B_EXPERIMENTAL": 0,
+      "C_GENERATED": 0,
+      "D_UNKNOWN": 0
+    },
+    "commit_families": [
+      {
+        "id": "constitution-v1.1-identity-governance",
+        "count": 16,
+        "disposition": "FORMAL_SEPARATE_COMMIT_REQUIRED"
+      },
+      {
+        "id": "alibaba-68657-review-repair",
+        "count": 5,
+        "disposition": "FORMAL_SEPARATE_COMMIT_REQUIRED"
+      }
+    ],
+    "deletion_candidates": []
+  },
+  "protected_assets": [
+    {
+      "id": "saee-preexisting-dirty-baseline",
+      "protection": "DO_NOT_MODIFY_DELETE_RESET_RESTORE_OR_CLEAN"
+    },
+    {
+      "id": "saee-development-constitution-v1.1-package",
+      "protection": "PRESERVE_AS_FORMAL_HISTORY_PENDING_ATOMIC_COMMIT"
+    },
+    {
+      "id": "alibaba-68657-review-repair-package",
+      "protection": "PRESERVE_AS_FORMAL_HISTORY_PENDING_INDEPENDENT_COMMIT"
+    },
+    {
+      "id": "agent-evidence-receipt-v0.x-baseline",
+      "repository": "/Users/zhangbin/GitHub/agent-evidence-layer",
+      "branch": "main",
+      "head": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219",
+      "dirty_count": 525,
+      "status_fingerprint_sha256": "0414b1ce649fbbae1db8fda8b09a6192199f23578ebab91cdf02fb3696008270",
+      "remote": "NONE",
+      "source_code_migrated": false,
+      "runtime_integrated": false,
+      "protection": "READ_ONLY_FREEZE_NO_MIGRATION"
+    },
+    {
+      "id": "agent-evidence-public-contract-and-runtime-evidence",
+      "protection": "PRESERVE_PRODUCT_API_SCHEMA_DEPLOYMENT_SIGNING_AND_MARKETPLACE_EVIDENCE_WITH_BOUNDED_CLAIMS"
+    }
+  ],
+  "blocked_actions": [
+    "CODE_MIGRATION",
+    "REPOSITORY_MERGE",
+    "EVALUATOR_MUTATION",
+    "MCP_MUTATION",
+    "WEBSITE_MUTATION",
+    "PRODUCT_MUTATION",
+    "MARKETPLACE_MUTATION",
+    "FILE_DELETION",
+    "GIT_RESET",
+    "GIT_RESTORE",
+    "GIT_CLEAN",
+    "GIT_PUSH",
+    "REMOTE_CREATION_OR_MUTATION"
+  ],
+  "phase_gate": {
+    "phase0_5_status": "BLOCKED",
+    "phase1_ready": false,
+    "blockers": [
+      "Codex identity contract and context validator disagree; mainline validation is not passing.",
+      "SAEE remains LOCAL_ONLY with no verified canonical recovery remote.",
+      "The 21 pre-existing SAEE formal-history changes are classified but not yet committed in their two independent families.",
+      "Agent Evidence Layer has 525 dirty entries, no remote, and unresolved provenance; it is frozen but not migration-ready."
+    ],
+    "next_pr": "chore: align SAEE Codex identity contract with constitution v1.1"
+  },
+  "production_ready": false
+}
