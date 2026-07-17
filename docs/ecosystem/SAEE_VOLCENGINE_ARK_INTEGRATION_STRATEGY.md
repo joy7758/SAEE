@@ -6,7 +6,7 @@
 
 ## Candidate Surfaces
 
-1. **Agent Tool**：把 `evaluate_agent_run` 和 `evaluate_evidence` 映射为只读评估工具；
+1. **Agent Tool**：把内部 `evaluate_rehearsal_run` 和 `evaluate_evidence` 映射为只读评估工具；
 2. **MCP**：将现有本地 MCP 契约适配为方舟可消费的受控服务定义；
 3. **HTTP Capability**：在独立认证、租户隔离和数据边界完成后评估 HTTP 接入；
 4. **Evaluation Workflow**：在 Agent 发布前工作流中增加 SAEE Assessment 步骤。
@@ -27,4 +27,3 @@ ark_agent_adapter_validated=false
 marketplace_submission=false
 production_ready=false
 ```
-

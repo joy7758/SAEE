@@ -9,7 +9,7 @@
     "mapping_ref": "agent-interface/mcp/examples/saee-evaluate-evidence-mcp-tool-design.v0.1.json",
     "request_schema_ref": "agent-interface/mcp/saee-mcp-local-request.schema.v0.1.json",
     "response_schema_ref": "agent-interface/mcp/saee-mcp-local-response.schema.v0.1.json",
-    "discovered_tools": ["evaluate_evidence_adequacy", "evaluate_agent_run"],
+    "discovered_tools": ["evaluate_evidence_adequacy", "evaluate_rehearsal_run"],
     "selected_tool": "evaluate_evidence_adequacy"
   },
   "mcp_request": {"tool_name": "unknown_tool", "arguments": {}},

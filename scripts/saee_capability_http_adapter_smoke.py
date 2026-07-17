@@ -59,7 +59,7 @@ def main() -> int:
     run = run_task(SCENARIO)
     evidence = json.loads(EVIDENCE.read_text(encoding="utf-8"))
     requests = {
-        "run": envelope("request:http-smoke-run", "evaluate_agent_run", {"rehearsal_run": run}),
+        "run": envelope("request:http-smoke-run", "evaluate_rehearsal_run", {"rehearsal_run": run}),
         "evidence": envelope("request:http-smoke-evidence", "evaluate_evidence", evidence),
         "rehearse": envelope("request:http-smoke-rehearse", "rehearse_agent", {"agent_reference": "agent:synthetic", "scenario_reference": "scenario:synthetic", "consent_scope": "local_controlled_synthetic_only"}),
     }
@@ -73,7 +73,7 @@ def main() -> int:
     http_request_handler.invoke_capability = probe
     try:
         direct = {
-            "run": process_http_request("/capabilities/evaluate-agent-run", requests["run"], invoked_at="2026-07-12T15:00:00Z"),
+            "run": process_http_request("/capabilities/evaluate-rehearsal-run", requests["run"], invoked_at="2026-07-12T15:00:00Z"),
             "evidence": process_http_request("/capabilities/evaluate-evidence", requests["evidence"], invoked_at="2026-07-12T15:00:00Z"),
             "rehearse": process_http_request("/capabilities/rehearse-agent", requests["rehearse"], invoked_at="2026-07-12T15:00:00Z"),
         }
@@ -90,7 +90,7 @@ def main() -> int:
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     try:
-        http_run = http_post(port, "/capabilities/evaluate-agent-run", requests["run"])
+        http_run = http_post(port, "/capabilities/evaluate-rehearsal-run", requests["run"])
         http_evidence = http_post(port, "/capabilities/evaluate-evidence", requests["evidence"])
         http_rehearse = http_post(port, "/capabilities/rehearse-agent", requests["rehearse"])
         bad_type = http_post(port, "/capabilities/evaluate-evidence", requests["evidence"], "text/plain")
@@ -102,9 +102,9 @@ def main() -> int:
     invalid.append(process_http_request("/hidden", requests["evidence"], invoked_at="2026-07-12T15:00:00Z"))
     invalid.append(process_http_request("/capabilities/evaluate-evidence", None, invoked_at="2026-07-12T15:00:00Z"))
     candidate = copy.deepcopy(requests["evidence"]); candidate["extra"] = True; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))
-    candidate = copy.deepcopy(requests["evidence"]); candidate["operation"] = "evaluate_agent_run"; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))
+    candidate = copy.deepcopy(requests["evidence"]); candidate["operation"] = "evaluate_rehearsal_run"; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))
     candidate = copy.deepcopy(requests["evidence"]); candidate["capability_id"] = "saee.unknown"; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))
-    invalid.append(process_http_request("/capabilities/evaluate-agent-run", envelope("request:bad-run", "evaluate_agent_run", {}), invoked_at="2026-07-12T15:00:00Z"))
+    invalid.append(process_http_request("/capabilities/evaluate-rehearsal-run", envelope("request:bad-run", "evaluate_rehearsal_run", {}), invoked_at="2026-07-12T15:00:00Z"))
     invalid.append(process_http_request("/capabilities/evaluate-evidence", envelope("request:bad-evidence", "evaluate_evidence", {}), invoked_at="2026-07-12T15:00:00Z"))
     candidate = copy.deepcopy(requests["evidence"]); candidate["payload"]["api_key"] = "synthetic-forbidden"; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))
     candidate = copy.deepcopy(requests["evidence"]); candidate["request_id"] = "bad"; invalid.append(process_http_request("/capabilities/evaluate-evidence", candidate, invoked_at="2026-07-12T15:00:00Z"))

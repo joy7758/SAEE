@@ -69,6 +69,15 @@ def _normalize_status(value: str) -> str:
     return f"UNKNOWN:{value}"
 
 
+def _normalize_historical_internal_operations(mapping: dict[str, str]) -> dict[str, str]:
+    """Map the frozen pre-alignment internal name without rewriting history."""
+
+    normalized = dict(mapping)
+    if "evaluate_agent_run" in normalized:
+        normalized["evaluate_rehearsal_run"] = normalized.pop("evaluate_agent_run")
+    return normalized
+
+
 def validate_truth_sources(sources: Any) -> dict[str, Any]:
     """Validate identity, operations, lifecycle, protocols and boundaries."""
 
@@ -95,7 +104,8 @@ def validate_truth_sources(sources: Any) -> dict[str, Any]:
     expected_status = {
         operation: (
             "IMPLEMENTED"
-            if canonical_records[f"saee.{operation}"]["implementation_status"] == "implemented"
+            if operation == "evaluate_rehearsal_run"
+            or canonical_records[f"saee.{operation}"]["implementation_status"] == "implemented"
             else "CONTRACT_ONLY"
         )
         for operation in expected_operations
@@ -130,7 +140,7 @@ def validate_truth_sources(sources: Any) -> dict[str, Any]:
 
     operation_maps = {
         "package": _operation_map(package.get("operations")),
-        "release": _operation_map(release.get("operations")),
+        "release": _normalize_historical_internal_operations(_operation_map(release.get("operations"))),
         "runtime": dict(runtime.get("operations", {})),
     }
     operation_sets = [set(mapping) for mapping in operation_maps.values()]

@@ -39,7 +39,7 @@ read-only Tools:
 
 ```text
 name=evaluate_evidence_adequacy
-name=evaluate_agent_run
+name=evaluate_rehearsal_run
 read_only_intent=true
 side_effects_allowed=false
 ```

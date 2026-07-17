@@ -71,7 +71,7 @@ adoption_validated=false
 production_ready=false
 ```
 
-重要发现：`evaluate_evidence` 可直接复核授权证据；`evaluate_agent_run` 当前只支持 fixed internal rehearsal run，因此三次 Reliability Evaluation 使用明确标注的固定投影，`direct_codex_evaluation_supported=false`。
+重要发现：`evaluate_evidence` 可直接复核授权证据；`evaluate_rehearsal_run` 当前只支持 fixed internal rehearsal run，因此三次 Reliability Evaluation 使用明确标注的固定投影，`direct_codex_evaluation_supported=false`。
 
 ## SAEE First Real Ecosystem Validation Decision Gate v1.0
 
@@ -8403,14 +8403,14 @@ Current truth:
 agent_rehearsal_runtime_implemented = true
 fixed_internal_agent_executed = true
 real_external_agent_executed = false
-evaluate_agent_run_available = true
+evaluate_rehearsal_run_available = true
 agent_callable_runtime = true
 external_agent_tested = false
 customer_validated = false
 production_ready = false
 scenario_benchmark_implemented = true
 scenario_benchmark_case_count = 20
-evaluate_agent_run_mcp_tool_registered = true
+evaluate_rehearsal_run_mcp_tool_registered = true
 standard_mcp_transport_available = false
 mcp_interoperability_validated = false
 design_partner_protocol_ready = true
@@ -8452,7 +8452,7 @@ production_ready = false
 <!-- SAEE_AGENT_REHEARSAL_RUNTIME_MVP_V0_1:END -->
 
 <!-- SAEE_AGENT_CAPABILITY_ALPHA_V0_1:START -->
-## SAEE Agent Capability Alpha: evaluate_agent_run v0.1
+## SAEE Agent Capability Alpha: evaluate_agent_run v0.1（历史内部名称；当前内部名为 evaluate_rehearsal_run）
 
 Discover the machine contract at
 `agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json`.
@@ -8465,7 +8465,7 @@ Do not translate `SUPPORTED` into task success, safety, compliance,
 certification or deployment authority. Current truth:
 
 ```text
-evaluate_agent_run_available = true
+evaluate_rehearsal_run_available = true
 agent_callable_runtime = true
 public_api_available = false
 public_mcp_available = false
@@ -8505,13 +8505,13 @@ risk probability, safety claim, customer validation or deployment authority.
 <!-- SAEE_AGENT_READINESS_BENCHMARK_V0_1:END -->
 
 <!-- SAEE_EVALUATE_AGENT_RUN_MCP_CAPABILITY_V0_1:START -->
-## SAEE evaluate_agent_run MCP Capability v0.1
+## SAEE evaluate_agent_run MCP Capability v0.1（历史内部名称；当前内部名为 evaluate_rehearsal_run）
 
 The fixed local Tool registry now contains:
 
 ```text
 evaluate_evidence_adequacy
-evaluate_agent_run
+evaluate_rehearsal_run
 ```
 
 Discover the new Tool contract at
@@ -8598,7 +8598,7 @@ production_ready = false
 ```text
 capability_id = saee.agent-reliability
 package_stage = local_contract_alpha
-evaluate_agent_run = implemented_local_offline_alpha
+evaluate_rehearsal_run = implemented_local_offline_alpha
 evaluate_evidence = implemented_local_offline_prototype
 rehearse_agent = contract_only
 network_api_available = false
@@ -8621,7 +8621,7 @@ production_ready = false
 本地智能体通过 `invoke_capability(request)` 组合 Phase 10.1 声明的能力：
 
 ```text
-evaluate_agent_run -> existing agent_run_capability
+evaluate_rehearsal_run -> existing agent_run_capability
 evaluate_evidence  -> existing local_evidence_tool / Evidence Adequacy
 rehearse_agent     -> CONTRACT_ONLY_NOT_IMPLEMENTED
 ```
@@ -8651,7 +8651,7 @@ production_ready = false
 Adapter。Tool 顺序固定为：
 
 ```text
-evaluate_agent_run
+evaluate_rehearsal_run
 evaluate_evidence
 rehearse_agent
 ```
@@ -8677,7 +8677,7 @@ production_ready = false
 固定路由：
 
 ```text
-POST /capabilities/evaluate-agent-run
+POST /capabilities/evaluate-rehearsal-run
 POST /capabilities/evaluate-evidence
 POST /capabilities/rehearse-agent
 ```

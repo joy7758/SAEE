@@ -21,7 +21,7 @@
 
 | 能力 | 当前状态 | 调用边界 |
 |---|---|---|
-| `evaluate_agent_run` | `implemented_local_offline_alpha` | 本地、只读、受控 SAEE Rehearsal Run |
+| `evaluate_rehearsal_run` | `implemented_local_offline_alpha` | 内部、本地、只读、受控 SAEE Rehearsal Run（排演运行） |
 | `evaluate_evidence` | `implemented_local_offline_prototype` | 本地、封闭证据包、固定剖面 |
 | `rehearse_agent` | `contract_only` | 不可调用；仅描述未来接口 |
 

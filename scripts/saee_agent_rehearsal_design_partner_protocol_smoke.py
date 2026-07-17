@@ -151,7 +151,7 @@ def main() -> None:
     require(demo["language"] == "zh-CN", "demo language invalid")
     require(len(demo["cases"]) == 4, "demo case count invalid")
     require(demo["benchmark_metrics"]["total_cases"] == 20, "demo benchmark missing")
-    require(set(demo["tool_names"]) == {"evaluate_evidence_adequacy", "evaluate_agent_run"}, "demo Tool discovery invalid")
+    require(set(demo["tool_names"]) == {"evaluate_evidence_adequacy", "evaluate_rehearsal_run"}, "demo Tool discovery invalid")
     require(demo["truth_boundary"] == {"customer_contacted": False, "feedback_collected": False, "customer_data_used": False, "controlled_qianfan_reasoning_model_validated": True, "real_customer_agent_validated": False, "synthetic_world_only": True, "external_world_actions": 0, "stateful_business_rehearsal_validated": True, "customer_adapter_contract_enabled": False, "standard_mcp_transport_available": False, "deployment_authorized": False, "production_ready": False}, "demo truth boundary invalid")
     require(all(case["grading_assessment"] == "MATCHED_PROFILE" for case in demo["cases"]), "live grading results missing")
     require(all(case["grading_profile_hidden_from_agent"] is True for case in demo["cases"]), "grading profile separation missing")

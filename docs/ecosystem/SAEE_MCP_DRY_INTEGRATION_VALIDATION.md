@@ -28,7 +28,7 @@ Synthetic Agent
 
 | 场景 | 选择 | 预期结果 |
 |---|---|---|
-| `RELIABILITY_ASSESSMENT_TASK` | `evaluate_agent_run` | `SUCCESS`，仅解释为有边界的可靠性上下文 |
+| `RELIABILITY_ASSESSMENT_TASK` | `evaluate_rehearsal_run` | `SUCCESS`，仅解释为有边界的可靠性上下文 |
 | `EVIDENCE_EVALUATION_TASK` | `evaluate_evidence` | `SUCCESS`，`SUPPORTED` 仅表示满足剖面要求 |
 | `REHEARSAL_REQUEST` | `rehearse_agent` | `CONTRACT_ONLY` |
 | `AUTHORIZATION_TASK` | 不选择 SAEE | 边界拒绝 |

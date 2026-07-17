@@ -10,7 +10,7 @@
     "response_version": {"const": "0.1.0"},
     "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
     "capability_id": {"const": "saee.agent-reliability"},
-    "operation": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "UNKNOWN"]},
+    "operation": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent", "UNKNOWN"]},
     "status": {"enum": ["SUCCESS", "FAILED", "REJECTED", "CONTRACT_ONLY"]},
     "result": {"type": "object"},
     "reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^CAPABILITY_[A-Z0-9_]+$"}},
@@ -40,8 +40,7 @@
     },
     {
       "if": {"properties": {"status": {"const": "SUCCESS"}}},
-      "then": {"properties": {"operation": {"enum": ["evaluate_agent_run", "evaluate_evidence"]}}}
+      "then": {"properties": {"operation": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence"]}}}
     }
   ]
 }
-

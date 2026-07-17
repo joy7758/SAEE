@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "SAEE MCP evaluate_agent_run Request v0.1",
+  "title": "SAEE MCP evaluate_rehearsal_run Request v0.1",
   "type": "object",
   "additionalProperties": false,
   "required": ["tool_name", "arguments"],
   "properties": {
-    "tool_name": {"const": "evaluate_agent_run"},
+    "tool_name": {"const": "evaluate_rehearsal_run"},
     "arguments": {
       "type": "object",
       "additionalProperties": false,

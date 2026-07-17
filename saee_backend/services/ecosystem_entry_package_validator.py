@@ -13,7 +13,7 @@ MCP_ROOT = ROOT / "ecosystem/mcp-entry-package-v1"
 ARK_ROOT = ROOT / "ecosystem/volcengine-ark-entry-package-v0.1"
 MAPPING_PATH = ROOT / "agent-interface/ecosystem/saee-volcengine-capability-mapping.v0.1.json"
 EXPECTED_TOOLS = {
-    "evaluate_agent_run": "LOCAL_TESTED",
+    "evaluate_rehearsal_run": "LOCAL_TESTED",
     "evaluate_evidence": "LOCAL_TESTED",
     "rehearse_agent": "CONTRACT_ONLY",
 }

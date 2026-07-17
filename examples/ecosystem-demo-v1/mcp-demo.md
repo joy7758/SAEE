@@ -3,7 +3,7 @@
 ```text
 Synthetic Agent
   -> tools/list
-  -> evaluate_agent_run
+  -> evaluate_rehearsal_run
   -> CapabilityMCPAdapter
   -> Capability Runtime
   -> canonical Agent Reliability Service
@@ -12,11 +12,11 @@ Synthetic Agent
 
 ## 发现
 
-本地 MCP Adapter 暴露三个工具描述：`evaluate_agent_run`、`evaluate_evidence` 和 `rehearse_agent`。可见性不等于授权。
+本地 MCP Adapter 暴露三个工具描述：`evaluate_rehearsal_run`、`evaluate_evidence` 和 `rehearse_agent`。可见性不等于授权。
 
 ## 调用
 
-Agent 选择 `evaluate_agent_run`，Adapter 将请求委托给 Capability Runtime。Runtime 再调用唯一的 canonical service。Demo 不直接导入 evaluator，也不复制业务逻辑。
+Agent 选择 `evaluate_rehearsal_run`，Adapter 将请求委托给 Capability Runtime。Runtime 再调用唯一的 canonical service。Demo 不直接导入 evaluator，也不复制业务逻辑。
 
 ## 解释
 

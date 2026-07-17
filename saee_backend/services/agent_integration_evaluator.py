@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 INTERPRETATION_SCHEMA = ROOT / "schemas/saee-agent-result-interpretation.schema.v0.1.json"
 EXPECTED_KEYS = {"scenario_id", "caller_type", "transport", "discovered_capability_id", "selected_operation", "invocation_status", "interpretation", "expected_outcome", "truth_boundary"}
 TRANSPORTS = {"MCP_STDIO", "HTTP_LOCALHOST", "GENERIC_FRAMEWORK"}
-OPERATIONS = {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}
+OPERATIONS = {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}
 
 
 def evaluate_integration_scenario(value: Any) -> dict[str, Any]:

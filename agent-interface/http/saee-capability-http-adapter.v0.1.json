@@ -10,7 +10,7 @@
   "request_schema": "schemas/saee-capability-http-request.schema.v0.1.json",
   "response_schema": "schemas/saee-capability-http-response.schema.v0.1.json",
   "endpoints": {
-    "/capabilities/evaluate-agent-run": "evaluate_agent_run",
+    "/capabilities/evaluate-rehearsal-run": "evaluate_rehearsal_run",
     "/capabilities/evaluate-evidence": "evaluate_evidence",
     "/capabilities/rehearse-agent": "rehearse_agent"
   },

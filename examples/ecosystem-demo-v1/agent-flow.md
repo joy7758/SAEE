@@ -8,11 +8,11 @@
 
 Agent 从 Capability Package 或 MCP Entry Package 发现：
 
-- `evaluate_agent_run`：检查受控运行记录的可靠性上下文；
+- `evaluate_rehearsal_run`：检查受控运行记录的可靠性上下文；
 - `evaluate_evidence`：检查一个责任声明是否满足固定证据剖面；
 - `rehearse_agent`：当前仍为 `CONTRACT_ONLY`。
 
-## 3. Agent 使用 `evaluate_agent_run`
+## 3. Agent 使用 `evaluate_rehearsal_run`
 
 Agent 提交本地合成的受控运行记录。SAEE 复用 canonical Agent Reliability Service，不重新实现评分逻辑。
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline deterministic smoke for the local evaluate_agent_run MCP Tool."""
+"""Offline deterministic smoke for the local evaluate_rehearsal_run MCP Tool."""
 
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ def main() -> None:
     run_validator = Draft202012Validator(load(RUN_SCHEMA))
     response_validator = Draft202012Validator(load(RESPONSE_SCHEMA))
     capability = load(CAPABILITY)
-    require(capability["tool_name"] == "evaluate_agent_run", "capability Tool name invalid")
+    require(capability["tool_name"] == "evaluate_rehearsal_run", "capability Tool name invalid")
     require(capability["stage"] == "local_in_memory_mcp_capability", "capability stage overclaimed")
     require(capability["truth_boundary"]["local_tool_registered"] is True, "Tool registration hidden")
     for field in ("standard_mcp_transport_available", "public_endpoint_available", "authentication_available", "external_agent_connected", "interoperability_validated", "deployment_authorized", "customer_validated", "production_ready"):
@@ -80,12 +80,12 @@ def main() -> None:
 
     server = create_local_mcp_server()
     tools = server.list_tools()
-    require({tool["name"] for tool in tools} == {"evaluate_evidence_adequacy", "evaluate_agent_run"}, "fixed Tool registry invalid")
+    require({tool["name"] for tool in tools} == {"evaluate_evidence_adequacy", "evaluate_rehearsal_run"}, "fixed Tool registry invalid")
     run_by_name: dict[str, dict[str, Any]] = {}
     response_by_name: dict[str, dict[str, Any]] = {}
     for filename, expected in SCENARIOS.items():
         run = run_task(ROOT / "agent-interface/rehearsal/scenarios" / filename)
-        request = {"tool_name": "evaluate_agent_run", "arguments": {"rehearsal_run": run}}
+        request = {"tool_name": "evaluate_rehearsal_run", "arguments": {"rehearsal_run": run}}
         require(not list(request_validator.iter_errors(request)), f"valid request rejected: {filename}")
         require(not list(run_validator.iter_errors(run)), f"valid run rejected: {filename}")
         response = server.call_tool(request)
@@ -98,9 +98,9 @@ def main() -> None:
 
     invalid_requests = [
         None,
-        {"tool_name": "evaluate_agent_run"},
-        {"tool_name": "evaluate_agent_run", "arguments": {}, "extra": True},
-        {"tool_name": "evaluate_agent_run", "arguments": {}},
+        {"tool_name": "evaluate_rehearsal_run"},
+        {"tool_name": "evaluate_rehearsal_run", "arguments": {}, "extra": True},
+        {"tool_name": "evaluate_rehearsal_run", "arguments": {}},
     ]
     for request in invalid_requests:
         response = mcp_agent_run_tool_handler.handle_mcp_agent_run_tool(request)
@@ -109,7 +109,7 @@ def main() -> None:
 
     tampered = copy.deepcopy(run_by_name["baseline-metadata-inspection.json"])
     tampered["trace"]["events"][0]["summary"] = "tampered"
-    rejected = server.call_tool({"tool_name": "evaluate_agent_run", "arguments": {"rehearsal_run": tampered}})
+    rejected = server.call_tool({"tool_name": "evaluate_rehearsal_run", "arguments": {"rehearsal_run": tampered}})
     response_validator.validate(rejected)
     require(rejected["tool_result"] == "REJECTED_INPUT", "tampered Trace accepted")
     require(rejected["reason_codes"] == ["AGENT_RUN_TRACE_DIGEST_INVALID"], "tamper reason unstable")
@@ -124,36 +124,36 @@ def main() -> None:
         raise MCPAgentRunSmokeError("SAFE assessment accepted")
 
     calls: list[dict[str, Any]] = []
-    original = mcp_agent_run_tool_handler.evaluate_agent_run
+    original = mcp_agent_run_tool_handler.evaluate_rehearsal_run
 
     def probe(run: dict[str, Any]) -> dict[str, Any]:
         calls.append(run)
         return original(run)
 
-    mcp_agent_run_tool_handler.evaluate_agent_run = probe
+    mcp_agent_run_tool_handler.evaluate_rehearsal_run = probe
     try:
-        request = {"tool_name": "evaluate_agent_run", "arguments": {"rehearsal_run": run_by_name["baseline-metadata-inspection.json"]}}
+        request = {"tool_name": "evaluate_rehearsal_run", "arguments": {"rehearsal_run": run_by_name["baseline-metadata-inspection.json"]}}
         probed = server.call_tool(request)
     finally:
-        mcp_agent_run_tool_handler.evaluate_agent_run = original
+        mcp_agent_run_tool_handler.evaluate_rehearsal_run = original
     require(len(calls) == 1, "canonical Alpha not reused exactly once")
     require(probed == response_by_name["baseline-metadata-inspection.json"], "MCP projection changed Alpha result")
 
     canonical = json.dumps(response_by_name["baseline-metadata-inspection.json"], ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     for _ in range(5):
         run = run_task(ROOT / "agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json")
-        repeated = create_local_mcp_server().call_tool({"tool_name": "evaluate_agent_run", "arguments": {"rehearsal_run": run}})
+        repeated = create_local_mcp_server().call_tool({"tool_name": "evaluate_rehearsal_run", "arguments": {"rehearsal_run": run}})
         require(json.dumps(repeated, ensure_ascii=False, sort_keys=True, separators=(",", ":")) == canonical, "MCP Tool non-deterministic")
 
     status = server.runtime_status()
-    require(status["tool_count"] == 2 and status["evaluate_agent_run_tool_available"] is True, "runtime Tool status invalid")
+    require(status["tool_count"] == 2 and status["evaluate_rehearsal_run_tool_available"] is True, "runtime Tool status invalid")
     for field in ("network_accessed", "subprocess_started", "persistence_performed", "public_endpoint_available", "authentication_available", "external_agents_connected", "production_ready"):
         require(status[field] is False, f"runtime boundary expanded: {field}")
 
     print("SAEE_EVALUATE_AGENT_RUN_MCP_SMOKE: PASS")
     print("tools=2/2")
-    print("evaluate_agent_run_valid_cases=3/3")
-    print("evaluate_agent_run_invalid_cases=6/6")
+    print("evaluate_rehearsal_run_valid_cases=3/3")
+    print("evaluate_rehearsal_run_invalid_cases=6/6")
     print("deterministic_runs=5/5")
     print("canonical_agent_run_alpha_reused=true")
     print("trace_binding_preserved=true")

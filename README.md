@@ -168,7 +168,7 @@ SAEE 不是 Agent OS、通用多智能体框架、授权系统、安全认证机
 
 SAEE 已建立四类内部 Agent Pilot 计划，并由当前 Codex 会话完成 coding、research、automation 三次真实内部运行。结果：`agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json`；验证：`python3 scripts/saee_internal_agent_pilot_execution_smoke.py`。这是 Internal Validation，不是 External Validation。
 
-首批结果为 `REPLAN / CONTINUE / CONTINUE`。主要缺口是现有 `evaluate_agent_run` 尚不能直接接受 Codex Observation，只能验证固定内部投影；`direct_codex_evaluation_supported=false`。
+首批结果为 `REPLAN / CONTINUE / CONTINUE`。主要缺口是现有内部 `evaluate_rehearsal_run` 尚不能直接接受 Codex Observation（Codex 观察），只能验证固定内部投影；`direct_codex_evaluation_supported=false`。
 
 ## First Real Ecosystem Validation Decision Gate v1.0
 
@@ -176,8 +176,8 @@ SAEE 已建立四类内部 Agent Pilot 计划，并由当前 Codex 会话完成 
 
 ## MCP Ecosystem Dry Integration Validation v0.1
 
-SAEE 已用本地合成智能体完成 MCP 入口闭环验证：发现三个工具，正确调用
-`evaluate_agent_run` 与 `evaluate_evidence`，保留 `rehearse_agent=CONTRACT_ONLY`，
+SAEE 已用本地合成智能体完成 MCP（模型上下文协议）入口闭环验证：历史验证当时正确调用旧内部名
+`evaluate_agent_run`（当前内部名 `evaluate_rehearsal_run`）与 `evaluate_evidence`，保留 `rehearse_agent=CONTRACT_ONLY`，
 并对授权、部署批准和简单查询执行拒绝或弃用。
 
 - 机器结果：`agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json`
@@ -202,7 +202,7 @@ canonical service 链路一致；不证明外部 MCP 兼容、生态采用或生
 
 ## First External Validation Simulation with Candidate Model v1.0
 
-合成 `mcp_agent_developer` 候选已完成七场景流程模拟：本地发现、`evaluate_agent_run` 调用、结果解释和结构化反馈通过；授权混淆、生产执行及采用声明被拒绝。
+合成 `mcp_agent_developer` 候选已完成七场景流程模拟：历史材料记录旧内部名 `evaluate_agent_run`（当前内部名 `evaluate_rehearsal_run`）的本地发现与调用，结果解释和结构化反馈通过；授权混淆、生产执行及采用声明被拒绝。
 
 结果：`agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json`；验证：`python3 scripts/saee_first_external_validation_simulation_smoke.py`。这不是外部验证，未联系任何开发者。
 
@@ -253,7 +253,7 @@ MCP `P0`、火山方舟和百度千帆 `P1`、阿里云百炼与海外 Agent 平
 ## Capability Service Package v1.0
 
 智能体标准入口：`capability-package/manifest.json#canonical_inventory`。该 Package 统一描述
-`evaluate_agent_run`、`evaluate_evidence` 和预留的 `rehearse_agent`，让 Agent
+内部 `evaluate_rehearsal_run`、`evaluate_evidence` 和预留的 `rehearse_agent`，让 Agent（智能体）
 能够判断适用场景、非适用场景、输入输出和组合边界。
 
 该 inventory 是当前能力事实、规范入口、MCP 表面角色与兼容关系的唯一
@@ -360,7 +360,7 @@ Evolution Engine`。
 Phase 6.1 v0.3 又完成一条有状态 SaaS 发布演练：千帆连续读取变更、运行测试、检查
 发布状态，并在前置条件不足时提交人工复核，revision 0→3，未调用部署工具。
 这不是客户 Agent 接入，也不是生产验证。原 v0.1 固定规则 Runtime 保留为确定性管线回归；
-本地 `evaluate_agent_run` Alpha 也已实现。公开生产 API、客户 Agent、
+本地内部 `evaluate_rehearsal_run` Alpha（早期验证版）也已实现。公开生产 API（应用程序接口）、客户 Agent（智能体）、
 客户验证和生产就绪仍未实现。Phase 4/5
 资产被保留为 `SAEE Governance and Evidence Control Plane v0.1`，不是 Runtime
 实现证据。

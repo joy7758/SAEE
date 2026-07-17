@@ -10,7 +10,7 @@ from typing import Any
 
 from saee_backend.services.mcp_evidence_tool_handler import TOOL_NAME, handle_mcp_evidence_tool
 from saee_backend.services.mcp_agent_run_tool_handler import (
-    TOOL_NAME as AGENT_RUN_TOOL_NAME,
+    TOOL_NAME as REHEARSAL_RUN_TOOL_NAME,
     handle_mcp_agent_run_tool,
 )
 
@@ -29,7 +29,7 @@ class LocalMCPServer:
                 "side_effects_allowed": False,
             },
             {
-                "name": AGENT_RUN_TOOL_NAME,
+                "name": REHEARSAL_RUN_TOOL_NAME,
                 "description": "Evaluate evidence adequacy for a strict SAEE Agent Rehearsal Run.",
                 "input_schema_ref": "agent-interface/mcp/saee-mcp-evaluate-agent-run-request.v0.1.schema.json#/properties/arguments",
                 "output_schema_ref": "agent-interface/mcp/saee-mcp-evaluate-agent-run-response.v0.1.schema.json",
@@ -39,7 +39,7 @@ class LocalMCPServer:
         ]
 
     def call_tool(self, request: Any) -> dict[str, Any]:
-        if isinstance(request, dict) and request.get("tool_name") == AGENT_RUN_TOOL_NAME:
+        if isinstance(request, dict) and request.get("tool_name") == REHEARSAL_RUN_TOOL_NAME:
             return handle_mcp_agent_run_tool(request)
         return handle_mcp_evidence_tool(request)
 
@@ -48,7 +48,7 @@ class LocalMCPServer:
             "implementation_status": "local_prototype",
             "mcp_local_prototype": True,
             "tool_count": 2,
-            "evaluate_agent_run_tool_available": True,
+            "evaluate_rehearsal_run_tool_available": True,
             "network_accessed": False,
             "subprocess_started": False,
             "persistence_performed": False,

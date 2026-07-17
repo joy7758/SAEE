@@ -98,7 +98,7 @@ def validate_demo_data(scenario: Any, result: Any, documents: Any) -> dict[str, 
         return _result(False, ["ECOSYSTEM_DEMO_DOCUMENT_SET_INVALID"], document_count)
     if scenario.get("scenario_id") != "coding-agent-preflight" or scenario.get("scenario_type") != "LOCAL_SYNTHETIC_PREFLIGHT":
         return _result(False, ["ECOSYSTEM_DEMO_SCENARIO_INVALID"], document_count)
-    if scenario.get("required_capabilities") != ["evaluate_agent_run", "evaluate_evidence"]:
+    if scenario.get("required_capabilities") != ["evaluate_rehearsal_run", "evaluate_evidence"]:
         return _result(False, ["ECOSYSTEM_DEMO_CAPABILITY_FLOW_INVALID"], document_count)
     expected_flow = [
         "TASK_INSPECTION", "CAPABILITY_DISCOVERY", "CONTROLLED_REHEARSAL_CONTEXT",
@@ -121,7 +121,7 @@ def validate_demo_data(scenario: Any, result: Any, documents: Any) -> dict[str, 
     if set(result.get("findings", [])) != REQUIRED_FINDINGS or set(result.get("limitations", [])) != REQUIRED_LIMITATIONS:
         return _result(False, ["ECOSYSTEM_DEMO_RESULT_CONTENT_INVALID"], document_count)
     capability_results = result.get("capability_results")
-    if not isinstance(capability_results, list) or {item.get("operation") for item in capability_results if isinstance(item, dict)} != {"evaluate_agent_run", "evaluate_evidence"}:
+    if not isinstance(capability_results, list) or {item.get("operation") for item in capability_results if isinstance(item, dict)} != {"evaluate_rehearsal_run", "evaluate_evidence"}:
         return _result(False, ["ECOSYSTEM_DEMO_RESULT_CONTENT_INVALID"], document_count)
     if any(item.get("assessment") != "INSUFFICIENT_EVIDENCE" for item in capability_results):
         return _result(False, ["ECOSYSTEM_DEMO_RESULT_CONTENT_INVALID"], document_count)

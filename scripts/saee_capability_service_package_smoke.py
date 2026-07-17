@@ -38,8 +38,8 @@ def validate_card(card: dict[str, Any]) -> None:
     require(len(card.get("use_when", [])) >= 3, "use_when rules missing")
     require(len(card.get("do_not_use_when", [])) >= 4, "do_not_use_when rules missing")
     capabilities = {item.get("operation_id"): item for item in card.get("capabilities", [])}
-    require(set(capabilities) == {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}, "operation set invalid")
-    require(capabilities["evaluate_agent_run"].get("local_invocation_available") is True, "run evaluator hidden")
+    require(set(capabilities) == {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}, "operation set invalid")
+    require(capabilities["evaluate_rehearsal_run"].get("local_invocation_available") is True, "run evaluator hidden")
     require(capabilities["evaluate_evidence"].get("local_invocation_available") is True, "evidence evaluator hidden")
     require(capabilities["rehearse_agent"].get("implementation_status") == "contract_only", "rehearsal boundary invalid")
     runtime = card.get("local_runtime", {})
@@ -77,7 +77,7 @@ def validate_manifest(manifest: dict[str, Any]) -> None:
     for ref in sources.values():
         require((PACKAGE / ref).is_file(), f"canonical source missing: {ref}")
     operations = {item.get("operation_id"): item for item in manifest.get("operations", [])}
-    require(set(operations) == {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}, "manifest operations invalid")
+    require(set(operations) == {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}, "manifest operations invalid")
     require(operations["rehearse_agent"].get("status") == "contract_only", "manifest falsely implements rehearsal")
     runtime = manifest.get("local_runtime", {})
     require(runtime.get("status") == "local_alpha" and runtime.get("package_operations_verified") is True, "manifest runtime missing")
@@ -114,7 +114,7 @@ def validate_mcp(descriptor: dict[str, Any]) -> None:
     require((PACKAGE / descriptor["local_adapter_ref"]).is_file(), "local MCP adapter ref missing")
     require(descriptor.get("public_mcp_endpoint") is None, "public MCP endpoint must be null")
     tools = {item.get("name"): item for item in descriptor.get("tools", [])}
-    require(set(tools) == {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}, "MCP Tool set invalid")
+    require(set(tools) == {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}, "MCP Tool set invalid")
     require(tools["evaluate_evidence"].get("local_registered_name") == "evaluate_evidence_adequacy", "local evidence Tool alias lost")
     require(tools["rehearse_agent"].get("implementation_status") == "contract_only_not_registered", "rehearse_agent falsely registered")
     require(tools["rehearse_agent"].get("local_handler_ref") is None, "rehearse_agent handler must be absent")
@@ -147,7 +147,7 @@ def validate_discovery(discovery: dict[str, Any]) -> None:
 def validate_openapi(text: str) -> None:
     required_markers = (
         "openapi: 3.1.0",
-        "operationId: evaluate_agent_run",
+        "operationId: evaluate_rehearsal_run",
         "operationId: evaluate_evidence",
         "operationId: rehearse_agent",
         "x-saee-network-api-available: false",
@@ -170,7 +170,7 @@ def validate_openapi(text: str) -> None:
 def validate_examples() -> None:
     expected = {
         "evaluate-evidence.json": "evaluate_evidence",
-        "evaluate-agent-run.json": "evaluate_agent_run",
+        "evaluate-agent-run.json": "evaluate_rehearsal_run",
         "rehearse-agent.json": "rehearse_agent",
     }
     for filename, operation in expected.items():

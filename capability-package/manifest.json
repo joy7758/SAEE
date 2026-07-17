@@ -428,7 +428,7 @@
         "surface_id": "saee.capability_package_mcp_stdio",
         "implementation_path": "scripts/saee_capability_mcp_stdio.py",
         "start_command": "python3 scripts/saee_capability_mcp_stdio.py",
-        "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+        "tools": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"],
         "intended_users": "internal Capability Package development and compatibility tests",
         "public_contract": false,
         "publicly_deployed": false,
@@ -485,14 +485,14 @@
   "canonical_local_sources": {
     "capability_manifest": "../agent-interface/capabilities/saee-capability-manifest.v0.1.json",
     "capability_registry_card": "../agent-interface/registry/saee-capability-card.v0.1.json",
-    "evaluate_agent_run_capability": "../agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json",
+    "evaluate_rehearsal_run_capability": "../agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json",
     "phase9_service_status": "../agent-interface/commercial/saee-commercial-assessment-service-status.v1.0.json"
   },
   "operations": [
     {
-      "operation_id": "evaluate_agent_run",
+      "operation_id": "evaluate_rehearsal_run",
       "status": "implemented_local_offline_alpha",
-      "contract_ref": "openapi.yaml#/paths/~1capabilities~1evaluate-agent-run/post",
+      "contract_ref": "openapi.yaml#/paths/~1capabilities~1evaluate-rehearsal-run/post",
       "mcp_ref": "mcp-tool.json#/tools/0"
     },
     {

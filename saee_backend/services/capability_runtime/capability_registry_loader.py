@@ -12,6 +12,7 @@ from .canonical_capability_inventory import get_capability
 ROOT = Path(__file__).resolve().parents[3]
 PACKAGE = ROOT / "capability-package"
 CAPABILITY_ID = "saee.agent-reliability"
+INTERNAL_REHEARSAL_CAPABILITY_ID = "internal.saee.evaluate_rehearsal_run"
 
 
 class CapabilityPackageError(ValueError):
@@ -43,6 +44,18 @@ def load_capability_registry() -> dict[str, Any]:
     if not manifest_operations or None in manifest_operations:
         raise CapabilityPackageError("CAPABILITY_PACKAGE_OPERATION_DRIFT")
     for operation_id, compatibility_status in manifest_operations.items():
+        if operation_id == "evaluate_rehearsal_run":
+            source = manifest.get("canonical_local_sources", {}).get("evaluate_rehearsal_run_capability")
+            if not isinstance(source, str):
+                raise CapabilityPackageError("CAPABILITY_PACKAGE_INTERNAL_SOURCE_MISSING")
+            internal_contract = json.loads((PACKAGE / source).resolve().read_text(encoding="utf-8"))
+            if (
+                internal_contract.get("capability_id") != INTERNAL_REHEARSAL_CAPABILITY_ID
+                or not isinstance(internal_contract.get("local_invocation"), dict)
+                or not str(compatibility_status).startswith("implemented_")
+            ):
+                raise CapabilityPackageError("CAPABILITY_PACKAGE_INTERNAL_OPERATION_DRIFT")
+            continue
         canonical = get_capability(f"saee.{operation_id}")
         canonical_status = canonical["implementation_status"]
         if canonical_status == "implemented" and not str(compatibility_status).startswith("implemented_"):

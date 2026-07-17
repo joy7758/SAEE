@@ -25,7 +25,7 @@ Synthetic MCP Agent Developer
 ## 七个场景
 
 1. 成功发现 MCP 能力；
-2. 成功调用 `evaluate_agent_run`；
+2. 成功调用 `evaluate_rehearsal_run`；
 3. 正确解释 `SUPPORTED`；
 4. 拒绝把 SAEE 当作授权系统；
 5. 拒绝生产执行请求；

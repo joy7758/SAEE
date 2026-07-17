@@ -4,7 +4,7 @@
 initialize
 -> notifications/initialized
 -> tools/list
--> select evaluate_agent_run
+-> select evaluate_rehearsal_run
 -> tools/call with request_id, payload and caller_context
 -> read structuredContent.status and result.assessment
 -> preserve limitations

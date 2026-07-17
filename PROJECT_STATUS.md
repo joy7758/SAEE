@@ -239,9 +239,9 @@ three-transition SaaS release rehearsal with no deployment tool call. Current tr
 `state_transition_count=3`, `customer_controlled_adapter_enabled=false`,
 `external_world_actions=0`, while
 `real_customer_agent_executed=false`,
-`evaluate_agent_run_available=true`, `agent_callable_runtime=true`,
+`evaluate_rehearsal_run_available=true`, `agent_callable_runtime=true`,
 `scenario_benchmark_implemented=true`, `scenario_benchmark_case_count=20`,
-`evaluate_agent_run_mcp_tool_registered=true`,
+`evaluate_rehearsal_run_mcp_tool_registered=true`,
 `standard_mcp_transport_available=false`, `customer_validated=false`, and
 `production_ready=false`. Phase 6.5 now uses six Qianfan reasoning Agents across
 18 final provider rounds after three calibration iterations; hidden grading is

@@ -15,7 +15,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 ROOT = Path(__file__).resolve().parents[3]
 SCHEMA = ROOT / "schemas/saee-capability-invocation-receipt.schema.v0.1.json"
 RUNTIME_VERSION = "0.1.0-local-alpha"
-KNOWN_OPERATIONS = {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}
+KNOWN_OPERATIONS = {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}
 REQUEST_ID_PATTERN = re.compile(r"^request:[A-Za-z0-9._:-]{1,120}$")
 
 

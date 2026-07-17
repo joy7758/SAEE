@@ -69,7 +69,7 @@ def ready_adapter() -> CapabilityMCPAdapter:
 
 def main() -> int:
     tools = tool_definitions()
-    require([item["name"] for item in tools] == ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"], "Tool list drift")
+    require([item["name"] for item in tools] == ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"], "Tool list drift")
     require(all(item["annotations"] == {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False} for item in tools), "Tool annotations invalid")
     require(all(item["execution"] == {"taskSupport": "forbidden"} for item in tools), "task support must be forbidden")
     for item in tools:
@@ -79,7 +79,7 @@ def main() -> int:
     run = run_task(SCENARIO)
     evidence = json.loads(EVIDENCE.read_text(encoding="utf-8"))
     calls = {
-        "run": message(10, "tools/call", {"name": "evaluate_agent_run", "arguments": arguments("request:mcp-run", {"rehearsal_run": run})}),
+        "run": message(10, "tools/call", {"name": "evaluate_rehearsal_run", "arguments": arguments("request:mcp-run", {"rehearsal_run": run})}),
         "evidence": message(11, "tools/call", {"name": "evaluate_evidence", "arguments": arguments("request:mcp-evidence", evidence)}),
         "rehearse": message(12, "tools/call", {"name": "rehearse_agent", "arguments": arguments("request:mcp-rehearse", {"agent_reference": "agent:synthetic", "scenario_reference": "scenario:synthetic", "consent_scope": "local_controlled_synthetic_only"})}),
     }
@@ -120,7 +120,7 @@ def main() -> int:
     invalid.append(ready_adapter().handle(message(29, "tools/call", {"name": "evaluate_evidence", "arguments": bad_customer})))
     bad_secret = arguments("request:bad-secret", copy.deepcopy(evidence)); bad_secret["payload"]["api_key"] = "synthetic-forbidden"
     invalid.append(ready_adapter().handle(message(30, "tools/call", {"name": "evaluate_evidence", "arguments": bad_secret})))
-    invalid.append(ready_adapter().handle(message(31, "tools/call", {"name": "evaluate_agent_run", "arguments": arguments("request:bad-run", {})})))
+    invalid.append(ready_adapter().handle(message(31, "tools/call", {"name": "evaluate_rehearsal_run", "arguments": arguments("request:bad-run", {})})))
     require(all(item is not None for item in invalid), "invalid request produced no response")
     require(all("error" in item or item.get("result", {}).get("isError") is True for item in invalid if item is not None), "invalid request accepted")
 

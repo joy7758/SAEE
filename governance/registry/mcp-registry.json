@@ -31,7 +31,7 @@
     {
       "name": "saee.capability_package_mcp_stdio",
       "namespace": "internal.saee.*",
-      "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+      "tools": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"],
       "owner": "SAEE",
       "type": "internal",
       "status": "internal_alpha_contract_test",

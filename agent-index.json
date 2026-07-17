@@ -654,11 +654,11 @@
       "form_entry_authorized": true,
       "initial_price_cny": 999,
       "marketplace_form_fields_entered": true,
-      "marketplace_sales_information_saved": true,
-      "marketplace_protocol_information_saved": true,
       "marketplace_product_code": "cmfw00074657",
+      "marketplace_product_review_status": "\u5ba1\u6838\u4e2d",
       "marketplace_product_submission": true,
-      "marketplace_product_review_status": "审核中",
+      "marketplace_protocol_information_saved": true,
+      "marketplace_sales_information_saved": true,
       "price_published": false,
       "sales_mode": "PAY_PER_USE",
       "validity_current_ui_selection": "1\u5e74",
@@ -20403,7 +20403,7 @@
     "first_action_id": "NEXT-CV-001",
     "first_blocker_id": "customer_validated",
     "full_quick_fill_missing_value_row_count": 0,
-    "generated_at": "2026-07-13T14:04:32.511985+00:00",
+    "generated_at": "2026-07-14T10:37:00.849621+00:00",
     "generated_by": "scripts/saee_commercial_trial_operator_status.py",
     "human_cloud_clear_confirmation_required": true,
     "human_cloud_upload_confirmation_required": true,
@@ -22373,9 +22373,9 @@
     "engineering_core": "Digital Biosphere Evolution Engine",
     "mainline_drift_response": "raise_correction_recommendation",
     "overall_classification": "partial",
-    "production_ready": false,
     "program_mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
     "program_secondary": "use_saee_to_supervise_and_test_the_integration_process",
+    "production_ready": false,
     "recommendation_gate": "docs/strategy/SAEE_DEVELOPMENT_CONSTITUTION_V1_1_RECOMMENDATION_GATE.md",
     "runtime_integrated": false,
     "schema": "schemas/saee-development-constitution.schema.v1.1.json",
@@ -33830,9 +33830,9 @@
       "service": "saee_backend/services/agent_run_capability.py",
       "smoke": "scripts/saee_agent_capability_alpha_smoke.py"
     },
-    "evaluate_agent_run_available": true,
+    "evaluate_rehearsal_run_available": true,
     "existing_evidence_adequacy_reused": true,
-    "name": "SAEE Agent Capability Alpha: evaluate_agent_run v0.1",
+    "name": "SAEE Internal Agent Capability Alpha: evaluate_rehearsal_run v0.1",
     "production_ready": false,
     "public_api_available": false,
     "public_mcp_available": false,
@@ -34070,8 +34070,8 @@
       "recommendation_gate": "docs/strategy/SAEE_AGENT_READINESS_ARCHITECTURE_RECOMMENDATION_GATE.md",
       "smoke": "scripts/saee_agent_readiness_architecture_smoke.py"
     },
-    "evaluate_agent_run_available": true,
-    "evaluate_agent_run_mcp_tool_registered": true,
+    "evaluate_rehearsal_run_available": true,
+    "evaluate_rehearsal_run_mcp_tool_registered": true,
     "external_agent_tested": false,
     "future_ecosystem_entry": "SAEE Agent-Native Capability Interface",
     "human_participants_excluded_from_validation": true,
@@ -34113,7 +34113,7 @@
     "production_ready": false,
     "profile_support_rate": 0.6,
     "profile_support_rate_is_agent_accuracy": false,
-    "purpose": "Exercise the Scenario-to-Rehearsal-to-Trace-to-Evidence-Candidate-to-evaluate_agent_run chain across five balanced scenario categories.",
+    "purpose": "Exercise the Scenario-to-Rehearsal-to-Trace-to-Evidence-Candidate-to-evaluate_rehearsal_run chain across five balanced scenario categories.",
     "real_external_agent_validated": false,
     "recommended_next_pr": "SAEE evaluate_agent_run MCP Capability v0.1",
     "risk_probability_measured": false,
@@ -34561,8 +34561,8 @@
     "name_zh": "SAEE \u667a\u80fd\u4f53\u53ef\u9760\u6027\u80fd\u529b\u670d\u52a1\u5305 v1.0",
     "network_api_available": false,
     "operations": {
-      "evaluate_agent_run": "implemented_local_offline_alpha",
       "evaluate_evidence": "implemented_local_offline_prototype",
+      "evaluate_rehearsal_run": "implemented_local_offline_alpha",
       "rehearse_agent": "contract_only"
     },
     "production_ready": false,
@@ -34743,7 +34743,7 @@
     "smoke_command": "python3 scripts/saee_design_partner_validation_smoke.py",
     "status": "protocol_only_prepared_deferred_by_agent_native_route"
   },
-  "saee_evaluate_agent_run_mcp_capability_v0_1": {
+  "saee_evaluate_rehearsal_run_mcp_capability_v0_1": {
     "authentication_available": false,
     "customer_validated": false,
     "deployment_authorized": false,
@@ -34761,14 +34761,14 @@
     "in_memory_invocation_available": true,
     "interoperability_validated": false,
     "local_tool_registered": true,
-    "name": "SAEE evaluate_agent_run MCP Capability v0.1",
+    "name": "SAEE internal evaluate_rehearsal_run MCP Capability v0.1",
     "production_ready": false,
     "public_endpoint_available": false,
-    "purpose": "Expose evaluate_agent_run through the fixed local read-only MCP-compatible Tool registry.",
+    "purpose": "Expose internal evaluate_rehearsal_run through the fixed local read-only MCP-compatible Tool registry.",
     "recommended_next_action": "Review Phase 6.5 Design Partner protocol against the runnable Rehearsal and MCP capability surfaces.",
     "standard_mcp_transport_available": false,
     "status": "implemented_local_in_memory_mcp_capability",
-    "tool_name": "evaluate_agent_run"
+    "tool_name": "evaluate_rehearsal_run"
   },
   "saee_experiments": {
     "boundaries": [

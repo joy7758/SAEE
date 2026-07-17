@@ -14,7 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from saee_backend.services.agent_rehearsal_runtime import RehearsalRuntimeError, run_task
-from saee_backend.services.agent_run_capability import AgentRunCapabilityError, evaluate_agent_run
+from saee_backend.services.agent_run_capability import AgentRunCapabilityError, evaluate_agent_run as evaluate_rehearsal_run
 
 
 def main() -> int:
@@ -23,12 +23,12 @@ def main() -> int:
     args = parser.parse_args()
     try:
         run = run_task(args.scenario)
-        result = evaluate_agent_run(run)
+        result = evaluate_rehearsal_run(run)
     except (RehearsalRuntimeError, AgentRunCapabilityError, json.JSONDecodeError, OSError, ValueError, KeyError) as exc:
-        code = getattr(exc, "code", "EVALUATE_AGENT_RUN_FAILED")
+        code = getattr(exc, "code", "EVALUATE_REHEARSAL_RUN_FAILED")
         print(json.dumps({"status": "FAIL", "reason_code": code, "reason": str(exc)}, ensure_ascii=False, sort_keys=True))
         return 2
-    print(json.dumps({"status": "PASS", "result_type": "SAEE_EVALUATE_AGENT_RUN_RESULT", "run": run, "evaluation": result}, ensure_ascii=False, sort_keys=True, indent=2))
+    print(json.dumps({"status": "PASS", "result_type": "SAEE_EVALUATE_REHEARSAL_RUN_RESULT", "run": run, "evaluation": result}, ensure_ascii=False, sort_keys=True, indent=2))
     return 0
 
 

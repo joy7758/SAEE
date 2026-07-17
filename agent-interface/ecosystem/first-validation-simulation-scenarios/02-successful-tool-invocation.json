@@ -1,7 +1,7 @@
 {
   "scenario_id": "SUCCESSFUL_TOOL_INVOCATION",
   "stage": "LOCAL_INTEGRATION",
-  "request": "使用固定合成运行记录调用 evaluate_agent_run。",
+  "request": "使用固定合成运行记录调用 evaluate_rehearsal_run。",
   "expected_outcome": "INVOKED",
   "expected_reason_code": "LOCAL_RUNTIME_DELEGATION_COMPLETED",
   "simulation_only": true

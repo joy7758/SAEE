@@ -4,7 +4,7 @@
   "public_surface_reference": "../../agent-interface/public/saee-public-capability-surface.v0.1.json",
   "truth_consistency_reference": "../../agent-interface/validation/saee-capability-truth-consistency-result.v0.1.json",
   "capabilities": ["saee.agent-reliability", "saee.evidence-evaluation"],
-  "operations": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+  "operations": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"],
   "rehearse_agent_status": "contract_only",
   "public_service": false,
   "production_ready": false

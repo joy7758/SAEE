@@ -12,7 +12,7 @@ Volcengine Ark entry package = prepared
 integration executed = false
 ```
 
-MCP 包提供三个工具的机器投影、Agent 使用指南和调用链，其中 `evaluate_agent_run`、`evaluate_evidence` 为本地已测试，`rehearse_agent` 为 `CONTRACT_ONLY`。
+MCP 包提供三个工具的机器投影、Agent 使用指南和调用链，其中 `evaluate_rehearsal_run`、`evaluate_evidence` 为本地已测试，`rehearse_agent` 为 `CONTRACT_ONLY`。
 
 火山方舟包提供 Function Calling、MCP 和 HTTP 三种候选映射，全部为 `DESIGN_ONLY`。供应商网关观察不能升级为平台集成证据。
 

@@ -9,7 +9,7 @@ scope: l3_commercial_product_projection
 canonical_architecture_replaced: false
 runtime_added: false
 agent_rehearsal_runtime_implemented: true
-evaluate_agent_run_available: true
+evaluate_rehearsal_run_available: true
 production_ready: false
 customer_validated: false
 ```
@@ -205,14 +205,14 @@ external_world_actions=0
 
 ## 7. Phase 6.2 Agent Capability Alpha 边界
 
-`evaluate_agent_run` 已在 Phase 6.1 产生 run/trace/evidence 链后实现为本地
+`evaluate_rehearsal_run` 已在 Phase 6.1 产生 run/trace/evidence 链后实现为本地
 离线 Alpha。它评估证据充分程度和缺口，不输出 `SAFE`、`COMPLIANT`、
 `CERTIFIED` 或自动部署许可。
 
 当前状态：
 
 ```text
-evaluate_agent_run_available=true
+evaluate_rehearsal_run_available=true
 agent_callable_runtime=true
 public_api_available=false
 public_mcp_available=false
@@ -224,7 +224,7 @@ public_mcp_available=false
 |---|---|---|
 | 6.0 | Architecture Reunification | `completed_documentation_and_truth_alignment` |
 | 6.1 | Agent Rehearsal Runtime MVP | `stateful_multi_step_qianfan_business_rehearsal_validated_customer_agent_pending` |
-| 6.2 | Agent Capability Alpha: `evaluate_agent_run` | `completed_local_offline_alpha` |
+| 6.2 | Agent Capability Alpha: `evaluate_agent_run`（历史内部名称；当前内部名为 `evaluate_rehearsal_run`） | `completed_local_offline_alpha` |
 | 6.3 | 20-scenario Readiness Benchmark | `completed_local_20_case_synthetic_benchmark` |
 | 6.4 | MCP Capability Release | `completed_local_in_memory_capability_no_standard_transport` |
 | 6.5 | Agent Preference Validation | `controlled_qianfan_multi_agent_preference_validated_human_participants_excluded` |
@@ -240,7 +240,7 @@ Phase 6.0/6.1 证明架构已重新统一，固定规则 Runtime 已执行，百
 它不证明：
 
 - Codex、Claude Code、LangGraph、CrewAI 或客户 Agent 已接入；
-- `evaluate_agent_run` 已成为公开 API 或标准 MCP 服务；
+- `saee.evaluate_agent_run` 已成为公开 API 或标准 MCP 服务；
 - 真实 Agent、客户或生产数据已测试；
 - readiness risk 已外部校准；
 - 产品、API 或 MCP 已发布；

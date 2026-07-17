@@ -26,6 +26,12 @@ Constitutional program secondary: use SAEE to supervise, test and assess the int
 Target customer versions: SAEE Evidence; SAEE Evaluation; SAEE Governance.
 Target-version truth: the three customer versions are targets, not claims of current implementation, customer validation, launch or production readiness.
 Mainline drift rule: if a Commander prompt, role prompt, roadmap or local task elevates governance, testing, audit or another secondary lane above the integration mainline, emit MAINLINE_DRIFT_DETECTED and recommend correction; role prompts do not override the Constitution.
+Agent Evidence migration plan: governance/migration/saee-three-version-integration-plan.v1.json
+Agent Evidence source authorization: governance/migration/agent-evidence-m03-owner-decision.v1.json
+Agent Evidence clean-room adapter entry: agent-interface/integration/agent-evidence-compatibility/README.md
+Agent Evidence adapter validation: python3 scripts/saee_agent_evidence_trait_adapter_smoke.py
+Evidence-to-Evaluation bridge validation: python3 scripts/saee_agent_evidence_evaluation_bridge_smoke.py
+Migration truth: selected bounded clean-room traits are integrated locally; this does not establish full source/runtime migration, a completed customer version, merge completion, customer validation, launch or production readiness.
 
 Frozen external brand: SAEE Agent Readiness Platform / SAEE 智能体上线准备平台
 First product: SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务
@@ -5033,7 +5039,7 @@ This Phase 6 architecture reunification defines Agent Readiness Infrastructure w
 
 This local controlled Runtime executes one repository-controlled fixed policy Agent against three strict synthetic scenarios: baseline metadata inspection, tool-timeout abstention, and instruction-conflict refusal. It uses only in-memory allowlisted tools and produces deterministic Trace events plus a trace-digest-bound Evidence Candidate Export. It does not invoke a real external Agent, access a network, start a subprocess, write the filesystem, use customer data, establish Evidence, evaluate readiness, authorize deployment, or claim production readiness. local_rehearsal_runtime_executed=true, fixed_internal_agent_executed=true, real_external_agent_executed=false, evidence_established=false, evaluate_agent_run_available=false, and production_ready=false.
 
-# SAEE Agent Capability Alpha: evaluate_agent_run v0.1
+# SAEE Internal Agent Capability Alpha（内部智能体能力早期验证版）: evaluate_rehearsal_run v0.1
 /agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json
 /agent-interface/capabilities/saee-evaluate-agent-run-output.v0.1.schema.json
 /saee_backend/services/agent_run_capability.py
@@ -5042,7 +5048,7 @@ This local controlled Runtime executes one repository-controlled fixed policy Ag
 /docs/strategy/SAEE_AGENT_CAPABILITY_ALPHA_RECOMMENDATION_GATE.md
 /scripts/saee_agent_capability_alpha_smoke.py
 
-This local offline Alpha validates a SAEE Rehearsal Run, verifies Trace and Evidence Export digest binding, and reuses the fixed AUTHORIZED_AGENT_ACTION Evidence Adequacy profile. SUPPORTED means profile requirements were satisfied; it does not mean task success, Agent safety, compliance, certification, or deployment approval. Tool-timeout evidence can be SUPPORTED while task_success_established remains false. evaluate_agent_run_available=true, agent_callable_runtime=true, public_api_available=false, public_mcp_available=false, real_external_agent_validated=false, customer_validated=false, and production_ready=false. Recommended next PR: SAEE evaluate_agent_run MCP Capability v0.1.
+This local offline Alpha（本地离线早期验证版）validates a SAEE Rehearsal Run（SAEE 排演运行）, verifies Trace（轨迹）and Evidence Export（证据导出）digest binding（摘要绑定）, and reuses the fixed AUTHORIZED_AGENT_ACTION（已授权智能体行动）Evidence Adequacy profile（证据充分性剖面）. SUPPORTED（得到支持）means profile requirements（剖面要求）were satisfied; it does not mean task success（任务成功）, Agent safety（智能体安全）, compliance（合规）, certification（认证）, or deployment approval（部署批准）. Tool-timeout evidence（工具超时证据）can be SUPPORTED（得到支持）while task_success_established remains false. evaluate_rehearsal_run_available=true, agent_callable_runtime=true, public_api_available=false, public_mcp_available=false, real_external_agent_validated=false, customer_validated=false, and production_ready=false.
 
 # SAEE Agent Readiness Benchmark v0.1
 /agent-interface/benchmarks/saee-agent-readiness-benchmark.schema.v0.1.json
@@ -5054,9 +5060,9 @@ This local offline Alpha validates a SAEE Rehearsal Run, verifies Trace and Evid
 /docs/strategy/SAEE_AGENT_READINESS_BENCHMARK_RECOMMENDATION_GATE.md
 /scripts/saee_agent_readiness_benchmark_smoke.py
 
-This local deterministic Benchmark executes 20 cases through the complete Scenario -> Rehearsal -> Trace -> Evidence Candidate -> evaluate_agent_run chain. Coverage is balanced across baseline, context drift, tool failure, instruction conflict, and adversarial input, with four cases per category. expectation_matches=20, denied_actions_supported=0, supported=12, insufficient_evidence=8, and profile_support_rate=0.6. The rate is not Agent accuracy, task success or risk probability. fixed_internal_agent_only=true, real_external_agent_validated=false, customer_data_used=false, external_validation_completed=false, deployment_authorized=false, and production_ready=false. Recommended next PR: SAEE Agent Rehearsal Design Partner Validation Protocol v0.1.
+This local deterministic Benchmark（本地确定性基准）executes 20 cases through the complete Scenario（场景） -> Rehearsal（排演） -> Trace（轨迹） -> Evidence Candidate（证据候选） -> internal evaluate_rehearsal_run chain（内部排演运行评估链）. Coverage（覆盖）is balanced across baseline（基线）, context drift（上下文漂移）, tool failure（工具失败）, instruction conflict（指令冲突）, and adversarial input（对抗输入）, with four cases per category（类别）. expectation_matches=20, denied_actions_supported=0, supported=12, insufficient_evidence=8, and profile_support_rate=0.6. The rate is not Agent accuracy（智能体准确率）, task success（任务成功）or risk probability（风险概率）. fixed_internal_agent_only=true, real_external_agent_validated=false, customer_data_used=false, external_validation_completed=false, deployment_authorized=false, and production_ready=false.
 
-# SAEE evaluate_agent_run MCP Capability v0.1
+# SAEE internal evaluate_rehearsal_run MCP Capability（内部排演运行模型上下文协议能力）v0.1
 /agent-interface/mcp/saee-evaluate-agent-run-mcp-capability.v0.1.json
 /agent-interface/mcp/saee-mcp-evaluate-agent-run-request.v0.1.schema.json
 /agent-interface/mcp/saee-mcp-evaluate-agent-run-response.v0.1.schema.json
@@ -5066,7 +5072,7 @@ This local deterministic Benchmark executes 20 cases through the complete Scenar
 /docs/strategy/SAEE_EVALUATE_AGENT_RUN_MCP_RECOMMENDATION_GATE.md
 /scripts/saee_evaluate_agent_run_mcp_smoke.py
 
-The fixed local in-memory MCP-compatible registry now exposes two read-only Tools: evaluate_evidence_adequacy and evaluate_agent_run. The new Tool validates a strict Rehearsal Run and reuses the canonical Agent Run Alpha. It rejects malformed or tampered Trace input and preserves run/trace references. local_tool_registered=true and in_memory_invocation_available=true, while standard_mcp_transport_available=false, public_endpoint_available=false, authentication_available=false, external_agent_connected=false, interoperability_validated=false, and production_ready=false. Recommended next action: review the Phase 6.5 Design Partner protocol; no outreach is performed by this capability.
+The fixed local in-memory MCP-compatible registry（固定本地内存模型上下文协议兼容注册表）now exposes two read-only Tools（只读工具）: evaluate_evidence_adequacy and internal evaluate_rehearsal_run. The renamed Tool（工具）validates a strict Rehearsal Run（严格排演运行）and reuses the existing internal evaluator（内部评估器）. It rejects malformed or tampered Trace input（格式错误或被篡改的轨迹输入）and preserves run/trace references（运行与轨迹引用）. local_tool_registered=true and in_memory_invocation_available=true, while standard_mcp_transport_available=false, public_endpoint_available=false, authentication_available=false, external_agent_connected=false, interoperability_validated=false, and production_ready=false.
 
 # SAEE Agent Rehearsal Design Partner Validation Protocol v0.1
 /agent-interface/commercial/saee-agent-rehearsal-design-partner-plan.v0.1.json
@@ -5340,7 +5346,7 @@ The commercial strategy includes three recorded single-step Qianfan runs, one st
 /scripts/saee_capability_service_package_smoke.py
 /docs/strategy/SAEE_CAPABILITY_SERVICE_PACKAGE_V1_RECOMMENDATION_GATE.md
 
-The Package is the machine-first entry point for `saee.agent-reliability`. It maps two existing local read-only capabilities, `evaluate_agent_run` and `evaluate_evidence_adequacy` (exposed as the Package alias `evaluate_evidence`), while `rehearse_agent` remains `contract_only`. The OpenAPI document declares no server and the MCP file is a contract projection, not a standard MCP Server. package_stage=local_contract_alpha, network_api_available=false, standard_mcp_transport_available=false, public_mcp_available=false, published=false, marketplace_listed=false, adoption_validated=false, customer_validated=false, and production_ready=false.
+The Package（能力包）is the machine-first（机器优先）entry point（入口）for `saee.agent-reliability`. It maps two existing local read-only（本地只读）capabilities（能力）, internal `evaluate_rehearsal_run` and `evaluate_evidence_adequacy` (exposed as the Package alias（能力包别名）`evaluate_evidence`), while `rehearse_agent` remains `contract_only`（仅契约）. The OpenAPI（开放接口规范）document declares no server（服务器）and the MCP（模型上下文协议）file is a contract projection（契约投影）, not a standard MCP Server（标准模型上下文协议服务器）. package_stage=local_contract_alpha, network_api_available=false, standard_mcp_transport_available=false, public_mcp_available=false, published=false, marketplace_listed=false, adoption_validated=false, customer_validated=false, and production_ready=false.
 
 # SAEE Capability Service Local Runtime Alpha v0.1
 
@@ -5357,7 +5363,7 @@ The Package is the machine-first entry point for `saee.agent-reliability`. It ma
 /docs/architecture/SAEE_CAPABILITY_RUNTIME_ALPHA.md
 /docs/strategy/SAEE_CAPABILITY_RUNTIME_ALPHA_RECOMMENDATION_GATE.md
 
-The local Runtime verifies the Phase 10.1 operation set, routes `evaluate_agent_run` and `evaluate_evidence` directly to existing bounded services, returns `CONTRACT_ONLY` for `rehearse_agent`, and emits an inline non-persistent metadata receipt. It rejects hidden operations, capability mismatch, customer-data declarations, network requests, external-action requests and secret-like keys. runtime_stage=local_alpha, package_operations_verified=true, supported_operations=2, contract_only_operations=1, network_api_available=false, public_service=false, standard_mcp_transport=false, customer_data=false, external_world_actions=false, and production_ready=false.
+The local Runtime（本地运行时）verifies the Phase（阶段）10.1 operation set（操作集合）, routes internal `evaluate_rehearsal_run` and `evaluate_evidence` directly to existing bounded services（受限服务）, returns `CONTRACT_ONLY`（仅契约）for `rehearse_agent`, and emits an inline non-persistent metadata receipt（内联非持久元数据收据）. It rejects hidden operations（隐藏操作）, capability mismatch（能力不匹配）, customer-data declarations（客户数据声明）, network requests（网络请求）, external-action requests（外部动作请求）and secret-like keys（疑似密钥字段）. runtime_stage=local_alpha, package_operations_verified=true, supported_operations=2, contract_only_operations=1, network_api_available=false, public_service=false, standard_mcp_transport=false, customer_data=false, external_world_actions=false, and production_ready=false.
 
 # SAEE MCP Adapter Alpha v0.1
 
@@ -5369,7 +5375,7 @@ The local Runtime verifies the Phase 10.1 operation set, routes `evaluate_agent_
 /docs/architecture/SAEE_CAPABILITY_MCP_ADAPTER_ALPHA.md
 /docs/strategy/SAEE_CAPABILITY_MCP_ADAPTER_ALPHA_RECOMMENDATION_GATE.md
 
-The local stdio Adapter implements the MCP 2025-11-25 initialization and Tool discovery/call shape and maps exactly three Package Tools to the Phase 10.2 Capability Runtime. It imports no evaluator directly. `evaluate_agent_run` and `evaluate_evidence` can return Runtime SUCCESS; `rehearse_agent` remains CONTRACT_ONLY and is surfaced with `isError=true`. local_stdio_adapter_available=true, runtime_delegation_required=true, direct_evaluator_access=false, network_listener_available=false, public_service=false, external_agent_connected=false, external_mcp_interoperability_validated=false, and production_ready=false.
+The local stdio Adapter（本地标准输入输出适配器）implements the MCP（模型上下文协议）2025-11-25 initialization（初始化）and Tool discovery/call shape（工具发现与调用形式）and maps exactly three Package Tools（能力包工具）to the Phase（阶段）10.2 Capability Runtime（能力运行时）. It imports no evaluator（评估器）directly. Internal `evaluate_rehearsal_run` and `evaluate_evidence` can return Runtime SUCCESS（运行时成功）; `rehearse_agent` remains CONTRACT_ONLY（仅契约）and is surfaced with `isError=true`. local_stdio_adapter_available=true, runtime_delegation_required=true, direct_evaluator_access=false, network_listener_available=false, public_service=false, external_agent_connected=false, external_mcp_interoperability_validated=false, and production_ready=false.
 
 # SAEE Local HTTP Capability Adapter Alpha v0.1
 
@@ -5382,7 +5388,7 @@ The local stdio Adapter implements the MCP 2025-11-25 initialization and Tool di
 /docs/architecture/SAEE_CAPABILITY_HTTP_ADAPTER_ALPHA.md
 /docs/strategy/SAEE_CAPABILITY_HTTP_ADAPTER_ALPHA_RECOMMENDATION_GATE.md
 
-The HTTP Adapter exposes exactly three localhost routes and delegates all valid operations to Phase 10.2 `invoke_capability`. It binds only `127.0.0.1`, stores no request or payload, sends no CORS allowance, and imports no evaluator. `evaluate_agent_run` and `evaluate_evidence` return HTTP 200 on Runtime SUCCESS, `rehearse_agent` returns 501 with CONTRACT_ONLY, and route/operation mismatch is rejected before any other capability can execute. http_adapter_available=true, network_public_access=false, public_service=false, oauth_available=false, multi_tenant=false, customer_data=false, external_world_actions=false, and production_ready=false.
+The HTTP Adapter（超文本传输协议适配器）exposes exactly three localhost（本地主机）routes（路由）and delegates all valid operations（有效操作）to Phase（阶段）10.2 `invoke_capability`. It binds only `127.0.0.1`, stores no request（请求）or payload（载荷）, sends no CORS（跨来源资源共享）allowance, and imports no evaluator（评估器）. Internal `evaluate_rehearsal_run` and `evaluate_evidence` return HTTP（超文本传输协议）200 on Runtime SUCCESS（运行时成功）, `rehearse_agent` returns 501 with CONTRACT_ONLY（仅契约）, and route/operation mismatch（路由与操作不匹配）is rejected before any other capability can execute. http_adapter_available=true, network_public_access=false, public_service=false, oauth_available=false, multi_tenant=false, customer_data=false, external_world_actions=false, and production_ready=false.
 
 # SAEE Agent Ecosystem Integration Examples Alpha v0.1
 
@@ -5647,7 +5653,7 @@ SAEE Internal Agent Pilot Plan v1.0:
 /scripts/saee_internal_agent_pilot_execution_smoke.py
 /docs/strategy/SAEE_INTERNAL_AGENT_PILOT_EXECUTION_RECOMMENDATION_GATE.md
 
-Four scenario contracts cover coding, research, automation and agent delegation. The current Codex session completed three real internal runs for coding, research and automation; delegation remains unexecuted. evaluate_evidence directly recomputed all three authorization packages as PASS while accountability_claim_established=false. evaluate_agent_run supports only a fixed internal rehearsal projection, so direct_codex_evaluation_supported=false and the coding recommendation is REPLAN. internal_agent_pilot=true; pilot_executed=true; real_internal_execution=true; external_validation=false; external_participants=false; customer_data=false; production_execution=false; external_world_actions=false; adoption_validated=false; production_ready=false.
+Four scenario contracts（四个场景契约）cover coding（编码）, research（研究）, automation（自动化）and agent delegation（智能体委派）. The current Codex session completed three real internal runs（真实内部运行）for coding, research and automation; delegation remains unexecuted（委派仍未执行）. evaluate_evidence directly recomputed all three authorization packages（授权包）as PASS（通过）while accountability_claim_established=false. Internal evaluate_rehearsal_run supports only a fixed rehearsal projection（固定排演投影）, so direct_codex_evaluation_supported=false and the coding recommendation（编码建议）is REPLAN（重新规划）. internal_agent_pilot=true; pilot_executed=true; real_internal_execution=true; external_validation=false; external_participants=false; customer_data=false; production_execution=false; external_world_actions=false; adoption_validated=false; production_ready=false.
 ## SAEE Baidu entry authorization and live Qianfan update — 2026-07-13
 
 The owner chose to withhold a public license and authorized local Git commits only; tag, push and GitHub Release remain unauthorized. Two bounded synthetic business scenarios completed real Baidu Qianfan function-calling roundtrips through the two-operation SAEE product adapter, totaling four Provider rounds. Sanitized receipts contain hashes and structured results but no credentials or raw Provider text. Both Provider summaries omitted required false boundaries, so the host used deterministic canonical-summary fallback. qianfan_real_provider_product_roundtrip=true, qianfan_live_synthetic_scenario_count=2, qianfan_live_provider_round_count=4, external_world_actions=0, official_qianfan_integration=false, customer_validated=false, marketplace_listed=false, and production_ready=false. Baidu contact and Qianfan partner application are authorized, but verified company/contact fields remain required.

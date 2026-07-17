@@ -1,8 +1,8 @@
 {
-  "saee_evaluate_agent_run_capability_v0_1": true,
+  "saee_evaluate_rehearsal_run_capability_v0_1": true,
   "capability_version": "0.1.0",
-  "capability_id": "saee.evaluate_agent_run",
-  "name": "SAEE Evaluate Agent Run",
+  "capability_id": "internal.saee.evaluate_rehearsal_run",
+  "name": "SAEE Evaluate Rehearsal Run",
   "stage": "local_offline_alpha",
   "description": "Validate a SAEE rehearsal run and evaluate whether its exported candidate evidence satisfies the fixed AUTHORIZED_AGENT_ACTION adequacy profile.",
   "when_to_use": [

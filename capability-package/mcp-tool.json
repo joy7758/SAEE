@@ -9,7 +9,7 @@
   "public_mcp_endpoint": null,
   "tools": [
     {
-      "name": "evaluate_agent_run",
+      "name": "evaluate_rehearsal_run",
       "description": "Assess whether a validated SAEE rehearsal execution has sufficient bounded reliability evidence before a separately authorized high-impact decision.",
       "implementation_status": "implemented_local_in_memory_tool",
       "input_schema_ref": "../agent-interface/mcp/saee-mcp-evaluate-agent-run-request.v0.1.schema.json",

@@ -37,8 +37,8 @@ SAEE 提供机器可读能力描述和有边界评估能力，不提供授权、
 
 操作真值：
 
-- `evaluate_agent_run`：本地离线 Alpha 已实现；
-- `evaluate_evidence`：本地离线 Prototype 已实现；
+- `saee.evaluate_agent_run`：规范公开本地 Alpha 已实现；
+- `saee.evaluate_evidence`：规范公开本地 Prototype 已实现；
 - `rehearse_agent`：仅保留为内部历史契约，不属于已冻结的公开产品操作面，也不得被公开发现层描述为可调用能力。
 
 ## 5. Invocation patterns

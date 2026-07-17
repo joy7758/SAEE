@@ -11,7 +11,7 @@
   ],
   "capability_results": [
     {
-      "operation": "evaluate_agent_run",
+      "operation": "evaluate_rehearsal_run",
       "assessment": "INSUFFICIENT_EVIDENCE",
       "meaning": "补齐测试和恢复证据后重新演练"
     },

@@ -20,7 +20,7 @@ def validate_interpretation(response: Any, claimed_meaning: str | None = None) -
         meaning = "CAPABILITY_CONTRACT_ONLY"
     elif status == "SUCCESS" and operation == "evaluate_evidence" and isinstance(result, dict) and result.get("claim_assessment") == "SUPPORTED":
         meaning = "PROFILE_REQUIREMENT_SATISFIED"
-    elif status == "SUCCESS" and operation == "evaluate_agent_run":
+    elif status == "SUCCESS" and operation == "evaluate_rehearsal_run":
         meaning = "BOUNDED_RELIABILITY_CONTEXT"
     else:
         return {"valid": False, "reason_codes": ["MCP_RESULT_STATUS_UNSUPPORTED"]}
