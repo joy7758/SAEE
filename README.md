@@ -1,5 +1,14 @@
 # SAEE Agent Readiness Capability
 
+> **OpenAI Build Week 2026 judging snapshot:** this branch presents the
+> `SAEE Evolution Capability Router`, an Agent-readable packaging of the
+> canonical capability inventory and routing work added during the event.
+> Start with [`OPENAI_BUILD_WEEK_2026.md`](OPENAI_BUILD_WEEK_2026.md).
+> The snapshot is licensed under [Apache-2.0](LICENSE) and remains explicitly
+> local/synthetic: it does not establish a public MCP service, external
+> interoperability, customer validation, product launch, or production
+> readiness.
+
 > 软件著作权申请准备入口：`docs/ip/software-copyright/README.md`。当前主体候选为山西游骑兵电子商务有限公司；本地申请材料准备中，尚未登录、上传、提交、受理或获证。
 
 > **SAEE is an Agent Readiness Infrastructure that evaluates whether AI agents have sufficient execution evidence before real-world deployment.**

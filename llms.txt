@@ -21,6 +21,11 @@ Governance startup rule: read the development constitution, then governance regi
 Governance authority rule: governance/registry/capability-crosswalk.json maps constitutional concepts to existing implementation and is not a second capability fact source; do not copy live status into this file.
 Agent Evidence Project role: SAEE Evidence and Immune Subsystem
 Agent Evidence Project boundary: constitutional ownership is active; source-code migration, unified runtime integration, external validation, customer validation and production readiness are not established by this relationship.
+Constitutional program mainline: controlled SAEE and Agent Evidence Project integration under provenance, license, schema-crosswalk, reuse, migration and staged-truth gates.
+Constitutional program secondary: use SAEE to supervise, test and assess the integration process; this lane cannot displace the mainline or approve its own changes.
+Target customer versions: SAEE Evidence; SAEE Evaluation; SAEE Governance.
+Target-version truth: the three customer versions are targets, not claims of current implementation, customer validation, launch or production readiness.
+Mainline drift rule: if a Commander prompt, role prompt, roadmap or local task elevates governance, testing, audit or another secondary lane above the integration mainline, emit MAINLINE_DRIFT_DETECTED and recommend correction; role prompts do not override the Constitution.
 
 Frozen external brand: SAEE Agent Readiness Platform / SAEE 智能体上线准备平台
 First product: SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务
