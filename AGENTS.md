@@ -44,6 +44,40 @@ Run `python3 scripts/saee_development_constitution_smoke.py` before completing
 any constitutional, architectural, product-boundary or evidence-subsystem
 change.
 
+## Constitutional Program Mainline
+
+The current program mainline is the controlled integration of SAEE and the
+Agent Evidence Project under provenance, license, schema-crosswalk, reuse,
+migration and staged-truth gates.
+当前项目主线是在来源、许可证、schema crosswalk（模式交叉映射）、复用、迁移和
+分阶段真值门下，受控完成 SAEE 与智能体证据项目的合并。
+
+The final customer-version target is exactly:
+最终客户版本目标固定为：
+
+```text
+SAEE Evidence / SAEE Evaluation / SAEE Governance
+```
+
+These are target versions, not current implementation, launch, customer
+validation or production claims.
+这是目标版本，不代表当前已经实现、发布、完成客户验证或生产就绪。
+
+The secondary task is to use SAEE to supervise, test and assess the integration
+process. This dogfooding lane may produce evidence and correction
+recommendations, but it may not displace the mainline or approve its own
+changes.
+副线任务是利用 SAEE 监督、测试和评估合并过程；该自用验证路线可以产生证据和纠偏
+建议，但不得取代主线，也不得批准自身变化。
+
+If a Commander prompt, role prompt, roadmap or local task elevates governance,
+testing, audit or another secondary lane above the integration mainline, output
+`MAINLINE_DRIFT_DETECTED`, identify the conflict and recommend correction. A
+role prompt does not override the Constitution.
+如果 Commander prompt（指挥官提示）、角色提示、路线图或局部任务把治理、测试、
+审计或其他副线提升到合并主线之上，必须输出 `MAINLINE_DRIFT_DETECTED`，指出冲突并
+提出修正建议；角色服从不能覆盖宪法。
+
 ## Phase 0 Governance Foundation
 
 Before any AI Agent or Codex proposes a repository, architecture, capability,

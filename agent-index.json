@@ -22363,6 +22363,31 @@
     "status": "local_precommercial_retention_control_default_dry_run",
     "tenant_retention_available": false
   },
+  "development_constitution_v1_1": {
+    "agent_evidence_project_role": "evidence_and_immune_subsystem",
+    "canonical_document": "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+    "canonical_inventory_change": "none_this_change",
+    "constitution_version": "1.1.1",
+    "constitutional_ownership": "implemented",
+    "contract": "agent-interface/governance/saee-development-constitution.v1.1.json",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "mainline_drift_response": "raise_correction_recommendation",
+    "overall_classification": "partial",
+    "production_ready": false,
+    "program_mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
+    "program_secondary": "use_saee_to_supervise_and_test_the_integration_process",
+    "recommendation_gate": "docs/strategy/SAEE_DEVELOPMENT_CONSTITUTION_V1_1_RECOMMENDATION_GATE.md",
+    "runtime_integrated": false,
+    "schema": "schemas/saee-development-constitution.schema.v1.1.json",
+    "smoke_command": "python3 scripts/saee_development_constitution_smoke.py",
+    "source_code_migrated": false,
+    "status": "active_repository_development_authority",
+    "target_customer_versions": [
+      "SAEE Evidence",
+      "SAEE Evaluation",
+      "SAEE Governance"
+    ]
+  },
   "ecosystem_entry_package_v1": {
     "asset_audit": "docs/ecosystem/SAEE_ECOSYSTEM_ENTRY_ASSET_AUDIT.md",
     "ecosystem_demo": "examples/ecosystem-demo-v1/README.md",

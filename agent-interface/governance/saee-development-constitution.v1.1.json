@@ -1,0 +1,106 @@
+{
+  "$schema": "../../schemas/saee-development-constitution.schema.v1.1.json",
+  "constitution_id": "saee-development-constitution-v1.1",
+  "version": "1.1.1",
+  "authority": {
+    "canonical_document": "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+    "effective_date": "2026-07-14",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "theory_identity": "Silicon-Amplified Evolutionary Ecology"
+  },
+  "mission": {
+    "primary": "Operate a controlled digital biosphere evolution loop for sensing, trait extraction, world modeling, counterfactual simulation, branching, variation, sandbox development, fitness selection, archive and rollback.",
+    "evidence_role": "supports_evolutionary_selection_archive_and_rollback",
+    "audit_first_reframe": false
+  },
+  "program_tasks": {
+    "mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
+    "secondary": "use_saee_to_supervise_and_test_the_integration_process",
+    "secondary_cannot_displace_mainline": true,
+    "self_assessment_cannot_self_approve": true,
+    "role_prompt_cannot_override_mainline": true,
+    "drift_response": "raise_correction_recommendation"
+  },
+  "target_customer_versions": [
+    "SAEE Evidence",
+    "SAEE Evaluation",
+    "SAEE Governance"
+  ],
+  "evolution_loop": [
+    "global_sensing",
+    "trait_extraction",
+    "ecological_world_model",
+    "counterfactual_simulation",
+    "genome_branching",
+    "controlled_mutation_recombination",
+    "sandbox_development",
+    "pareto_fitness_evaluation",
+    "evolutionary_archive_rollback_immune_system"
+  ],
+  "agent_readable_rule": {
+    "required": true,
+    "first_class_surfaces": [
+      "README.md",
+      "agent-index.json",
+      "llms.txt",
+      "capability_manifests",
+      "schema_registries",
+      "examples",
+      "cli_tool_interfaces",
+      "offline_validators"
+    ]
+  },
+  "evidence_subsystem_integration": {
+    "project_name": "Agent Evidence Project",
+    "legacy_product_name": "Agent Evidence Receipt",
+    "legacy_source_repository_name": "agent-evidence-layer",
+    "saee_role": "evidence_and_immune_subsystem",
+    "overall_classification": "partial",
+    "constitutional_ownership": "implemented",
+    "source_code_adoption": "not_performed",
+    "runtime_integration": "not_performed",
+    "canonical_inventory_change": "none_this_change",
+    "capabilities_to_resolve_at_read_time": [
+      "saee.evaluate_evidence",
+      "saee.general_trace_normalization",
+      "saee.trusted_trace_to_evidence_conversion"
+    ],
+    "claims": [
+      "The Agent Evidence Project is constitutionally owned by SAEE as its Evidence and Immune Subsystem.",
+      "Evidence receipts may provide bounded integrity, provenance and completeness context to evaluation, selection, archive and rollback."
+    ],
+    "non_claims": [
+      "The legacy source repository has been copied or migrated into this repository.",
+      "A unified SAEE evidence runtime has been integrated.",
+      "A hash or valid signature proves that the described event occurred in the real world.",
+      "Evidence evaluation authorizes execution, deployment or external action.",
+      "External interoperability or customer validation has been completed.",
+      "The subsystem is production ready or publicly launched.",
+      "The controlled SAEE and Agent Evidence source or runtime merge has completed.",
+      "The three target customer versions are implemented, customer validated, launched or production ready."
+    ]
+  },
+  "development_gates": [
+    "canonical_inventory_resolution",
+    "duplicate_build_check",
+    "evolution_subsystem_design_check",
+    "agent_recommendation_gate",
+    "standards_and_supply_chain_boundary_check",
+    "claims_non_claims_and_staged_truth",
+    "schema_negative_and_deterministic_validation"
+  ],
+  "external_action_boundary": {
+    "observes_world": true,
+    "executes_world": false,
+    "decision_context_is_authority": false,
+    "explicit_authorization_required": true
+  },
+  "truth_boundary": {
+    "source_code_migrated": false,
+    "runtime_integrated": false,
+    "external_integration_validated": false,
+    "customer_validated": false,
+    "product_launched": false,
+    "production_ready": false
+  }
+}
