@@ -6,6 +6,12 @@ SAEE 的正式理论身份是 **Silicon-Amplified Evolutionary Ecology（硅基�
 
 > 在人工智能智能体进入真实业务前，先通过长期演练、可靠性评估和证据边界，看清它会不会漂移、失效或越界。
 
+## Strategic Alignment（战略对齐）
+
+SAEE 的最高战略角色是 **Evolution Intelligence Layer（演化智能层）**，工程核心保持为 **Digital Biosphere Evolution Engine（数字生物圈进化引擎）**。规范边界是：**DBOS governs existence（DBOS 治理存在）；SAEE governs evolution（SAEE 治理演化）**。
+
+完整职责、非目标范围、DBA（Digital Biosphere Architecture，数字生物圈架构）关系及 DBOS（Digital Biosphere Operating System，数字生物圈操作系统）边界见 [`STRATEGIC_ALIGNMENT.md`](STRATEGIC_ALIGNMENT.md)。本次同步只调整战略解释，不创建新能力、不恢复开发，也不授予 SAEE 身份、权限或外部执行权。
+
 ## 1. 为什么需要 SAEE
 
 传统评测擅长回答“这次得了多少分”。SAEE 更关注智能体在长期扰动、工具失败、上下文变化和权限边界下是否仍然可靠，并把结果压缩为可复核的继续、修改、暂缓建议。
