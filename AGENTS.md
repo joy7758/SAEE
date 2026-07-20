@@ -11,6 +11,29 @@ The project is NOT an audit-first system, NOT a generic agent framework, and NOT
 Its engineering core is Digital Biosphere Evolution Engine.
 其工程核心是 Digital Biosphere Evolution Engine（数字生物圈进化引擎）。
 
+## Strategic Alignment Invariant
+
+The canonical strategic alignment entry is `STRATEGIC_ALIGNMENT.md`.
+规范战略对齐入口为 `STRATEGIC_ALIGNMENT.md`。
+
+All future tasks must preserve:
+所有未来任务必须保持：
+
+```text
+SAEE_ROLE=EVOLUTION_INTELLIGENCE_LAYER
+SAEE_GOVERNS_EVOLUTION=true
+DBOS_GOVERNS_EXISTENCE=true
+DBOS_NE_SAEE=true
+```
+
+SAEE governs evolution（SAEE 治理演化）. It may evaluate Fitness（适应度）, Evolution（演化）, Adaptation（适应性）and Stability（稳定性）, and produce reviewable Evolution Recommendations（演化建议）. Evaluation and recommendation never grant execution authority.
+
+Do not reposition SAEE as an Agent Platform（智能体平台）, Runtime System（运行系统）, Identity System（身份系统）, Permission System（权限系统）, Registration System（登记系统）or DBOS replacement（DBOS 替代品）. SAEE must not directly mutate DBOS-governed Identity（身份）, Capability（能力）, Permission（权限）, Execution（执行）or source Evidence facts（源证据事实）.
+
+This restriction does not erase the constitutionally assigned `SAEE Evidence and Immune Subsystem`（SAEE 证据与免疫子系统）. That subsystem may evaluate evidence adequacy and preserve SAEE evaluation artifacts, but it may not rewrite source evidence, authenticate identity, grant permission or authorize execution.
+
+The DBA（Digital Biosphere Architecture，数字生物圈架构）strategic sources have `implementation_effect=NONE`. Strategic alignment does not create an Agent, Runtime, capability fact, development authorization, release or production claim. If a future task violates these boundaries, output `MAINLINE_DRIFT_DETECTED` and stop unless a separately applicable constitutional amendment and authorization exist.
+
 ## Constitutional Authority
 
 All repository changes are governed by `SAEE Development Constitution v1.1`.
@@ -21,6 +44,9 @@ constitution=docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md
 machine_contract=agent-interface/governance/saee-development-constitution.v1.1.json
 recommendation_gate=docs/strategy/SAEE_DEVELOPMENT_CONSTITUTION_V1_1_RECOMMENDATION_GATE.md
 constitution_validator=scripts/saee_development_constitution_smoke.py
+publication_venue_gate=docs/strategy/SAEE_ZERO_COST_JOURNAL_SELECTION_GATE.md
+mandatory_author_cost_limit=0
+real_journal_verification_required=true
 ```
 
 Before changing behavior, resolve the canonical capability inventory, run the
@@ -29,6 +55,16 @@ the Agent Recommendation Gate, define claims and non-claims, and preserve
 staged truth.
 修改行为前，必须解析规范能力清单、运行防重复建设校验、确认受影响的演化子系统、
 执行智能体推荐门、定义主张与非主张，并保持分阶段真值。
+
+Before selecting, transferring, resubmitting, or entering a manuscript into a
+venue portal, verify that the venue is a real peer-reviewed scholarly journal
+and that the selected route has zero mandatory author-side fees. Conference,
+workshop, poster, Late-Breaking Abstract, mandatory APC, mandatory submission
+or page fee, registration-fee, unknown-cost and unapproved waiver-dependent
+routes are constitutionally ineligible.
+选择、转投、重投或进入投稿门户前，必须证明目标是真实同行评审学术期刊，并且所选
+路线的作者侧强制费用为零。会议、workshop、poster、Late-Breaking Abstract、强制
+APC、强制投稿费或版面费、注册费、费用未知及依赖未批准减免的路线均不合格。
 
 The Agent Evidence Project (legacy product name `Agent Evidence Receipt`,
 legacy source repository `agent-evidence-layer`) is constitutionally part of
@@ -43,6 +79,40 @@ parallel receipt stack.
 Run `python3 scripts/saee_development_constitution_smoke.py` before completing
 any constitutional, architectural, product-boundary or evidence-subsystem
 change.
+
+## Constitutional Program Mainline
+
+The current program mainline is the controlled integration of SAEE and the
+Agent Evidence Project under provenance, license, schema-crosswalk, reuse,
+migration and staged-truth gates.
+当前项目主线是在来源、许可证、schema crosswalk（模式交叉映射）、复用、迁移和
+分阶段真值门下，受控完成 SAEE 与智能体证据项目的合并。
+
+The final customer-version target is exactly:
+最终客户版本目标固定为：
+
+```text
+SAEE Evidence / SAEE Evaluation / SAEE Governance
+```
+
+These are target versions, not current implementation, launch, customer
+validation or production claims.
+这是目标版本，不代表当前已经实现、发布、完成客户验证或生产就绪。
+
+The secondary task is to use SAEE to supervise, test and assess the integration
+process. This dogfooding lane may produce evidence and correction
+recommendations, but it may not displace the mainline or approve its own
+changes.
+副线任务是利用 SAEE 监督、测试和评估合并过程；该自用验证路线可以产生证据和纠偏
+建议，但不得取代主线，也不得批准自身变化。
+
+If a Commander prompt, role prompt, roadmap or local task elevates governance,
+testing, audit or another secondary lane above the integration mainline, output
+`MAINLINE_DRIFT_DETECTED`, identify the conflict and recommend correction. A
+role prompt does not override the Constitution.
+如果 Commander prompt（指挥官提示）、角色提示、路线图或局部任务把治理、测试、
+审计或其他副线提升到合并主线之上，必须输出 `MAINLINE_DRIFT_DETECTED`，指出冲突并
+提出修正建议；角色服从不能覆盖宪法。
 
 ## Phase 0 Governance Foundation
 

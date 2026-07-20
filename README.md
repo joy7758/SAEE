@@ -1,16 +1,24 @@
 # SAEE Agent Readiness Capability
 
+## Strategic Alignment（战略对齐）
+
+SAEE 的最高战略角色是 Evolution Intelligence Layer（演化智能层），工程核心保持为 Digital Biosphere Evolution Engine（数字生物圈进化引擎）。规范边界为：DBOS governs existence（DBOS 治理存在）；SAEE governs evolution（SAEE 治理演化）。
+
+完整职责、非目标范围、DBA（Digital Biosphere Architecture，数字生物圈架构）关系及 DBOS（Digital Biosphere Operating System，数字生物圈操作系统）边界见 [`STRATEGIC_ALIGNMENT.md`](STRATEGIC_ALIGNMENT.md)。该同步不创建能力、不恢复开发，也不授予 SAEE 身份、权限或执行权。
+
 > 软件著作权申请准备入口：`docs/ip/software-copyright/README.md`。当前主体候选为山西游骑兵电子商务有限公司；本地申请材料准备中，尚未登录、上传、提交、受理或获证。
 
-> **SAEE is an Agent Readiness Infrastructure that evaluates whether AI agents have sufficient execution evidence before real-world deployment.**
+> **SAEE Agent Readiness Capability（SAEE 智能体就绪评估能力）is a bounded evaluation projection（受限评价投影）that checks whether AI agents have declared sufficient execution evidence before a separately authorized real-world deployment decision（检查人工智能智能体是否在另行授权的真实部署决定前声明了充分执行证据）。**
 
-> **SAEE 是用于评估 AI Agent 在真实部署前是否具备充分执行证据的智能体就绪基础设施。**
+> **该能力投影不替换 SAEE 的 Evolution Intelligence Layer（演化智能层）战略身份，也不授权部署或外部执行。**
 
 面向 Qoder、千帆、Claude Code、LangChain 与 CrewAI 等智能体生态的冻结对外能力是 `SAEE Agent Readiness Capability / SAEE 智能体就绪评估能力`。云市场商品仍使用 `SAEE Agent Readiness Assessment / SAEE 智能体上线可靠性评估服务`。公共产品入口严格只有 `saee.evaluate_agent_run` 与 `saee.evaluate_evidence`；评估结果不授权部署或外部动作。
 
 工程核心保持为 `Digital Biosphere Evolution Engine`；Agent Readiness Capability 是面向外部生态的能力投影，不替换项目科学身份。
 
 开发治理现由 [SAEE Development Constitution v1.1](docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md) 统一约束。`Agent Evidence Project`（历史产品名 `Agent Evidence Receipt`、历史源仓库 `agent-evidence-layer`）已在架构归属上并入 `SAEE Evidence and Immune Subsystem`，服务于观察、评估、选择、归档与回滚；这不表示其源代码或运行时已经迁移，也不把 SAEE 改写为 audit-first 系统。
+
+宪法补丁 `1.1.2` 强制所有未来论文路线先通过[真实零费用期刊选择门](docs/strategy/SAEE_ZERO_COST_JOURNAL_SELECTION_GATE.md)：目标必须是真实同行评审学术期刊，且所选路线作者侧强制费用为 `0`。会议、poster、LBA、mandatory APC、投稿费、版面费、注册费、费用未知及依赖未批准 waiver 的路线不得继续。
 
 Phase 0 治理入口位于 [`governance/`](governance/README.md)。任何 AI Agent
 或 Codex 开始架构、仓库、能力、MCP、产品或迁移工作前，必须依次读取开发宪法、
@@ -168,7 +176,7 @@ SAEE 不是 Agent OS、通用多智能体框架、授权系统、安全认证机
 
 SAEE 已建立四类内部 Agent Pilot 计划，并由当前 Codex 会话完成 coding、research、automation 三次真实内部运行。结果：`agent-interface/pilot/saee-internal-agent-pilot-execution-result.v1.0.json`；验证：`python3 scripts/saee_internal_agent_pilot_execution_smoke.py`。这是 Internal Validation，不是 External Validation。
 
-首批结果为 `REPLAN / CONTINUE / CONTINUE`。主要缺口是现有 `evaluate_agent_run` 尚不能直接接受 Codex Observation，只能验证固定内部投影；`direct_codex_evaluation_supported=false`。
+首批结果为 `REPLAN / CONTINUE / CONTINUE`。主要缺口是现有内部 `evaluate_rehearsal_run` 尚不能直接接受 Codex Observation（Codex 观察），只能验证固定内部投影；`direct_codex_evaluation_supported=false`。
 
 ## First Real Ecosystem Validation Decision Gate v1.0
 
@@ -176,8 +184,8 @@ SAEE 已建立四类内部 Agent Pilot 计划，并由当前 Codex 会话完成 
 
 ## MCP Ecosystem Dry Integration Validation v0.1
 
-SAEE 已用本地合成智能体完成 MCP 入口闭环验证：发现三个工具，正确调用
-`evaluate_agent_run` 与 `evaluate_evidence`，保留 `rehearse_agent=CONTRACT_ONLY`，
+SAEE 已用本地合成智能体完成 MCP（模型上下文协议）入口闭环验证：历史验证当时正确调用旧内部名
+`evaluate_agent_run`（当前内部名 `evaluate_rehearsal_run`）与 `evaluate_evidence`，保留 `rehearse_agent=CONTRACT_ONLY`，
 并对授权、部署批准和简单查询执行拒绝或弃用。
 
 - 机器结果：`agent-interface/mcp/saee-mcp-dry-integration-result.v0.1.json`
@@ -202,7 +210,7 @@ canonical service 链路一致；不证明外部 MCP 兼容、生态采用或生
 
 ## First External Validation Simulation with Candidate Model v1.0
 
-合成 `mcp_agent_developer` 候选已完成七场景流程模拟：本地发现、`evaluate_agent_run` 调用、结果解释和结构化反馈通过；授权混淆、生产执行及采用声明被拒绝。
+合成 `mcp_agent_developer` 候选已完成七场景流程模拟：历史材料记录旧内部名 `evaluate_agent_run`（当前内部名 `evaluate_rehearsal_run`）的本地发现与调用，结果解释和结构化反馈通过；授权混淆、生产执行及采用声明被拒绝。
 
 结果：`agent-interface/ecosystem/saee-first-external-validation-simulation-result.v0.1.json`；验证：`python3 scripts/saee_first_external_validation_simulation_smoke.py`。这不是外部验证，未联系任何开发者。
 
@@ -253,7 +261,7 @@ MCP `P0`、火山方舟和百度千帆 `P1`、阿里云百炼与海外 Agent 平
 ## Capability Service Package v1.0
 
 智能体标准入口：`capability-package/manifest.json#canonical_inventory`。该 Package 统一描述
-`evaluate_agent_run`、`evaluate_evidence` 和预留的 `rehearse_agent`，让 Agent
+内部 `evaluate_rehearsal_run`、`evaluate_evidence` 和预留的 `rehearse_agent`，让 Agent（智能体）
 能够判断适用场景、非适用场景、输入输出和组合边界。
 
 该 inventory 是当前能力事实、规范入口、MCP 表面角色与兼容关系的唯一
@@ -360,7 +368,7 @@ Evolution Engine`。
 Phase 6.1 v0.3 又完成一条有状态 SaaS 发布演练：千帆连续读取变更、运行测试、检查
 发布状态，并在前置条件不足时提交人工复核，revision 0→3，未调用部署工具。
 这不是客户 Agent 接入，也不是生产验证。原 v0.1 固定规则 Runtime 保留为确定性管线回归；
-本地 `evaluate_agent_run` Alpha 也已实现。公开生产 API、客户 Agent、
+本地内部 `evaluate_rehearsal_run` Alpha（早期验证版）也已实现。公开生产 API（应用程序接口）、客户 Agent（智能体）、
 客户验证和生产就绪仍未实现。Phase 4/5
 资产被保留为 `SAEE Governance and Evidence Control Plane v0.1`，不是 Runtime
 实现证据。
@@ -1592,12 +1600,13 @@ GSP, final architecture, or Science Lock.
 
 ## SAEE ALIFE 2026 Late-Breaking Abstract Package
 
-`paper_alife_lba/` compresses the frozen LCR-REDS Object into a
-Late-Breaking Abstract package for the currently open ALIFE 2026 route. It was
-submitted through Linklings as `lb120`, and the portal showed `Under Evaluation`
-on `07/02/26`. It is not a Full Paper package and does not claim
-official-template compliance, acceptance, publication, DOI assignment, release,
-external validation, universal law status, or benchmark superiority.
+`paper_alife_lba/` compresses the frozen LCR-REDS Object into an ALIFE 2026
+Late-Breaking Abstract package. Linklings recorded `lb120` as
+`Accept (Confirmed)` on 2026-07-18. On 2026-07-19 the author stopped this route
+before registration because paid conference registration is required. No
+registration or payment occurred, and no external withdrawal is claimed. This
+is not a journal publication, Full Paper, proceedings, DOI, external validation,
+universal-law or benchmark-superiority result.
 
 Primary LBA artifacts:
 
@@ -3936,8 +3945,9 @@ introduction, contribution, related-work, positioning, and conclusion surfaces.
 ALife Format packages that frozen interpretation into a replaceable local
 LaTeX paper skeleton for venue-oriented review.
 ALIFE 2026 Late-Breaking Abstract packages the same frozen interpretation into
-a two-page LBA proof surface. It was submitted in Linklings as `lb120` with
-portal status `Under Evaluation` on `07/02/26`.
+a two-page LBA proof surface. Linklings later recorded `lb120` as
+`Accept (Confirmed)`; the author abandoned registration and payment on
+2026-07-19, so the conference presentation route is no longer pursued.
 Strategic Layered Release packages the frozen public knowledge layer, a public
 toy abstraction layer, and a private-core boundary without performing any
 external release or exposing core implementation logic.
@@ -4147,7 +4157,7 @@ assistant, make external API calls, or use browser automation.
 Earlier v0.x and Phase II systems are retained as local experimental or
 analysis references, not as v1.0 runtime dependencies.
 本仓库现在包含 SAEE v1.0 作为本地限定稳定进化运行时、只观察且不修改 v1.0 的本地长期实验层、SAEE v1.2 本地限定经验对齐层、SAEE-GSP 本地规范全局状态协议，并通过 Science Lock 将 SAEE 定义为计算进化动力学，而不是下一个 kernel 版本，同时用 Phase Diagram v1.0 将现有日志压缩为相空间 artifact。早期 v0.x 与 Phase II 系统保留为本地实验或分析参考，不是 v1.0 runtime 依赖。
-Scientific Closure 将本地证据链归档为 Empirical Computational Evolution Theory Base（经验计算进化理论基座），并且只打开候选 Computational Evolution Universality Theory（计算进化普适理论）阶段，不声称外部验证或普适定律。Final Interpretation 将冻结对象整理为论文摘要、引言、贡献、相关工作、定位和结论表面，不表示已发表。ALife Format 将冻结解释投影为可替换的本地 LaTeX 论文骨架，不表示官方模板合规、已发表。ALIFE 2026 Late-Breaking Abstract 将同一冻结解释压缩为本地两页 LBA proof surface，并已作为 Linklings `lb120` 提交，当前门户状态为 `Under Evaluation`；这不表示已接受、已发表、已有 DOI 或已有外部验证。
+Scientific Closure 将本地证据链归档为 Empirical Computational Evolution Theory Base（经验计算进化理论基座），并且只打开候选 Computational Evolution Universality Theory（计算进化普适理论）阶段，不声称外部验证或普适定律。Final Interpretation 将冻结对象整理为论文摘要、引言、贡献、相关工作、定位和结论表面，不表示已发表。ALife Format 将冻结解释投影为可替换的本地 LaTeX 论文骨架，不表示官方模板合规、已发表。ALIFE 2026 Late-Breaking Abstract `lb120` 的外部门户状态已更新为 `Accept (Confirmed)`，但作者于 2026-07-19 因付费注册要求决定不注册、不付款、不继续展示；这不表示期刊发表、proceedings 收录、已有 DOI、外部验证或外部撤回已完成。
 Strategic Layered Release 将公开知识层、公开 toy 抽象层和私有核心边界分离，不表示已对外发布，也不暴露核心实现逻辑。
 Zenodo Academic Final Package 将定义权材料整理为人工上传前终稿包，但不表示已上传 Zenodo 或已获得 DOI。
 Final Publication Orchestrator 将 Zenodo、论文、GitHub public abstraction 和最终发布清单整理为本地包，但不执行外部发布动作，也不披露实现逻辑。
