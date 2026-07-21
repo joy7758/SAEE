@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-readiness-evidence-item.schema.v0.1.json",
+  "title": "SAEE Readiness Evidence Item v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "evidence_type", "present", "source_ref"],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^evidence:[A-Za-z0-9._:-]{1,120}$"},
+    "evidence_type": {"enum": ["TEST_RESULT", "ROLLBACK_PLAN", "PERMISSION_BOUNDARY", "HUMAN_APPROVAL"]},
+    "present": {"type": "boolean"},
+    "source_ref": {"type": ["string", "null"], "maxLength": 240}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"present": {"const": true}}},
+      "then": {"properties": {"source_ref": {"type": "string", "minLength": 1}}}
+    },
+    {
+      "if": {"properties": {"present": {"const": false}}},
+      "then": {"properties": {"source_ref": {"const": null}}}
+    }
+  ]
+}
