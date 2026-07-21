@@ -6,6 +6,22 @@ SAEE 的最高战略角色是 Evolution Intelligence Layer（演化智能层）�
 
 完整职责、非目标范围、DBA（Digital Biosphere Architecture，数字生物圈架构）关系及 DBOS（Digital Biosphere Operating System，数字生物圈操作系统）边界见 [`STRATEGIC_ALIGNMENT.md`](STRATEGIC_ALIGNMENT.md)。该同步不创建能力、不恢复开发，也不授予 SAEE 身份、权限或执行权。
 
+## Clean and idempotent validation（干净且幂等的校验）
+
+仓库校验必须保留调用者的证据现场：
+
+```bash
+make check                    # 在一次性本地克隆中运行完整只读校验
+make check-generated          # 隔离比较规范生成内容
+make generate                 # 显式刷新生成物；可能修改已跟踪文件
+make check-provider-evidence  # 严格校验外部 Provider（提供方）运行证据
+```
+
+普通校验不会复制被忽略的 `/output/` 运行证据；缺失外部 Provider（提供方）证据时记录
+`NOT_REQUIRED`，而不是伪称已经验证。严格模式缺失证据时记录 `NOT_AVAILABLE` 并返回非零。
+机器契约见 `agent-interface/validation/saee-check-idempotency-contract.v1.json`，设计说明见
+`docs/architecture/SAEE_CHECK_IDEMPOTENCY_CONTRACT.md`。
+
 > 软件著作权申请准备入口：`docs/ip/software-copyright/README.md`。当前主体候选为山西游骑兵电子商务有限公司；本地申请材料准备中，尚未登录、上传、提交、受理或获证。
 
 > **SAEE Agent Readiness Capability（SAEE 智能体就绪评估能力）is a bounded evaluation projection（受限评价投影）that checks whether AI agents have declared sufficient execution evidence before a separately authorized real-world deployment decision（检查人工智能智能体是否在另行授权的真实部署决定前声明了充分执行证据）。**
@@ -26,6 +42,11 @@ Phase 0 治理入口位于 [`governance/`](governance/README.md)。任何 AI Age
 `governance/registry/capability-crosswalk.json` 只做宪法概念到现有实现的映射，
 不是第二个能力事实真源。离线治理校验：
 `python3 scripts/saee_governance_registry_check.py`。
+
+当前 `origin` 为 `https://github.com/joy7758/SAEE.git`，角色是 public projection
+and review surface（公开投影与审查表面），不是已验证的 canonical recovery remote
+（规范恢复远程）。完整边界见
+`governance/decisions/ADR-0004-configured-public-remote-boundary.md`。
 
 - 产品身份：`docs/product/SAEE_AGENT_READINESS_CAPABILITY_V2.md`
 - 开发宪法机器契约：`agent-interface/governance/saee-development-constitution.v1.1.json`

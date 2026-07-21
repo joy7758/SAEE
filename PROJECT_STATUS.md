@@ -1,5 +1,66 @@
 # Project Status
 
+## Publication Venue And ALIFE Route — 2026-07-19
+
+The journal Letter `Bounded Evolution in a Reflexive Digital Population: A
+Local SAEE Characterization` was submitted to *Artificial Life* (MIT Press)
+through ScholarOne under manuscript ID `ARTL-2026-0186`. The confirmation page
+shows `Date Submitted: 18-Jul-2026`, and the Author Dashboard currently shows
+`Awaiting Admin Processing`. The submission uses the standard subscription
+route; no payment or mandatory author fee was requested or paid. Authors are
+Bin Zhang (first and corresponding author, Shanxi Youqibing E-Commerce Co.,
+Ltd.) and Xiaojuan Sun (second author, Department of Physical Education,
+Yuncheng University).
+
+```text
+journal_submission_completed=true
+journal_manuscript_id=ARTL-2026-0186
+journal_portal_status=Awaiting Admin Processing
+journal_portal_date_submitted=18-Jul-2026
+journal_payment_requested=false
+journal_payment_made=false
+journal_technical_check_claim=false
+journal_peer_review_claim=false
+journal_acceptance_claim=false
+journal_publication_claim=false
+```
+
+The portal receipt supports `submission_received / awaiting_admin_processing`
+only. It does not support technical-check completion, editorial assignment,
+peer review, acceptance, publication, DOI assignment, external validation, or
+open-access publication.
+
+SAEE Development Constitution patch `1.1.2` requires every future manuscript
+route to be a verifiable peer-reviewed scholarly journal with
+`mandatory_author_cost=0`. The operational gate is
+`docs/strategy/SAEE_ZERO_COST_JOURNAL_SELECTION_GATE.md`.
+
+Linklings `lb120` was observed as `Accept (Confirmed)` on 2026-07-18. The author
+abandoned participation before conference registration on 2026-07-19 because
+the ALIFE LBA/poster route requires payment. Current truth:
+
+```text
+author_participation_status=abandoned_before_registration
+author_route_decision=FINAL_ABANDONED
+route_reactivation_allowed=false_without_new_explicit_author_instruction
+conference_registration_completed=false
+registration_payment_made=false
+external_withdrawal_completed=false
+journal_publication=false
+proceedings_inclusion=false
+doi_assigned=false
+```
+
+All current and future journal targets must be real, officially verifiable
+peer-reviewed scholarly journals with a normal author-side zero-fee route.
+The author budget for mandatory APC, submission, page, registration, or other
+publication fees is `0`; paid or waiver-dependent routes are not fallbacks.
+
+The new AIJ Research Note currently selects AIJ's officially documented free
+`Subscription` route. The abandoned `lb120` evolutionary-dynamics content is
+not pooled into that manuscript because it addresses a different research
+question and would weaken focus while introducing text-reuse risk.
+
 <!-- BEGIN SAEE_WORKTREE_CONSOLIDATION_2026_07_13 -->
 
 ## Worktree Consolidation — 2026-07-13
@@ -239,9 +300,9 @@ three-transition SaaS release rehearsal with no deployment tool call. Current tr
 `state_transition_count=3`, `customer_controlled_adapter_enabled=false`,
 `external_world_actions=0`, while
 `real_customer_agent_executed=false`,
-`evaluate_agent_run_available=true`, `agent_callable_runtime=true`,
+`evaluate_rehearsal_run_available=true`, `agent_callable_runtime=true`,
 `scenario_benchmark_implemented=true`, `scenario_benchmark_case_count=20`,
-`evaluate_agent_run_mcp_tool_registered=true`,
+`evaluate_rehearsal_run_mcp_tool_registered=true`,
 `standard_mcp_transport_available=false`, `customer_validated=false`, and
 `production_ready=false`. Phase 6.5 now uses six Qianfan reasoning Agents across
 18 final provider rounds after three calibration iterations; hidden grading is
@@ -2089,7 +2150,7 @@ Current boundaries:
 - no Academic Positioning external validation claim
 - no Academic Positioning benchmark superiority claim
 - no manuscript submission claim outside the ALIFE 2026 Late-Breaking Abstract `lb120` portal submission
-- no manuscript acceptance claim
+- ALIFE LBA acceptance claim is limited to `Accept (Confirmed)`; no journal acceptance, publication, proceedings, DOI or external validation claim
 - no Submission Freeze publication claim
 - no Submission Freeze external validation claim
 - no Universal Law Extraction external validation claim
@@ -3421,9 +3482,11 @@ Shared manuscript ledger:
 - `~/GitHub/MANUSCRIPT_STATUS.md`
 - ledger line: `SAEE / ALIFE 2026 LBA`
 - submission id: `lb120`
-- portal status: `Under Evaluation`
-- ledger synced: 2026-07-02
-- non-claims: no acceptance, no publication, no DOI, no external validation
+- portal status: `Accept (Confirmed)` observed 2026-07-18
+- author decision: `abandoned_before_registration` on 2026-07-19
+- registration/payment/external withdrawal: `false` / `false` / `false`
+- ledger sync target: 2026-07-19
+- non-claims: no journal publication, no proceedings, no DOI, no external validation
 
 Strategic Layered Release surfaces:
 

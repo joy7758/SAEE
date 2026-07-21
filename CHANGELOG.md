@@ -1,5 +1,15 @@
 # Changelog
 
+- Submitted the SAEE Letter `Bounded Evolution in a Reflexive Digital
+  Population: A Local SAEE Characterization` to MIT Press *Artificial Life*
+  through ScholarOne. Manuscript ID `ARTL-2026-0186` currently shows
+  `Awaiting Admin Processing`, with portal date `18-Jul-2026`. The submission
+  uses the standard subscription route; no payment was requested or made.
+  This records `submission_received / awaiting_admin_processing` only and does
+  not claim technical-check completion, editor assignment, peer review,
+  acceptance, publication, DOI assignment, open-access publication, external
+  validation, or benchmark superiority.
+
 - Recorded the owner-confirmed Alibaba Cloud Marketplace product submission
   and the logged-in platform observation for commodity `68657`, product code
   `cmfw00074657`: review status is `审核中` and listing status is `未上架`.
@@ -3106,6 +3116,9 @@ production readiness, or expose private core.
 - Added SAEE Zenodo Publish-Ready Minimal Package.
 - Added definition-only Zenodo-ready abstract, phase-space summary, aggregate results, candidate laws, limitations, source-traceability statement, metadata, recommendation gate, and no-executable/no-implementation-disclosure boundaries.
 - Submitted the SAEE ALIFE 2026 Late-Breaking Abstract to Linklings as `lb120` with portal status `Under Evaluation`, while preserving no-acceptance/no-publication/no-DOI/no-external-validation boundaries.
+- Recorded Linklings `lb120` as `Accept (Confirmed)` on 2026-07-18 and the 2026-07-19 author decision to abandon participation before registration; no registration, payment, external withdrawal, proceedings publication or DOI is claimed.
+- Amended SAEE Development Constitution to `1.1.2` with a mandatory real-peer-reviewed-journal and zero-author-cost venue gate; paid conference, mandatory APC/fee, unknown-cost and unapproved waiver-dependent routes are ineligible.
+- Reconfirmed `lb120` as a final-abandoned author route, verified AIJ as a real peer-reviewed journal with a zero-fee subscription route, and kept the unrelated `lb120` evolutionary results out of the focused AIJ Research Note.
 - Synced the ALIFE 2026 Late-Breaking Abstract state into `~/GitHub/MANUSCRIPT_STATUS.md` as `SAEE / ALIFE 2026 LBA`.
 - Replaced the LBA funding placeholder with the user-confirmed no-external-funding statement and regenerated the one-page PDF proof.
 - Added SAEE Phase A Academic Definition Lock package.

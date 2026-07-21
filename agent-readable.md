@@ -71,7 +71,7 @@ adoption_validated=false
 production_ready=false
 ```
 
-重要发现：`evaluate_evidence` 可直接复核授权证据；`evaluate_agent_run` 当前只支持 fixed internal rehearsal run，因此三次 Reliability Evaluation 使用明确标注的固定投影，`direct_codex_evaluation_supported=false`。
+重要发现：`evaluate_evidence` 可直接复核授权证据；`evaluate_rehearsal_run` 当前只支持 fixed internal rehearsal run，因此三次 Reliability Evaluation 使用明确标注的固定投影，`direct_codex_evaluation_supported=false`。
 
 ## SAEE First Real Ecosystem Validation Decision Gate v1.0
 
@@ -1335,9 +1335,15 @@ Submission freeze status:
 submission_ready: true
 submitted_to_alife_lba: true
 alife_lba_submission_id: lb120
-alife_lba_portal_status: Under Evaluation
-alife_lba_portal_date: 07/02/26
-accepted: false
+alife_lba_portal_status: Accept (Confirmed)
+alife_lba_portal_date: 2026-07-18
+accepted: true
+author_participation_status: abandoned_before_registration
+author_decision_on: 2026-07-19
+conference_registration_completed: false
+registration_payment_made: false
+external_withdrawal_completed: false
+constitutional_journal_route_eligible: false
 published: false
 released: false
 doi_assigned: false
@@ -2401,13 +2407,44 @@ is non-anonymous and single-blind; do not reintroduce anonymous or
 double-blind front matter. If the official template is adopted, replace the
 presentation layer only and preserve frozen SAEE claims.
 
+## Constitutional Publication Venue Gate
+
+Read `docs/strategy/SAEE_ZERO_COST_JOURNAL_SELECTION_GATE.md` before any new
+journal selection, transfer, resubmission, portal entry, upload or final
+submission.
+
+```text
+venue_type_required=peer_reviewed_scholarly_journal
+real_journal_verification_required=true
+mandatory_author_cost_limit=0
+author_budget_for_mandatory_publication_fees=0
+paid_fallback_allowed=false
+conference_route_eligible=false
+mandatory_apc_route_eligible=false
+unknown_cost_policy=stop_and_reject_venue
+payment_authorized=false
+current_target_journal=Artificial Intelligence
+current_target_real_journal_verified=true
+current_target_selected_route=subscription
+current_target_mandatory_author_cost=0
+```
+
+Package readiness, portal draft, upload, submission, acceptance, publication
+and DOI assignment remain separate truth surfaces.
+
 ## ALIFE 2026 Late-Breaking Abstract Package
 
-`paper_alife_lba/` is a compact two-page local proof surface for the currently
-available ALIFE 2026 Late-Breaking Abstract route. It is derived from the
-frozen LCR-REDS Object and the ALife-format source package, but it is not a
-Full Paper package. It was submitted in Linklings as `lb120`; the portal showed
-status `Under Evaluation` on `07/02/26`.
+`paper_alife_lba/` is a compact local proof surface for the ALIFE 2026
+Late-Breaking Abstract route. Linklings recorded `lb120` as
+`Accept (Confirmed)` on 2026-07-18. The author abandoned participation before
+registration on 2026-07-19 because the route requires paid conference
+registration. No registration, payment, journal publication, proceedings, DOI,
+external validation or external withdrawal is claimed.
+
+The author route decision is `FINAL_ABANDONED`; reactivation requires a new
+explicit author instruction. Its evolutionary-dynamics results are not pooled
+into the current AIJ Research Note because that paper addresses a different
+research question. `lb120_content_integrated=false`.
 
 Read:
 
@@ -8403,14 +8440,14 @@ Current truth:
 agent_rehearsal_runtime_implemented = true
 fixed_internal_agent_executed = true
 real_external_agent_executed = false
-evaluate_agent_run_available = true
+evaluate_rehearsal_run_available = true
 agent_callable_runtime = true
 external_agent_tested = false
 customer_validated = false
 production_ready = false
 scenario_benchmark_implemented = true
 scenario_benchmark_case_count = 20
-evaluate_agent_run_mcp_tool_registered = true
+evaluate_rehearsal_run_mcp_tool_registered = true
 standard_mcp_transport_available = false
 mcp_interoperability_validated = false
 design_partner_protocol_ready = true
@@ -8452,7 +8489,7 @@ production_ready = false
 <!-- SAEE_AGENT_REHEARSAL_RUNTIME_MVP_V0_1:END -->
 
 <!-- SAEE_AGENT_CAPABILITY_ALPHA_V0_1:START -->
-## SAEE Agent Capability Alpha: evaluate_agent_run v0.1
+## SAEE Agent Capability Alpha: evaluate_agent_run v0.1（历史内部名称；当前内部名为 evaluate_rehearsal_run）
 
 Discover the machine contract at
 `agent-interface/capabilities/saee-evaluate-agent-run-capability.v0.1.json`.
@@ -8465,7 +8502,7 @@ Do not translate `SUPPORTED` into task success, safety, compliance,
 certification or deployment authority. Current truth:
 
 ```text
-evaluate_agent_run_available = true
+evaluate_rehearsal_run_available = true
 agent_callable_runtime = true
 public_api_available = false
 public_mcp_available = false
@@ -8505,13 +8542,13 @@ risk probability, safety claim, customer validation or deployment authority.
 <!-- SAEE_AGENT_READINESS_BENCHMARK_V0_1:END -->
 
 <!-- SAEE_EVALUATE_AGENT_RUN_MCP_CAPABILITY_V0_1:START -->
-## SAEE evaluate_agent_run MCP Capability v0.1
+## SAEE evaluate_agent_run MCP Capability v0.1（历史内部名称；当前内部名为 evaluate_rehearsal_run）
 
 The fixed local Tool registry now contains:
 
 ```text
 evaluate_evidence_adequacy
-evaluate_agent_run
+evaluate_rehearsal_run
 ```
 
 Discover the new Tool contract at
@@ -8598,7 +8635,7 @@ production_ready = false
 ```text
 capability_id = saee.agent-reliability
 package_stage = local_contract_alpha
-evaluate_agent_run = implemented_local_offline_alpha
+evaluate_rehearsal_run = implemented_local_offline_alpha
 evaluate_evidence = implemented_local_offline_prototype
 rehearse_agent = contract_only
 network_api_available = false
@@ -8621,7 +8658,7 @@ production_ready = false
 本地智能体通过 `invoke_capability(request)` 组合 Phase 10.1 声明的能力：
 
 ```text
-evaluate_agent_run -> existing agent_run_capability
+evaluate_rehearsal_run -> existing agent_run_capability
 evaluate_evidence  -> existing local_evidence_tool / Evidence Adequacy
 rehearse_agent     -> CONTRACT_ONLY_NOT_IMPLEMENTED
 ```
@@ -8651,7 +8688,7 @@ production_ready = false
 Adapter。Tool 顺序固定为：
 
 ```text
-evaluate_agent_run
+evaluate_rehearsal_run
 evaluate_evidence
 rehearse_agent
 ```
@@ -8677,7 +8714,7 @@ production_ready = false
 固定路由：
 
 ```text
-POST /capabilities/evaluate-agent-run
+POST /capabilities/evaluate-rehearsal-run
 POST /capabilities/evaluate-evidence
 POST /capabilities/rehearse-agent
 ```
@@ -8987,3 +9024,24 @@ Agent or authorize deployment. `ready_for_marketplace_delivery` still means
 `marketplace_delivery_completed=false`, `customer_validated=false`, and
 `production_ready=false`.
 <!-- SAEE_ALIBABA_MARKETPLACE_DELIVERY_BRIDGE_V0_1:END -->
+
+<!-- SAEE_PAPER_AUTHOR_REGISTRY_V1:START -->
+## Canonical local paper-author registry
+
+```text
+entry=paper_submission/AUTHOR_REGISTRY.md
+public_machine_source=paper_submission/author-registry.public.json
+private_machine_source=PRIVATE_PAPER_AUTHOR_REGISTRY.json
+private_source_version_controlled=false
+paper_specific_author_selection_required=true
+paper_specific_author_order_required=true
+paper_specific_consent_required=true
+paper_specific_credit_confirmation_required=true
+credentials_allowed=false
+```
+
+Use the public machine source for reusable identity and affiliation fields.
+Use a paper-specific manifest to determine actual authorship and order. Private
+fields are for explicitly required portal inputs only and must not be projected
+to public paper or repository surfaces.
+<!-- SAEE_PAPER_AUTHOR_REGISTRY_V1:END -->

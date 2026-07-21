@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -28,6 +29,7 @@ def require_local_smoke(script_name: str) -> None:
 
 REQUIRED_FILES = [
     "AGENTS.md",
+    "agent-interface/validation/saee-check-idempotency-contract.v1.json",
     "README.md",
     "THEORY.md",
     "ROADMAP.md",
@@ -36,6 +38,9 @@ REQUIRED_FILES = [
     "agent-readable.md",
     "agent-index.json",
     "llms.txt",
+    "docs/architecture/SAEE_CHECK_IDEMPOTENCY_CONTRACT.md",
+    "scripts/saee_check_isolation.py",
+    "scripts/saee_check_idempotency_smoke.py",
     ".codex/context.md",
     ".codex/rules.md",
     ".codex/current_state.md",
@@ -47,6 +52,11 @@ REQUIRED_FILES = [
     "docs/architecture/IMMUNE_GOVERNANCE_PLANE.md",
     "docs/architecture/AGENT_READABLE_LAYER.md",
     "docs/architecture/FINAL_ARCHITECTURE_SPEC.md",
+    "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+    "agent-interface/governance/saee-development-constitution.v1.1.json",
+    "schemas/saee-development-constitution.schema.v1.1.json",
+    "docs/strategy/SAEE_DEVELOPMENT_CONSTITUTION_V1_1_RECOMMENDATION_GATE.md",
+    "scripts/saee_development_constitution_smoke.py",
     "docs/architecture/SAEE_AGENT_READINESS_ARCHITECTURE_V1.md",
     "agent-interface/architecture/saee-agent-readiness-architecture.v1.json",
     "docs/strategy/SAEE_AGENT_READINESS_ARCHITECTURE_RECOMMENDATION_GATE.md",
@@ -3496,7 +3506,9 @@ REQUIRED_PHRASES = {
     "paper_alife_lba/README.md": [
         "Late-Breaking Abstract",
         "lb120",
-        "Under Evaluation",
+        "Accept (Confirmed)",
+        "abandoned_before_registration",
+        "registration_payment_made=false",
     ],
     "paper_alife_lba/format_notes.md": [
         "Late-Breaking Abstract",
@@ -85388,6 +85400,7 @@ def main() -> None:
     require_public_signal_review_draft_boundary()
     require_public_signal_final_review_boundary()
     require_public_signal_documentation_execution_boundary()
+    require_local_smoke("saee_development_constitution_smoke.py")
     require_local_smoke("saee_agent_readiness_architecture_smoke.py")
     require_local_smoke("saee_agent_rehearsal_runtime_smoke.py")
     require_local_smoke("saee_controlled_reasoning_rehearsal_smoke.py")
@@ -85457,4 +85470,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    if os.environ.get("SAEE_CHECK_ISOLATED") == "1":
+        main()
+    else:
+        from saee_check_isolation import run_mainline_readonly
+
+        raise SystemExit(run_mainline_readonly(ROOT))
