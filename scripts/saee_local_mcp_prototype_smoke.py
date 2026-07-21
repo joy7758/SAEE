@@ -108,7 +108,7 @@ def main() -> int:
     server = create_local_mcp_server()
     tools = server.list_tools()
     assert len(tools) == 2
-    assert {tool["name"] for tool in tools} == {"evaluate_evidence_adequacy", "evaluate_agent_run"}
+    assert {tool["name"] for tool in tools} == {"evaluate_evidence_adequacy", "evaluate_rehearsal_run"}
     assert all(tool["read_only_intent"] is True for tool in tools)
     assert all(tool["side_effects_allowed"] is False for tool in tools)
 
@@ -169,7 +169,7 @@ def main() -> int:
     status = server.runtime_status()
     assert status["mcp_local_prototype"] is True
     assert status["tool_count"] == 2
-    assert status["evaluate_agent_run_tool_available"] is True
+    assert status["evaluate_rehearsal_run_tool_available"] is True
     assert status["implementation_status"] == "local_prototype"
     assert all(status[field] is False for field in (
         "network_accessed",

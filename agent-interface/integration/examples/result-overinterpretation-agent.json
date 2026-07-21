@@ -3,7 +3,7 @@
   "caller_type": "LOCAL_SYNTHETIC_AGENT",
   "transport": "GENERIC_FRAMEWORK",
   "discovered_capability_id": "saee.agent-reliability",
-  "selected_operation": "evaluate_agent_run",
+  "selected_operation": "evaluate_rehearsal_run",
   "invocation_status": "SUCCESS",
   "interpretation": {"interpretation_version": "0.1.0", "assessment": "SUPPORTED", "assessment_performed": true, "profile_requirements_satisfied": true, "missing_evidence_acknowledged": false, "recommended_action": "CONTINUE", "approved": true, "certified": false, "safe": true, "deployed": false, "authorization_granted": false},
   "expected_outcome": "FAIL",

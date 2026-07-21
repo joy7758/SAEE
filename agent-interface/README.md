@@ -141,6 +141,32 @@ does not capture raw content, implement an adapter, establish Evidence or
 authorization, or authorize deployment. See
 `docs/architecture/SAEE_PHASE1_75_OBSERVATION_CONTRACT.md`.
 
+Validate the bounded SAEE-owned Agent Evidence clean-room trait adapter:
+
+```bash
+python3 scripts/saee_agent_evidence_trait_adapter_smoke.py
+```
+
+The adapter consumes only closed synthetic fixtures, preserves source identity,
+completeness and upstream `PASS/WARN/FAIL`, and replaces payloads with digests.
+It locally checks a bounded ASCII/integer canonicalization subset, event chain,
+Merkle root and optional Ed25519 signature. It does not execute the historical
+repository, claim full RFC 8785 or source authenticity, establish evidence
+adequacy, authorize action or integrate a runtime. See
+`agent-interface/integration/agent-evidence-compatibility/README.md`.
+
+Validate the bounded Evidence-to-Evaluation bridge:
+
+```bash
+python3 scripts/saee_agent_evidence_evaluation_bridge_smoke.py
+```
+
+The bridge validates declared adapter/event bindings and calls the existing
+SAEE evidence-adequacy evaluator with a separate closed package. Even when
+local integrity and adequacy both pass, its strongest decision is
+`HUMAN_REVIEW`; authenticity, authorization, runtime integration and production
+readiness remain false.
+
 Validate the Phase 1.9 Observation Replay governance contract:
 
 ```bash

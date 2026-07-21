@@ -1,10 +1,10 @@
-# SAEE Agent Capability Alpha: `evaluate_agent_run` v0.1
+# SAEE Internal Agent Capability Alpha（内部智能体能力早期验证版）: `evaluate_rehearsal_run` v0.1
 
 状态：`implemented_local_offline_alpha`。
 
 ## 1. 能力
 
-`evaluate_agent_run` 消费 Phase 6.1 的严格 Rehearsal Run：
+内部 `evaluate_rehearsal_run` 消费 Phase（阶段）6.1 的严格 Rehearsal Run（排演运行）：
 
 ```text
 Rehearsal Run
@@ -63,7 +63,7 @@ python3 scripts/saee_agent_capability_alpha_smoke.py
 当前：
 
 ```text
-evaluate_agent_run_available=true
+evaluate_rehearsal_run_available=true
 agent_callable_runtime=true
 public_api_available=false
 public_mcp_available=false

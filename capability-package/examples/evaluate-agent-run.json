@@ -1,6 +1,6 @@
 {
   "example_version": "1.0.0",
-  "operation_id": "evaluate_agent_run",
+  "operation_id": "evaluate_rehearsal_run",
   "implementation_status": "implemented_local_offline_alpha",
   "scenario_ref": "../../agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
   "input_schema_ref": "../../agent-interface/rehearsal/saee-agent-rehearsal-run.v0.1.schema.json",
@@ -10,4 +10,3 @@
   "network_required": false,
   "production_ready": false
 }
-

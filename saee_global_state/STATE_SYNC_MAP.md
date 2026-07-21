@@ -24,7 +24,7 @@ architecture layer, and identity layer into one canonical state.
 | Paper interpretation | frozen LCR-REDS definition and claim boundary | no runtime authority; documentation-only projection | no new data; interprets existing phase-space and law surfaces | `theory_state.paper_state` |
 | ALife paper formatting | same frozen paper-facing object and claim boundary | no runtime authority; LaTeX representation-only projection | no new data; rewrites existing evidence into ALife-style sections | `theory_state.paper_state.alife_format_status` |
 | ALife hostile-review repair | same frozen paper-facing object, with venue-compliance and claim-safety repairs | no runtime authority; paper repair only | no new data; repairs wording, definitions, captions, and venue notes | `theory_state.paper_state.alife_hostile_review_repair_status` |
-| ALIFE 2026 Late-Breaking Abstract package | same frozen paper-facing object compressed for the currently open LBA route | no runtime authority; two-page presentation-only projection | no new data; compresses existing evidence and records Linklings submission state `lb120` / `Under Evaluation` | `theory_state.paper_state.alife_lba_status` |
+| ALIFE 2026 Late-Breaking Abstract package | same frozen paper-facing object compressed for the LBA route | no runtime authority; registration and payment abandoned by author | no new experiment; records `lb120` / `Accept (Confirmed)` and the separate author decision `abandoned_before_registration` | `theory_state.paper_state.alife_lba_status` |
 
 ## Bidirectional Traceability
 
@@ -50,10 +50,12 @@ Every canonical state has a source and target:
   state.
 - ALIFE 2026 Late-Breaking Abstract package to theory state:
   `paper_alife_lba/` maps to `theory_state.paper_state.alife_lba_status`.
-  It does not create a new canonical theory layer, experiment, full-paper
-  route, acceptance, publication, DOI, or external validation state. It records
-  the LBA portal submission state only: `lb120`, `Under Evaluation`,
-  `07/02/26`.
+  It does not create a new canonical theory layer, experiment, full-paper,
+  journal-publication, proceedings, DOI, or external-validation state. It
+  records the LBA portal state `lb120` / `Accept (Confirmed)` observed on
+  `2026-07-18` and separately records the 2026-07-19 author decision not to
+  register or pay. External withdrawal remains false until portal or organizer
+  evidence establishes it.
 
 ## No Orphan State Rule
 

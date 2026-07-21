@@ -4,12 +4,32 @@ agent_readable:
   schema: saee.jaamas_submission.main_paper.v2
   target_venue: JAAMAS
   artifact_type: manuscript_draft
+  paper_line_status: frozen_closed_after_editorial_reject
+  external_resubmission_allowed: false
+  title_only_reframe_allowed: false
+  successor_route_allowed: false
+  reuse_scope: local_evidence_only
+  freeze_record: saee_v1_2/universality_test/submission/PAPER_LINE_FREEZE.md
   experimental_code_modified: false
   simulations_rerun_for_this_package: false
   real_world_deployment_claim: false
   broad_theory_claim: false
   production_claim: false
   canonical_claim: empirically observed cross-system consistency within a shared synthetic multi-agent modeling framework
+
+## Post-Decision Freeze
+
+This manuscript line is closed and frozen. The JAAMAS submission was rejected
+on 2026-07-17, and the manuscript shares its research lineage with an active
+SAEE scientific submission. It must not be resubmitted, transferred, retitled
+as a new paper, or used to open a successor manuscript route. The DBI code,
+results, and figures remain available as local historical evidence only.
+
+Canonical freeze record:
+
+```text
+saee_v1_2/universality_test/submission/PAPER_LINE_FREEZE.md
+```
 
 ## Abstract
 

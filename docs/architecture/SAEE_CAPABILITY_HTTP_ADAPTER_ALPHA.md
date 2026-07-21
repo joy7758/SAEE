@@ -16,7 +16,7 @@ HTTP 与 MCP 是并列运输层；二者都不能直接导入 evaluator，也不
 
 | Endpoint | Operation |
 |---|---|
-| `POST /capabilities/evaluate-agent-run` | `evaluate_agent_run` |
+| `POST /capabilities/evaluate-rehearsal-run` | `evaluate_rehearsal_run` |
 | `POST /capabilities/evaluate-evidence` | `evaluate_evidence` |
 | `POST /capabilities/rehearse-agent` | `rehearse_agent`，返回 `CONTRACT_ONLY` |
 
@@ -38,4 +38,3 @@ oauth_available=false
 multi_tenant=false
 production_ready=false
 ```
-

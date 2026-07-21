@@ -29,7 +29,7 @@
   ],
   "capabilities": [
     {
-      "operation_id": "evaluate_agent_run",
+      "operation_id": "evaluate_rehearsal_run",
       "implementation_status": "implemented_local_offline_alpha",
       "summary": "Evaluate a validated SAEE rehearsal run and its digest-bound evidence candidate.",
       "local_invocation_available": true

@@ -18,7 +18,7 @@ from .invocation_receipt import create_invocation_receipt
 ROOT = Path(__file__).resolve().parents[3]
 REQUEST_SCHEMA = ROOT / "schemas/saee-capability-invocation-request.schema.v0.1.json"
 RESPONSE_SCHEMA = ROOT / "schemas/saee-capability-invocation-response.schema.v0.1.json"
-KNOWN_OPERATIONS = {"evaluate_agent_run", "evaluate_evidence", "rehearse_agent"}
+KNOWN_OPERATIONS = {"evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"}
 FORBIDDEN_KEY = re.compile(r"(?:api[_-]?key|access[_-]?token|secret|password|credential|chain[_-]?of[_-]?thought|hidden[_-]?reasoning)", re.I)
 MAX_REQUEST_BYTES = 1_000_000
 LIMITATIONS = [

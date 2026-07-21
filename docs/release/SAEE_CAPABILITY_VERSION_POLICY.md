@@ -19,7 +19,8 @@
 
 ## Operation compatibility
 
-- 操作 ID 是机器接口：`evaluate_agent_run`、`evaluate_evidence`、`rehearse_agent`；
+- 内部操作 ID 是机器接口：`evaluate_rehearsal_run`、`evaluate_evidence`、`rehearse_agent`；
+- 规范公开操作保持为 `saee.evaluate_agent_run`、`saee.evaluate_evidence`；
 - 已实现操作不得在同一版本内改变为不同语义；
 - `rehearse_agent=contract_only` 不能被文档或适配器假装为已实现；
 - Transport Adapter 不能绕过 Canonical Capability Runtime。

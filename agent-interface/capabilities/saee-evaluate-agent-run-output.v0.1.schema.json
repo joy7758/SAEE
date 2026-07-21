@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "SAEE evaluate_agent_run Output v0.1",
+  "title": "SAEE evaluate_rehearsal_run Output v0.1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["saee_evaluate_agent_run_output_v0_1", "schema_version", "capability_id", "run_ref", "trace_ref", "claim_type", "assessment", "profile_result", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement", "truth_boundary"],
+  "required": ["saee_evaluate_rehearsal_run_output_v0_1", "schema_version", "capability_id", "run_ref", "trace_ref", "claim_type", "assessment", "profile_result", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement", "truth_boundary"],
   "properties": {
-    "saee_evaluate_agent_run_output_v0_1": {"const": true},
+    "saee_evaluate_rehearsal_run_output_v0_1": {"const": true},
     "schema_version": {"const": "0.1.0"},
-    "capability_id": {"const": "saee.evaluate_agent_run"},
+    "capability_id": {"const": "internal.saee.evaluate_rehearsal_run"},
     "run_ref": {"type": "string", "minLength": 1, "maxLength": 180},
     "trace_ref": {"type": "string", "minLength": 1, "maxLength": 180},
     "claim_type": {"const": "AUTHORIZED_AGENT_ACTION"},

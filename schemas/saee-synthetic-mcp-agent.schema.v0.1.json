@@ -13,9 +13,9 @@
       "minItems": 3,
       "maxItems": 3,
       "uniqueItems": true,
-      "items": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]}
+      "items": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"]}
     },
-    "selected_tool": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
+    "selected_tool": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
     "interpretation_policy": {
       "type": "object",
       "additionalProperties": false,

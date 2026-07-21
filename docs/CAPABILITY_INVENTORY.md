@@ -55,7 +55,7 @@ validation or production readiness.
 |---|---|---|---|
 | `scripts/saee_agent_readiness_mcp_stdio.py` | `saee.evaluate_agent_run`, `saee.evaluate_evidence` | `canonical_public` | Default platform-neutral local entry for new integrations |
 | `scripts/saee_qianfan_readiness_mcp_stdio.py` | same two namespaced tools | `compatibility` | Qianfan wrapper sharing the same adapter; platform-neutral callers migrate to the canonical entry |
-| `scripts/saee_capability_mcp_stdio.py` | `evaluate_agent_run`, `evaluate_evidence`, `rehearse_agent` | `internal` | Capability Package adapter; external callers use the namespaced canonical entry |
+| `scripts/saee_capability_mcp_stdio.py` | `evaluate_rehearsal_run`, `evaluate_evidence`, `rehearse_agent` | `internal` | Capability Package（能力包）适配器；外部调用方使用带命名空间的规范公开入口 |
 | `scripts/saee_mcp_stdio.py` | `describe_saee`, `compare_observed_traces` | `internal` | Legacy observed-trace/descriptor surface; no truthful one-to-one public replacement is claimed |
 
 No surface is physically deleted or marked retired in v1. Real usage evidence

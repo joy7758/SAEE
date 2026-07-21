@@ -6,7 +6,7 @@
   "protocol_revision": "2025-11-25",
   "transport": "stdio",
   "capability_id": "saee.agent-reliability",
-  "tools": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+  "tools": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"],
   "runtime_reference": "saee_backend/services/capability_runtime/capability_invocation.py",
   "server_reference": "saee_backend/services/capability_mcp_adapter.py",
   "command": "python3 scripts/saee_capability_mcp_stdio.py",
@@ -23,4 +23,3 @@
     "production_ready": false
   }
 }
-

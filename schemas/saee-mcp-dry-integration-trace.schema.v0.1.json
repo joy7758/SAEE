@@ -15,14 +15,14 @@
       "required": ["package_ref", "tools_discovered"],
       "properties": {
         "package_ref": {"const": "ecosystem/mcp-entry-package-v1/capability-card.json"},
-        "tools_discovered": {"type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]}}
+        "tools_discovered": {"type": "array", "minItems": 3, "maxItems": 3, "uniqueItems": true, "items": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"]}}
       }
     },
     "tool_selection": {
       "type": "object", "additionalProperties": false,
       "required": ["selected_tool", "selection_status"],
       "properties": {
-        "selected_tool": {"enum": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
+        "selected_tool": {"enum": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent", "NONE"]},
         "selection_status": {"enum": ["SELECTED", "REJECTED_NOT_SAEE_CAPABILITY", "ABSTAINED_NO_SAEE_NEED"]}
       }
     },

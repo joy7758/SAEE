@@ -1,4 +1,4 @@
-"""Bounded local MCP projection for evaluate_agent_run."""
+"""Bounded local MCP projection for internal evaluate_rehearsal_run."""
 
 from __future__ import annotations
 
@@ -8,12 +8,12 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 
-from saee_backend.services.agent_run_capability import AgentRunCapabilityError, evaluate_agent_run
+from saee_backend.services.agent_run_capability import AgentRunCapabilityError, evaluate_agent_run as evaluate_rehearsal_run
 
 
 ROOT = Path(__file__).resolve().parents[2]
 RESPONSE_SCHEMA = ROOT / "agent-interface/mcp/saee-mcp-evaluate-agent-run-response.v0.1.schema.json"
-TOOL_NAME = "evaluate_agent_run"
+TOOL_NAME = "evaluate_rehearsal_run"
 BOUNDARY_STATEMENT = "Evidence adequacy assessment is not task success, safety certification, compliance determination, or deployment authority."
 BASE_LIMITATIONS = [
     "The MCP projection evaluates only a strict SAEE Rehearsal Run.",
@@ -28,7 +28,7 @@ def _validate(response: dict[str, Any]) -> dict[str, Any]:
     schema = json.loads(RESPONSE_SCHEMA.read_text(encoding="utf-8"))
     errors = sorted(Draft202012Validator(schema).iter_errors(response), key=lambda item: list(item.absolute_path))
     if errors:
-        raise RuntimeError("SAEE evaluate_agent_run MCP handler produced an invalid response")
+        raise RuntimeError("SAEE evaluate_rehearsal_run MCP handler produced an invalid response")
     return response
 
 
@@ -59,7 +59,7 @@ def handle_mcp_agent_run_tool(request: Any) -> dict[str, Any]:
     if not isinstance(arguments, dict) or set(arguments) != {"rehearsal_run"} or not isinstance(arguments.get("rehearsal_run"), dict):
         return _rejected("MCP_ARGUMENTS_INVALID")
     try:
-        result = evaluate_agent_run(arguments["rehearsal_run"])
+        result = evaluate_rehearsal_run(arguments["rehearsal_run"])
     except AgentRunCapabilityError as exc:
         return _rejected(exc.code)
     return _validate({

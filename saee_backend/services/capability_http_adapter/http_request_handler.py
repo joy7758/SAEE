@@ -17,7 +17,7 @@ from .http_response_builder import build_http_response, http_status_for
 ROOT = Path(__file__).resolve().parents[3]
 REQUEST_SCHEMA = ROOT / "schemas/saee-capability-http-request.schema.v0.1.json"
 ROUTES = {
-    "/capabilities/evaluate-agent-run": "evaluate_agent_run",
+    "/capabilities/evaluate-rehearsal-run": "evaluate_rehearsal_run",
     "/capabilities/evaluate-evidence": "evaluate_evidence",
     "/capabilities/rehearse-agent": "rehearse_agent",
 }
@@ -61,4 +61,3 @@ def process_http_request(path: str, body: Any, *, invoked_at: str | None = None)
         runtime = invoke_capability(_runtime_request(body, expected_operation, timestamp))
     response = build_http_response(runtime)
     return http_status_for(response, route_found=route_found), response
-

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/schemas/saee-agent-evidence-evaluation-bridge-input.v0.1.json",
+  "title": "SAEE Agent Evidence Evaluation Bridge Input v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_agent_evidence_evaluation_bridge_input_v0_1",
+    "schema_version",
+    "adapter_result",
+    "claim_type",
+    "adequacy_package",
+    "binding",
+    "truth_boundary"
+  ],
+  "properties": {
+    "saee_agent_evidence_evaluation_bridge_input_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "adapter_result": {"type": "object"},
+    "claim_type": {
+      "enum": [
+        "RESOURCE_AUTHENTICITY",
+        "AUTHORIZED_AGENT_ACTION",
+        "HUMAN_OVERSIGHT",
+        "EXECUTION_BOUNDARY"
+      ]
+    },
+    "adequacy_package": {"type": "object"},
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapter_receipt_digest", "event_ids", "binding_status"],
+      "properties": {
+        "adapter_receipt_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "event_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"}
+        },
+        "binding_status": {"const": "declared_only_not_independently_verified"}
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_event_authenticity_verified",
+        "binding_independently_verified",
+        "authorization_verified",
+        "action_authorized",
+        "production_ready"
+      ],
+      "properties": {
+        "source_event_authenticity_verified": {"const": false},
+        "binding_independently_verified": {"const": false},
+        "authorization_verified": {"const": false},
+        "action_authorized": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

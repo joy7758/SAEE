@@ -1,0 +1,59 @@
+{
+  "saee_agent_evidence_trait_adapter_input_v0_1": true,
+  "schema_version": "0.1.0",
+  "source_contract": {
+    "name": "agent_evidence_normalized_event_traits",
+    "version": "0.2.0",
+    "frozen_commit": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219"
+  },
+  "source_type": "jsonl",
+  "source_completeness": {
+    "source_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "source_event_count": 2,
+    "normalized_event_count": 2,
+    "dropped_event_count": 0,
+    "dropped_reason_codes": []
+  },
+  "verification": {
+    "result": "PASS",
+    "checks": {"artifact_digest_check": "PASS", "schema_check": "PASS"},
+    "findings": []
+  },
+  "signature": {
+    "signed_scope": "adapter_event_merkle_root",
+    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAuAuE0oyj4NIuxyj2eRTa2pNLr+xpKapzlrXy2GE+rGM=\n-----END PUBLIC KEY-----\n",
+    "signature_base64": "3IeivmeZ8HvTt7RGzVVoPrcAJ+LQuppadL6tLKZ6Xbq9IfbuFBkmglBochqU5WYuqUpjnZSSzdsMVtmdOpCcDg=="
+  },
+  "events": [
+    {
+      "event_index": 0,
+      "event_id": "event:synthetic:001",
+      "observed_at": "2026-07-14T00:00:00Z",
+      "event_type": "agent_action",
+      "actor": {"type": "agent", "id": "agent:synthetic"},
+      "action": "inspect_repository",
+      "payload": {"declared_result": "observed", "fixture": true},
+      "source_ref": {"source_event_index": 0, "source_event_id": "source:001"},
+      "redaction": {"applied": true, "profile": "synthetic-only"}
+    },
+    {
+      "event_index": 1,
+      "event_id": "event:synthetic:002",
+      "observed_at": "2026-07-14T00:00:01Z",
+      "event_type": "tool_result",
+      "actor": {"type": "tool", "id": "tool:synthetic"},
+      "action": "return_metadata",
+      "payload": {"status": "ok", "value": 1},
+      "source_ref": {"source_event_index": 1, "source_event_id": "source:002"},
+      "redaction": {"applied": true, "profile": "synthetic-only"}
+    }
+  ],
+  "truth_boundary": {
+    "source_event_authenticity_verified": false,
+    "actor_identity_verified": false,
+    "authorization_verified": false,
+    "evaluation_performed": false,
+    "action_authorized": false,
+    "production_ready": false
+  }
+}

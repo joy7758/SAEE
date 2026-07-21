@@ -42,7 +42,7 @@ def main() -> int:
     run = run_task(SCENARIO)
     evidence = json.loads(EVIDENCE.read_text(encoding="utf-8"))
     cases = {
-        "VALID_EVALUATE_AGENT_RUN": request("request:demo-run", "evaluate_agent_run", {"rehearsal_run": run}),
+        "VALID_EVALUATE_REHEARSAL_RUN": request("request:demo-run", "evaluate_rehearsal_run", {"rehearsal_run": run}),
         "VALID_EVALUATE_EVIDENCE": request("request:demo-evidence", "evaluate_evidence", evidence),
         "CONTRACT_ONLY_REHEARSE_AGENT": request("request:demo-rehearse", "rehearse_agent", {"scenario_reference": "scenario:synthetic"}),
         "INVALID_OPERATION": request("request:demo-operation", "delete_production", {}),

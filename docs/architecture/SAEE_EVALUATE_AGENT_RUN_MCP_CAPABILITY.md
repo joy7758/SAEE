@@ -1,15 +1,15 @@
-# SAEE `evaluate_agent_run` MCP Capability v0.1
+# SAEE internal `evaluate_rehearsal_run` MCP Capability（内部排演运行模型上下文协议能力）v0.1
 
 状态：`implemented_local_in_memory_mcp_capability`。
 
 ## 1. 作用
 
-该能力把 Phase 6.2 的 `evaluate_agent_run` 加入现有固定本地 MCP Tool 注册表：
+该能力把 Phase（阶段）6.2 的内部 `evaluate_rehearsal_run` 加入现有固定本地 MCP Tool（模型上下文协议工具）注册表：
 
 ```text
 MCP-like Tool Request
   ↓
-evaluate_agent_run handler
+evaluate_rehearsal_run handler
   ↓
 Run schema + Trace/Evidence Export binding
   ↓
@@ -21,7 +21,7 @@ SUPPORTED / INSUFFICIENT_EVIDENCE / UNKNOWN
 本地 Server 现在固定暴露两个只读 Tool：
 
 1. `evaluate_evidence_adequacy`；
-2. `evaluate_agent_run`。
+2. `evaluate_rehearsal_run`。
 
 不支持动态 Tool 注册、插件、任意代码、URL、网络或外部工具执行。
 

@@ -13,9 +13,9 @@ x-saee-local-bind-address: 127.0.0.1
 x-saee-network-api-available: false
 x-saee-production-ready: false
 paths:
-  /capabilities/evaluate-agent-run:
+  /capabilities/evaluate-rehearsal-run:
     post:
-      operationId: evaluate_agent_run
+      operationId: evaluate_rehearsal_run
       summary: 评估已验证 SAEE 演练运行的可靠性证据
       x-saee-implementation-status: implemented_local_offline_alpha
       x-saee-network-endpoint-available: false

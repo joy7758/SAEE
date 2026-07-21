@@ -60,9 +60,9 @@ def evaluate_agent_run(run: dict[str, Any]) -> dict[str, Any]:
     adequacy = evaluate_evidence_adequacy(export["claim_type"], export["claim_candidate"])
     passed = adequacy["result"] == "PASS"
     output = {
-        "saee_evaluate_agent_run_output_v0_1": True,
+        "saee_evaluate_rehearsal_run_output_v0_1": True,
         "schema_version": "0.1.0",
-        "capability_id": "saee.evaluate_agent_run",
+        "capability_id": "internal.saee.evaluate_rehearsal_run",
         "run_ref": run["run_id"],
         "trace_ref": trace["trace_id"],
         "claim_type": export["claim_type"],
@@ -93,4 +93,3 @@ def evaluate_agent_run(run: dict[str, Any]) -> dict[str, Any]:
     }
     Draft202012Validator(_load_schema(OUTPUT_SCHEMA), format_checker=FormatChecker()).validate(output)
     return output
-

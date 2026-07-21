@@ -2,7 +2,7 @@
 
 本目录是智能体可读的本地 Alpha 契约包，不是已部署的 Capability Service。
 
-- `evaluate_agent_run`：已有本地离线 Alpha 和本地内存 Tool 映射。
+- `evaluate_rehearsal_run`：已有内部本地离线 Alpha（早期验证版）和本地内存 Tool（工具）映射。
 - `evaluate_evidence`：映射已有 `evaluate_evidence_adequacy` 本地原型。
 - `rehearse_agent`：仅有契约占位，Phase 10.1 不注册、不执行。
 - `openapi.yaml` 不包含 `servers`，不声明公网 endpoint。
@@ -13,4 +13,3 @@
 - 现有实验结果来自受控范围；不能外推为所有 Agent、供应商、任务或生产环境的总体表现。
 
 `SUPPORTED` 只表示固定剖面的要求在所提供证据中得到满足，不表示任务成功、系统安全或获准上线。
-

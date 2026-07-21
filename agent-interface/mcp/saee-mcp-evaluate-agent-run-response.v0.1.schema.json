@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "SAEE MCP evaluate_agent_run Response v0.1",
+  "title": "SAEE MCP evaluate_rehearsal_run Response v0.1",
   "type": "object",
   "additionalProperties": false,
   "required": ["tool_result", "run_ref", "trace_ref", "claim_type", "assessment", "profile_result", "missing_requirements", "failed_relationships", "reason_codes", "limitations", "boundary_statement"],

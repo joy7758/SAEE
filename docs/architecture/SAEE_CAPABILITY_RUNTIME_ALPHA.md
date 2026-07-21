@@ -35,7 +35,7 @@ Agent-like Local Caller
 
 | 操作 | 路由 | 状态 |
 |---|---|---|
-| `evaluate_agent_run` | `agent_run_capability.evaluate_agent_run()` | 已实现、本地离线 |
+| `evaluate_rehearsal_run` | `agent_run_capability.evaluate_agent_run()` | 已实现、内部、本地离线；实现函数名暂保留为模块内部名称 |
 | `evaluate_evidence` | `local_evidence_tool.evaluate_evidence_tool()` | 已实现、本地离线 |
 | `rehearse_agent` | 不调用 handler | `CONTRACT_ONLY_NOT_IMPLEMENTED` |
 
@@ -86,4 +86,3 @@ customer_data=false
 external_world_actions=false
 production_ready=false
 ```
-

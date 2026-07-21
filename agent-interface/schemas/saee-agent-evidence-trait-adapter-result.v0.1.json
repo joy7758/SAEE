@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/schemas/saee-agent-evidence-trait-adapter-result.v0.1.json",
+  "title": "SAEE Agent Evidence Trait Adapter Result v0.1",
+  "oneOf": [
+    {"$ref": "#/$defs/adapted"},
+    {"$ref": "#/$defs/rejected"}
+  ],
+  "$defs": {
+    "base_properties": {
+      "type": "object",
+      "properties": {
+        "saee_agent_evidence_trait_adapter_result_v0_1": {"const": true},
+        "schema_version": {"const": "0.1.0"},
+        "adapter_id": {"const": "saee.agent-evidence-trait-adapter.clean-room.v0.1"},
+        "source_commit": {"const": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219"},
+        "adapter_status": {"enum": ["ADAPTED_WITH_SEMANTIC_LOSS", "REJECTED"]},
+        "reason_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^AE_ADAPTER_[A-Z0-9_]+$"}
+        },
+        "candidate_evidence": {"type": "array"},
+        "truth_boundary": {"$ref": "#/$defs/output_truth_boundary"}
+      }
+    },
+    "adapted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "saee_agent_evidence_trait_adapter_result_v0_1",
+        "schema_version",
+        "adapter_id",
+        "source_commit",
+        "adapter_status",
+        "reason_codes",
+        "candidate_evidence",
+        "source_completeness",
+        "integrity_context",
+        "evaluation_routing",
+        "semantic_loss",
+        "canonicalization",
+        "adapter_receipt_digest",
+        "truth_boundary"
+      ],
+      "properties": {
+        "saee_agent_evidence_trait_adapter_result_v0_1": {"const": true},
+        "schema_version": {"const": "0.1.0"},
+        "adapter_id": {"const": "saee.agent-evidence-trait-adapter.clean-room.v0.1"},
+        "source_commit": {"const": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219"},
+        "adapter_status": {"const": "ADAPTED_WITH_SEMANTIC_LOSS"},
+        "reason_codes": {
+          "type": "array",
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {"const": "AE_ADAPTER_ED25519_VERIFICATION_FAILED"}
+        },
+        "candidate_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {"$ref": "#/$defs/candidate"}
+        },
+        "source_completeness": {"type": "object"},
+        "integrity_context": {"$ref": "#/$defs/integrity_context"},
+        "evaluation_routing": {"$ref": "#/$defs/evaluation_routing"},
+        "semantic_loss": {
+          "type": "array",
+          "const": [
+            "payload_replaced_by_digest",
+            "event_not_mapped_to_quality_or_risk_score",
+            "identity_not_authenticated",
+            "action_not_authorized"
+          ]
+        },
+        "canonicalization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["method", "jcs_compatible"],
+          "properties": {
+            "method": {"const": "saee-canonical-json-v0.1"},
+            "jcs_compatible": {"const": false}
+          }
+        },
+        "adapter_receipt_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "truth_boundary": {"$ref": "#/$defs/output_truth_boundary"}
+      }
+    },
+    "rejected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "saee_agent_evidence_trait_adapter_result_v0_1",
+        "schema_version",
+        "adapter_id",
+        "source_commit",
+        "adapter_status",
+        "reason_codes",
+        "candidate_evidence",
+        "truth_boundary"
+      ],
+      "properties": {
+        "saee_agent_evidence_trait_adapter_result_v0_1": {"const": true},
+        "schema_version": {"const": "0.1.0"},
+        "adapter_id": {"const": "saee.agent-evidence-trait-adapter.clean-room.v0.1"},
+        "source_commit": {"const": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219"},
+        "adapter_status": {"const": "REJECTED"},
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^AE_ADAPTER_[A-Z0-9_]+$"}
+        },
+        "candidate_evidence": {"type": "array", "maxItems": 0},
+        "truth_boundary": {"$ref": "#/$defs/output_truth_boundary"}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_index",
+        "event_id",
+        "observed_at",
+        "event_type",
+        "actor_ref",
+        "action_label",
+        "payload_digest",
+        "payload_interpreted",
+        "source_ref",
+        "redaction"
+      ],
+      "properties": {
+        "event_index": {"type": "integer", "minimum": 0},
+        "event_id": {"type": "string"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "event_type": {"type": "string"},
+        "actor_ref": {"type": "string"},
+        "action_label": {"type": "string"},
+        "payload_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "payload_interpreted": {"const": false},
+        "source_ref": {"type": "object"},
+        "redaction": {"type": ["object", "null"]}
+      }
+    },
+    "integrity_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "upstream_verification_result",
+        "upstream_checks",
+        "upstream_findings",
+        "warn_preserved",
+        "cryptographic_verification_reperformed",
+        "upstream_result_authorizes_action",
+        "jcs_compatibility_scope",
+        "local_canonicalization_check",
+        "local_event_chain_check",
+        "local_merkle_root_check",
+        "local_ed25519_signature_check",
+        "local_ed25519_reason",
+        "local_ed25519_openssl_path",
+        "local_ed25519_openssl_version",
+        "event_chain",
+        "merkle_root",
+        "full_bundle_integrity_established"
+      ],
+      "properties": {
+        "upstream_verification_result": {"enum": ["PASS", "WARN", "FAIL"]},
+        "upstream_checks": {"type": "object"},
+        "upstream_findings": {"type": "array"},
+        "warn_preserved": {"type": "boolean"},
+        "cryptographic_verification_reperformed": {"const": false},
+        "upstream_result_authorizes_action": {"const": false},
+        "jcs_compatibility_scope": {"const": "ASCII_INTEGER_SAFE_SUBSET_ONLY"},
+        "local_canonicalization_check": {"const": "PASS"},
+        "local_event_chain_check": {"const": "PASS"},
+        "local_merkle_root_check": {"const": "PASS"},
+        "local_ed25519_signature_check": {"enum": ["PASS", "FAIL", "NOT_RUN"]},
+        "local_ed25519_reason": {
+          "enum": [
+            "signature_not_supplied",
+            "verified_by_system_openssl",
+            "signature_verification_failed",
+            "signature_input_invalid",
+            "openssl_unavailable",
+            "openssl_execution_failed",
+            "openssl_version_not_allowed"
+          ]
+        },
+        "local_ed25519_openssl_path": {"type": ["string", "null"]},
+        "local_ed25519_openssl_version": {"type": ["string", "null"]},
+        "event_chain": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["event_index", "event_id", "event_digest", "previous_chain_digest", "chain_digest"],
+            "properties": {
+              "event_index": {"type": "integer", "minimum": 0},
+              "event_id": {"type": "string"},
+              "event_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+              "previous_chain_digest": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+              "chain_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+            }
+          }
+        },
+        "merkle_root": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "full_bundle_integrity_established": {"const": false}
+      }
+    },
+    "evaluation_routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eligible_for_evidence_adequacy",
+        "reason",
+        "integrity_and_adequacy_separate"
+      ],
+      "properties": {
+        "eligible_for_evidence_adequacy": {"const": false},
+        "reason": {"const": "trusted_conversion_contract_missing"},
+        "integrity_and_adequacy_separate": {"const": true}
+      }
+    },
+    "output_truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_text_copied",
+        "local_crypto_subprocess_started",
+        "external_code_executed",
+        "network_accessed",
+        "source_event_authenticity_verified",
+        "actor_identity_verified",
+        "authorization_verified",
+        "evidence_adequacy_established",
+        "action_authorized",
+        "runtime_integrated",
+        "production_ready"
+      ],
+      "properties": {
+        "source_text_copied": {"const": false},
+        "local_crypto_subprocess_started": {"type": "boolean"},
+        "external_code_executed": {"const": false},
+        "network_accessed": {"const": false},
+        "source_event_authenticity_verified": {"const": false},
+        "actor_identity_verified": {"const": false},
+        "authorization_verified": {"const": false},
+        "evidence_adequacy_established": {"const": false},
+        "action_authorized": {"const": false},
+        "runtime_integrated": {"const": false},
+        "production_ready": {"const": false}
+      }
+    }
+  }
+}

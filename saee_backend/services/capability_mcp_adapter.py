@@ -82,12 +82,12 @@ def tool_definitions() -> list[dict[str, Any]]:
         },
     }
     payloads = {
-        "evaluate_agent_run": run_payload,
+        "evaluate_rehearsal_run": run_payload,
         "evaluate_evidence": _load(EVIDENCE_SCHEMA),
         "rehearse_agent": rehearsal_payload,
     }
     titles = {
-        "evaluate_agent_run": "评估智能体运行 / Evaluate Agent Run",
+        "evaluate_rehearsal_run": "评估内部排演运行 / Evaluate Rehearsal Run",
         "evaluate_evidence": "评估证据充分性 / Evaluate Evidence",
         "rehearse_agent": "智能体演练契约 / Rehearse Agent Contract",
     }
@@ -101,7 +101,7 @@ def tool_definitions() -> list[dict[str, Any]]:
             "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False},
             "execution": {"taskSupport": "forbidden"},
         }
-        for name in ("evaluate_agent_run", "evaluate_evidence", "rehearse_agent")
+        for name in ("evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent")
     ]
 
 

@@ -12,7 +12,7 @@ Adapter 使用 MCP `2025-11-25` 的 JSON-RPC 生命周期和 Tool schema 形态�
 
 ## Tools
 
-- `evaluate_agent_run`：委托 Phase 10.2 Runtime。
+- `evaluate_rehearsal_run`：委托 Phase（阶段）10.2 Runtime（运行时）。
 - `evaluate_evidence`：委托 Phase 10.2 Runtime。
 - `rehearse_agent`：同样委托 Runtime，但返回 `CONTRACT_ONLY`。
 
@@ -42,4 +42,3 @@ python3 scripts/saee_capability_mcp_stdio.py
 ```
 
 配置：`agent-interface/mcp/saee-capability-mcp-stdio-config.v0.1.json`。
-

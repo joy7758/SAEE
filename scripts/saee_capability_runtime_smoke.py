@@ -78,7 +78,7 @@ def main() -> int:
     registry = load_capability_registry()
     require(registry["package_operations_verified"] is True, "Package operation compatibility missing")
     require(registry["operations"] == {
-        "evaluate_agent_run": "implemented_local_offline_alpha",
+        "evaluate_rehearsal_run": "implemented_local_offline_alpha",
         "evaluate_evidence": "implemented_local_offline_prototype",
         "rehearse_agent": "contract_only",
     }, "runtime operation set drifted")
@@ -87,12 +87,12 @@ def main() -> int:
     run = run_task(SCENARIO)
     evidence = json.loads(EVIDENCE.read_text(encoding="utf-8"))
     requests = {
-        "run": make_request("request:smoke-run", "evaluate_agent_run", {"rehearsal_run": run}),
+        "run": make_request("request:smoke-run", "evaluate_rehearsal_run", {"rehearsal_run": run}),
         "evidence": make_request("request:smoke-evidence", "evaluate_evidence", evidence),
         "contract": make_request("request:smoke-rehearse", "rehearse_agent", {"scenario_reference": "scenario:synthetic"}),
     }
 
-    original_run = capability_router.evaluate_agent_run
+    original_run = capability_router.evaluate_rehearsal_run
     original_evidence = capability_router.evaluate_evidence_tool
     calls = {"run": 0, "evidence": 0}
 
@@ -104,17 +104,17 @@ def main() -> int:
         calls["evidence"] += 1
         return original_evidence(value)
 
-    capability_router.evaluate_agent_run = run_probe
+    capability_router.evaluate_rehearsal_run = run_probe
     capability_router.evaluate_evidence_tool = evidence_probe
     try:
         run_response = invoke_capability(requests["run"])
         evidence_response = invoke_capability(requests["evidence"])
     finally:
-        capability_router.evaluate_agent_run = original_run
+        capability_router.evaluate_rehearsal_run = original_run
         capability_router.evaluate_evidence_tool = original_evidence
 
     contract_response = invoke_capability(requests["contract"])
-    require(run_response["status"] == "SUCCESS" and run_response["result"]["capability_id"] == "saee.evaluate_agent_run", "run operation failed")
+    require(run_response["status"] == "SUCCESS" and run_response["result"]["capability_id"] == "internal.saee.evaluate_rehearsal_run", "run operation failed")
     require(evidence_response["status"] == "SUCCESS" and evidence_response["result"]["tool_result"] == "SUCCESS", "evidence operation failed")
     require(contract_response["status"] == "CONTRACT_ONLY", "rehearse_agent boundary failed")
     require(calls == {"run": 1, "evidence": 1}, "canonical services were not reused exactly once")
@@ -144,7 +144,7 @@ def main() -> int:
     candidate = copy.deepcopy(requests["evidence"]); candidate["payload"]["api_key"] = "synthetic-forbidden"; invalid_requests.append(candidate)
     invalid_requests.append(make_request("request:bad-operation", "delete_production", {}))
     invalid_requests.append(make_request("request:bad-capability", "evaluate_evidence", evidence, "saee.unknown"))
-    invalid_requests.append(make_request("request:bad-run", "evaluate_agent_run", {}))
+    invalid_requests.append(make_request("request:bad-run", "evaluate_rehearsal_run", {}))
     invalid_requests.append(make_request("request:bad-evidence", "evaluate_evidence", {}))
     candidate = copy.deepcopy(requests["evidence"]); candidate["payload"] = {"oversized": "x" * 1_000_001}; invalid_requests.append(candidate)
     candidate = copy.deepcopy(requests["evidence"]); candidate["payload"] = {"not_json": {1, 2}}; invalid_requests.append(candidate)
