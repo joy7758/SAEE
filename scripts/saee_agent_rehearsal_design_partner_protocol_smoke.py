@@ -6,6 +6,7 @@ from __future__ import annotations
 import ast
 import copy
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -15,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.saee_design_partner_rehearsal_demo import build_demo
+from scripts.saee_design_partner_rehearsal_demo import build_demo, live_evidence_available
 
 
 PLAN = ROOT / "agent-interface/commercial/saee-agent-rehearsal-design-partner-plan.v0.1.json"
@@ -147,17 +148,21 @@ def main() -> None:
     validate_session_gate(session_gate)
     for ref in review["review_documents"]:
         require((ROOT / ref).is_file(), "review document missing: " + ref)
-    demo = build_demo()
-    require(demo["language"] == "zh-CN", "demo language invalid")
-    require(len(demo["cases"]) == 4, "demo case count invalid")
-    require(demo["benchmark_metrics"]["total_cases"] == 20, "demo benchmark missing")
-    require(set(demo["tool_names"]) == {"evaluate_evidence_adequacy", "evaluate_agent_run"}, "demo Tool discovery invalid")
-    require(demo["truth_boundary"] == {"customer_contacted": False, "feedback_collected": False, "customer_data_used": False, "controlled_qianfan_reasoning_model_validated": True, "real_customer_agent_validated": False, "synthetic_world_only": True, "external_world_actions": 0, "stateful_business_rehearsal_validated": True, "customer_adapter_contract_enabled": False, "standard_mcp_transport_available": False, "deployment_authorized": False, "production_ready": False}, "demo truth boundary invalid")
-    require(all(case["grading_assessment"] == "MATCHED_PROFILE" for case in demo["cases"]), "live grading results missing")
-    require(all(case["grading_profile_hidden_from_agent"] is True for case in demo["cases"]), "grading profile separation missing")
-    stateful = next(case for case in demo["cases"] if case["scenario_category"] == "stateful_saas_release_readiness")
-    require(stateful["state_transition_count"] == 3 and stateful["final_revision"] == 3, "stateful case missing")
-    require(stateful["deployment_tool_called"] is False, "stateful deployment attempted")
+    evidence_available = live_evidence_available()
+    optional_evidence = os.environ.get("SAEE_PROVIDER_EVIDENCE_MODE") == "optional"
+    require(evidence_available or optional_evidence, "external Provider evidence missing")
+    demo = build_demo() if evidence_available else None
+    if demo is not None:
+        require(demo["language"] == "zh-CN", "demo language invalid")
+        require(len(demo["cases"]) == 4, "demo case count invalid")
+        require(demo["benchmark_metrics"]["total_cases"] == 20, "demo benchmark missing")
+        require(set(demo["tool_names"]) == {"evaluate_evidence_adequacy", "evaluate_rehearsal_run"}, "demo Tool discovery invalid")
+        require(demo["truth_boundary"] == {"customer_contacted": False, "feedback_collected": False, "customer_data_used": False, "controlled_qianfan_reasoning_model_validated": True, "real_customer_agent_validated": False, "synthetic_world_only": True, "external_world_actions": 0, "stateful_business_rehearsal_validated": True, "customer_adapter_contract_enabled": False, "standard_mcp_transport_available": False, "deployment_authorized": False, "production_ready": False}, "demo truth boundary invalid")
+        require(all(case["grading_assessment"] == "MATCHED_PROFILE" for case in demo["cases"]), "live grading results missing")
+        require(all(case["grading_profile_hidden_from_agent"] is True for case in demo["cases"]), "grading profile separation missing")
+        stateful = next(case for case in demo["cases"] if case["scenario_category"] == "stateful_saas_release_readiness")
+        require(stateful["state_transition_count"] == 3 and stateful["final_revision"] == 3, "stateful case missing")
+        require(stateful["deployment_tool_called"] is False, "stateful deployment attempted")
 
     invalid: list[tuple[dict[str, Any], str]] = []
     for field in ("customer_contacted", "feedback_collected", "customer_data_received", "customer_validated", "market_fit_achieved", "pilot_started", "production_ready"):
@@ -214,20 +219,22 @@ def main() -> None:
         require(forbidden_field not in feedback, f"identifying field present: {forbidden_field}")
 
     encoded = json.dumps(canonical, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    demo_encoded = json.dumps(demo, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    demo_encoded = json.dumps(demo, ensure_ascii=False, sort_keys=True, separators=(",", ":")) if demo is not None else None
     for _ in range(5):
         require(json.dumps(validate(load(PLAN)), ensure_ascii=False, sort_keys=True, separators=(",", ":")) == encoded, "plan non-deterministic")
-        require(json.dumps(build_demo(), ensure_ascii=False, sort_keys=True, separators=(",", ":")) == demo_encoded, "demo non-deterministic")
+        if demo_encoded is not None:
+            require(json.dumps(build_demo(), ensure_ascii=False, sort_keys=True, separators=(",", ":")) == demo_encoded, "demo non-deterministic")
 
     print("SAEE_AGENT_REHEARSAL_DESIGN_PARTNER_PROTOCOL_SMOKE: PASS")
+    print("external_provider_evidence_status=" + ("VERIFIED" if evidence_available else "NOT_REQUIRED"))
     print("profiles=3/3")
     print("metrics=6/6")
-    print("demo_cases=4/4")
-    print("controlled_qianfan_reasoning_model_validated=true")
+    print("demo_cases=" + ("4/4" if evidence_available else "NOT_REQUIRED"))
+    print("controlled_qianfan_reasoning_model_validated=" + ("true" if evidence_available else "not_checked"))
     print("real_customer_agent_validated=false")
     print("external_world_actions=0")
-    print("stateful_business_rehearsal_validated=true")
-    print("state_transition_count=3")
+    print("stateful_business_rehearsal_validated=" + ("true" if evidence_available else "not_checked"))
+    print("state_transition_count=" + ("3" if evidence_available else "NOT_REQUIRED"))
     print("customer_adapter_contract_enabled=false")
     print("benchmark_cases=20/20")
     print("mcp_tools=2/2")

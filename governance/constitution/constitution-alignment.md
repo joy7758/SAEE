@@ -91,8 +91,14 @@ claims.
 
 ### Non-claims
 
-- a canonical Git remote is not established;
+- a configured public Git remote exists, but a canonical recovery Git remote
+  is not established;
 - no repository, source file or runtime is migrated;
 - no MCP implementation or public API is changed;
 - no marketplace item is approved or listed;
 - no customer validation, external integration or production readiness exists.
+
+The current configured-remote distinction is governed by
+`../decisions/ADR-0004-configured-public-remote-boundary.md`. It updates the
+current transport fact without rewriting the dated Phase 0 recommendation
+evidence above.

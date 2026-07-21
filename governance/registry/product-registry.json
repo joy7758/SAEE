@@ -2,7 +2,8 @@
   "$schema": "../schemas/product.schema.json",
   "schema_version": "1.0.0",
   "registry_id": "saee.phase0.product-registry",
-  "excluded_future_concepts": ["SAEE Governance", "SAEE Autonomous"],
+  "target_customer_versions": ["SAEE Evidence", "SAEE Evaluation", "SAEE Governance"],
+  "excluded_future_concepts": ["SAEE Autonomous"],
   "products": [
     {
       "id": "saee",
@@ -13,6 +14,8 @@
       "commercial_surface": "Local engineering engine with bounded website and assessment projections",
       "saee_relationship": "Digital Biosphere Evolution Engine core",
       "runtime_owner": "SAEE",
+      "customer_version_target": false,
+      "migration_role": "umbrella_engine",
       "production_ready": false
     },
     {
@@ -24,6 +27,8 @@
       "commercial_surface": "Bounded evidence adequacy and receipt support; not a standalone production audit product",
       "saee_relationship": "Evidence and Immune Subsystem",
       "runtime_owner": "SAEE for local capabilities; external runtime owners remain independent",
+      "customer_version_target": true,
+      "migration_role": "target_customer_version",
       "source_code_migrated": false,
       "runtime_integrated": false,
       "production_ready": false
@@ -33,10 +38,12 @@
       "name": "Agent Evidence Receipt",
       "type": "external-product",
       "relationship": "saee_subproject",
-      "status": "public_single_node_alpha",
+      "status": "legacy_external_alpha_migration_source",
       "commercial_surface": "Public three-tool MCP endpoint and Aliyun product 68658 under review, not listed",
-      "saee_relationship": "Constitutional SAEE Evidence and Immune Subsystem ownership with shared contract infrastructure",
+      "saee_relationship": "Legacy external product and migration source for the SAEE Evidence target; not a fourth target customer version",
       "runtime_owner": "Agent Evidence Project",
+      "customer_version_target": false,
+      "migration_role": "legacy_external_migration_source",
       "source_code_migrated": false,
       "runtime_integrated": false,
       "production_ready": false
@@ -50,6 +57,23 @@
       "commercial_surface": "Local two-operation readiness/evidence evaluation and human-delivered Aliyun product 68657 repair package",
       "saee_relationship": "Bounded evaluation projection over the Digital Biosphere Evolution Engine",
       "runtime_owner": "SAEE",
+      "customer_version_target": true,
+      "migration_role": "target_customer_version",
+      "production_ready": false
+    },
+    {
+      "id": "saee-governance",
+      "name": "SAEE Governance",
+      "type": "customer-version",
+      "relationship": "product_projection",
+      "status": "target_not_implemented",
+      "commercial_surface": "Target customer version for controlled change, decision boundaries, evolutionary archive and rollback governance",
+      "saee_relationship": "Target projection over the Evolutionary Archive and Rollback Immune System; implementation and customer validation remain absent",
+      "runtime_owner": "SAEE",
+      "customer_version_target": true,
+      "migration_role": "target_customer_version",
+      "source_code_migrated": false,
+      "runtime_integrated": false,
       "production_ready": false
     }
   ]

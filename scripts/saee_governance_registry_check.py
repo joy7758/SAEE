@@ -168,10 +168,13 @@ def validate_documents(
         canonical_repository = canonical_repositories[0]
         if canonical_repository.get("name") != "saee":
             errors.append("SAEE must be the canonical local repository")
-        if canonical_repository.get("remote") is not None:
-            errors.append("Phase 0 canonical SAEE remote must remain NOT_ESTABLISHED")
-        if "Canonical local only" not in canonical_repository.get("notes", ""):
-            errors.append("SAEE repository record must state Canonical local only")
+        if canonical_repository.get("remote") != "https://github.com/joy7758/SAEE.git":
+            errors.append("SAEE configured public remote must match the approved origin")
+        notes = canonical_repository.get("notes", "")
+        if "Canonical local engineering authority" not in notes:
+            errors.append("SAEE repository record must preserve local engineering authority")
+        if "canonical recovery Git remote remains NOT_ESTABLISHED" not in notes:
+            errors.append("SAEE repository record must distinguish configured and canonical remotes")
 
     agent_evidence_repository = next(
         (item for item in repositories if item.get("name") == "agent-evidence-layer"),
@@ -259,13 +262,32 @@ def validate_documents(
     )
     if duplicate_products:
         errors.append(f"duplicate product id: {sorted(duplicate_products)}")
-    required_product_ids = {"saee", "saee-evidence", "agent-evidence-receipt", "saee-evaluation"}
+    required_product_ids = {
+        "saee",
+        "saee-evidence",
+        "agent-evidence-receipt",
+        "saee-evaluation",
+        "saee-governance",
+    }
     if set(product_ids) != required_product_ids:
-        errors.append("product registry must contain exactly SAEE, SAEE Evidence, Agent Evidence Receipt and SAEE Evaluation")
-    forbidden_product_names = {"SAEE Governance", "SAEE Autonomous"}
+        errors.append(
+            "product registry must contain the SAEE umbrella, three target customer versions, "
+            "and the legacy Agent Evidence migration source"
+        )
+    expected_target_versions = {"SAEE Evidence", "SAEE Evaluation", "SAEE Governance"}
+    if set(documents["products"].get("target_customer_versions", [])) != expected_target_versions:
+        errors.append("product registry target_customer_versions must match the constitutional set")
+    actual_target_versions = {
+        item.get("name") for item in products if item.get("customer_version_target") is True
+    }
+    if actual_target_versions != expected_target_versions:
+        errors.append(
+            "exactly SAEE Evidence, SAEE Evaluation and SAEE Governance must be target customer versions"
+        )
+    forbidden_product_names = {"SAEE Autonomous"}
     actual_product_names = {item.get("name") for item in products}
     if actual_product_names & forbidden_product_names:
-        errors.append("future concepts SAEE Governance and SAEE Autonomous must not be registered as products")
+        errors.append("SAEE Autonomous must not be registered as a product")
     receipt_product = next(
         (item for item in products if item.get("id") == "agent-evidence-receipt"),
         None,
@@ -275,12 +297,29 @@ def validate_documents(
     else:
         if receipt_product.get("relationship") != "saee_subproject":
             errors.append("Agent Evidence Receipt relationship must be saee_subproject")
+        if receipt_product.get("customer_version_target") is not False:
+            errors.append("Agent Evidence Receipt must not become a fourth target customer version")
+        if receipt_product.get("migration_role") != "legacy_external_migration_source":
+            errors.append("Agent Evidence Receipt must remain the legacy external migration source")
         if receipt_product.get("runtime_owner") == "SAEE":
             errors.append("Agent Evidence Receipt must not be marked as an SAEE-owned runtime")
         if receipt_product.get("source_code_migrated") is not False:
             errors.append("Agent Evidence Receipt source_code_migrated must remain false")
         if receipt_product.get("runtime_integrated") is not False:
             errors.append("Agent Evidence Receipt runtime_integrated must remain false")
+    governance_product = next(
+        (item for item in products if item.get("id") == "saee-governance"),
+        None,
+    )
+    if not governance_product:
+        errors.append("SAEE Governance target customer version is missing")
+    else:
+        if governance_product.get("status") != "target_not_implemented":
+            errors.append("SAEE Governance must remain target_not_implemented until implementation evidence exists")
+        if governance_product.get("source_code_migrated") is not False:
+            errors.append("SAEE Governance source_code_migrated must remain false")
+        if governance_product.get("runtime_integrated") is not False:
+            errors.append("SAEE Governance runtime_integrated must remain false")
 
     systems = documents["external_systems"].get("systems", [])
     required_system_fields = {
@@ -341,7 +380,9 @@ def main() -> int:
     print(f"capabilities={len(documents['capabilities']['capabilities'])}")
     print(f"mcp_entries={len(documents['mcp']['entries'])}")
     print(f"products={len(documents['products']['products'])}")
-    print("canonical_source=LOCAL_ONLY")
+    print("canonical_source=LOCAL_ENGINEERING_AUTHORITY")
+    print("configured_git_remote=https://github.com/joy7758/SAEE.git")
+    print("configured_remote_role=PUBLIC_PROJECTION_AND_REVIEW_SURFACE")
     print("canonical_git_remote=NOT_ESTABLISHED")
     print("canonical_saee_mcp=saee.agent_readiness_mcp_stdio")
     print("agent_evidence_runtime_integrated=false")

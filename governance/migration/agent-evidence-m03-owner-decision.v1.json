@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "decision_id": "saee.agent-evidence.m03-owner-decision.v1",
+  "decision_status": "APPROVED_BOUNDED_CLEAN_ROOM",
+  "source_repository": "agent-evidence-layer",
+  "source_commit": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219",
+  "source_tree": "d2568406c964aa14a044e147947da3d83fd6167e",
+  "license_classification": "ALL_RIGHTS_RESERVED",
+  "proposed_method": "CLEAN_ROOM_TRAIT_AND_CONTRACT_REIMPLEMENTATION",
+  "proposed_scope": {
+    "contract_traits": [
+      "receipt package manifest fields and invariants",
+      "normalized event field semantics",
+      "source completeness counts and digest binding",
+      "artifact digest coverage semantics",
+      "verification result and finding semantics"
+    ],
+    "integrity_traits": [
+      "JCS compatibility behavior",
+      "SHA-256 event digest behavior",
+      "event-chain ordering and previous-digest binding",
+      "Merkle-root calculation behavior",
+      "Ed25519 package signature verification behavior"
+    ],
+    "adapter_traits": [
+      "bounded JSONL normalization",
+      "minimal LangChain event normalization",
+      "minimal OpenTelemetry-style event normalization",
+      "minimal Dify event normalization",
+      "semantic-loss and source-completeness reporting"
+    ],
+    "security_traits": [
+      "path traversal rejection",
+      "safe archive extraction boundaries",
+      "redaction result boundaries",
+      "bounded token semantics for local artifacts"
+    ]
+  },
+  "excluded_scope": [
+    "direct copying of source implementation text",
+    "Git history merge",
+    "packages/agent_evidence/api runtime migration",
+    "packages/agent_evidence/mcp endpoint or namespace transfer",
+    "queue worker storage tenant auth and metering migration",
+    "deploy/aliyun-mcp transfer",
+    "Aliyun product 68658 transfer",
+    "apps/web or commercial document migration",
+    "deployment customer data public release or production claims"
+  ],
+  "required_provenance": {
+    "record_source_commit_in_each_migration_receipt": true,
+    "preserve_all_rights_reserved_source_boundary": true,
+    "copy_source_text": false,
+    "copy_git_history": false,
+    "implementation_namespace": "SAEE canonical Evidence and Immune Subsystem",
+    "canonical_capability_inventory_updated_first": true
+  },
+  "decision_options": [
+    {
+      "option": "APPROVE_CLEAN_ROOM_TRAIT_MIGRATION",
+      "effect": "authorize synthetic compatibility fixtures and new SAEE-owned adapter implementations for the proposed scope only"
+    },
+    {
+      "option": "APPROVE_SPEC_MAPPING_ONLY",
+      "effect": "allow continued field and trait documentation but no behavior fixtures or adapter implementation"
+    },
+    {
+      "option": "KEEP_BLOCKED",
+      "effect": "perform no implementation-bearing migration work"
+    }
+  ],
+  "selected_option": "APPROVE_CLEAN_ROOM_TRAIT_MIGRATION",
+  "owner_identity": "user_declared_agent_evidence_source_authorized_rightsholder",
+  "owner_statement": "确认：我以 Agent Evidence 源码授权权利人身份，选择 APPROVE_CLEAN_ROOM_TRAIT_MIGRATION，适用于 commit e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219，范围以 agent-evidence-m03-owner-decision.v1.json 为准。",
+  "decided_at": "2026-07-14T23:32:40+08:00",
+  "authorization_effective": true,
+  "non_claims": [
+    "This authorization is limited to the selected clean-room trait and contract reimplementation scope.",
+    "No source implementation runtime MCP marketplace product or Git history is transferred.",
+    "Approval of clean-room trait migration would not authorize deployment release or customer claims."
+  ]
+}

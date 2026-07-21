@@ -17,13 +17,13 @@
       "name": "SAEE",
       "type": "repository",
       "role": "Digital Biosphere Evolution Engine local engineering source",
-      "location": "/Users/zhangbin/Documents/SAEE",
+      "location": "/Users/zhangbin/GitHub/SAEE",
       "owner": "SAEE",
       "status": "ACTIVE",
       "source": "repository-registry.json#saee",
-      "relationship": "canonical local engineering source only",
+      "relationship": "canonical local engineering source with a configured non-canonical public projection remote",
       "migration": "KEEP",
-      "notes": "No Git remote is established. Phase 0 records the dirty baseline and does not clean it."
+      "notes": "origin is configured at https://github.com/joy7758/SAEE.git as a public projection and review surface. A canonical recovery Git remote is not established."
     },
     {
       "id": "agent-evidence-layer",

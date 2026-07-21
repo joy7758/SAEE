@@ -1,0 +1,161 @@
+{
+  "$schema": "../../schemas/saee-development-constitution.schema.v1.1.json",
+  "constitution_id": "saee-development-constitution-v1.1",
+  "version": "1.1.2",
+  "authority": {
+    "canonical_document": "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+    "effective_date": "2026-07-14",
+    "last_amended_date": "2026-07-19",
+    "engineering_core": "Digital Biosphere Evolution Engine",
+    "theory_identity": "Silicon-Amplified Evolutionary Ecology"
+  },
+  "mission": {
+    "primary": "Operate a controlled digital biosphere evolution loop for sensing, trait extraction, world modeling, counterfactual simulation, branching, variation, sandbox development, fitness selection, archive and rollback.",
+    "evidence_role": "supports_evolutionary_selection_archive_and_rollback",
+    "audit_first_reframe": false
+  },
+  "program_tasks": {
+    "mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
+    "secondary": "use_saee_to_supervise_and_test_the_integration_process",
+    "secondary_cannot_displace_mainline": true,
+    "self_assessment_cannot_self_approve": true,
+    "role_prompt_cannot_override_mainline": true,
+    "drift_response": "raise_correction_recommendation"
+  },
+  "target_customer_versions": [
+    "SAEE Evidence",
+    "SAEE Evaluation",
+    "SAEE Governance"
+  ],
+  "evolution_loop": [
+    "global_sensing",
+    "trait_extraction",
+    "ecological_world_model",
+    "counterfactual_simulation",
+    "genome_branching",
+    "controlled_mutation_recombination",
+    "sandbox_development",
+    "pareto_fitness_evaluation",
+    "evolutionary_archive_rollback_immune_system"
+  ],
+  "agent_readable_rule": {
+    "required": true,
+    "first_class_surfaces": [
+      "README.md",
+      "agent-index.json",
+      "llms.txt",
+      "capability_manifests",
+      "schema_registries",
+      "examples",
+      "cli_tool_interfaces",
+      "offline_validators"
+    ]
+  },
+  "evidence_subsystem_integration": {
+    "project_name": "Agent Evidence Project",
+    "legacy_product_name": "Agent Evidence Receipt",
+    "legacy_source_repository_name": "agent-evidence-layer",
+    "saee_role": "evidence_and_immune_subsystem",
+    "overall_classification": "partial",
+    "constitutional_ownership": "implemented",
+    "source_code_adoption": "not_performed",
+    "runtime_integration": "not_performed",
+    "canonical_inventory_change": "none_this_change",
+    "capabilities_to_resolve_at_read_time": [
+      "saee.evaluate_evidence",
+      "saee.general_trace_normalization",
+      "saee.trusted_trace_to_evidence_conversion"
+    ],
+    "claims": [
+      "The Agent Evidence Project is constitutionally owned by SAEE as its Evidence and Immune Subsystem.",
+      "Evidence receipts may provide bounded integrity, provenance and completeness context to evaluation, selection, archive and rollback."
+    ],
+    "non_claims": [
+      "The legacy source repository has been copied or migrated into this repository.",
+      "A unified SAEE evidence runtime has been integrated.",
+      "A hash or valid signature proves that the described event occurred in the real world.",
+      "Evidence evaluation authorizes execution, deployment or external action.",
+      "External interoperability or customer validation has been completed.",
+      "The subsystem is production ready or publicly launched.",
+      "The controlled SAEE and Agent Evidence source or runtime merge has completed.",
+      "The three target customer versions are implemented, customer validated, launched or production ready."
+    ]
+  },
+  "development_gates": [
+    "canonical_inventory_resolution",
+    "duplicate_build_check",
+    "evolution_subsystem_design_check",
+    "agent_recommendation_gate",
+    "standards_and_supply_chain_boundary_check",
+    "publication_venue_identity_and_zero_cost_gate",
+    "claims_non_claims_and_staged_truth",
+    "schema_negative_and_deterministic_validation"
+  ],
+  "publication_venue_policy": {
+    "status": "constitutional_mandatory",
+    "applies_to": [
+      "new_journal_selection",
+      "venue_transfer",
+      "resubmission",
+      "submission_portal_entry"
+    ],
+    "venue_type_required": "peer_reviewed_scholarly_journal",
+    "real_journal_verification_required": true,
+    "verification_evidence_required": [
+      "official_publisher_journal_page",
+      "verifiable_issn_or_eissn",
+      "peer_review_policy",
+      "editorial_board",
+      "publication_ethics",
+      "archival_article_record"
+    ],
+    "excluded_venue_types": [
+      "conference",
+      "workshop",
+      "poster",
+      "late_breaking_abstract",
+      "magazine",
+      "blog",
+      "preprint_repository",
+      "publisher_without_journal_identity"
+    ],
+    "mandatory_author_cost_limit": 0,
+    "allowed_publication_models": [
+      "subscription_or_traditional_with_zero_mandatory_author_fees",
+      "diamond_open_access_with_zero_mandatory_author_fees"
+    ],
+    "disallowed_cost_models": [
+      "mandatory_apc",
+      "fully_open_access_with_required_author_payment",
+      "submission_fee",
+      "mandatory_page_charge",
+      "mandatory_color_charge",
+      "conference_registration_required_for_publication_or_presentation",
+      "waiver_dependent_route_without_preapproved_full_waiver"
+    ],
+    "cost_evidence_required": [
+      "official_author_guidelines",
+      "official_fee_or_open_access_page",
+      "checked_date",
+      "selected_zero_cost_route"
+    ],
+    "unknown_cost_policy": "stop_and_reject_venue",
+    "payment_authorized": false,
+    "workflow_override_allowed": false,
+    "amendment_required_for_override": true
+  },
+  "external_action_boundary": {
+    "observes_world": true,
+    "executes_world": false,
+    "decision_context_is_authority": false,
+    "explicit_authorization_required": true
+  },
+  "truth_boundary": {
+    "source_code_migrated": false,
+    "runtime_integrated": false,
+    "external_integration_validated": false,
+    "customer_validated": false,
+    "product_launched": false,
+    "production_ready": false
+  }
+}

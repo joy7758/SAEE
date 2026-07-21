@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -20,7 +21,21 @@ LIVE_STATUS = ROOT / "agent-interface/rehearsal/saee-controlled-reasoning-live-v
 STATEFUL_STATUS = ROOT / "agent-interface/rehearsal/saee-stateful-business-live-validation.v0.3.json"
 
 
+def live_evidence_available() -> bool:
+    status = json.loads(LIVE_STATUS.read_text(encoding="utf-8"))
+    stateful_status = json.loads(STATEFUL_STATUS.read_text(encoding="utf-8"))
+    paths = [
+        *(ROOT / record["run_ref"] for record in status["live_runs"]),
+        ROOT / stateful_status["run_ref"],
+    ]
+    return all(path.is_file() for path in paths)
+
+
 def build_demo() -> dict:
+    if not live_evidence_available():
+        if os.environ.get("SAEE_PROVIDER_EVIDENCE_MODE") == "optional":
+            raise RuntimeError("EXTERNAL_EVIDENCE_NOT_AVAILABLE")
+        raise FileNotFoundError("recorded Qianfan evidence is not available")
     server = create_local_mcp_server()
     cases = []
     status = json.loads(LIVE_STATUS.read_text(encoding="utf-8"))

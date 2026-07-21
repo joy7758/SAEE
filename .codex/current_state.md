@@ -6,6 +6,9 @@ Version:
 
 Current:
 
+- `SAEE Development Constitution v1.1` is the active repository development authority.
+- The Agent Evidence Project is constitutionally owned by `SAEE Evidence and Immune Subsystem`.
+- Evidence-project source-code migration and unified runtime integration have not been performed.
 - External canonical sync completed.
 - Local MVP and online experience surfaces exist.
 - Recommendation surface exists and local validation has passed.
@@ -15,6 +18,7 @@ Current:
 
 Completed:
 
+- Constitutional integration of the Agent Evidence Project into SAEE architecture and governance.
 - MVP backend
 - landing page
 - scenario layer
@@ -24,6 +28,8 @@ Completed:
 
 Current focus:
 
+- Enforce constitution-first, canonical-inventory-first and reuse-before-build development.
+- Keep future evidence-source migration behind provenance, schema crosswalk, internal adapter and ledger gates.
 - Commercial readiness evidence closure without overclaiming.
 - Scenario Template Engine and controlled local validation surfaces.
 - Human-gated blocker review, not automatic blocker closure.
@@ -37,3 +43,5 @@ Current hard truth:
 - `product_launched=false`
 - `external_validation_claim=false`
 - `private_core_exposed=false`
+- `source_code_migrated=false`
+- `runtime_integrated=false`

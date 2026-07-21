@@ -11,6 +11,15 @@
     "remote": "NONE",
     "canonical_source": "LOCAL_ONLY"
   },
+  "current_remote_reconciliation": {
+    "observed_at": "2026-07-22",
+    "canonical_engineering_source": "/Users/zhangbin/GitHub/SAEE",
+    "configured_git_remote": "https://github.com/joy7758/SAEE.git",
+    "configured_remote_role": "PUBLIC_PROJECTION_AND_REVIEW_SURFACE",
+    "canonical_git_remote": "NOT_ESTABLISHED",
+    "remote_ready": false,
+    "decision": "governance/decisions/ADR-0004-configured-public-remote-boundary.md"
+  },
   "dirty_assets": {
     "count": 21,
     "categories": {
@@ -83,7 +92,7 @@
     "phase1_ready": false,
     "blockers": [
       "Codex identity contract and context validator disagree; mainline validation is not passing.",
-      "SAEE remains LOCAL_ONLY with no verified canonical recovery remote.",
+      "SAEE has a configured public projection remote but no verified canonical recovery remote.",
       "The 21 pre-existing SAEE formal-history changes are classified but not yet committed in their two independent families.",
       "Agent Evidence Layer has 525 dirty entries, no remote, and unresolved provenance; it is frozen but not migration-ready."
     ],

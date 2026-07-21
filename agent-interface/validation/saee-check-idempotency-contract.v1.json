@@ -1,0 +1,51 @@
+{
+  "saee_check_idempotency_contract_v1": true,
+  "version": "1.0.0",
+  "evolution_subsystem": "evolutionary_archive_and_rollback_immune_system",
+  "normal_check": {
+    "command": "make check",
+    "tracked_paths_writable": false,
+    "ignored_runtime_inputs_copied": false,
+    "external_provider_evidence_required": false,
+    "execution_model": "tracked_and_non_ignored_worktree_overlay_in_disposable_local_clone"
+  },
+  "direct_mainline_check": {
+    "command": "python3 scripts/mainline_guard.py",
+    "tracked_paths_writable": false,
+    "execution_model": "disposable_local_clone"
+  },
+  "generation": {
+    "command": "make generate",
+    "tracked_paths_writable": true,
+    "explicit_only": true
+  },
+  "generated_comparison": {
+    "command": "make check-generated",
+    "tracked_paths_writable": false,
+    "comparison_location": "disposable_local_clone",
+    "volatile_metadata_excluded_from_canonical_comparison": [
+      "generated_at",
+      "detached_local_child_processes",
+      "local_trial_started_by_manager"
+    ],
+    "substantive_differences_fail": true
+  },
+  "external_provider_evidence": {
+    "classification": "external_provider_runtime_evidence",
+    "normal_check_missing_status": "NOT_REQUIRED",
+    "strict_command": "make check-provider-evidence",
+    "strict_missing_status": "NOT_AVAILABLE",
+    "strict_missing_exit_nonzero": true,
+    "partial_status": "PRESENT_UNVERIFIED",
+    "valid_status": "VERIFIED",
+    "invalid_status": "INVALID"
+  },
+  "truth_boundary": {
+    "build_reliability_only": true,
+    "agent_execution_truth_established": false,
+    "production_safety_established": false,
+    "regulatory_compliance_established": false,
+    "customer_validated": false,
+    "production_ready": false
+  }
+}

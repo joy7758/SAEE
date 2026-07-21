@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "crosswalk_id": "saee.agent-evidence.migration-crosswalk.v1",
+  "canonical_capability_source": "capability-package/manifest.json#canonical_inventory",
+  "crosswalk_is_capability_source": false,
+  "source_freeze": "governance/migration/agent-evidence-source-provenance.v1.json",
+  "program_mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
+  "target_customer_versions": [
+    "SAEE Evidence",
+    "SAEE Evaluation",
+    "SAEE Governance"
+  ],
+  "agent_recommendation_gate": {
+    "initial_decision": "conditional",
+    "customer_need": "offline-verifiable Agent run evidence packages with bounded integrity and review outputs",
+    "reasons": [
+      "The tracked source tree contains implemented receipt packaging, integrity and verification contracts.",
+      "The source worktree is dirty and only tracked HEAD is reproducibly frozen.",
+      "The source license is all-rights-reserved and no scoped migration grant is recorded.",
+      "SAEE already implements overlapping evidence evaluation and receipt primitives that must not be rebuilt."
+    ],
+    "recommendable_after": [
+      "approve an explicit source and license migration scope",
+      "freeze schema compatibility fixtures",
+      "prove adapter-first reuse without a parallel receipt stack",
+      "separate runtime and marketplace transfer decisions from source integration"
+    ]
+  },
+  "mappings": [
+    {
+      "mapping_id": "AE-001",
+      "source_assets": [
+        "packages/agent_evidence/packaging/verifier.py",
+        "schemas/verification_receipt.schema.json"
+      ],
+      "source_trait": "closed receipt bundle verification with machine PASS/WARN/FAIL outputs",
+      "saee_existing": [
+        "saee.evaluate_evidence",
+        "saee_backend/services/evidence_adequacy.py"
+      ],
+      "saee_status": "implemented",
+      "disposition": "REUSE_SAEE",
+      "target_version": "SAEE Evaluation",
+      "next_gate": "schema fixture crosswalk",
+      "non_claim": "SAEE evidence adequacy does not currently verify the complete Agent Evidence Receipt 0.2.0 bundle contract."
+    },
+    {
+      "mapping_id": "AE-002",
+      "source_assets": [
+        "schemas/manifest.schema.json",
+        "schemas/normalized_event.schema.json",
+        "schemas/source_completeness.schema.json",
+        "schemas/artifact_digest.schema.json",
+        "schemas/verification_receipt.schema.json"
+      ],
+      "source_trait": "versioned receipt package, source-completeness and verification schemas",
+      "saee_existing": [
+        "schemas/saee-capability-invocation-receipt.schema.v0.1.json",
+        "agent-interface/schemas/resource-resolution-receipt.schema.json"
+      ],
+      "saee_status": "partial",
+      "disposition": "ADAPT_CONTRACT_AFTER_LICENSE_GATE",
+      "target_version": "SAEE Evidence",
+      "next_gate": "field-level compatibility and license grant",
+      "non_claim": "Schema presence does not authorize copying and does not establish runtime integration."
+    },
+    {
+      "mapping_id": "AE-003",
+      "source_assets": [
+        "packages/agent_evidence/canonicalization/jcs.py",
+        "packages/agent_evidence/integrity/event_hash.py"
+      ],
+      "source_trait": "JCS canonicalization and SHA-256 event digest binding",
+      "saee_existing": [
+        "saee_backend/services/capability_runtime/invocation_receipt.py",
+        "saee_backend/services/resource_resolution_receipt.py"
+      ],
+      "saee_status": "implemented_bounded_local_subset",
+      "disposition": "ADAPT_SPEC_NOT_CODE",
+      "target_version": "SAEE Evidence",
+      "next_gate": "full RFC 8785 and historical-bundle conformance remain outside the bounded subset",
+      "non_claim": "The local ASCII/integer safe subset is not a full RFC 8785 JCS conformance claim."
+    },
+    {
+      "mapping_id": "AE-004",
+      "source_assets": [
+        "packages/agent_evidence/integrity/event_chain.py",
+        "packages/agent_evidence/integrity/merkle.py",
+        "packages/agent_evidence/integrity/signer.py"
+      ],
+      "source_trait": "event-chain, Merkle-root and Ed25519 package integrity",
+      "saee_existing": [
+        "saee_backend/services/agent_evidence_integrity.py",
+        "saee_backend/services/agent_evidence_trait_adapter.py"
+      ],
+      "saee_status": "implemented_bounded_local_subset",
+      "disposition": "ADAPT_SPEC_NOT_CODE",
+      "target_version": "SAEE Evidence",
+      "next_gate": "key custody, provenance authority, rollback and customer-version contract",
+      "non_claim": "A valid signature or Merkle root does not prove original-event authenticity, identity, authorization or legal status."
+    },
+    {
+      "mapping_id": "AE-005",
+      "source_assets": [
+        "packages/agent_evidence/adapters/jsonl.py",
+        "packages/agent_evidence/adapters/langchain_minimal.py",
+        "packages/agent_evidence/adapters/otel_minimal.py",
+        "packages/agent_evidence/adapters/dify_minimal.py"
+      ],
+      "source_trait": "bounded source adapters and normalized event projection",
+      "saee_existing": [
+        "saee.general_trace_normalization",
+        "saee.otel_style_candidate_mapping"
+      ],
+      "saee_status": "implemented_generic_clean_room_envelope_only",
+      "disposition": "ADAPT_AFTER_COMPATIBILITY_GATE",
+      "target_version": "SAEE Evidence",
+      "next_gate": "format-specific adapters and independently verifiable conversion binding",
+      "non_claim": "An adapted trace remains candidate input until a trusted conversion contract is established."
+    },
+    {
+      "mapping_id": "AE-006",
+      "source_assets": [
+        "packages/agent_evidence/api",
+        "packages/agent_evidence/mcp"
+      ],
+      "source_trait": "async job API and three-tool Receipt MCP runtime",
+      "saee_existing": [
+        "scripts/saee_agent_readiness_mcp_stdio.py"
+      ],
+      "saee_status": "independent_runtime",
+      "disposition": "KEEP_EXTERNAL_UNTIL_RUNTIME_DECISION",
+      "target_version": "SAEE Evidence",
+      "next_gate": "versioned compatibility and runtime ownership decision",
+      "non_claim": "Shared product ownership does not make receipt.* the canonical saee.* MCP or transfer its deployed runtime."
+    },
+    {
+      "mapping_id": "AE-007",
+      "source_assets": [
+        "deploy/aliyun-mcp",
+        "apps/web"
+      ],
+      "source_trait": "marketplace and public commercial projections",
+      "saee_existing": [
+        "governance/registry/product-registry.json",
+        "governance/registry/mcp-registry.json"
+      ],
+      "saee_status": "external_commercial_surface",
+      "disposition": "KEEP_EXTERNAL",
+      "target_version": "SAEE Governance",
+      "next_gate": "separate product and external-action authorization",
+      "non_claim": "Source integration does not transfer marketplace listings, customer claims, endpoint operations or public status."
+    },
+    {
+      "mapping_id": "AE-008",
+      "source_assets": [
+        "packages/agent_evidence/security/path_guard.py",
+        "packages/agent_evidence/security/redaction.py",
+        "packages/agent_evidence/security/safe_zip.py",
+        "packages/agent_evidence/security/token.py"
+      ],
+      "source_trait": "local path, archive, token and redaction safety boundaries",
+      "saee_existing": [
+        "SAEE Evidence and Immune Subsystem"
+      ],
+      "saee_status": "crosscutting_partial",
+      "disposition": "REVIEW_AND_ADAPT_AFTER_LICENSE_GATE",
+      "target_version": "SAEE Governance",
+      "next_gate": "threat-model crosswalk and negative fixture review",
+      "non_claim": "Static source review is not a security certification or production deployment validation."
+    }
+  ],
+  "gate": {
+    "source_provenance_freeze": "PASS_TRACKED_HEAD_ONLY",
+    "duplicate_build_prevention": "PASS_PLAN_USES_REUSE_FIRST",
+    "license_gate": "PASS_BOUNDED_CLEAN_ROOM_SCOPE",
+    "schema_compatibility_gate": "PASS_BOUNDED_ADAPTER_AND_EVALUATION_BRIDGE_LOCAL",
+    "source_migration": "AUTHORIZED_CLEAN_ROOM_TRAITS_ONLY",
+    "runtime_integration": "NOT_AUTHORIZED",
+    "marketplace_transfer": "NOT_AUTHORIZED",
+    "next_authorized_work": "design M-07 SAEE Governance customer contract without copying source text or integrating external runtime"
+  }
+}

@@ -4,14 +4,18 @@
   "title": "SAEE Phase 0 Product Registry",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "registry_id", "excluded_future_concepts", "products"],
+  "required": ["schema_version", "registry_id", "target_customer_versions", "excluded_future_concepts", "products"],
   "properties": {
     "$schema": {"type": "string"},
     "schema_version": {"const": "1.0.0"},
     "registry_id": {"const": "saee.phase0.product-registry"},
+    "target_customer_versions": {
+      "type": "array",
+      "const": ["SAEE Evidence", "SAEE Evaluation", "SAEE Governance"]
+    },
     "excluded_future_concepts": {
       "type": "array",
-      "const": ["SAEE Governance", "SAEE Autonomous"]
+      "const": ["SAEE Autonomous"]
     },
     "products": {
       "type": "array",
@@ -23,16 +27,18 @@
     "product": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "type", "relationship", "status", "commercial_surface", "saee_relationship", "runtime_owner", "production_ready"],
+      "required": ["id", "name", "type", "relationship", "status", "commercial_surface", "saee_relationship", "runtime_owner", "customer_version_target", "migration_role", "production_ready"],
       "properties": {
         "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*$"},
         "name": {"type": "string", "minLength": 1},
-        "type": {"enum": ["engine", "subsystem", "external-product", "capability-service"]},
+        "type": {"enum": ["engine", "subsystem", "external-product", "capability-service", "customer-version"]},
         "relationship": {"enum": ["core", "evidence_and_immune_subsystem", "saee_subproject", "product_projection"]},
-        "status": {"enum": ["active_local", "partial", "public_single_node_alpha", "implemented_local", "future_concept"]},
+        "status": {"enum": ["active_local", "partial", "legacy_external_alpha_migration_source", "implemented_local", "target_not_implemented"]},
         "commercial_surface": {"type": "string", "minLength": 1},
         "saee_relationship": {"type": "string", "minLength": 1},
         "runtime_owner": {"type": "string", "minLength": 1},
+        "customer_version_target": {"type": "boolean"},
+        "migration_role": {"enum": ["umbrella_engine", "target_customer_version", "legacy_external_migration_source"]},
         "source_code_migrated": {"type": "boolean"},
         "runtime_integrated": {"type": "boolean"},
         "production_ready": {"const": false}

@@ -1,0 +1,3 @@
+[mcp_servers.saee-readiness]
+command = "python3"
+args = ["scripts/saee_agent_readiness_mcp_stdio.py"]

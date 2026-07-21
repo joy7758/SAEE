@@ -40,7 +40,11 @@ class GovernanceRegistryTest(unittest.TestCase):
         ]
         self.assertEqual(len(canonical), 1)
         self.assertEqual(canonical[0]["name"], "saee")
-        self.assertIsNone(canonical[0]["remote"])
+        self.assertEqual(
+            canonical[0]["remote"], "https://github.com/joy7758/SAEE.git"
+        )
+        self.assertIn("public projection", canonical[0]["notes"])
+        self.assertIn("canonical recovery Git remote remains NOT_ESTABLISHED", canonical[0]["notes"])
         self.assertEqual(
             self.documents["capabilities"]["canonical_capability_source"],
             "capability-package/manifest.json#canonical_inventory",
@@ -67,13 +71,43 @@ class GovernanceRegistryTest(unittest.TestCase):
         self.assertEqual(len(saee), 1)
         self.assertEqual(saee[0]["namespace"], "saee.*")
 
-    def test_06_forbidden_production_state_is_rejected(self) -> None:
+    def test_06_constitutional_target_customer_versions_are_exact(self) -> None:
+        products = self.documents["products"]
+        expected = {"SAEE Evidence", "SAEE Evaluation", "SAEE Governance"}
+        self.assertEqual(set(products["target_customer_versions"]), expected)
+        actual = {
+            item["name"]
+            for item in products["products"]
+            if item["customer_version_target"]
+        }
+        self.assertEqual(actual, expected)
+
+    def test_07_legacy_receipt_is_not_a_fourth_target_version(self) -> None:
+        receipt = next(
+            item
+            for item in self.documents["products"]["products"]
+            if item["id"] == "agent-evidence-receipt"
+        )
+        self.assertFalse(receipt["customer_version_target"])
+        self.assertEqual(receipt["migration_role"], "legacy_external_migration_source")
+
+    def test_08_missing_governance_target_is_rejected(self) -> None:
+        mutated = copy.deepcopy(self.documents)
+        mutated["products"]["products"] = [
+            item
+            for item in mutated["products"]["products"]
+            if item["id"] != "saee-governance"
+        ]
+        errors = CHECK.validate_documents(mutated, self.schemas)
+        self.assertTrue(any("SAEE Governance" in error for error in errors))
+
+    def test_09_forbidden_production_state_is_rejected(self) -> None:
         mutated = copy.deepcopy(self.documents)
         mutated["products"]["products"][0]["production_ready"] = True
         errors = CHECK.validate_documents(mutated, self.schemas)
         self.assertTrue(any("production_ready" in error for error in errors))
 
-    def test_07_otlp_implementation_promotion_is_rejected(self) -> None:
+    def test_10_otlp_implementation_promotion_is_rejected(self) -> None:
         mutated = copy.deepcopy(self.documents)
         entry = next(
             item
@@ -84,7 +118,7 @@ class GovernanceRegistryTest(unittest.TestCase):
         errors = CHECK.validate_documents(mutated, self.schemas)
         self.assertTrue(any("otel_sdk_or_otlp_ingestion" in error for error in errors))
 
-    def test_08_validator_command_passes(self) -> None:
+    def test_11_validator_command_passes(self) -> None:
         result = subprocess.run(
             [sys.executable, str(MODULE_PATH)],
             cwd=ROOT,

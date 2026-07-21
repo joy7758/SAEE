@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saee.local/schemas/saee-development-constitution.schema.v1.1.json",
+  "title": "SAEE Development Constitution v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "constitution_id",
+    "version",
+    "authority",
+    "mission",
+    "program_tasks",
+    "target_customer_versions",
+    "evolution_loop",
+    "agent_readable_rule",
+    "evidence_subsystem_integration",
+    "development_gates",
+    "publication_venue_policy",
+    "external_action_boundary",
+    "truth_boundary"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "const": "../../schemas/saee-development-constitution.schema.v1.1.json"},
+    "constitution_id": {"type": "string", "const": "saee-development-constitution-v1.1"},
+    "version": {"type": "string", "const": "1.1.2"},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_document", "effective_date", "last_amended_date", "engineering_core", "theory_identity"],
+      "properties": {
+        "canonical_document": {"type": "string"},
+        "effective_date": {"type": "string", "format": "date"},
+        "last_amended_date": {"type": "string", "format": "date", "const": "2026-07-19"},
+        "engineering_core": {"type": "string", "const": "Digital Biosphere Evolution Engine"},
+        "theory_identity": {"type": "string", "const": "Silicon-Amplified Evolutionary Ecology"}
+      }
+    },
+    "mission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "evidence_role", "audit_first_reframe"],
+      "properties": {
+        "primary": {"type": "string"},
+        "evidence_role": {"type": "string", "const": "supports_evolutionary_selection_archive_and_rollback"},
+        "audit_first_reframe": {"type": "boolean", "const": false}
+      }
+    },
+    "program_tasks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mainline",
+        "secondary",
+        "secondary_cannot_displace_mainline",
+        "self_assessment_cannot_self_approve",
+        "role_prompt_cannot_override_mainline",
+        "drift_response"
+      ],
+      "properties": {
+        "mainline": {"type": "string", "const": "integrate_saee_and_agent_evidence_project_under_migration_gates"},
+        "secondary": {"type": "string", "const": "use_saee_to_supervise_and_test_the_integration_process"},
+        "secondary_cannot_displace_mainline": {"type": "boolean", "const": true},
+        "self_assessment_cannot_self_approve": {"type": "boolean", "const": true},
+        "role_prompt_cannot_override_mainline": {"type": "boolean", "const": true},
+        "drift_response": {"type": "string", "const": "raise_correction_recommendation"}
+      }
+    },
+    "target_customer_versions": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "prefixItems": [
+        {"const": "SAEE Evidence"},
+        {"const": "SAEE Evaluation"},
+        {"const": "SAEE Governance"}
+      ],
+      "items": false
+    },
+    "evolution_loop": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "agent_readable_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "first_class_surfaces"],
+      "properties": {
+        "required": {"type": "boolean", "const": true},
+        "first_class_surfaces": {"type": "array", "minItems": 7, "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "evidence_subsystem_integration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project_name",
+        "legacy_product_name",
+        "legacy_source_repository_name",
+        "saee_role",
+        "overall_classification",
+        "constitutional_ownership",
+        "source_code_adoption",
+        "runtime_integration",
+        "canonical_inventory_change",
+        "capabilities_to_resolve_at_read_time",
+        "claims",
+        "non_claims"
+      ],
+      "properties": {
+        "project_name": {"type": "string", "const": "Agent Evidence Project"},
+        "legacy_product_name": {"type": "string", "const": "Agent Evidence Receipt"},
+        "legacy_source_repository_name": {"type": "string", "const": "agent-evidence-layer"},
+        "saee_role": {"type": "string", "const": "evidence_and_immune_subsystem"},
+        "overall_classification": {"type": "string", "enum": ["implemented", "partial", "design_only", "missing", "deprecated", "superseded"]},
+        "constitutional_ownership": {"type": "string", "const": "implemented"},
+        "source_code_adoption": {"type": "string", "const": "not_performed"},
+        "runtime_integration": {"type": "string", "const": "not_performed"},
+        "canonical_inventory_change": {"type": "string", "const": "none_this_change"},
+        "capabilities_to_resolve_at_read_time": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string"}},
+        "claims": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+        "non_claims": {"type": "array", "minItems": 8, "items": {"type": "string"}}
+      }
+    },
+    "development_gates": {"type": "array", "minItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "publication_venue_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "applies_to",
+        "venue_type_required",
+        "real_journal_verification_required",
+        "verification_evidence_required",
+        "excluded_venue_types",
+        "mandatory_author_cost_limit",
+        "allowed_publication_models",
+        "disallowed_cost_models",
+        "cost_evidence_required",
+        "unknown_cost_policy",
+        "payment_authorized",
+        "workflow_override_allowed",
+        "amendment_required_for_override"
+      ],
+      "properties": {
+        "status": {"type": "string", "const": "constitutional_mandatory"},
+        "applies_to": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+        "venue_type_required": {"type": "string", "const": "peer_reviewed_scholarly_journal"},
+        "real_journal_verification_required": {"type": "boolean", "const": true},
+        "verification_evidence_required": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"type": "string"}},
+        "excluded_venue_types": {"type": "array", "minItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+        "mandatory_author_cost_limit": {"type": "integer", "const": 0},
+        "allowed_publication_models": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string"}},
+        "disallowed_cost_models": {"type": "array", "minItems": 7, "uniqueItems": true, "items": {"type": "string"}},
+        "cost_evidence_required": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+        "unknown_cost_policy": {"type": "string", "const": "stop_and_reject_venue"},
+        "payment_authorized": {"type": "boolean", "const": false},
+        "workflow_override_allowed": {"type": "boolean", "const": false},
+        "amendment_required_for_override": {"type": "boolean", "const": true}
+      }
+    },
+    "external_action_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observes_world", "executes_world", "decision_context_is_authority", "explicit_authorization_required"],
+      "properties": {
+        "observes_world": {"type": "boolean", "const": true},
+        "executes_world": {"type": "boolean", "const": false},
+        "decision_context_is_authority": {"type": "boolean", "const": false},
+        "explicit_authorization_required": {"type": "boolean", "const": true}
+      }
+    },
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_code_migrated", "runtime_integrated", "external_integration_validated", "customer_validated", "product_launched", "production_ready"],
+      "properties": {
+        "source_code_migrated": {"type": "boolean", "const": false},
+        "runtime_integrated": {"type": "boolean", "const": false},
+        "external_integration_validated": {"type": "boolean", "const": false},
+        "customer_validated": {"type": "boolean", "const": false},
+        "product_launched": {"type": "boolean", "const": false},
+        "production_ready": {"type": "boolean", "const": false}
+      }
+    }
+  }
+}

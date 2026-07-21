@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "compatibility_id": "saee.agent-evidence.schema-compatibility.v1",
+  "source_freeze": "governance/migration/agent-evidence-source-provenance.v1.json",
+  "analysis_mode": "READ_ONLY_TRAIT_AND_FIELD_MAPPING",
+  "source_code_copied": false,
+  "source_schemas": [
+    {
+      "path": "schemas/normalized_event.schema.json",
+      "blob_oid": "1913746cc6966dceae06054bcde3cfc30ca260b2"
+    },
+    {
+      "path": "schemas/manifest.schema.json",
+      "blob_oid": "75a49590088224b9a099c085d8443539fa2651f7"
+    },
+    {
+      "path": "schemas/verification_receipt.schema.json",
+      "blob_oid": "6e67770045a61c50e41e18abb177b16d1572bd2d"
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison_id": "SC-001",
+      "source_contract": "schemas/normalized_event.schema.json@0.2.0",
+      "destination_contracts": [
+        "saee_backend/observed_trace_adapter.py#ObservedTraceBundle",
+        "agent-interface/schemas/observed-trace-receipt.schema.json"
+      ],
+      "compatibility": "ADAPTER_REQUIRED_LOSSY",
+      "field_map": [
+        {"source": "event_index", "destination": "candidates[].runs[].steps[].step", "relationship": "conditional_sequence_index"},
+        {"source": "actor.id", "destination": "candidates[].candidate_id", "relationship": "conditional_actor_projection"},
+        {"source": "event_id", "destination": null, "relationship": "unmapped_requires_provenance_extension"},
+        {"source": "observed_at", "destination": null, "relationship": "unmapped_timestamp_semantics"},
+        {"source": "event_type", "destination": "steps[].failure_code", "relationship": "no_general_mapping_allowlist_required"},
+        {"source": "action", "destination": null, "relationship": "unmapped_action_semantics"},
+        {"source": "payload", "destination": "steps[].quality_score/alive/failure_severity", "relationship": "no_direct_mapping_explicit_extractor_required"},
+        {"source": "source_ref", "destination": "provenance", "relationship": "package_level_only_destination_lacks_event_ref"}
+      ],
+      "decision": "DO_NOT_DIRECTLY_ACCEPT",
+      "required_adapter_guards": [
+        "closed allowlist for event types and payload fields",
+        "explicit semantic-loss receipt",
+        "source event identity preservation",
+        "bounded event and payload sizes",
+        "trace authenticity remains false"
+      ]
+    },
+    {
+      "comparison_id": "SC-002",
+      "source_contract": "schemas/manifest.schema.json@0.2.0",
+      "destination_contracts": [
+        "schemas/saee-capability-invocation-receipt.schema.v0.1.json",
+        "agent-interface/schemas/resource-resolution-receipt.schema.json"
+      ],
+      "compatibility": "CONTRACT_ADAPTATION_REQUIRED",
+      "field_map": [
+        {"source": "package_id", "destination": "receipt_id", "relationship": "identifier_formats_conflict"},
+        {"source": "run_id", "destination": "request_id", "relationship": "different_lifecycle_identity"},
+        {"source": "source_type", "destination": null, "relationship": "missing_in_invocation_receipt"},
+        {"source": "created_at", "destination": "timestamp/created_at", "relationship": "timestamp_names_and_sources_differ"},
+        {"source": "canonicalization.method=JCS", "destination": "saee-canonical-json-v0.1", "relationship": "not_proven_compatible"},
+        {"source": "integrity.merkle_root", "destination": null, "relationship": "missing"},
+        {"source": "integrity.source_completeness_digest", "destination": null, "relationship": "missing"},
+        {"source": "signer", "destination": null, "relationship": "missing_key_and_signature_contract"}
+      ],
+      "decision": "PRESERVE_DISTINCT_VERSIONED_CONTRACTS",
+      "required_adapter_guards": [
+        "no receipt identifier reinterpretation",
+        "no JCS compatibility claim before fixture proof",
+        "no signature authority claim",
+        "retain SAEE non-persistence and truth-boundary flags"
+      ]
+    },
+    {
+      "comparison_id": "SC-003",
+      "source_contract": "schemas/verification_receipt.schema.json@0.2.0",
+      "destination_contracts": [
+        "saee_backend/services/evidence_adequacy.py",
+        "agent-interface/schemas/evidence-adequacy-profile.schema.json"
+      ],
+      "compatibility": "RESULT_ENVELOPE_ADAPTER_REQUIRED",
+      "field_map": [
+        {"source": "result=PASS|WARN|FAIL", "destination": "result=PASS|FAIL", "relationship": "WARN_semantics_missing"},
+        {"source": "checks", "destination": "evaluated_fields/failed_relationships", "relationship": "different_check_taxonomy"},
+        {"source": "counts", "destination": null, "relationship": "missing_source_completeness_counts"},
+        {"source": "warnings/errors[].code", "destination": "reason_codes", "relationship": "versioned_reason_code_translation_required"},
+        {"source": "verified_at", "destination": null, "relationship": "not_emitted_by_adequacy_result"},
+        {"source": "verifier_version", "destination": "schema_version", "relationship": "not_equivalent"}
+      ],
+      "decision": "ROUTE_ADEQUACY_TO_SAEE_AND_PACKAGE_INTEGRITY_TO_VERSIONED_ADAPTER",
+      "required_adapter_guards": [
+        "preserve WARN without promoting it to PASS",
+        "preserve each failed integrity check",
+        "keep adequacy and cryptographic verification as separate claims",
+        "never translate PASS into authorization or event authenticity"
+      ]
+    }
+  ],
+  "gate": {
+    "schema_inventory_frozen": true,
+    "direct_schema_compatibility": false,
+    "adapter_required": true,
+    "adapter_implemented": true,
+    "adapter_implementation_status": "COMPLETED_BOUNDED_LOCAL_INTEGRITY_AND_EVALUATION_BRIDGE",
+    "license_gate": "PASS_BOUNDED_CLEAN_ROOM_SCOPE",
+    "migration_execution": "AUTHORIZED_FIXTURES_AND_ADAPTERS_ONLY",
+    "next_step": "design the M-07 SAEE Governance customer contract while preserving separate integrity, adequacy, authenticity and authorization claims"
+  },
+  "non_claims": [
+    "The field mapping is not an external conformance result.",
+    "No source schema or implementation text has been copied into an SAEE runtime path.",
+    "The external Normalized Event is not directly accepted as an SAEE observed trace.",
+    "Agent Evidence verification PASS is not equivalent to SAEE evidence adequacy PASS.",
+    "Neither result authorizes action or proves original-event authenticity."
+  ]
+}

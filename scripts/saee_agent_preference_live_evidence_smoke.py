@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -26,6 +27,19 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
+    evidence_paths = [
+        *(ROOT / item["aggregate_ref"] for item in status["calibration_iterations"]),
+        *(ROOT / item["run_ref"] for item in status["final_runs"]),
+    ]
+    present_count = sum(path.is_file() for path in evidence_paths)
+    if present_count == 0 and os.environ.get("SAEE_PROVIDER_EVIDENCE_MODE") == "optional":
+        print("external_provider_evidence_status=NOT_REQUIRED")
+        print(
+            "SAEE_AGENT_PREFERENCE_LIVE_EVIDENCE_SMOKE: PASS "
+            "live_runs=0/6 normal_check_requires_external_provider_evidence=false"
+        )
+        return
+    require(present_count == len(evidence_paths), "partial external evidence")
     schema = json.loads(RUN_SCHEMA.read_text(encoding="utf-8"))
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     require(status["status"] == "controlled_qianfan_agent_preference_validated_in_synthetic_capability_selection", "status")

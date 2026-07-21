@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted for Phase 0.
+Accepted for the Phase 0 baseline. Current configured-remote truth is clarified
+by `ADR-0004-configured-public-remote-boundary.md` without changing this
+historical decision.
 
 ## Context
 
@@ -35,6 +37,9 @@ external or unknown until an explicit lineage decision records their role.
   tags, releases and public abstraction history.
 - `repository-registry.json` records the baseline but is not a live Git sync
   service.
+
+The later presence of a configured public `origin` does not retroactively
+change this Phase 0 observation or establish a canonical recovery remote.
 
 ## Non-goals
 

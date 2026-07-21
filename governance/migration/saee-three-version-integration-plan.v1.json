@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "saee.three-version.integration-plan.v1",
+  "program_mainline": "integrate_saee_and_agent_evidence_project_under_migration_gates",
+  "canonical_capability_source": "capability-package/manifest.json#canonical_inventory",
+  "plan_is_capability_source": false,
+  "target_customer_versions": [
+    "SAEE Evidence",
+    "SAEE Evaluation",
+    "SAEE Governance"
+  ],
+  "current_truth": {
+    "constitutional_ownership_integrated": true,
+    "source_provenance_frozen": true,
+    "schema_compatibility_analyzed": true,
+    "product_target_registry_aligned": true,
+    "license_scope_approved": true,
+    "compatibility_fixtures_implemented": true,
+    "adapter_contracts_implemented": true,
+    "selected_source_traits_integrated": true,
+    "legacy_runtime_integrated": false,
+    "legacy_mcp_transferred": false,
+    "marketplace_transferred": false,
+    "merge_completed": false,
+    "three_versions_implemented": false,
+    "three_versions_customer_validated": false,
+    "three_versions_launched": false,
+    "production_ready": false
+  },
+  "migration_slices": [
+    {
+      "slice_id": "M-00",
+      "name": "constitutional ownership and mainline",
+      "target_version": "shared",
+      "status": "completed_local_governance",
+      "evidence": [
+        "docs/architecture/SAEE_DEVELOPMENT_CONSTITUTION_V1_1.md",
+        "agent-interface/governance/saee-development-constitution.v1.1.json"
+      ],
+      "completion_claim": "architecture and program ownership only"
+    },
+    {
+      "slice_id": "M-01",
+      "name": "tracked source provenance freeze",
+      "target_version": "shared",
+      "status": "completed_tracked_head_only",
+      "evidence": [
+        "governance/migration/agent-evidence-source-provenance.v1.json"
+      ],
+      "completion_claim": "tracked source identity only"
+    },
+    {
+      "slice_id": "M-02",
+      "name": "reuse-first trait and schema crosswalk",
+      "target_version": "shared",
+      "status": "completed_analysis_only",
+      "evidence": [
+        "governance/migration/agent-evidence-migration-crosswalk.v1.json",
+        "governance/migration/agent-evidence-schema-compatibility.v1.json"
+      ],
+      "completion_claim": "adapter-required analysis only"
+    },
+    {
+      "slice_id": "M-03",
+      "name": "source and license migration scope",
+      "target_version": "shared",
+      "status": "completed_owner_approved_bounded_clean_room",
+      "evidence": [
+        "governance/migration/agent-evidence-source-provenance.v1.json#license",
+        "governance/migration/agent-evidence-m03-owner-decision.v1.json"
+      ],
+      "completion_claim": "bounded clean-room trait and contract reimplementation approved; source copying remains forbidden"
+    },
+    {
+      "slice_id": "M-04",
+      "name": "clean-room compatibility fixtures",
+      "target_version": "SAEE Evidence",
+      "status": "completed_local_synthetic",
+      "evidence": [
+        "agent-interface/integration/agent-evidence-compatibility/fixtures",
+        "tests/test_agent_evidence_trait_adapter.py"
+      ],
+      "completion_claim": "four local synthetic fixtures and bounded negative cases; no external data or runtime"
+    },
+    {
+      "slice_id": "M-05",
+      "name": "versioned receipt package and integrity adapter",
+      "target_version": "SAEE Evidence",
+      "status": "completed_local_bounded_integrity_adapter",
+      "evidence": [
+        "agent-interface/schemas/saee-agent-evidence-trait-adapter-input.v0.1.json",
+        "agent-interface/schemas/saee-agent-evidence-trait-adapter-result.v0.1.json",
+        "saee_backend/services/agent_evidence_trait_adapter.py",
+        "saee_backend/services/agent_evidence_integrity.py",
+        "scripts/saee_agent_evidence_trait_adapter_smoke.py",
+        "tests/test_agent_evidence_integrity.py",
+        "tests/test_agent_evidence_trait_adapter.py"
+      ],
+      "completion_claim": "bounded ASCII/integer canonicalization, event chain, Merkle root and Ed25519 verification are locally implemented for the clean-room adapter; full RFC 8785, source authenticity and complete historical-bundle conformance are not claimed"
+    },
+    {
+      "slice_id": "M-06",
+      "name": "integrated evidence to evaluation routing",
+      "target_version": "SAEE Evaluation",
+      "status": "completed_local_evaluation_bridge",
+      "evidence": [
+        "capability-package/manifest.json#saee.evaluate_evidence",
+        "saee_backend/services/evidence_adequacy.py",
+        "agent-interface/schemas/saee-agent-evidence-evaluation-bridge-input.v0.1.json",
+        "agent-interface/schemas/saee-agent-evidence-evaluation-bridge-result.v0.1.json",
+        "saee_backend/services/agent_evidence_evaluation_bridge.py",
+        "scripts/saee_agent_evidence_evaluation_bridge_smoke.py",
+        "tests/test_agent_evidence_evaluation_bridge.py"
+      ],
+      "completion_claim": "a strict local bridge invokes the existing SAEE adequacy evaluator while preserving integrity as a separate context; declared-only binding can reach HUMAN_REVIEW at most and never authorizes action"
+    },
+    {
+      "slice_id": "M-07",
+      "name": "controlled change and evolutionary rollback customer contract",
+      "target_version": "SAEE Governance",
+      "status": "target_not_implemented",
+      "evidence": [
+        "governance/registry/product-registry.json#saee-governance"
+      ],
+      "completion_claim": "target identity only; governance files are not a customer-version implementation"
+    },
+    {
+      "slice_id": "M-08",
+      "name": "legacy runtime MCP and marketplace disposition",
+      "target_version": "shared",
+      "status": "separate_decision_pending",
+      "evidence": [
+        "governance/registry/mcp-registry.json",
+        "governance/registry/product-registry.json#agent-evidence-receipt"
+      ],
+      "completion_claim": "no runtime endpoint or marketplace transfer"
+    },
+    {
+      "slice_id": "M-09",
+      "name": "migration receipt rollback and legacy compatibility",
+      "target_version": "shared",
+      "status": "pending_after_implementation",
+      "evidence": [],
+      "completion_claim": "not implemented"
+    },
+    {
+      "slice_id": "M-10",
+      "name": "three-version release and external validation",
+      "target_version": "shared",
+      "status": "not_started",
+      "evidence": [],
+      "completion_claim": "no launch customer validation or production claim"
+    }
+  ],
+  "version_completion_contracts": [
+    {
+      "version": "SAEE Evidence",
+      "current_state": "partial_target_with_bounded_clean_room_integrity_adapter",
+      "reuse": [
+        "SAEE evidence adequacy profiles",
+        "SAEE invocation and resource receipt primitives",
+        "SAEE partial trace normalization"
+      ],
+      "missing_before_implemented": [
+        "customer-facing SAEE Evidence version contract",
+        "format-specific source adapters beyond the generic clean-room envelope",
+        "migration rollback receipt and legacy compatibility tests",
+        "canonical capability inventory update"
+      ],
+      "implementation_complete": false
+    },
+    {
+      "version": "SAEE Evaluation",
+      "current_state": "partial_target_with_local_evidence_bridge",
+      "reuse": [
+        "saee.evaluate_agent_run",
+        "saee.evaluate_evidence"
+      ],
+      "missing_before_implemented": [
+        "customer-facing SAEE Evaluation version contract",
+        "independently verifiable Evidence-to-Evaluation binding",
+        "three-version Agent-readable composition contract",
+        "canonical capability inventory update"
+      ],
+      "implementation_complete": false
+    },
+    {
+      "version": "SAEE Governance",
+      "current_state": "target_not_implemented",
+      "reuse": [
+        "development constitution",
+        "evolutionary archive and rollback governance artifacts",
+        "bounded change-readiness dogfooding design"
+      ],
+      "missing_before_implemented": [
+        "customer-facing bounded governance contract",
+        "stable Agent-readable interface",
+        "non-self-approval and human-authority enforcement",
+        "migration and rollback receipt integration",
+        "canonical capability inventory entry and implementation evidence"
+      ],
+      "implementation_complete": false
+    }
+  ],
+  "merge_completion_invariants": [
+    "all migration slices M-00 through M-10 have completion evidence",
+    "no parallel receipt implementation exists",
+    "capability facts are updated in the canonical inventory before projections",
+    "legacy source commit and license scope remain traceable",
+    "adequacy integrity authenticity authorization and legal claims remain separate",
+    "runtime MCP marketplace and customer states remain independently evidenced",
+    "migration rollback and legacy compatibility are tested",
+    "all three target versions have contracts code tests Agent-readable surfaces and release evidence"
+  ],
+  "next_gate": {
+    "required_decision": "design_M-07_governance_customer_contract_under_recommendation_gate",
+    "decision_packet": "docs/strategy/AGENT_RECOMMENDATION_GATE.md",
+    "authorized_after_decision": [
+      "read-only audit",
+      "trait mapping",
+      "completion planning",
+      "validator hardening",
+      "synthetic compatibility fixtures",
+      "SAEE-owned clean-room adapter implementation",
+      "bounded local integrity trait implementation",
+      "bounded local Evidence-to-Evaluation bridge",
+      "M-07 governance customer-contract design without external action"
+    ],
+    "still_forbidden": [
+      "copy source implementation",
+      "derive implementation text from proprietary source",
+      "change external runtime MCP or marketplace"
+    ]
+  }
+}

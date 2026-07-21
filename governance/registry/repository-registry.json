@@ -5,14 +5,14 @@
   "repositories": [
     {
       "name": "saee",
-      "path": "/Users/zhangbin/Documents/SAEE",
-      "git_head": "85677aaadfaee3a7d7bc4197da21e1c9328c70d7",
+      "path": "/Users/zhangbin/GitHub/SAEE",
+      "git_head": "0c416f70c56caabe1e24d183a0cfb5af3b0ce8d8",
       "branch": "feat/canonical-capability-inventory-routing-v1",
-      "remote": null,
-      "role": "local engineering and governance source",
+      "remote": "https://github.com/joy7758/SAEE.git",
+      "role": "local engineering and governance source with a configured public projection remote",
       "canonicality": "canonical",
       "migration_status": "KEEP",
-      "notes": "Canonical local only. Canonical Git remote is not established; public repositories do not inherit authority automatically."
+      "notes": "Canonical local engineering authority. The configured origin is a public projection and review surface; the canonical recovery Git remote remains NOT_ESTABLISHED and public history does not inherit full authority automatically."
     },
     {
       "name": "agent-evidence-layer",

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "freeze_id": "saee.agent-evidence.source-provenance.2026-07-14",
+  "captured_at": "2026-07-14T03:00:00+08:00",
+  "source_repository": {
+    "repository_id": "agent-evidence-layer",
+    "path": "/Users/zhangbin/GitHub/agent-evidence-layer",
+    "branch": "main",
+    "remote": null,
+    "commit_oid": "e5f3ab67dfc3f0d86c1d83c2fee8d3014a5c6219",
+    "tree_oid": "d2568406c964aa14a044e147947da3d83fd6167e",
+    "parent_oid": "428ad220e461c1993607b4d285d328fd4d088db2",
+    "commit_subject": "feat(marketplace): submit Aliyun MCP listing",
+    "commit_authored_at": "2026-07-14T02:07:07+08:00",
+    "commit_committed_at": "2026-07-14T02:09:27+08:00",
+    "tracked_file_count": 995,
+    "git_ls_tree_sha256": "b8ec0a008762837991c46984ac9070c21e80d901b0de26cca7affbc350cf195c"
+  },
+  "license": {
+    "path": "LICENSE",
+    "blob_oid": "f2ec7192126d7a731fc4351835ff0db467a9e714",
+    "sha256": "476ddf0e4b6aa032ac1c4d7ddc4f7452c9ed89691f5309f3fe6c1cf6f2d88114",
+    "classification": "ALL_RIGHTS_RESERVED",
+    "open_source": false,
+    "migration_grant_recorded": true,
+    "migration_gate": "PASS_BOUNDED_CLEAN_ROOM_TRAIT_MIGRATION_ONLY"
+  },
+  "worktree_observation": {
+    "clean": false,
+    "tracked_dirty_count": 90,
+    "untracked_count": 426,
+    "total_dirty_count": 516,
+    "status_porcelain_v1_z_sha256": "3d827eb2d80dec1109eb3efe9c4ec17af1dc199e3aa2bcb48d6b607a46c191f0",
+    "observation_is_source_authority": false
+  },
+  "freeze_scope": "TRACKED_HEAD_ONLY",
+  "source_copy_performed": false,
+  "runtime_integration_performed": false,
+  "mcp_change_performed": false,
+  "marketplace_transfer_performed": false,
+  "migration_execution_authorized": true,
+  "claims": [
+    "The tracked Git tree at the recorded commit is reproducibly identified by commit, tree and ls-tree digests.",
+    "The recorded LICENSE at the frozen commit is all-rights-reserved.",
+    "Uncommitted source-worktree content is excluded from this freeze.",
+    "The authorized rightsholder approved bounded clean-room trait and contract reimplementation for the frozen commit."
+  ],
+  "non_claims": [
+    "The source worktree is not clean.",
+    "The frozen source has not been copied or migrated into SAEE.",
+    "The recorded grant does not authorize direct source-text copying or Git-history merge.",
+    "No Agent Evidence runtime, MCP endpoint or marketplace product is integrated or transferred.",
+    "The three target SAEE customer versions are not claimed implemented, customer-validated, launched or production-ready."
+  ]
+}
