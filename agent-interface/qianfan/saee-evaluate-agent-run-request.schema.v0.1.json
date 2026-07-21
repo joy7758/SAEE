@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-evaluate-agent-run-request.schema.v0.1.json",
+  "title": "SAEE Evaluate Agent Run Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "agent_id", "task", "trace", "evidence", "customer_data_included"],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "agent_id": {"type": "string", "pattern": "^agent:[A-Za-z0-9._:-]{1,120}$"},
+    "task": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["events"],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["event_id", "event_type", "summary", "external_effect", "high_impact"],
+            "properties": {
+              "event_id": {"type": "string", "pattern": "^event:[A-Za-z0-9._:-]{1,120}$"},
+              "event_type": {"enum": ["PLAN", "TOOL_CALL", "TOOL_RESULT", "CHECK", "DECISION"]},
+              "summary": {"type": "string", "minLength": 1, "maxLength": 500},
+              "external_effect": {"type": "boolean"},
+              "high_impact": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {"$ref": "saee-readiness-evidence-item.schema.v0.1.json"}
+    },
+    "customer_data_included": {"const": false}
+  }
+}

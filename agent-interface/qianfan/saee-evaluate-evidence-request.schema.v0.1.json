@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saee-evaluate-evidence-request.schema.v0.1.json",
+  "title": "SAEE Evaluate Evidence Request v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "evidence_bundle", "required_evidence_types", "customer_data_included"],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^request:[A-Za-z0-9._:-]{1,120}$"},
+    "evidence_bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items"],
+      "properties": {
+        "items": {"type": "array", "maxItems": 16, "items": {"$ref": "saee-readiness-evidence-item.schema.v0.1.json"}}
+      }
+    },
+    "required_evidence_types": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {"enum": ["TEST_RESULT", "ROLLBACK_PLAN", "PERMISSION_BOUNDARY", "HUMAN_APPROVAL"]}
+    },
+    "customer_data_included": {"const": false}
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "saee_evidence_adequacy_profile_v0_1": true,
+  "profile_version": "0.1.0",
+  "profile_id": "saee-adequacy-execution-boundary-v0.1",
+  "claim_type": "EXECUTION_BOUNDARY",
+  "claim_description": "Synthetic resource, effect, and causal-link records carry mutually consistent receipt, digest, URI, effect, and sandbox references.",
+  "required_evidence_fields": [
+    "/resource_binding/receipt_id",
+    "/resource_binding/content_digest",
+    "/resource_binding/resolved_uri",
+    "/execution_effect/effect_id",
+    "/execution_effect/resource_receipt_ref",
+    "/execution_effect/content_digest",
+    "/execution_effect/resolved_uri",
+    "/execution_effect/sandbox_ref",
+    "/causal_link/relation_type",
+    "/causal_link/source_receipt_ref",
+    "/causal_link/target_effect_ref",
+    "/causal_link/content_digest"
+  ],
+  "required_relationships": [
+    {
+      "relationship_id": "execution_causal_binding_complete",
+      "relationship_type": "causal_binding_complete",
+      "source_path": "/resource_binding",
+      "target_path": "/execution_effect",
+      "reason_code": "EVIDENCE_CAUSAL_BINDING_INVALID"
+    }
+  ],
+  "optional_evidence_fields": [],
+  "failure_reason_codes": [
+    "EVIDENCE_RESOURCE_RECEIPT_REF_MISSING",
+    "EVIDENCE_EXECUTION_EFFECT_REF_MISSING",
+    "EVIDENCE_CAUSAL_LINK_MISSING",
+    "EVIDENCE_REQUIRED_FIELD_MISSING",
+    "EVIDENCE_CAUSAL_BINDING_INVALID"
+  ],
+  "truth_boundary": {
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAEE External Resource Resolution Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "saee_resource_resolution_receipt_v0_1",
+    "schema_version",
+    "receipt_id",
+    "receipt_type",
+    "created_at",
+    "agent_id",
+    "requested_resource",
+    "requested_resource_type",
+    "resolved_uri",
+    "registry_or_host",
+    "publisher_identity",
+    "publisher_verification_method",
+    "content_binding",
+    "content_digest",
+    "digest_algorithm",
+    "retrieval_timestamp",
+    "policy_decision_ref",
+    "authorization_boundary",
+    "sandbox_ref",
+    "sandbox_boundary",
+    "external_effect",
+    "truth_boundary",
+    "integrity"
+  ],
+  "properties": {
+    "saee_resource_resolution_receipt_v0_1": {"const": true},
+    "schema_version": {"const": "0.1.0"},
+    "receipt_id": {"type": "string", "pattern": "^saee-resource-resolution-[0-9a-f]{16}$"},
+    "receipt_type": {"const": "external_resource_resolution"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "agent_id": {"$ref": "#/$defs/reference"},
+    "persona_ref": {"$ref": "#/$defs/reference"},
+    "requested_resource": {"type": "string", "minLength": 1, "maxLength": 512, "pattern": "^[^\\u0000-\\u001f\\u007f]+$"},
+    "requested_resource_type": {
+      "enum": ["repository", "software_package", "skill", "external_tool", "artifact"]
+    },
+    "resolved_uri": {"type": "string", "format": "uri", "minLength": 9, "maxLength": 1024},
+    "registry_or_host": {"type": "string", "pattern": "^[a-z0-9](?:[a-z0-9.-]{0,251}[a-z0-9])?$", "maxLength": 253},
+    "publisher_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity_claim", "claim_status"],
+      "properties": {
+        "identity_claim": {"$ref": "#/$defs/reference"},
+        "claim_status": {"const": "declared_not_independently_verified"}
+      }
+    },
+    "publisher_verification_method": {
+      "enum": [
+        "registry_namespace_record",
+        "signed_publisher_metadata_declared",
+        "certificate_chain_declared",
+        "domain_control_declared",
+        "other_declared_method"
+      ]
+    },
+    "content_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "encoding", "inline_base64", "byte_length"],
+      "properties": {
+        "mode": {"const": "synthetic_inline_bytes"},
+        "encoding": {"const": "base64"},
+        "inline_base64": {"type": "string", "minLength": 4, "maxLength": 4096, "pattern": "^[A-Za-z0-9+/]+={0,2}$"},
+        "byte_length": {"type": "integer", "minimum": 1, "maximum": 3072}
+      }
+    },
+    "content_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "digest_algorithm": {"const": "sha-256"},
+    "retrieval_timestamp": {"type": "string", "format": "date-time"},
+    "policy_decision_ref": {"$ref": "#/$defs/reference"},
+    "authorization_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_action", "install", "import", "execute", "network", "permission_expansion"],
+      "properties": {
+        "allowed_action": {"const": "inspect_metadata_and_hash_only"},
+        "install": {"const": false},
+        "import": {"const": false},
+        "execute": {"const": false},
+        "network": {"const": false},
+        "permission_expansion": {"const": false}
+      }
+    },
+    "sandbox_ref": {"$ref": "#/$defs/reference"},
+    "sandbox_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "network", "subprocess", "execution"],
+      "properties": {
+        "kind": {"const": "offline_non_execution_boundary"},
+        "network": {"const": false},
+        "subprocess": {"const": false},
+        "execution": {"const": false}
+      }
+    },
+    "execution_effect_ref": {"$ref": "#/$defs/reference"},
+    "external_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "side_effect", "execution_effect_observed"],
+      "properties": {
+        "status": {"const": "not_executed"},
+        "side_effect": {"const": "no_side_effect"},
+        "execution_effect_observed": {"const": false}
+      }
+    },
+    "previous_receipt_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "truth_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uri_dereferenced",
+        "publisher_identity_verified",
+        "external_resource_authenticity_verified",
+        "license_verified",
+        "malware_scanned",
+        "supply_chain_verified",
+        "install_performed",
+        "resource_imported",
+        "candidate_code_executed",
+        "production_ready"
+      ],
+      "properties": {
+        "uri_dereferenced": {"const": false},
+        "publisher_identity_verified": {"const": false},
+        "external_resource_authenticity_verified": {"const": false},
+        "license_verified": {"const": false},
+        "malware_scanned": {"const": false},
+        "supply_chain_verified": {"const": false},
+        "install_performed": {"const": false},
+        "resource_imported": {"const": false},
+        "candidate_code_executed": {"const": false},
+        "production_ready": {"const": false}
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm", "digest_scope", "receipt_digest"],
+      "properties": {
+        "canonicalization": {"const": "saee-canonical-json-v0.1"},
+        "digest_algorithm": {"const": "sha-256"},
+        "digest_scope": {"const": "all_receipt_fields_except_integrity"},
+        "receipt_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/#-]{0,255}$"
+    }
+  }
+}

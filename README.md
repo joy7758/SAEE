@@ -34,6 +34,26 @@ python3 public_abstraction/demo/minimal_public_demo.py
 
 公共演示只运行 toy abstraction，不包含私有内核、真实客户数据或外部系统执行。
 
+### DBOS Developer Preview 只读评价入口
+
+本公共仓库包含一个由 DBA `ADR-020` 批准的 public-safe projection（公共安全投影）：
+它只读取 DBOS Multi-Agent Trust Demo（多智能体可信演示）的合成 JSON envelope，复用
+现有 SAEE 评价逻辑，并输出 fail-closed（失败关闭）的 Assessment（评价）与
+Recommendation（建议）。精确实现闭包为 19 个来源绑定文件；不包含 private core、
+kernel、selection、mutation 或 lineage。
+
+运行前需要 Python 3，以及 `jsonschema>=4.18,<5.0` 和 `referencing`。依赖准备必须使用
+开发者或组织批准的来源；仓库存在代码不表示依赖已安装或供应链已经验证。
+
+```bash
+python3 -m unittest tests/test_dbos_developer_preview_adapter.py
+python3 scripts/saee_evaluate_dbos_preview.py --input DBOS_DEMO.json
+```
+
+`RELIABILITY=NOT_ASSESSED`、`STABILITY=NOT_ASSESSED` 或 `HOLD` 是允许的失败关闭结果，
+不是运行失败。输出是 advisory only（仅建议），不授予 DBOS 写权、Execution（执行）、
+Permission（权限）、Evidence Truth（证据真值）或发布授权。
+
 ## 5. MCP 支持
 
 SAEE 已定义本地 MCP / HTTP 能力接口形态。公共仓库提供发现与边界说明，不提供公共运行时服务，也不声称外部 MCP 互操作、生产授权或生态采用已经完成。
@@ -59,6 +79,12 @@ production_ready_claim=false
 customer_validated_claim=false
 private_core_exported=false
 ```
+
+## 9. License（许可证）
+
+本仓库的 Owner-created public surfaces（负责人创作的公开表面）采用
+[`Apache-2.0`](LICENSE)。第三方依赖、数据、Evidence 和独立许可材料仍遵循各自来源
+与许可证；根 `LICENSE` 不自动重许可这些材料。
 
 ## 公共入口
 
