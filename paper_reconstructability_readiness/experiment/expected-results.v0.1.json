@@ -1,0 +1,49 @@
+{
+  "expected_results_v0_1": true,
+  "dataset_id": "saee-reconstructability-adequacy-matched-pairs-v0.1",
+  "repetitions": 5,
+  "total_pairs": 16,
+  "total_cases": 32,
+  "reconstructability_complete_cases": 32,
+  "semantic_positive_cases": 16,
+  "semantic_negative_cases": 16,
+  "matched_pairs_with_same_nominal_outcome": 16,
+  "matched_pairs_with_complete_reconstructability": 16,
+  "matched_pairs_with_identical_presence_vector": 16,
+  "matched_pairs_with_identical_json_shape": 16,
+  "matched_pairs_with_divergent_semantic_verdict": 16,
+  "semantic_expectation_matches": 32,
+  "reason_code_matches": 32,
+  "field_complete_baseline": {
+    "true_positive": 16,
+    "false_positive": 16,
+    "true_negative": 0,
+    "false_negative": 0
+  },
+  "type_and_shape_baseline": {
+    "true_positive": 16,
+    "false_positive": 16,
+    "true_negative": 0,
+    "false_negative": 0
+  },
+  "decision_aware_ablation": {
+    "true_positive": 16,
+    "false_positive": 14,
+    "true_negative": 2,
+    "false_negative": 0
+  },
+  "semantic_profile_evaluator": {
+    "true_positive": 16,
+    "false_positive": 0,
+    "true_negative": 16,
+    "false_negative": 0
+  },
+  "boundary_violation_count": 0,
+  "deterministic": true,
+  "truth_boundary": {
+    "population_estimate": false,
+    "external_validation": false,
+    "production_readiness": false,
+    "product_superiority": false
+  }
+}

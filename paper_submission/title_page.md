@@ -13,6 +13,10 @@ SAEE as a Frozen Empirical Phase Space Object
 
 - TODO_AUTHOR_NAME, TODO_AFFILIATION, TODO_ORCID_OPTIONAL
 
+Resolve candidate metadata from `paper_submission/author-registry.public.json`,
+then obtain explicit paper-specific author selection, order, consent, and
+CRediT confirmation. Do not add every registered person automatically.
+
 ## Corresponding Author
 
 TODO_CORRESPONDING_AUTHOR_EMAIL
@@ -31,4 +35,3 @@ doi_assigned: false
 This paper describes a frozen empirical scientific object. It does not publish
 the private SAEE implementation, runtime, kernel, fitness, selection, mutation,
 lineage, or reproduction logic.
-

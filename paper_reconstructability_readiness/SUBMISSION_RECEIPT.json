@@ -1,0 +1,45 @@
+{
+  "schema": "saee.journal_submission_receipt.v1",
+  "journal": "Artificial Intelligence",
+  "publisher": "Elsevier",
+  "portal": "Editorial Manager",
+  "article_type": "Research Note",
+  "manuscript_number": "ARTINT-D-26-01262",
+  "preapproval_build_reference": "ARTINT-S-26-01763",
+  "title": "Evidence Presence Is Not Semantic Support: An Impossibility Result for AI-Agent Readiness Claims",
+  "authors": [
+    {
+      "order": 1,
+      "name": "Bin Zhang",
+      "corresponding_author": true,
+      "affiliation": "Shanxi Youqibing E-Commerce Co., Ltd."
+    },
+    {
+      "order": 2,
+      "name": "Xiaojuan Sun",
+      "corresponding_author": false,
+      "affiliation": "Department of Physical Education, Yuncheng University"
+    }
+  ],
+  "initial_date_submitted": "2026-07-19",
+  "status_date": "2026-07-19",
+  "confirmation_observed_on": "2026-07-19",
+  "portal_folder": "Submissions Being Processed",
+  "portal_status": "Submitted to Journal",
+  "submission_completed": true,
+  "publication_route": "subscription_traditional",
+  "open_access_selected": false,
+  "mandatory_author_cost": 0,
+  "payment_authorized": false,
+  "payment_requested": false,
+  "payment_made": false,
+  "truth_boundaries": {
+    "technical_check_claim": false,
+    "editor_assigned_claim": false,
+    "peer_review_claim": false,
+    "acceptance_claim": false,
+    "publication_claim": false,
+    "doi_assignment_claim": false,
+    "external_validation_claim": false
+  }
+}

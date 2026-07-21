@@ -1,0 +1,1014 @@
+{
+  "analysis_type": "drift_monitor",
+  "mean_population_turnover": 0.545531,
+  "mutation_accumulation": [
+    {
+      "generation_index": 1,
+      "max_mutation_history_length": 2,
+      "mean_mutation_history_length": 1.625
+    },
+    {
+      "generation_index": 2,
+      "max_mutation_history_length": 3,
+      "mean_mutation_history_length": 2.25
+    },
+    {
+      "generation_index": 3,
+      "max_mutation_history_length": 4,
+      "mean_mutation_history_length": 3.375
+    },
+    {
+      "generation_index": 4,
+      "max_mutation_history_length": 5,
+      "mean_mutation_history_length": 4.375
+    },
+    {
+      "generation_index": 5,
+      "max_mutation_history_length": 6,
+      "mean_mutation_history_length": 5.25
+    },
+    {
+      "generation_index": 6,
+      "max_mutation_history_length": 7,
+      "mean_mutation_history_length": 6.25
+    },
+    {
+      "generation_index": 7,
+      "max_mutation_history_length": 8,
+      "mean_mutation_history_length": 7.25
+    },
+    {
+      "generation_index": 8,
+      "max_mutation_history_length": 9,
+      "mean_mutation_history_length": 8
+    },
+    {
+      "generation_index": 9,
+      "max_mutation_history_length": 10,
+      "mean_mutation_history_length": 8.875
+    },
+    {
+      "generation_index": 10,
+      "max_mutation_history_length": 11,
+      "mean_mutation_history_length": 10
+    },
+    {
+      "generation_index": 11,
+      "max_mutation_history_length": 11,
+      "mean_mutation_history_length": 10.25
+    },
+    {
+      "generation_index": 12,
+      "max_mutation_history_length": 12,
+      "mean_mutation_history_length": 11.375
+    },
+    {
+      "generation_index": 13,
+      "max_mutation_history_length": 13,
+      "mean_mutation_history_length": 12.125
+    },
+    {
+      "generation_index": 14,
+      "max_mutation_history_length": 13,
+      "mean_mutation_history_length": 12.375
+    },
+    {
+      "generation_index": 15,
+      "max_mutation_history_length": 14,
+      "mean_mutation_history_length": 12.625
+    },
+    {
+      "generation_index": 16,
+      "max_mutation_history_length": 14,
+      "mean_mutation_history_length": 13.125
+    },
+    {
+      "generation_index": 17,
+      "max_mutation_history_length": 15,
+      "mean_mutation_history_length": 13.5
+    },
+    {
+      "generation_index": 18,
+      "max_mutation_history_length": 16,
+      "mean_mutation_history_length": 14.625
+    },
+    {
+      "generation_index": 19,
+      "max_mutation_history_length": 16,
+      "mean_mutation_history_length": 15
+    },
+    {
+      "generation_index": 20,
+      "max_mutation_history_length": 17,
+      "mean_mutation_history_length": 16.25
+    },
+    {
+      "generation_index": 21,
+      "max_mutation_history_length": 18,
+      "mean_mutation_history_length": 17.25
+    },
+    {
+      "generation_index": 22,
+      "max_mutation_history_length": 19,
+      "mean_mutation_history_length": 18
+    },
+    {
+      "generation_index": 23,
+      "max_mutation_history_length": 18,
+      "mean_mutation_history_length": 17.875
+    },
+    {
+      "generation_index": 24,
+      "max_mutation_history_length": 19,
+      "mean_mutation_history_length": 18.875
+    },
+    {
+      "generation_index": 25,
+      "max_mutation_history_length": 20,
+      "mean_mutation_history_length": 19.5
+    },
+    {
+      "generation_index": 26,
+      "max_mutation_history_length": 21,
+      "mean_mutation_history_length": 19.75
+    },
+    {
+      "generation_index": 27,
+      "max_mutation_history_length": 22,
+      "mean_mutation_history_length": 20.875
+    },
+    {
+      "generation_index": 28,
+      "max_mutation_history_length": 23,
+      "mean_mutation_history_length": 22
+    },
+    {
+      "generation_index": 29,
+      "max_mutation_history_length": 23,
+      "mean_mutation_history_length": 22.125
+    },
+    {
+      "generation_index": 30,
+      "max_mutation_history_length": 23,
+      "mean_mutation_history_length": 22.5
+    },
+    {
+      "generation_index": 31,
+      "max_mutation_history_length": 24,
+      "mean_mutation_history_length": 23.5
+    },
+    {
+      "generation_index": 32,
+      "max_mutation_history_length": 25,
+      "mean_mutation_history_length": 23.75
+    },
+    {
+      "generation_index": 33,
+      "max_mutation_history_length": 26,
+      "mean_mutation_history_length": 24.75
+    },
+    {
+      "generation_index": 34,
+      "max_mutation_history_length": 25,
+      "mean_mutation_history_length": 24.625
+    },
+    {
+      "generation_index": 35,
+      "max_mutation_history_length": 25,
+      "mean_mutation_history_length": 24.625
+    },
+    {
+      "generation_index": 36,
+      "max_mutation_history_length": 26,
+      "mean_mutation_history_length": 25.5
+    },
+    {
+      "generation_index": 37,
+      "max_mutation_history_length": 26,
+      "mean_mutation_history_length": 25.75
+    },
+    {
+      "generation_index": 38,
+      "max_mutation_history_length": 26,
+      "mean_mutation_history_length": 25.75
+    },
+    {
+      "generation_index": 39,
+      "max_mutation_history_length": 26,
+      "mean_mutation_history_length": 25.75
+    },
+    {
+      "generation_index": 40,
+      "max_mutation_history_length": 27,
+      "mean_mutation_history_length": 26.5
+    },
+    {
+      "generation_index": 41,
+      "max_mutation_history_length": 27,
+      "mean_mutation_history_length": 26.5
+    },
+    {
+      "generation_index": 42,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 43,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 44,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 45,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 46,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 47,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 48,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 49,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 50,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.5
+    },
+    {
+      "generation_index": 51,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28
+    },
+    {
+      "generation_index": 52,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 53,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 54,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.25
+    },
+    {
+      "generation_index": 55,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 28.25
+    },
+    {
+      "generation_index": 56,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 27.875
+    },
+    {
+      "generation_index": 57,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 58,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 59,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 60,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 61,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 62,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 63,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 64,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 65,
+      "max_mutation_history_length": 28,
+      "mean_mutation_history_length": 27.75
+    },
+    {
+      "generation_index": 66,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 67,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 68,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 69,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 70,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 71,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 28.875
+    },
+    {
+      "generation_index": 72,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 28.875
+    },
+    {
+      "generation_index": 73,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 74,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 75,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 76,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 28.875
+    },
+    {
+      "generation_index": 77,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 78,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 79,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29
+    },
+    {
+      "generation_index": 80,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 81,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29
+    },
+    {
+      "generation_index": 82,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 83,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 84,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 85,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 86,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 87,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 88,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 89,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.75
+    },
+    {
+      "generation_index": 90,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.375
+    },
+    {
+      "generation_index": 91,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.25
+    },
+    {
+      "generation_index": 92,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 93,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29
+    },
+    {
+      "generation_index": 94,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.875
+    },
+    {
+      "generation_index": 95,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 96,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.25
+    },
+    {
+      "generation_index": 97,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29.125
+    },
+    {
+      "generation_index": 98,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29
+    },
+    {
+      "generation_index": 99,
+      "max_mutation_history_length": 29,
+      "mean_mutation_history_length": 28.875
+    },
+    {
+      "generation_index": 100,
+      "max_mutation_history_length": 30,
+      "mean_mutation_history_length": 29
+    }
+  ],
+  "observation_only": true,
+  "population_divergence": [
+    {
+      "generation_index": 1,
+      "population_turnover": 0.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 2,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 3,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 4,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 5,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 6,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 7,
+      "population_turnover": 0.933333,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 8,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 9,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 10,
+      "population_turnover": 0.933333,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 11,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 12,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 13,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 14,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 15,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 16,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 17,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 18,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 19,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 20,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 21,
+      "population_turnover": 0.933333,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 22,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 23,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 24,
+      "population_turnover": 0.933333,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 25,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 26,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 27,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 28,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 29,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 30,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 31,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 32,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 33,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 34,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 35,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 36,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 37,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 38,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 39,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 40,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 41,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 42,
+      "population_turnover": 1.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 43,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 44,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 45,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 46,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 47,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 48,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 49,
+      "population_turnover": 0.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 50,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 51,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 52,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 53,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 54,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 55,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 56,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 57,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 58,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 59,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 60,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 61,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 62,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 63,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 64,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 65,
+      "population_turnover": 0.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 66,
+      "population_turnover": 1.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 67,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 68,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 69,
+      "population_turnover": 0.0,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 70,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 71,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 72,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 73,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 74,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 75,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 76,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 77,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 78,
+      "population_turnover": 0.769231,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 79,
+      "population_turnover": 0.666667,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 80,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 81,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 82,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 83,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 84,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 85,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 86,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 87,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 88,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 89,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 90,
+      "population_turnover": 0.857143,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 91,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 92,
+      "population_turnover": 0.4,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 93,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 94,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 95,
+      "population_turnover": 0.545455,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 96,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 97,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 98,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 99,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    },
+    {
+      "generation_index": 100,
+      "population_turnover": 0.222222,
+      "unique_population_ids": 8
+    }
+  ],
+  "structural_drift": {
+    "edge_count": 1590,
+    "edge_to_node_ratio": 1.967822,
+    "node_count": 808
+  }
+}

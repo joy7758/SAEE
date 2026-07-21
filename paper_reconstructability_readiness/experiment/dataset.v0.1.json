@@ -1,0 +1,263 @@
+{
+  "dataset_id": "saee-reconstructability-adequacy-matched-pairs-v0.1",
+  "dataset_version": "0.1.0",
+  "study_design": "controlled_matched_pair_construct_validation",
+  "constructs": {
+    "bounded_reconstructability": "All operands declared by the named evidence-adequacy profile are present and non-empty.",
+    "semantic_adequacy": "All required operands are present and every claim-specific semantic relationship passes the canonical SAEE profile evaluator.",
+    "nominal_outcome": "A synthetic descriptive outcome held constant within each pair; it is not evidence that an external event occurred."
+  },
+  "truth_boundary": {
+    "synthetic_data_only": true,
+    "event_occurrence_proven": false,
+    "identity_independently_verified": false,
+    "authorization_externally_verified": false,
+    "legal_finding_established": false,
+    "production_ready": false
+  },
+  "pairs": [
+    {
+      "pair_id": "RA-01",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "condition": "receipt_digest_binding",
+      "nominal_outcome": "synthetic resource metadata was inspected without execution",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/resource_receipt/requested_resource",
+          "operation": "replace",
+          "value": "repository:synthetic-publisher/altered-resource@v0.1.0"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_RESOURCE_RECEIPT_INVALID"]
+    },
+    {
+      "pair_id": "RA-02",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "condition": "content_digest_binding",
+      "nominal_outcome": "synthetic resource metadata was inspected without execution",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/resource_receipt/content_digest",
+          "operation": "replace",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_RESOURCE_RECEIPT_INVALID"]
+    },
+    {
+      "pair_id": "RA-03",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "condition": "resolved_host_binding",
+      "nominal_outcome": "synthetic resource metadata was inspected without execution",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/resource_receipt/registry_or_host",
+          "operation": "replace",
+          "value": "mirror.example.invalid"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_RESOURCE_RECEIPT_INVALID"]
+    },
+    {
+      "pair_id": "RA-04",
+      "claim_type": "RESOURCE_AUTHENTICITY",
+      "condition": "retrieval_time_ordering",
+      "nominal_outcome": "synthetic resource metadata was inspected without execution",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/resource_receipt/retrieval_timestamp",
+          "operation": "replace",
+          "value": "2026-07-11T04:00:03Z"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_RESOURCE_RECEIPT_INVALID"]
+    },
+    {
+      "pair_id": "AA-01",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "condition": "decision_semantics",
+      "nominal_outcome": "synthetic agent action record reports metadata inspection",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/policy_decision/decision",
+          "operation": "replace",
+          "value": "deny"
+        }
+      ],
+      "expected_invalid_reason_codes": [
+        "EVIDENCE_POLICY_DECISION_NOT_ALLOW",
+        "EVIDENCE_AUTHORITY_WINDOW_INVALID"
+      ]
+    },
+    {
+      "pair_id": "AA-02",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "condition": "authority_window",
+      "nominal_outcome": "synthetic agent action record reports metadata inspection",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/action/timestamp",
+          "operation": "replace",
+          "value": "2026-07-11T05:02:00Z"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_AUTHORITY_WINDOW_INVALID"]
+    },
+    {
+      "pair_id": "AA-03",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "condition": "authority_scope",
+      "nominal_outcome": "synthetic agent action record reports metadata inspection",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/policy_decision/authority_scope",
+          "operation": "replace",
+          "value": "resource:list-only"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_AUTHORITY_SCOPE_INSUFFICIENT"]
+    },
+    {
+      "pair_id": "AA-04",
+      "claim_type": "AUTHORIZED_AGENT_ACTION",
+      "condition": "agent_identity_binding",
+      "nominal_outcome": "synthetic agent action record reports metadata inspection",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/policy_decision/agent_id",
+          "operation": "replace",
+          "value": "agent:synthetic-other"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_AGENT_BINDING_MISMATCH"]
+    },
+    {
+      "pair_id": "HO-01",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "condition": "approval_decision",
+      "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/approval/decision",
+          "operation": "replace",
+          "value": "rejected"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_APPROVAL_DECISION_NOT_APPROVED"]
+    },
+    {
+      "pair_id": "HO-02",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "condition": "approval_time_ordering",
+      "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/approval/approval_timestamp",
+          "operation": "replace",
+          "value": "2026-07-11T05:10:06Z"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_APPROVAL_TIME_INVALID"]
+    },
+    {
+      "pair_id": "HO-03",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "condition": "approval_scope",
+      "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/approval/approved_scope",
+          "operation": "replace",
+          "value": "resource:list-only"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_APPROVAL_SCOPE_INSUFFICIENT"]
+    },
+    {
+      "pair_id": "HO-04",
+      "claim_type": "HUMAN_OVERSIGHT",
+      "condition": "approval_action_binding",
+      "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/human_oversight_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/approval/action_id",
+          "operation": "replace",
+          "value": "action:synthetic-other"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_APPROVAL_ACTION_MISMATCH"]
+    },
+    {
+      "pair_id": "EB-01",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "condition": "resource_receipt_reference",
+      "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/execution_effect/resource_receipt_ref",
+          "operation": "replace",
+          "value": "receipt:synthetic-resource-other"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_CAUSAL_BINDING_INVALID"]
+    },
+    {
+      "pair_id": "EB-02",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "condition": "effect_reference",
+      "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/causal_link/target_effect_ref",
+          "operation": "replace",
+          "value": "effect:synthetic-other"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_CAUSAL_BINDING_INVALID"]
+    },
+    {
+      "pair_id": "EB-03",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "condition": "content_digest_binding",
+      "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/execution_effect/content_digest",
+          "operation": "replace",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_CAUSAL_BINDING_INVALID"]
+    },
+    {
+      "pair_id": "EB-04",
+      "claim_type": "EXECUTION_BOUNDARY",
+      "condition": "resolved_uri_binding",
+      "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+      "fixture_ref": "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json",
+      "invalid_mutations": [
+        {
+          "path": "/evidence/execution_effect/resolved_uri",
+          "operation": "replace",
+          "value": "https://code.example.invalid/synthetic/other-resource.git"
+        }
+      ],
+      "expected_invalid_reason_codes": ["EVIDENCE_CAUSAL_BINDING_INVALID"]
+    }
+  ]
+}

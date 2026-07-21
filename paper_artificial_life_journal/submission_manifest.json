@@ -1,0 +1,101 @@
+{
+  "schema": "saee.journal_submission_manifest.v1",
+  "generated_on": "2026-07-19",
+  "submission_status": "submitted_awaiting_admin_processing",
+  "portal_submission": {
+    "submission_completed": true,
+    "manuscript_id": "ARTL-2026-0186",
+    "portal_status": "Awaiting Admin Processing",
+    "portal_date_submitted": "18-Jul-2026",
+    "confirmation_observed_on": "2026-07-19",
+    "payment_requested": false,
+    "payment_made": false,
+    "technical_check_claim": false,
+    "peer_review_claim": false,
+    "acceptance_claim": false,
+    "publication_claim": false,
+    "doi_assignment_claim": false
+  },
+  "journal": {
+    "title": "Artificial Life",
+    "publisher": "MIT Press",
+    "article_type": "Letter",
+    "portal": "https://mc.manuscriptcentral.com/artificiallife",
+    "publication_route": "standard_subscription",
+    "open_access_selected": false,
+    "mandatory_author_cost": 0
+  },
+  "manuscript": {
+    "title": "Bounded Evolution in a Reflexive Digital Population: A Local SAEE Characterization",
+    "word_count_pdf_text_including_references_and_declarations": 1403,
+    "page_count": 8,
+    "keywords": [
+      "artificial life",
+      "digital evolution",
+      "lineage",
+      "bounded dynamics",
+      "reflexive systems",
+      "empirical characterization"
+    ],
+    "authors": [
+      {
+        "order": 1,
+        "role": "first_and_corresponding_author",
+        "given_name": "Bin",
+        "family_name": "Zhang",
+        "email": "joy7759@gmail.com",
+        "orcid": "0009-0002-8861-1481",
+        "affiliation": "Shanxi Youqibing E-Commerce Co., Ltd.",
+        "affiliation_legal_name_zh": "山西游骑兵电子商务有限公司",
+        "city": "Yuncheng",
+        "province": "Shanxi",
+        "country": "China"
+      },
+      {
+        "order": 2,
+        "role": "coauthor",
+        "given_name": "Xiaojuan",
+        "family_name": "Sun",
+        "email": "sunxiaojuan@ycu.edu.cn",
+        "orcid": "0009-0003-4705-1809",
+        "affiliation": "Department of Physical Education, Yuncheng University",
+        "city": "Yuncheng",
+        "province": "Shanxi",
+        "postal_code": "044000",
+        "country": "China"
+      }
+    ]
+  },
+  "files": [
+    {
+      "role": "main_manuscript",
+      "path": "build/main.pdf",
+      "sha256": "719a1522534634e8a551ea38a94b963ff2c9543800e3d2a3c93502d888f121b3"
+    },
+    {
+      "role": "cover_letter",
+      "path": "build/cover_letter/cover_letter.pdf",
+      "sha256": "c22a7699e76282817006a1bdbc5c9a9e4915490d22bf95337922af55a04cbef2"
+    },
+    {
+      "role": "supplement",
+      "path": "build/SAEE_Artificial_Life_Letter_Supplement.zip",
+      "sha256": "ae405a318000759c82a02e1adae0996abf5378dd7c22a99c672259a9fc61a8c4"
+    },
+    {
+      "role": "source_archive_if_requested",
+      "path": "build/SAEE_Artificial_Life_Letter_Source.zip",
+      "sha256": "71ab09e9cd7bc863b0ceefffc11195ef07a981cc6d65be467eb2028990cfe49b"
+    }
+  ],
+  "declarations": {
+    "funding": "The authors received no financial support for the research, authorship, or publication.",
+    "competing_interests": "The authors declare no competing financial or personal interests.",
+    "concurrent_submission": false,
+    "prior_nonarchival_abstract": "ALIFE 2026 lb120; one page; no proceedings; no DOI; not presented.",
+    "universal_claim": false,
+    "physical_law_claim": false,
+    "external_validation_claim": false,
+    "benchmark_superiority_claim": false
+  }
+}

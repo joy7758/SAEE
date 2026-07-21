@@ -1,0 +1,26 @@
+{
+  "environment_manifest_v0_1": true,
+  "scope": "matched-pair synthetic construct-validation reproduction",
+  "tested_on": {
+    "date": "2026-07-19",
+    "operating_system": "macOS 26.5.2",
+    "python": "3.14.5",
+    "jsonschema": "4.26.0"
+  },
+  "python_dependencies": [
+    {
+      "name": "jsonschema",
+      "tested_version": "4.26.0",
+      "reproduction_pin": "jsonschema==4.26.0"
+    }
+  ],
+  "repository_local_modules": [
+    "saee_backend.services.evidence_adequacy",
+    "saee_backend.services.resource_resolution_receipt"
+  ],
+  "network_required": false,
+  "external_repository_execution": false,
+  "candidate_code_execution": false,
+  "minimum_supported_python_claimed": false,
+  "cross_platform_portability_validated": false
+}

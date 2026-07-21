@@ -1,0 +1,17 @@
+\begin{tikzpicture}[font=\footnotesize,>=latex,node distance=4mm]
+  \tikzset{
+    stage/.style={draw,rounded corners=2pt,align=center,text width=2.75cm,minimum height=11mm,fill=blue!5},
+    gate/.style={draw,rounded corners=2pt,align=center,text width=2.75cm,minimum height=11mm,fill=green!7},
+    authority/.style={draw,rounded corners=2pt,align=center,text width=2.75cm,minimum height=11mm,fill=orange!10}
+  }
+  \node[stage] (trace) {Recorded observations\\and evidence operands};
+  \node[stage,right=of trace] (recon) {Bounded reconstructability $R_c(e)$\\Are declared operands present?};
+  \node[gate,right=of recon] (adequacy) {Semantic adequacy $A_c(e)$\\Do required relations hold?};
+  \node[authority,right=of adequacy] (truth) {External verification\\Are assertions genuine and applicable?};
+  \node[authority,right=of truth] (decision) {Authorized readiness decision\\May the system progress?};
+  \draw[->,thick] (trace) -- (recon);
+  \draw[->,thick] (recon) -- (adequacy);
+  \draw[->,thick] (adequacy) -- (truth);
+  \draw[->,thick] (truth) -- (decision);
+  \draw[red!70!black,dashed,->,bend left=25] (recon.north) to node[above,font=\scriptsize]{invalid shortcut} (decision.north);
+\end{tikzpicture}

@@ -1,0 +1,70 @@
+{
+  "analysis_type": "regime_classification",
+  "classifications": [
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 5,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 1,
+      "regime": "stable_regime"
+    },
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 6,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 2,
+      "regime": "stable_regime"
+    },
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 6,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 3,
+      "regime": "stable_regime"
+    },
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 6,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 4,
+      "regime": "stable_regime"
+    },
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 6,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 5,
+      "regime": "stable_regime"
+    },
+    {
+      "evidence": {
+        "identity_break_count": 0,
+        "mutation_event_count": 6,
+        "population_count": 6,
+        "semantic_drift_after": 0.2
+      },
+      "generation_index": 6,
+      "regime": "stable_regime"
+    }
+  ],
+  "dominant_regime": "stable_regime",
+  "regime_counts": {
+    "stable_regime": 6
+  },
+  "transitions": []
+}

@@ -1,0 +1,19 @@
+\begin{tikzpicture}[font=\footnotesize]
+  \draw[->] (0,0) -- (10.4,0) node[right]{rule};
+  \draw[->] (0,0) -- (0,3.2) node[above]{false supports};
+  \foreach \y/\lab in {0/0,0.75/4,1.5/8,2.25/12,3/16} {
+    \draw (-0.08,\y) -- (0.08,\y) node[left=3pt]{\lab};
+  }
+  \fill[red!60] (0.8,0) rectangle (2.2,3.0);
+  \fill[orange!70] (3.0,0) rectangle (4.4,3.0);
+  \fill[yellow!70!orange] (5.2,0) rectangle (6.6,2.625);
+  \fill[green!55!black] (7.4,0) rectangle (8.8,0.03);
+  \node[align=center] at (1.5,-0.44) {field\\presence};
+  \node[align=center] at (3.7,-0.44) {type/\\shape};
+  \node[align=center] at (5.9,-0.44) {decision\\check};
+  \node[align=center] at (8.1,-0.44) {relation\\checks};
+  \node[above] at (1.5,3.0) {16};
+  \node[above] at (3.7,3.0) {16};
+  \node[above] at (5.9,2.625) {14};
+  \node[above] at (8.1,0.03) {0};
+\end{tikzpicture}

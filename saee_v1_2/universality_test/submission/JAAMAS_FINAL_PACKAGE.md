@@ -3,13 +3,26 @@
 agent_readable:
   schema: saee.jaamas_submission.final_package.v2
   target_venue: JAAMAS
-  package_status: submission_ready_draft
+  package_status: historical_frozen_after_editorial_reject
+  paper_line_status: frozen_closed
+  external_resubmission_allowed: false
+  title_only_reframe_allowed: false
+  successor_route_allowed: false
+  reuse_scope: local_evidence_only
+  freeze_record: saee_v1_2/universality_test/submission/PAPER_LINE_FREEZE.md
   simulations_rerun_for_this_package: false
   experimental_code_modified: false
   real_world_deployment_claim: false
   production_claim: false
   broad_theory_claim: false
   canonical_claim: empirically observed cross-system consistency within a shared synthetic multi-agent modeling framework
+
+## Post-Decision Status
+
+This package is a historical submission artifact. It is not a current
+submission-ready package and must not be transferred, resubmitted, retitled, or
+used to create a successor manuscript. The associated experiments remain local
+evidence assets under the freeze recorded in `PAPER_LINE_FREEZE.md`.
 
 ## Title
 

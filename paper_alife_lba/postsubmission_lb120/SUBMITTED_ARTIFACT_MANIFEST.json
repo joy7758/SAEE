@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "lb120 submitted-artifact and clarification boundary",
+  "submission": {
+    "conference": "ALIFE 2026",
+    "route": "Late-Breaking Abstract",
+    "submission_id": "lb120",
+    "title": "SAEE as a Frozen Reflexive Evolutionary Dynamical Object",
+    "portal_state_observed": "Accept (Confirmed)",
+    "portal_state_observed_on": "2026-07-18",
+    "accepted": true,
+    "acceptance_confirmation": true,
+    "acceptance_confirmation_observed_on": "2026-07-18",
+    "published": false,
+    "proceedings_inclusion": false,
+    "doi_assigned": false,
+    "conference_registration_verified": false,
+    "author_decision_on": "2026-07-19",
+    "author_participation_status": "abandoned_before_registration",
+    "conference_registration_completed": false,
+    "registration_payment_made": false,
+    "external_withdrawal_completed": false,
+    "constitutional_journal_route_eligible": false
+  },
+  "frozen_artifacts": [
+    {
+      "path": "paper_alife_lba/build/main.pdf",
+      "role": "submitted_pdf",
+      "sha256": "aef09e556b2e91b2374b51371164d887e2db40c39a260b3dac2ef7772d15ece8",
+      "page_count": 1,
+      "tracked_by_git": false,
+      "git_ignore_rule": "build/",
+      "modified_by_postsubmission_hardening": false
+    },
+    {
+      "path": "paper_alife_lba/main.tex",
+      "role": "submitted_pdf_source_surface",
+      "sha256": "b8206dc7ad6de10f31d82e5cf799b9f786575e45a12993fab1579eb1a00c7979",
+      "modified_by_postsubmission_hardening": false
+    }
+  ],
+  "documentation_snapshot": {
+    "repository_head_observed_during_hardening": "f6ac41f4b068377e7778e8c3d83b99bd8382debc",
+    "status": "current_documentation_snapshot_only",
+    "original_execution_commit": null,
+    "original_execution_commit_status": "not_recorded_in_current_run_artifacts",
+    "warning": "The current repository HEAD must not be represented as the original execution commit."
+  },
+  "postsubmission_scope": {
+    "support_directory": "paper_alife_lba/postsubmission_lb120",
+    "portal_artifact_update_performed": false,
+    "acceptance_confirmation_performed": true,
+    "new_experiment": false,
+    "result_value_changed": false,
+    "theory_changed": false,
+    "runtime_changed": false,
+    "kernel_changed": false,
+    "candidate_law_changed": false,
+    "gsp_semantics_changed": false
+  },
+  "known_submitted_text_issue": {
+    "location": "paper_alife_lba/main.tex final interpretation paragraph",
+    "submitted_text": "no ... portal submission",
+    "current_ledger_truth": "lb120 was accepted and author-confirmed in Linklings on 2026-07-18",
+    "resolution": "documented_here_without_silently_rewriting_the_frozen_submitted_pdf"
+  },
+  "non_claims": [
+    "not_publication",
+    "not_proceedings_inclusion",
+    "not_doi_assignment",
+    "not_conference_registration_verification",
+    "not_external_validation",
+    "not_cross_run_validation",
+    "not_universal_law",
+    "not_open_ended_evolution_evidence",
+    "not_portal_artifact_update"
+  ]
+}

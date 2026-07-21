@@ -1,0 +1,34 @@
+{
+  "schema": "saee.paper_line_freeze.v1",
+  "manuscript": {
+    "title": "A Synthetic Benchmark for Parasitic Transition Patterns in Multi-Agent Systems",
+    "source_module": "saee_v1_2/universality_test",
+    "prior_venue": "Autonomous Agents and Multi-Agent Systems",
+    "prior_submission_id": "5ede189f-ddfd-4333-9646-42d8f820f284",
+    "prior_decision": "editorial_reject",
+    "decision_date": "2026-07-17"
+  },
+  "freeze": {
+    "status": "frozen_closed",
+    "effective_date": "2026-07-17",
+    "authority": "explicit_human_freeze_instruction_2026_07_17",
+    "reason_codes": [
+      "editorial_reject",
+      "shared_saee_research_lineage",
+      "active_saee_scientific_submission_overlap_control"
+    ],
+    "active_saee_submission_reference": "ALIFE_2026_LBA_lb120",
+    "external_resubmission_allowed": false,
+    "venue_transfer_allowed": false,
+    "title_only_reframe_allowed": false,
+    "successor_route_allowed": false,
+    "automatic_unfreeze_allowed": false
+  },
+  "retention": {
+    "experimental_assets_retained": true,
+    "historical_submission_evidence_retained": true,
+    "reuse_scope": "local_evidence_only"
+  },
+  "agent_action": "do_not_recommend_resubmission",
+  "canonical_human_record": "saee_v1_2/universality_test/submission/PAPER_LINE_FREEZE.md"
+}

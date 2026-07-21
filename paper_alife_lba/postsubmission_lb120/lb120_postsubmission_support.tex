@@ -1,0 +1,259 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\renewcommand{\arraystretch}{1.12}
+\title{\vspace{-1.5em}SAEE lb120: Post-submission Operational Clarification}
+\author{Zhang Bin}
+\date{Local support artifact; not submitted to the portal}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document clarifies the operational meaning and provenance of quantities
+reported in the ALIFE 2026 Late-Breaking Abstract submission \texttt{lb120}.
+It introduces no new experiment, result, theory, runtime, kernel, candidate
+law, or GSP semantic change. The submitted PDF remains frozen. The evidence is
+limited to one 100-generation long-horizon artifact set and one six-generation
+Phase II analysis artifact set; no cross-run universality, formal attractor
+existence, open-ended evolution, benchmark superiority, external validation,
+publication, proceedings inclusion, DOI assignment, or completed conference
+registration is claimed. Linklings records the submission as accepted and the
+author confirmation as completed.
+\end{abstract}
+
+\section{Submission and venue boundary}
+
+The portal state observed on 2 July 2026 was \texttt{Under Evaluation} for
+submission \texttt{lb120}. On 18 July 2026, the Linklings decision and author
+confirmation state was observed as \texttt{Accept (Confirmed)}. This records
+acceptance and confirmed intent to present; it does not establish publication,
+proceedings inclusion, DOI assignment, completed conference registration, or
+external validation. The official ALIFE 2026 call states that Late-Breaking Abstracts are at most two
+pages excluding references, may report new ideas and work in progress, are
+reviewed for relevance and quality, are not included in proceedings, and are
+presented as posters if accepted. Submissions are non-anonymous and the review
+process is single-blind.\footnote{\url{https://2026.alife.org/call-for-papers/}}
+
+The frozen submitted PDF has one page. Its SHA-256 is:
+\begin{quote}\small\ttfamily
+aef09e556b2e91b2374b51371164d887\\
+e2db40c39a260b3dac2ef7772d15ece8
+\end{quote}
+The submitted source and PDF are not modified by this support artifact.
+
+\section{Evidence surfaces}
+
+Two surfaces are compressed in the LBA and must remain distinct.
+
+\begin{enumerate}
+\item The v1.0 long-horizon surface records 100 generations with configured
+population size 8, collapse checks, fitness-variance tendency, genome-ID
+turnover, and a lineage DAG.
+\item The Phase II surface analyzes six generations from a v0.8 record and
+emits semantic-drift values, categorical state signatures, empirical attractor
+candidates, and pointwise regime labels.
+\end{enumerate}
+
+The later label \texttt{stable\_lineage\_basin} is a local phase-diagram
+compression of both surfaces, not the literal attractor identifier emitted by
+Phase II and not a formal estimate of a basin in continuous phase space.
+
+\section{Long-horizon operational definitions}
+
+\subsection{Configuration and determinism}
+
+The recorded configuration is:
+\begin{quote}\small
+\path{generation_count=100}; \path{population_size=8};
+\path{deterministic_seed=enabled}; \path{logging_level=full_trace}; and
+\path{seed_path=kernel/examples/seed_genome.json}.
+\end{quote}
+The deterministic-seed field is a mode flag, not a numeric random seed. v1.0
+child identifiers are derived from truncated SHA-256 digests and mutations are
+deterministic weight shifts.
+
+\subsection{Collapse and fitness-variance tendency}
+
+A collapse event is recorded for generation $t$ when
+\[
+ |P_t| < 2
+ \quad\text{or}\quad
+ \mathrm{survivor\_count}_t = 0.
+\]
+No such event appears in the recorded run. This is a local absence under the
+implemented rule, not a proof that collapse is impossible.
+
+Let $F_{\mathrm{first}}$ be the mean of per-generation fitness variance over
+the first ten generations and $F_{\mathrm{last}}$ the corresponding mean over
+the final ten. The analyzer emits \texttt{converging} when
+$F_{\mathrm{last}} < 0.75F_{\mathrm{first}}$, \texttt{diverging} when
+$F_{\mathrm{last}} > 1.25F_{\mathrm{first}}$, and
+\texttt{stable\_variance} otherwise. The current artifact is labeled
+\texttt{converging}; this is not mathematical limit convergence.
+
+\subsection{Turnover and lineage accounting}
+
+For consecutive genome-ID sets $P_{t-1}$ and $P_t$, population turnover is the
+Jaccard distance
+\[
+ d_J(P_{t-1},P_t)
+ = 1-\frac{|P_{t-1}\cap P_t|}{\max(1,|P_{t-1}\cup P_t|)}.
+\]
+The first generation is assigned zero. The reported mean is \texttt{0.545531}.
+
+The values \texttt{808/1590} mean 808 nodes and 1590 directed edges in one
+declared \texttt{lineage\_dag}. They do not mean retained nodes versus raw
+events. Branching density is
+\[
+ \frac{1590}{808}=1.967822.
+\]
+The flag \texttt{lineage\_integrity\_preserved=true} requires the declared
+graph type \texttt{lineage\_dag} and verifies that every edge endpoint occurs
+in the node-ID set. The reporting function does not independently perform a
+topological cycle test.
+
+\section{Phase II operational definitions}
+
+\subsection{Semantic drift}
+
+Let $A$ be the set of lowercased identity-anchor reference terms and $D_t$ the
+set of lowercased dominant terms after any bounding intervention. The recorded
+drift is
+\[
+ \delta_t=1-\frac{|D_t\cap A|}{\max(1,|A|)}.
+\]
+It is a term-overlap distance, not an embedding-space semantic distance. The
+bound is \texttt{0.32}; the six-generation artifact reports
+$\delta_t=0.2$ at every point and therefore \texttt{semantic\_drift\_max=0.2}.
+
+\newpage
+\begin{samepage}
+\subsection{State signature and empirical attractor candidate}
+
+Each trajectory point receives four categorical components:
+
+{\small
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}p{0.74\linewidth}@{}}
+\toprule
+Component & Implemented rule \\
+\midrule
+Identity & \texttt{stable} iff no identity break and mean identity score is at least 0.58; otherwise \texttt{fragile}. \\
+Drift & \texttt{bounded} iff semantic drift after control is at most 0.32; otherwise \texttt{unbounded}. \\
+Population & \texttt{dense} iff population count is at least 10; otherwise \texttt{sparse}. \\
+Mutation & \texttt{active} iff explanation-driven mutation count is positive; otherwise \texttt{quiet}. \\
+\bottomrule
+\end{tabular}
+\end{center}
+}
+
+An exact signature occurring at least twice is emitted as an empirical
+attractor candidate. The current signature is
+\texttt{identity:stable|drift:bounded|population:sparse|mutation:active}, with
+support at generations 1--6. There is no sliding window, continuous distance,
+clustering algorithm, dominance ratio, dispersion threshold, or recurrence-gap
+threshold. Hence \emph{attractor} means a recurring discrete signature in this
+record, not a formal continuous-state attractor proof.
+\end{samepage}
+
+\subsection{Regime rule}
+
+The point classifier applies rules in order: (1) \texttt{chaotic\_regime} if
+an identity break occurs or drift exceeds 0.55; (2) \texttt{collapse\_regime}
+if population is at most 2; (3) \texttt{stable\_regime} if the point supports
+an attractor candidate and drift is at most 0.32; (4)
+\texttt{exploratory\_regime} if mutation-event count is at least 4; and (5)
+\texttt{stable\_regime} otherwise.
+
+Rule order matters: the six current points have at least five mutation events,
+but satisfy the stable-attractor rule first. All six are labeled
+\texttt{stable\_regime}. The classifier reports zero label changes. A later
+projection counts five adjacent self-transitions, giving local ratio 5/5; this
+is not a general transition-probability estimate.
+
+\section{Related-work boundary}
+
+Tierra and Avida establish the core digital-evolution context, with Avida in
+particular emphasizing controlled protocols and extensive analysis tools
+\cite{ray1992,ofria2004}. MODES proposes comparable metrics for hallmarks of
+open-ended dynamics \cite{dolson2019}; lb120 implements none of those metrics
+and makes no open-ended-evolution claim. Ancestry-based analysis work develops
+lineage and phylogeny metrics \cite{dolson2020}; lb120's node and edge counts
+are not phylogenetic richness, divergence, or equivalent measures.
+Reproducibility guidance for evolutionary computation motivates recording
+code, data, factors, and environment while distinguishing fixed-instance
+claims from broader inference \cite{lopez2021}.
+
+The narrow contribution is therefore a repository-linked observation protocol
+for one frozen object: it exposes how identity-bounded feedback, a lineage DAG,
+categorical regimes, and local evidence compression map to inspectable
+artifacts. It is not a platform-breadth or algorithm-performance claim.
+
+\newpage
+\section{Provenance and known gaps}
+
+\begin{center}
+\begin{tabular}{@{}p{0.31\linewidth}p{0.61\linewidth}@{}}
+\toprule
+Field & Recorded value or status \\
+\midrule
+Long-horizon config & \texttt{saee\_experiments/configs/experiment\_config.yaml} \\
+Long-horizon trace & \texttt{saee\_experiments/output/demo-run/evolution\_trace.jsonl} \\
+Lineage report & \texttt{saee\_experiments/reports/lineage\_statistics.json} \\
+Phase II attractor map & \texttt{saee\_phase2/output/demo-run/attractor\_map.json} \\
+Phase II regime log & \texttt{saee\_phase2/output/demo-run/regime\_transition\_log.json} \\
+Original execution commit & Not recorded in current run artifacts \\
+Exact original command & Not recorded \\
+Numeric random seed & Not applicable as a recorded field; deterministic mode flag only \\
+Original OS/Python and lockfile & Not recorded \\
+Original CPU/GPU & Not recorded \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The repository HEAD observed during this documentation pass was
+\texttt{f6ac41f4b068377e7778e8c3d83b99bd8382debc}. It is a current
+documentation snapshot and is not represented as the original execution
+commit.
+
+\section{Claim-safe conclusion}
+
+The strongest reconstructable statement is that the recorded 100-generation
+v1.0 surface remained viable under its collapse rule and preserved declared-DAG
+endpoint integrity, while the six-generation Phase II surface repeated one
+bounded-drift categorical signature and received six stable-regime labels.
+This is local observational evidence only.
+
+\begin{thebibliography}{9}
+\bibitem{ray1992}
+T. S. Ray. An Approach to the Synthesis of Life. In \emph{Artificial Life II}, 1992.
+\url{https://tomray.me/pubs/alife2/Ray1991AnApproachToTheSynthesisOfLife.pdf}
+
+\bibitem{ofria2004}
+C. Ofria and C. O. Wilke. Avida: A Software Platform for Research in
+Computational Evolutionary Biology. \emph{Artificial Life}, 10(2):191--229,
+2004. doi:10.1162/106454604773563612.
+
+\bibitem{dolson2019}
+E. L. Dolson, A. E. Vostinar, M. J. Wiser, and C. Ofria. The MODES Toolbox:
+Measurements of Open-Ended Dynamics in Evolving Systems. \emph{Artificial
+Life}, 25(1):50--73, 2019. doi:10.1162/artl\_a\_00280.
+
+\bibitem{dolson2020}
+E. Dolson, A. Lalejini, S. Jorgensen, and C. Ofria. Interpreting the Tape of
+Life: Ancestry-Based Analyses Provide Insights and Intuition about Evolutionary
+Dynamics. \emph{Artificial Life}, 26(1):58--79, 2020.
+doi:10.1162/artl\_a\_00313.
+
+\bibitem{lopez2021}
+M. L\'opez-Ib\'a\~nez, J. Branke, and L. Paquete. Reproducibility in
+Evolutionary Computation. \emph{ACM Transactions on Evolutionary Learning and
+Optimization}, 1(4):1--21, 2021. doi:10.1145/3466624.
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,218 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+\hypersetup{
+  pdftitle={Bounded Evolution in a Reflexive Digital Population: A Local SAEE Characterization},
+  pdfauthor={Bin Zhang; Xiaojuan Sun},
+  pdfsubject={Letter submitted to Artificial Life},
+  pdfkeywords={artificial life, digital evolution, lineage, bounded dynamics, reflexive systems}
+}
+
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+
+\title{Bounded Evolution in a Reflexive Digital Population:\\
+A Local SAEE Characterization}
+\author{Bin Zhang$^{1,*}$ \quad Xiaojuan Sun$^{2}$\\[0.5em]
+\small $^1$Shanxi Youqibing E-Commerce Co., Ltd., Yuncheng, Shanxi, China\\
+\small $^2$Department of Physical Education, Yuncheng University,
+Yuncheng, Shanxi 044000, China\\
+\small $^*$Corresponding author: \texttt{joy7759@gmail.com}\\
+\small ORCID: Bin Zhang 0009-0002-8861-1481; Xiaojuan Sun 0009-0003-4705-1809}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Open-ended evolution is often discussed through continued novelty, diversity,
+or major transitions. Equally important is identifying when a digital
+evolution system is bounded. We report an artifact-backed local
+characterization of SAEE, a digital population system whose formal state
+includes population, transformation, selection, lineage, observer, and
+identity terms. Two existing evidence surfaces are kept separate. In a
+100-generation fixed-kernel run, population size remains eight, mean fitness
+increases from 0.5993 to 0.6360, the final-to-initial ten-generation fitness
+variance ratio is 0.383, and no collapse event is recorded. The associated
+lineage record contains 808 nodes and 1,590 parent--child edges with valid
+endpoints. In a separate six-generation reflexive-analysis record, one
+categorical state signature recurs at all observations, semantic drift remains
+0.2 under a configured bound of 0.32, and all points receive the local
+\texttt{stable\_regime} label. These measurements support a bounded,
+convergent interpretation for the recorded artifacts, not mathematical
+attractor existence or open-ended evolution. The result demonstrates a
+claim-scoped method for reporting negative evidence about open-endedness while
+preserving provenance and measurement boundaries.
+\end{abstract}
+
+\noindent\textbf{Keywords:} artificial life; digital evolution; lineage;
+bounded dynamics; reflexive systems; empirical characterization
+
+\newpage
+\setstretch{1.85}
+
+\section{Introduction}
+
+Artificial life studies constructed systems that realize or simulate
+life-like processes in software, hardware, and wetware \citep{dorin2024}.
+Open-ended evolution remains a central challenge, but long execution alone is
+not evidence of continuing evolutionary innovation \citep{taylor2016,hintze2019}.
+Measurement proposals therefore examine novelty, diversity, complexity, and
+ecological or phylogenetic structure \citep{dolson2019,moreno2025}.
+
+This Letter asks a narrower question: what can be stated when a digital
+population remains viable but its recorded behavior is strongly bounded? We
+analyze existing SAEE artifacts without rerunning the system or changing its
+kernel. The contribution is not a new open-ended mechanism. It is a
+provenance-bounded characterization that distinguishes observed convergence,
+recurring discrete state, and lineage endpoint integrity from stronger claims
+such as formal attractor existence, cross-seed robustness, or universal law.
+
+\section{System and measurements}
+
+The paper-facing formal state is
+\(
+  (\Omega,G,T,S,L,R,\mu)
+\), with population update
+\begin{equation}
+  P_{t+1}=S_{\theta_t}\!\left(T_{\phi_t}(P_t)\right).
+\end{equation}
+Here \(L\) records lineage and \(R\) represents observer state. This notation
+describes the system boundary; the 100-generation runtime analyzed below uses
+a fixed deterministic kernel and does not empirically establish operator
+co-evolution.
+
+We preserve two distinct evidence surfaces. The first is a 100-generation
+v1.0 run configured with population size eight and deterministic identifier and
+weight updates. A collapse is logged if population size falls below two or the
+survivor count becomes zero. The reported convergence label compares mean
+fitness variance over the first and final ten generations; the run is labeled
+converging when the latter is less than 75\% of the former. Population turnover
+is Jaccard distance between consecutive genome-identifier sets.
+
+The second surface is a six-generation Phase II analysis of a different v0.8
+record. Its semantic-drift measure is one minus the fraction of identity-anchor
+terms retained among dominant feedback terms. A categorical signature combines
+identity stability, drift boundedness, population density, and mutation
+activity. A signature observed at least twice is called an empirical attractor
+candidate by the local implementation. This is recurrence under a discrete
+rule, not a continuous-state attractor test.
+
+\section{Observed dynamics}
+
+Figure~\ref{fig:long-horizon} summarizes the long-horizon trace. Mean fitness
+rises from 0.599284 to 0.636003. Mean variance over generations 91--100 is
+0.383 times the mean over generations 1--10, satisfying the implemented
+convergence rule. Population remains eight throughout, no collapse is logged,
+and mean genome-set turnover is 0.545531. Turnover therefore continues even
+while fitness variance contracts.
+
+\begin{figure}[t]
+  \centering
+  \resizebox{\textwidth}{!}{\input{figures/long_horizon_trace.tex}}
+  \caption{Existing 100-generation v1.0 trace. The shaded band is the observed
+  fitness range; variance uses a logarithmic axis. Turnover is Jaccard distance
+  between consecutive population identifier sets.}
+  \label{fig:long-horizon}
+\end{figure}
+
+The lineage record contains 808 nodes and 1,590 directed parent--child edges.
+Every recorded edge endpoint resolves to a node identifier, yielding a
+branching-density summary of 1.967822 edges per node. The implementation does
+not independently perform cycle detection, so this result is endpoint
+integrity under a declared lineage-DAG type, not a graph-theoretic proof.
+
+In the separate Phase II record, population is six at each observation,
+semantic drift is 0.2 against a 0.32 bound, and one categorical signature
+recurs six times. All points are labeled \texttt{stable\_regime}; no
+cross-regime transition is recorded. Figure~\ref{fig:lineage-phase2} displays
+the lineage surface and the constant drift series. The repository's later
+\texttt{stable\_lineage\_basin} label compresses these observations but is not
+a measured basin volume or calibrated probability.
+
+\begin{figure}[t]
+  \centering
+  \resizebox{\textwidth}{!}{\input{figures/lineage_phase2.tex}}
+  \caption{Left: the recorded lineage surface arranged by generation; edge
+  opacity is reduced to show density. Right: Phase II semantic drift and its
+  configured bound. The panels describe different source records.}
+  \label{fig:lineage-phase2}
+\end{figure}
+
+\section{Discussion}
+
+The artifacts show bounded evolutionary activity rather than open-endedness.
+Fitness changes and genome turnover continue, yet the fixed population,
+contracting variance, absence of collapse, and repeated Phase II signature do
+not demonstrate unbounded novelty, complexity, or diversity. This distinction
+is consistent with work that separates prolonged activity from stronger
+open-ended-evolution criteria \citep{taylor2016,dolson2019,hintze2019}.
+
+The main methodological lesson is a stop rule for interpretation. Internal
+labels must be reduced to their operational definitions before they are used
+as scientific claims. Here, ``attractor candidate'' means repeated categorical
+signature, ``converging'' means a specified variance comparison, and
+``lineage integrity'' means endpoint validity. Keeping those definitions close
+to the reported values prevents a local analysis pipeline from being mistaken
+for formal proof.
+
+The study has substantial limitations: one fixed-kernel long-horizon record,
+one separate six-generation analysis record, no numeric random seed, no
+cross-parameter distribution, no external benchmark, and incomplete original
+execution-environment provenance. The current evidence cannot support
+generality or causal claims about reflexive coupling. It instead supplies a
+falsifiable local baseline: future runs would contradict this characterization
+if they produced collapse, sustained cross-regime transitions, unbounded drift,
+or noncontracting diversity under the same declared conditions.
+
+\section{Conclusion}
+
+SAEE's recorded behavior is locally bounded and convergent, not demonstrably
+open-ended. Reporting that negative result requires preserving the separation
+between two source records and translating system labels into measurable
+rules. The resulting characterization is modest but reproducible from the
+submitted data package and provides a concrete baseline for later comparative
+work.
+
+\section*{Data and code availability}
+The submission includes a supplementary package containing the source reports,
+their SHA-256 manifest, the plotting script, and verification instructions.
+No personal, customer, or production data are included.
+
+\section*{Funding}
+The authors received no financial support for the research, authorship, or
+publication of this article.
+
+\section*{Declaration of competing interest}
+The authors declare no competing financial or personal interests.
+
+\section*{Author contributions}
+Bin Zhang: Conceptualization, methodology, software, validation, formal
+analysis, data curation, visualization, writing--original draft, and
+writing--review and editing.
+
+Xiaojuan Sun: Methodology, formal analysis, investigation, data curation, and
+writing--review and editing.
+
+\section*{AI-assisted preparation disclosure}
+OpenAI Codex assisted the corresponding author with literature discovery,
+figure generation, drafting, editing, and verification. The corresponding
+author reviewed the sources, data, code, and manuscript. Both authors accept
+responsibility for their contributions.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

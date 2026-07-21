@@ -1,0 +1,55 @@
+{
+  "schema": "saee.paper-author-registry.public.v1",
+  "canonical_public_author_registry": true,
+  "last_verified": "2026-07-19",
+  "usage_rules": {
+    "paper_specific_author_selection_required": true,
+    "paper_specific_author_order_required": true,
+    "paper_specific_credit_confirmation_required": true,
+    "paper_specific_consent_required": true,
+    "do_not_infer_authorship_from_registry_presence": true,
+    "do_not_read_private_registry_for_public_output": true,
+    "authentication_credentials_allowed": false
+  },
+  "authors": [
+    {
+      "author_id": "bin-zhang",
+      "publication_name": "Bin Zhang",
+      "given_name": "Bin",
+      "family_name": "Zhang",
+      "native_name": "张斌",
+      "email": "joy7759@gmail.com",
+      "orcid": "0009-0002-8861-1481",
+      "orcid_url": "https://orcid.org/0009-0002-8861-1481",
+      "github": "https://github.com/joy7758",
+      "country": "China",
+      "affiliations": [
+        {
+          "affiliation_id": "shanxi-youqibing",
+          "name": "Shanxi Youqibing E-Commerce Co., Ltd.",
+          "location": "Yuncheng, Shanxi, China"
+        }
+      ],
+      "eligible_as_corresponding_author": true
+    },
+    {
+      "author_id": "xiaojuan-sun",
+      "publication_name": "Xiaojuan Sun",
+      "given_name": "Xiaojuan",
+      "family_name": "Sun",
+      "native_name": "孙小娟",
+      "email": "sunxiaojuan@ycu.edu.cn",
+      "orcid": "0009-0003-4705-1809",
+      "orcid_url": "https://orcid.org/0009-0003-4705-1809",
+      "country": "China",
+      "affiliations": [
+        {
+          "affiliation_id": "yuncheng-university-physical-education",
+          "name": "Department of Physical Education, Yuncheng University",
+          "location": "Yuncheng, Shanxi 044000, China"
+        }
+      ],
+      "eligible_as_corresponding_author": false
+    }
+  ]
+}

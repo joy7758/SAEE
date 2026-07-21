@@ -1,0 +1,42 @@
+{
+  "schema": "saee.journal_submission_receipt.v1",
+  "journal": "Artificial Life",
+  "publisher": "MIT Press",
+  "portal": "ScholarOne Manuscripts",
+  "article_type": "Letter",
+  "manuscript_id": "ARTL-2026-0186",
+  "title": "Bounded Evolution in a Reflexive Digital Population: A Local SAEE Characterization",
+  "authors": [
+    {
+      "order": 1,
+      "name": "Bin Zhang",
+      "corresponding_author": true,
+      "affiliation": "Shanxi Youqibing E-Commerce Co., Ltd."
+    },
+    {
+      "order": 2,
+      "name": "Xiaojuan Sun",
+      "corresponding_author": false,
+      "affiliation": "Department of Physical Education, Yuncheng University"
+    }
+  ],
+  "portal_date_submitted": "18-Jul-2026",
+  "confirmation_observed_on": "2026-07-19",
+  "portal_status": "Awaiting Admin Processing",
+  "submission_completed": true,
+  "publication_route": "standard_subscription",
+  "open_access_selected": false,
+  "mandatory_author_cost": 0,
+  "payment_requested": false,
+  "payment_made": false,
+  "funding_reported": false,
+  "truth_boundaries": {
+    "technical_check_claim": false,
+    "editor_assigned_claim": false,
+    "peer_review_claim": false,
+    "acceptance_claim": false,
+    "publication_claim": false,
+    "doi_assignment_claim": false,
+    "external_validation_claim": false
+  }
+}

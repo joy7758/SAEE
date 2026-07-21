@@ -1,0 +1,1514 @@
+{
+  "artifact_provenance": {
+    "component_sha256": {
+      "agent-interface/examples/evidence-adequacy/authorized_agent_action_pass.json": "ca1d3977ee630fc05ce37cf6122f6dc39a5f293e131ed3fc73976c2740eb1467",
+      "agent-interface/examples/evidence-adequacy/execution_boundary_pass.json": "de0340017692e92a0b2bc5a0f38d8c75f7d79b6ef4e3b309a2028afabab32903",
+      "agent-interface/examples/evidence-adequacy/human_oversight_pass.json": "b4be8c51d1e30be22ef8d32d8cbe7863246f01f22b82566dd0e09421c12cb2d8",
+      "agent-interface/examples/evidence-adequacy/resource_authenticity_pass.json": "2c980cb54a57bb974482b8de3d754d06d3e8292f663bb8c31c8f1f6cc53e377c",
+      "agent-interface/profiles/evidence-adequacy/authorized-agent-action.v0.1.json": "df9d3e0d6b4335b700f7d9b10b60444ebb50e58c4fa0a781035684b8f49a61d3",
+      "agent-interface/profiles/evidence-adequacy/execution-boundary.v0.1.json": "88b51b1e6cc7b6ed8ca3d74dc37b11d4dfc759b8900bbe16ec199feeefa29f5d",
+      "agent-interface/profiles/evidence-adequacy/human-oversight.v0.1.json": "a042466816ad000be78b28d1b7152efcc4d0be2df6094fe34e957b9897afa86e",
+      "agent-interface/profiles/evidence-adequacy/resource-authenticity.v0.1.json": "193076004f732063c1192af8ed1207fd1fc1a23ce52a87ece1c7a76103602e4f",
+      "saee_backend/services/evidence_adequacy.py": "d11b8e06d7197706ec103fb211c0578647c29dfc1fe1ae1bb16a98005b0c2688"
+    },
+    "evaluator_snapshot_commit": "be6ab57878dc7346da733e2f3b134aa3d3049af8",
+    "snapshot_hashes_match": true
+  },
+  "canonical_result_sha256": "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+  "dataset_sha256": "1d9cf1ddd52636a1504b78c7b2e7ed577300e6fecdb81b67c2bd222c03f687b0",
+  "deterministic": true,
+  "experiment_run_manifest_v0_1": true,
+  "repetitions": 5,
+  "result": {
+    "boundary_violation_count": 0,
+    "case_results": [
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-01:valid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "receipt_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-01",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-01:relation_invalid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "receipt_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "resource_receipt_semantically_valid"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-01",
+        "reason_codes": [
+          "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-02:valid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "content_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-02",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-02:relation_invalid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "content_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "resource_receipt_semantically_valid"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-02",
+        "reason_codes": [
+          "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-03:valid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "resolved_host_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-03",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-03:relation_invalid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "resolved_host_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "resource_receipt_semantically_valid"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-03",
+        "reason_codes": [
+          "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-04:valid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "retrieval_time_ordering",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-04",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 5,
+          "required_operands": 5,
+          "score": 1.0
+        },
+        "case_id": "RA-04:relation_invalid",
+        "claim_type": "RESOURCE_AUTHENTICITY",
+        "condition": "retrieval_time_ordering",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "cd40a4989f8256fdc130b24d04b4c3a2b3f8c857a7f231ea0f7cbe44c9d10ddb",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "resource_receipt_semantically_valid"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic resource metadata was inspected without execution",
+        "pair_id": "RA-04",
+        "reason_codes": [
+          "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-01:valid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "decision_semantics",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-01",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-01:relation_invalid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "decision_semantics",
+        "decision_aware_ablation_support": false,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "authority_window_covers_action"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-01",
+        "reason_codes": [
+          "EVIDENCE_POLICY_DECISION_NOT_ALLOW",
+          "EVIDENCE_AUTHORITY_WINDOW_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-02:valid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "authority_window",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-02",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-02:relation_invalid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "authority_window",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "authority_window_covers_action"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-02",
+        "reason_codes": [
+          "EVIDENCE_AUTHORITY_WINDOW_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-03:valid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "authority_scope",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-03",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-03:relation_invalid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "authority_scope",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "authority_scope_covers_action"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-03",
+        "reason_codes": [
+          "EVIDENCE_AUTHORITY_SCOPE_INSUFFICIENT"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-04:valid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "agent_identity_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-04",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 11,
+          "required_operands": 11,
+          "score": 1.0
+        },
+        "case_id": "AA-04:relation_invalid",
+        "claim_type": "AUTHORIZED_AGENT_ACTION",
+        "condition": "agent_identity_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "247b89e760ecf0cd35fe224570343e4eeed33c83e978e6f1749ddec3078a11b6",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "agent_reference_matches"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic agent action record reports metadata inspection",
+        "pair_id": "AA-04",
+        "reason_codes": [
+          "EVIDENCE_AGENT_BINDING_MISMATCH"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-01:valid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_decision",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-01",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-01:relation_invalid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_decision",
+        "decision_aware_ablation_support": false,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-01",
+        "reason_codes": [
+          "EVIDENCE_APPROVAL_DECISION_NOT_APPROVED"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-02:valid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_time_ordering",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-02",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-02:relation_invalid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_time_ordering",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "approval_precedes_action"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-02",
+        "reason_codes": [
+          "EVIDENCE_APPROVAL_TIME_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-03:valid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_scope",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-03",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-03:relation_invalid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_scope",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "approval_scope_covers_action"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-03",
+        "reason_codes": [
+          "EVIDENCE_APPROVAL_SCOPE_INSUFFICIENT"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-04:valid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_action_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-04",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 10,
+          "required_operands": 10,
+          "score": 1.0
+        },
+        "case_id": "HO-04:relation_invalid",
+        "claim_type": "HUMAN_OVERSIGHT",
+        "condition": "approval_action_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "c8d33c53556988e2beec0edf2be33174c76d101b5b5c664e7edbeab840e86da4",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "approval_action_reference_matches"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic action record reports metadata inspection after a review record",
+        "pair_id": "HO-04",
+        "reason_codes": [
+          "EVIDENCE_APPROVAL_ACTION_MISMATCH"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-01:valid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "resource_receipt_reference",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-01",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-01:relation_invalid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "resource_receipt_reference",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "execution_causal_binding_complete"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-01",
+        "reason_codes": [
+          "EVIDENCE_CAUSAL_BINDING_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-02:valid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "effect_reference",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-02",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-02:relation_invalid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "effect_reference",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "execution_causal_binding_complete"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-02",
+        "reason_codes": [
+          "EVIDENCE_CAUSAL_BINDING_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-03:valid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "content_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-03",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-03:relation_invalid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "content_digest_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "execution_causal_binding_complete"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-03",
+        "reason_codes": [
+          "EVIDENCE_CAUSAL_BINDING_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-04:valid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "resolved_uri_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": true,
+        "failed_relationships": [],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-04",
+        "reason_codes": [],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": true,
+        "type_and_shape_baseline_support": true,
+        "variant": "valid"
+      },
+      {
+        "boundary_violation": false,
+        "bounded_reconstructability": {
+          "complete": true,
+          "missing_operands": [],
+          "present_operands": 12,
+          "required_operands": 12,
+          "score": 1.0
+        },
+        "case_id": "EB-04:relation_invalid",
+        "claim_type": "EXECUTION_BOUNDARY",
+        "condition": "resolved_uri_binding",
+        "decision_aware_ablation_support": true,
+        "evidence_shape_sha256": "369db8e2ef7bb9cb127a617cbdf49fdbb13404921f3322bb03ff6437feda3e62",
+        "expected_semantic_adequacy": false,
+        "failed_relationships": [
+          "execution_causal_binding_complete"
+        ],
+        "field_complete_baseline_support": true,
+        "nominal_outcome": "synthetic execution effect record reports bounded metadata handling",
+        "pair_id": "EB-04",
+        "reason_codes": [
+          "EVIDENCE_CAUSAL_BINDING_INVALID"
+        ],
+        "reason_codes_match": true,
+        "required_field_presence_vector": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "semantic_expectation_match": true,
+        "semantic_profile_support": false,
+        "type_and_shape_baseline_support": true,
+        "variant": "relation_invalid"
+      }
+    ],
+    "claim_pair_counts": {
+      "AUTHORIZED_AGENT_ACTION": 4,
+      "EXECUTION_BOUNDARY": 4,
+      "HUMAN_OVERSIGHT": 4,
+      "RESOURCE_AUTHENTICITY": 4
+    },
+    "claims": {
+      "establishes_external_identity_or_authority": false,
+      "establishes_general_product_superiority": false,
+      "establishes_production_readiness": false,
+      "establishes_real_world_prevalence": false,
+      "supports_bounded_construct_counterexample": true,
+      "supports_presence_equivalence_impossibility_instances": true
+    },
+    "dataset_id": "saee-reconstructability-adequacy-matched-pairs-v0.1",
+    "dataset_version": "0.1.0",
+    "decision_aware_ablation": {
+      "balanced_accuracy": 0.5625,
+      "f1": 0.695652,
+      "false_negative": 0,
+      "false_positive": 14,
+      "precision": 0.533333,
+      "recall": 1.0,
+      "specificity": 0.125,
+      "true_negative": 2,
+      "true_positive": 16
+    },
+    "execution_boundary": {
+      "candidate_code_executed": false,
+      "external_resource_read": false,
+      "network_accessed": false,
+      "subprocess_started": false
+    },
+    "false_support_reduction_on_designed_negatives": 16,
+    "field_complete_baseline": {
+      "balanced_accuracy": 0.5,
+      "f1": 0.666667,
+      "false_negative": 0,
+      "false_positive": 16,
+      "precision": 0.5,
+      "recall": 1.0,
+      "specificity": 0.0,
+      "true_negative": 0,
+      "true_positive": 16
+    },
+    "limitations": [
+      "The study uses authored synthetic fixtures and isolated mutations; rates are construct-validation results, not population estimates.",
+      "Bounded reconstructability is operationalized as complete presence of the operands declared by each SAEE evidence profile; it is not the eight-property Load-Bearing Evidence metric.",
+      "Semantic profile PASS supports only the named closed-package profile and does not authorize an action or establish external truth.",
+      "The same canonical pass fixture is reused within a claim type to isolate one semantic condition per pair."
+    ],
+    "matched_pairs_with_complete_reconstructability": 16,
+    "matched_pairs_with_divergent_semantic_verdict": 16,
+    "matched_pairs_with_identical_json_shape": 16,
+    "matched_pairs_with_identical_presence_vector": 16,
+    "matched_pairs_with_same_nominal_outcome": 16,
+    "pair_checks": [
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "RA-01",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "RA-02",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "RA-03",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "RA-04",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "AA-01",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "AA-02",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "AA-03",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "AA-04",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "HO-01",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "HO-02",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "HO-03",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "HO-04",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "EB-01",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "EB-02",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "EB-03",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      },
+      {
+        "both_reconstructability_complete": true,
+        "identical_json_shape": true,
+        "identical_required_field_presence_vector": true,
+        "pair_id": "EB-04",
+        "same_nominal_outcome": true,
+        "semantic_verdict_diverges": true
+      }
+    ],
+    "reason_code_matches": 32,
+    "reconstructability_complete_cases": 32,
+    "saee_reconstructability_adequacy_study_result_v0_1": true,
+    "semantic_expectation_matches": 32,
+    "semantic_negative_cases": 16,
+    "semantic_positive_cases": 16,
+    "semantic_profile_evaluator": {
+      "balanced_accuracy": 1.0,
+      "f1": 1.0,
+      "false_negative": 0,
+      "false_positive": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "true_negative": 16,
+      "true_positive": 16
+    },
+    "study_design": "controlled_matched_pair_construct_validation",
+    "total_cases": 32,
+    "total_pairs": 16,
+    "type_and_shape_baseline": {
+      "balanced_accuracy": 0.5,
+      "f1": 0.666667,
+      "false_negative": 0,
+      "false_positive": 16,
+      "precision": 0.5,
+      "recall": 1.0,
+      "specificity": 0.0,
+      "true_negative": 0,
+      "true_positive": 16
+    }
+  },
+  "result_sha256_by_run": [
+    "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+    "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+    "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+    "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+    "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44"
+  ]
+}

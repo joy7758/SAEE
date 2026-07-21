@@ -1,0 +1,7 @@
+Highlights
+
+- Claim-valid classifiers require claim-separating evidence abstractions
+- Presence-only rules cannot separate matched relation-valid/invalid evidence
+- 16 matched pairs preserve required fields and JSON key/type shape
+- Decision checks still false-support 14 of 16 relation-invalid cases
+- Relation-aware checks reject all 16 designed negatives with reasons

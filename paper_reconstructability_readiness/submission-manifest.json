@@ -1,0 +1,210 @@
+{
+  "aij_submission_package_v0_1": true,
+  "manuscript_title": "Evidence Presence Is Not Semantic Support: An Impossibility Result for AI-Agent Readiness Claims",
+  "target_journal": "Artificial Intelligence",
+  "article_type": "Research Note",
+  "publishing_route": "subscription_traditional",
+  "author_registry": {
+    "public_path": "../paper_submission/author-registry.public.json",
+    "private_path": "../PRIVATE_PAPER_AUTHOR_REGISTRY.json",
+    "selected_author_ids": [
+      "bin-zhang",
+      "xiaojuan-sun"
+    ],
+    "selection_is_paper_specific": true
+  },
+  "authors": [
+    {
+      "order": 1,
+      "role": "corresponding_author",
+      "publication_name": "Bin Zhang",
+      "given_name": "Bin",
+      "family_name": "Zhang",
+      "email": "joy7759@gmail.com",
+      "orcid": "0009-0002-8861-1481",
+      "orcid_url": "https://orcid.org/0009-0002-8861-1481",
+      "github": "https://github.com/joy7758",
+      "country": "China",
+      "affiliation": "Shanxi Youqibing E-Commerce Co., Ltd.",
+      "public_affiliation_location": "Yuncheng, Shanxi, China",
+      "sensitive_personal_fields_in_public_package": false,
+      "private_profile_path": "../PRIVATE_AUTHOR_PROFILE.md"
+    },
+    {
+      "order": 2,
+      "role": "coauthor",
+      "publication_name": "Xiaojuan Sun",
+      "given_name": "Xiaojuan",
+      "family_name": "Sun",
+      "email": "sunxiaojuan@ycu.edu.cn",
+      "orcid": "0009-0003-4705-1809",
+      "orcid_url": "https://orcid.org/0009-0003-4705-1809",
+      "country": "China",
+      "affiliation": "Department of Physical Education, Yuncheng University",
+      "public_affiliation_location": "Yuncheng, Shanxi 044000, China",
+      "coauthor_consent_confirmed": true,
+      "contribution_statement_confirmed": true,
+      "credit_roles": [
+        "Conceptualization",
+        "Investigation",
+        "Data curation",
+        "Resources"
+      ],
+      "private_profile_path": "../PRIVATE_COAUTHOR_PROFILE_XIAOJUAN_SUN.md"
+    }
+  ],
+  "venue_verification": {
+    "real_peer_reviewed_journal_verified": true,
+    "publisher": "Elsevier",
+    "online_issn": "1872-7921",
+    "print_issn": "0004-3702",
+    "selected_route": "subscription",
+    "mandatory_author_cost": 0,
+    "optional_open_access_apc_usd": 4050,
+    "optional_paid_open_access_selected": false,
+    "verification_date": "2026-07-19",
+    "evidence_file": "AIJ_VENUE_AND_COST_VERIFICATION.md"
+  },
+  "status": {
+    "scientific_content_complete": true,
+    "manuscript_complete": true,
+    "authorship_declarations_complete": true,
+    "submission_ready": true,
+    "experiment_complete": true,
+    "synthetic_validation": "pass",
+    "external_validation": false,
+    "peer_reviewed": false,
+    "submitted": true,
+    "submission_received": true,
+    "technical_check_completed": false,
+    "editor_assigned": false,
+    "accepted": false,
+    "published": false,
+    "production_ready": false
+  },
+  "submission_record": {
+    "portal": "Elsevier Editorial Manager",
+    "journal": "Artificial Intelligence",
+    "article_type": "Research Note",
+    "manuscript_number": "ARTINT-D-26-01262",
+    "preapproval_build_reference": "ARTINT-S-26-01763",
+    "initial_date_submitted": "2026-07-19",
+    "status_date": "2026-07-19",
+    "portal_status": "Submitted to Journal",
+    "portal_folder": "Submissions Being Processed",
+    "confirmation_observed_on": "2026-07-19",
+    "receipt_file": "SUBMISSION_RECEIPT.json"
+  },
+  "adversarial_review_repair": {
+    "generic_report_applied_selectively": true,
+    "claim_audit_complete": true,
+    "conventional_predictive_leakage_applicable": false,
+    "target_aware_case_selection_disclosed": true,
+    "retrospective_analysis_plan_added": true,
+    "preregistered": false,
+    "random_sampling": false,
+    "population_inference": false,
+    "confidence_intervals_applicable": false,
+    "hypothesis_significance_testing_applicable": false,
+    "isolated_directory_reproduction": "pass",
+    "fresh_environment_reproduction": false,
+    "cross_platform_reproduction": false,
+    "ethics_and_privacy_applicability_documented": true
+  },
+  "scope_disambiguation": {
+    "second_report_misclassification_detected": true,
+    "ai_generated_text_detection": false,
+    "human_ai_authorship_attribution": false,
+    "rag_citation_faithfulness_evaluation": false,
+    "legal_authorship_determination": false,
+    "copyright_ownership_determination": false,
+    "academic_misconduct_adjudication": false,
+    "editorial_sanction_recommendation": false,
+    "adjacent_literature_added": true
+  },
+  "artifact_archive": {
+    "source_snapshot_cited": true,
+    "source_snapshot_is_manuscript_package_archive": false,
+    "doi_backed_archive_deposited": false,
+    "archive_deposit_authorized": false
+  },
+  "format_checks": {
+    "pages": 13,
+    "pdf_text_whitespace_tokens_including_references": 3712,
+    "abstract_words": 223,
+    "keywords": 6,
+    "highlights": 5,
+    "all_highlights_at_most_85_characters": true,
+    "estimated_words_below_4500": true,
+    "elsevier_latex": true
+  },
+  "experiment": {
+    "pairs": 16,
+    "cases": 32,
+    "identical_presence_vector_pairs": 16,
+    "identical_json_shape_pairs": 16,
+    "field_presence_false_supports": 16,
+    "type_and_shape_false_supports": 16,
+    "decision_aware_false_supports": 14,
+    "relation_aware_false_supports": 0,
+    "deterministic_runs": 5,
+    "boundary_violation_count": 0,
+    "canonical_result_sha256": "4d101bb8633e4acf6cf4d38c08734afddb47d52c6c8b1748d23f6494c4962f44",
+    "canonical_dataset_sha256": "1d9cf1ddd52636a1504b78c7b2e7ed577300e6fecdb81b67c2bd222c03f687b0",
+    "evaluator_snapshot_commit": "be6ab57878dc7346da733e2f3b134aa3d3049af8"
+  },
+  "primary_files": [
+    "main.tex",
+    "references.bib",
+    "HIGHLIGHTS.txt",
+    "COVER_LETTER.md",
+    "DECLARATIONS.md",
+    "CLAIM_AUDIT.md",
+    "HOSTILE_REVIEW_ACTION_REPORT.md",
+    "SCOPE_DISAMBIGUATION_AUDIT.md",
+    "LEAKAGE_AND_SELECTION_AUDIT.md",
+    "ANALYSIS_PLAN.md",
+    "ETHICS_AND_PRIVACY.md",
+    "COLD_START_REPRODUCTION_REPORT.md",
+    "SUPPLEMENT_README.md",
+    "experiment/dataset.v0.1.json",
+    "experiment/DATA_DICTIONARY.md",
+    "experiment/environment.v0.1.json",
+    "experiment/requirements.reproduction.txt",
+    "experiment/run_experiment.py",
+    "experiment/results.v0.1.json",
+    "experiment/expected-results.v0.1.json",
+    "experiment/verify_artifact.py"
+  ],
+  "compiled_pdf": {
+    "path": "../output/pdf/evidence-presence-not-semantic-support-aij-final.pdf",
+    "sha256": "42d2119d3d609e60eb095216b839ee14cbcbb60383a1fc693b3caaf4253b3863",
+    "status": "submission_ready"
+  },
+  "supplementary_archive": {
+    "path": "../output/pdf/evidence-presence-not-semantic-support-aij-supplement.zip",
+    "sha256": "0044cb96072cfd08fa87152c4f8e61753fd42911aabb40213a850faba9c03453",
+    "status": "submission_ready",
+    "contains_private_author_data": false
+  },
+  "prior_route_content_decision": {
+    "source": "ALIFE_2026_LBA_lb120",
+    "author_route_decision": "FINAL_ABANDONED",
+    "content_integrated": false,
+    "result_pooled": false,
+    "reason": "different research question and avoidable focus, text-reuse, and prior-publication risk"
+  },
+  "author_confirmations": {
+    "confirmed_date": "2026-07-19",
+    "private_correspondence_address_authorized_for_elsevier_portal_only": true,
+    "xiaojuan_sun_coauthor_consent": true,
+    "xiaojuan_sun_credit_roles": true,
+    "all_authors_funding_statement": "none",
+    "all_authors_competing_interest_statement": "none",
+    "all_authors_not_under_consideration_elsewhere": true,
+    "all_authors_final_manuscript_approval": true
+  },
+  "required_author_confirmations": [],
+  "external_submission_authorized": true,
+  "external_submission_authorization_scope": "Artificial Intelligence Research Note via Elsevier Editorial Manager"
+}
