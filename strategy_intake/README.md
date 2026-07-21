@@ -10,6 +10,23 @@ reviewable task candidates.
 
 It is not part of SAEE Core Runtime.
 
+## Latest verified assessment
+
+```text
+latest_intelligence_sync=AI_AGENT_GOVERNANCE_INTELLIGENCE_SYNC_2026_07_20.md
+latest_sync_decision=ADOPT_VERIFIED_DELTAS_AS_LEGAL_STANDARDS_AND_RISK_REFERENCE_ONLY
+previous_intelligence_sync=AI_AGENT_GOVERNANCE_INTELLIGENCE_SYNC_2026_07_19.md
+earlier_intelligence_sync=AI_AGENT_GOVERNANCE_INTELLIGENCE_SYNC_2026_07_18.md
+earlier_intelligence_assessment=AI_AGENT_GOVERNANCE_INTELLIGENCE_ASSESSMENT_2026_07_16.md
+```
+
+The latest sync records corrected ITU SG17 / FG-TIDA meeting routes, the EU AI
+Act Article 50 legal-review boundary, OWASP Agentic Skills B1-B4 trust
+boundaries, AIVSS v0.8 as non-decision risk context, and the verified DAI
+research-track hold. It reuses the existing OpenTelemetry and venue routes and
+does not change capability, product, runtime, schema, MCP, legal-compliance
+claims, submission authority or external-action authority.
+
 Scheduled execution is tracked in:
 
 ```text
