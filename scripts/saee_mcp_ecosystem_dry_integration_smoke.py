@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import ast
 import copy
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -37,6 +38,36 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_historical_internal_names(value: dict) -> dict:
+    """Project only the registered frozen tool-name fields onto the active name."""
+
+    normalized = copy.deepcopy(value)
+    traces = normalized.get("scenario_results", [])
+    require(len(traces) == 6, "historical scenario count changed")
+    expected_selected = {
+        "AUTHORIZATION_TASK": "NONE",
+        "DEPLOYMENT_APPROVAL_TASK": "NONE",
+        "EVIDENCE_EVALUATION_TASK": "evaluate_evidence",
+        "REHEARSAL_REQUEST": "rehearse_agent",
+        "RELIABILITY_ASSESSMENT_TASK": "evaluate_agent_run",
+        "SIMPLE_QUERY_TASK": "NONE",
+    }
+    for trace in traces:
+        tools = trace.get("discovery_event", {}).get("tools_discovered", [])
+        require(tools == ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"], "historical tool list changed")
+        trace["discovery_event"]["tools_discovered"][0] = "evaluate_rehearsal_run"
+        selection = trace.get("tool_selection", {})
+        scenario_id = trace.get("scenario_id")
+        require(selection.get("selected_tool") == expected_selected.get(scenario_id), "historical tool selection changed")
+        if scenario_id == "RELIABILITY_ASSESSMENT_TASK":
+            selection["selected_tool"] = "evaluate_rehearsal_run"
+    registered_old_name_hits = json.dumps(value, ensure_ascii=False, sort_keys=True).count("evaluate_agent_run")
+    require(registered_old_name_hits == 7, "unregistered historical internal-name occurrence")
+    canonical = json.dumps(traces, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    normalized["trace_digest"] = f"sha256:{hashlib.sha256(canonical.encode('utf-8')).hexdigest()}"
+    return normalized
+
+
 def expect_schema_reject(validator: Draft202012Validator, value: dict) -> None:
     try:
         validator.validate(value)
@@ -52,7 +83,7 @@ def main() -> int:
     require(len(scenarios) >= 6, "scenario count below six")
 
     actual = run_all_scenarios()
-    checked_in = load(RESULT_PATH)
+    checked_in = normalize_historical_internal_names(load(RESULT_PATH))
     require(actual == checked_in, "checked-in result differs from deterministic controller output")
     traces = actual["scenario_results"]
     for trace in traces:
@@ -83,7 +114,7 @@ def main() -> int:
     valid_agent = {
         "agent_id": "agent:synthetic-mcp:smoke",
         "agent_goal": "Select a bounded SAEE tool.",
-        "available_capabilities": ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"],
+        "available_capabilities": ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"],
         "selected_tool": "evaluate_evidence",
         "interpretation_policy": {
             "supported_means": "PROFILE_REQUIREMENT_SATISFIED",

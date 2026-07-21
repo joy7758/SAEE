@@ -21,7 +21,7 @@ TRACE_SCHEMA = ROOT / "schemas/saee-mcp-dry-integration-trace.schema.v0.1.json"
 SCENARIO_ROOT = ROOT / "agent-interface/mcp/mcp-dry-integration-scenarios"
 PACKAGE_REF = "ecosystem/mcp-entry-package-v1/capability-card.json"
 FIXED_INPUT_REFS = {
-    "evaluate_agent_run": "agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
+    "evaluate_rehearsal_run": "agent-interface/rehearsal/scenarios/baseline-metadata-inspection.json",
     "evaluate_evidence": "agent-interface/capabilities/examples/valid_supported_request.json",
     "rehearse_agent": None,
 }
@@ -49,7 +49,7 @@ def _adapter() -> CapabilityMCPAdapter:
 def _arguments(scenario: dict[str, Any], selected: str) -> dict[str, Any]:
     if scenario.get("input_ref") != FIXED_INPUT_REFS[selected]:
         raise ValueError("MCP_DRY_INPUT_REF_NOT_ALLOWLISTED")
-    if selected == "evaluate_agent_run":
+    if selected == "evaluate_rehearsal_run":
         source = ROOT / FIXED_INPUT_REFS[selected]
         payload = {"rehearsal_run": run_task(source)}
     elif selected == "evaluate_evidence":
@@ -112,7 +112,7 @@ def run_dry_scenario(scenario: dict[str, Any]) -> dict[str, Any]:
         runtime_value = response["result"]["structuredContent"]
         delegated = True
         canonical_path = {
-            "evaluate_agent_run": "AGENT_RUN_CAPABILITY",
+            "evaluate_rehearsal_run": "AGENT_RUN_CAPABILITY",
             "evaluate_evidence": "EVIDENCE_ADEQUACY",
             "rehearse_agent": "CONTRACT_ONLY",
         }[selected]

@@ -21,7 +21,7 @@
   "external_model_api_called": false,
   "first_owner_input_status": "hold_human_first_owner_input_required",
   "first_owner_required_field_count": 5,
-  "generated_at": "2026-07-13T13:59:08.011693+00:00",
+  "generated_at": "2026-07-18T17:58:57.572817+00:00",
   "generated_by": "scripts/saee_support_contact_human_input_bridge.py",
   "human_input_required": true,
   "human_review_required": true,

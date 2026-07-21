@@ -29,7 +29,7 @@
   "observations": {
     "backup_copied_file_count": 2,
     "backup_type": "public_shell_local_backup",
-    "observed_restore_drill_seconds": 0.002294,
+    "observed_restore_drill_seconds": 0.00175,
     "restore_copied_file_count": 2,
     "restore_drill_status": "pass",
     "restore_drill_type": "public_shell_local_restore_drill",

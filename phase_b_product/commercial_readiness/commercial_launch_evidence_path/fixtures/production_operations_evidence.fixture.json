@@ -16,7 +16,7 @@
   "external_calls_made": false,
   "external_model_api_called": false,
   "fixture_only": true,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_commercial_launch_evidence_path.py",
   "incident_commander_named": true,
   "incident_escalation_path_defined": true,

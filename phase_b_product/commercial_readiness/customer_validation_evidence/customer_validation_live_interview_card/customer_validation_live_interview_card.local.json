@@ -11,7 +11,7 @@
   "customer_validation_live_interview_card_v0_1": true,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:04.903678+00:00",
+  "generated_at": "2026-07-18T17:58:54.504808+00:00",
   "interview_questions": [
     {
       "category": "customer_answer_required",

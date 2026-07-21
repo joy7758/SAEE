@@ -46,7 +46,7 @@ def _evaluate_scenario(
     feedback_valid: bool,
 ) -> tuple[str, str]:
     scenario_id = scenario["scenario_id"]
-    if scenario_id == "SUCCESSFUL_MCP_DISCOVERY" and tools == ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]:
+    if scenario_id == "SUCCESSFUL_MCP_DISCOVERY" and tools == ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"]:
         return "DISCOVERED", "SAEE_MCP_CAPABILITY_FOUND"
     if scenario_id == "SUCCESSFUL_TOOL_INVOCATION" and invocation_trace["result_type"] == "SUCCESS" and invocation_trace["runtime_delegation"]["delegated"] is True:
         return "INVOKED", "LOCAL_RUNTIME_DELEGATION_COMPLETED"
@@ -112,7 +112,7 @@ def run_first_external_validation_simulation() -> dict[str, Any]:
         "feedback_records": [feedback],
         "integration_observations": [
             "The synthetic candidate discovered all three MCP tool descriptions.",
-            "evaluate_agent_run delegated through CapabilityMCPAdapter and Capability Runtime.",
+            "evaluate_rehearsal_run delegated through CapabilityMCPAdapter and Capability Runtime.",
             "SUPPORTED was interpreted only as profile requirements satisfied.",
             "Authorization, production execution, and adoption claims were rejected.",
         ],

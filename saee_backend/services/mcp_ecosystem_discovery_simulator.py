@@ -10,7 +10,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS_PATH = ROOT / "ecosystem/mcp-entry-package-v1/mcp-tools.json"
 SELECTION = {
-    "AGENT_RELIABILITY_ASSESSMENT": ("evaluate_agent_run", "SELECTED"),
+    "AGENT_RELIABILITY_ASSESSMENT": ("evaluate_rehearsal_run", "SELECTED"),
     "EVIDENCE_ADEQUACY_EVALUATION": ("evaluate_evidence", "SELECTED"),
     "CONTROLLED_REHEARSAL_REQUEST": ("rehearse_agent", "SELECTED"),
     "REAL_TIME_AUTHORIZATION": ("NONE", "REJECTED_NOT_SAEE_CAPABILITY"),
@@ -25,7 +25,7 @@ def discover_tools() -> list[str]:
     if not isinstance(tools, list):
         raise ValueError("MCP_DRY_PACKAGE_INVALID")
     names = [item.get("name") for item in tools if isinstance(item, dict)]
-    if names != ["evaluate_agent_run", "evaluate_evidence", "rehearse_agent"]:
+    if names != ["evaluate_rehearsal_run", "evaluate_evidence", "rehearse_agent"]:
         raise ValueError("MCP_DRY_TOOL_SET_INVALID")
     return names
 

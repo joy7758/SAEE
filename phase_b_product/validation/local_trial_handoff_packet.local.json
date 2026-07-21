@@ -27,7 +27,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_validation_claim": false,
-  "generated_at": "2026-07-13T13:59:21.585523+00:00",
+  "generated_at": "2026-07-18T17:59:10.740698+00:00",
   "generated_by": "scripts/saee_local_trial_handoff_packet.py",
   "handoff_scope": "local_mvp_tryout_to_human_observation_recording",
   "human_execution_required": true,

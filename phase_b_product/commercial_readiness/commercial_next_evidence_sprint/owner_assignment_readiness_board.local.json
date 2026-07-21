@@ -20,7 +20,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:30.042858+00:00",
+  "generated_at": "2026-07-18T17:59:18.865408+00:00",
   "generated_by": "scripts/saee_commercial_evidence_sprint_owner_assignment_readiness_board.py",
   "human_review_required": true,
   "import_ready_assignment_count": 0,

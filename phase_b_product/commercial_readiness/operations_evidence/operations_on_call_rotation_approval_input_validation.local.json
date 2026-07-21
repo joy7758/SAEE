@@ -22,7 +22,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:15.173077+00:00",
+  "generated_at": "2026-07-18T17:59:04.366597+00:00",
   "generated_by": "scripts/saee_operations_on_call_rotation_approval_input_validator.py",
   "human_review_required": true,
   "incident_commander_assigned_by_codex": false,

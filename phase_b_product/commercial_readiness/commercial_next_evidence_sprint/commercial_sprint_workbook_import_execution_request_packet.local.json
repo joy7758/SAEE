@@ -48,7 +48,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:28.099403+00:00",
+  "generated_at": "2026-07-18T17:59:17.002047+00:00",
   "generated_by": "scripts/saee_commercial_sprint_workbook_import_execution_request_packet.py",
   "human_execution_authorized": false,
   "human_execution_request_recorded": false,

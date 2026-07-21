@@ -2,7 +2,7 @@
   "commercial_sprint_remaining_human_confirmed_recommended_values_v0_1": true,
   "status": "hold_remaining_confirmed_values_recorded_no_import",
   "record_type": "local_remaining_human_confirmed_recommended_values_ledger",
-  "created_at": "2026-07-13T13:59:26.982637+00:00",
+  "created_at": "2026-07-18T17:59:15.946396+00:00",
   "source_remaining_draft": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_remaining_recommended_values_draft.local.json",
   "source_quick_fill_packet": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",
   "human_confirmation_source": "user_reply_all_recommended_confirmed",

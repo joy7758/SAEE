@@ -12,7 +12,7 @@
   "external_calls_made": false,
   "external_customer_validation_minimum_session_answer_converter_v0_1": true,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T14:04:27.835109+00:00",
+  "generated_at": "2026-07-17T20:53:55.944879+00:00",
   "human_answer_input": "phase_b_product/commercial_readiness/customer_validation_evidence/external_customer_validation_minimum_session_answer_converter/minimum_session_answers.human_filled.md",
   "human_answer_input_exists": false,
   "invalid_field_count": 0,
@@ -23,6 +23,7 @@
   "missing_fields": [
     "candidate_count",
     "decision_influence_score",
+    "evidence_interpretation_confidence_score",
     "human_entry_confirmed",
     "human_reviewer_name",
     "human_source_context",
@@ -47,7 +48,6 @@
     "session_date",
     "session_id",
     "time_to_value_minutes",
-    "trust_score",
     "understanding_score",
     "willing_to_test_own_candidates"
   ],

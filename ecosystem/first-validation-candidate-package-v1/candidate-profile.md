@@ -14,7 +14,7 @@
 要验证的问题：
 
 1. 能否从机器入口发现 SAEE？
-2. 能否区分 `evaluate_agent_run`、`evaluate_evidence` 和 `rehearse_agent=CONTRACT_ONLY`？
+2. 能否区分 `evaluate_rehearsal_run`、`evaluate_evidence` 和 `rehearse_agent=CONTRACT_ONLY`？
 3. 能否完成本地调用？
 4. 能否把 `SUPPORTED` 限制为“满足剖面要求”？
 5. 能否理解 SAEE 不提供授权、认证或部署批准？

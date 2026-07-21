@@ -209,7 +209,7 @@
     "name",
     "address"
   ],
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_auth_oidc_rbac_fixture_dry_run.py",
   "identity_provider_admin_owner_named": false,
   "identity_provider_contacted": false,

@@ -27,7 +27,7 @@
   "external_alert_delivery_source_scope": "human_filled_external_alert_delivery_to_production_operations_evidence",
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_operations_evidence_profile.py",
   "incident_commander_assigned_by_codex": false,
   "incident_commander_named": false,

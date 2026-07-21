@@ -8,7 +8,7 @@
 Agent Task
   -> discover SAEE
   -> controlled rehearsal context
-  -> evaluate_agent_run
+  -> evaluate_rehearsal_run
   -> evaluate_evidence
   -> bounded decision context
   -> Agent chooses REPLAN

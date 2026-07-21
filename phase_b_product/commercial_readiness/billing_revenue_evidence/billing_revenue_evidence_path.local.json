@@ -25,7 +25,7 @@
   "external_calls_made": false,
   "external_model_api_called": false,
   "fixture_only": true,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_billing_revenue_evidence_path.py",
   "human_real_evidence_required": true,
   "invoice_process_evidence_complete_after_fixture": true,

@@ -72,7 +72,7 @@ Evidence Assessment != Deployment Approval
 3. 指令冲突后拒绝；
 4. 有状态 SaaS 发布世界中收集三类证据并停止部署；
 5. 查看真实 Provider tool call、State Transition、隐藏评分与 Evidence Candidate；
-6. 调用 `evaluate_agent_run`；
+6. 调用 `evaluate_rehearsal_run`；
 7. 查看 20 场景 Benchmark；
 8. 展示两个 MCP Tool。
 

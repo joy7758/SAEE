@@ -10,7 +10,7 @@
   "source_decision_template": "phase_b_product/commercial_readiness/support_evidence/support_contact_decision_input.template.json",
   "source_bridge_template": "phase_b_product/commercial_readiness/support_evidence/support_contact_human_input_bridge/support_contact_human_input_bridge_input.template.json",
   "source_first_priority_packet": "phase_b_product/commercial_readiness/support_evidence/support_contact_first_priority_packet/support_contact_first_priority_packet.local.json",
-  "generated_at": "2026-07-13T13:59:08.329721+00:00",
+  "generated_at": "2026-07-18T17:58:57.867577+00:00",
   "minimum_required_field_count": 20,
   "minimum_required_human_value_count": 20,
   "filled_value_count": 0,

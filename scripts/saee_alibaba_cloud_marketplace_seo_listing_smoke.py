@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "cloud-entry-package/alibaba-cloud-marketplace-v0.1"
 COPY = PACKAGE / "seo-listing-copy.v0.1.json"
+SERVICE_USER_GUIDE = PACKAGE / "service-user-guide.md"
 
 
 def require(condition: bool, message: str) -> None:
@@ -43,10 +44,17 @@ def main() -> None:
             listing["seo_keywords"],
             listing["seo_description"],
             (ROOT / listing["product_details"]).read_text(encoding="utf-8"),
+            SERVICE_USER_GUIDE.read_text(encoding="utf-8"),
         ]
     )
     for term in ("AI智能体", "Agent工作流", "可靠性评估", "上线前", "证据", "失败"):
         require(term in corpus, f"missing search term {term}")
+
+    for unsupported_platform_term in ("阿里云百炼", "百炼", "Bailian", "Model Studio"):
+        require(
+            unsupported_platform_term.casefold() not in corpus.casefold(),
+            f"unsupported platform association {unsupported_platform_term}",
+        )
 
     # Boundary statements such as “不自动部署” and “不承诺绝对安全” are
     # required public disclosures, not forbidden positive claims. Reject a
@@ -73,13 +81,13 @@ def main() -> None:
     require(truth["marketplace_product_draft_created"] is True, "draft creation")
     for key in (
         "marketplace_product_listed",
-        "official_bailian_integration",
+        "official_cloud_platform_integration",
         "customer_validated",
         "production_ready",
     ):
         require(truth[key] is False, key)
     require(truth["marketplace_product_submission"] is True, "marketplace submission")
-    require(truth["marketplace_product_review_status"] == "审核中", "marketplace review status")
+    require(truth["marketplace_product_review_status"] in {"未通过审核", "审核中"}, "marketplace review status")
 
     for key in ("main_image", "product_logo", "usage_guide_pdf", "architecture_image", "architecture_source"):
         require((ROOT / listing[key]).is_file(), f"missing {key}")
@@ -95,7 +103,7 @@ def main() -> None:
         "marketplace_product_basic_info_form_fill_authorized=true marketplace_product_basic_info_saved=true "
         "marketplace_product_business_info_form_fill_authorized=true marketplace_product_business_info_saved=true "
         "marketplace_product_sales_information_opened=true marketplace_product_sales_information_saved=true "
-        "marketplace_protocol_information_saved=true marketplace_submission=true marketplace_review=审核中 marketplace_listed=false production_ready=false"
+        f"marketplace_protocol_information_saved=true marketplace_submission=true marketplace_review={truth['marketplace_product_review_status']} marketplace_listed=false production_ready=false"
     )
 
 

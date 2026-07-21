@@ -14,7 +14,7 @@
   "evidence_scope": "human_filled_phase_1_identity_tenant_evidence_to_go_no_go_inputs",
   "evidence_version": "v0.1",
   "external_calls_made": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_phase1_identity_tenant_evidence_builder.py",
   "human_filled_input_required": true,
   "human_reviewer_name_recorded": false,
@@ -39,7 +39,7 @@
   "role_matrix_reviewed": false,
   "runtime_modified": false,
   "session_expiry_policy_approved": false,
-  "source_input_path": "./phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
+  "source_input_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
   "tenant_role_boundary_reviewed": false,
   "token_validation_test_recorded": false,
   "tokens_validated_in_production": false

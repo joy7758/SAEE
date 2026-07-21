@@ -26,7 +26,7 @@
   "external_alert_delivery_enabled_by_codex": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_external_alert_delivery_evidence_builder.py",
   "human_filled_input_required": true,
   "human_reviewer_name_recorded": false,
@@ -50,5 +50,5 @@
   "review_date_recorded": false,
   "runtime_modified": false,
   "slo_dashboard_defined": false,
-  "source_input_path": "./phase_b_product/commercial_readiness/operations_evidence/external_alert_delivery_evidence_input.template.json"
+  "source_input_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/operations_evidence/external_alert_delivery_evidence_input.template.json"
 }

@@ -66,7 +66,7 @@ python3 scripts/saee_agent_readiness_benchmark.py
 ## Step 5：展示 MCP Tool Discovery
 
 本地注册表有两个 Tool：`evaluate_evidence_adequacy` 和
-`evaluate_agent_run`。必须说明没有标准 transport、外部 Agent 或公网 endpoint。
+`evaluate_rehearsal_run`。必须说明没有标准 transport、外部 Agent 或公网 endpoint。
 
 ## Step 6：收集反馈
 

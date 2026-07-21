@@ -19,7 +19,7 @@
   "external_model_api_called": false,
   "first_blocker_id": "support_contact",
   "first_owner_assignment_complete": false,
-  "generated_at": "2026-07-13T13:59:30.449955+00:00",
+  "generated_at": "2026-07-18T17:59:19.250748+00:00",
   "generated_by": "scripts/saee_commercial_evidence_sprint_first_owner_input_completion_helper.py",
   "generated_input": "",
   "helper_scope": "local_first_owner_input_completion_sheet_and_generation_helper",

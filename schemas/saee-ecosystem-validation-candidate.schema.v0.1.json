@@ -14,7 +14,7 @@
       "minItems": 2,
       "maxItems": 4,
       "uniqueItems": true,
-      "items": {"enum": ["capability_discovery", "mcp_tool_discovery", "evaluate_agent_run", "evaluate_evidence"]}
+      "items": {"enum": ["capability_discovery", "mcp_tool_discovery", "evaluate_rehearsal_run", "evaluate_evidence"]}
     },
     "validation_scope": {
       "type": "array",

@@ -29,7 +29,7 @@
   "external_model_api_called": false,
   "failure_summary_usefulness_observed": false,
   "feedback_form_completed": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_customer_validation_evidence_builder.py",
   "go_hold_pivot_decision_recorded": false,
   "human_filled_input_required": true,
@@ -70,7 +70,7 @@
     "go_hold_pivot": "not_evaluated",
     "session_count": 0
   },
-  "source_pilot_result_path": "./phase_b_product/validation/PILOT_RESULT_TEMPLATE.json",
+  "source_pilot_result_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/validation/PILOT_RESULT_TEMPLATE.json",
   "source_template": "phase_b_product/validation/PILOT_RESULT_TEMPLATE.json",
   "success_criteria_applied": false,
   "testimonial_published": false,

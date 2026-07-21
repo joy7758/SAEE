@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "artifact_id": "saee.alibaba-cloud.marketplace-seo-listing-copy.v0.1",
-  "status": "marketplace_product_submitted_review_in_progress_not_listed",
+  "status": "marketplace_product_review_rejected_repair_in_progress_not_listed",
   "marketplace_commodity_id": "68657",
   "marketplace_product_code": "cmfw00074657",
   "official_rule_sources": [
@@ -16,7 +16,7 @@
     "reasons": [
       "The customer need is named in plain language and mapped to stable deliverables.",
       "The service has explicit inputs, outputs, non-use cases, and authority boundaries.",
-      "The listing uses high-intent customer terms without claiming official Bailian integration or production authority."
+      "The listing uses high-intent customer terms without claiming official cloud-platform integration or production authority."
     ],
     "remaining_owner_gates": [
       "marketplace_product_business_info_next_step",
@@ -79,7 +79,7 @@
   },
   "listing": {
     "product_name": "SAEE AI智能体上线前可靠性评估｜Agent工作流证据检查",
-    "product_intro": "面向阿里云百炼等 AI Agent 工作流的上线前可靠性评估服务。您提供 1 个工作流、1 个场景及经授权脱敏的运行记录，我们检查证据是否充分、失败点是否可定位、恢复准备是否完整，交付结构化 JSON、中文评估报告、缺口清单和改进建议。适合 AI 应用上线前检查、方案对比和回归复核。本服务为人工交付，不替代安全或合规认证，不自动部署或操作客户系统。",
+    "product_intro": "面向 AI Agent 工作流的上线前可靠性评估服务。您提供 1 个工作流、1 个场景及经授权脱敏的运行记录，我们检查证据是否充分、失败点是否可定位、恢复准备是否完整，交付结构化 JSON、中文评估报告、缺口清单和改进建议。适合 AI 应用上线前检查、方案对比和回归复核。本服务为人工交付，不替代安全或合规认证，不自动部署或操作客户系统。",
     "product_highlights": [
       {
         "title": "上线前看清",
@@ -107,8 +107,8 @@
       "证据分析",
       "失败定位"
     ],
-    "seo_keywords": "AI智能体可靠性评估,Agent工作流评估,智能体上线前检查,阿里云百炼Agent评估,AI应用风险检查,运行证据分析,Agent失败定位,智能体回归测试",
-    "seo_description": "AI Agent工作流上线前可靠性评估：检查运行证据、定位失败风险，提供JSON结果、中文报告、缺口清单和改进建议，适用于阿里云百炼等智能体应用的上线前检查与方案复核。",
+    "seo_keywords": "AI智能体可靠性评估,Agent工作流评估,智能体上线前检查,AI应用风险检查,运行证据分析,Agent失败定位,智能体回归测试,智能体证据检查",
+    "seo_description": "AI Agent工作流上线前可靠性评估：检查运行证据、定位失败风险，提供JSON结果、中文报告、缺口清单和改进建议，适用于智能体应用的上线前检查与方案复核。",
     "after_sales_support": "工作日 09:00-18:00（北京时间）提供材料准备、评估结果解读和交付问题答疑；不包含生产部署、代运维或未经授权的数据处理。",
     "main_image": "cloud-entry-package/alibaba-cloud-marketplace-v0.1/assets/product-main-1280x720.png",
     "product_logo": "cloud-entry-package/alibaba-cloud-marketplace-v0.1/assets/product-logo-310x310.png",
@@ -128,10 +128,13 @@
     "marketplace_protocol_information_saved": true,
     "marketplace_product_draft_created": true,
     "marketplace_product_submission": true,
-    "marketplace_product_review_status": "审核中",
+    "marketplace_product_review_status": "未通过审核",
+    "marketplace_product_review_in_progress": false,
+    "marketplace_product_review_rejected": true,
+    "marketplace_product_repair_in_progress": true,
     "marketplace_product_listing_status": "未上架",
     "marketplace_product_listed": false,
-    "official_bailian_integration": false,
+    "official_cloud_platform_integration": false,
     "customer_validated": false,
     "production_ready": false
   }

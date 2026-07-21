@@ -6,7 +6,7 @@
   "billing_revenue_readiness_status": "hold",
   "blockers_closed_by_profile": 0,
   "checkout_enabled": false,
-  "combined_billing_revenue_evidence_path": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.combined_profile.local.json",
+  "combined_billing_revenue_evidence_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.combined_profile.local.json",
   "commercial_status_after_profile": "hold",
   "customer_contacted": false,
   "customer_payment_collected": false,
@@ -15,7 +15,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_billing_revenue_evidence_profile.py",
   "human_review_required": true,
   "invoice_process_evidence_complete": false,
@@ -33,7 +33,7 @@
   "production_billing_revenue_ready": false,
   "production_launch_status_after_profile": "hold",
   "production_ready": false,
-  "profile_output_path": "./phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence_profile.local.json",
+  "profile_output_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/billing_revenue_evidence_profile.local.json",
   "profile_production_blocker_count": 24,
   "profile_satisfied_production_checks": 0,
   "profile_scope": "combined_billing_revenue_evidence_profile_to_go_no_go",
@@ -59,12 +59,12 @@
     "tenant_billing_isolation": false
   },
   "source_paths": {
-    "invoice_process": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_invoice_process.local.json",
-    "payment_provider": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_payment_provider.local.json",
-    "pricing_page": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_pricing_page.local.json",
-    "refund_policy": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_refund_policy.local.json",
-    "tax_review": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tax_review.local.json",
-    "tenant_billing_isolation": "./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tenant_billing_isolation.local.json"
+    "invoice_process": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_invoice_process.local.json",
+    "payment_provider": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_payment_provider.local.json",
+    "pricing_page": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_pricing_page.local.json",
+    "refund_policy": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_refund_policy.local.json",
+    "tax_review": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tax_review.local.json",
+    "tenant_billing_isolation": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tenant_billing_isolation.local.json"
   },
   "target_blocker_ids": [
     "pricing_page",

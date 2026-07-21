@@ -22,7 +22,7 @@
   "external_calls_made": false,
   "external_model_api_called": false,
   "formal_security_review_report": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_privacy_security_legal_evidence_runner.py",
   "kernel_modified": false,
   "legal_counsel_contacted": false,

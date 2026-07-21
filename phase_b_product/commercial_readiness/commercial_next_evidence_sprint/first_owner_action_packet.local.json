@@ -47,7 +47,7 @@
     "required_evidence": "Customer-facing support intake contact, ownership, response procedure, and abuse handling."
   },
   "first_blocker_id": "support_contact",
-  "generated_at": "2026-07-13T13:59:30.242899+00:00",
+  "generated_at": "2026-07-18T17:59:19.052162+00:00",
   "generated_by": "scripts/saee_commercial_evidence_sprint_first_owner_action_packet.py",
   "human_fill_command_template": [
     "python3",

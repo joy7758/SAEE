@@ -5,7 +5,7 @@
   "status": "hold_human_input_required",
   "source_workbook_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_workbook.local.json",
   "input_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_workbook.csv",
-  "generated_at": "2026-07-13T13:59:24.799786+00:00",
+  "generated_at": "2026-07-18T17:59:13.806231+00:00",
   "generated_by": "scripts/saee_commercial_sprint_human_input_workbook_validator.py",
   "selected_blocker_count": 5,
   "selected_blocker_ids": [

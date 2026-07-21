@@ -29,7 +29,7 @@
   "full_fixture_controlled_preview_preflight_status_after_fixture": "hold",
   "full_fixture_controlled_preview_status_after_fixture": "hold",
   "full_fixture_production_launch_status_after_fixture": "go",
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_commercial_launch_evidence_path.py",
   "human_launch_approval_recorded": false,
   "human_real_evidence_required": true,

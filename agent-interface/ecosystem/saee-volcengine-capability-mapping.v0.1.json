@@ -5,7 +5,7 @@
   "mappings": [
     {
       "entry_surface": "FUNCTION_CALLING",
-      "saee_capability": "evaluate_agent_run",
+      "saee_capability": "evaluate_rehearsal_run",
       "integration_type": "ARK_TOOL_SCHEMA_PROJECTION",
       "status": "DESIGN_ONLY",
       "limitations": ["PROVIDER_FUNCTION_CALLING_OBSERVED", "SAEE_MAPPING_NOT_TESTED", "NO_OFFICIAL_INTEGRATION"]

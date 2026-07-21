@@ -10,7 +10,7 @@
   "evidence_scope": "local_public_shell_auth_review_packet",
   "evidence_version": "v0.1",
   "external_calls_made": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_auth_evidence_runner.py",
   "identity_provider_admin_owner_named": false,
   "identity_provider_contacted": false,

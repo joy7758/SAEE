@@ -31,7 +31,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:20.161185+00:00",
+  "generated_at": "2026-07-18T17:59:09.387970+00:00",
   "generated_by": "scripts/saee_customer_validation_approval_input_prompt.py",
   "human_filled_input_path": "phase_b_product/commercial_readiness/customer_validation_evidence/customer_validation_evidence_input.human_filled.local.json",
   "human_review_required": true,

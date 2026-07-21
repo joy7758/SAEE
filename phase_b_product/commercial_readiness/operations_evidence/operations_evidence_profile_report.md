@@ -21,10 +21,10 @@ Status: local combined operations profile generated; default output is hold.
 
 ## What This Profile Combines
 
-- production monitoring evidence: `./phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_production_monitoring.local.json`
-- external alert delivery evidence: `./phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_external_alert_delivery.local.json`
-- on-call rotation evidence: `./phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_operations_on_call_rotation.local.json`
-- combined go/no-go evidence: `./phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.combined_profile.local.json`
+- production monitoring evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_production_monitoring.local.json`
+- external alert delivery evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_external_alert_delivery.local.json`
+- on-call rotation evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.from_operations_on_call_rotation.local.json`
+- combined go/no-go evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/operations_evidence/production_operations_evidence.combined_profile.local.json`
 
 ## Satisfied Operations Signals
 

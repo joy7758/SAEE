@@ -3,7 +3,7 @@
   "status": "stop_boundary_or_safety_issue",
   "preview_type": "local_all_confirmed_values_to_quick_fill_preview",
   "preview_scope": "local_preview_only_no_source_overwrite_no_workbook_import",
-  "generated_at": "2026-07-13T13:59:26.984408+00:00",
+  "generated_at": "2026-07-18T17:59:15.948175+00:00",
   "source_initial_ledger_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_confirmed_recommended_values.local.json",
   "source_remaining_ledger_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_remaining_human_confirmed_recommended_values.local.json",
   "source_quick_fill_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",

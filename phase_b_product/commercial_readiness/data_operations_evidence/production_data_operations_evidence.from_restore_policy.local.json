@@ -19,7 +19,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_production_restore_policy_evidence_builder.py",
   "human_filled_input_required": true,
   "human_reviewer_name_recorded": false,
@@ -51,7 +51,7 @@
   "security_owner_recorded": false,
   "source_boundary_violation_count": 0,
   "source_boundary_violations": [],
-  "source_input_path": "./phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.template.json",
+  "source_input_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input.template.json",
   "tenant_restore_boundary_approved": false,
   "tenant_scope_validated_if_customer_data_exists": false
 }

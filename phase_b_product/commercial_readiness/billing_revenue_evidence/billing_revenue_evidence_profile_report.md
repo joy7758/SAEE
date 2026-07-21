@@ -24,12 +24,12 @@ Status: local combined billing/revenue profile generated; default output is hold
 
 ## What This Profile Combines
 
-- pricing_page: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_pricing_page.local.json`
-- payment_provider: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_payment_provider.local.json`
-- invoice_process: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_invoice_process.local.json`
-- tax_review: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tax_review.local.json`
-- refund_policy: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_refund_policy.local.json`
-- tenant_billing_isolation: `./phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tenant_billing_isolation.local.json`
+- pricing_page: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_pricing_page.local.json`
+- payment_provider: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_payment_provider.local.json`
+- invoice_process: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_invoice_process.local.json`
+- tax_review: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tax_review.local.json`
+- refund_policy: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_refund_policy.local.json`
+- tenant_billing_isolation: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/billing_revenue_evidence/production_billing_revenue_evidence.from_tenant_billing_isolation.local.json`
 
 ## Satisfied Billing / Revenue Signals
 

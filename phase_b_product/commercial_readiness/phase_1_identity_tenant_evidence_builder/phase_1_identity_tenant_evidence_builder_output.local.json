@@ -1,7 +1,7 @@
 {
   "accepted_for_blocker_closure_count": 0,
   "api_schema_modified": false,
-  "auth_evidence_output": "./phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_auth_evidence.from_input.local.json",
+  "auth_evidence_output": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_auth_evidence.from_input.local.json",
   "auth_production_ready_for_review": false,
   "auth_readiness_status": "hold",
   "auth_required_evidence_item_count": 15,
@@ -15,11 +15,11 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_phase1_identity_tenant_evidence_builder.py",
   "human_review_required": true,
   "identity_provider_contacted_by_codex": false,
-  "input": "./phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
+  "input": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_input.template.json",
   "input_boundary_violation_count": 0,
   "input_boundary_violations": [],
   "input_complete": false,
@@ -63,7 +63,7 @@
   ],
   "missing_required_evidence_count": 33,
   "next_action": "If a human fills all 33 evidence items with source notes, use the generated auth and tenant evidence files only as go/no-go input; do not treat this builder as production launch approval.",
-  "output": "./phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_builder_output.local.json",
+  "output": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_evidence_builder_output.local.json",
   "phase_1_identity_tenant_evidence_builder_v0_1": true,
   "private_core_exposed": false,
   "product_launched": false,
@@ -83,7 +83,7 @@
     "tenant_storage_isolation"
   ],
   "tenant_required_evidence_item_count": 18,
-  "tenant_storage_evidence_output": "./phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_storage_evidence.from_input.local.json",
+  "tenant_storage_evidence_output": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/phase_1_identity_tenant_evidence_builder/phase_1_identity_tenant_storage_evidence.from_input.local.json",
   "tenant_storage_production_ready_for_review": false,
   "tenant_storage_readiness_status": "hold"
 }

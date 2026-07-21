@@ -32,7 +32,7 @@
   "external_alert_delivery_enabled_by_validator": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13T13:59:14.858484+00:00",
+  "generated_at": "2026-07-18T17:59:04.059284+00:00",
   "generated_by": "scripts/saee_external_alert_delivery_approval_input_validator.py",
   "human_review_required": true,
   "input_complete": false,

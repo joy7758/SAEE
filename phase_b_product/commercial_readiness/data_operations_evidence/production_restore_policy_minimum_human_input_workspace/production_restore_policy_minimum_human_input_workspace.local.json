@@ -11,7 +11,7 @@
   "source_validation_json": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_approval_input_validation.local.json",
   "source_review_packet_json": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_review_packet.local.json",
   "source_draft_json": "phase_b_product/commercial_readiness/data_operations_evidence/production_restore_policy_draft.local.json",
-  "generated_at": "2026-07-13T13:59:10.561364+00:00",
+  "generated_at": "2026-07-18T17:59:00.056698+00:00",
   "minimum_required_field_count": 37,
   "minimum_required_human_value_count": 37,
   "filled_value_count": 0,

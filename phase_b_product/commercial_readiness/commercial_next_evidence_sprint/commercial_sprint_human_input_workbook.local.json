@@ -1,6 +1,6 @@
 {
   "commercial_sprint_human_input_workbook_v0_1": true,
-  "generated_at": "2026-07-13T13:59:24.757522+00:00",
+  "generated_at": "2026-07-18T17:59:13.769829+00:00",
   "generated_by": "scripts/saee_commercial_sprint_human_input_workbook.py",
   "source_handoff_pack": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_handoff_pack.local.json",
   "workbook_type": "local_human_input_workbook_for_current_commercial_sprint",

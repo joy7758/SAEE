@@ -17,5 +17,5 @@
 
 ## Selection rule
 
-只有当输入满足对应固定契约时，Agent 才能选择 `evaluate_agent_run` 或 `evaluate_evidence`。`rehearse_agent` 当前不可执行，必须返回 `CONTRACT_ONLY`，不得模拟成功。
+只有当输入满足对应固定契约时，Agent 才能选择 `evaluate_rehearsal_run` 或 `evaluate_evidence`。`rehearse_agent` 当前不可执行，必须返回 `CONTRACT_ONLY`，不得模拟成功。
 

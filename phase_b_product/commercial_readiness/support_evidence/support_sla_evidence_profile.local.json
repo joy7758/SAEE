@@ -3,7 +3,7 @@
   "api_schema_modified": false,
   "backend_modified": false,
   "blockers_closed_by_profile": 0,
-  "combined_support_sla_evidence_path": "./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.combined_profile.local.json",
+  "combined_support_sla_evidence_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.combined_profile.local.json",
   "commercial_status_after_profile": "hold",
   "customer_contacted": false,
   "customer_facing_support_contact_configured": false,
@@ -13,7 +13,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_support_sla_evidence_profile.py",
   "human_review_required": true,
   "kernel_modified": false,
@@ -25,7 +25,7 @@
   "production_launch_status_after_profile": "hold",
   "production_ready": false,
   "production_support_available": false,
-  "profile_output_path": "./phase_b_product/commercial_readiness/support_evidence/support_sla_evidence_profile.local.json",
+  "profile_output_path": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/support_sla_evidence_profile.local.json",
   "profile_production_blocker_count": 24,
   "profile_satisfied_production_checks": 0,
   "profile_scope": "combined_support_sla_evidence_profile_to_go_no_go",
@@ -47,10 +47,10 @@
     "support_contact": false
   },
   "source_paths": {
-    "customer_support": "./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_customer_support.local.json",
-    "on_call_rotation": "./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_on_call.local.json",
-    "sla": "./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_sla.local.json",
-    "support_contact": "./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_support_contact.local.json"
+    "customer_support": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_customer_support.local.json",
+    "on_call_rotation": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_on_call.local.json",
+    "sla": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_sla.local.json",
+    "support_contact": "/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_support_contact.local.json"
   },
   "staffed_support_started": false,
   "support_case_created": false,

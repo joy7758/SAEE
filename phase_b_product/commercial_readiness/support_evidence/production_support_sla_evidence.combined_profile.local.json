@@ -26,7 +26,7 @@
   "external_ai_assistant_tested": false,
   "external_calls_made": false,
   "external_model_api_called": false,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_support_sla_evidence_profile.py",
   "handoff_to_engineering_defined": false,
   "human_approved_sla_terms": false,

@@ -20,7 +20,7 @@
   "first_owner_validator_status": "pass_first_owner_input_complete",
   "first_owner_validator_validation_status": "pass",
   "fixture_only": true,
-  "generated_at": "2026-07-13T13:59:10.639578+00:00",
+  "generated_at": "2026-07-18T17:59:00.133657+00:00",
   "generated_by": "scripts/saee_support_contact_bridge_validator_dry_run.py",
   "human_real_input_required": true,
   "kernel_modified": false,

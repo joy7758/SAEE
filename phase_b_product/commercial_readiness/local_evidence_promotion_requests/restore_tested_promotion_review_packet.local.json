@@ -5,7 +5,7 @@
   "status": "hold_human_promotion_decision_required",
   "commercial_status": "hold",
   "production_launch_status": "hold",
-  "generated_at": "2026-07-13T13:59:29.166202+00:00",
+  "generated_at": "2026-07-18T17:59:18.037103+00:00",
   "generated_by": "scripts/saee_restore_tested_promotion_review_packet.py",
   "target_blocker_id": "restore_tested",
   "source_partial_queue_json": "phase_b_product/commercial_readiness/partial_evidence_promotion_queue/partial_evidence_promotion_queue.local.json",

@@ -26,7 +26,7 @@
   "feedback_form_available": true,
   "feedback_form_completed": false,
   "first_user_test_plan_available": true,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_customer_validation_evidence_runner.py",
   "go_hold_pivot_decision_recorded": false,
   "kernel_modified": false,

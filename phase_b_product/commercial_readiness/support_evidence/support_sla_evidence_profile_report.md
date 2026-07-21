@@ -23,10 +23,10 @@ Status: local combined support/SLA profile generated; default output is hold.
 
 ## What This Profile Combines
 
-- support_contact: `./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_support_contact.local.json`
-- customer_support: `./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_customer_support.local.json`
-- sla: `./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_sla.local.json`
-- on_call_rotation: `./phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_on_call.local.json`
+- support_contact: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_support_contact.local.json`
+- customer_support: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_customer_support.local.json`
+- sla: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_sla.local.json`
+- on_call_rotation: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/support_evidence/production_support_sla_evidence.from_on_call.local.json`
 
 ## Satisfied Support / SLA Signals
 

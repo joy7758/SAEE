@@ -15,7 +15,7 @@
   "external_model_api_called": false,
   "fixture_only": true,
   "formal_security_review_completed_after_fixture": true,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_privacy_security_legal_evidence_path.py",
   "human_real_evidence_required": true,
   "kernel_modified": false,

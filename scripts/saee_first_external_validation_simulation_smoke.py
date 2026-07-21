@@ -30,10 +30,26 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_historical_internal_name(value: dict) -> dict:
+    """Project the one registered historical narrative field onto the current name."""
+
+    old_name = "evaluate_agent_run"
+    new_name = "evaluate_rehearsal_run"
+    expected = "evaluate_agent_run delegated through CapabilityMCPAdapter and Capability Runtime."
+    serialized = json.dumps(value, ensure_ascii=False, sort_keys=True)
+    assert serialized.count(old_name) == 1, "unregistered historical internal-name occurrence"
+    observations = value.get("integration_observations")
+    assert isinstance(observations, list) and len(observations) > 1, "historical observation pointer missing"
+    assert observations[1] == expected, "registered historical observation changed"
+    normalized = copy.deepcopy(value)
+    normalized["integration_observations"][1] = expected.replace(old_name, new_name, 1)
+    return normalized
+
+
 def main() -> int:
     candidate = load(CANDIDATE_PATH)
     feedback = load(FEEDBACK_PATH)
-    checked_in = load(RESULT_PATH)
+    checked_in = normalize_historical_internal_name(load(RESULT_PATH))
     generated = run_first_external_validation_simulation()
     assert generated == checked_in
     valid = validate_simulation_data(candidate, feedback, generated)

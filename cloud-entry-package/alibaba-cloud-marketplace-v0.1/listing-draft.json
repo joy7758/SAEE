@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "draft_id": "saee.alibaba-cloud.marketplace-listing-draft.v0.1",
-  "status": "marketplace_product_submitted_review_in_progress_not_listed",
+  "status": "marketplace_product_review_rejected_repair_in_progress_not_listed",
   "marketplace_commodity_id": "68657",
   "marketplace_product_code": "cmfw00074657",
   "product": {
@@ -27,8 +27,8 @@
       "AGENT_SAAS_TEAM",
       "ENTERPRISE_INTERNAL_AGENT_TEAM"
     ],
-    "alibaba_cloud_anchor": "Alibaba Cloud Model Studio workflow execution evidence",
-    "alibaba_cloud_anchor_validation_status": "not_tested"
+    "marketplace_platform_anchor": "provider-neutral AI Agent workflow execution evidence",
+    "official_cloud_platform_integration_claimed": false
   },
   "initial_sku": {
     "name": "单工作流单场景首发评估",
@@ -130,7 +130,10 @@
     "marketplace_product_sales_information_opened": true,
     "marketplace_product_draft_created": true,
     "marketplace_product_submission": true,
-    "marketplace_product_review_status": "审核中",
+    "marketplace_product_review_status": "未通过审核",
+    "marketplace_product_review_in_progress": false,
+    "marketplace_product_review_rejected": true,
+    "marketplace_product_repair_in_progress": true,
     "marketplace_product_listing_status": "未上架",
     "marketplace_product_listed": false,
     "commercial_delivery_completed": false,

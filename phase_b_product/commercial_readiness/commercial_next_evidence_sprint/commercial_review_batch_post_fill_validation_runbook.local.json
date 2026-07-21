@@ -8,7 +8,7 @@
   "source_post_fill_html": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_review_batch_post_fill_validation_runbook.html",
   "local_static_post_fill_html": true,
   "browser_readable_post_fill_entrypoint": true,
-  "generated_at": "2026-07-13T13:59:25.809443+00:00",
+  "generated_at": "2026-07-18T17:59:14.743312+00:00",
   "generated_by": "scripts/saee_commercial_review_batch_post_fill_validation_runbook.py",
   "template_row_count": 0,
   "expected_template_row_count": 10,

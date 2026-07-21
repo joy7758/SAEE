@@ -4,7 +4,7 @@
   "dry_run_scope": "resolve_transfer_map_targets_without_value_transfer",
   "status": "pass_mapping_resolved_hold_human_input_required",
   "source_transfer_map_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_transfer_map.local.json",
-  "generated_at": "2026-07-13T13:59:24.857825+00:00",
+  "generated_at": "2026-07-18T17:59:13.861819+00:00",
   "generated_by": "scripts/saee_commercial_sprint_human_input_transfer_resolver_dry_run.py",
   "mapping_row_count": 65,
   "resolved_mapping_row_count": 65,

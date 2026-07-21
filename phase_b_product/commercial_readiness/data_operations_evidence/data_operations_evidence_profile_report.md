@@ -20,9 +20,9 @@ Status: local combined data-operations profile generated; default output is hold
 
 ## What This Profile Combines
 
-- restore-tested evidence: `./phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.from_restore_tested.local.json`
-- production restore policy evidence: `./phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.from_restore_policy.local.json`
-- combined go/no-go evidence: `./phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.combined_profile.local.json`
+- restore-tested evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.from_restore_tested.local.json`
+- production restore policy evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.from_restore_policy.local.json`
+- combined go/no-go evidence: `/Users/zhangbin/GitHub/SAEE/phase_b_product/commercial_readiness/data_operations_evidence/production_data_operations_evidence.combined_profile.local.json`
 
 ## Satisfied Data-operations Signals
 

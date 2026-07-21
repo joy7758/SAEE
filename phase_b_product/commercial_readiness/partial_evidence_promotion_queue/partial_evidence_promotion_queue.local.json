@@ -5,7 +5,7 @@
   "status": "ready_for_human_partial_evidence_review_no_closure",
   "commercial_status": "hold",
   "production_launch_status": "hold",
-  "generated_at": "2026-07-13T13:59:28.535481+00:00",
+  "generated_at": "2026-07-18T17:59:17.428463+00:00",
   "generated_by": "scripts/saee_partial_evidence_promotion_queue.py",
   "source_gap_audit_json": "phase_b_product/commercial_readiness/commercial_readiness_gap_audit/commercial_readiness_gap_audit.local.json",
   "source_closure_board_json": "phase_b_product/commercial_readiness/commercial_blocker_closure_readiness_board/closure_readiness_board.local.json",

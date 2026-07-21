@@ -23,7 +23,7 @@
   "external_model_api_called": false,
   "fixture_only": true,
   "formal_security_review_report": true,
-  "generated_at": "2026-07-13",
+  "generated_at": "2026-07-18",
   "generated_by": "scripts/saee_commercial_launch_evidence_path.py",
   "input_status": "fixture_only_not_real_production_evidence",
   "kernel_modified": false,

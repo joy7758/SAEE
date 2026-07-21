@@ -10,7 +10,7 @@
     "发布动作具有外部影响，不能由评估结果自动授权"
   ],
   "required_capabilities": [
-    "evaluate_agent_run",
+    "evaluate_rehearsal_run",
     "evaluate_evidence"
   ],
   "flow": [

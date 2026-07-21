@@ -6,7 +6,7 @@
   "commercial_status": "hold",
   "production_launch_status": "hold",
   "source_review_batch_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch.local.json",
-  "generated_at": "2026-07-13T13:59:25.602098+00:00",
+  "generated_at": "2026-07-18T17:59:14.543427+00:00",
   "generated_by": "scripts/saee_commercial_sprint_human_input_quick_fill_review_batch_input_template.py",
   "template_row_count": 0,
   "expected_template_row_count": 10,

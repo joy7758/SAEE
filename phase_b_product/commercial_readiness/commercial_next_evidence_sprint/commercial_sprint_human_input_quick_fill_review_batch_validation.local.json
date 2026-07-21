@@ -5,7 +5,7 @@
   "status": "superseded_by_full_quick_fill_values_pending_workbook_import_approval",
   "commercial_status": "hold",
   "production_launch_status": "hold",
-  "generated_at": "2026-07-13T13:59:25.534123+00:00",
+  "generated_at": "2026-07-18T17:59:14.478311+00:00",
   "generated_by": "scripts/saee_commercial_sprint_human_input_quick_fill_review_batch_validator.py",
   "source_quick_fill_csv": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_packet.csv",
   "source_review_batch_json": "phase_b_product/commercial_readiness/commercial_next_evidence_sprint/commercial_sprint_human_input_quick_fill_review_batch.local.json",

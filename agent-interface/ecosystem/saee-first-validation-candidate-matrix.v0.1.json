@@ -11,7 +11,7 @@
         "candidate_type": "mcp_agent_developer",
         "selection_reason": "最接近当前本地 MCP Adapter 和工具发现能力，能够用最小权限、最少上下文验证 Agent-native 发现、调用和解释价值。",
         "validation_goal": "验证一个 MCP 开发者类别是否能够发现 SAEE、选择正确工具、完成本地调用并保持结果解释边界。",
-        "required_capabilities": ["capability_discovery", "mcp_tool_discovery", "evaluate_agent_run", "evaluate_evidence"],
+        "required_capabilities": ["capability_discovery", "mcp_tool_discovery", "evaluate_rehearsal_run", "evaluate_evidence"],
         "validation_scope": ["capability_discovery", "mcp_tool_discovery", "local_invocation", "result_interpretation", "documentation_feedback"],
         "limitations": ["类别定义不识别真实开发者", "本地调用不证明外部 MCP 兼容", "反馈尚未收集"]
       },
@@ -26,7 +26,7 @@
         "candidate_type": "agent_framework_developer",
         "selection_reason": "能够验证 SAEE 是否可被通用 Agent workflow 组合，但需要额外的框架适配上下文和更复杂的调用边界说明。",
         "validation_goal": "验证 Agent Framework 开发者类别能否把 SAEE 作为 decision-context provider 组合进现有工作流。",
-        "required_capabilities": ["capability_discovery", "evaluate_agent_run", "evaluate_evidence"],
+        "required_capabilities": ["capability_discovery", "evaluate_rehearsal_run", "evaluate_evidence"],
         "validation_scope": ["capability_discovery", "local_invocation", "result_interpretation", "documentation_feedback"],
         "limitations": ["没有特定框架适配证明", "不建立框架官方支持", "反馈尚未收集"]
       },
@@ -41,7 +41,7 @@
         "candidate_type": "cloud_platform",
         "selection_reason": "云平台可能提供较高生态价值，但权限、身份、网络和评审流程更复杂，不适合作为第一次最小外部验证。",
         "validation_goal": "未来验证云 Agent 平台是否能够理解并映射 SAEE 能力边界，而不是在当前阶段执行平台集成。",
-        "required_capabilities": ["capability_discovery", "mcp_tool_discovery", "evaluate_agent_run"],
+        "required_capabilities": ["capability_discovery", "mcp_tool_discovery", "evaluate_rehearsal_run"],
         "validation_scope": ["capability_discovery", "mcp_tool_discovery", "result_interpretation", "documentation_feedback"],
         "limitations": ["没有官方平台集成", "没有云端兼容性证明", "验证复杂度较高", "反馈尚未收集"]
       },
