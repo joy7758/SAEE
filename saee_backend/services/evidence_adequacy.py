@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import re
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -165,9 +166,14 @@ def _load_profile(claim_type: str) -> dict[str, Any] | None:
     return json.loads((PROFILE_DIRECTORY / filename).read_text(encoding="utf-8"))
 
 
-def _profile_valid(profile: dict[str, Any]) -> bool:
+@lru_cache(maxsize=1)
+def _get_profile_validator() -> Draft202012Validator:
     schema = json.loads(PROFILE_SCHEMA_PATH.read_text(encoding="utf-8"))
-    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    return Draft202012Validator(schema, format_checker=FormatChecker())
+
+
+def _profile_valid(profile: dict[str, Any]) -> bool:
+    validator = _get_profile_validator()
     return not list(validator.iter_errors(profile))
 
 
