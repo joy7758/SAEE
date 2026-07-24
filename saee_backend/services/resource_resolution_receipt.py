@@ -9,6 +9,7 @@ synthetic inline bytes carried by the receipt itself.
 from __future__ import annotations
 
 import base64
+import functools
 import hashlib
 import hmac
 import json
@@ -126,9 +127,14 @@ def _canonical_https_uri(value: Any) -> tuple[bool, str | None]:
     return hmac.compare_digest(value, canonical), host
 
 
-def _schema_errors(receipt: dict[str, Any]) -> list[Any]:
+@functools.lru_cache(maxsize=1)
+def _get_schema_validator() -> Draft202012Validator:
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
-    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    return Draft202012Validator(schema, format_checker=FormatChecker())
+
+
+def _schema_errors(receipt: dict[str, Any]) -> list[Any]:
+    validator = _get_schema_validator()
     return sorted(validator.iter_errors(receipt), key=lambda item: (list(item.absolute_path), item.message))
 
 
