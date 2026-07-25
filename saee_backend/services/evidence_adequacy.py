@@ -8,6 +8,7 @@ authorization was genuine, or a legal finding was established.
 
 from __future__ import annotations
 
+import functools
 import json
 import re
 from datetime import datetime
@@ -159,6 +160,7 @@ def _result(
     }
 
 
+@functools.lru_cache
 def _load_profile(claim_type: str) -> dict[str, Any] | None:
     filename = PROFILE_FILES.get(claim_type)
     if filename is None:
