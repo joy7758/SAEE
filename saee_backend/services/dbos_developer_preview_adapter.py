@@ -56,24 +56,18 @@ def _reference_id(value: Any, pointer: str) -> str:
     return reference_id
 
 
-def _validate_envelope(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, Any]], list[Mapping[str, Any]], list[Mapping[str, Any]]]:
+def _validate_contract_version(envelope: Mapping[str, Any]) -> None:
     if envelope.get("contract_version") != CONTRACT_VERSION:
         raise DBOSDeveloperPreviewInputError(
             "DBOS_PREVIEW_CONTRACT_UNSUPPORTED",
             str(envelope.get("contract_version")),
         )
 
+
+def _get_execution_history(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, Any]], set[str]]:
     execution_history = [
         _require_mapping(item, f"/execution_history/{index}")
         for index, item in enumerate(_require_list(envelope.get("execution_history"), "/execution_history"))
-    ]
-    evidence_references = [
-        _require_mapping(item, f"/evidence_references/{index}")
-        for index, item in enumerate(_require_list(envelope.get("evidence_references"), "/evidence_references"))
-    ]
-    validation_results = [
-        _require_mapping(item, f"/validation_results/{index}")
-        for index, item in enumerate(_require_list(envelope.get("validation_results"), "/validation_results"))
     ]
     if not execution_history:
         raise DBOSDeveloperPreviewInputError("DBOS_PREVIEW_EXECUTION_HISTORY_EMPTY", "/execution_history")
@@ -88,6 +82,14 @@ def _validate_envelope(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, A
         execution_ids.add(execution_id)
         _reference_id(execution.get("entity_reference"), f"/execution_history/{index}/entity_reference")
 
+    return execution_history, execution_ids
+
+
+def _get_evidence_references(envelope: Mapping[str, Any], execution_ids: set[str]) -> list[Mapping[str, Any]]:
+    evidence_references = [
+        _require_mapping(item, f"/evidence_references/{index}")
+        for index, item in enumerate(_require_list(envelope.get("evidence_references"), "/evidence_references"))
+    ]
     evidence_execution_ids: set[str] = set()
     for index, evidence in enumerate(evidence_references):
         if evidence.get("integrity_status") != "PENDING":
@@ -106,13 +108,23 @@ def _validate_envelope(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, A
             "DBOS_PREVIEW_EVIDENCE_REFERENCE_INCOMPLETE",
             ",".join(sorted(execution_ids - evidence_execution_ids)),
         )
+    return evidence_references
 
+
+def _get_validation_results(envelope: Mapping[str, Any]) -> list[Mapping[str, Any]]:
+    validation_results = [
+        _require_mapping(item, f"/validation_results/{index}")
+        for index, item in enumerate(_require_list(envelope.get("validation_results"), "/validation_results"))
+    ]
     if not validation_results or any(item.get("result") != "PASS" for item in validation_results):
         raise DBOSDeveloperPreviewInputError(
             "DBOS_PREVIEW_STRUCTURAL_VALIDATION_NOT_PASS",
             "/validation_results",
         )
+    return validation_results
 
+
+def _validate_resource_information(envelope: Mapping[str, Any]) -> None:
     resource_information = _require_mapping(
         envelope.get("resource_information"),
         "/resource_information",
@@ -128,6 +140,14 @@ def _validate_envelope(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, A
                 "DBOS_PREVIEW_SYNTHETIC_BOUNDARY_VIOLATION",
                 f"/resource_information/{field}",
             )
+
+
+def _validate_envelope(envelope: Mapping[str, Any]) -> tuple[list[Mapping[str, Any]], list[Mapping[str, Any]], list[Mapping[str, Any]]]:
+    _validate_contract_version(envelope)
+    execution_history, execution_ids = _get_execution_history(envelope)
+    evidence_references = _get_evidence_references(envelope, execution_ids)
+    validation_results = _get_validation_results(envelope)
+    _validate_resource_information(envelope)
 
     return execution_history, evidence_references, validation_results
 
