@@ -203,6 +203,74 @@ def _readiness_context(execution_history: list[Mapping[str, Any]]) -> dict[str, 
     )
 
 
+
+def _build_reliability_assessment(completed_observations: int, reliability: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "status": "OBSERVED" if completed_observations else "NOT_ASSESSED",
+        "completed_execution_observations": completed_observations,
+        "role_assessments": reliability,
+        "limitation": "CREATED execution records are not completed runs or proof of task correctness.",
+    }
+
+
+def _build_stability_assessment() -> dict[str, Any]:
+    return {
+        "status": "NOT_ASSESSED",
+        "repeated_completed_run_groups": 0,
+        "limitation": "Stability requires repeated completed observations for the same governed subject.",
+    }
+
+
+def _build_risk_assessment(readiness: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "status": "RISKS_IDENTIFIED" if readiness["risks"] else "NO_RISK_SIGNAL_IDENTIFIED",
+        "risk_signals": readiness["risks"],
+        "missing_required_evidence": readiness["missing_evidence"],
+        "source_operation": readiness["operation"],
+        "score": readiness["score"],
+        "score_semantics": readiness["score_semantics"],
+    }
+
+
+def _build_evolution_recommendation(readiness: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "status": "HOLD",
+        "recommended_change": None,
+        "recommended_next_step": "collect_completed_execution_and_verified_evidence_before_evolution_review",
+        "source_readiness_recommendation": readiness["recommendation"],
+        "advisory_only": True,
+        "decision_authority": False,
+        "execution_authority": False,
+    }
+
+
+def _build_source_material_summary(
+    execution_history: list[Mapping[str, Any]],
+    evidence_references: list[Mapping[str, Any]],
+    validation_results: list[Mapping[str, Any]],
+) -> dict[str, Any]:
+    return {
+        "execution_record_count": len(execution_history),
+        "pending_evidence_reference_count": len(evidence_references),
+        "structural_validation_pass_count": len(validation_results),
+    }
+
+
+def _build_truth_boundary() -> dict[str, bool]:
+    return {
+        "new_public_capability_created": False,
+        "dbos_state_modified": False,
+        "saee_execution_authority": False,
+        "fitness_score_generated": False,
+        "stability_established": False,
+        "evidence_truth_established": False,
+        "automatic_evolution": False,
+        "permission_granted": False,
+        "customer_validated": False,
+        "production_ready": False,
+    }
+
+
 def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, Any]:
     """Evaluate one bounded DBOS preview envelope without modifying DBOS state."""
 
@@ -219,39 +287,13 @@ def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, An
         "evaluation_id": "saee:dbos-developer-preview:multi-agent-trust-demo-v0.1",
         "input_contract_version": CONTRACT_VERSION,
         "source_demo_id": envelope.get("source_demo_id"),
-        "reliability_assessment": {
-            "status": "OBSERVED" if completed_observations else "NOT_ASSESSED",
-            "completed_execution_observations": completed_observations,
-            "role_assessments": reliability,
-            "limitation": "CREATED execution records are not completed runs or proof of task correctness.",
-        },
-        "stability_assessment": {
-            "status": "NOT_ASSESSED",
-            "repeated_completed_run_groups": 0,
-            "limitation": "Stability requires repeated completed observations for the same governed subject.",
-        },
-        "risk_assessment": {
-            "status": "RISKS_IDENTIFIED" if readiness["risks"] else "NO_RISK_SIGNAL_IDENTIFIED",
-            "risk_signals": readiness["risks"],
-            "missing_required_evidence": readiness["missing_evidence"],
-            "source_operation": readiness["operation"],
-            "score": readiness["score"],
-            "score_semantics": readiness["score_semantics"],
-        },
-        "evolution_recommendation": {
-            "status": "HOLD",
-            "recommended_change": None,
-            "recommended_next_step": "collect_completed_execution_and_verified_evidence_before_evolution_review",
-            "source_readiness_recommendation": readiness["recommendation"],
-            "advisory_only": True,
-            "decision_authority": False,
-            "execution_authority": False,
-        },
-        "source_material_summary": {
-            "execution_record_count": len(execution_history),
-            "pending_evidence_reference_count": len(evidence_references),
-            "structural_validation_pass_count": len(validation_results),
-        },
+        "reliability_assessment": _build_reliability_assessment(completed_observations, reliability),
+        "stability_assessment": _build_stability_assessment(),
+        "risk_assessment": _build_risk_assessment(readiness),
+        "evolution_recommendation": _build_evolution_recommendation(readiness),
+        "source_material_summary": _build_source_material_summary(
+            execution_history, evidence_references, validation_results
+        ),
         "reused_implementations": [
             "saee_backend.services.reliability_framework.assessment_adapter.assess_reliability_run",
             "saee_backend.services.baidu_agent_readiness_service.evaluate_agent_run",
@@ -261,16 +303,5 @@ def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, An
             "No trace authenticity, identity binding, or scientific correctness is established.",
             "The result is recommendation context, not a Decision, Authorization, Permission, or Command.",
         ],
-        "truth_boundary": {
-            "new_public_capability_created": False,
-            "dbos_state_modified": False,
-            "saee_execution_authority": False,
-            "fitness_score_generated": False,
-            "stability_established": False,
-            "evidence_truth_established": False,
-            "automatic_evolution": False,
-            "permission_granted": False,
-            "customer_validated": False,
-            "production_ready": False,
-        },
+        "truth_boundary": _build_truth_boundary(),
     }
