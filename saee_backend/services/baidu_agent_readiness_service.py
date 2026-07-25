@@ -8,6 +8,7 @@ safety probabilities.
 
 from __future__ import annotations
 
+import functools
 import json
 from pathlib import Path
 from typing import Any
@@ -60,6 +61,7 @@ class ReadinessInputError(ValueError):
         super().__init__(f"{code}: {detail}")
 
 
+@functools.lru_cache(maxsize=None)
 def _load(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
@@ -67,6 +69,7 @@ def _load(path: Path) -> dict[str, Any]:
     return value
 
 
+@functools.lru_cache(maxsize=None)
 def _registry() -> Registry:
     item = _load(EVIDENCE_ITEM_SCHEMA)
     return Registry().with_resource(item["$id"], Resource.from_contents(item))
