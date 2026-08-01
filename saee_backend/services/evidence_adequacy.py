@@ -114,19 +114,6 @@ TRUTH_BOUNDARY = {
 }
 
 
-class _DuplicateKeyError(ValueError):
-    pass
-
-
-def _closed_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-    result: dict[str, Any] = {}
-    for key, value in pairs:
-        if key in result:
-            raise _DuplicateKeyError("duplicate JSON key")
-        result[key] = value
-    return result
-
-
 def _result(
     claim_type: str,
     passed: bool,
@@ -358,13 +345,3 @@ def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
         evaluated_fields=evaluated,
         reason_codes=reasons,
     )
-
-
-def evaluate_evidence_adequacy_json(claim_type: str, text: str) -> dict[str, Any]:
-    """Parse closed JSON and evaluate without reflecting evidence values."""
-
-    try:
-        package = json.loads(text, object_pairs_hook=_closed_object)
-    except (json.JSONDecodeError, UnicodeError, _DuplicateKeyError, ValueError):
-        return _result(claim_type, False, reason_codes=[INPUT_SCHEMA_INVALID])
-    return evaluate_evidence_adequacy(claim_type, package)
