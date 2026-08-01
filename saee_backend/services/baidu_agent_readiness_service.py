@@ -139,27 +139,34 @@ def evaluate_evidence(request: dict[str, Any]) -> dict[str, Any]:
     return response
 
 
-def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
-    """Assess one declared Agent run without executing it or authorizing action."""
-
-    _validate(RUN_REQUEST_SCHEMA, request, "READINESS_AGENT_RUN_REQUEST_INVALID")
-    events = request["trace"]["events"]
+def _determine_run_required_evidence(events: list[dict[str, Any]]) -> tuple[str, ...] | list[str]:
     high_impact = any(item["high_impact"] or item["external_effect"] for item in events)
-    required = HIGH_IMPACT_REQUIRED if high_impact else BASE_REQUIRED
-    _, present = _evidence_state(request["evidence"])
-    score, available, missing = _coverage(required, present)
-    risks = [RISK_BY_MISSING[item] for item in missing]
+    return HIGH_IMPACT_REQUIRED if high_impact else BASE_REQUIRED
+
+
+def _determine_run_readiness(score: int) -> tuple[str, str]:
     if score == 100:
-        readiness, recommendation = "continue", "CONTINUE"
-    elif score >= 75:
-        readiness, recommendation = "conditional", "HUMAN_REVIEW_REQUIRED"
-    elif score >= 50:
-        readiness, recommendation = "replan", "REPLAN"
-    else:
-        readiness, recommendation = "stop", "STOP"
-    response = {
+        return "continue", "CONTINUE"
+    if score >= 75:
+        return "conditional", "HUMAN_REVIEW_REQUIRED"
+    if score >= 50:
+        return "replan", "REPLAN"
+    return "stop", "STOP"
+
+
+def _build_run_response(
+    request_id: str,
+    readiness: str,
+    score: int,
+    required: tuple[str, ...] | list[str],
+    available: list[str],
+    missing: list[str],
+    risks: list[str],
+    recommendation: str,
+) -> dict[str, Any]:
+    return {
         "response_version": "0.1.0",
-        "request_id": request["request_id"],
+        "request_id": request_id,
         "capability_id": "saee.agent-readiness",
         "operation": "saee.evaluate_agent_run",
         "readiness": readiness,
@@ -173,5 +180,26 @@ def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
         "limitations": list(LIMITATIONS),
         "truth_boundary": dict(TRUTH_BOUNDARY),
     }
+
+
+def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
+    """Assess one declared Agent run without executing it or authorizing action."""
+
+    _validate(RUN_REQUEST_SCHEMA, request, "READINESS_AGENT_RUN_REQUEST_INVALID")
+    required = _determine_run_required_evidence(request["trace"]["events"])
+    _, present = _evidence_state(request["evidence"])
+    score, available, missing = _coverage(required, present)
+    risks = [RISK_BY_MISSING[item] for item in missing]
+    readiness, recommendation = _determine_run_readiness(score)
+    response = _build_run_response(
+        request["request_id"],
+        readiness,
+        score,
+        required,
+        available,
+        missing,
+        risks,
+        recommendation,
+    )
     _validate(RUN_RESPONSE_SCHEMA, response, "READINESS_AGENT_RUN_RESPONSE_INVALID")
     return response
