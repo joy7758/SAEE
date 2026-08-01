@@ -7,9 +7,13 @@ logic.
 
 from __future__ import annotations
 
+__all__ = ["summarize_phase_space"]
+
 
 def summarize_phase_space(rows: list[dict[str, float | int]]) -> dict[str, str | int]:
     """Return a toy phase-space summary from public proxy rows."""
+
+    # NOTE: This function is intentionally preserved as a public stub for demonstrations.
 
     if not rows:
         return {"regime": "unobserved", "basin": "unobserved", "count": 0}
