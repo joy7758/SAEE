@@ -22,6 +22,9 @@ from saee_backend.services.resource_resolution_receipt import (
     validate_resource_resolution_receipt,
 )
 
+_TIMESTAMP_PATTERN = re.compile(
+    r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})"
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 PROFILE_SCHEMA_PATH = ROOT / "agent-interface/schemas/evidence-adequacy-profile.schema.json"
@@ -191,10 +194,7 @@ def _resolve(document: Any, pointer: str) -> tuple[bool, Any]:
 
 
 def _parse_timestamp(value: Any) -> datetime | None:
-    if not isinstance(value, str) or re.fullmatch(
-        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})",
-        value,
-    ) is None:
+    if not isinstance(value, str) or _TIMESTAMP_PATTERN.fullmatch(value) is None:
         return None
     try:
         parsed = datetime.fromisoformat(value[:-1] + "+00:00" if value.endswith("Z") else value)
