@@ -257,5 +257,20 @@ class EvidenceAdequacyTest(unittest.TestCase):
         self.assertEqual(result_duplicate["result"], "FAIL")
         self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_duplicate["reason_codes"])
 
+    @patch("saee_backend.services.evidence_adequacy.json.loads")
+    def test_json_parsing_errors(self, mock_json_loads) -> None:
+        # Test UnicodeError
+        mock_json_loads.side_effect = UnicodeError("mocked unicode error")
+        result_unicode = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", "mock_input")
+        self.assertEqual(result_unicode["result"], "FAIL")
+        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_unicode["reason_codes"])
+
+        # Test ValueError
+        mock_json_loads.side_effect = ValueError("mocked value error")
+        result_value = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", "mock_input")
+        self.assertEqual(result_value["result"], "FAIL")
+        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_value["reason_codes"])
+
+
 if __name__ == "__main__":
     unittest.main()
