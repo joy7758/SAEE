@@ -4,6 +4,7 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     evaluate_evidence_adequacy_json,
     TRUTH_BOUNDARY,
+    _parse_timestamp,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -256,6 +257,10 @@ class EvidenceAdequacyTest(unittest.TestCase):
         result_duplicate = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", duplicate_key_json)
         self.assertEqual(result_duplicate["result"], "FAIL")
         self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_duplicate["reason_codes"])
+
+    def test_parse_timestamp_invalid_date(self) -> None:
+        result = _parse_timestamp("2023-02-30T12:00:00Z")
+        self.assertIsNone(result)
 
 if __name__ == "__main__":
     unittest.main()
