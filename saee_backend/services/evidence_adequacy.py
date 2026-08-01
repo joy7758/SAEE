@@ -113,6 +113,10 @@ TRUTH_BOUNDARY = {
     "production_ready": False,
 }
 
+_DIGEST_PATTERN = re.compile(r"[0-9a-f]{64}")
+_URI_PATTERN = re.compile(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+")
+_TIMESTAMP_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})")
+
 
 class _DuplicateKeyError(ValueError):
     pass
@@ -191,10 +195,7 @@ def _resolve(document: Any, pointer: str) -> tuple[bool, Any]:
 
 
 def _parse_timestamp(value: Any) -> datetime | None:
-    if not isinstance(value, str) or re.fullmatch(
-        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})",
-        value,
-    ) is None:
+    if not isinstance(value, str) or _TIMESTAMP_PATTERN.fullmatch(value) is None:
         return None
     try:
         parsed = datetime.fromisoformat(value[:-1] + "+00:00" if value.endswith("Z") else value)
@@ -272,9 +273,9 @@ def _relationship_passes(relationship: dict[str, Any], evidence: dict[str, Any])
             and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
             and source.get("resolved_uri") == target.get("resolved_uri")
             and isinstance(digest, str)
-            and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
+            and _DIGEST_PATTERN.fullmatch(digest) is not None
             and isinstance(resolved_uri, str)
-            and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
+            and _URI_PATTERN.fullmatch(resolved_uri) is not None
             and isinstance(target.get("sandbox_ref"), str)
             and bool(target.get("sandbox_ref"))
         )
