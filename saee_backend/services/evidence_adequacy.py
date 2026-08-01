@@ -360,11 +360,3 @@ def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
     )
 
 
-def evaluate_evidence_adequacy_json(claim_type: str, text: str) -> dict[str, Any]:
-    """Parse closed JSON and evaluate without reflecting evidence values."""
-
-    try:
-        package = json.loads(text, object_pairs_hook=_closed_object)
-    except (json.JSONDecodeError, UnicodeError, _DuplicateKeyError, ValueError):
-        return _result(claim_type, False, reason_codes=[INPUT_SCHEMA_INVALID])
-    return evaluate_evidence_adequacy(claim_type, package)
