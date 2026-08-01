@@ -112,7 +112,12 @@
     output.hidden = false;
 
     renderList(ranking, items, (element, item) => {
-      element.innerHTML = `<span>#${item.rank} ${item.agent_id}</span><strong>${Number(item.score).toFixed(6)}</strong>`;
+      const span = document.createElement("span");
+      span.textContent = `#${item.rank} ${item.agent_id}`;
+      const strong = document.createElement("strong");
+      strong.textContent = Number(item.score).toFixed(6);
+      element.appendChild(span);
+      element.appendChild(strong);
     });
 
     const summary = decision.failure_modes_summary || {};
@@ -121,7 +126,12 @@
       modes: modes.length ? modes.join(", ") : "none"
     }));
     renderList(failures, failureItems, (element, item) => {
-      element.innerHTML = `<span>${item.agentId}</span><strong>${item.modes}</strong>`;
+      const span = document.createElement("span");
+      span.textContent = item.agentId;
+      const strong = document.createElement("strong");
+      strong.textContent = item.modes;
+      element.appendChild(span);
+      element.appendChild(strong);
     });
   }
 
