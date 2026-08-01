@@ -148,6 +148,21 @@ def _rfc3339_timestamp(value: Any) -> datetime | None:
     return parsed if parsed.tzinfo is not None else None
 
 
+def _verify_content_binding(content_binding: dict[str, Any], expected_digest: str) -> bool:
+    encoded = content_binding["inline_base64"]
+    try:
+        raw = base64.b64decode(encoded, validate=True)
+    except (ValueError, TypeError):
+        return False
+    if base64.b64encode(raw).decode("ascii") != encoded:
+        return False
+    if len(raw) != content_binding["byte_length"]:
+        return False
+    if not hmac.compare_digest(hashlib.sha256(raw).hexdigest(), expected_digest):
+        return False
+    return True
+
+
 def validate_resource_resolution_receipt(receipt: Any) -> dict[str, Any]:
     """Return a stable, non-reflective validation result."""
 
@@ -174,17 +189,7 @@ def validate_resource_resolution_receipt(receipt: Any) -> dict[str, Any]:
     if not uri_valid or resolved_host != receipt.get("registry_or_host"):
         return _result(False, [RESOURCE_RESOLVED_URI_INVALID])
 
-    content_binding = receipt["content_binding"]
-    encoded = content_binding["inline_base64"]
-    try:
-        raw = base64.b64decode(encoded, validate=True)
-    except (ValueError, TypeError):
-        return _result(False, [RESOURCE_DIGEST_INVALID])
-    if base64.b64encode(raw).decode("ascii") != encoded:
-        return _result(False, [RESOURCE_DIGEST_INVALID])
-    if len(raw) != content_binding["byte_length"]:
-        return _result(False, [RESOURCE_DIGEST_INVALID])
-    if not hmac.compare_digest(hashlib.sha256(raw).hexdigest(), digest):
+    if not _verify_content_binding(receipt["content_binding"], digest):
         return _result(False, [RESOURCE_DIGEST_INVALID])
 
     expected_receipt_digest = compute_receipt_digest(receipt)
