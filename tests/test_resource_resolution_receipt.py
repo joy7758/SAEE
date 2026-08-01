@@ -8,7 +8,6 @@ import string
 
 from saee_backend.services.resource_resolution_receipt import (
     validate_resource_resolution_receipt,
-    validate_resource_resolution_json,
     compute_receipt_digest,
     RESOURCE_SCHEMA_INVALID,
     RESOURCE_PUBLISHER_IDENTITY_REQUIRED,
@@ -219,24 +218,6 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         res = validate_resource_resolution_receipt(receipt)
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RECEIPT_DIGEST_MISMATCH])
-
-    def test_valid_json(self):
-        receipt = create_valid_receipt()
-        json_str = json.dumps(receipt)
-        res = validate_resource_resolution_json(json_str)
-        self.assertTrue(res["valid"])
-        self.assertEqual(res["reason_codes"], [])
-
-    def test_invalid_json(self):
-        res = validate_resource_resolution_json("{")
-        self.assertFalse(res["valid"])
-        self.assertEqual(res["reason_codes"], [RESOURCE_SCHEMA_INVALID])
-
-    def test_duplicate_keys_json(self):
-        json_str = '{"a": 1, "a": 2}'
-        res = validate_resource_resolution_json(json_str)
-        self.assertFalse(res["valid"])
-        self.assertEqual(res["reason_codes"], [RESOURCE_SCHEMA_INVALID])
 
 if __name__ == '__main__':
     unittest.main()

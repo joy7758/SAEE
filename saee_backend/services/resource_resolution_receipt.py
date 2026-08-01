@@ -41,10 +41,6 @@ RESOURCE_RECEIPT_DIGEST_MISMATCH = "RESOURCE_RECEIPT_DIGEST_MISMATCH"
 RESOURCE_SCHEMA_INVALID = "RESOURCE_SCHEMA_INVALID"
 
 
-class _DuplicateKeyError(ValueError):
-    pass
-
-
 def canonical_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -52,15 +48,6 @@ def canonical_json(value: Any) -> str:
 def compute_receipt_digest(receipt: dict[str, Any]) -> str:
     covered = {key: value for key, value in receipt.items() if key != "integrity"}
     return hashlib.sha256(canonical_json(covered).encode("utf-8")).hexdigest()
-
-
-def _closed_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-    result: dict[str, Any] = {}
-    for key, value in pairs:
-        if key in result:
-            raise _DuplicateKeyError("duplicate JSON key")
-        result[key] = value
-    return result
 
 
 def _result(valid: bool, reason_codes: list[str], receipt_digest: str | None = None) -> dict[str, Any]:
@@ -192,13 +179,3 @@ def validate_resource_resolution_receipt(receipt: Any) -> dict[str, Any]:
     if not hmac.compare_digest(expected_receipt_digest, declared_receipt_digest):
         return _result(False, [RESOURCE_RECEIPT_DIGEST_MISMATCH])
     return _result(True, [], expected_receipt_digest)
-
-
-def validate_resource_resolution_json(text: str) -> dict[str, Any]:
-    """Parse a closed JSON document and validate without reflecting its values."""
-
-    try:
-        receipt = json.loads(text, object_pairs_hook=_closed_object)
-    except (json.JSONDecodeError, UnicodeError, _DuplicateKeyError, ValueError):
-        return _result(False, [RESOURCE_SCHEMA_INVALID])
-    return validate_resource_resolution_receipt(receipt)
