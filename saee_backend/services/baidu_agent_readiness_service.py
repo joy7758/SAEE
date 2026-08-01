@@ -75,9 +75,14 @@ def _registry() -> Registry:
     return Registry().with_resource(item["$id"], Resource.from_contents(item))
 
 
+@functools.lru_cache(maxsize=None)
+def _validator(path: Path) -> Draft202012Validator:
+    return Draft202012Validator(_load(path), registry=_registry())
+
+
 def _validate(path: Path, value: Any, code: str) -> None:
     errors = sorted(
-        Draft202012Validator(_load(path), registry=_registry()).iter_errors(value),
+        _validator(path).iter_errors(value),
         key=lambda item: list(item.absolute_path),
     )
     if errors:
