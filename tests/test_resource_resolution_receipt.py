@@ -173,6 +173,15 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RESOLVED_URI_INVALID])
 
+    def test_invalid_base64_characters(self) -> None:
+        # Test invalid base64 characters that trigger ValueError/TypeError in strict mode
+        receipt = create_valid_receipt()
+        receipt["content_binding"]["inline_base64"] = "dGVzdA=" # Invalid padding, passes schema regex but fails strict decode
+        receipt["integrity"]["receipt_digest"] = compute_receipt_digest(receipt)
+        res = validate_resource_resolution_receipt(receipt)
+        self.assertFalse(res["valid"])
+        self.assertEqual(res["reason_codes"], [RESOURCE_DIGEST_INVALID])
+
     def test_invalid_base64_content(self):
         # We need a syntactically valid base64 that decodes to wrong length
         receipt = create_valid_receipt()
