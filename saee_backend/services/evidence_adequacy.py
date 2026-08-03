@@ -14,7 +14,7 @@ import re
 from datetime import datetime
 from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -235,49 +235,74 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
     return missing, evaluated, reasons
 
 
+def _check_resource_receipt_valid(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    return source_ok and validate_resource_resolution_receipt(source)["valid"] is True
+
+
+def _check_reference_equals(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    return source_ok and target_ok and source == target
+
+
+def _check_scope_covers(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    return source_ok and target_ok and isinstance(source, str) and source == target
+
+
+def _check_timestamp_within_authority_window(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    if not source_ok or not target_ok or not isinstance(target, dict) or target.get("decision") != "allow":
+        return False
+    action_time = _parse_timestamp(source)
+    valid_from = _parse_timestamp(target.get("valid_from"))
+    valid_until = _parse_timestamp(target.get("valid_until"))
+    return bool(action_time and valid_from and valid_until and valid_from <= action_time <= valid_until)
+
+
+def _check_approval_precedes_action(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    approval_time = _parse_timestamp(source) if source_ok else None
+    action_time = _parse_timestamp(target) if target_ok else None
+    return bool(approval_time and action_time and approval_time <= action_time)
+
+
+def _check_causal_binding_complete(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
+    link_ok, link = _resolve(evidence, "/causal_link")
+    if not source_ok or not target_ok or not link_ok:
+        return False
+    if not isinstance(source, dict) or not isinstance(target, dict) or not isinstance(link, dict):
+        return False
+    digest = source.get("content_digest")
+    resolved_uri = source.get("resolved_uri")
+    return (
+        link.get("relation_type") == "resource_to_execution_effect"
+        and source.get("receipt_id") == target.get("resource_receipt_ref") == link.get("source_receipt_ref")
+        and target.get("effect_id") == link.get("target_effect_ref")
+        and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
+        and source.get("resolved_uri") == target.get("resolved_uri")
+        and isinstance(digest, str)
+        and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
+        and isinstance(resolved_uri, str)
+        and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
+        and isinstance(target.get("sandbox_ref"), str)
+        and bool(target.get("sandbox_ref"))
+    )
+
+
+_RELATIONSHIP_DISPATCHER: dict[str, Callable[[bool, Any, bool, Any, dict[str, Any]], bool]] = {
+    "resource_receipt_valid": _check_resource_receipt_valid,
+    "reference_equals": _check_reference_equals,
+    "scope_covers": _check_scope_covers,
+    "timestamp_within_authority_window": _check_timestamp_within_authority_window,
+    "approval_precedes_action": _check_approval_precedes_action,
+    "causal_binding_complete": _check_causal_binding_complete,
+}
+
+
 def _relationship_passes(relationship: dict[str, Any], evidence: dict[str, Any]) -> bool:
     relationship_type = relationship["relationship_type"]
     source_ok, source = _resolve(evidence, relationship.get("source_path", "/missing"))
     target_ok, target = _resolve(evidence, relationship.get("target_path", "/missing"))
 
-    if relationship_type == "resource_receipt_valid":
-        return source_ok and validate_resource_resolution_receipt(source)["valid"] is True
-    if relationship_type == "reference_equals":
-        return source_ok and target_ok and source == target
-    if relationship_type == "scope_covers":
-        return source_ok and target_ok and isinstance(source, str) and source == target
-    if relationship_type == "timestamp_within_authority_window":
-        if not source_ok or not target_ok or not isinstance(target, dict) or target.get("decision") != "allow":
-            return False
-        action_time = _parse_timestamp(source)
-        valid_from = _parse_timestamp(target.get("valid_from"))
-        valid_until = _parse_timestamp(target.get("valid_until"))
-        return bool(action_time and valid_from and valid_until and valid_from <= action_time <= valid_until)
-    if relationship_type == "approval_precedes_action":
-        approval_time = _parse_timestamp(source) if source_ok else None
-        action_time = _parse_timestamp(target) if target_ok else None
-        return bool(approval_time and action_time and approval_time <= action_time)
-    if relationship_type == "causal_binding_complete":
-        link_ok, link = _resolve(evidence, "/causal_link")
-        if not source_ok or not target_ok or not link_ok:
-            return False
-        if not isinstance(source, dict) or not isinstance(target, dict) or not isinstance(link, dict):
-            return False
-        digest = source.get("content_digest")
-        resolved_uri = source.get("resolved_uri")
-        return (
-            link.get("relation_type") == "resource_to_execution_effect"
-            and source.get("receipt_id") == target.get("resource_receipt_ref") == link.get("source_receipt_ref")
-            and target.get("effect_id") == link.get("target_effect_ref")
-            and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
-            and source.get("resolved_uri") == target.get("resolved_uri")
-            and isinstance(digest, str)
-            and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
-            and isinstance(resolved_uri, str)
-            and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
-            and isinstance(target.get("sandbox_ref"), str)
-            and bool(target.get("sandbox_ref"))
-        )
+    handler = _RELATIONSHIP_DISPATCHER.get(relationship_type)
+    if handler:
+        return handler(source_ok, source, target_ok, target, evidence)
     return False
 
 
