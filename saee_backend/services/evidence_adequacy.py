@@ -209,16 +209,22 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
         ("/approval/approval_context", "EVIDENCE_APPROVAL_CONTEXT_MISSING"),
         ("/causal_link", "EVIDENCE_CAUSAL_LINK_MISSING"),
     ]
-    collapsed_prefixes: set[str] = set()
+    collapsed_prefixes_slash: list[str] = []
     for prefix, reason in collapsed_groups:
         exists, _ = _resolve(evidence, prefix)
-        if not exists and any(path.startswith(prefix + "/") for path in profile["required_evidence_fields"]):
-            missing.append(prefix)
-            reasons.append(reason)
-            collapsed_prefixes.add(prefix)
+        if not exists:
+            prefix_slash = prefix + "/"
+            for path in profile["required_evidence_fields"]:
+                if path.startswith(prefix_slash):
+                    missing.append(prefix)
+                    reasons.append(reason)
+                    collapsed_prefixes_slash.append(prefix_slash)
+                    break
+
+    prefix_tuple = tuple(collapsed_prefixes_slash)
 
     for path in profile["required_evidence_fields"]:
-        if any(path.startswith(prefix + "/") for prefix in collapsed_prefixes):
+        if prefix_tuple and path.startswith(prefix_tuple):
             continue
         exists, _ = _resolve(evidence, path)
         if exists:
