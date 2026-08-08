@@ -42,7 +42,8 @@ def main() -> int:
         result = evaluate_dbos_developer_preview(payload)
     except (OSError, json.JSONDecodeError, DBOSDeveloperPreviewInputError) as exc:
         code = getattr(exc, "code", "DBOS_PREVIEW_INPUT_READ_FAILED")
-        print(json.dumps({"error": code, "detail": str(exc)}, sort_keys=True), file=sys.stderr)
+        detail = str(exc) if isinstance(exc, DBOSDeveloperPreviewInputError) else "Input read or parse failed."
+        print(json.dumps({"error": code, "detail": detail}, sort_keys=True), file=sys.stderr)
         return 2
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
