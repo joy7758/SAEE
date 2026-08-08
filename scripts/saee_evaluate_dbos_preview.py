@@ -22,7 +22,12 @@ from saee_backend.services.dbos_developer_preview_adapter import (  # noqa: E402
 def _load(path: str | None) -> Any:
     if path is None or path == "-":
         return json.load(sys.stdin)
-    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+    resolved_path = Path(path).resolve()
+    if not resolved_path.is_relative_to(Path.cwd()):
+        raise OSError("Access denied: path is outside the current working directory.")
+
+    return json.loads(resolved_path.read_text(encoding="utf-8"))
 
 
 def main() -> int:
