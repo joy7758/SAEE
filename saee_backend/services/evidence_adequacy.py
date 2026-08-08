@@ -212,13 +212,18 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
     collapsed_prefixes: set[str] = set()
     for prefix, reason in collapsed_groups:
         exists, _ = _resolve(evidence, prefix)
-        if not exists and any(path.startswith(prefix + "/") for path in profile["required_evidence_fields"]):
+        # Check if any path starts with the prefix directory
+        # We only do this check if the prefix object doesn't exist, to see if we should collapse
+        prefix_slash = prefix + "/"
+        if not exists and any(path.startswith(prefix_slash) for path in profile["required_evidence_fields"]):
             missing.append(prefix)
             reasons.append(reason)
             collapsed_prefixes.add(prefix)
 
+    collapsed_prefixes_tuple = tuple(p + "/" for p in collapsed_prefixes) if collapsed_prefixes else ()
+
     for path in profile["required_evidence_fields"]:
-        if any(path.startswith(prefix + "/") for prefix in collapsed_prefixes):
+        if collapsed_prefixes_tuple and path.startswith(collapsed_prefixes_tuple):
             continue
         exists, _ = _resolve(evidence, path)
         if exists:
