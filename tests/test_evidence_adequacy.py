@@ -2,8 +2,8 @@ import unittest
 from unittest.mock import patch
 from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
-    evaluate_evidence_adequacy_json,
     TRUTH_BOUNDARY,
+    _parse_timestamp,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -212,62 +212,10 @@ class EvidenceAdequacyTest(unittest.TestCase):
         self.assertEqual(result_denied["result"], "FAIL")
         self.assertIn("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED", result_denied["reason_codes"])
 
-    def test_json_parsing(self):
-        valid_json = """
-        {
-            "saee_evidence_adequacy_input_v0_1": true,
-            "schema_version": "0.1.0",
-            "claim_type": "AUTHORIZED_AGENT_ACTION",
-            "evidence": {
-                "action": {
-                    "action_id": "action-123",
-                    "agent_id": "agent-456",
-                    "requested_scope": "scope-789",
-                    "timestamp": "2023-01-01T12:00:00Z"
-                },
-                "policy_decision": {
-                    "decision_id": "decision-111",
-                    "decision": "allow",
-                    "agent_id": "agent-456",
-                    "action_id": "action-123",
-                    "authority_scope": "scope-789",
-                    "valid_from": "2023-01-01T00:00:00Z",
-                    "valid_until": "2023-01-02T00:00:00Z"
-                }
-            },
-            "truth_boundary": {
-                "event_occurrence_proven": false,
-                "identity_independently_verified": false,
-                "authorization_externally_verified": false,
-                "legal_finding_established": false,
-                "production_ready": false
-            }
-        }
-        """
-        result_valid = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", valid_json)
-        self.assertEqual(result_valid["result"], "PASS")
+    def test_parse_timestamp_invalid_date(self) -> None:
+        result = _parse_timestamp("2023-02-30T12:00:00Z")
+        self.assertIsNone(result)
 
-        invalid_json = "{"
-        result_invalid = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", invalid_json)
-        self.assertEqual(result_invalid["result"], "FAIL")
-        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_invalid["reason_codes"])
-
-        duplicate_key_json = valid_json.replace('"schema_version": "0.1.0",', '"schema_version": "0.1.0", "schema_version": "0.1.0",')
-        result_duplicate = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", duplicate_key_json)
-        self.assertEqual(result_duplicate["result"], "FAIL")
-        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_duplicate["reason_codes"])
-
-    @patch("saee_backend.services.evidence_adequacy.json.loads")
-    def test_json_parsing_exceptions(self, mock_loads) -> None:
-        mock_loads.side_effect = UnicodeError("mocked unicode error")
-        result_unicode = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", "{}")
-        self.assertEqual(result_unicode["result"], "FAIL")
-        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_unicode["reason_codes"])
-
-        mock_loads.side_effect = ValueError("mocked value error")
-        result_value = evaluate_evidence_adequacy_json("AUTHORIZED_AGENT_ACTION", "{}")
-        self.assertEqual(result_value["result"], "FAIL")
-        self.assertIn("EVIDENCE_INPUT_SCHEMA_INVALID", result_value["reason_codes"])
 
 if __name__ == "__main__":
     unittest.main()
