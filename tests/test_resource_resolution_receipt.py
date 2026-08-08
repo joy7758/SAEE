@@ -7,6 +7,7 @@ import random
 import string
 
 from saee_backend.services.resource_resolution_receipt import (
+    canonical_json,
     validate_resource_resolution_receipt,
     compute_receipt_digest,
     RESOURCE_SCHEMA_INVALID,
@@ -94,6 +95,40 @@ def create_valid_receipt():
     return receipt
 
 class TestResourceResolutionReceipt(unittest.TestCase):
+    def test_canonical_json(self) -> None:
+        # Test basic sorting and no spaces
+        self.assertEqual(canonical_json({"b": 2, "a": 1}), '{"a":1,"b":2}')
+
+        # Test nested sorting and no spaces
+        self.assertEqual(
+            canonical_json({"b": {"d": 4, "c": 3}, "a": 1}),
+            '{"a":1,"b":{"c":3,"d":4}}'
+        )
+
+        # Test arrays (should not be sorted, but should have no spaces)
+        self.assertEqual(
+            canonical_json({"b": [2, 1, 3], "a": 1}),
+            '{"a":1,"b":[2,1,3]}'
+        )
+
+        # Test unicode characters (should not be escaped)
+        self.assertEqual(canonical_json({"emoji": "🚀"}), '{"emoji":"🚀"}')
+        self.assertEqual(canonical_json({"text": "测试"}), '{"text":"测试"}')
+
+        # Test comprehensive case
+        data = {
+            "z": None,
+            "y": True,
+            "x": False,
+            "w": [
+                {"b": 2, "a": 1},
+                "test"
+            ],
+            "v": "hello\nworld"
+        }
+        expected = '{"v":"hello\\nworld","w":[{"a":1,"b":2},"test"],"x":false,"y":true,"z":null}'
+        self.assertEqual(canonical_json(data), expected)
+
     def test_valid_receipt(self):
         receipt = create_valid_receipt()
         res = validate_resource_resolution_receipt(receipt)
