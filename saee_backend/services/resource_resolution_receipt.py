@@ -150,34 +150,56 @@ def _verify_content_binding(content_binding: dict[str, Any], expected_digest: st
     return True
 
 
+def _validate_structure(receipt: dict[str, Any]) -> str | None:
+    if "publisher_identity" not in receipt:
+        return RESOURCE_PUBLISHER_IDENTITY_REQUIRED
+    digest = receipt.get("content_digest")
+    if not isinstance(digest, str) or DIGEST_PATTERN.fullmatch(digest) is None:
+        return RESOURCE_DIGEST_INVALID
+    if "policy_decision_ref" not in receipt:
+        return RESOURCE_POLICY_DECISION_REQUIRED
+    if "execution_effect_ref" in receipt:
+        return RESOURCE_EXECUTION_EFFECT_UNBOUND
+    if _schema_errors(receipt):
+        return RESOURCE_SCHEMA_INVALID
+    return None
+
+
+def _validate_timestamps(receipt: dict[str, Any]) -> str | None:
+    created_at = _rfc3339_timestamp(receipt.get("created_at"))
+    retrieval_timestamp = _rfc3339_timestamp(receipt.get("retrieval_timestamp"))
+    if created_at is None or retrieval_timestamp is None or retrieval_timestamp > created_at:
+        return RESOURCE_SCHEMA_INVALID
+    return None
+
+
+def _validate_uri_and_binding(receipt: dict[str, Any], digest: str) -> str | None:
+    uri_valid, resolved_host = _canonical_https_uri(receipt.get("resolved_uri"))
+    if not uri_valid or resolved_host != receipt.get("registry_or_host"):
+        return RESOURCE_RESOLVED_URI_INVALID
+
+    if not _verify_content_binding(receipt["content_binding"], digest):
+        return RESOURCE_DIGEST_INVALID
+
+    return None
+
+
 def validate_resource_resolution_receipt(receipt: Any) -> dict[str, Any]:
     """Return a stable, non-reflective validation result."""
 
     if not isinstance(receipt, dict):
         return _result(False, [RESOURCE_SCHEMA_INVALID])
-    if "publisher_identity" not in receipt:
-        return _result(False, [RESOURCE_PUBLISHER_IDENTITY_REQUIRED])
+
+    if structure_error := _validate_structure(receipt):
+        return _result(False, [structure_error])
+
+    if timestamp_error := _validate_timestamps(receipt):
+        return _result(False, [timestamp_error])
+
     digest = receipt.get("content_digest")
-    if not isinstance(digest, str) or DIGEST_PATTERN.fullmatch(digest) is None:
-        return _result(False, [RESOURCE_DIGEST_INVALID])
-    if "policy_decision_ref" not in receipt:
-        return _result(False, [RESOURCE_POLICY_DECISION_REQUIRED])
-    if "execution_effect_ref" in receipt:
-        return _result(False, [RESOURCE_EXECUTION_EFFECT_UNBOUND])
-    if _schema_errors(receipt):
-        return _result(False, [RESOURCE_SCHEMA_INVALID])
-
-    created_at = _rfc3339_timestamp(receipt.get("created_at"))
-    retrieval_timestamp = _rfc3339_timestamp(receipt.get("retrieval_timestamp"))
-    if created_at is None or retrieval_timestamp is None or retrieval_timestamp > created_at:
-        return _result(False, [RESOURCE_SCHEMA_INVALID])
-
-    uri_valid, resolved_host = _canonical_https_uri(receipt.get("resolved_uri"))
-    if not uri_valid or resolved_host != receipt.get("registry_or_host"):
-        return _result(False, [RESOURCE_RESOLVED_URI_INVALID])
-
-    if not _verify_content_binding(receipt["content_binding"], digest):
-        return _result(False, [RESOURCE_DIGEST_INVALID])
+    if isinstance(digest, str):
+        if uri_binding_error := _validate_uri_and_binding(receipt, digest):
+            return _result(False, [uri_binding_error])
 
     expected_receipt_digest = compute_receipt_digest(receipt)
     declared_receipt_digest = receipt["integrity"]["receipt_digest"]
