@@ -22,7 +22,11 @@ from saee_backend.services.dbos_developer_preview_adapter import (  # noqa: E402
 def _load(path: str | None) -> Any:
     if path is None or path == "-":
         return json.load(sys.stdin)
-    return json.loads(Path(path).read_text(encoding="utf-8"))
+    target_path = Path(path).resolve()
+    base_path = Path.cwd().resolve()
+    if not target_path.is_relative_to(base_path):
+        raise PermissionError("Path traversal is not allowed.")
+    return json.loads(target_path.read_text(encoding="utf-8"))
 
 
 def main() -> int:
