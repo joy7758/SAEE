@@ -9,6 +9,7 @@ import string
 from saee_backend.services.resource_resolution_receipt import (
     validate_resource_resolution_receipt,
     compute_receipt_digest,
+    canonical_json,
     RESOURCE_SCHEMA_INVALID,
     RESOURCE_PUBLISHER_IDENTITY_REQUIRED,
     RESOURCE_DIGEST_INVALID,
@@ -227,6 +228,16 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         res = validate_resource_resolution_receipt(receipt)
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RECEIPT_DIGEST_MISMATCH])
+
+    def test_canonical_json(self) -> None:
+        # Proper key sorting
+        self.assertEqual(canonical_json({"b": 2, "a": 1}), '{"a":1,"b":2}')
+        # Omission of unnecessary spaces in separators
+        self.assertEqual(canonical_json({"a": [1, 2, 3]}), '{"a":[1,2,3]}')
+        # Correct unicode handling
+        self.assertEqual(canonical_json({"text": "こんにちは"}), '{"text":"こんにちは"}')
+        # Basic types support
+        self.assertEqual(canonical_json({"string": "val", "int": 10, "bool": True, "null": None, "list": [1, "two"]}), '{"bool":true,"int":10,"list":[1,"two"],"null":null,"string":"val"}')
 
 if __name__ == '__main__':
     unittest.main()
