@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import copy
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from saee_backend.services.baidu_agent_readiness_service import (
     ReadinessInputError,
+    _load,
     evaluate_agent_run,
     evaluate_evidence,
 )
@@ -204,6 +207,12 @@ class BaiduAgentReadinessServiceTest(unittest.TestCase):
         self.assertTrue(truth_boundary["local_alpha"])
         self.assertFalse(truth_boundary["agent_executed_by_saee"])
         self.assertFalse(truth_boundary["deployment_authorized"])
+
+    @patch("pathlib.Path.read_text")
+    def test_load_schema_not_dict_error(self, mock_read_text) -> None:
+        mock_read_text.return_value = "[]"
+        with self.assertRaisesRegex(RuntimeError, "schema must be an object: test.json"):
+            _load.__wrapped__(Path("test.json"))
 
 if __name__ == "__main__":
     unittest.main()
