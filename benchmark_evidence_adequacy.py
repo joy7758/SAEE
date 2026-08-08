@@ -1,5 +1,4 @@
 import time
-import json
 from saee_backend.services.evidence_adequacy import _profile_valid, _load_profile
 
 def benchmark():
