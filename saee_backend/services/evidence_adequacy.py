@@ -217,8 +217,9 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
             reasons.append(reason)
             collapsed_prefixes.add(prefix)
 
+    collapsed_prefixes_tuple = tuple(prefix + "/" for prefix in collapsed_prefixes)
     for path in profile["required_evidence_fields"]:
-        if any(path.startswith(prefix + "/") for prefix in collapsed_prefixes):
+        if path.startswith(collapsed_prefixes_tuple):
             continue
         exists, _ = _resolve(evidence, path)
         if exists:
