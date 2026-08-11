@@ -11,6 +11,7 @@ from __future__ import annotations
 import functools
 import json
 import re
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
@@ -237,57 +238,66 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
     return missing, evaluated, reasons
 
 
-def _check_resource_receipt_valid(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    return source_ok and validate_resource_resolution_receipt(source)["valid"] is True
+@dataclass
+class RelationshipContext:
+    source_ok: bool
+    source: Any
+    target_ok: bool
+    target: Any
+    evidence: dict[str, Any]
 
 
-def _check_reference_equals(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    return source_ok and target_ok and source == target
+def _check_resource_receipt_valid(context: RelationshipContext) -> bool:
+    return context.source_ok and validate_resource_resolution_receipt(context.source)["valid"] is True
 
 
-def _check_scope_covers(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    return source_ok and target_ok and isinstance(source, str) and source == target
+def _check_reference_equals(context: RelationshipContext) -> bool:
+    return context.source_ok and context.target_ok and context.source == context.target
 
 
-def _check_timestamp_within_authority_window(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    if not source_ok or not target_ok or not isinstance(target, dict) or target.get("decision") != "allow":
+def _check_scope_covers(context: RelationshipContext) -> bool:
+    return context.source_ok and context.target_ok and isinstance(context.source, str) and context.source == context.target
+
+
+def _check_timestamp_within_authority_window(context: RelationshipContext) -> bool:
+    if not context.source_ok or not context.target_ok or not isinstance(context.target, dict) or context.target.get("decision") != "allow":
         return False
-    action_time = _parse_timestamp(source)
-    valid_from = _parse_timestamp(target.get("valid_from"))
-    valid_until = _parse_timestamp(target.get("valid_until"))
+    action_time = _parse_timestamp(context.source)
+    valid_from = _parse_timestamp(context.target.get("valid_from"))
+    valid_until = _parse_timestamp(context.target.get("valid_until"))
     return bool(action_time and valid_from and valid_until and valid_from <= action_time <= valid_until)
 
 
-def _check_approval_precedes_action(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    approval_time = _parse_timestamp(source) if source_ok else None
-    action_time = _parse_timestamp(target) if target_ok else None
+def _check_approval_precedes_action(context: RelationshipContext) -> bool:
+    approval_time = _parse_timestamp(context.source) if context.source_ok else None
+    action_time = _parse_timestamp(context.target) if context.target_ok else None
     return bool(approval_time and action_time and approval_time <= action_time)
 
 
-def _check_causal_binding_complete(source_ok: bool, source: Any, target_ok: bool, target: Any, evidence: dict[str, Any]) -> bool:
-    link_ok, link = _resolve(evidence, "/causal_link")
-    if not source_ok or not target_ok or not link_ok:
+def _check_causal_binding_complete(context: RelationshipContext) -> bool:
+    link_ok, link = _resolve(context.evidence, "/causal_link")
+    if not context.source_ok or not context.target_ok or not link_ok:
         return False
-    if not isinstance(source, dict) or not isinstance(target, dict) or not isinstance(link, dict):
+    if not isinstance(context.source, dict) or not isinstance(context.target, dict) or not isinstance(link, dict):
         return False
-    digest = source.get("content_digest")
-    resolved_uri = source.get("resolved_uri")
+    digest = context.source.get("content_digest")
+    resolved_uri = context.source.get("resolved_uri")
     return (
         link.get("relation_type") == "resource_to_execution_effect"
-        and source.get("receipt_id") == target.get("resource_receipt_ref") == link.get("source_receipt_ref")
-        and target.get("effect_id") == link.get("target_effect_ref")
-        and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
-        and source.get("resolved_uri") == target.get("resolved_uri")
+        and context.source.get("receipt_id") == context.target.get("resource_receipt_ref") == link.get("source_receipt_ref")
+        and context.target.get("effect_id") == link.get("target_effect_ref")
+        and context.source.get("content_digest") == context.target.get("content_digest") == link.get("content_digest")
+        and context.source.get("resolved_uri") == context.target.get("resolved_uri")
         and isinstance(digest, str)
         and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
         and isinstance(resolved_uri, str)
         and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
-        and isinstance(target.get("sandbox_ref"), str)
-        and bool(target.get("sandbox_ref"))
+        and isinstance(context.target.get("sandbox_ref"), str)
+        and bool(context.target.get("sandbox_ref"))
     )
 
 
-_RELATIONSHIP_DISPATCHER: dict[str, Callable[[bool, Any, bool, Any, dict[str, Any]], bool]] = {
+_RELATIONSHIP_DISPATCHER: dict[str, Callable[[RelationshipContext], bool]] = {
     "resource_receipt_valid": _check_resource_receipt_valid,
     "reference_equals": _check_reference_equals,
     "scope_covers": _check_scope_covers,
@@ -304,7 +314,7 @@ def _relationship_passes(relationship: dict[str, Any], evidence: dict[str, Any])
 
     handler = _RELATIONSHIP_DISPATCHER.get(relationship_type)
     if handler:
-        return handler(source_ok, source, target_ok, target, evidence)
+        return handler(RelationshipContext(source_ok, source, target_ok, target, evidence))
     return False
 
 
