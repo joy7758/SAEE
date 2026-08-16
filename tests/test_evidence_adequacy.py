@@ -4,6 +4,7 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _check_timestamp_within_authority_window,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -211,6 +212,33 @@ class EvidenceAdequacyTest(unittest.TestCase):
         result_denied = evaluate_evidence_adequacy("HUMAN_OVERSIGHT", package_denied)
         self.assertEqual(result_denied["result"], "FAIL")
         self.assertIn("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED", result_denied["reason_codes"])
+
+    def test_check_timestamp_within_authority_window_outside_bounds(self) -> None:
+        target = {
+            "decision": "allow",
+            "valid_from": "2023-01-01T00:00:00Z",
+            "valid_until": "2023-12-31T23:59:59Z",
+        }
+
+        # Action before valid_from
+        result_early = _check_timestamp_within_authority_window(
+            source_ok=True,
+            source="2022-12-31T23:59:59Z",
+            target_ok=True,
+            target=target,
+            evidence={},
+        )
+        self.assertFalse(result_early)
+
+        # Action after valid_until
+        result_late = _check_timestamp_within_authority_window(
+            source_ok=True,
+            source="2024-01-01T00:00:00Z",
+            target_ok=True,
+            target=target,
+            evidence={},
+        )
+        self.assertFalse(result_late)
 
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
