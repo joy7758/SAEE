@@ -4,6 +4,7 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _check_approval_precedes_action,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -215,6 +216,13 @@ class EvidenceAdequacyTest(unittest.TestCase):
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
         self.assertIsNone(result)
+
+    def test_approval_precedes_action_false_condition(self) -> None:
+        # Approval timestamp is later than action timestamp
+        source = "2023-01-01T12:00:00Z" # Approval
+        target = "2023-01-01T11:00:00Z" # Action
+        result = _check_approval_precedes_action(True, source, True, target, {})
+        self.assertFalse(result)
 
 
 if __name__ == "__main__":
