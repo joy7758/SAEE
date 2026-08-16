@@ -6,8 +6,6 @@ It validates a closed receipt and recomputes digests only from bounded
 synthetic inline bytes carried by the receipt itself.
 """
 
-from __future__ import annotations
-
 import base64
 import functools
 import hashlib
