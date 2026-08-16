@@ -6,8 +6,6 @@ a deployment decision. Scores are coverage percentages, never reliability or
 safety probabilities.
 """
 
-from __future__ import annotations
-
 import functools
 import json
 from pathlib import Path
