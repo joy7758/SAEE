@@ -3,7 +3,6 @@ import json
 import base64
 import hashlib
 from datetime import datetime, timezone
-import random
 import string
 
 from saee_backend.services.resource_resolution_receipt import (
