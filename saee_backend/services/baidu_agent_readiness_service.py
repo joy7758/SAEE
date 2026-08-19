@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import functools
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -59,6 +60,20 @@ class ReadinessInputError(ValueError):
         self.code = code
         self.detail = detail
         super().__init__(f"{code}: {detail}")
+
+
+@dataclass
+class RunEvaluationContext:
+    """Context object holding evaluation results for an agent run."""
+
+    request_id: str
+    readiness: str
+    score: int
+    required: tuple[str, ...] | list[str]
+    available: list[str]
+    missing: list[str]
+    risks: list[str]
+    recommendation: str
 
 
 @functools.lru_cache(maxsize=None)
@@ -159,29 +174,20 @@ def _determine_run_readiness(score: int) -> tuple[str, str]:
     return "stop", "STOP"
 
 
-def _build_run_response(
-    request_id: str,
-    readiness: str,
-    score: int,
-    required: tuple[str, ...] | list[str],
-    available: list[str],
-    missing: list[str],
-    risks: list[str],
-    recommendation: str,
-) -> dict[str, Any]:
+def _build_run_response(context: RunEvaluationContext) -> dict[str, Any]:
     return {
         "response_version": "0.1.0",
-        "request_id": request_id,
+        "request_id": context.request_id,
         "capability_id": "saee.agent-readiness",
         "operation": "saee.evaluate_agent_run",
-        "readiness": readiness,
-        "score": score,
+        "readiness": context.readiness,
+        "score": context.score,
         "score_semantics": "required_evidence_coverage_percent_not_reliability_probability",
-        "required_evidence": list(required),
-        "present_evidence": available,
-        "missing_evidence": missing,
-        "risks": risks,
-        "recommendation": recommendation,
+        "required_evidence": list(context.required),
+        "present_evidence": context.available,
+        "missing_evidence": context.missing,
+        "risks": context.risks,
+        "recommendation": context.recommendation,
         "limitations": list(LIMITATIONS),
         "truth_boundary": dict(TRUTH_BOUNDARY),
     }
@@ -196,15 +202,16 @@ def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
     score, available, missing = _coverage(required, present)
     risks = [RISK_BY_MISSING[item] for item in missing]
     readiness, recommendation = _determine_run_readiness(score)
-    response = _build_run_response(
-        request["request_id"],
-        readiness,
-        score,
-        required,
-        available,
-        missing,
-        risks,
-        recommendation,
+    context = RunEvaluationContext(
+        request_id=request["request_id"],
+        readiness=readiness,
+        score=score,
+        required=required,
+        available=available,
+        missing=missing,
+        risks=risks,
+        recommendation=recommendation,
     )
+    response = _build_run_response(context)
     _validate(RUN_RESPONSE_SCHEMA, response, "READINESS_AGENT_RUN_RESPONSE_INVALID")
     return response
