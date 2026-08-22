@@ -173,6 +173,13 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RESOLVED_URI_INVALID])
 
+    def test_invalid_resolved_uri_port_value_error(self) -> None:
+        receipt = create_valid_receipt()
+        receipt["resolved_uri"] = "https://[::1]:a/test-resource"
+        res = validate_resource_resolution_receipt(receipt)
+        self.assertFalse(res["valid"])
+        self.assertEqual(res["reason_codes"], [RESOURCE_RESOLVED_URI_INVALID])
+
     def test_invalid_base64_characters(self) -> None:
         # Test invalid base64 characters that trigger ValueError/TypeError in strict mode
         receipt = create_valid_receipt()
