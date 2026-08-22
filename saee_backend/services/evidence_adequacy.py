@@ -9,6 +9,7 @@ authorization was genuine, or a legal finding was established.
 from __future__ import annotations
 
 import functools
+import hmac
 import json
 import re
 from datetime import datetime
@@ -271,14 +272,19 @@ def _check_causal_binding_complete(source_ok: bool, source: Any, target_ok: bool
     if not isinstance(source, dict) or not isinstance(target, dict) or not isinstance(link, dict):
         return False
     digest = source.get("content_digest")
+    target_digest = target.get("content_digest")
+    link_digest = link.get("content_digest")
     resolved_uri = source.get("resolved_uri")
     return (
         link.get("relation_type") == "resource_to_execution_effect"
         and source.get("receipt_id") == target.get("resource_receipt_ref") == link.get("source_receipt_ref")
         and target.get("effect_id") == link.get("target_effect_ref")
-        and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
-        and source.get("resolved_uri") == target.get("resolved_uri")
         and isinstance(digest, str)
+        and isinstance(target_digest, str)
+        and isinstance(link_digest, str)
+        and hmac.compare_digest(digest, target_digest)
+        and hmac.compare_digest(digest, link_digest)
+        and source.get("resolved_uri") == target.get("resolved_uri")
         and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
         and isinstance(resolved_uri, str)
         and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
