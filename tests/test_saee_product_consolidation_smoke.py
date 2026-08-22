@@ -1,5 +1,4 @@
 import unittest
-import copy
 from scripts.saee_product_consolidation_smoke import validate, SECTIONS
 
 
