@@ -25,6 +25,9 @@ _TIMESTAMP_PATTERN = re.compile(
     r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})"
 )
 
+_DIGEST_PATTERN = re.compile(r"[0-9a-f]{64}")
+_URI_PATTERN = re.compile(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+")
+
 ROOT = Path(__file__).resolve().parents[2]
 PROFILE_SCHEMA_PATH = ROOT / "agent-interface/schemas/evidence-adequacy-profile.schema.json"
 PROFILE_DIRECTORY = ROOT / "agent-interface/profiles/evidence-adequacy"
@@ -279,9 +282,9 @@ def _check_causal_binding_complete(source_ok: bool, source: Any, target_ok: bool
         and source.get("content_digest") == target.get("content_digest") == link.get("content_digest")
         and source.get("resolved_uri") == target.get("resolved_uri")
         and isinstance(digest, str)
-        and re.fullmatch(r"[0-9a-f]{64}", digest) is not None
+        and _DIGEST_PATTERN.fullmatch(digest) is not None
         and isinstance(resolved_uri, str)
-        and re.fullmatch(r"https://[a-z0-9.-]+/[A-Za-z0-9._~/-]+", resolved_uri) is not None
+        and _URI_PATTERN.fullmatch(resolved_uri) is not None
         and isinstance(target.get("sandbox_ref"), str)
         and bool(target.get("sandbox_ref"))
     )
