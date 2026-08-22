@@ -5,8 +5,6 @@ from unittest.mock import patch
 
 from saee_backend.services.reliability_framework.assessment_adapter import (
     TRUTH_BOUNDARY,
-    _dimension,
-    _evidence_result,
     assess_reliability_run,
 )
 
