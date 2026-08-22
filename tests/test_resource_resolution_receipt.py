@@ -229,6 +229,25 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RECEIPT_DIGEST_MISMATCH])
 
+    def test_verify_content_binding_decode_error(self) -> None:
+        # Test ValueError/TypeError during base64 decoding in _verify_content_binding
+        # This occurs if inline_base64 contains characters that are invalid even after regex or padding fails,
+        # or if the type itself is wrong (e.g. integer) which triggers TypeError in b64decode.
+
+        # Test TypeError (passing an int instead of bytes/string)
+        # Note: We must bypass schema validation because inline_base64 being an int
+        # is caught by Draft202012Validator before it reaches _verify_content_binding.
+        # But we want to ensure _verify_content_binding itself returns False safely.
+        # We can just unit test _verify_content_binding directly here for the TypeError.
+        from saee_backend.services.resource_resolution_receipt import _verify_content_binding
+        self.assertFalse(_verify_content_binding({"inline_base64": 123, "byte_length": 10}, "dummy_digest"))
+
+        # Test ValueError (passing valid regex chars that fail base64 padding/length checks)
+        # We just unit test _verify_content_binding directly to avoid schema validation logic
+        # and purely test the ValueError when b64decode is passed invalid base64 length string
+        # even if it somehow passed the schema regex.
+        self.assertFalse(_verify_content_binding({"inline_base64": "AAAAA", "byte_length": 10}, "dummy_digest"))
+
     def test_canonical_json(self) -> None:
         # Proper key sorting
         self.assertEqual(canonical_json({"b": 2, "a": 1}), '{"a":1,"b":2}')
