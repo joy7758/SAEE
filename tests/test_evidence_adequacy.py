@@ -4,6 +4,8 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _input_valid,
+    SCHEMA_VERSION,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -215,6 +217,115 @@ class EvidenceAdequacyTest(unittest.TestCase):
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
         self.assertIsNone(result)
+
+    def test_input_valid_basic_envelope(self) -> None:
+        claim_type = "AUTHORIZED_AGENT_ACTION"
+        evidence = {
+            "action": {"action_id": "a", "agent_id": "b", "requested_scope": "c", "timestamp": "d"},
+            "policy_decision": {"decision_id": "e", "decision": "f", "agent_id": "g", "action_id": "h", "authority_scope": "i", "valid_from": "j", "valid_until": "k"},
+        }
+        valid_package = create_envelope(claim_type, evidence)
+
+        # Happy path
+        self.assertTrue(_input_valid(claim_type, valid_package))
+
+        # Not a dict
+        self.assertFalse(_input_valid(claim_type, "not a dict"))
+
+        # Missing keys
+        invalid_package_missing = valid_package.copy()
+        del invalid_package_missing["schema_version"]
+        self.assertFalse(_input_valid(claim_type, invalid_package_missing))
+
+        # Extra keys
+        invalid_package_extra = valid_package.copy()
+        invalid_package_extra["extra"] = "key"
+        self.assertFalse(_input_valid(claim_type, invalid_package_extra))
+
+        # Incorrect magic boolean
+        invalid_package_magic = valid_package.copy()
+        invalid_package_magic["saee_evidence_adequacy_input_v0_1"] = False
+        self.assertFalse(_input_valid(claim_type, invalid_package_magic))
+
+        # Incorrect schema version
+        invalid_package_schema = valid_package.copy()
+        invalid_package_schema["schema_version"] = "99.9.9"
+        self.assertFalse(_input_valid(claim_type, invalid_package_schema))
+
+        # Mismatched claim type
+        invalid_package_claim = valid_package.copy()
+        invalid_package_claim["claim_type"] = "OTHER_CLAIM"
+        self.assertFalse(_input_valid(claim_type, invalid_package_claim))
+
+        # Incorrect truth boundary
+        invalid_package_truth = valid_package.copy()
+        invalid_package_truth["truth_boundary"] = {}
+        self.assertFalse(_input_valid(claim_type, invalid_package_truth))
+
+        # Evidence not a dict
+        invalid_package_ev_type = valid_package.copy()
+        invalid_package_ev_type["evidence"] = "not a dict"
+        self.assertFalse(_input_valid(claim_type, invalid_package_ev_type))
+
+        # Evidence keys mismatch
+        invalid_package_ev_keys = valid_package.copy()
+        invalid_package_ev_keys["evidence"] = {"wrong_key": {}}
+        self.assertFalse(_input_valid(claim_type, invalid_package_ev_keys))
+
+    def test_input_valid_claim_specific_evidence(self) -> None:
+        # RESOURCE_AUTHENTICITY
+        claim_type = "RESOURCE_AUTHENTICITY"
+        evidence_ra = {"resource_receipt": {"requested_resource": "a", "resolved_uri": "b", "publisher_identity": "c", "content_digest": "d", "policy_decision_ref": "e"}}
+        valid_ra_package = create_envelope(claim_type, evidence_ra)
+
+        self.assertTrue(_input_valid(claim_type, valid_ra_package))
+
+        invalid_ra_package = valid_ra_package.copy()
+        invalid_ra_package["evidence"] = {"resource_receipt": "not a dict"}
+        self.assertFalse(_input_valid(claim_type, invalid_ra_package))
+
+        # Nested Allowed Keys - EXECUTION_BOUNDARY
+        claim_type_eb = "EXECUTION_BOUNDARY"
+        evidence_eb = {
+            "resource_binding": {"receipt_id": "a", "content_digest": "b", "resolved_uri": "c"},
+            "execution_effect": {"effect_id": "a", "resource_receipt_ref": "b", "content_digest": "c", "resolved_uri": "d", "sandbox_ref": "e"},
+            "causal_link": {}, # causal_link doesn't have nested keys defined in NESTED_ALLOWED_KEYS
+        }
+        valid_eb_package = create_envelope(claim_type_eb, evidence_eb)
+
+        self.assertTrue(_input_valid(claim_type_eb, valid_eb_package))
+
+        invalid_eb_package_type = valid_eb_package.copy()
+        invalid_eb_package_type["evidence"] = evidence_eb.copy()
+        invalid_eb_package_type["evidence"]["resource_binding"] = "not a dict"
+        self.assertFalse(_input_valid(claim_type_eb, invalid_eb_package_type))
+
+        invalid_eb_package_keys = valid_eb_package.copy()
+        invalid_eb_package_keys["evidence"] = evidence_eb.copy()
+        invalid_eb_package_keys["evidence"]["resource_binding"] = {"receipt_id": "a", "invalid_key": "b"}
+        self.assertFalse(_input_valid(claim_type_eb, invalid_eb_package_keys))
+
+        # HUMAN_OVERSIGHT - approval context
+        claim_type_ho = "HUMAN_OVERSIGHT"
+        evidence_ho = {
+            "action": {"action_id": "a", "requested_scope": "b", "timestamp": "c"},
+            "approval": {"human_identity": "a", "approval_context": {"risk_summary": "low", "evidence_refs": []}, "approved_scope": "b", "approval_timestamp": "c", "action_id": "d", "decision": "e"}
+        }
+        valid_ho_package = create_envelope(claim_type_ho, evidence_ho)
+
+        self.assertTrue(_input_valid(claim_type_ho, valid_ho_package))
+
+        invalid_ho_package_ctx_type = valid_ho_package.copy()
+        invalid_ho_package_ctx_type["evidence"] = evidence_ho.copy()
+        invalid_ho_package_ctx_type["evidence"]["approval"] = evidence_ho["approval"].copy()
+        invalid_ho_package_ctx_type["evidence"]["approval"]["approval_context"] = "not a dict"
+        self.assertFalse(_input_valid(claim_type_ho, invalid_ho_package_ctx_type))
+
+        invalid_ho_package_ctx_keys = valid_ho_package.copy()
+        invalid_ho_package_ctx_keys["evidence"] = evidence_ho.copy()
+        invalid_ho_package_ctx_keys["evidence"]["approval"] = evidence_ho["approval"].copy()
+        invalid_ho_package_ctx_keys["evidence"]["approval"]["approval_context"] = {"invalid_key": "value"}
+        self.assertFalse(_input_valid(claim_type_ho, invalid_ho_package_ctx_keys))
 
 
 if __name__ == "__main__":
