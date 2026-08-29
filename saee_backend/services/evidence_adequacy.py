@@ -343,6 +343,23 @@ def _input_valid(claim_type: str, package: Any) -> bool:
     return True
 
 
+def _check_domain_rules(claim_type: str, evidence: dict[str, Any], reasons: list[str]) -> None:
+    if claim_type == "AUTHORIZED_AGENT_ACTION" and evidence["policy_decision"].get("decision") != "allow":
+        reasons.append("EVIDENCE_POLICY_DECISION_NOT_ALLOW")
+    if claim_type == "HUMAN_OVERSIGHT" and evidence["approval"].get("decision") != "approved":
+        reasons.append("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED")
+
+
+def _evaluate_relationships(profile: dict[str, Any], evidence: dict[str, Any], reasons: list[str]) -> list[str]:
+    failed_relationships: list[str] = []
+    for relationship in profile.get("required_relationships", []):
+        if not _relationship_passes(relationship, evidence):
+            failed_relationships.append(relationship["relationship_id"])
+            if relationship["reason_code"] not in reasons:
+                reasons.append(relationship["reason_code"])
+    return failed_relationships
+
+
 def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
     """Evaluate a closed evidence package against one canonical v0.1 profile."""
 
@@ -365,17 +382,8 @@ def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
             reason_codes=reasons,
         )
 
-    if claim_type == "AUTHORIZED_AGENT_ACTION" and evidence["policy_decision"].get("decision") != "allow":
-        reasons.append("EVIDENCE_POLICY_DECISION_NOT_ALLOW")
-    if claim_type == "HUMAN_OVERSIGHT" and evidence["approval"].get("decision") != "approved":
-        reasons.append("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED")
-
-    failed_relationships: list[str] = []
-    for relationship in profile["required_relationships"]:
-        if not _relationship_passes(relationship, evidence):
-            failed_relationships.append(relationship["relationship_id"])
-            if relationship["reason_code"] not in reasons:
-                reasons.append(relationship["reason_code"])
+    _check_domain_rules(claim_type, evidence, reasons)
+    failed_relationships = _evaluate_relationships(profile, evidence, reasons)
 
     passed = not reasons
     return _result(
