@@ -4,6 +4,7 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _profile_valid,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -215,6 +216,52 @@ class EvidenceAdequacyTest(unittest.TestCase):
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
         self.assertIsNone(result)
+
+    def test_profile_valid(self) -> None:
+        valid_profile = {
+            "saee_evidence_adequacy_profile_v0_1": True,
+            "profile_version": "0.1.0",
+            "profile_id": "saee-adequacy-resource-authenticity-v0.1",
+            "claim_type": "RESOURCE_AUTHENTICITY",
+            "claim_description": "The package contains a valid SAEE resource-resolution receipt.",
+            "required_evidence_fields": [
+                "/resource_receipt/requested_resource",
+                "/resource_receipt/resolved_uri"
+            ],
+            "required_relationships": [
+                {
+                    "relationship_id": "resource_receipt_semantically_valid",
+                    "relationship_type": "resource_receipt_valid",
+                    "source_path": "/resource_receipt",
+                    "reason_code": "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+                }
+            ],
+            "optional_evidence_fields": [
+                "/resource_receipt/persona_ref"
+            ],
+            "failure_reason_codes": [
+                "EVIDENCE_REQUESTED_RESOURCE_MISSING",
+                "EVIDENCE_RESOURCE_RECEIPT_INVALID"
+            ],
+            "truth_boundary": {
+                "event_occurrence_proven": False,
+                "identity_independently_verified": False,
+                "authorization_externally_verified": False,
+                "legal_finding_established": False,
+                "production_ready": False
+            }
+        }
+        self.assertTrue(_profile_valid(valid_profile))
+
+        # Test invalid profile by missing a required field
+        invalid_profile = valid_profile.copy()
+        del invalid_profile["claim_type"]
+        self.assertFalse(_profile_valid(invalid_profile))
+
+        # Test invalid profile by invalid type
+        invalid_profile_type = valid_profile.copy()
+        invalid_profile_type["saee_evidence_adequacy_profile_v0_1"] = "invalid" # Should be boolean True
+        self.assertFalse(_profile_valid(invalid_profile_type))
 
 
 if __name__ == "__main__":
