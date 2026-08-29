@@ -175,7 +175,7 @@ _PROFILE_VALIDATOR = Draft202012Validator(_PROFILE_SCHEMA, format_checker=Format
 
 
 def _profile_valid(profile: dict[str, Any]) -> bool:
-    return not list(_PROFILE_VALIDATOR.iter_errors(profile))
+    return next(_PROFILE_VALIDATOR.iter_errors(profile), None) is None
 
 
 def _resolve(document: Any, pointer: str) -> tuple[bool, Any]:
