@@ -4,6 +4,8 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _closed_object,
+    _DuplicateKeyError,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -211,6 +213,15 @@ class EvidenceAdequacyTest(unittest.TestCase):
         result_denied = evaluate_evidence_adequacy("HUMAN_OVERSIGHT", package_denied)
         self.assertEqual(result_denied["result"], "FAIL")
         self.assertIn("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED", result_denied["reason_codes"])
+
+    def test_closed_object(self) -> None:
+        # Happy path
+        result = _closed_object([("a", 1), ("b", 2)])
+        self.assertEqual(result, {"a": 1, "b": 2})
+
+        # Duplicate keys should raise
+        with self.assertRaises(_DuplicateKeyError):
+            _closed_object([("a", 1), ("a", 2)])
 
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
