@@ -199,11 +199,12 @@ def _parse_timestamp(value: Any) -> datetime | None:
     return parsed if parsed.tzinfo is not None else None
 
 
-def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> tuple[list[str], list[str], list[str]]:
-    missing: list[str] = []
-    evaluated: list[str] = []
-    reasons: list[str] = []
-
+def _evaluate_collapsed_groups(
+    profile: dict[str, Any],
+    evidence: dict[str, Any],
+    missing: list[str],
+    reasons: list[str],
+) -> list[str]:
     collapsed_groups = [
         ("/policy_decision", "EVIDENCE_POLICY_DECISION_MISSING"),
         ("/approval/approval_context", "EVIDENCE_APPROVAL_CONTEXT_MISSING"),
@@ -220,9 +221,18 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
                     reasons.append(reason)
                     collapsed_prefixes_slash.append(prefix_slash)
                     break
+    return collapsed_prefixes_slash
 
+
+def _evaluate_required_fields(
+    profile: dict[str, Any],
+    evidence: dict[str, Any],
+    missing: list[str],
+    evaluated: list[str],
+    reasons: list[str],
+    collapsed_prefixes_slash: list[str],
+) -> None:
     prefix_tuple = tuple(collapsed_prefixes_slash)
-
     for path in profile["required_evidence_fields"]:
         if prefix_tuple and path.startswith(prefix_tuple):
             continue
@@ -234,6 +244,20 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
             reason = FIELD_REASON_CODES.get(path, "EVIDENCE_REQUIRED_FIELD_MISSING")
             if reason not in reasons:
                 reasons.append(reason)
+
+
+def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> tuple[list[str], list[str], list[str]]:
+    missing: list[str] = []
+    evaluated: list[str] = []
+    reasons: list[str] = []
+
+    collapsed_prefixes_slash = _evaluate_collapsed_groups(
+        profile, evidence, missing, reasons
+    )
+    _evaluate_required_fields(
+        profile, evidence, missing, evaluated, reasons, collapsed_prefixes_slash
+    )
+
     return missing, evaluated, reasons
 
 
