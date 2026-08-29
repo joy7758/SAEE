@@ -203,6 +203,7 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
     missing: list[str] = []
     evaluated: list[str] = []
     reasons: list[str] = []
+    seen_reasons: set[str] = set()
 
     collapsed_groups = [
         ("/policy_decision", "EVIDENCE_POLICY_DECISION_MISSING"),
@@ -217,7 +218,9 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
             for path in profile["required_evidence_fields"]:
                 if path.startswith(prefix_slash):
                     missing.append(prefix)
-                    reasons.append(reason)
+                    if reason not in seen_reasons:
+                        reasons.append(reason)
+                        seen_reasons.add(reason)
                     collapsed_prefixes_slash.append(prefix_slash)
                     break
 
@@ -232,8 +235,9 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
         else:
             missing.append(path)
             reason = FIELD_REASON_CODES.get(path, "EVIDENCE_REQUIRED_FIELD_MISSING")
-            if reason not in reasons:
+            if reason not in seen_reasons:
                 reasons.append(reason)
+                seen_reasons.add(reason)
     return missing, evaluated, reasons
 
 
