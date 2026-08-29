@@ -45,9 +45,7 @@ def validate(value: object, readme: str) -> list[str]:
     return errors
 
 
-def main() -> int:
-    value = json.loads(MAP.read_text(encoding="utf-8"))
-    readme = README.read_text(encoding="utf-8")
+def _verify_core_documents(value: dict, readme: str) -> None:
     assert not validate(value, readme)
     assert all(path.is_file() and path.read_text(encoding="utf-8").strip() for path in REQUIRED_DOCS)
     index = json.loads(AGENT_INDEX.read_text(encoding="utf-8"))
@@ -55,6 +53,8 @@ def main() -> int:
     assert json.loads((ROOT / "docs/agent-index.json").read_text(encoding="utf-8")) == index
     assert (ROOT / "docs/llms.txt").read_text(encoding="utf-8") == (ROOT / "llms.txt").read_text(encoding="utf-8")
 
+
+def _generate_invalid_cases(value: dict, readme: str) -> list[tuple[dict, str]]:
     invalid: list[tuple[dict, str]] = []
     for field, bad in (("theory_name", "Other"), ("engineering_core", "Audit Engine"), ("product_surface", "Generic Agent OS"), ("primary_language", "en")):
         item = copy.deepcopy(value); item["canonical_identity"][field] = bad; invalid.append((item, readme))
@@ -67,11 +67,17 @@ def main() -> int:
         item = copy.deepcopy(value); item["truth_boundary"][key] = True; invalid.append((item, readme))
     invalid.append((copy.deepcopy(value), readme.replace("为什么需要 SAEE", "缺失章节")))
     invalid.append((copy.deepcopy(value), "# SAEE Smart Agent Execution & Evidence\n" + readme))
+    return invalid
+
+
+def _verify_mutations_and_determinism(value: dict, readme: str, invalid: list[tuple[dict, str]]) -> None:
     assert len(invalid) >= 15
     assert all(validate(item, text) for item, text in invalid)
     baseline = json.dumps(validate(value, readme), sort_keys=True)
     for _ in range(5): assert json.dumps(validate(value, readme), sort_keys=True) == baseline
 
+
+def _print_report(value: dict, invalid: list[tuple[dict, str]]) -> None:
     print("SAEE_PRODUCT_CONSOLIDATION_SMOKE: PASS")
     print("product_identity=true")
     print(f"module_mapping={len(value['modules'])}/11")
@@ -82,6 +88,17 @@ def main() -> int:
     print("deterministic_runs=5/5")
     print("private_core_exported=false")
     print("production_ready=false")
+
+
+def main() -> int:
+    value = json.loads(MAP.read_text(encoding="utf-8"))
+    readme = README.read_text(encoding="utf-8")
+
+    _verify_core_documents(value, readme)
+    invalid = _generate_invalid_cases(value, readme)
+    _verify_mutations_and_determinism(value, readme, invalid)
+    _print_report(value, invalid)
+
     return 0
 
 
