@@ -4,6 +4,8 @@ from saee_backend.services.evidence_adequacy import (
     evaluate_evidence_adequacy,
     TRUTH_BOUNDARY,
     _parse_timestamp,
+    _DuplicateKeyError,
+    _closed_object,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -215,6 +217,10 @@ class EvidenceAdequacyTest(unittest.TestCase):
     def test_parse_timestamp_invalid_date(self) -> None:
         result = _parse_timestamp("2023-02-30T12:00:00Z")
         self.assertIsNone(result)
+
+    def test_closed_object_duplicate_key(self) -> None:
+        with self.assertRaises(_DuplicateKeyError):
+            _closed_object([("key", "value1"), ("key", "value2")])
 
 
 if __name__ == "__main__":
