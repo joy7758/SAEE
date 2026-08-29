@@ -159,19 +159,18 @@ def _determine_run_readiness(score: int) -> tuple[str, str]:
     return "stop", "STOP"
 
 
-def _build_run_response(
-    request_id: str,
-    readiness: str,
-    score: int,
-    required: tuple[str, ...] | list[str],
-    available: list[str],
-    missing: list[str],
-    risks: list[str],
-    recommendation: str,
-) -> dict[str, Any]:
-    return {
+def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
+    """Assess one declared Agent run without executing it or authorizing action."""
+
+    _validate(RUN_REQUEST_SCHEMA, request, "READINESS_AGENT_RUN_REQUEST_INVALID")
+    required = _determine_run_required_evidence(request["trace"]["events"])
+    _, present = _evidence_state(request["evidence"])
+    score, available, missing = _coverage(required, present)
+    risks = [RISK_BY_MISSING[item] for item in missing]
+    readiness, recommendation = _determine_run_readiness(score)
+    response = {
         "response_version": "0.1.0",
-        "request_id": request_id,
+        "request_id": request["request_id"],
         "capability_id": "saee.agent-readiness",
         "operation": "saee.evaluate_agent_run",
         "readiness": readiness,
@@ -185,26 +184,5 @@ def _build_run_response(
         "limitations": list(LIMITATIONS),
         "truth_boundary": dict(TRUTH_BOUNDARY),
     }
-
-
-def evaluate_agent_run(request: dict[str, Any]) -> dict[str, Any]:
-    """Assess one declared Agent run without executing it or authorizing action."""
-
-    _validate(RUN_REQUEST_SCHEMA, request, "READINESS_AGENT_RUN_REQUEST_INVALID")
-    required = _determine_run_required_evidence(request["trace"]["events"])
-    _, present = _evidence_state(request["evidence"])
-    score, available, missing = _coverage(required, present)
-    risks = [RISK_BY_MISSING[item] for item in missing]
-    readiness, recommendation = _determine_run_readiness(score)
-    response = _build_run_response(
-        request["request_id"],
-        readiness,
-        score,
-        required,
-        available,
-        missing,
-        risks,
-        recommendation,
-    )
     _validate(RUN_RESPONSE_SCHEMA, response, "READINESS_AGENT_RUN_RESPONSE_INVALID")
     return response
