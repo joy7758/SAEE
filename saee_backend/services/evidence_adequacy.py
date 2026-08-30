@@ -210,16 +210,30 @@ def _missing_requirements(profile: dict[str, Any], evidence: dict[str, Any]) -> 
         ("/causal_link", "EVIDENCE_CAUSAL_LINK_MISSING"),
     ]
     collapsed_prefixes_slash: list[str] = []
+
+    missing_cands = []
     for prefix, reason in collapsed_groups:
         exists, _ = _resolve(evidence, prefix)
         if not exists:
-            prefix_slash = prefix + "/"
-            for path in profile["required_evidence_fields"]:
-                if path.startswith(prefix_slash):
-                    missing.append(prefix)
-                    reasons.append(reason)
-                    collapsed_prefixes_slash.append(prefix_slash)
+            missing_cands.append((prefix, reason, prefix + "/"))
+
+    if missing_cands:
+        cand_tuple = tuple(c[2] for c in missing_cands)
+        found_indices = set()
+
+        for path in profile["required_evidence_fields"]:
+            if path.startswith(cand_tuple):
+                for i, cand in enumerate(missing_cands):
+                    if i not in found_indices and path.startswith(cand[2]):
+                        found_indices.add(i)
+                if len(found_indices) == len(missing_cands):
                     break
+
+        for i, cand in enumerate(missing_cands):
+            if i in found_indices:
+                missing.append(cand[0])
+                reasons.append(cand[1])
+                collapsed_prefixes_slash.append(cand[2])
 
     prefix_tuple = tuple(collapsed_prefixes_slash)
 
