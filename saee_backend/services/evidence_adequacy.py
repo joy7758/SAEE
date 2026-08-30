@@ -308,7 +308,7 @@ def _relationship_passes(relationship: dict[str, Any], evidence: dict[str, Any])
     return False
 
 
-def _input_valid(claim_type: str, package: Any) -> bool:
+def _is_valid_base_package(claim_type: str, package: Any) -> bool:
     if not isinstance(package, dict) or set(package) != {
         "saee_evidence_adequacy_input_v0_1",
         "schema_version",
@@ -326,7 +326,10 @@ def _input_valid(claim_type: str, package: Any) -> bool:
         or set(package["evidence"]) != CLAIM_EVIDENCE_KEYS.get(claim_type, set())
     ):
         return False
-    evidence = package["evidence"]
+    return True
+
+
+def _is_valid_evidence_structure(claim_type: str, evidence: dict[str, Any]) -> bool:
     if claim_type == "RESOURCE_AUTHENTICITY":
         return isinstance(evidence.get("resource_receipt"), dict)
     for object_name, allowed_keys in NESTED_ALLOWED_KEYS.get(claim_type, {}).items():
@@ -341,6 +344,13 @@ def _input_valid(claim_type: str, package: Any) -> bool:
         ):
             return False
     return True
+
+
+def _input_valid(claim_type: str, package: Any) -> bool:
+    if not _is_valid_base_package(claim_type, package):
+        return False
+
+    return _is_valid_evidence_structure(claim_type, package["evidence"])
 
 
 def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
