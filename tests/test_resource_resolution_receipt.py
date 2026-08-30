@@ -281,6 +281,18 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RECEIPT_DIGEST_MISMATCH])
 
+    def test_compute_receipt_digest(self) -> None:
+        receipt = {
+            "b": 2,
+            "a": 1,
+            "integrity": {
+                "some": "data"
+            }
+        }
+        # canonical_json for {"a":1,"b":2} is '{"a":1,"b":2}'
+        # SHA256 of '{"a":1,"b":2}' is '43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777'
+        self.assertEqual(compute_receipt_digest(receipt), "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777")
+
     def test_canonical_json(self) -> None:
         # Proper key sorting
         self.assertEqual(canonical_json({"b": 2, "a": 1}), '{"a":1,"b":2}')
