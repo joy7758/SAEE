@@ -5,7 +5,6 @@ from saee_backend.services.evidence_adequacy import (
     TRUTH_BOUNDARY,
     _parse_timestamp,
     _input_valid,
-    SCHEMA_VERSION,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
