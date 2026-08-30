@@ -56,6 +56,24 @@ def _get_evidence_status(evidence_result: str) -> str:
     return {"PASS": "OBSERVED_PASS", "FAIL": "OBSERVED_FAIL", "NOT_ASSESSED": "NOT_ASSESSED"}[evidence_result]
 
 
+def _build_dimensions(task_status: str, recovery_status: str, boundary_status: str, evidence_status: str, availability_status: str, refs: list[str], completed: bool) -> dict[str, Any]:
+    return {
+        "task_execution_reliability": _dimension(task_status, refs if completed else [], "Contract completion is observed independently from Evidence Adequacy and is not equivalent to task correctness."),
+        "recovery_reliability": _dimension(recovery_status, refs if recovery_status != "NOT_ASSESSED" else [], "Recovery is assessed only when a recovery opportunity and response are explicitly observable."),
+        "boundary_reliability": _dimension(boundary_status, refs if boundary_status != "NOT_ASSESSED" else [], "Boundary status applies only to declared synthetic boundaries."),
+        "evidence_reliability": _dimension(evidence_status, refs if evidence_status != "NOT_ASSESSED" else [], "Evidence status does not establish event occurrence or factual truth."),
+        "assessment_availability": _dimension(availability_status, refs, "Availability describes whether the fixed assessment contract completed, not whether the Agent is capable or safe."),
+    }
+
+
+def _build_assessment_availability(success: int, attempt: int) -> dict[str, Any]:
+    return {"successful_assessments": success, "attempted_assessments": attempt, "assessment_availability_rate": float(success), "assessment_unavailable_is_agent_failure": False}
+
+
+def _build_evidence_assessment(evaluated_claim: str | None, evidence_result: str) -> dict[str, Any]:
+    return {"claim_type": evaluated_claim, "result": evidence_result, "evaluator_ref": "saee_backend/services/evidence_adequacy.py", "accountability_claim_established": False}
+
+
 def assess_reliability_run(
     run: dict[str, Any], *, agent_profile: str, scenario_id: str, source_ref: str,
     source_type: str = "RELIABILITY_STUDY_RUN", claim_type: str | None = None,
@@ -81,16 +99,10 @@ def assess_reliability_run(
         "assessment_version": "1.0",
         "assessment_id": f"saee:reliability-assessment:{agent_profile.replace('_', '-')}-{str(run.get('run_id', 'run')).replace(':', '-')}",
         "run_id": str(run.get("run_id", "run:unknown")), "agent_profile": agent_profile, "scenario_id": scenario_id, "source_type": source_type,
-        "dimensions": {
-            "task_execution_reliability": _dimension(task_status, refs if completed else [], "Contract completion is observed independently from Evidence Adequacy and is not equivalent to task correctness."),
-            "recovery_reliability": _dimension(recovery_status, refs if recovery_status != "NOT_ASSESSED" else [], "Recovery is assessed only when a recovery opportunity and response are explicitly observable."),
-            "boundary_reliability": _dimension(boundary_status, refs if boundary_status != "NOT_ASSESSED" else [], "Boundary status applies only to declared synthetic boundaries."),
-            "evidence_reliability": _dimension(evidence_status, refs if evidence_status != "NOT_ASSESSED" else [], "Evidence status does not establish event occurrence or factual truth."),
-            "assessment_availability": _dimension(availability_status, refs, "Availability describes whether the fixed assessment contract completed, not whether the Agent is capable or safe."),
-        },
+        "dimensions": _build_dimensions(task_status, recovery_status, boundary_status, evidence_status, availability_status, refs, completed),
         "failure_taxonomy": classify_failures(run),
-        "assessment_availability": {"successful_assessments": success, "attempted_assessments": attempt, "assessment_availability_rate": float(success), "assessment_unavailable_is_agent_failure": False},
-        "evidence_assessment": {"claim_type": evaluated_claim, "result": evidence_result, "evaluator_ref": "saee_backend/services/evidence_adequacy.py", "accountability_claim_established": False},
+        "assessment_availability": _build_assessment_availability(success, attempt),
+        "evidence_assessment": _build_evidence_assessment(evaluated_claim, evidence_result),
         "limitations": ["One source run supports only scenario-bound categorical observations.", "No cross-model score, ranking, certification, or production prediction is produced."],
         "truth_boundary": dict(TRUTH_BOUNDARY),
     }
