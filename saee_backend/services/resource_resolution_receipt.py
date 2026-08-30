@@ -69,8 +69,8 @@ def _result(valid: bool, reason_codes: list[str], receipt_digest: str | None = N
     return payload
 
 
-def _canonical_https_uri(value: Any) -> tuple[bool, str | None]:
-    if (
+def _validate_uri_string(value: Any) -> bool:
+    return not (
         not isinstance(value, str)
         or not value
         or len(value) > 1024
@@ -78,14 +78,11 @@ def _canonical_https_uri(value: Any) -> tuple[bool, str | None]:
         or any(character.isspace() or ord(character) < 0x20 or ord(character) == 0x7F for character in value)
         or "\\" in value
         or "%" in value
-    ):
-        return False, None
-    try:
-        parsed = urlsplit(value)
-        port = parsed.port
-    except ValueError:
-        return False, None
-    if (
+    )
+
+
+def _validate_parsed_uri_components(parsed: Any, port: Any) -> bool:
+    return not (
         parsed.scheme != "https"
         or not parsed.hostname
         or parsed.username is not None
@@ -93,20 +90,39 @@ def _canonical_https_uri(value: Any) -> tuple[bool, str | None]:
         or port is not None
         or parsed.query
         or parsed.fragment
-    ):
-        return False, None
-    host = parsed.hostname.lower()
+    )
+
+
+def _validate_uri_host(host: str) -> bool:
     labels = host.split(".")
-    if len(host) > 253 or any(DNS_LABEL_PATTERN.fullmatch(label) is None for label in labels):
-        return False, None
-    path = parsed.path or "/"
+    return not (len(host) > 253 or any(DNS_LABEL_PATTERN.fullmatch(label) is None for label in labels))
+
+
+def _validate_uri_path(path: str) -> bool:
     segments = path.split("/")[1:]
     if segments and segments[-1] == "":
         segments = segments[:-1]
-    if any(
+    return not any(
         segment in {".", ".."} or PATH_SEGMENT_PATTERN.fullmatch(segment) is None
         for segment in segments
-    ):
+    )
+
+
+def _canonical_https_uri(value: Any) -> tuple[bool, str | None]:
+    if not _validate_uri_string(value):
+        return False, None
+    try:
+        parsed = urlsplit(value)
+        port = parsed.port
+    except ValueError:
+        return False, None
+    if not _validate_parsed_uri_components(parsed, port):
+        return False, None
+    host = parsed.hostname.lower()
+    if not _validate_uri_host(host):
+        return False, None
+    path = parsed.path or "/"
+    if not _validate_uri_path(path):
         return False, None
     canonical = urlunsplit(("https", host, path, "", ""))
     return hmac.compare_digest(value, canonical), host
