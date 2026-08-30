@@ -271,17 +271,22 @@ def _build_truth_boundary() -> dict[str, bool]:
     }
 
 
-def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, Any]:
-    """Evaluate one bounded DBOS preview envelope without modifying DBOS state."""
-
-    envelope = _require_mapping(envelope, "/")
-    execution_history, evidence_references, validation_results = _validate_envelope(envelope)
-    reliability = _reliability_assessments(execution_history)
-    readiness = _readiness_context(execution_history)
-    completed_observations = sum(
+def _count_completed_observations(reliability: list[dict[str, Any]]) -> int:
+    return sum(
         item["dimensions"]["task_execution_reliability"]["status"] == "OBSERVED_PASS"
         for item in reliability
     )
+
+
+def _build_evaluation_result(
+    envelope: Mapping[str, Any],
+    execution_history: list[Mapping[str, Any]],
+    evidence_references: list[Mapping[str, Any]],
+    validation_results: list[Mapping[str, Any]],
+    completed_observations: int,
+    reliability: list[dict[str, Any]],
+    readiness: dict[str, Any],
+) -> dict[str, Any]:
     return {
         "evaluation_version": ADAPTER_VERSION,
         "evaluation_id": "saee:dbos-developer-preview:multi-agent-trust-demo-v0.1",
@@ -305,3 +310,23 @@ def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, An
         ],
         "truth_boundary": _build_truth_boundary(),
     }
+
+
+def evaluate_dbos_developer_preview(envelope: Mapping[str, Any]) -> dict[str, Any]:
+    """Evaluate one bounded DBOS preview envelope without modifying DBOS state."""
+
+    envelope = _require_mapping(envelope, "/")
+    execution_history, evidence_references, validation_results = _validate_envelope(envelope)
+    reliability = _reliability_assessments(execution_history)
+    readiness = _readiness_context(execution_history)
+    completed_observations = _count_completed_observations(reliability)
+
+    return _build_evaluation_result(
+        envelope=envelope,
+        execution_history=execution_history,
+        evidence_references=evidence_references,
+        validation_results=validation_results,
+        completed_observations=completed_observations,
+        reliability=reliability,
+        readiness=readiness,
+    )
