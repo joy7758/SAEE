@@ -17,6 +17,7 @@ from saee_backend.services.resource_resolution_receipt import (
     RESOURCE_EXECUTION_EFFECT_UNBOUND,
     RESOURCE_RESOLVED_URI_INVALID,
     RESOURCE_RECEIPT_DIGEST_MISMATCH,
+    _canonical_https_uri,
 )
 
 def create_valid_receipt():
@@ -95,6 +96,57 @@ def create_valid_receipt():
     return receipt
 
 class TestResourceResolutionReceipt(unittest.TestCase):
+    def test_canonical_https_uri_valid(self) -> None:
+        self.assertEqual(_canonical_https_uri("https://example.com"), (False, "example.com"))
+        self.assertEqual(_canonical_https_uri("https://example.com/"), (True, "example.com"))
+        self.assertEqual(_canonical_https_uri("https://example.com/path"), (True, "example.com"))
+        self.assertEqual(_canonical_https_uri("https://sub.example.com/path"), (True, "sub.example.com"))
+
+    def test_canonical_https_uri_invalid_types_and_chars(self) -> None:
+        self.assertEqual(_canonical_https_uri(123), (False, None))
+        self.assertEqual(_canonical_https_uri(None), (False, None))
+        self.assertEqual(_canonical_https_uri(""), (False, None))
+
+        # Test long strings
+        self.assertEqual(_canonical_https_uri("a" * 1025), (False, None))
+
+        # Test invalid characters
+        self.assertEqual(_canonical_https_uri("https://example.com/a b"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/\t"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/\\"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/%20"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/こんにちは"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/\x1F"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/\x7F"), (False, None))
+
+    def test_canonical_https_uri_invalid_structure(self) -> None:
+        # Invalid scheme
+        self.assertEqual(_canonical_https_uri("http://example.com/"), (False, None))
+        self.assertEqual(_canonical_https_uri("ftp://example.com/"), (False, None))
+
+        # Missing hostname
+        self.assertEqual(_canonical_https_uri("https:///path"), (False, None))
+
+        # User info
+        self.assertEqual(_canonical_https_uri("https://user@example.com/"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://user:pass@example.com/"), (False, None))
+
+        # Port
+        self.assertEqual(_canonical_https_uri("https://example.com:443/"), (False, None))
+
+        # Query/Fragment
+        self.assertEqual(_canonical_https_uri("https://example.com/?q=1"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/#frag"), (False, None))
+
+        # Invalid host lengths/labels
+        self.assertEqual(_canonical_https_uri("https://a" * 254 + ".com/"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://-example.com/"), (False, None))
+
+        # Invalid path segments
+        self.assertEqual(_canonical_https_uri("https://example.com/./a"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com/../a"), (False, None))
+        self.assertEqual(_canonical_https_uri("https://example.com//a"), (False, None))
+
     def test_valid_receipt(self):
         receipt = create_valid_receipt()
         res = validate_resource_resolution_receipt(receipt)
@@ -228,6 +280,18 @@ class TestResourceResolutionReceipt(unittest.TestCase):
         res = validate_resource_resolution_receipt(receipt)
         self.assertFalse(res["valid"])
         self.assertEqual(res["reason_codes"], [RESOURCE_RECEIPT_DIGEST_MISMATCH])
+
+    def test_compute_receipt_digest(self) -> None:
+        receipt = {
+            "b": 2,
+            "a": 1,
+            "integrity": {
+                "some": "data"
+            }
+        }
+        # canonical_json for {"a":1,"b":2} is '{"a":1,"b":2}'
+        # SHA256 of '{"a":1,"b":2}' is '43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777'
+        self.assertEqual(compute_receipt_digest(receipt), "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777")
 
     def test_canonical_json(self) -> None:
         # Proper key sorting

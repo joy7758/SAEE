@@ -5,6 +5,8 @@ from saee_backend.services.evidence_adequacy import (
     TRUTH_BOUNDARY,
     _parse_timestamp,
     _input_valid,
+    _closed_object,
+    _DuplicateKeyError,
 )
 
 def create_envelope(claim_type: str, evidence: dict) -> dict:
@@ -17,6 +19,15 @@ def create_envelope(claim_type: str, evidence: dict) -> dict:
     }
 
 class EvidenceAdequacyTest(unittest.TestCase):
+    def test_closed_object_duplicate_key(self) -> None:
+        pairs = [
+            ("key1", "value1"),
+            ("key2", "value2"),
+            ("key1", "value3"),
+        ]
+        with self.assertRaises(_DuplicateKeyError):
+            _closed_object(pairs)
+
     def test_authorized_agent_action_happy_path(self):
         evidence = {
             "action": {

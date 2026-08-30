@@ -175,7 +175,7 @@ _PROFILE_VALIDATOR = Draft202012Validator(_PROFILE_SCHEMA, format_checker=Format
 
 
 def _profile_valid(profile: dict[str, Any]) -> bool:
-    return not list(_PROFILE_VALIDATOR.iter_errors(profile))
+    return next(_PROFILE_VALIDATOR.iter_errors(profile), None) is None
 
 
 def _resolve(document: Any, pointer: str) -> tuple[bool, Any]:
@@ -371,11 +371,14 @@ def evaluate_evidence_adequacy(claim_type: str, package: Any) -> dict[str, Any]:
         reasons.append("EVIDENCE_APPROVAL_DECISION_NOT_APPROVED")
 
     failed_relationships: list[str] = []
+    reasons_set = set(reasons)
     for relationship in profile["required_relationships"]:
         if not _relationship_passes(relationship, evidence):
             failed_relationships.append(relationship["relationship_id"])
-            if relationship["reason_code"] not in reasons:
-                reasons.append(relationship["reason_code"])
+            reason_code = relationship["reason_code"]
+            if reason_code not in reasons_set:
+                reasons_set.add(reason_code)
+                reasons.append(reason_code)
 
     passed = not reasons
     return _result(

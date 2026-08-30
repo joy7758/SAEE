@@ -1,6 +1,8 @@
 import unittest
 import copy
-from scripts.saee_product_consolidation_smoke import validate, SECTIONS
+import json
+from unittest.mock import patch, MagicMock
+from scripts.saee_product_consolidation_smoke import validate, SECTIONS, main, MAP, README, AGENT_INDEX, REQUIRED_DOCS
 
 
 def get_valid_value() -> dict:
@@ -108,6 +110,46 @@ class TestSaeeProductConsolidationSmoke(unittest.TestCase):
         value = get_valid_value()
         readme = get_valid_readme() + "\nSmart Agent Execution & Evidence"
         self.assertIn("CANONICAL_RENAME_FORBIDDEN", validate(value, readme))
+
+    @patch("pathlib.Path.is_file", autospec=True)
+    @patch("pathlib.Path.read_text", autospec=True)
+    @patch("sys.stdout", new_callable=MagicMock)
+    def test_main(self, mock_stdout: MagicMock, mock_read: MagicMock, mock_is_file: MagicMock) -> None:
+        def mock_read_text(path_obj: object, *args: object, **kwargs: object) -> str:
+            if path_obj == MAP:
+                return json.dumps({
+                    "canonical_identity": {
+                        "theory_name": "Silicon-Amplified Evolutionary Ecology",
+                        "engineering_core": "Digital Biosphere Evolution Engine",
+                        "product_surface": "Agent Reliability Evaluation Capability Layer",
+                        "primary_language": "zh-CN",
+                    },
+                    "modules": [
+                        {"module_id": "audit_evidence", "source": "src_1"},
+                        {"module_id": "evidence_engine_reference", "source": "src_2"},
+                        {"module_id": "mcp_interface", "source": "src_3"}
+                    ] + [{"module_id": f"mod_{i}", "source": f"src_{i}"} for i in range(10)],
+                    "truth_boundary": {"a": False, "b": False, "c": False, "d": False},
+                })
+            elif path_obj == README:
+                return get_valid_readme()
+            elif path_obj == AGENT_INDEX:
+                return json.dumps({"language": {"primary": "zh-CN", "secondary": "en"}})
+            elif getattr(path_obj, "name", "") == "agent-index.json":
+                return json.dumps({"language": {"primary": "zh-CN", "secondary": "en"}})
+            elif getattr(path_obj, "name", "") == "llms.txt":
+                return "llms text"
+            elif path_obj in REQUIRED_DOCS:
+                return "valid doc"
+            return ""
+
+        mock_read.side_effect = mock_read_text
+        mock_is_file.return_value = True
+
+        result = main()
+
+        self.assertEqual(result, 0)
+        self.assertTrue(mock_stdout.write.called)
 
 
 if __name__ == "__main__":
