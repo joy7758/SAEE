@@ -22,6 +22,8 @@ from saee_backend.services.dbos_developer_preview_adapter import (  # noqa: E402
 def _load(path: str | None) -> Any:
     if path is None or path == "-":
         return json.load(sys.stdin)
+    if Path(path).is_absolute():
+        raise PermissionError("Absolute paths are not allowed.")
     target_path = Path(path).resolve()
     base_path = Path.cwd().resolve()
     if not target_path.is_relative_to(base_path):

@@ -49,13 +49,18 @@ class TestSaeeEvaluateDbosPreview(unittest.TestCase):
         with self.assertRaises(PermissionError):
             _load("../../etc/passwd")
 
+    def test_load_prevents_absolute_path(self) -> None:
+        """Test that _load raises a PermissionError for absolute paths."""
+        with self.assertRaises(PermissionError):
+            _load("/etc/passwd")
+
     def test_load_allows_valid_path(self) -> None:
         """Test that _load works for paths inside the current directory."""
         cwd = Path.cwd()
         # Create a temporary file in the current working directory
         with NamedTemporaryFile(dir=cwd, suffix=".json", delete=False) as f:
             f.write(b'{"key": "value"}')
-            temp_path = f.name
+            temp_path = os.path.relpath(f.name, cwd)
 
         try:
             result = _load(temp_path)
@@ -89,10 +94,11 @@ class TestSaeeEvaluateDbosPreview(unittest.TestCase):
 
     def test_main_file_valid(self) -> None:
         valid_envelope = get_valid_envelope()
+        cwd = Path.cwd()
         # Write inside the current working directory: _load rejects paths outside cwd.
-        with NamedTemporaryFile(mode="w", dir=Path.cwd(), suffix=".json", delete=False) as f:
+        with NamedTemporaryFile(mode="w", dir=cwd, suffix=".json", delete=False) as f:
             json.dump(valid_envelope, f)
-            filepath = f.name
+            filepath = os.path.relpath(f.name, cwd)
 
         try:
             with patch("sys.argv", ["saee_evaluate_dbos_preview.py", "--input", filepath]):
