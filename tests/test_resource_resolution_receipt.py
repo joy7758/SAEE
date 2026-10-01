@@ -2,7 +2,7 @@ import unittest
 import json
 import base64
 import hashlib
-from datetime import datetime, timezone
+from datetime import datetime
 import random
 import string
 
