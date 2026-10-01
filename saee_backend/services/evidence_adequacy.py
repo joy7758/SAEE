@@ -116,19 +116,6 @@ TRUTH_BOUNDARY = {
 }
 
 
-class _DuplicateKeyError(ValueError):
-    pass
-
-
-def _closed_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-    result: dict[str, Any] = {}
-    for key, value in pairs:
-        if key in result:
-            raise _DuplicateKeyError("duplicate JSON key")
-        result[key] = value
-    return result
-
-
 def _result(
     claim_type: str,
     passed: bool,
