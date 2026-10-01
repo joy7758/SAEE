@@ -1,5 +1,4 @@
 import unittest
-import json
 import base64
 import hashlib
 from datetime import datetime, timezone
