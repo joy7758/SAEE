@@ -6,8 +6,6 @@ met. It never asserts that an event occurred, an identity was verified, an
 authorization was genuine, or a legal finding was established.
 """
 
-from __future__ import annotations
-
 import functools
 import json
 import re
